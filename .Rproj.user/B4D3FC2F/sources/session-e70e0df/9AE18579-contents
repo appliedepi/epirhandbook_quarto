@@ -10,7 +10,7 @@ project:
 book:
   title: "The Epidemiologist R Handbook"
   search: true
-  # repo-url: https://github.com/appliedepi/epiRhandbook_eng
+  repo-url: https://github.com/appliedepi/epihandbook_quarto
   # site-url: https://epirhandbook.com
   sharing: ["twitter", "facebook", "linkedin"]
   
@@ -29,6 +29,7 @@ book:
     # part-tr: "Bu kitap hakkında"
     # part-pt: "Sobre este livro"
     # part-ru: "Об этой книге"
+    part-de: "Über dieses Buch"
     chapters:
     - new_pages/editorial_style.qmd          # editorial style
     - new_pages/data_used.qmd                # data used
@@ -42,6 +43,7 @@ book:
     # part-tr: "Temel Bilgiler"
     # part-pt: "Básico"
     # part-ru: "Основы"
+    part-de: "Grundlagen"
     chapters:
     - new_pages/basics.qmd
     - new_pages/transition_to_R.qmd
@@ -58,6 +60,7 @@ book:
     # part-tr: "Veri Yönetimi"
     # part-pt: "Gerenciamento de Dados"
     # part-ru: "Управление данными"
+    part-de: "Datenmanagement"
     chapters:  
     - new_pages/cleaning.qmd
     - new_pages/dates.qmd
@@ -79,6 +82,7 @@ book:
     # part-tr: "Analiz"
     # part-pt: "Análise dos Dados"
     # part-ru: "Анализ"
+    part-de: "Analyse"
     chapters:   
     - new_pages/tables_descriptive.qmd
     - new_pages/stat_tests.qmd
@@ -103,6 +107,7 @@ book:
     # part-tr: "Veri Görselleştirme"
     # part-pt: "Visualização de Dados"
     # part-ru: "Визуализация данных"
+    part-de: "Datenvisualisierung"
     chapters:  
     - new_pages/tables_presentation.qmd
     - new_pages/ggplot_basics.qmd
@@ -127,6 +132,7 @@ book:
     # part-tr: "Raporlar ve gösterge panoları"
     # part-pt: "Relatórios e dashboards"
     # part-ru: "Отчеты и информационные панели"
+    part-de: "Berichte und Dashboards"
     chapters:  
     - new_pages/rmarkdown.qmd
     - new_pages/reportfactory.qmd
@@ -143,6 +149,7 @@ book:
     # part-tr: "Çeşitli"
     # part-pt: "Miscelânea"
     # part-ru: "Разное"
+    part-de: "Verschiedenes"
     chapters: 
     - new_pages/writing_functions.qmd
     - new_pages/directories.qmd
@@ -155,6 +162,7 @@ book:
     #new_pages/rstudio_advanced.qmd
 
 
+
 lightbox: true # Lightbox images allow a reader to click to see a larger version of the image (including any caption)
 
 
@@ -162,30 +170,35 @@ babelquarto:
   languagecodes:
   - name: vn
     text: "Tiếng Việt"
-  - name: fr
-    text: "Français"
-  - name: es
-    text: "Español"
-  - name: jp
-    text: "日本"
-  - name: tr
-    text: "Türkçe"
-  - name: pt
-    text: "Português"
-  - name: ru
-    text: "Русский"
+  # - name: fr
+  #   text: "Français"
+  # - name: es
+  #   text: "Español"
+  # - name: jp
+  #   text: "日本"
+  # - name: tr
+  #   text: "Türkçe"
+  # - name: pt
+  #   text: "Português"
+  # - name: ru
+  #   text: "Русский"
+  - name: de
+    text: "Deutsch"
   - name: en
     text: "English"
+
   mainlanguage: 'en'
-  languages: ['vn', 'fr', 'es', 'jp', 'tr', 'pt', 'ru', 'en']
-  
+  languages: ['vn', 'de', 'en'] # 'fr', 'es', 'jp', 'tr', 'pt', 'ru', 
+
+
 title-vn: Cẩm nang dịch tễ học với R
-title-fr: Le Epi R Handbook
-title-es: EpiRhandbook en español
-title-jp: 疫学のための R ハンドブック
-title-tr: Epidemiyologun R Rehberi
-title-pt: Manual de R para Epidemiologistas
-title-ru: Справочник эпидемиолога R
+# title-fr: Le Epi R Handbook
+# title-es: EpiRhandbook en español
+# title-jp: 疫学のための R ハンドブック
+# title-tr: Epidemiyologun R Rehberi
+# title-pt: Manual de R para Epidemiologistas
+# title-ru: Справочник эпидемиолога R
+title-de: EpiRhandbook auf Deutsch
 
 
 lang: en
