@@ -1,0 +1,198 @@
+website: 
+  google-analytics: "G-QXDW878QLX"
+  
+# title-block-banner: "Thử nghiệm"
+
+project:
+  type: book
+  output-dir: html_outputs
+
+book:
+  title: "The Epidemiologist R Handbook"
+  search: true
+  # repo-url: https://github.com/appliedepi/epiRhandbook_eng
+  # site-url: https://epirhandbook.com
+  sharing: ["twitter", "facebook", "linkedin"]
+  
+  date: today
+  date-format: "MMM D, YYYY"
+  chapters:
+  # INTRO & CONTRIBUTORS
+  - index.qmd                              # objectives, how to read, authors, acknowledgements
+
+  # ABOUT BOOK
+  - part: "About this book"
+    part-vn: "Về cuốn sách này"
+    # part-fr: "À propos de ce livre"
+    # part-es: "Acerca de este libro"
+    # part-jp: "本書について"
+    # part-tr: "Bu kitap hakkında"
+    # part-pt: "Sobre este livro"
+    # part-ru: "Об этой книге"
+    chapters:
+    - new_pages/editorial_style.qmd          # editorial style
+    - new_pages/data_used.qmd                # data used
+
+  # BASICS
+  - part: "Basics"
+    part-vn: "Nhập môn về R"
+    # part-fr: "Les bases de R"
+    # part-es: "Aspectos básicos"
+    # part-jp: "基本編"
+    # part-tr: "Temel Bilgiler"
+    # part-pt: "Básico"
+    # part-ru: "Основы"
+    chapters:
+    - new_pages/basics.qmd
+    - new_pages/transition_to_R.qmd
+    - new_pages/packages_suggested.qmd
+    - new_pages/r_projects.qmd
+    - new_pages/importing.qmd
+
+  # DATA MANGEMENT
+  - part: "Data Management"
+    part-vn: "Quản lý dữ liệu"
+    # part-fr: "Gestion des données"
+    # part-es: "Gestión de datos"
+    # part-jp: "データマネジメント"
+    # part-tr: "Veri Yönetimi"
+    # part-pt: "Gerenciamento de Dados"
+    # part-ru: "Управление данными"
+    chapters:  
+    - new_pages/cleaning.qmd
+    - new_pages/dates.qmd
+    - new_pages/characters_strings.qmd
+    - new_pages/factors.qmd
+    - new_pages/pivoting.qmd
+    - new_pages/grouping.qmd
+    - new_pages/joining_matching.qmd
+    - new_pages/deduplication.qmd
+    - new_pages/iteration.qmd
+
+
+  # ANALYSIS
+  - part: "Analysis"
+    part-vn: "Phân tích dữ liệu"
+    # part-fr: "Analyse"
+    # part-es: "Análisis"
+    # part-jp: "データ分析"
+    # part-tr: "Analiz"
+    # part-pt: "Análise dos Dados"
+    # part-ru: "Анализ"
+    chapters:   
+    - new_pages/tables_descriptive.qmd
+    - new_pages/stat_tests.qmd
+    - new_pages/regression.qmd
+    - new_pages/missing_data.qmd
+    - new_pages/standardization.qmd
+    - new_pages/moving_average.qmd
+    - new_pages/time_series.qmd
+    - new_pages/epidemic_models.qmd
+    - new_pages/contact_tracing.qmd
+    - new_pages/survey_analysis.qmd
+    - new_pages/survival_analysis.qmd
+    - new_pages/gis.qmd
+
+
+  # DATA VIZ
+  - part: "Data Visualization"
+    part-vn: "Trực quan hóa dữ liệu"
+    # part-fr: "Visualisation des données"
+    # part-es: "Visualización de datos"
+    # part-jp: "データの可視化"
+    # part-tr: "Veri Görselleştirme"
+    # part-pt: "Visualização de Dados"
+    # part-ru: "Визуализация данных"
+    chapters:  
+    - new_pages/tables_presentation.qmd
+    - new_pages/ggplot_basics.qmd
+    #new_pages/plot_continuous.qmd,
+    #new_pages/plot_discrete.qmd,
+    - new_pages/ggplot_tips.qmd
+    - new_pages/epicurves.qmd
+    - new_pages/age_pyramid.qmd
+    - new_pages/heatmaps.qmd
+    - new_pages/diagrams.qmd
+    - new_pages/combination_analysis.qmd
+    - new_pages/transmission_chains.qmd
+    - new_pages/phylogenetic_trees.qmd
+    - new_pages/interactive_plots.qmd
+
+  # REPORTS AND DASHBOARDS
+  - part: "Reports and dashboards"
+    part-vn: "Báo cáo và dashboards"
+    # part-fr: "Rapports et tableaux de bord"
+    # part-es: "Informes y Dashboards"
+    # part-jp: "レポートとダッシュボード"
+    # part-tr: "Raporlar ve gösterge panoları"
+    # part-pt: "Relatórios e dashboards"
+    # part-ru: "Отчеты и информационные панели"
+    chapters:  
+    - new_pages/rmarkdown.qmd
+    - new_pages/reportfactory.qmd
+    - new_pages/flexdashboard.qmd
+    - new_pages/shiny_basics.qmd
+
+
+  # MISCELLANEOUS
+  - part: "Miscellaneous"
+    part-vn: "Các chủ điểm khác"
+    # part-fr: "Autres sujets"
+    # part-es: "Miscelánea"
+    # part-jp: "その他"
+    # part-tr: "Çeşitli"
+    # part-pt: "Miscelânea"
+    # part-ru: "Разное"
+    chapters: 
+    - new_pages/writing_functions.qmd
+    - new_pages/directories.qmd
+    - new_pages/collaboration.qmd
+    - new_pages/errors.qmd
+    - new_pages/help.qmd
+    #new_pages/relational_databases.qmd,
+    - new_pages/network_drives.qmd
+    - new_pages/data_table.qmd #,
+    #new_pages/rstudio_advanced.qmd
+
+
+lightbox: true # Lightbox images allow a reader to click to see a larger version of the image (including any caption)
+
+
+babelquarto:
+  languagecodes:
+  - name: vn
+    text: "Tiếng Việt"
+  - name: fr
+    text: "Français"
+  - name: es
+    text: "Español"
+  - name: jp
+    text: "日本"
+  - name: tr
+    text: "Türkçe"
+  - name: pt
+    text: "Português"
+  - name: ru
+    text: "Русский"
+  - name: en
+    text: "English"
+  mainlanguage: 'en'
+  languages: ['vn', 'fr', 'es', 'jp', 'tr', 'pt', 'ru', 'en']
+  
+title-vn: Cẩm nang dịch tễ học với R
+title-fr: Le Epi R Handbook
+title-es: EpiRhandbook en español
+title-jp: 疫学のための R ハンドブック
+title-tr: Epidemiyologun R Rehberi
+title-pt: Manual de R para Epidemiologistas
+title-ru: Справочник эпидемиолога R
+
+
+lang: en
+
+format:
+  html: 
+    theme:
+      light: cosmo
+      dark: [cosmo, theme-dark.scss]
+

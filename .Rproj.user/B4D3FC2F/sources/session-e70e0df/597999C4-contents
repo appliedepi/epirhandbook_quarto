@@ -1,0 +1,133 @@
+website: 
+  google-analytics: "G-QXDW878QLX"
+  
+# title-block-banner: "Thử nghiệm"
+
+project:
+  type: book
+  output-dir: html_outputs
+
+book:
+  title: "The Epidemiologist R Handbook"
+  search: true
+  repo-url: https://github.com/appliedepi/epiRhandbook_eng
+  site-url: https://epirhandbook.com
+  sharing: ["twitter", "facebook", "linkedin"]
+  
+  date: today
+  date-format: "MMM D, YYYY"
+  chapters:
+  # INTRO & CONTRIBUTORS
+  - index.qmd                              # objectives, how to read, authors, acknowledgements
+
+  # ABOUT BOOK
+  - part: "About this book"
+    chapters:
+    - new_pages/editorial_style.qmd          # editorial style
+    - new_pages/data_used.qmd                # data used
+
+  # BASICS
+  - part: "Basics"
+    chapters:
+    - new_pages/basics.qmd
+    - new_pages/transition_to_R.qmd
+    - new_pages/packages_suggested.qmd
+    - new_pages/r_projects.qmd
+    - new_pages/importing.qmd
+
+  # DATA MANGEMENT
+  - part: "Data Management"
+    chapters:  
+    - new_pages/cleaning.qmd
+    - new_pages/dates.qmd
+    - new_pages/characters_strings.qmd
+    - new_pages/factors.qmd
+    - new_pages/pivoting.qmd
+    - new_pages/grouping.qmd
+    - new_pages/joining_matching.qmd
+    - new_pages/deduplication.qmd
+    - new_pages/iteration.qmd
+
+
+  # ANALYSIS
+  - part: "Analysis"
+    chapters:   
+    - new_pages/tables_descriptive.qmd
+    - new_pages/stat_tests.qmd
+    - new_pages/regression.qmd
+    - new_pages/missing_data.qmd
+    - new_pages/standardization.qmd
+    - new_pages/moving_average.qmd
+    - new_pages/time_series.qmd
+    - new_pages/epidemic_models.qmd
+    - new_pages/contact_tracing.qmd
+    - new_pages/survey_analysis.qmd
+    - new_pages/survival_analysis.qmd
+    - new_pages/gis.qmd
+
+
+  # DATA VIZ
+  - part: "Data Visualization"
+    chapters:  
+    - new_pages/tables_presentation.qmd
+    - new_pages/ggplot_basics.qmd
+    #new_pages/plot_continuous.qmd,
+    #new_pages/plot_discrete.qmd,
+    - new_pages/ggplot_tips.qmd
+    - new_pages/epicurves.qmd
+    - new_pages/age_pyramid.qmd
+    - new_pages/heatmaps.qmd
+    - new_pages/diagrams.qmd
+    - new_pages/combination_analysis.qmd
+    - new_pages/transmission_chains.qmd
+    - new_pages/phylogenetic_trees.qmd
+    - new_pages/interactive_plots.qmd
+
+  # REPORTS AND DASHBOARDS
+  - part: "Reports and dashboards"
+    chapters:  
+    - new_pages/rmarkdown.qmd
+    - new_pages/reportfactory.qmd
+    - new_pages/flexdashboard.qmd
+    - new_pages/shiny_basics.qmd
+
+
+  # MISCELLANEOUS
+  - part: "Miscellaneous"
+    chapters: 
+    - new_pages/writing_functions.qmd
+    - new_pages/directories.qmd
+    - new_pages/collaboration.qmd
+    - new_pages/errors.qmd
+    - new_pages/help.qmd
+    #new_pages/relational_databases.qmd,
+    - new_pages/network_drives.qmd
+    - new_pages/data_table.qmd #,
+    #new_pages/rstudio_advanced.qmd
+
+
+lightbox: true # Lightbox images allow a reader to click to see a larger version of the image (including any caption)
+
+
+babelquarto:
+  languagecodes:
+  - name: vn
+    text: "Version in vn"
+  - name: fr
+    text: "Version in fr"
+  - name: en
+    text: "Version in en"
+  mainlanguage: 'en'
+  languages: ['es', 'vn']
+title-vn: title in vn
+title-fr: title in fr
+description-vn: description in vn
+description-fr: description in fr
+lang: en
+
+format:
+  html: 
+    theme:
+      light: cosmo
+      dark: [cosmo, theme-dark.scss]
+

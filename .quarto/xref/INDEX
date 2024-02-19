@@ -1,0 +1,155 @@
+{
+  "index.qmd": {
+    "index.html": "0b2c4f3d"
+  },
+  "new_pages/editorial_style.qmd": {
+    "editorial_style.html": "1780d5e0"
+  },
+  "new_pages/data_used.qmd": {
+    "data_used.html": "2af1a4c5"
+  },
+  "new_pages/basics.qmd": {
+    "basics.html": "681fe537"
+  },
+  "new_pages/transition_to_R.qmd": {
+    "transition_to_R.html": "35c26b63"
+  },
+  "new_pages/packages_suggested.qmd": {
+    "packages_suggested.html": "af62b882"
+  },
+  "new_pages/r_projects.qmd": {
+    "r_projects.html": "95bbfaea"
+  },
+  "new_pages/importing.qmd": {
+    "importing.html": "21104cef"
+  },
+  "new_pages/cleaning.qmd": {
+    "cleaning.html": "37c14ab5"
+  },
+  "new_pages/dates.qmd": {
+    "dates.html": "9790cf58"
+  },
+  "new_pages/characters_strings.qmd": {
+    "characters_strings.html": "136a8df2"
+  },
+  "new_pages/factors.qmd": {
+    "factors.html": "57b2e5fa"
+  },
+  "new_pages/pivoting.qmd": {
+    "pivoting.html": "6f8b7efe"
+  },
+  "new_pages/grouping.qmd": {
+    "grouping.html": "7f43231e"
+  },
+  "new_pages/joining_matching.qmd": {
+    "joining_matching.html": "35559029"
+  },
+  "new_pages/deduplication.qmd": {
+    "deduplication.html": "804331b6"
+  },
+  "new_pages/iteration.qmd": {
+    "iteration.html": "047c791b"
+  },
+  "new_pages/tables_descriptive.qmd": {
+    "tables_descriptive.html": "43a878f3"
+  },
+  "new_pages/stat_tests.qmd": {
+    "stat_tests.html": "95507f52"
+  },
+  "new_pages/regression.qmd": {
+    "regression.html": "02670744"
+  },
+  "new_pages/missing_data.qmd": {
+    "missing_data.html": "abc94618"
+  },
+  "new_pages/standardization.qmd": {
+    "standardization.html": "f116059e"
+  },
+  "new_pages/moving_average.qmd": {
+    "moving_average.html": "400859a1"
+  },
+  "new_pages/time_series.qmd": {
+    "time_series.html": "1f04216c"
+  },
+  "new_pages/epidemic_models.qmd": {
+    "epidemic_models.html": "bd9ad6eb"
+  },
+  "new_pages/contact_tracing.qmd": {
+    "contact_tracing.html": "e8458878"
+  },
+  "new_pages/survey_analysis.qmd": {
+    "survey_analysis.html": "f8b9ff84"
+  },
+  "new_pages/survival_analysis.qmd": {
+    "survival_analysis.html": "fccb1905"
+  },
+  "new_pages/gis.qmd": {
+    "gis.html": "1d2dd4e5"
+  },
+  "new_pages/tables_presentation.qmd": {
+    "tables_presentation.html": "aef483c9"
+  },
+  "new_pages/ggplot_basics.qmd": {
+    "ggplot_basics.html": "dc0c09ee"
+  },
+  "new_pages/ggplot_tips.qmd": {
+    "ggplot_tips.html": "4700f6b0"
+  },
+  "new_pages/epicurves.qmd": {
+    "epicurves.html": "e9ca36cc"
+  },
+  "new_pages/age_pyramid.qmd": {
+    "age_pyramid.html": "b29a812f"
+  },
+  "new_pages/heatmaps.qmd": {
+    "heatmaps.html": "e23b5397"
+  },
+  "new_pages/diagrams.qmd": {
+    "diagrams.html": "fc677958"
+  },
+  "new_pages/combination_analysis.qmd": {
+    "combination_analysis.html": "16a59cb9"
+  },
+  "new_pages/transmission_chains.qmd": {
+    "transmission_chains.html": "4e76ae39"
+  },
+  "new_pages/phylogenetic_trees.qmd": {
+    "phylogenetic_trees.html": "946d8577"
+  },
+  "new_pages/interactive_plots.qmd": {
+    "interactive_plots.html": "c892b6e4"
+  },
+  "new_pages/rmarkdown.qmd": {
+    "rmarkdown.html": "cdef8fec"
+  },
+  "new_pages/reportfactory.qmd": {
+    "reportfactory.html": "b9886963"
+  },
+  "new_pages/flexdashboard.qmd": {
+    "flexdashboard.html": "44064e13"
+  },
+  "new_pages/shiny_basics.qmd": {
+    "shiny_basics.html": "ec0320c0"
+  },
+  "new_pages/writing_functions.qmd": {
+    "writing_functions.html": "0ded34ae"
+  },
+  "new_pages/directories.qmd": {
+    "directories.html": "25d027f2"
+  },
+  "new_pages/collaboration.qmd": {
+    "collaboration.html": "19124bfb"
+  },
+  "new_pages/errors.qmd": {
+    "errors.html": "56270da5"
+  },
+  "new_pages/help.qmd": {
+    "help.html": "6a9ea705"
+  },
+  "new_pages/network_drives.qmd": {
+    "network_drives.html": "f09f2c7a"
+  },
+  "new_pages/data_table.qmd": {
+    "data_table.html": "5ab3cc20"
+  }
+}
