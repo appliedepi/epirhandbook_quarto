@@ -1,0 +1,25 @@
+{
+    "id": "5160F9E5",
+    "path": null,
+    "project_path": null,
+    "type": "r_code_browser",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1708357079552.0,
+    "source_on_save": false,
+    "relative_order": 10,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "context": "package:babeldown:::deepl_update"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3546637720227951929,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1708357079552,
+    "read_only": false,
+    "read_only_alternatives": []
+}

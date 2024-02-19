@@ -59,6 +59,34 @@ for (i in 1:length(chapter_list)) {
 
 # 4. Review the translation, make a PR and re-render the book
 
+# 5. Re-render chapter that has changes
+chapter_changes = c("basics.qmd", "factors.qmd")
+chapter_changes_update = c("basics.de.qmd", "factors.de.qmd")
+
+
+for (i in 1:length(chapter_changes)) {
+        babeldown::deepl_update(
+                path = here::here("new_pages", chapter_changes[i]),
+                out_path = here::here("new_pages", chapter_changes_update[i]),
+                source_lang = "EN",
+                target_lang = "DE",
+                formality = "less",
+                yaml_fields = NULL)
+}
+
+
+babeldown::deepl_update(
+        path = here::here("new_pages", "factors.qmd"),
+        out_path = here::here("new_pages", "factors.de.qmd"),
+        source_lang = "EN",
+        target_lang = "DE",
+        formality = "less",
+        yaml_fields = NULL)
+
+
+
+
+
 babeldown::deepl_translate_quarto(
         book_path = here::here("new_pages"),
         chapter = "cleaning.qmd",
