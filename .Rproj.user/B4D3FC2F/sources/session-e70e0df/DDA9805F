@@ -1,26 +1,26 @@
 {
-    "id": "6C20FEE2",
-    "path": "D:/Book Writing/epihandbook_quarto/new_pages/cleaning.qmd",
-    "project_path": "new_pages/cleaning.qmd",
+    "id": "DDA9805F",
+    "path": "D:/Book Writing/epihandbook_quarto/new_pages/factors.qmd",
+    "project_path": "new_pages/factors.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1708347740738.0,
+    "created": 1708350146670.0,
     "source_on_save": false,
-    "relative_order": 7,
+    "relative_order": 10,
     "properties": {
         "source_window_id": "",
         "Source": "Sourceqsj8s81t01ip",
-        "cursorPosition": "1556,0",
-        "scrollLine": "1547"
+        "cursorPosition": "247,13",
+        "scrollLine": "217"
     },
     "folds": "",
-    "lastKnownWriteTime": 1708348703,
+    "lastKnownWriteTime": 1708350282,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1708348703151,
+    "last_content_update": 1708350282487,
     "read_only": false,
     "read_only_alternatives": []
 }
