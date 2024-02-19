@@ -26,7 +26,7 @@ As stated on the [R project website](https://www.r-project.org/about.html), R is
 
 **Cost**
 
-R is free to use! There is a strong ethic in the community of free and open-source material. R is free to use! There is a strong ethic in the community of free and open-source material.
+R is free to use! There is a strong ethic in the community of free and open-source material.
 
 **Reproducibility**
 
@@ -1043,7 +1043,7 @@ A vector can exist independent of a data frame, for example a vector of column n
 explanatory_vars <- c("gender", "fever", "chills", "cough", "aches", "vomit")
 
 # print the values in this named vector
-#explanatory_vars
+explanatory_vars
 ```
 
 **Columns in a data frame are also vectors and can be called, referenced, extracted, or created using the `$` symbol.** The `$` symbol connects the name of the column to the name of its data frame. In this handbook, we try to use the word "column" instead of "variable".

@@ -261,9 +261,6 @@ ggplot(data = linelist, aes(x = fct_rev(fct_infreq(delay_cat))))+
 
 Use `fct_inorder()` to set the level order to match the order of appearance in the data, starting from the first row. This can be useful if you first carefully `arrange()` the data in the data frame, and then use this to set the factor order.  
 
-Because I moved a bit from the configurations of the original book, I renamed the metapackage `r4ds` we use to install the book’s dependencies to `r4dses` and I did some spring cleaning in the **DESCRIPTION**, `.Rbuildignore`, and I removed some files that were not needed anymore. The result was to obtain zero errors, warnings, and notes when running `devtools::check()`.
-
-It is important to mention that the book repository is, in part an R package, and the command `devtools::install_github("cienciadedatos/r4ds")` shall install the book’s dependencies by __reading the DESCRIPTION file on it__.
 
 
 ### By summary statistic of another column {.unnumbered}  

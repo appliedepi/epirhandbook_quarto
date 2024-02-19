@@ -890,8 +890,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="by-appearance" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="by-appearance">By appearance</h3>
 <p>Use <code>fct_inorder()</code> to set the level order to match the order of appearance in the data, starting from the first row. This can be useful if you first carefully <code>arrange()</code> the data in the data frame, and then use this to set the factor order.</p>
-<p>Because I moved a bit from the configurations of the original book, I renamed the metapackage <code>r4ds</code> we use to install the book’s dependencies to <code>r4dses</code> and I did some spring cleaning in the <strong>DESCRIPTION</strong>, <code>.Rbuildignore</code>, and I removed some files that were not needed anymore. The result was to obtain zero errors, warnings, and notes when running <code>devtools::check()</code>.</p>
-<p>It is important to mention that the book repository is, in part an R package, and the command <code>devtools::install_github("cienciadedatos/r4ds")</code> shall install the book’s dependencies by <strong>reading the DESCRIPTION file on it</strong>.</p>
 </section>
 <section id="by-summary-statistic-of-another-column" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="by-summary-statistic-of-another-column">By summary statistic of another column</h3>
@@ -1731,7 +1729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
