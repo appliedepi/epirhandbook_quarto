@@ -434,8 +434,6 @@ linelist %>%
 
 
 
-
-, warn
 ## Show all levels  
 
 One benefit of using factors is to standardise the appearance of plot legends and tables, regardless of which values are actually present in a dataset. 
