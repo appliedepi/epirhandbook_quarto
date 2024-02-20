@@ -18,7 +18,7 @@ Eine vollständige Liste der **forcats** Funktionen kann online gefunden werden 
 
 ### Pakete laden {.unnumbered}
 
-Dieser Codeabschnitt zeigt das Laden von Paketen, die für die Analysen benötigt werden. In diesem Handbuch betonen wir `p_load()` von **pacman**, der das Paket bei Bedarf installiert *und* lädt es zur Verwendung. Du kannst installierte Pakete auch laden mit `library()` von **base**R. Siehe die Seite über [R-Grundlagen] für weitere Informationen über R-Pakete.
+Dieser Codeabschnitt zeigt das Laden von Paketen, die für die Analysen benötigt werden. In diesem Handbuch betonen wir `p_load()` von **pacman**, der das Paket bei Bedarf installiert *und* lädt es zur Verwendung. Du kannst installierte Pakete auch laden mit `library()` von **base**R. Siehe die Seite über \[R-Grundlagen\] für weitere Informationen über R-Pakete.
 
 ```{r}
 pacman::p_load(
@@ -34,7 +34,7 @@ pacman::p_load(
 
 ### Daten importieren {.unnumbered}
 
-Wir importieren den Datensatz der Fälle aus einer simulierten Ebola-Epidemie. Wenn du mitmachen willst, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>klicke, um die "saubere" Linienliste herunterzuladen</a> (als .rds-Datei). Importiere deine Daten mit der `import()` Funktion aus der **rio**Paket (sie akzeptiert viele Dateitypen wie .xlsx, .rds, .csv - siehe die [Import und Export] Seite für Details).
+Wir importieren den Datensatz der Fälle aus einer simulierten Ebola-Epidemie. Wenn du mitmachen willst, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>klicke, um die "saubere" Linienliste herunterzuladen</a> (als .rds-Datei). Importiere deine Daten mit der `import()` Funktion aus der **rio**Paket (sie akzeptiert viele Dateitypen wie .xlsx, .rds, .csv - siehe die \[Import und Export\] Seite für Details).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -54,7 +54,7 @@ Wenn du eine numerische Spalte in einen Klassenfaktor umwandelst, kannst du kein
 
 #### Spalte erstellen {.unnumbered}
 
-Wir verwenden die vorhandene Spalte `days_onset_hosp` (Tage vom Auftreten der Symptome bis zur Krankenhausaufnahme) und erstellen eine neue Spalte `delay_cat` indem wir jede Zeile in eine von mehreren Kategorien einordnen. Wir tun dies mit der **dplyr** Funktion `case_when()` die nacheinander logische Kriterien (rechte Seite) auf jede Zeile anwendet und den entsprechenden Wert der linken Seite für die neue Spalte zurückgibt `delay_cat`. Lies mehr über `case_when()`in [Datenbereinigung und Kernfunktionen].
+Wir verwenden die vorhandene Spalte `days_onset_hosp` (Tage vom Auftreten der Symptome bis zur Krankenhausaufnahme) und erstellen eine neue Spalte `delay_cat` indem wir jede Zeile in eine von mehreren Kategorien einordnen. Wir tun dies mit der **dplyr** Funktion `case_when()` die nacheinander logische Kriterien (rechte Seite) auf jede Zeile anwendet und den entsprechenden Wert der linken Seite für die neue Spalte zurückgibt `delay_cat`. Lies mehr über `case_when()`in \[Datenbereinigung und Kernfunktionen\].
 
 ```{r}
 linelist <- linelist %>% 
@@ -75,7 +75,7 @@ Wie erstellt mit `case_when()` erstellt wurde, ist die neue Spalte `delay_cat` i
 table(linelist$delay_cat, useNA = "always")
 ```
 
-Wenn wir ein Balkendiagramm erstellen, erscheinen die Werte ebenfalls in dieser Reihenfolge auf der x-Achse (siehe die [ggplot Grundlagen] Seite für mehr über**ggplot2** - dem am weitesten verbreiteten Visualisierungspaket in R).
+Wenn wir ein Balkendiagramm erstellen, erscheinen die Werte ebenfalls in dieser Reihenfolge auf der x-Achse (siehe die \[ggplot Grundlagen\] Seite für mehr über**ggplot2** - dem am weitesten verbreiteten Visualisierungspaket in R).
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist)+
@@ -184,7 +184,7 @@ linelist %>%
 
 Die **forcats** Befehle können verwendet werden, um die Reihenfolge der Ebenen im Datenrahmen oder nur innerhalb eines Plots festzulegen. Indem du den Befehl zum "Umschließen" des Spaltennamens verwendest *innerhalb von* der `ggplot()` Plot-Befehl kannst du die Transformation rückgängig machen, neu ausrichten usw. Die Transformation gilt dann nur innerhalb dieses Plots.
 
-Unten werden zwei Plots erstellt mit `ggplot()`erstellt (siehe die [ggplot Grundlagen] Seite). In der ersten wird die`delay_cat` Spalte auf die x-Achse des Plots abgebildet, wobei die Standardreihenfolge der Ebenen wie in den Daten `linelist`. Im zweiten Beispiel wird die Spalte in die `fct_relevel()` und die Reihenfolge wird im Diagramm geändert.
+Unten werden zwei Plots erstellt mit `ggplot()`erstellt (siehe die \[ggplot Grundlagen\] Seite). In der ersten wird die`delay_cat` Spalte auf die x-Achse des Plots abgebildet, wobei die Standardreihenfolge der Ebenen wie in den Daten `linelist`. Im zweiten Beispiel wird die Spalte in die `fct_relevel()` und die Reihenfolge wird im Diagramm geändert.
 
 ```{r, echo=F}
 linelist <- linelist %>% 
@@ -208,7 +208,7 @@ Beachte, dass der Standardtitel der x-Achse jetzt ziemlich kompliziert ist - du 
 
 Es kommt häufig vor, dass du die Reihenfolge der Ebenen umkehren möchtest. Schließe den Faktor einfach mit `fct_rev()`.
 
-Beachte, dass du, wenn du den Faktor umkehren willst *nur* eine Plotlegende umkehren willst, nicht aber die tatsächlichen Faktorstufen, kannst du das mit `guides()`(siehe [ggplot-Tipps]).
+Beachte, dass du, wenn du den Faktor umkehren willst *nur* eine Plotlegende umkehren willst, nicht aber die tatsächlichen Faktorstufen, kannst du das mit `guides()`(siehe \[ggplot-Tipps\]).
 
 ### Nach Häufigkeit {.unnumbered}
 
@@ -233,6 +233,7 @@ ggplot(data = linelist, aes(x = fct_rev(fct_infreq(delay_cat))))+
 ### Nach Aussehen {.unnumbered}
 
 Verwende `fct_inorder()` kannst du die Reihenfolge der Ebenen so einstellen, dass sie mit der Reihenfolge des Auftretens in den Daten übereinstimmt, beginnend mit der ersten Zeile. Das kann nützlich sein, wenn du zuerst sorgfältig `arrange()` die Daten in den Datenrahmen einträgst und dann damit die Reihenfolge der Faktoren festlegst.
+
 
 ### Nach der zusammenfassenden Statistik einer anderen Spalte {.unnumbered}
 
@@ -309,7 +310,7 @@ linelist %>%
 
 ### Manuell {.unnumbered}
 
-Du kannst die Pegelanzeigen manuell einstellen mit `fct_recode()`. Dies ist wie die **dplyr** Funktion `recode()`(siehe [Datenbereinigung und Kernfunktionen]), aber sie ermöglicht die Erstellung neuer Faktorstufen. Wenn du die einfache`recode()` auf einen Faktor anwendest, werden neue, neu kodierte Werte abgelehnt, es sei denn, sie wurden bereits als zulässige Ebenen festgelegt.
+Du kannst die Pegelanzeigen manuell einstellen mit `fct_recode()`. Dies ist wie die **dplyr** Funktion `recode()`(siehe \[Datenbereinigung und Kernfunktionen\]), aber sie ermöglicht die Erstellung neuer Faktorstufen. Wenn du die einfache`recode()` auf einen Faktor anwendest, werden neue, neu kodierte Werte abgelehnt, es sei denn, sie wurden bereits als zulässige Ebenen festgelegt.
 
 Mit diesem Tool kannst du auch Ebenen "kombinieren", indem du mehreren Ebenen denselben neu kodierten Wert zuweist. Achte nur darauf, dass keine Informationen verloren gehen! Achte darauf, dass du diese Kombinationsschritte in einer neuen Spalte durchführst (und nicht die bestehende Spalte überschreibst).
 
@@ -385,8 +386,6 @@ linelist %>%
 
 ```
 
-, warnen
-
 ## Alle Levels anzeigen
 
 Ein Vorteil der Verwendung von Faktoren ist die Vereinheitlichung des Aussehens von Legenden und Tabellen, unabhängig davon, welche Werte in einem Datensatz tatsächlich vorhanden sind.
@@ -413,18 +412,18 @@ Sowohl die **Basis** R `table()` und `tabyl()` von **Hausmeister** zeigt alle Fa
 
 Wenn du `count()` oder `summarise()` von **dplyr** um eine Tabelle zu erstellen, füge das Argument `.drop = FALSE` hinzu, um die Zählungen für alle Faktorebenen einzuschließen, auch für die nicht verwendeten.
 
-Lesen Sie mehr in den [Beschreibende Tabellen] Seite, oder auf der[scale\_discrete Dokumentation](https://ggplot2.tidyverse.org/reference/scale_discrete.html) oder die [count()-Dokumentation](https://dplyr.tidyverse.org/reference/count.html). Ein weiteres Beispiel findest du in der [Kontaktverfolgung] Seite.
+Lesen Sie mehr in den \[Beschreibende Tabellen\] Seite, oder auf der[scale\_discrete Dokumentation](https://ggplot2.tidyverse.org/reference/scale_discrete.html) oder die [count()-Dokumentation](https://dplyr.tidyverse.org/reference/count.html). Ein weiteres Beispiel findest du in der \[Kontaktverfolgung\] Seite.
 
 ## Epiweeks
 
-Bitte beachten Sie die ausführliche Diskussion über die Erstellung von epidemiologischen Wochen im Abschnitt [Daten gruppieren] Seite.  
-Bitte beachte auch die Seite      [Arbeiten mit Daten] Seite für Tipps zum Erstellen und Formatieren von epidemiologischen Wochen.
+Bitte beachten Sie die ausführliche Diskussion über die Erstellung von epidemiologischen Wochen im Abschnitt \[Daten gruppieren\] Seite.  
+Bitte beachte auch die Seite      \[Arbeiten mit Daten\] Seite für Tipps zum Erstellen und Formatieren von epidemiologischen Wochen.
 
 ### Epiweeks in einer Grafik {.unnumbered}
 
-Wenn du Epiweeks erstellen willst, um sie in einem Plot anzuzeigen, kannst du das ganz einfach tun mit **lubridate**'s `floor_date()`, wie im Abschnitt [Daten gruppieren] Seite erklärt. Die zurückgegebenen Werte sind von der Klasse Datum mit dem Format JJJJ-MM-TT. Wenn du diese Spalte in einem Diagramm verwendest, werden die Daten natürlich richtig angeordnet, und du musst dich nicht um Ebenen oder die Umwandlung in die Klasse Faktor kümmern. Siehe die`ggplot()` Histogramm der Eintrittsdaten unten.
+Wenn du Epiweeks erstellen willst, um sie in einem Plot anzuzeigen, kannst du das ganz einfach tun mit **lubridate**'s `floor_date()`, wie im Abschnitt \[Daten gruppieren\] Seite erklärt. Die zurückgegebenen Werte sind von der Klasse Datum mit dem Format JJJJ-MM-TT. Wenn du diese Spalte in einem Diagramm verwendest, werden die Daten natürlich richtig angeordnet, und du musst dich nicht um Ebenen oder die Umwandlung in die Klasse Faktor kümmern. Siehe die`ggplot()` Histogramm der Eintrittsdaten unten.
 
-Bei diesem Ansatz kannst du die *Anzeige* der Daten auf einer Achse mit `scale_x_date()`. Siehe die Seite über [Epidemie-Kurven] für weitere Informationen. Du kannst ein "strptime"-Anzeigeformat für die`date_labels = ` Argument von `scale_x_date()`. Diese Formate verwenden "%"-Platzhalter und werden im Abschnitt [Arbeiten mit Datumsangaben] Seite behandelt. Verwende "%Y", um ein vierstelliges Jahr darzustellen, und entweder "%W" oder "%U", um die Wochennummer (Montag bzw. Sonntag) anzugeben.
+Bei diesem Ansatz kannst du die *Anzeige* der Daten auf einer Achse mit `scale_x_date()`. Siehe die Seite über \[Epidemie-Kurven\] für weitere Informationen. Du kannst ein "strptime"-Anzeigeformat für die`date_labels = ` Argument von `scale_x_date()`. Diese Formate verwenden "%"-Platzhalter und werden im Abschnitt \[Arbeiten mit Datumsangaben\] Seite behandelt. Verwende "%Y", um ein vierstelliges Jahr darzustellen, und entweder "%W" oder "%U", um die Wochennummer (Montag bzw. Sonntag) anzugeben.
 
 ```{r, warning=F, message=F}
 linelist %>% 
@@ -440,7 +439,7 @@ Wenn dein Ziel beim Factoring jedoch ist *nicht* zu plotten, kannst du dies auf 
 
 1) *Für eine feine Kontrolle über die Anzeige* konvertieren Sie die **lubridate** epiweek-Spalte (JJJJ-MM-TT) in das gewünschte Anzeigeformat (JJJJ-WWW) *innerhalb des Datenrahmens selbst* und konvertiere sie dann in die Klasse Faktor.
 
-Erstens, benutze `format()` von **Basis**R, um die Datumsanzeige von JJJJ-MM-TT in JJJJ-WW-Anzeige umzuwandeln (siehe den Abschnitt [Arbeiten mit Datumsangaben] Seite). Bei diesem Vorgang wird die Klasse in Zeichen umgewandelt. Konvertiere dann von Character zu Class Factor mit`factor()`.
+Erstens, benutze `format()` von **Basis**R, um die Datumsanzeige von JJJJ-MM-TT in JJJJ-WW-Anzeige umzuwandeln (siehe den Abschnitt \[Arbeiten mit Datumsangaben\] Seite). Bei diesem Vorgang wird die Klasse in Zeichen umgewandelt. Konvertiere dann von Character zu Class Factor mit`factor()`.
 
 ```{r}
 linelist <- linelist %>% 
@@ -463,7 +462,7 @@ df <- linelist %>%
 levels(df$epiweek)
 ```
 
-Siehe die [Arbeiten mit Daten] Seite für weitere Informationen über**eine Woche**. Es bietet auch die umgekehrte Funktion `week2date()`.
+Siehe die \[Arbeiten mit Daten\] Seite für weitere Informationen über**eine Woche**. Es bietet auch die umgekehrte Funktion `week2date()`.
 
 <!-- ======================================================= -->
 
