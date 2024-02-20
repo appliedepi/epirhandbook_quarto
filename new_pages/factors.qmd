@@ -263,7 +263,6 @@ Use `fct_inorder()` to set the level order to match the order of appearance in t
 
 
 
-
 ### By summary statistic of another column {.unnumbered}  
 
 You can use `fct_reorder()` to order the levels of one column *by a summary statistic of another column*. Visually, this can result in pleasing plots where the bars/points ascend or descend steadily across the plot.  
@@ -434,8 +433,6 @@ linelist %>%
 
 
 
-
-, warn
 ## Show all levels  
 
 One benefit of using factors is to standardise the appearance of plot legends and tables, regardless of which values are actually present in a dataset. 
