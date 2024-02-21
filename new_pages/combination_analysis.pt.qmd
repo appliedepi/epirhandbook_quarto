@@ -6,6 +6,8 @@ pacman::p_load(tidyverse,
                UpSetR,
                ggupset)
 
+linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
+
 # Adiciona variável de novos sintomas à linelist, com valores "yes" (sim) e "no" (não)  aleatórios
 
 linelist_sym <- linelist %>% 

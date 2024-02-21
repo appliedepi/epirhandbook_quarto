@@ -39,11 +39,11 @@ Ce chunk de code montre le chargement des paquets nécessaires aux analyses. Dan
 pacman::p_load(
      rio, # importer/exporter des données
      here, # localisation des fichiers
-     tidyverse, # gestion et visualisation des données
      stringr, # nettoyage des caractères et des chaînes de caractères
      frailtypack, # nécessaire pour dsr, pour les modèles de frailty
      dsr, # standardiser les taux
-     PHEindicatormethods) # alternative pour la standardisation des taux
+     PHEindicatormethods, # alternative pour la standardisation des taux
+     tidyverse) # gestion et visualisation des données
 ```
 
 

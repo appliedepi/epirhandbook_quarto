@@ -33,6 +33,7 @@ pacman::p_load(
   parsedate,   # dağınık tarihleri "tahmin etme" işlevi sağlar
   aweek,      # tarihleri haftalara ve haftaları tarihe dönüştürmek için alternatif bir seçenek
   zoo,        # ek tarih/saat işlevleri
+  here,       # dosya yönetimi
   tidyverse,  # veri yönetimi ve görselleştirme 
   rio)        # veri içe/dışa aktarma
 ```

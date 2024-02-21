@@ -22,6 +22,12 @@ Nesta página descrevemos formas de localizar, importar e exportar arquivos:
 * Tipos de arquivos específicos de R, como RDS e RData  
 * Exportar / salvar arquivos e gráficos
 
+```{r, include=FALSE}
+pacman::p_load(
+  rio,            # import/export
+  here,           # file pathways
+  tidyverse)      # data management, summary, and visualization
+```
 
 
 <!-- ======================================================= -->

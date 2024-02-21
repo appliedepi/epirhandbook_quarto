@@ -40,11 +40,11 @@ Bu kod kümesi, analizler için gereken paketlerin yüklenmesini gösterir. Bu e
 pacman::p_load(
      rio,                 # verileri içe/dışa aktar
      here,                # dosyaları bul
-     tidyverse,           # veri yönetimi ve görselleştirme
      stringr,             # karakterleri ve dizeleri (string) temizleme
      frailtypack,         # frailty modelleri için dsr için gerekli
      dsr,                 # hızları standardize et
-     PHEindicatormethods) # hızların  standardizasyonu için alternatif
+     PHEindicatormethods, # hızların  standardizasyonu için alternatif
+     tidyverse)           # veri yönetimi ve görselleştirme
 ```
 
 

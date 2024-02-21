@@ -40,11 +40,11 @@
 pacman::p_load(
      rio,                 # データのインポート・エクスポート
      here,                # ファイルの場所を特定
-     tidyverse,           # データマネジメントと視覚化
      stringr,             # 文字と文字列のクリーニング
      frailtypack,         # dsr で必要：フレイルティモデルのため
      dsr,                 # 標準化率
-     PHEindicatormethods) # 標準化のための代替のパッケージ
+     PHEindicatormethods, # 標準化のための代替のパッケージ
+     tidyverse)           # データマネジメントと視覚化
 ```
 
 

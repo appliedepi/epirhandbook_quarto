@@ -30,6 +30,14 @@ Sur cette page, nous décrivons les moyens de localiser, d'importer et d'exporte
 
 -   Exportation/sauvegarde des fichiers et des graphiques
 
+```{r, include=FALSE}
+pacman::p_load(
+  rio,            # import/export
+  here,           # file pathways
+  tidyverse)      # data management, summary, and visualization
+```
+
+
 <!-- ======================================================= -->
 
 ## Aperçu

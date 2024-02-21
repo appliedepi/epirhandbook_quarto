@@ -37,13 +37,13 @@ Este trozo de código muestra la carga de los paquetes necesarios para los anál
 
 ```{r}
 pacman::p_load(
-	 rio,                 # importar/exportar datos
+	   rio,                 # importar/exportar datos
      here,                # localizar archivos
-     tidyverse,           # gestión y visualización de datos
      stringr,             # limpieza de caracteres y cadenas
      frailtypack,         # necesario para dsr, para modelos frailty
      dsr,                 # estandarizar tasas
-     PHEindicatormethods) # alternativa para la estandarización de tasas
+     PHEindicatormethods, # alternativa para la estandarización de tasas
+     tidyverse)           # gestión y visualización de datos
 ```
 
 

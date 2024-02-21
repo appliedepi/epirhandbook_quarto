@@ -33,7 +33,7 @@ Yolları R'ın kullandığı paket kitaplıklarına döndürebilirsiniz. Bunlar,
 
 R tarafından kullanılan paket kitaplıklarının sırasını değiştirmek isteyebilirsiniz. Örneğin, R "\\\" ile başlayan ve büyük bir harfle başlayan bir kitaplık konumu alıyorsa, örn. "D:". `.libPaths()` sırasını aşağıdaki kod ile ayarlayabilirsiniz.  
 
-````{r, eval=F}
+```{r, eval=F}
 # Kitaplıkların sırasını değiştir
 # bu, R'ın bir paket bulma önceliğini etkileyebilir. Örneğin. C: kitaplığınızın önce listelenmesini isteyebilirsiniz
 myPaths <- .libPaths() # yolakları al

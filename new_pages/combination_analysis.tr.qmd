@@ -6,6 +6,8 @@ pacman::p_load(tidyverse,
                UpSetR,
                ggupset)
 
+linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
+
 # Rastgele "evet" veya "hayır" değerleriyle satır listesine yeni belirti değişkenleri ekler
 linelist_sym <- linelist %>% 
   mutate(fever  = sample(c("yes", "no"), nrow(linelist), replace = T, prob = c(0.80, 0.20)),

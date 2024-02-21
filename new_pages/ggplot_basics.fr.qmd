@@ -28,8 +28,8 @@ pacman::p_load(
   here,           # localiser des fichiers
   stringr,         # travailler avec des caractères 
   janitor,
-  tidyverse,      # inclut ggplot2 et d'autres extensions de data management
-  ggforce
+  ggforce,
+  tidyverse      # inclut ggplot2 et d'autres extensions de data management
 )
 ```
 

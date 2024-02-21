@@ -32,6 +32,7 @@ pacman::p_load(
   parsedate,   # possui a função de "adivinhar" datas desorganizadas
   aweek,      # outra opção para conversão de datas em semanas, e de semanas em datas 
   zoo,        # funções adicionais de data/hora
+  here,       # Gerenciamento de arquivos
   tidyverse,  # gerenciamento e visualização dos dados  
   rio)        # importação/exportação dos dados
 ```

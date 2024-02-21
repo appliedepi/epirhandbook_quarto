@@ -30,6 +30,7 @@ Este trecho de código mostra o carregamento dos pacotes necessários para as an
 ```{r}
 pacman::p_load(
   tidyverse,      # inclui ggplot2 e outras ferramentas de manipular dados
+  janitor,        # limpeza de dados
   ggforce,        # extensão ggplot
   rio,            # importar/exportar
   here,           # localizador de arquivos

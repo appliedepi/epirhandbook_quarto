@@ -26,9 +26,11 @@ Este trozo de código muestra la carga de los paquetes necesarios para los anál
 ```{r}
 pacman::p_load(
   tidyverse,      # incluye ggplot2 y otras herramientas de gestión de datos
+  janitor,        # limpieza de datos
   rio,            # importación/exportación
   here,           # rutas de los archivos
-  stringr         # trabajar con caracteres    
+  stringr,         # trabajar con caracteres    
+  ggforce 
 )
 ```
 

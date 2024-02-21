@@ -71,7 +71,7 @@ Git tem sua própria linguagem de comandos, que pode ser digitada em um terminal
 
 Existem muitas opções, em todos os sistemas operacionais, desde iniciantes até os mais complexos. Boas opções para iniciantes incluem o painel RStudio Git e [Github Desktop](https://desktop.github.com/), que mostraremos neste capítulo. Opções intermediárias (mais poderosas, mas mais complexas) incluem Source Tree, Gitkracken, Smart Git e outras.
 
-Explicação rápida sobre [Clientes Git](-%09https:/happygitwithr.com/git-client.html#git-client).
+Explicação rápida sobre [Clientes Git](https:/happygitwithr.com/git-client.html#git-client).
 
 *Observação: como todas as interfaces usam o Git internamente, você pode tentar várias delas, alternar de uma para outra em um determinado projeto, usar o console pontualmente para uma ação que sua interface não suporta ou até mesmo realizar algumas ações online no Github.*
 

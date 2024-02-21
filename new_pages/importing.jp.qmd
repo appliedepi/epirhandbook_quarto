@@ -22,6 +22,13 @@ knitr::include_graphics(here::here("images", "Import_Export_1500x500.png"))
 * RDS や RData などの R 特有のファイルタイプのインポートについても紹介します
 * ファイルやプロットのエクスポートや保存についても解説します
 
+```{r, include=FALSE}
+pacman::p_load(
+  rio,            # import/export
+  here,           # file pathways
+  tidyverse)      # data management, summary, and visualization
+```
+
 
 <!-- ======================================================= -->
 ## 概要

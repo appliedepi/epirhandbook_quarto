@@ -24,6 +24,8 @@ Aşağıdaki bu kod parçası, analizler için gerekli olan paketlerin yüklenme
 ```{r}
 pacman::p_load(
   tidyverse,      # ggplot2 ve diğer veri yönetim paketlerini içerir
+  janitor,        # veri temizleme
+  ggforce,        # ggplot2'ye ekstra grafik öğeleri ekler
   rio,            # içe / dışa aktarma
   here,           # dosya lokasyonu bulma
   stringr         # metinle çalışmak için   

@@ -4,5 +4,4 @@
 
 babelquarto::render_book()
 
-
-
+quarto::quarto_preview()

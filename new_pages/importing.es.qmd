@@ -25,6 +25,12 @@ archivos:
 * Tipos de archivos específicos de R, como RDS y RData
 * Exportar/guardar archivos y gráficos
 
+```{r, include=FALSE}
+pacman::p_load(
+  rio,            # import/export
+  here,           # file pathways
+  tidyverse)      # data management, summary, and visualization
+```
 
 <!-- ======================================================= -->
 ## Resumen {#overview}

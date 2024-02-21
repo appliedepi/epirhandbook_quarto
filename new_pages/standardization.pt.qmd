@@ -40,10 +40,10 @@ O código abaixo realiza o carregamento dos pacotes necessários para a análise
 pacman::p_load(
      rio,                 # importar/exportar dados
      here,                # localizar arquivos
-     tidyverse,           # gerenciamento e visualização dos dados
      stringr,             # limpar caracteres e strings
      frailtypack,         # necessário para dsr, para modelos de fragilidade
-     PHEindicatormethods) # alternativa para padronização das taxas
+     PHEindicatormethods, # alternativa para padronização das taxas
+     tidyverse)           # gerenciamento e visualização dos dados
 
 pacman::p_load_gh("cran/dsr") # foi removido do CRAN
 ```

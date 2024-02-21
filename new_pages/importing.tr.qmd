@@ -20,6 +20,13 @@ Bu sayfada dosyaları bulmanın, içe aktarmanın ve dışa aktarmanın yolları
 * RDS ve RData gibi R'a özgü dosya türleri
 * Dosyaları ve grafikleri dışa aktarma/kaydetme
 
+```{r, include=FALSE}
+pacman::p_load(
+  rio,            # import/export
+  here,           # file pathways
+  tidyverse)      # data management, summary, and visualization
+```
+
 
 <!-- ============================================ ========= -->
 ## Genel Bakış

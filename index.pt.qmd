@@ -1,24 +1,4 @@
----
-knit: "bookdown::render_book"
-title: "Manual de R para Epidemiologistas"  
-description: "The Epi R Handbook is a R reference manual for applied epidemiology and public health."
-author: "the handbook team"
-date: "`r Sys.Date()`"
-#url: 'https://github.com/nsbatra/Epi_R_handbook'
-#twitter-handle: 
-#cover-image: images/R_Handbook_Logo.png
-site: bookdown::bookdown_site
-# output: bookdown::gitbook:
-#      config:
-#           sharing:
-#                twitter: yes
-#                facebook: yes
-#                whatsapp: yes
-#                github: yes
-documentclass: book
----
-
-#  {.unnumbered}
+# Bem-vindo {.unnumbered}
 
 ```{r, out.width = "100%", fig.align = "center", echo=F}
 knitr::include_graphics(here::here("images", "Epi R Handbook Banner Portuguese 1500 x 500.png"))

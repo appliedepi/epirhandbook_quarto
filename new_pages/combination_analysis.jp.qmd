@@ -6,6 +6,8 @@ pacman::p_load(tidyverse,
                UpSetR,
                ggupset)
 
+linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
+
 # 値を無作為に取る、症状に関する複数の変数を追加する（症状あり "yes" または症状なし "no"） 
 linelist_sym <- linelist %>% 
   mutate(fever  = sample(c("yes", "no"), nrow(linelist), replace = T, prob = c(0.80, 0.20)),

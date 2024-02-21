@@ -6,6 +6,8 @@ pacman::p_load(tidyverse,
                UpSetR,
                ggupset)
 
+linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
+
 # Añade nuevas variables de síntoma a esta lista, con valores aleatorios "sí" o "no". 
 linelist_sym <- linelist %>% 
   mutate(fever  = sample(c("yes", "no"), nrow(linelist), replace = T, prob = c(0.80, 0.20)),

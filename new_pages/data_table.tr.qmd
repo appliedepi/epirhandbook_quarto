@@ -145,7 +145,7 @@ Aşağıdaki örneklerde:
 * 7 günü aşan başvurularda, vaka sayısını yattığı aya ve yattığı hastaneye göre sayısını hesaplayın
 
 
-````{r}
+```{r}
 linelist[, .N, .(hospital)] #hastaneye göre vaka sayıları
 linelist[age > 18, .(mean_wt = mean(wt_kg, na.rm = T),
                              mean_ht = mean(ht_cm, na.rm = T)), .(gender, outcome)] #NAs, verilerin eksik olduğu kategorileri temsil eder
@@ -155,7 +155,7 @@ linelist[days_onset_hosp > 7, .N, .(month = month(date_hospitalisation), hospita
 
 Data.table ayrıca zincirleme ifadelere aşağıdaki gibi izin verir:
 
-````{r}
+```{r}
 
 linelist[, .N, .(hospital)][order(-N)][1:3] #1. tüm vakaları hastaneye göre seçer, 2. vakaları azalan sırayla sıralar, 3. en büyük vaka yüküne sahip 3 hastaneyi alt kümeler
 
@@ -164,7 +164,7 @@ linelist[, .N, .(hospital)][order(-N)][1:3] #1. tüm vakaları hastaneye göre s
 
 Bu örneklerde, veri tablosundaki bir satırın yeni bir duruma eşit olduğu varsayımını izliyoruz ve bu nedenle veri tablosundaki satır sayısını temsil etmek için **.N**'yi kullanabiliriz. Benzersiz durumların sayısını temsil eden başka bir yararlı fonksiyon, belirli bir girdideki benzersiz değerlerin sayısını döndüren "uniqueN()" dir. Aşağıda gösterilmektedir:
 
-````{r}
+```{r}
 
 linelist[, .(uniqueN(gender))] #hatırlayın .() j değişkeninde bir veri tablosu döndürür
 
@@ -172,14 +172,14 @@ linelist[, .(uniqueN(gender))] #hatırlayın .() j değişkeninde bir veri tablo
 
 Cinsiyet sütunundaki benzersiz değerler m, f ve N/A olduğundan cevap 3'tür. Belirli bir girdideki tüm benzersiz değerleri döndüren temel R fonksiyonu "unique()" ile karşılaştırın:
 
-````{r}
+```{r}
 
 linelist[, .(unique(gender))]
 ```
 
 Belirli bir aydaki benzersiz vakaların sayısını bulmak için aşağıdakileri yazarız:
 
-````{r}
+```{r}
 
 linelist[, .(uniqueN(case_id)), .(month = month(date_hospitalisation))]
 
@@ -189,7 +189,7 @@ linelist[, .(uniqueN(case_id)), .(month = month(date_hospitalisation))]
 
 `:=` operatörü, bir veri tablosuna veri eklemek veya bu tabloya veri güncellemek için kullanılır. Veri tablonuza sütun eklemek aşağıdaki şekillerde yapılabilir:
 
-````{r}
+```{r}
 
 linelist[, adult := age >= 18] #bir sütun ekler
 linelist[, c("child", "wt_lbs") := .(age < 18, wt_kg*2.204)] #birden çok sütun eklemek için c("") ve list() veya .() sözdizimi gerekir

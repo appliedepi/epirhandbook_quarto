@@ -76,7 +76,7 @@ Yeni başlayanlardan daha karmaşık olanlara kadar tüm işletim sistemlerinde 
 
 Orta (daha güçlü, ancak daha karmaşık) seçenekler arasında Source Tree, Gitkracken, Smart Git ve diğerleri bulunur.
 
-[Git istemcileri](-%09https:/happygitwithr.com/git-client.html#git-client) hakkında hızlı açıklama.
+[Git istemcileri](https:/happygitwithr.com/git-client.html#git-client) hakkında hızlı açıklama.
 
 *Not: Arabirimlerin tümü Git'i dahili olarak kullandığından, bunlardan birkaçını deneyebilir, belirli bir projede birinden diğerine geçebilir, konsolu arabiriminizin desteklemediği bir eylem için zamanında kullanabilir ve hatta üzerinde herhangi bir sayıda çevrimiçi eylem gerçekleştirebilirsiniz. Github.*
 
