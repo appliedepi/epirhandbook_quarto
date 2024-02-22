@@ -50,19 +50,18 @@ for (i in 1:length(chapter_list)) {
 # 4. Review the translation, make a PR and re-render the book
 
 # 5. Re-render chapter that has changes
-chapter_changes = c(#"basics.qmd", 
-                    "factors.qmd")
-chapter_changes_update = c("factors.fr.qmd", 
-                           "factors.es.qmd", 
-                           "factors.jp.qmd", 
-                           "factors.pt.qmd", 
-                           "factors.tr.qmd", 
-                           "factors.ru.qmd", 
-                           "factors.vn.qmd", 
-                           "factors.de.qmd")
+chapters_changed = c("factors.qmd")
+chapters_changesd_update = c("factors.fr.qmd", 
+                             "factors.es.qmd", 
+                             "factors.jp.qmd", 
+                             "factors.pt.qmd", 
+                             "factors.tr.qmd", 
+                             "factors.ru.qmd", 
+                             "factors.vn.qmd", 
+                             "factors.de.qmd")
 target_lang = c("FR", "ES", "JA", "PT-PT", "TR", "RU", "VN", "DE")
 
-# Write a loop to run the updated translation for each chapter based on chapter_changes_update, noted that the target_lang should be also adapted based on target_lang 
+# Write a loop to run the updated translation for each chapter based on chapter_changes_update, noted that the target_lang argument should be also adapted based on target_lang 
 
 for (i in 1:length(chapter_changes)) {
         for (j in 1:length(target_lang)) {

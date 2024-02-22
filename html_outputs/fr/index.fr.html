@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Le Epi R Handbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,30 +19,16 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./new_pages/editorial_style.fr.html" rel="next">
 <link href="./images/Applied_Epi_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script><link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -71,17 +55,13 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics 
+</script><!-- Global site tag (gtag.js) - Google Analytics 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -90,8 +70,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
   gtag('config', 'G-QXDW878QLX');
 </script> -->
-
-</head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
+</head>
+<body class="nav-sidebar floating">
+<div class="alert alert-info alert-dismissible">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
   <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
 </div>
@@ -102,57 +83,60 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.fr.html">Bienvenue</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.fr.html">Bienvenue</a></li></ol></nav><a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Le Epi R Handbook</a> 
         <div class="sidebar-tools-main tools-wide">
+    <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
     <a href="https://github.com/appliedepi/epihandbook_quarto" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-    </div>
+</div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
+<div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i></button><ul class="dropdown-menu" id="languages-links">
+<a class="dropdown-item" href="/index.html" id="language-link-en">English</a><a class="dropdown-item" href="/vn/index.vn.html" id="language-link-vn">Tiếng Việt</a>
+<a class="dropdown-item" href="/de/index.de.html" id="language-link-de">Deutsch</a>
+</ul>
+</div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Recherche"></div>
@@ -160,7 +144,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.fr.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bienvenue</span></a>
@@ -174,21 +158,21 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/editorial_style.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes techniques et choix éditoriaux</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Notes techniques et choix éditoriaux</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/data_used.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Télécharger le manuel et les données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Télécharger le manuel et les données</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -197,39 +181,39 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/basics.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R - les bases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">R - les bases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/transition_to_R.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Transition vers R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Transition vers R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/packages_suggested.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Paquets conseillés</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Paquets conseillés</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/r_projects.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Projets R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Projets R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/importing.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importer et exporter des données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Importer et exporter des données</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -238,63 +222,63 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/cleaning.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nettoyage de données et fonctions essentielles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Nettoyage de données et fonctions essentielles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/dates.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Manipuler les dates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Manipuler les dates</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/characters_strings.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Caractères et chaînes de caractères</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Caractères et chaînes de caractères</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/factors.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Facteurs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Facteurs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/pivoting.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Restructurer les données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Restructurer les données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/grouping.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Travailler sur des données groupées</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Travailler sur des données groupées</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/joining_matching.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Joindre des données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Joindre des données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/deduplication.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">De-duplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">De-duplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/iteration.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Itération, boucles et listes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Itération, boucles et listes</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -303,81 +287,81 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/tables_descriptive.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tableaux descriptifs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Tableaux descriptifs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/stat_tests.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tests statistiques simples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Tests statistiques simples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/regression.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Régression univariée et multivariable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Régression univariée et multivariable</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/missing_data.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Données manquantes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Données manquantes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/standardization.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Taux standardisés</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Taux standardisés</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/moving_average.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moyennes mobiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Moyennes mobiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/time_series.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Série temporelle et détection des épidémies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>  <span class="chapter-title">Série temporelle et détection des épidémies</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/epidemic_models.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Modélisation des épidémies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>  <span class="chapter-title">Modélisation des épidémies</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/contact_tracing.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Suivi des contacts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>  <span class="chapter-title">Suivi des contacts</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/survey_analysis.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Analyse d’enquête</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>  <span class="chapter-title">Analyse d’enquête</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/survival_analysis.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Analyse de survie</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>  <span class="chapter-title">Analyse de survie</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/gis.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">GIS basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>  <span class="chapter-title">GIS basics</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -386,75 +370,75 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/tables_presentation.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Présenter avec des tables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>  <span class="chapter-title">Présenter avec des tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/ggplot_basics.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Les bases de ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>  <span class="chapter-title">Les bases de ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/ggplot_tips.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Trucs et Astuces avec ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>  <span class="chapter-title">Trucs et Astuces avec ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/epicurves.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Courbes épidémiques</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>  <span class="chapter-title">Courbes épidémiques</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/age_pyramid.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Pyramides démographiques et échelles de Likert</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>  <span class="chapter-title">Pyramides démographiques et échelles de Likert</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/heatmaps.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Graphiques thermiques</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>  <span class="chapter-title">Graphiques thermiques</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/diagrams.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Diagrammes et schémas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>  <span class="chapter-title">Diagrammes et schémas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/combination_analysis.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Analyse des combinaisons</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>  <span class="chapter-title">Analyse des combinaisons</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/transmission_chains.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Chaînes de transmission</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>  <span class="chapter-title">Chaînes de transmission</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/phylogenetic_trees.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Les arbres phylogénétiques</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>  <span class="chapter-title">Les arbres phylogénétiques</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/interactive_plots.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Graphiques interactifs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>  <span class="chapter-title">Graphiques interactifs</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
@@ -463,33 +447,33 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/rmarkdown.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Production de rapports avec R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>  <span class="chapter-title">Production de rapports avec R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/reportfactory.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Organisation des rapports de routine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>  <span class="chapter-title">Organisation des rapports de routine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/flexdashboard.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Tableaux de bord avec R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>  <span class="chapter-title">Tableaux de bord avec R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/shiny_basics.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Tableaux de bord avec Shiny</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>  <span class="chapter-title">Tableaux de bord avec Shiny</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
@@ -498,86 +482,86 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/writing_functions.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Fonctions d’écriture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>  <span class="chapter-title">Fonctions d’écriture</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/directories.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Interactions avec les répertoires</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>  <span class="chapter-title">Interactions avec les répertoires</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/collaboration.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Contrôle de version et collaboration avec Git et Github</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>  <span class="chapter-title">Contrôle de version et collaboration avec Git et Github</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/errors.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Erreurs fréquentes{#errors}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>  <span class="chapter-title">Erreurs fréquentes{#errors}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/help.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Obtenir de l’aide{#help}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>  <span class="chapter-title">Obtenir de l’aide{#help}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/network_drives.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">R sur les lecteurs réseau</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>  <span class="chapter-title">R sur les lecteurs réseau</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./new_pages/data_table.fr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Tableau de données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>  <span class="chapter-title">Tableau de données</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#bienvenue" id="toc-bienvenue" class="nav-link active" data-scroll-target="#bienvenue">Bienvenue</a>
+<li>
+<a href="#bienvenue" id="toc-bienvenue" class="nav-link active" data-scroll-target="#bienvenue">Bienvenue</a>
   <ul class="collapse">
-  <li><a href="#r-pour-lépidémiologie-appliquée-et-la-santé-publique" id="toc-r-pour-lépidémiologie-appliquée-et-la-santé-publique" class="nav-link" data-scroll-target="#r-pour-lépidémiologie-appliquée-et-la-santé-publique">R pour l’épidémiologie appliquée et la santé publique</a></li>
+<li><a href="#r-pour-l%C3%A9pid%C3%A9miologie-appliqu%C3%A9e-et-la-sant%C3%A9-publique" id="toc-r-pour-lépidémiologie-appliquée-et-la-santé-publique" class="nav-link" data-scroll-target="#r-pour-lépidémiologie-appliquée-et-la-santé-publique">R pour l’épidémiologie appliquée et la santé publique</a></li>
   <li><a href="#comment-utiliser-ce-manuel" id="toc-comment-utiliser-ce-manuel" class="nav-link" data-scroll-target="#comment-utiliser-ce-manuel">Comment utiliser ce manuel</a></li>
-  <li><a href="#remmerciements" id="toc-remmerciements" class="nav-link" data-scroll-target="#remmerciements">Remmerciements</a>
+  <li>
+<a href="#remmerciements" id="toc-remmerciements" class="nav-link" data-scroll-target="#remmerciements">Remmerciements</a>
   <ul class="collapse">
-  <li><a href="#auteurs-et-contributeurs" id="toc-auteurs-et-contributeurs" class="nav-link" data-scroll-target="#auteurs-et-contributeurs">Auteurs et contributeurs</a></li>
+<li><a href="#auteurs-et-contributeurs" id="toc-auteurs-et-contributeurs" class="nav-link" data-scroll-target="#auteurs-et-contributeurs">Auteurs et contributeurs</a></li>
   <li><a href="#financements" id="toc-financements" class="nav-link" data-scroll-target="#financements">Financements</a></li>
   <li><a href="#inspirations" id="toc-inspirations" class="nav-link" data-scroll-target="#inspirations">Inspirations</a></li>
-  </ul></li>
-  <li><a href="#conditions-dutilisation-et-contribution" id="toc-conditions-dutilisation-et-contribution" class="nav-link" data-scroll-target="#conditions-dutilisation-et-contribution">Conditions d’utilisation et contribution</a>
+  </ul>
+</li>
+  <li>
+<a href="#conditions-dutilisation-et-contribution" id="toc-conditions-dutilisation-et-contribution" class="nav-link" data-scroll-target="#conditions-dutilisation-et-contribution">Conditions d’utilisation et contribution</a>
   <ul class="collapse">
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+<li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
   <li><a href="#contribuer" id="toc-contribuer" class="nav-link" data-scroll-target="#contribuer">Contribuer</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
-</nav>
-    </div>
+</li>
+  </ul>
+</li>
+  </ul></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Le Epi R Handbook</h1>
 </div>
 
@@ -598,52 +582,36 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   
 
 
-</header>
-
-
-<section id="bienvenue" class="level1 unnumbered">
-<h1 class="unnumbered">Bienvenue</h1>
+</header><section id="bienvenue" class="level1 unnumbered"><h1 class="unnumbered">Bienvenue</h1>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/Epi R Handbook Banner French 1500 x 500.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/Epi R Handbook Banner French 1500 x 500.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
+<figure class="figure"><p><a href="images/Epi%20R%20Handbook%20Banner%20French%201500%20x%20500.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/Epi%20R%20Handbook%20Banner%20French%201500%20x%20500.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <meta name="description" content="The Epi R Handbook est un manuel de référence sur l'utilisation de R en épidémiologie appliquée et santé publique.">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- <span style="color: red;">**THIS IS A DRAFT.  REVIEWERS GIVE FEEDBACK AT THIS [LINK](https://forms.gle/4RNdRRLGx67xW9yq9)**.</span> -->
-<!-- <span style="color: darkgreen;">**DO YOU LIKE THIS HANDBOOK? SHOULD SOMETHING BE CHANGED? PLEASE TELL US!**</span> -->
-<!-- <form target="_blank" action="https://forms.gle/A5SnRVws7tPD15Js9"> -->
-<!--     <input type="submit" value="FEEDBACK" /> -->
-<!-- </form> -->
-<!-- ======================================================= -->
-<!-- ## An R reference manual for applied epidemiology and public health {.unnumbered} -->
-<!-- <span style="color: brown;">**The Epi R Handbook is an R reference manual for applied epidemiology and public health.**</span> -->
-<!-- ## About this handbook   -->
-<section id="r-pour-lépidémiologie-appliquée-et-la-santé-publique" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="r-pour-lépidémiologie-appliquée-et-la-santé-publique">R pour l’épidémiologie appliquée et la santé publique</h2>
+<!-- <span style="color: red;">**THIS IS A DRAFT.  REVIEWERS GIVE FEEDBACK AT THIS [LINK](https://forms.gle/4RNdRRLGx67xW9yq9)**.</span> --><!-- <span style="color: darkgreen;">**DO YOU LIKE THIS HANDBOOK? SHOULD SOMETHING BE CHANGED? PLEASE TELL US!**</span> --><!-- <form target="_blank" action="https://forms.gle/A5SnRVws7tPD15Js9"> --><!--     <input type="submit" value="FEEDBACK" /> --><!-- </form> --><!-- ======================================================= --><!-- ## An R reference manual for applied epidemiology and public health {.unnumbered} --><!-- <span style="color: brown;">**The Epi R Handbook is an R reference manual for applied epidemiology and public health.**</span> --><!-- ## About this handbook   --><section id="r-pour-lépidémiologie-appliquée-et-la-santé-publique" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="r-pour-lépidémiologie-appliquée-et-la-santé-publique">R pour l’épidémiologie appliquée et la santé publique</h2>
 <p><strong>Utilisation</strong> : Ce manuel a été utilisé <strong>plus d’un million de fois par 400 000 personnes</strong> dans le monde entier.</p>
 <p><strong>Objectif:</strong> Servir de manuel de référence rapide du code R (en ligne et <strong><a href="new_pages/data_used.fr.html">hors line</a></strong>) avec des exemples centrés sur la tâche qui traitent des problèmes épidémiologiques courants.</p>
 <p><strong>Essayez nos <a href="https://www.appliedepi.org/tutorial/">tutoriels interactifs gratuits</a></strong> ou notre <strong><a href="https://www.appliedepi.org/live/">cours d’introduction</a></strong> synchrone et virtuel utilisé par les CDC américains, l’OMS et plus de 130 autres agences de santé et programmes de formation à l’épidémiologie sur le terrain dans le monde entier.</p>
 <p><strong>Langues:</strong> <a href="https://epirhandbook.com/">Anglais (English)</a>, <a href="https://epirhandbook.com/es/">Espagnol (Español)</a>, <a href="https://epirhandbook.com/vn/">Vietnamien (Tiếng Việt)</a>, <a href="https://epirhandbook.com/jp/">Japonais (日本)</a>, <a href="https://epirhandbook.com/tr/">Turc (Türkçe)</a>, <a href="https://epirhandbook.com/fr/">Francais</a>, <a href="https://epirhandbook.com/pt/">Portugais (Português)</a>, <a href="https://epirhandbook.com/ru/">Russe</a></p>
-<p><br> <span style="color: black;"><strong>Rédigé par des épidémiologistes, pour des épidémiologistes</strong></span></p>
+<p><br><span style="color: black;"><strong>Rédigé par des épidémiologistes, pour des épidémiologistes</strong></span></p>
 <div style="display: flex;">
 <div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/Applied_Epi_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/Applied_Epi_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
+<figure class="figure"><p><a href="images/Applied_Epi_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/Applied_Epi_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div class="col">
-<p>&nbsp; <!-- an empty Div (with a white space), serving as
+<p>  <!-- an empty Div (with a white space), serving as
 a column separator --></p>
 </div>
 <div>
@@ -651,19 +619,19 @@ a column separator --></p>
 <ul>
 <li>Visitez notre <strong><a href="http://www.appliedepi.org">site web</a></strong> et <strong><a href="https://forms.gle/9awNd8syypTSYUsn7">rejoignez notre liste de contacts</a></strong>.<br>
 </li>
-<li><strong>contact@appliedepi.org</strong>, tweeter <strong><a href="https://twitter.com/appliedepi">@appliedepi</a></strong>, ou <strong><a href="https://linkedin.com/company/appliedepi">LinkedIn</a></strong><br>
+<li>
+<strong>contact@appliedepi.org</strong>, tweeter <strong><a href="https://twitter.com/appliedepi">@appliedepi</a></strong>, ou <strong><a href="https://linkedin.com/company/appliedepi">LinkedIn</a></strong><br>
 </li>
-<li>Soumettre des problèmes à notre <strong><a href="https://github.com/appliedepi/epiRhandbook_eng">dépôt Github</a></strong></li>
+<li>Soumettre des problèmes à notre <strong><a href="https://github.com/appliedepi/epiRhandbook_eng">dépôt Github</a></strong>
+</li>
 </ul>
 <p><strong>Nous proposons des formations R en direct</strong> dispensées par des formateurs ayant des décennies d’expérience en épidémiologie appliquée - envoyez-nous un courriel pour en discuter.</p>
 </div>
 </div>
 <form target="_blank" action="https://www.paypal.com/donate" method="post">
-<input type="hidden" name="hosted_button_id" value="YTEZELC8VBXV6"> <input type="image" src="https://github.com/appliedepi/epiRhandbook_eng/raw/master/images/donate_button_long.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"> <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif">
+<input type="hidden" name="hosted_button_id" value="YTEZELC8VBXV6"><input type="image" src="https://github.com/appliedepi/epiRhandbook_eng/raw/master/images/donate_button_long.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif">
 </form>
-</section>
-<section id="comment-utiliser-ce-manuel" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="comment-utiliser-ce-manuel">Comment utiliser ce manuel</h2>
+</section><section id="comment-utiliser-ce-manuel" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="comment-utiliser-ce-manuel">Comment utiliser ce manuel</h2>
 <ul>
 <li>Parcourez les pages de la table des matières ou utilisez la boîte de recherche.</li>
 <li>Cliquez sur les icônes “copier” pour copier le code.<br>
@@ -673,13 +641,10 @@ a column separator --></p>
 <p><strong>Version hors ligne</strong></p>
 <p>Voir les instructions de la page <a href="new_pages/data_used.fr.html">Télécharger le manuel et les données</a>.</p>
 <!-- ======================================================= -->
-</section>
-<section id="remmerciements" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="remmerciements">Remmerciements</h2>
+</section><section id="remmerciements" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="remmerciements">Remmerciements</h2>
 <p>Cet ouvrage est le fruit du travail d’une équipe internationale d’épidémiologistes, qui se sont appuyés sur leur expérience auprès d’organisations telles que les agences sanitaires locales, régionales, provinciales et nationales de divers pays, l’Organisation mondiale de la santé (OMS), Médecins Sans Frontières (MSF), les systèmes hospitaliers et les institutions universitaires.</p>
 <p>Ce guide n’est <strong>pas</strong> un produit approuvé par une organisation spécifique. Bien que nous nous soyons efforcés à être précis, nous ne pouvons fournir aucune garantie quant au contenu de ce livre.</p>
-<section id="auteurs-et-contributeurs" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="auteurs-et-contributeurs">Auteurs et contributeurs</h3>
+<section id="auteurs-et-contributeurs" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="auteurs-et-contributeurs">Auteurs et contributeurs</h3>
 <p><strong>Editeur:</strong> <a href="https://www.linkedin.com/in/neale-batra/">Neale Batra</a></p>
 <p><strong>Commité éditorial</strong> <a href="https://www.linkedin.com/in/neale-batra/">Neale Batra</a>, <a href="https://github.com/aspina7">Alex Spina</a>, <a href="https://twitter.com/Ammer_B">Amrish Baidjoe</a>, Pat Keating, <a href="https://github.com/henryls1">Henry Laurenson-Schafer</a>, <a href="https://github.com/finlaycampbell">Finlay Campbell</a></p>
 <p><strong>Auteurs et autrices</strong>: <a href="https://www.linkedin.com/in/neale-batra/">Neale Batra</a>, <a href="https://github.com/aspina7">Alex Spina</a>, <a href="https://www.linkedin.com/in/paula-bianca-blomquist-53188186/">Paula Blomquist</a>, <a href="https://github.com/finlaycampbell">Finlay Campbell</a>, <a href="https://github.com/henryls1">Henry Laurenson-Schafer</a>, <a href="www.Twitter.com/isaacatflorence">Isaac Florence</a>, <a href="https://www.linkedin.com/in/nataliefischer211/">Natalie Fischer</a>, <a href="https://twitter.com/aminata_fadl">Aminata Ndiaye</a>, <a href="https://www.linkedin.com/in/liza-coyer-86022040/">Liza Coyer</a>, <a href="https://twitter.com/jonny_polonsky">Jonathan Polonsky</a>, <a href="https://ch.linkedin.com/in/yurie-izawa-a1590319">Yurie Izawa</a>, <a href="https://twitter.com/cbailey_58?lang=en">Chris Bailey</a>, <a href="https://www.linkedin.com/in/daniel-molling-4005716a/">Daniel Molling</a>, <a href="https://twitter.com/ishaberry2">Isha Berry</a>, <a href="https://twitter.com/buajitti">Emma Buajitti</a>, <a href="https://mathildemousset.wordpress.com/research/">Mathilde Mousset</a>, <a href="https://www.linkedin.com/in/saramhollis/">Sara Hollis</a>, Wen Lin, Olivia Boyd</p>
@@ -690,49 +655,28 @@ a column separator --></p>
 <!-- **Project core team:** Neale Batra, Alex Spina, Amrish Baidjoe, Pat Keating, Henry Laurenson-Schafer, Finlay Campbell   -->
 <!-- **Authors**: Neale Batra, Alex Spina, Paula Blomquist, Finlay Campbell, Henry Laurenson-Schafer, [Isaac Florence](www.Twitter.com/isaacatflorence), Natalie Fischer, Aminata Ndiaye, Liza Coyer, Jonathan Polonsky, Yurie Izawa, Chris Bailey, Daniel Molling, Isha Berry, Emma Buajitti, Mathilde Mousset, Sara Hollis, Wen Lin   -->
 <!-- **Reviewers**: Pat Keating, Mathilde Mousset, Annick Lenglet, Margot Charette, Isha Berry, Paula Blomquist, Natalie Fischer, Daniely Xavier, Esther Kukielka, Michelle Sloan, Aybüke Koyuncu, Rachel Burke, Daniel Molling, Kate Kelsey, Berhe Etsay, John Rossow, Mackenzie Zendt, James Wright, Wayne Enanoria, Laura Haskins, Flavio Finger, Tim Taylor, Jae Hyoung Tim Lee, Brianna Bradley, Manual Albela Miranda, Molly Mantus, Priscilla Spencer, Pattama Ulrich, Joseph Timothy, Adam Vaughan, Olivia Varsaneux, Lionel Monteiro, Joao Muianga   -->
-</section>
-<section id="financements" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="financements">Financements</h3>
+</section><section id="financements" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="financements">Financements</h3>
 <p>Le manuel a reçu un financement de soutien via une subvention d’urgence COVID-19 pour le renforcement des capacités de la part de <a href="https://www.tephinet.org/">TEPHINET</a>, le réseau mondial des programmes de formation en épidémiologie de terrain (FETP).</p>
 <p>Le réseau des anciens d’EPIET (<a href="https://epietalumni.net/">EAN</a>) a fourni un soutien administratif (Annika Wendland en particulier). EPIET est le programme européen de formation en épidémiologie d’intervention.</p>
 <p>Nous remercions tout particulièrement le Centre Opérationnel d’Amsterdam de Médecins Sans Frontières (MSF OCA) pour son soutien lors de l’élaboration de ce manuel.</p>
-<p><strong>Cette publication a été soutenue par l’accord de coopération numéro NU2GGH001873, financé par les Centers for Disease Control and Prevention par le biais de TEPHINET, un programme de “The Task Force for Global Health”. Son contenu relève de la seule responsabilité des auteurs et ne reflète pas les opinions officielles des Centers for Disease Control and Prevention, du Department of Health and Human Services, de The Task Force for Global Health, Inc.&nbsp;ou de TEPHINET.</strong></p>
-</section>
-<section id="inspirations" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="inspirations">Inspirations</h3>
+<p><strong>Cette publication a été soutenue par l’accord de coopération numéro NU2GGH001873, financé par les Centers for Disease Control and Prevention par le biais de TEPHINET, un programme de “The Task Force for Global Health”. Son contenu relève de la seule responsabilité des auteurs et ne reflète pas les opinions officielles des Centers for Disease Control and Prevention, du Department of Health and Human Services, de The Task Force for Global Health, Inc. ou de TEPHINET.</strong></p>
+</section><section id="inspirations" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="inspirations">Inspirations</h3>
 <p>Nous nous sommes inspiré de multiples tutoriels, livres et vignettes développés par la communauté pour développer ce manuel. Ces ressources, sont crédités dans les chapitres respectifs, mais nous souhaitons citer quelques sources d’inspiration générales que nous utilisons de manière récurrente :</p>
-<p><a href="https://r4epis.netlify.app/">The “R4Epis” project</a> (une collaboration entre MSF et RECON)<br>
-<a href="https://www.repidemicsconsortium.org/">R Epidemics Consortium (RECON)</a><br>
-<a href="https://r4ds.had.co.nz/">R for Data Science book (R4DS)</a><br>
-<a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a><br>
-<a href="https://www.netlify.com">Netlify</a> qui héberge ce site</p>
+<p><a href="https://r4epis.netlify.app/">The “R4Epis” project</a> (une collaboration entre MSF et RECON)<br><a href="https://www.repidemicsconsortium.org/">R Epidemics Consortium (RECON)</a><br><a href="https://r4ds.had.co.nz/">R for Data Science book (R4DS)</a><br><a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a><br><a href="https://www.netlify.com">Netlify</a> qui héberge ce site</p>
 <!-- ### Image credits {-}   -->
 <!-- Images in logo from US CDC Public Health Image Library) include [2013 Yemen looking for mosquito breeding sites](https://phil.cdc.gov/Details.aspx?pid=19623), [Ebola virus](https://phil.cdc.gov/Details.aspx?pid=23186), and [Survey in Rajasthan](https://phil.cdc.gov/Details.aspx?pid=19838).   -->
-</section>
-</section>
-<section id="conditions-dutilisation-et-contribution" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conditions-dutilisation-et-contribution">Conditions d’utilisation et contribution</h2>
-<section id="license" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="license">License</h3>
+</section></section><section id="conditions-dutilisation-et-contribution" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="conditions-dutilisation-et-contribution">Conditions d’utilisation et contribution</h2>
+<section id="license" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="license">License</h3>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>Ce document est mis à disposition selon les termes de lalicence <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0) </a>.</p>
 <p>N’hésitez pas à utiliser les contenus de ce manuel dans vos cours et formations en épidémiologie, ou à le conseiller à vos étudiants. Si vous avez des questions sur l’utilisation que vous souhaitez en faire, envoyez un courriel à <strong>contact@appliedepi.org</strong>.</p>
-</section>
-<section id="citation" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="citation">Citation</h3>
-<p>Batra, Neale, et al.&nbsp;The Epidemiologist R Handbook. 2021. <a rel="license" href="https://zenodo.org/badge/231610102.svg"><img alt="DOI" style="border-width:0" src="https://zenodo.org/badge/231610102.svg"></a><br></p>
-</section>
-<section id="contribuer" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="contribuer">Contribuer</h3>
+</section><section id="citation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="citation">Citation</h3>
+<p>Batra, Neale, et al. The Epidemiologist R Handbook. 2021. <a rel="license" href="https://zenodo.org/badge/231610102.svg"><img alt="DOI" style="border-width:0" src="https://zenodo.org/badge/231610102.svg"></a><br></p>
+</section><section id="contribuer" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="contribuer">Contribuer</h3>
 <p>Si vous souhaitez contribuer à cet ouvrage, veuillez d’abord nous contacter via les tickets (<em>issues</em>) Github ou par courriel. Nous sommes en train de développer un calendrier de mise à jour et un guide du contributeur.</p>
 <p>Veuillez noter que le projet epiRhandbook est publié avec un <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">code de conduite du contributeur</a>. En contribuant à ce projet, vous acceptez de vous conformer à ses conditions.</p>
 
 
-</section>
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1262,18 +1206,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./new_pages/editorial_style.fr.html" class="pagination-link" aria-label="Notes techniques et choix éditoriaux">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes techniques et choix éditoriaux</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">1</span>  <span class="chapter-title">Notes techniques et choix éditoriaux</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1298,8 +1240,5 @@ window.onload = () => {
 
 };
           </script>
-
-
-
-
-</body></html>
+</body>
+</html>

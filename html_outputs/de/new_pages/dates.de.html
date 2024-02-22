@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EpiRhandbook auf Deutsch - 9&nbsp; Mit Daten arbeiten</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../new_pages/characters_strings.de.html" rel="next">
+<link href="../new_pages/cleaning.de.html" rel="prev">
+<link href="../images/Applied_Epi_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QXDW878QLX');
+</script> -->
+
+</head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+</div>
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.de.html">Datenmanagement</a></li><li class="breadcrumb-item"><a href="../new_pages/dates.de.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mit Daten arbeiten</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EpiRhandbook auf Deutsch</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/appliedepi/epihandbook_quarto" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Über dieses Buch</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/editorial_style.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Redaktionelle und technische Hinweise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/data_used.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Handbuch und Daten herunterladen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Grundlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/transition_to_R.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Übergang zu R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/packages_suggested.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Vorgeschlagene Pakete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/r_projects.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-Projekte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/importing.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Import und Export</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Datenmanagement</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/cleaning.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cleaning data and core functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/dates.de.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mit Daten arbeiten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/characters_strings.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Characters and strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/factors.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Faktoren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/pivoting.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Daten pivotieren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/grouping.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Daten gruppieren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/joining_matching.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Daten verknüpfen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/deduplication.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">De-Duplizierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/iteration.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Iteration, Schleifen und Listen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analyse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/tables_descriptive.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Beschreibende Tabellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/stat_tests.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Einfache statistische Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/regression.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Univariate und multivariable Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/missing_data.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fehlende Daten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/standardization.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardisierte Sätze</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/moving_average.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gleitende Durchschnitte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/time_series.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Zeitreihen und Erkennung von Ausbrüchen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/epidemic_models.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Epidemie-Modellierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/contact_tracing.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ermittlung von Kontaktpersonen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/survey_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Umfrage-Analyse</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/survival_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Survival-Analyse</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/gis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">GIS-Grundlagen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Datenvisualisierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/tables_presentation.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Tische für die Präsentation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/ggplot_basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ggplot Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/ggplot_tips.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ggplot-Tipps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/epicurves.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Epidemische Kurven</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/age_pyramid.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Demografische Pyramiden und Likert-Skalen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/heatmaps.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Wärmebilanzen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/diagrams.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Diagramme und Tabellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/combination_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Analyse der Kombinationen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/transmission_chains.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Übertragungsketten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/phylogenetic_trees.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Phylogenetische Bäume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/interactive_plots.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Interaktive Diagramme</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Berichte und Dashboards</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/rmarkdown.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Berichte mit R Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/reportfactory.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Organisieren von Routineberichten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/flexdashboard.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Dashboards mit R Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/shiny_basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dashboards mit Shiny</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Verschiedenes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/writing_functions.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Funktionen schreiben</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/directories.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Verzeichnis-Interaktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/collaboration.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Versionskontrolle und Zusammenarbeit mit Git und Github</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/errors.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Häufige Fehler</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/help.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Hilfe bekommen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/network_drives.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">R auf Netzlaufwerken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/data_table.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Daten-Tabelle</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung"><span class="header-section-number">9.1</span> Vorbereitung</a>
+  <ul class="collapse">
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden">Pakete laden</a></li>
+  <li><a href="#daten-importieren" id="toc-daten-importieren" class="nav-link" data-scroll-target="#daten-importieren">Daten importieren</a></li>
+  </ul></li>
+  <li><a href="#aktuelles-datum" id="toc-aktuelles-datum" class="nav-link" data-scroll-target="#aktuelles-datum"><span class="header-section-number">9.2</span> Aktuelles Datum</a></li>
+  <li><a href="#in-datum-umwandeln" id="toc-in-datum-umwandeln" class="nav-link" data-scroll-target="#in-datum-umwandeln"><span class="header-section-number">9.3</span> In Datum umwandeln</a>
+  <ul class="collapse">
+  <li><a href="#basis-r" id="toc-basis-r" class="nav-link" data-scroll-target="#basis-r"><strong>Basis</strong> R</a></li>
+  <li><a href="#lubridate" id="toc-lubridate" class="nav-link" data-scroll-target="#lubridate"><strong>lubridate</strong></a></li>
+  <li><a href="#spalten-kombinieren" id="toc-spalten-kombinieren" class="nav-link" data-scroll-target="#spalten-kombinieren">Spalten kombinieren</a></li>
+  </ul></li>
+  <li><a href="#excel-daten" id="toc-excel-daten" class="nav-link" data-scroll-target="#excel-daten"><span class="header-section-number">9.4</span> Excel-Daten</a></li>
+  <li><a href="#unordentliche-termine" id="toc-unordentliche-termine" class="nav-link" data-scroll-target="#unordentliche-termine"><span class="header-section-number">9.5</span> Unordentliche Termine</a></li>
+  <li><a href="#arbeiten-mit-der-datum-zeit-klasse" id="toc-arbeiten-mit-der-datum-zeit-klasse" class="nav-link" data-scroll-target="#arbeiten-mit-der-datum-zeit-klasse"><span class="header-section-number">9.6</span> Arbeiten mit der Datum-Zeit-Klasse</a>
+  <ul class="collapse">
+  <li><a href="#daten-mit-zeiten-umrechnen" id="toc-daten-mit-zeiten-umrechnen" class="nav-link" data-scroll-target="#daten-mit-zeiten-umrechnen">Daten mit Zeiten umrechnen</a></li>
+  <li><a href="#zeiten-allein-umrechnen" id="toc-zeiten-allein-umrechnen" class="nav-link" data-scroll-target="#zeiten-allein-umrechnen">Zeiten allein umrechnen</a></li>
+  <li><a href="#zeit-extrahieren" id="toc-zeit-extrahieren" class="nav-link" data-scroll-target="#zeit-extrahieren">Zeit extrahieren</a></li>
+  </ul></li>
+  <li><a href="#arbeiten-mit-daten" id="toc-arbeiten-mit-daten" class="nav-link" data-scroll-target="#arbeiten-mit-daten"><span class="header-section-number">9.7</span> Arbeiten mit Daten</a>
+  <ul class="collapse">
+  <li><a href="#datumskomponenten-extrahieren" id="toc-datumskomponenten-extrahieren" class="nav-link" data-scroll-target="#datumskomponenten-extrahieren">Datumskomponenten extrahieren</a></li>
+  <li><a href="#datumsmathematik" id="toc-datumsmathematik" class="nav-link" data-scroll-target="#datumsmathematik">Datumsmathematik</a></li>
+  <li><a href="#datumsintervalle" id="toc-datumsintervalle" class="nav-link" data-scroll-target="#datumsintervalle">Datumsintervalle</a></li>
+  </ul></li>
+  <li><a href="#datumsanzeige" id="toc-datumsanzeige" class="nav-link" data-scroll-target="#datumsanzeige"><span class="header-section-number">9.8</span> Datumsanzeige</a>
+  <ul class="collapse">
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format"><code>format()</code></a></li>
+  <li><a href="#monat-jahr" id="toc-monat-jahr" class="nav-link" data-scroll-target="#monat-jahr">Monat-Jahr</a></li>
+  </ul></li>
+  <li><a href="#epidemiologische-wochen-dates_epi_wks" id="toc-epidemiologische-wochen-dates_epi_wks" class="nav-link" data-scroll-target="#epidemiologische-wochen-dates_epi_wks"><span class="header-section-number">9.9</span> Epidemiologische Wochen {#dates_epi_wks}</a>
+  <ul class="collapse">
+  <li><a href="#lubridate-1" id="toc-lubridate-1" class="nav-link" data-scroll-target="#lubridate-1"><strong>lubridate</strong></a></li>
+  <li><a href="#wöchentliche-zählungen" id="toc-wöchentliche-zählungen" class="nav-link" data-scroll-target="#wöchentliche-zählungen">Wöchentliche Zählungen</a></li>
+  <li><a href="#epiweek-alternativen" id="toc-epiweek-alternativen" class="nav-link" data-scroll-target="#epiweek-alternativen">Epiweek Alternativen</a></li>
+  </ul></li>
+  <li><a href="#umrechnung-von-datenzeitzonen" id="toc-umrechnung-von-datenzeitzonen" class="nav-link" data-scroll-target="#umrechnung-von-datenzeitzonen"><span class="header-section-number">9.10</span> Umrechnung von Daten/Zeitzonen</a></li>
+  <li><a href="#nachlaufende-und-vorlaufende-berechnungen" id="toc-nachlaufende-und-vorlaufende-berechnungen" class="nav-link" data-scroll-target="#nachlaufende-und-vorlaufende-berechnungen"><span class="header-section-number">9.11</span> Nachlaufende und vorlaufende Berechnungen</a></li>
+  <li><a href="#ressourcen" id="toc-ressourcen" class="nav-link" data-scroll-target="#ressourcen"><span class="header-section-number">9.12</span> Ressourcen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.de.html">Datenmanagement</a></li><li class="breadcrumb-item"><a href="../new_pages/dates.de.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mit Daten arbeiten</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mit Daten arbeiten</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Dates_500x500.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/Dates_500x500.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Arbeit mit Datumsangaben in R erfordert mehr Aufmerksamkeit als die Arbeit mit anderen Objektklassen. Im Folgenden stellen wir einige Werkzeuge und Beispiele vor, die diesen Prozess weniger mühsam machen. Glücklicherweise lassen sich Datumsangaben mit etwas Übung und einer Reihe von hilfreichen Paketen wie <strong>lubridate</strong>.</p>
+<p>Beim Import von Rohdaten interpretiert R Datumsangaben oft als Zeichenobjekte - das bedeutet, dass sie nicht für allgemeine Datumsoperationen wie die Erstellung von Zeitreihen und die Berechnung von Zeitintervallen verwendet werden können. Erschwerend kommt hinzu, dass es viele Möglichkeiten gibt, ein Datum zu formatieren, und du musst R dabei helfen, herauszufinden, welcher Teil eines Datums wofür steht (Monat, Tag, Stunde usw.).</p>
+<p>Datumsangaben sind in R eine eigene Objektklasse - die <code>Date</code> Klasse. Es ist zu beachten, dass es auch eine Klasse gibt, die Objekte mit Datum speichert <em>und</em> Uhrzeit. Datums-Zeit-Objekte werden formal bezeichnet als <code>POSIXt</code>, <code>POSIXct</code>, und/oder <code>POSIXlt</code> Klassen (der Unterschied ist nicht wichtig). Diese Objekte werden informell bezeichnet als <em>datetime</em> Klassen bezeichnet.</p>
+<ul>
+<li>Es ist wichtig, dass R erkennt, wenn eine Spalte Datumsangaben enthält.</li>
+<li>Datumsangaben sind eine Objektklasse und es kann schwierig sein, mit ihnen zu arbeiten.</li>
+<li>Hier stellen wir dir verschiedene Möglichkeiten vor, wie du Datumsspalten in die Date-Klasse umwandeln kannst.</li>
+</ul>
+<!-- ======================================================= -->
+<section id="vorbereitung" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="vorbereitung"><span class="header-section-number">9.1</span> Vorbereitung</h2>
+<section id="pakete-laden" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pakete-laden">Pakete laden</h3>
+<p>Dieser Codeabschnitt zeigt das Laden der Pakete, die für diese Seite benötigt werden. In diesem Handbuch betonen wir <code>p_load()</code> von <strong>pacman</strong>, der das Paket bei Bedarf installiert <em>und</em> lädt es zur Verwendung. Du kannst installierte Pakete auch laden mit <code>library()</code> von <strong>base</strong>R. Siehe die Seite über [R-Grundlagen] für weitere Informationen über R-Pakete.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checks if package is installed, installs if necessary, and loads package for current session</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  lubridate,  <span class="co"># general package for handling and converting dates  </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  parsedate,  <span class="co"># has function to "guess" messy dates</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  aweek,      <span class="co"># another option for converting dates to weeks, and weeks to dates</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  zoo,        <span class="co"># additional date/time functions</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  here,       <span class="co"># file management</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  rio,        <span class="co"># data import/export</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  tidyverse)  <span class="co"># data management and visualization  </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="daten-importieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="daten-importieren">Daten importieren</h3>
+<p>Wir importieren den Datensatz der Fälle aus einer simulierten Ebola-Epidemie. Wenn du die Daten herunterladen möchtest, um Schritt für Schritt mitzumachen, sieh dir die Anleitung im [Handbuch und Daten herunterladen] Seite. Wir gehen davon aus, dass sich die Datei im Arbeitsverzeichnis befindet, also werden in diesem Dateipfad keine Unterordner angegeben.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"linelist_cleaned.xlsx"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="aktuelles-datum" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="aktuelles-datum"><span class="header-section-number">9.2</span> Aktuelles Datum</h2>
+<p>Du kannst das aktuelle “System”-Datum oder die System-Datumszeit deines Computers ermitteln, indem du Folgendes tust mit <strong>Basis</strong> R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the system date - this is a DATE class</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-02-21"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the system time - this is a DATETIME class</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-02-21 13:57:57 CET"</code></pre>
+</div>
+</div>
+<p>Mit der <strong>lubridate</strong> Paket können diese auch zurückgegeben werden mit <code>today()</code> und <code>now()</code> zurückgegeben werden. <code>date()</code> gibt das aktuelle Datum und die Uhrzeit mit Wochentags- und Monatsnamen zurück.</p>
+<!-- ======================================================= -->
+</section>
+<section id="in-datum-umwandeln" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="in-datum-umwandeln"><span class="header-section-number">9.3</span> In Datum umwandeln</h2>
+<p>Nach dem Import eines Datensatzes in R können die Werte der Datumsspalten wie “1989/12/30”, “05/06/2014” oder “13 Jan 2020” aussehen. In diesen Fällen behandelt R diese Werte wahrscheinlich immer noch als Zeichenwerte. R muss <em>mitgeteilt</em> dass es sich bei diesen Werten um Datumswerte handelt… und welches Format das Datum hat (welcher Teil ist der Tag, welcher der Monat, welcher das Jahr, usw.).</p>
+<p>Sobald dies bekannt ist, wandelt R diese Werte in die Klasse Datum um. Im Hintergrund speichert R die Daten als Zahlen (die Anzahl der Tage seit dem “Ursprungsdatum” 1. Januar 1970). Du wirst nicht oft mit den Datumszahlen in Berührung kommen, aber so kann R Datumswerte als kontinuierliche Variablen behandeln und spezielle Operationen wie die Berechnung des Abstands zwischen Datumswerten ermöglichen.</p>
+<p>Standardmäßig werden Werte der Klasse Datum in R als JJJJ-MM-TT angezeigt. Später in diesem Abschnitt werden wir besprechen, wie du die Anzeige von Datumswerten ändern kannst.</p>
+<p>Im Folgenden stellen wir zwei Methoden vor, um eine Spalte von Zeichenwerten in die Klasse Datum zu konvertieren.</p>
+<p><span style="color: darkgreen;"><strong><em>TIPP:</em></strong> Du kannst die aktuelle Klasse einer Spalte mit <strong>base</strong> R-Funktion <code>class()</code>, wie <code>class(linelist$date_onset)</code>.</span></p>
+<section id="basis-r" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="basis-r"><strong>Basis</strong> R</h3>
+<p><code>as.Date()</code> ist der Standard, <strong>Basis</strong> R-Funktion, um ein Objekt oder eine Spalte in die Klasse Datum zu konvertieren (beachte die Großschreibung von “D”).</p>
+<p>Die Verwendung von <code>as.Date()</code> erfordert, dass:</p>
+<ul>
+<li>Du <em>specify the <strong>bestehende</strong> Format des Rohzeichendatums</em> oder des Ursprungsdatums, wenn das Datum als Zahl angegeben wird (siehe Abschnitt über Excel-Datumsangaben)</li>
+<li>Bei der Verwendung in einer Zeichenspalte müssen alle Datumswerte genau dasselbe Format haben (ist dies nicht der Fall, versuche <code>parse_date()</code> aus der <strong>parsedate</strong> Paket)</li>
+</ul>
+<p><strong>Erste</strong> überprüfe die Klasse deiner Spalte mit <code>class()</code> von <strong>Basis</strong> R. Wenn du unsicher oder verwirrt über die Klasse deiner Daten bist (z. B. siehst du “POSIXct” usw.), kann es am einfachsten sein, die Spalte zunächst in die Klasse Character umzuwandeln mit <code>as.character()</code> zu konvertieren und sie dann in die Klasse Datum umzuwandeln.</p>
+<p><strong>Zweite</strong> innerhalb der <code>as.Date()</code> Funktion, die <code>format =</code> Argument, um R die <em>aktuelle</em> Format der Datumskomponenten mitteilt - welche Zeichen sich auf den Monat, den Tag und das Jahr beziehen und wie sie getrennt werden. Wenn deine Werte bereits in einem der Standard-Datumsformate von R vorliegen (“JJJJ-MM-TT” oder “JJJJ/MM/TT”), wird das <code>format =</code> Argument nicht notwendig.</p>
+<p>An <code>format =</code> gibst du eine Zeichenkette (in Anführungszeichen) an, die den <em>aktuelle</em> Datumsformat unter Verwendung der speziellen “strptime” Abkürzungen unten. Wenn deine Datumsangaben zum Beispiel das Format “TT/MM/JJJJ” haben, z. B. “24/04/1968”, würdest du Folgendes verwenden <code>format = "%d/%m/%Y"</code> verwenden, um die Werte in Datumsangaben umzuwandeln. <strong>Das Format muss in Anführungszeichen gesetzt werden. Und vergiss keine Schrägstriche oder Bindestriche!</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to class date</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> <span class="fu">as.Date</span>(date_of_onset, <span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die meisten strptime-Abkürzungen sind unten aufgeführt. Die vollständige Liste kannst du sehen, indem du <code>?strptime</code>.</p>
+<p>%d = Tagesnummer des Monats (5, 17, 28, etc.)<br>
+%j = Tagesnummer des Jahres (Julianischer Tag 001-366)<br>
+%a = Abgekürzter Wochentag (Mo, Di, Mi, etc.)<br>
+%A = Voller Wochentag (Montag, Dienstag, etc.) %w = Wochentagsnummer (0-6, Sonntag ist 0)<br>
+%u = Wochentagsnummer (1-7, Montag ist 1)<br>
+%W = Wochennummer (00-53, Montag ist der Wochenanfang)<br>
+%U = Wochennummer (01-53, Sonntag ist der Wochenbeginn)<br>
+%m = Monatsnummer (z. B. 01, 02, 03, 04)<br>
+%b = abgekürzter Monat (Jan, Feb, etc.)<br>
+%B = Ganzer Monat (Januar, Februar, etc.)<br>
+%y = 2-stelliges Jahr (z. B. 89)<br>
+%Y = 4-stellige Jahreszahl (z. B. 1989)<br>
+%h = Stunden (24-Stunden-Uhr)<br>
+%m = Minuten<br>
+%s = Sekunden %z = Abweichung von der GMT<br>
+%Z = Zeitzone (Zeichen)</p>
+<p><span style="color: darkgreen;"><strong><em>TIPP:</em></strong> Die <code>format =</code> Argument der <code>as.Date()</code> ist <em>nicht</em> R mitzuteilen, welches Format die Daten haben sollen, sondern wie die Datumsbestandteile zu identifizieren sind <em>vor</em> du den Befehl ausführst.</span></p>
+<p><span style="color: darkgreen;"><strong><em>TIPP:</em></strong> Achte darauf, dass in der <code>format =</code> Argument die <em>Datumsteil-Trennzeichen</em> (z.B. /, - oder Leerzeichen), das in deinen Daten vorhanden ist.</span></p>
+<p>Sobald die Werte in der Klasse Datum sind, zeigt R sie standardmäßig im Standardformat an, also JJJJ-MM-TT.</p>
+</section>
+<section id="lubridate" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="lubridate"><strong>lubridate</strong></h3>
+<p>Die Umwandlung von Zeichenobjekten in Datumsangaben kann durch die Verwendung der <strong>lubridate</strong> Paket. Dies ist ein <strong>tidyverse</strong> Paket, das die Arbeit mit Daten und Zeiten einfacher und konsistenter als in <strong>base</strong> R. Aus diesen Gründen, <strong>lubridate</strong> oft als das Standardpaket für Datum und Zeit angesehen und wird empfohlen, wenn du mit ihnen arbeitest.</p>
+<p>Die <strong>lubridate</strong> Paket stellt verschiedene Hilfsfunktionen zur Verfügung, mit denen Zeichenobjekte auf intuitive Weise in Datumsangaben umgewandelt werden können, was einfacher ist als die Angabe des Formats in <code>as.Date()</code>. Diese Funktionen sind spezifisch für das grobe Datumsformat, erlauben aber eine Vielzahl von Trennzeichen und Synonymen für Datumsangaben (z.B. 01 vs Jan vs Januar) - sie sind nach Abkürzungen von Datumsformaten benannt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install/load lubridate </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(lubridate)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die <code>ymd()</code> Funktion konvertiert flexibel Datumswerte, die als <strong>Jahr, dann Monat, dann Tag</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read date in year-month-day format</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"2020-10-11"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"20201011"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+</div>
+<p>Die <code>mdy()</code> Funktion konvertiert flexibel Datumswerte, die als <strong>Monat, dann Tag, dann Jahr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read date in month-day-year format</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy</span>(<span class="st">"10/11/2020"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy</span>(<span class="st">"Oct 11 20"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+</div>
+<p>Die <code>dmy()</code> Funktion konvertiert flexibel Datumswerte, die als <strong>Tag, dann Monat, dann Jahr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read date in day-month-year format</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dmy</span>(<span class="st">"11 10 2020"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dmy</span>(<span class="st">"11 October 2020"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-10-11"</code></pre>
+</div>
+</div>
+<!-- Die Befehle `as.character()` und `as.Date()` können optional kombiniert werden:   -->
+<!-- ``{r eval=F} -->
+<!-- linelist_cleaned$date_of_onset <- as.Date(as.character(linelist_cleaned$date_of_onset), format = "%d/%m/%Y") -->
+<!-- ``` -->
+<p>Wenn du Piping verwendest, kann die Umwandlung einer Zeichenspalte in ein Datum mit <strong>lubridate</strong> könnte so aussehen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(date_onset))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn du fertig bist, kannst du Folgendes ausführen <code>class()</code> ausführen, um die Klasse der Spalte zu überprüfen</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the class of the column</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(linelist<span class="sc">$</span>date_onset)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn die Werte in der Klasse Datum sind, zeigt R sie standardmäßig im Standardformat an, also JJJJ-MM-TT.</p>
+<p>Beachte, dass die oben genannten Funktionen am besten mit 4-stelligen Jahreszahlen funktionieren. Zweistellige Jahreszahlen können zu unerwarteten Ergebnissen führen, da lubridate versucht, das Jahrhundert zu erraten.</p>
+<p>Um eine zweistellige Jahreszahl in eine vierstellige Jahreszahl umzuwandeln (alle im selben Jahrhundert), kannst du in Klassenzeichen umwandeln und dann die vorhandenen Ziffern mit einem Präfix kombinieren, indem du <code>str_glue()</code> aus der <strong>stringr</strong>Paket (siehe [Zeichen und Zeichenketten]). Dann konvertiere in ein Datum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>two_digit_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"15"</span>, <span class="st">"15"</span>, <span class="st">"16"</span>, <span class="st">"17"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_glue</span>(<span class="st">"20{two_digit_years}"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2015
+2015
+2016
+2017</code></pre>
+</div>
+</div>
+</section>
+<section id="spalten-kombinieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="spalten-kombinieren">Spalten kombinieren</h3>
+<p>Du kannst die <strong>lubridate</strong> Funktionen <code>make_date()</code> und <code>make_datetime()</code> um mehrere numerische Spalten zu einer Datumsspalte zu kombinieren. Wenn du zum Beispiel numerische Spalten hast <code>onset_day</code>, <code>onset_month</code>, und <code>onset_year</code> in dem Datenrahmen <code>linelist</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">onset_date =</span> <span class="fu">make_date</span>(<span class="at">year =</span> onset_year, <span class="at">month =</span> onset_month, <span class="at">day =</span> onset_day))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="excel-daten" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="excel-daten"><span class="header-section-number">9.4</span> Excel-Daten</h2>
+<p>Im Hintergrund speichern die meisten Programme Datumsangaben als Zahlen. R speichert Datumsangaben ab dem 1. Januar 1970. Wenn du also <code>as.numeric(as.Date("1970-01-01))</code> aufrufst, erhältst du <code>0</code>.</p>
+<p>Microsoft Excel speichert Datumsangaben, deren Ursprung entweder der 30. Dezember 1899 (Windows) oder der 1. Januar 1904 (Mac) ist, abhängig von deinem Betriebssystem. Siehe dies <a href="https://docs.microsoft.com/en-us/office/troubleshoot/excel/1900-and-1904-date-system">Microsoft-Anleitung</a> für weitere Informationen.</p>
+<p>Excel-Datumsangaben werden oft als numerische Werte in R importiert und nicht als Zeichen. Wenn der Datensatz, den du aus Excel importiert hast, Datumsangaben in Form von Zahlen oder Zeichen wie “41369”… enthält, verwende <code>as.Date()</code> (oder <strong>lubridate</strong>’s <code>as_date()</code> Funktion) zu konvertieren, aber <strong>anstatt ein “Format” wie oben anzugeben, gib das Excel-Ursprungsdatum an</strong> an das Argument <code>origin =</code>.</p>
+<p>Das funktioniert nicht, wenn das Excel-Datum in R als Zeichentyp gespeichert ist. Achte also darauf, dass die Zahl der Klasse Numerisch angehört!</p>
+<p><span style="color: black;"><strong><em>HINWEIS:</em></strong> Du solltest das Ursprungsdatum im Standard-Datumsformat von R (“JJJJ-MM-TT”) angeben.</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># An example of providing the Excel 'origin date' when converting Excel number dates</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data_cleaned <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> <span class="fu">as.numeric</span>(date_onset)) <span class="sc">%&gt;%</span>   <span class="co"># ensure class is numeric</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> <span class="fu">as.Date</span>(date_onset, <span class="at">origin =</span> <span class="st">"1899-12-30"</span>)) <span class="co"># convert to date using Excel origin</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+<section id="unordentliche-termine" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="unordentliche-termine"><span class="header-section-number">9.5</span> Unordentliche Termine</h2>
+<p>Die Funktion <code>parse_date()</code> aus dem <strong>parsedate</strong> Paket versucht, eine “chaotische” Datumsspalte zu lesen, die Datumsangaben in vielen verschiedenen Formaten enthält, und die Daten in ein Standardformat zu konvertieren. Du kannst <a href="https://readr.tidyverse.org/reference/parse_datetime.html">mehr online lesen über <code>parse_date()</code></a>.</p>
+<p>Zum Beispiel <code>parse_date()</code> einen Vektor der folgenden Zeichendaten “03 Jan 2018”, “07/03/1982” und “08/20/85” und konvertiert sie in die Klasse Datum als: <code>2018-01-03</code>, <code>1982-03-07</code>, und <code>1985-08-20</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>parsedate<span class="sc">::</span><span class="fu">parse_date</span>(<span class="fu">c</span>(<span class="st">"03 January 2018"</span>,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"07/03/1982"</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"08/20/85"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2018-01-03 UTC" "1982-07-03 UTC" "1985-08-20 UTC"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># An example using parse_date() on the column date_onset</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span>      </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> <span class="fu">parse_date</span>(date_onset))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+<section id="arbeiten-mit-der-datum-zeit-klasse" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="arbeiten-mit-der-datum-zeit-klasse"><span class="header-section-number">9.6</span> Arbeiten mit der Datum-Zeit-Klasse</h2>
+<p>Wie bereits erwähnt, unterstützt R auch eine <code>datetime</code> Klasse - eine Spalte, die das Datum enthält <strong>und</strong> Zeitinformationen enthält. Wie bei der <code>Date</code> Klasse, müssen diese oft von <code>character</code> Objekten in <code>datetime</code> Objekte umgewandelt werden.</p>
+<section id="daten-mit-zeiten-umrechnen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="daten-mit-zeiten-umrechnen">Daten mit Zeiten umrechnen</h3>
+<p>A Standard <code>datetime</code> Objekt wird zuerst mit dem Datum formatiert, gefolgt von einer Zeitkomponente - zum Beispiel <em>01 Jan 2020, 16:30</em>. Wie bei den Datumsangaben gibt es viele Möglichkeiten, diese zu formatieren, und es gibt zahlreiche Genauigkeitsstufen (Stunden, Minuten, Sekunden), die angegeben werden können.</p>
+<p>Zum Glück, <strong>lubridate</strong> auch Hilfsfunktionen, die dabei helfen, diese Zeichenketten in <code>datetime</code> Objekte umzuwandeln. Diese Funktionen sind Erweiterungen der date-Hilfsfunktionen, mit <code>_h</code> (nur Stunden angegeben), <code>_hm</code> (mit Stunden und Minuten), oder <code>_hms</code> (mit Stunden, Minuten und Sekunden) am Ende angehängt (z. B. <code>dmy_hms()</code>). Diese können wie gezeigt verwendet werden:</p>
+<p>datetime mit nur Stunden in datetime-Objekt konvertieren</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_h</span>(<span class="st">"2020-01-01 16hrs"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-01 16:00:00 UTC"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_h</span>(<span class="st">"2020-01-01 4PM"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-01 16:00:00 UTC"</code></pre>
+</div>
+</div>
+<p>datetime mit Stunden und Minuten in ein datetime-Objekt konvertieren</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dmy_hm</span>(<span class="st">"01 January 2020 16:20"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-01 16:20:00 UTC"</code></pre>
+</div>
+</div>
+<p>datetime mit Stunden, Minuten und Sekunden in ein datetime-Objekt konvertieren</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy_hms</span>(<span class="st">"01 January 2020, 16:20:40"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-20 16:20:40 UTC"</code></pre>
+</div>
+</div>
+<p>Du kannst die Zeitzone angeben, aber sie wird ignoriert. Siehe den Abschnitt über Zeitzonen weiter unten auf dieser Seite.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy_hms</span>(<span class="st">"01 January 2020, 16:20:40 PST"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-20 16:20:40 UTC"</code></pre>
+</div>
+</div>
+<p>Wenn du mit einem Datenrahmen arbeitest, können Zeit- und Datumsspalten kombiniert werden, um eine Datetime-Spalte zu erstellen. <code>str_glue()</code> von <strong>stringr</strong> Paket und eine entsprechende <strong>lubridate</strong>Funktion. Siehe die Seite über [Zeichen und Zeichenketten] für Details zu<strong>stringr</strong>.</p>
+<p>In diesem Beispiel wird die <code>linelist</code> Datenrahmen eine Spalte im Format “Stunden:Minuten”. Um diese in eine Datumszeit zu konvertieren, folgen wir ein paar Schritten:</p>
+<ol type="1">
+<li>Erstelle eine “saubere” Aufnahmezeitspalte, in der fehlende Werte mit dem Spaltenmedian aufgefüllt werden. Wir tun dies, weil <strong>lubridate</strong> nicht mit fehlenden Werten arbeiten kann. Kombiniere sie mit der Spalte <code>date_hospitalisation</code> und verwende dann die Funktion <code>ymd_hm()</code> umzuwandeln.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, lubridate, stringr)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># time_admission is a column in hours:minutes</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># when time of admission is not given, assign the median admission time</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">time_admission_clean =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">is.na</span>(time_admission),         <span class="co"># if time is missing</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">median</span>(time_admission),        <span class="co"># assign the median</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>      time_admission                 <span class="co"># if not missing keep as is</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use str_glue() to combine date and time columns to create one character column</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and then use ymd_hm() to convert it to datetime</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_time_of_admission =</span> <span class="fu">str_glue</span>(<span class="st">"{date_hospitalisation} {time_admission_clean}"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ymd_hm</span>()</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="zeiten-allein-umrechnen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="zeiten-allein-umrechnen">Zeiten allein umrechnen</h3>
+<p>Wenn deine Daten nur eine Zeichenzeit (Stunden und Minuten) enthalten, kannst du sie als Zeiten konvertieren und manipulieren, indem du <code>strptime()</code> von <strong>Basis</strong> R. Um zum Beispiel die Differenz zwischen zwei dieser Zeiten zu ermitteln:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># raw character times</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>time1 <span class="ot">&lt;-</span> <span class="st">"13:45"</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>time2 <span class="ot">&lt;-</span> <span class="st">"15:20"</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Times converted to a datetime class</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>time1_clean <span class="ot">&lt;-</span> <span class="fu">strptime</span>(time1, <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>time2_clean <span class="ot">&lt;-</span> <span class="fu">strptime</span>(time2, <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Difference is of class "difftime" by default, here converted to numeric hours </span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(time2_clean <span class="sc">-</span> time1_clean)   <span class="co"># difference in hours</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.583333</code></pre>
+</div>
+</div>
+<p>Beachte jedoch, dass ohne Angabe eines Datumswertes davon ausgegangen wird, dass das Datum heute ist. Um ein String-Datum und eine String-Zeit miteinander zu kombinieren, siehe <strong>stringr</strong> im Abschnitt weiter oben. Lies mehr über <code>strptime()</code> <a href="https://rdrr.io/r/base/strptime.html">hier</a>.</p>
+<p>Um einstellige Zahlen in zweistellige umzuwandeln (z.B. um Stunden oder Minuten mit führenden Nullen “aufzufüllen”, um 2 Stellen zu erhalten), siehe dies <a href="characters_strings.de.html#str_pad">Abschnitt “Auffülllänge” auf der Seite Zeichen und Zeichenketten</a>.</p>
+</section>
+<section id="zeit-extrahieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="zeit-extrahieren">Zeit extrahieren</h3>
+<p>Du kannst Elemente einer Zeit extrahieren mit <code>hour()</code>, <code>minute()</code>, oder <code>second()</code> von <strong>lubridate</strong>.</p>
+<p>Hier ist ein Beispiel für die Extraktion der Stunde und die anschließende Klassifizierung nach Tageszeiten. Wir beginnen mit der Spalte <code>time_admission</code> die die Klasse Zeichen im Format “HH:MM” enthält. Zuerst wird die <code>strptime()</code> wie oben beschrieben verwendet, um die Zeichen in die Datetime-Klasse umzuwandeln. Dann wird die Stunde extrahiert mit <code>hour()</code> extrahiert, was eine Zahl von 0-24 ergibt. Schließlich wird eine Spalte <code>time_period</code> erstellt, indem die Logik mit <code>case_when()</code> erstellt, um die Zeilen anhand der Uhrzeit ihrer Aufnahme in Vormittag/Nachmittag/Abend/Nacht einzuteilen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hour_admit =</span> <span class="fu">hour</span>(<span class="fu">strptime</span>(time_admission, <span class="at">format =</span> <span class="st">"%H:%M"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_period =</span> <span class="fu">case_when</span>(</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    hour_admit <span class="sc">&gt;</span> <span class="dv">06</span> <span class="sc">&amp;</span> hour_admit <span class="sc">&lt;</span> <span class="dv">12</span> <span class="sc">~</span> <span class="st">"Morning"</span>,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    hour_admit <span class="sc">&gt;=</span> <span class="dv">12</span> <span class="sc">&amp;</span> hour_admit <span class="sc">&lt;</span> <span class="dv">17</span> <span class="sc">~</span> <span class="st">"Afternoon"</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    hour_admit <span class="sc">&gt;=</span> <span class="dv">17</span> <span class="sc">&amp;</span> hour_admit <span class="sc">&lt;</span> <span class="dv">21</span> <span class="sc">~</span> <span class="st">"Evening"</span>,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    hour_admit <span class="sc">&gt;=</span><span class="dv">21</span> <span class="sc">|</span> hour_admit <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Night"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Um mehr zu erfahren über <code>case_when()</code>siehe die Seite über [Datenbereinigung und Kernfunktionen].</p>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="arbeiten-mit-daten" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="arbeiten-mit-daten"><span class="header-section-number">9.7</span> Arbeiten mit Daten</h2>
+<p><code>lubridate</code> kann auch für eine Vielzahl anderer Funktionen verwendet werden, wie zum Beispiel <strong>Aspekte eines Datums/einer Uhrzeit extrahieren</strong>, <strong>Durchführen von Datumsarithmetik</strong> oder <strong>Berechnung von Datumsintervallen</strong></p>
+<p>Hier legen wir ein Datum fest, das wir für die Beispiele verwenden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create object of class Date</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>example_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2020-03-01"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="datumskomponenten-extrahieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="datumskomponenten-extrahieren">Datumskomponenten extrahieren</h3>
+<p>Du kannst allgemeine Aspekte wie Monat, Tag und Wochentag extrahieren:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(example_date)  <span class="co"># month number</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">day</span>(example_date)    <span class="co"># day (number) of the month</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wday</span>(example_date)   <span class="co"># day number of the week (1-7)</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Du kannst auch Zeitkomponenten aus einer <code>datetime</code> Objekt oder einer Spalte extrahieren. Das kann nützlich sein, wenn du dir die Verteilung der Aufnahmezeiten ansehen willst.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>example_datetime <span class="ot">&lt;-</span> <span class="fu">ymd_hm</span>(<span class="st">"2020-03-01 14:45"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hour</span>(example_datetime)     <span class="co"># extract hour</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">minute</span>(example_datetime)   <span class="co"># extract minute</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">second</span>(example_datetime)   <span class="co"># extract second</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Es gibt mehrere Optionen, um Wochen abzurufen. Siehe den Abschnitt über epidemiologische Wochen weiter unten.</p>
+<p>Beachte, dass du, wenn du <em>anzeigen</em> Wenn du ein Datum auf eine bestimmte Art und Weise anzeigen lassen willst (z. B. “Januar 2020” oder “Donnerstag, 20. März” oder “Woche 20, 1977”), kannst du dies flexibler tun, wie im Abschnitt über die Datumsanzeige beschrieben.</p>
+</section>
+<section id="datumsmathematik" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="datumsmathematik">Datumsmathematik</h3>
+<p>Du kannst eine bestimmte Anzahl von Tagen oder Wochen hinzufügen, indem du die entsprechende Funktion aus <strong>lubridate</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add 3 days to this date</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>example_date <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">3</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-03-04"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add 7 weeks and subtract two days from this date</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>example_date <span class="sc">+</span> <span class="fu">weeks</span>(<span class="dv">7</span>) <span class="sc">-</span> <span class="fu">days</span>(<span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-04-17"</code></pre>
+</div>
+</div>
+</section>
+<section id="datumsintervalle" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="datumsintervalle">Datumsintervalle</h3>
+<p>Die Differenz zwischen den Daten kann berechnet werden durch:</p>
+<ol type="1">
+<li>Sicherstellen, dass beide Daten ein Klassendatum sind</li>
+<li>Verwende die Subtraktion, um die “difftime”-Differenz zwischen den beiden Daten zu ermitteln</li>
+<li>Falls nötig, konvertiere das Ergebnis in eine numerische Klasse, um weitere mathematische Berechnungen durchzuführen</li>
+</ol>
+<p>Unten wird das Intervall zwischen zwei Daten berechnet und angezeigt. Du kannst Intervalle ermitteln, indem du das Subtraktionssymbol “Minus” für Werte der Klasse Datum verwendest. Beachte jedoch, dass die Klasse des zurückgegebenen Wertes “difftime” ist, wie unten dargestellt, und in numerisch umgewandelt werden muss.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the interval between this date and Feb 20 2020 </span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> example_date <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"2020-02-20"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>output    <span class="co"># print</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 10 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(output)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "difftime"</code></pre>
+</div>
+</div>
+<p>Um weitere Operationen mit einer “difftime” durchzuführen, musst du sie in numerisch umwandeln mit <code>as.numeric()</code>.</p>
+<p>Das alles kann zusammengeführt werden, um mit Daten zu arbeiten - zum Beispiel:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(lubridate, tidyverse)   <span class="co"># load packages</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert date of onset from character to date objects by specifying dmy format</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_onset =</span> <span class="fu">dmy</span>(date_onset),</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">date_hospitalisation =</span> <span class="fu">dmy</span>(date_hospitalisation)) <span class="sc">%&gt;%</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter out all cases without onset in march</span></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(date_onset) <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># find the difference in days between onset and hospitalisation</span></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_onset_to_hosp =</span> date_hospitalisation <span class="sc">-</span> date_of_onset)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn in einem Datenrahmen eines der oben genannten Daten fehlt, schlägt der Vorgang für diese Zeile fehl. Das Ergebnis ist eine <code>NA</code> statt eines numerischen Wertes. Wenn du diese Spalte für Berechnungen verwendest, musst du die Option <code>na.rm =</code> Argument auf <code>TRUE</code>. Zum Beispiel:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the median number of days to hospitalisation for all cases where data are available</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(linelist_delay<span class="sc">$</span>days_onset_to_hosp, <span class="at">na.rm =</span> T)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="datumsanzeige" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="datumsanzeige"><span class="header-section-number">9.8</span> Datumsanzeige</h2>
+<p>Wenn das Datum die richtige Klasse hat, möchtest du es oft anders anzeigen lassen, zum Beispiel als “Montag, 05. Januar” statt als “2018-01-05”. Vielleicht möchtest du die Anzeige auch anpassen, um die Zeilen nach den angezeigten Datumselementen zu gruppieren - zum Beispiel nach Monat und Jahr.</p>
+<section id="format" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="format"><code>format()</code></h3>
+<p>Stelle die Datumsanzeige mit der Taste <strong>Basis</strong> R-Funktion <code>format()</code>. Diese Funktion akzeptiert eine Zeichenkette (in Anführungszeichen), die den <em>gewünschten</em> Ausgabeformat in den “%”-Strptime-Abkürzungen angibt (die gleiche Syntax wie in <code>as.Date()</code>). Nachfolgend sind die meisten gängigen Abkürzungen aufgeführt.</p>
+<p>Hinweis: Die Verwendung <code>format()</code> werden die Werte in Klassenzeichen umgewandelt, daher wird dies in der Regel gegen Ende einer Analyse oder nur zu Anzeigezwecken verwendet! Du kannst die vollständige Liste sehen, indem du <code>?strptime</code>.</p>
+<p>%d = Tagesnummer des Monats (5, 17, 28, etc.)<br>
+%j = Tagesnummer des Jahres (Julianischer Tag 001-366)<br>
+%a = Abgekürzter Wochentag (Mo, Di, Mi, etc.)<br>
+%A = Voller Wochentag (Montag, Dienstag, etc.)<br>
+%w = Wochentagsnummer (0-6, Sonntag ist 0)<br>
+%u = Wochentagsnummer (1-7, Montag ist 1)<br>
+%W = Wochennummer (00-53, Montag ist der Wochenanfang)<br>
+%U = Wochennummer (01-53, Sonntag ist der Wochenbeginn)<br>
+%m = Monatsnummer (z. B. 01, 02, 03, 04)<br>
+%b = abgekürzter Monat (Jan, Feb, etc.)<br>
+%B = Ganzer Monat (Januar, Februar, etc.)<br>
+%y = 2-stelliges Jahr (z. B. 89)<br>
+%Y = 4-stellige Jahreszahl (z. B. 1989)<br>
+%h = Stunden (24-Stunden-Uhr)<br>
+%m = Minuten<br>
+%s = Sekunden<br>
+%z = Abweichung von der GMT<br>
+%Z = Zeitzone (Zeichen)</p>
+<p>Ein Beispiel für die Formatierung des heutigen Datums:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># today's date, with formatting</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="at">format =</span> <span class="st">"%d %B %Y"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "21 February 2024"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># easy way to get full date and time (default formatting)</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Wed Feb 21 13:57:58 2024"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># formatted combined date, time, and time zone using str_glue() function</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_glue</span>(<span class="st">"{format(Sys.Date(), format = '%A, %B %d %Y, %z  %Z, ')}{format(Sys.time(), format = '%H:%M:%S')}"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Wednesday, February 21 2024, +0000  UTC, 13:57:58</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using format to display weeks</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y Week %W"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024 Week 08"</code></pre>
+</div>
+</div>
+<p>Beachten Sie, dass bei der Verwendung von <code>str_glue()</code> verwenden, solltest du beachten, dass du innerhalb der erwarteten doppelten Anführungszeichen ” nur einfache Anführungszeichen verwenden solltest (wie oben).</p>
+</section>
+<section id="monat-jahr" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="monat-jahr">Monat-Jahr</h3>
+<p>Um eine Datumsspalte in das Format Monat-Jahr umzuwandeln, empfehlen wir dir die Funktion <code>as.yearmon()</code> aus der <strong>zoo</strong> Paket. Dadurch wird das Datum in die Klasse “yearmon” umgewandelt und die richtige Reihenfolge beibehalten. Im Gegensatz dazu wird bei der Verwendung von <code>format(column, "%Y %B")</code> wird dagegen in die Klasse “Character” umgewandelt und die Werte werden (fälschlicherweise) alphabetisch geordnet.</p>
+<p>Unten, eine neue Spalte <code>yearmonth</code> erstellt aus der Spalte <code>date_onset</code> erstellt, indem die <code>as.yearmon()</code> Funktion. Die standardmäßige (korrekte) Reihenfolge der resultierenden Werte wird in der Tabelle angezeigt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column </span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>test_zoo <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">mutate</span>(<span class="at">yearmonth =</span> zoo<span class="sc">::</span><span class="fu">as.yearmon</span>(date_onset))</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print table</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(test_zoo<span class="sc">$</span>yearmon)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Apr 2014 May 2014 Jun 2014 Jul 2014 Aug 2014 Sep 2014 Oct 2014 Nov 2014 
+       7       64      100      226      528     1070     1112      763 
+Dec 2014 Jan 2015 Feb 2015 Mar 2015 Apr 2015 
+     562      431      306      277      186 </code></pre>
+</div>
+</div>
+<p>Im Gegensatz dazu kannst du sehen, wie nur mit <code>format()</code> zwar das gewünschte Anzeigeformat, aber nicht die richtige Reihenfolge erreicht.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>test_format <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">mutate</span>(<span class="at">yearmonth =</span> <span class="fu">format</span>(date_onset, <span class="st">"%b %Y"</span>))</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print table</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(test_format<span class="sc">$</span>yearmon)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Apr 2014 Apr 2015 Aug 2014 Dec 2014 Feb 2015 Jan 2015 Jul 2014 Jun 2014 
+       7      186      528      562      306      431      226      100 
+Mar 2015 May 2014 Nov 2014 Oct 2014 Sep 2014 
+     277       64      763     1112     1070 </code></pre>
+</div>
+</div>
+<p>Hinweis: Wenn du innerhalb einer <code>ggplot()</code> und anpassen möchtest, wie die Daten <em>angezeigt</em> anpassen möchten, kann es ausreichen, ein strptime-Format für die <code>date_labels =</code> Argument in <code>scale_x_date()</code> - kannst du verwenden <code>"%b %Y"</code> oder <code>"%Y %b"</code>. Siehe die [ggplot-Tipps] Seite.</p>
+<p><strong>zoo</strong> bietet auch die Funktion <code>as.yearqtr()</code> an, und du kannst die Funktion <code>scale_x_yearmon()</code> wenn du <code>ggplot()</code>.</p>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="epidemiologische-wochen-dates_epi_wks" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="epidemiologische-wochen-dates_epi_wks"><span class="header-section-number">9.9</span> Epidemiologische Wochen {#dates_epi_wks}</h2>
+<section id="lubridate-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="lubridate-1"><strong>lubridate</strong></h3>
+<p>Siehe die Seite über [Daten gruppieren] für ausführlichere Beispiele zur Gruppierung von Daten nach Datum. Im Folgenden beschreiben wir kurz die Gruppierung von Daten nach Wochen.</p>
+<p>Wir empfehlen generell die Verwendung der <code>floor_date()</code> Funktion von <strong>lubridate</strong> mit dem Argument <code>unit = "week"</code>. Dies rundet das Datum auf den “Anfang” der Woche ab, wie er durch das Argument <code>week_start =</code>. Der Standard-Wochenanfang ist 1 (für Montag), aber du kannst jeden beliebigen Wochentag als Anfang angeben (z. B. 7 für Sonntag). <code>floor_date()</code> ist vielseitig und kann zum Abrunden auf andere Zeiteinheiten verwendet werden, indem du <code>unit =</code> auf “Sekunde”, “Minute”, “Stunde”, “Tag”, “Monat” oder “Jahr”.</p>
+<p>Der zurückgegebene Wert ist das Startdatum der Woche in der Date-Klasse. Die Date-Klasse ist beim Plotten der Daten nützlich, da sie leicht erkannt und korrekt geordnet werden kann. <code>ggplot()</code>.</p>
+<p>Wenn du nur an der Anpassung von Daten an <em>anzeigen</em> nach Woche in einem Diagramm anzeigen möchtest, lies den Abschnitt über die Datumsanzeige auf dieser Seite. Wenn du zum Beispiel eine Epikurve zeichnest, kannst du die Datumsanzeige formatieren, indem du die gewünschte Strptime-“%”-Nomenklatur angibst. Verwende z. B. “%Y-%W” oder “%Y-%U”, um das Jahr und die Wochennummer (bei Wochenbeginn am Montag bzw. Sonntag) anzuzeigen.</p>
+</section>
+<section id="wöchentliche-zählungen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="wöchentliche-zählungen">Wöchentliche Zählungen</h3>
+<p>Siehe die Seite über [Daten gruppieren] für eine ausführliche Erklärung der Gruppierung von Daten mit<code>count()</code>, <code>group_by()</code>, und <code>summarise()</code>. Im Folgenden findest du ein kurzes Beispiel.</p>
+<ol type="1">
+<li>Erstelle eine neue Spalte “Woche” mit <code>mutate()</code>, mit <code>floor_date()</code> mit <code>unit = "week"</code></li>
+<li>Zählung der Zeilen (Fälle) pro Woche mit <code>count()</code> Filtert alle Fälle mit fehlendem Datum heraus</li>
+<li>Beende mit <code>complete()</code> von <strong>tidyr</strong> um sicherzustellen, dass <em>alle</em> Wochen in den Daten auftauchen - auch die, die keine Zeilen/Fälle enthalten. Standardmäßig sind die Zählwerte für alle “neuen” Zeilen NA, aber du kannst sie mit der Option <code>fill =</code> Argument, das eine benannte Liste erwartet (siehe unten, <code>n</code> ist der Name der Zählspalte).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make aggregated dataset of weekly case counts</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>weekly_counts <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(date_onset) <span class="sc">%&gt;%</span>             <span class="co"># remove cases missing onset date</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weekly_cases =</span> <span class="fu">floor_date</span>(   <span class="co"># make new column, week of onset</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>    date_onset,</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">unit =</span> <span class="st">"week"</span>)) <span class="sc">%&gt;%</span>            </span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(weekly_cases) <span class="sc">%&gt;%</span>           <span class="co"># group data by week and count rows per group (creates column 'n')</span></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(                  <span class="co"># ensure all weeks are present, even those with no cases reported</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">weekly_cases =</span> <span class="fu">seq.Date</span>(          <span class="co"># re-define the "weekly_cases" column as a complete sequence,</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">from =</span> <span class="fu">min</span>(weekly_cases),       <span class="co"># from the minimum date</span></span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">to =</span> <span class="fu">max</span>(weekly_cases),         <span class="co"># to the maxiumum date</span></span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="st">"week"</span>),                   <span class="co"># by weeks</span></span>
+<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>))             <span class="co"># fill-in NAs in the n counts column with 0</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hier sind die ersten Zeilen des resultierenden Datenrahmens:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ceb38ef0652ca6a57140" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ceb38ef0652ca6a57140">{"x":{"filter":"none","vertical":false,"data":[["2014-04-06","2014-04-13","2014-04-20","2014-04-27","2014-05-04","2014-05-11","2014-05-18","2014-05-25","2014-06-01","2014-06-08","2014-06-15","2014-06-22","2014-06-29","2014-07-06","2014-07-13","2014-07-20","2014-07-27","2014-08-03","2014-08-10","2014-08-17"],[1,1,4,4,12,14,14,21,21,18,30,23,31,35,55,58,80,86,114,122]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>weekly_cases<\/th>\n      <th>n<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"weekly_cases","targets":0},{"name":"n","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="epiweek-alternativen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="epiweek-alternativen">Epiweek Alternativen</h3>
+<p>Beachte, dass <strong>lubridate</strong> auch Funktionen hat <code>week()</code>, <code>epiweek()</code>, und <code>isoweek()</code>, die jeweils leicht unterschiedliche Startdaten und andere Feinheiten haben. Generell gilt jedoch, <code>floor_date()</code> alles sein, was du brauchst. Lies die Details zu diesen Funktionen, indem du <code>?week</code> in die Konsole eingibst oder die Dokumentation liest <a href="https://www.rdocumentation.org/packages/lubridate/versions/1.7.4/topics/week">hier</a>.</p>
+<p>Du könntest auch das Paket <strong>aweek</strong> um epidemiologische Wochen zu setzen. Du kannst mehr darüber lesen <a href="https://www.repidemicsconsortium.org/aweek/">auf der RECON-Website</a>. Es hat die Funktionen <code>date2week()</code> und <code>week2date()</code> in denen du den Wochenstarttag einstellen kannst mit <code>week_start = "Monday"</code>. Dieses Paket ist am einfachsten, wenn du Ausgaben im “Wochen”-Stil möchtest (z.B. “2020-W12”). Ein weiterer Vorteil von <strong>aweek</strong> ist, dass wenn <code>date2week()</code> auf eine Datumsspalte angewendet wird, ist die zurückgegebene Spalte (Wochenformat) automatisch von der Klasse Factor und enthält die Werte für alle Wochen in der Zeitspanne (dies vermeidet den zusätzlichen Schritt der <code>complete()</code> wie oben beschrieben). Allerdings, <strong>aweek</strong> verfügt jedoch nicht über die Möglichkeit, Daten auf andere Zeiteinheiten wie Monate, Jahre usw. zu runden.</p>
+<p>Eine andere Alternative für Zeitreihen, die auch gut funktioniert, um ein “Wochen”-Format (“2020 W12”) anzuzeigen, ist <code>yearweek()</code> aus dem Paket <strong>tsibble</strong>, wie auf der Seite über [Zeitreihen und Ausbruchserkennung].</p>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="umrechnung-von-datenzeitzonen" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="umrechnung-von-datenzeitzonen"><span class="header-section-number">9.10</span> Umrechnung von Daten/Zeitzonen</h2>
+<p>Wenn Daten in verschiedenen Zeitzonen vorliegen, kann es oft wichtig sein, diese Daten in einer einheitlichen Zeitzone zu standardisieren. Dies kann eine weitere Herausforderung darstellen, da die Zeitzonen-Komponente der Daten in den meisten Fällen manuell kodiert werden muss.</p>
+<p>In R wird jede <em>datetime</em> Objekt eine Zeitzonen-Komponente. Standardmäßig tragen alle datetime-Objekte die lokale Zeitzone des verwendeten Computers - dies ist in der Regel spezifisch für eine <em>Standort</em> als eine benannte Zeitzone, da sich die Zeitzonen aufgrund der Sommerzeit an verschiedenen Orten oft ändern. Es ist nicht möglich, Zeitzonen ohne eine Zeitkomponente eines Datums genau auszugleichen, da das Ereignis, das eine Datumsspalte darstellt, keiner bestimmten Zeit zugeordnet werden kann und daher Zeitverschiebungen, die in Stunden gemessen werden, nicht sinnvoll berücksichtigt werden können.</p>
+<p>Um mit Zeitzonen umzugehen, gibt es in lubridate eine Reihe von Hilfsfunktionen, mit denen die Zeitzone eines datetime-Objekts von der lokalen Zeitzone in eine andere Zeitzone geändert werden kann. Zeitzonen werden festgelegt, indem dem datetime-Objekt eine gültige Zeitzone der tz-Datenbank zugewiesen wird. Eine Liste davon findest du hier - wenn der Ort, dessen Daten du verwendest, nicht auf dieser Liste steht, sind nahegelegene Großstädte in der Zeitzone verfügbar und erfüllen denselben Zweck.</p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign the current time to a column</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>time_now <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>time_now</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-02-21 13:57:58 CET"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use with_tz() to assign a new timezone to the column, while CHANGING the clock time</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>time_london_real <span class="ot">&lt;-</span> <span class="fu">with_tz</span>(time_now, <span class="st">"Europe/London"</span>)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use force_tz() to assign a new timezone to the column, while KEEPING the clock time</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>time_london_local <span class="ot">&lt;-</span> <span class="fu">force_tz</span>(time_now, <span class="st">"Europe/London"</span>)</span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co"># note that as long as the computer that was used to run this code is NOT set to London time,</span></span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co"># there will be a difference in the times </span></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># (the number of hours difference from the computers time zone to london)</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>time_london_real <span class="sc">-</span> time_london_local</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of -1 hours</code></pre>
+</div>
+</div>
+<p>Dies mag sehr abstrakt erscheinen und wird oft nicht benötigt, wenn der/die Nutzer/in nicht über Zeitzonen hinweg arbeitet.</p>
+<!-- ======================================================= -->
+</section>
+<section id="nachlaufende-und-vorlaufende-berechnungen" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="nachlaufende-und-vorlaufende-berechnungen"><span class="header-section-number">9.11</span> Nachlaufende und vorlaufende Berechnungen</h2>
+<p><code>lead()</code> und <code>lag()</code> sind Funktionen aus der <strong>dplyr</strong> Paket, die helfen, frühere (verzögerte) oder nachfolgende (führende) Werte in einem Vektor zu finden - typischerweise ein numerischer oder Datumsvektor. Dies ist nützlich bei Berechnungen von Veränderungen/Differenzen zwischen Zeiteinheiten.</p>
+<p>Nehmen wir an, du möchtest die Differenz der Fälle zwischen der aktuellen Woche und der vorherigen Woche berechnen. Die Daten werden zunächst in wöchentlichen Zählungen bereitgestellt, wie unten gezeigt.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f14cd4548d419abcaae1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f14cd4548d419abcaae1">{"x":{"filter":"none","vertical":false,"data":[["2019-06-23","2019-06-30","2019-07-07","2019-07-14","2019-07-21","2019-07-28","2019-08-04","2019-08-11","2019-08-18","2019-08-25","2019-09-01","2019-09-08","2019-09-15","2019-09-22","2019-09-29","2019-10-06","2019-10-13","2019-10-20","2019-10-27","2019-11-03","2019-11-10","2019-11-17","2019-11-24","2019-12-01","2019-12-08","2019-12-15","2019-12-22","2019-12-29"],[0,25,59,90,65,79,41,47,31,32,28,28,76,41,70,90,124,278,371,329,177,69,77,97,100,39,19,0]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>week_start<\/th>\n      <th>cases_wk<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"week_start","targets":0},{"name":"cases_wk","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><strong>Bei der Verwendung von <code>lag()</code> oder <code>lead()</code> ist die Reihenfolge der Zeilen im Datenrahmen sehr wichtig! - achte darauf, ob deine Daten/Zahlen aufsteigend oder absteigend sind</strong></p>
+<p>Erstelle zunächst eine neue Spalte, die den Wert der vorherigen (verzögerten) Woche enthält.</p>
+<ul>
+<li>Kontrolliere die Anzahl der Einheiten zurück/vorwärts mit <code>n =</code> (muss eine nicht-negative ganze Zahl sein)</li>
+<li>verwenden <code>default =</code> um den Wert festzulegen, der in nicht existierende Zeilen gesetzt wird (z. B. die erste Zeile, für die es keinen verzögerten Wert gibt). Standardmäßig ist dies <code>NA</code>.</li>
+<li>verwenden <code>order_by = TRUE</code> wenn deine Zeilen nicht nach deiner Referenzspalte geordnet sind</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cases_prev_wk =</span> <span class="fu">lag</span>(cases_wk, <span class="at">n =</span> <span class="dv">1</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-3c604ff672cef847eb4f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3c604ff672cef847eb4f">{"x":{"filter":"none","vertical":false,"data":[["2019-06-23","2019-06-30","2019-07-07","2019-07-14","2019-07-21","2019-07-28","2019-08-04","2019-08-11","2019-08-18","2019-08-25","2019-09-01","2019-09-08","2019-09-15","2019-09-22","2019-09-29","2019-10-06","2019-10-13","2019-10-20","2019-10-27","2019-11-03","2019-11-10","2019-11-17","2019-11-24","2019-12-01","2019-12-08","2019-12-15","2019-12-22","2019-12-29"],[0,25,59,90,65,79,41,47,31,32,28,28,76,41,70,90,124,278,371,329,177,69,77,97,100,39,19,0],[null,0,25,59,90,65,79,41,47,31,32,28,28,76,41,70,90,124,278,371,329,177,69,77,97,100,39,19]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>week_start<\/th>\n      <th>cases_wk<\/th>\n      <th>cases_prev_wk<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"name":"week_start","targets":0},{"name":"cases_wk","targets":1},{"name":"cases_prev_wk","targets":2}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Als nächstes erstellst du eine neue Spalte, die die Differenz zwischen den beiden Fallspalten darstellt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cases_prev_wk =</span> <span class="fu">lag</span>(cases_wk, <span class="at">n =</span> <span class="dv">1</span>),</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">case_diff =</span> cases_wk <span class="sc">-</span> cases_prev_wk)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7ea40aca22407c449d88" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7ea40aca22407c449d88">{"x":{"filter":"none","vertical":false,"data":[["2019-06-23","2019-06-30","2019-07-07","2019-07-14","2019-07-21","2019-07-28","2019-08-04","2019-08-11","2019-08-18","2019-08-25","2019-09-01","2019-09-08","2019-09-15","2019-09-22","2019-09-29","2019-10-06","2019-10-13","2019-10-20","2019-10-27","2019-11-03","2019-11-10","2019-11-17","2019-11-24","2019-12-01","2019-12-08","2019-12-15","2019-12-22","2019-12-29"],[0,25,59,90,65,79,41,47,31,32,28,28,76,41,70,90,124,278,371,329,177,69,77,97,100,39,19,0],[null,0,25,59,90,65,79,41,47,31,32,28,28,76,41,70,90,124,278,371,329,177,69,77,97,100,39,19],[null,25,34,31,-25,14,-38,6,-16,1,-4,0,48,-35,29,20,34,154,93,-42,-152,-108,8,20,3,-61,-20,-19]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>week_start<\/th>\n      <th>cases_wk<\/th>\n      <th>cases_prev_wk<\/th>\n      <th>case_diff<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3]},{"name":"week_start","targets":0},{"name":"cases_wk","targets":1},{"name":"cases_prev_wk","targets":2},{"name":"case_diff","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Du kannst mehr darüber lesen <code>lead()</code> und <code>lag()</code> in der Dokumentation <a href="https://dplyr.tidyverse.org/reference/lead-lag.html">hier</a> oder durch Eingabe von <code>?lag</code> in deine Konsole eingibst.</p>
+<!-- ======================================================= -->
+</section>
+<section id="ressourcen" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="ressourcen"><span class="header-section-number">9.12</span> Ressourcen</h2>
+<p><strong>lubridate</strong> <a href="https://lubridate.tidyverse.org/">aufgeräumte Seite</a><br>
+<strong>lubridate</strong> RStudio <a href="https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf">Spickzettel</a><br>
+R für Data Science Seite auf <a href="https://r4ds.had.co.nz/dates-and-times.html">Daten und Zeiten</a><br>
+<a href="https://www.statmethods.net/input/dates.html">Online-Tutorial</a> <a href="https://www.r-bloggers.com/2013/08/date-formats-in-r/">Datumsformate</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../new_pages/cleaning.de.html" class="pagination-link" aria-label="Cleaning data and core functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cleaning data and core functions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../new_pages/characters_strings.de.html" class="pagination-link" aria-label="Characters and strings">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Characters and strings</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

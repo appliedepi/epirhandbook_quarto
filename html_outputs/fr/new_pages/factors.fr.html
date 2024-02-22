@@ -156,10 +156,15 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Le Epi R Handbook</a> 
         <div class="sidebar-tools-main tools-wide">
+    <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
     <a href="https://github.com/appliedepi/epihandbook_quarto" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
@@ -592,15 +597,15 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#chargement-des-paquets" id="toc-chargement-des-paquets" class="nav-link" data-scroll-target="#chargement-des-paquets">Chargement des paquets</a></li>
   <li><a href="#importer-données" id="toc-importer-données" class="nav-link" data-scroll-target="#importer-données">Importer données</a></li>
-  <li><a href="#fct_newcat" id="toc-fct_newcat" class="nav-link" data-scroll-target="#fct_newcat">Nouveau variable qualitative</a></li>
+  <li><a href="#nouveau-variable-qualitative-fct_newcat-.unnumbered" id="toc-nouveau-variable-qualitative-fct_newcat-.unnumbered" class="nav-link" data-scroll-target="#nouveau-variable-qualitative-fct_newcat-.unnumbered"><span class="header-section-number">11.1.1</span> Nouveau variable qualitative {#fct_newcat .unnumbered}</a></li>
   </ul></li>
   <li><a href="#convertir-en-facteur" id="toc-convertir-en-facteur" class="nav-link" data-scroll-target="#convertir-en-facteur"><span class="header-section-number">11.2</span> Convertir en facteur</a></li>
   <li><a href="#ajouter-ou-enlever-des-niveaux" id="toc-ajouter-ou-enlever-des-niveaux" class="nav-link" data-scroll-target="#ajouter-ou-enlever-des-niveaux"><span class="header-section-number">11.3</span> Ajouter ou enlever des niveaux</a>
   <ul class="collapse">
-  <li><a href="#fct_add" id="toc-fct_add" class="nav-link" data-scroll-target="#fct_add">Ajouter</a></li>
+  <li><a href="#ajouter-fct_add-.unnumbered" id="toc-ajouter-fct_add-.unnumbered" class="nav-link" data-scroll-target="#ajouter-fct_add-.unnumbered"><span class="header-section-number">11.3.1</span> Ajouter {#fct_add .unnumbered}</a></li>
   <li><a href="#enlever" id="toc-enlever" class="nav-link" data-scroll-target="#enlever">Enlever</a></li>
   </ul></li>
-  <li><a href="#fct_adjust" id="toc-fct_adjust" class="nav-link" data-scroll-target="#fct_adjust"><span class="header-section-number">11.4</span> Ajuster l’ordre des niveaux</a>
+  <li><a href="#ajuster-lordre-des-niveaux-fct_adjust" id="toc-ajuster-lordre-des-niveaux-fct_adjust" class="nav-link" data-scroll-target="#ajuster-lordre-des-niveaux-fct_adjust"><span class="header-section-number">11.4</span> Ajuster l’ordre des niveaux {#fct_adjust}</a>
   <ul class="collapse">
   <li><a href="#manuellement" id="toc-manuellement" class="nav-link" data-scroll-target="#manuellement">Manuellement</a></li>
   <li><a href="#dans-un-graphe" id="toc-dans-un-graphe" class="nav-link" data-scroll-target="#dans-un-graphe">Dans un graphe</a></li>
@@ -610,21 +615,24 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <li><a href="#par-la-statistique-sommaire-dune-autre-colonne" id="toc-par-la-statistique-sommaire-dune-autre-colonne" class="nav-link" data-scroll-target="#par-la-statistique-sommaire-dune-autre-colonne">Par la statistique sommaire d’une autre colonne</a></li>
   <li><a href="#par-la-valeur-end" id="toc-par-la-valeur-end" class="nav-link" data-scroll-target="#par-la-valeur-end">Par la valeur “end”</a></li>
   </ul></li>
-  <li><a href="#fct_missing" id="toc-fct_missing" class="nav-link" data-scroll-target="#fct_missing"><span class="header-section-number">11.5</span> Valeurs manquantes</a>
+  <li><a href="#valeurs-manquantes-fct_missing" id="toc-valeurs-manquantes-fct_missing" class="nav-link" data-scroll-target="#valeurs-manquantes-fct_missing"><span class="header-section-number">11.5</span> Valeurs manquantes {#fct_missing}</a>
   <ul class="collapse">
   <li><a href="#combiner-les-niveaux" id="toc-combiner-les-niveaux" class="nav-link" data-scroll-target="#combiner-les-niveaux"><span class="header-section-number">11.5.1</span> Combiner les niveaux</a></li>
   <li><a href="#manuellement-1" id="toc-manuellement-1" class="nav-link" data-scroll-target="#manuellement-1">Manuellement</a></li>
   <li><a href="#réduire-en-autre" id="toc-réduire-en-autre" class="nav-link" data-scroll-target="#réduire-en-autre">Réduire en “Autre”</a></li>
   <li><a href="#réduire-par-fréquence" id="toc-réduire-par-fréquence" class="nav-link" data-scroll-target="#réduire-par-fréquence">Réduire par fréquence</a></li>
+  </ul></li>
+  <li><a href="#afficher-tous-les-niveaux" id="toc-afficher-tous-les-niveaux" class="nav-link" data-scroll-target="#afficher-tous-les-niveaux"><span class="header-section-number">11.6</span> Afficher tous les niveaux</a>
+  <ul class="collapse">
   <li><a href="#dans-les-graphiques" id="toc-dans-les-graphiques" class="nav-link" data-scroll-target="#dans-les-graphiques">Dans les graphiques</a></li>
   <li><a href="#dans-les-tableaux" id="toc-dans-les-tableaux" class="nav-link" data-scroll-target="#dans-les-tableaux">Dans les tableaux</a></li>
   </ul></li>
-  <li><a href="#epiweeks" id="toc-epiweeks" class="nav-link" data-scroll-target="#epiweeks"><span class="header-section-number">11.6</span> Epiweeks</a>
+  <li><a href="#epiweeks" id="toc-epiweeks" class="nav-link" data-scroll-target="#epiweeks"><span class="header-section-number">11.7</span> Epiweeks</a>
   <ul class="collapse">
   <li><a href="#semaines-épidémiologiques-dans-un-graphique" id="toc-semaines-épidémiologiques-dans-un-graphique" class="nav-link" data-scroll-target="#semaines-épidémiologiques-dans-un-graphique">Semaines épidémiologiques dans un graphique</a></li>
   <li><a href="#epiweeks-dans-les-données" id="toc-epiweeks-dans-les-données" class="nav-link" data-scroll-target="#epiweeks-dans-les-données">Epiweeks dans les données</a></li>
   </ul></li>
-  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources"><span class="header-section-number">11.7</span> Ressources</a></li>
+  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources"><span class="header-section-number">11.8</span> Ressources</a></li>
   </ul>
 </nav>
     </div>
@@ -689,8 +697,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="fct_newcat" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="fct_newcat">Nouveau variable qualitative</h3>
+<section id="nouveau-variable-qualitative-fct_newcat-.unnumbered" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="nouveau-variable-qualitative-fct_newcat-.unnumbered"><span class="header-section-number">11.1.1</span> Nouveau variable qualitative {#fct_newcat .unnumbered}</h3>
 <p>Pour la démonstration dans cette page, nous utiliserons un scénario commun - la création d’une nouvelle variable catégorielle.</p>
 <p>Notez que si vous convertissez une colonne numérique en facteur de classe, vous ne serez pas en mesure de calculer des statistiques numériques sur celle-ci.</p>
 <section id="creation-de-colonnes" class="level4 unnumbered">
@@ -776,8 +784,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="ajouter-ou-enlever-des-niveaux" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="ajouter-ou-enlever-des-niveaux"><span class="header-section-number">11.3</span> Ajouter ou enlever des niveaux</h2>
-<section id="fct_add" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="fct_add">Ajouter</h3>
+<section id="ajouter-fct_add-.unnumbered" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="ajouter-fct_add-.unnumbered"><span class="header-section-number">11.3.1</span> Ajouter {#fct_add .unnumbered}</h3>
 <p>Si vous devez ajouter des niveaux à un facteur, vous pouvez le faire avec <code>fct_expand()</code>. Il suffit d’écrire le nom de la colonne suivi des nouveaux niveaux (séparés par des virgules). En tabulant les valeurs, nous pouvons voir les nouveaux niveaux et le nombre de zéros. Vous pouvez utiliser <code>table()</code> de <strong>base</strong> R, ou <code>tabyl()</code> de <strong>janitor</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -812,13 +820,12 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </div>
 </section>
 </section>
-<section id="fct_adjust" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="fct_adjust"><span class="header-section-number">11.4</span> Ajuster l’ordre des niveaux</h2>
+<section id="ajuster-lordre-des-niveaux-fct_adjust" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="ajuster-lordre-des-niveaux-fct_adjust"><span class="header-section-number">11.4</span> Ajuster l’ordre des niveaux {#fct_adjust}</h2>
 <p>Le package <strong>forcats</strong> offre des fonctions utiles pour ajuster facilement l’ordre des niveaux d’un facteur (après qu’une colonne ait été définie comme facteur de classe) :</p>
 <p>Ces fonctions peuvent être appliquées à une colonne de facteurs dans deux contextes :</p>
 <ol type="1">
-<li>A la colonne dans le dataframe, comme d’habitude, afin que la transformation soit disponible pour toute utilisation ultérieure des données.<br>
-</li>
+<li>A la colonne dans le dataframe, comme d’habitude, afin que la transformation soit disponible pour toute utilisation ultérieure des données.</li>
 <li><em>À l’intérieur d’un graphique</em>, de sorte que la modification soit appliquée uniquement à l’intérieur du graphique.</li>
 </ol>
 <section id="manuellement" class="level3 unnumbered">
@@ -826,8 +833,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Cette fonction est utilisée pour ordonner manuellement les niveaux des facteurs. Si elle est utilisée sur une colonne sans facteur, la colonne sera d’abord convertie en facteur de classe.</p>
 <p>Entre les parenthèses, fournissez d’abord le nom de la colonne de facteur, puis fournissez soit :</p>
 <ul>
-<li>Tous les niveaux dans l’ordre désiré (comme un vecteur de caractères <code>c()</code>), ou bien<br>
-</li>
+<li>Tous les niveaux dans l’ordre désiré (comme un vecteur de caractères <code>c()</code>), ou bien</li>
 <li>Un niveau et son placement corrigé en utilisant l’argument <code>after =</code>.</li>
 </ul>
 <p>Voici un exemple de redéfinition de la colonne <code>delay_cat</code> (qui est déjà de la classe Factor) et de spécification de tous les niveaux dans l’ordre souhaité.</p>
@@ -913,6 +919,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="par-apparence" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="par-apparence">Par apparence</h3>
 <p>Utilisez <code>fct_inorder()</code> pour définir l’ordre des niveaux afin de correspondre à l’ordre d’apparition dans les données, en commençant par la première ligne. Cela peut être utile si vous avez d’abord soigneusement <code>arrange()</code> les données dans le cadre de données, et ensuite l’utiliser pour définir l’ordre des facteurs.</p>
+<p>Parce que je me suis un peu éloigné des configurations du livre original, j’ai renommé le métapackage. <code>r4ds</code> que nous utilisons pour installer les dépendances du livre en <code>r4dses</code> et j’ai fait un peu de ménage dans le <strong>DESCRIPTION</strong>, <code>.Rbuildignore</code> et j’ai supprimé certains fichiers qui n’étaient plus nécessaires. Le résultat a été d’obtenir zéro erreur, avertissement et note lors de l’exécution de <code>devtools::check()</code>.</p>
+<p>Il est important de mentionner que le dépôt de livres est, en partie, un paquetage R, et que la commande <code>devtools::install_github("cienciadedatos/r4ds")</code> installera les dépendances du livre en <strong>en lisant le fichier DESCRIPTION qui s’y trouve</strong>.</p>
 </section>
 <section id="par-la-statistique-sommaire-dune-autre-colonne" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="par-la-statistique-sommaire-dune-autre-colonne">Par la statistique sommaire d’une autre colonne</h3>
@@ -989,8 +997,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </div>
 </section>
 </section>
-<section id="fct_missing" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="fct_missing"><span class="header-section-number">11.5</span> Valeurs manquantes</h2>
+<section id="valeurs-manquantes-fct_missing" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="valeurs-manquantes-fct_missing"><span class="header-section-number">11.5</span> Valeurs manquantes {#fct_missing}</h2>
 <p>Si vous avez des valeurs <code>NA</code> dans votre colonne de facteurs, vous pouvez facilement les convertir en un niveau nommé tel que “Missing” avec <code>fct_explicit_na()</code>. Les valeurs <code>NA</code> sont converties en “(Missing)” à la fin de l’ordre des niveaux par défaut. Vous pouvez ajuster le nom du niveau avec l’argument <code>na_level =</code>.</p>
 <p>Ci-dessous, cette opération est effectuée sur la colonne <code>delay_cat</code> et un tableau est imprimé avec <code>tabyl()</code> avec <code>NA</code> converti en “Missing delay”.</p>
 <div class="cell">
@@ -1085,8 +1093,7 @@ Caused by warning:
 <p>Vous pouvez combiner automatiquement les niveaux de facteurs les moins fréquents en utilisant <code>fct_lump()</code>.</p>
 <p>Pour “regrouper” plusieurs niveaux à basse fréquence dans un groupe “Autre”, faites l’une des choses suivantes :</p>
 <ul>
-<li>Définissez <code>n =</code> comme le nombre de groupes que vous voulez garder. Les n niveaux les plus fréquents seront conservés, et tous les autres seront regroupés dans “Autres”.<br>
-</li>
+<li>Définissez <code>n =</code> comme le nombre de groupes que vous voulez garder. Les n niveaux les plus fréquents seront conservés, et tous les autres seront regroupés dans “Autres”.</li>
 <li>Définissez <code>prop =</code> comme étant la proportion de fréquence seuil pour les niveaux au-dessus desquels vous voulez garder. Toutes les autres valeurs seront regroupées dans “Autres”.</li>
 </ul>
 <p>Vous pouvez modifier l’affichage du niveau “Autre” avec <code>other_level =</code>. Ci-dessous, tous les hôpitaux sauf les deux les plus fréquents sont combinés dans “Autre hôpital”.</p>
@@ -1104,10 +1111,12 @@ Caused by warning:
  Other Hospital 2657 0.4512568</code></pre>
 </div>
 </div>
-<p>, avertir ## Afficher tous les niveaux</p>
+</section>
+</section>
+<section id="afficher-tous-les-niveaux" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="afficher-tous-les-niveaux"><span class="header-section-number">11.6</span> Afficher tous les niveaux</h2>
 <p>L’un des avantages de l’utilisation des facteurs est de standardiser l’apparence des légendes et des tableaux des graphiques, quelles que soient les valeurs réellement présentes dans un ensemble de données.</p>
 <p>Si vous préparez de nombreuses figures (par exemple, pour plusieurs juridictions), vous voudrez que les légendes et les tableaux apparaissent de manière identique, même si les niveaux de complétion ou de composition des données varient.</p>
-</section>
 <section id="dans-les-graphiques" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="dans-les-graphiques">Dans les graphiques</h3>
 <p>Dans une figure <code>ggplot()</code>, ajoutez simplement l’argument <code>drop = FALSE</code> dans la fonction <code>scale_xxxx()</code> concernée. Tous les niveaux de facteurs seront affichés, qu’ils soient présents ou non dans les données. Si les niveaux de vos colonnes de facteurs sont affichés en utilisant <code>fill =</code>, alors dans scale_fill_discrete() vous incluez <code>drop = FALSE</code>, comme indiqué ci-dessous. Si vos niveaux sont affichés avec <code>x =</code> (sur l’axe des x) <code>color =</code> ou <code>size =</code>, vous devez le fournir à <code>scale_color_discrete()</code> ou <code>scale_size_discrete()</code> en conséquence.</p>
@@ -1134,8 +1143,8 @@ Caused by warning:
 <p>Pour en savoir plus, consultez la page <a href="tables_descriptive.fr.html">Descriptive tables</a>, ou la <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">documentation scale_discrete</a>, ou la <a href="https://dplyr.tidyverse.org/reference/count.html">documentation count()</a>. Vous pouvez voir un autre exemple à la page <a href="contact_tracing.fr.html">Suivi des contacts</a>.</p>
 </section>
 </section>
-<section id="epiweeks" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="epiweeks"><span class="header-section-number">11.6</span> Epiweeks</h2>
+<section id="epiweeks" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="epiweeks"><span class="header-section-number">11.7</span> Epiweeks</h2>
 <p>Veuillez consulter la discussion approfondie sur la création de semaines épidémiologiques à la page <a href="grouping.fr.html">Regroupement des données</a>.<br>
 Veuillez également consulter la page <a href="dates.fr.html">Travailler avec des dates</a> pour obtenir des conseils sur la façon de créer et de formater des semaines épidémiologiques.</p>
 <section id="semaines-épidémiologiques-dans-un-graphique" class="level3 unnumbered">
@@ -1201,8 +1210,8 @@ Veuillez également consulter la page <a href="dates.fr.html">Travailler avec de
 <!-- ======================================================= -->
 </section>
 </section>
-<section id="ressources" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="ressources"><span class="header-section-number">11.7</span> Ressources</h2>
+<section id="ressources" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="ressources"><span class="header-section-number">11.8</span> Ressources</h2>
 <p>R for Data Science page on <a href="https://r4ds.had.co.nz/factors.html">factors</a><br>
 <a href="https://cran.r-project.org/web/packages/aweek/vignettes/introduction.html">aweek package vignette</a></p>
 
@@ -1754,7 +1763,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

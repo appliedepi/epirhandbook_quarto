@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EpiRhandbook auf Deutsch - 16&nbsp; Iteration, Schleifen und Listen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../new_pages/tables_descriptive.de.html" rel="next">
+<link href="../new_pages/deduplication.de.html" rel="prev">
+<link href="../images/Applied_Epi_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QXDW878QLX');
+</script> -->
+
+</head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+</div>
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.de.html">Datenmanagement</a></li><li class="breadcrumb-item"><a href="../new_pages/iteration.de.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Iteration, Schleifen und Listen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EpiRhandbook auf Deutsch</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/appliedepi/epihandbook_quarto" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Über dieses Buch</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/editorial_style.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Redaktionelle und technische Hinweise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/data_used.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Handbuch und Daten herunterladen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Grundlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/transition_to_R.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Übergang zu R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/packages_suggested.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Vorgeschlagene Pakete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/r_projects.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-Projekte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/importing.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Import und Export</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Datenmanagement</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/cleaning.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cleaning data and core functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/dates.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mit Daten arbeiten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/characters_strings.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Characters and strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/factors.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Faktoren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/pivoting.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Daten pivotieren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/grouping.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Daten gruppieren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/joining_matching.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Daten verknüpfen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/deduplication.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">De-Duplizierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/iteration.de.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Iteration, Schleifen und Listen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analyse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/tables_descriptive.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Beschreibende Tabellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/stat_tests.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Einfache statistische Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/regression.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Univariate und multivariable Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/missing_data.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fehlende Daten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/standardization.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardisierte Sätze</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/moving_average.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gleitende Durchschnitte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/time_series.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Zeitreihen und Erkennung von Ausbrüchen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/epidemic_models.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Epidemie-Modellierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/contact_tracing.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ermittlung von Kontaktpersonen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/survey_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Umfrage-Analyse</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/survival_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Survival-Analyse</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/gis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">GIS-Grundlagen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Datenvisualisierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/tables_presentation.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Tische für die Präsentation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/ggplot_basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ggplot Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/ggplot_tips.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ggplot-Tipps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/epicurves.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Epidemische Kurven</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/age_pyramid.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Demografische Pyramiden und Likert-Skalen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/heatmaps.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Wärmebilanzen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/diagrams.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Diagramme und Tabellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/combination_analysis.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Analyse der Kombinationen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/transmission_chains.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Übertragungsketten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/phylogenetic_trees.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Phylogenetische Bäume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/interactive_plots.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Interaktive Diagramme</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Berichte und Dashboards</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/rmarkdown.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Berichte mit R Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/reportfactory.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Organisieren von Routineberichten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/flexdashboard.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Dashboards mit R Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/shiny_basics.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Dashboards mit Shiny</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Verschiedenes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/writing_functions.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Funktionen schreiben</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/directories.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Verzeichnis-Interaktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/collaboration.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Versionskontrolle und Zusammenarbeit mit Git und Github</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/errors.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Häufige Fehler</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/help.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Hilfe bekommen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/network_drives.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">R auf Netzlaufwerken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../new_pages/data_table.de.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Daten-Tabelle</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung"><span class="header-section-number">16.1</span> Vorbereitung</a>
+  <ul class="collapse">
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden">Pakete laden</a></li>
+  <li><a href="#daten-importieren" id="toc-daten-importieren" class="nav-link" data-scroll-target="#daten-importieren">Daten importieren</a></li>
+  </ul></li>
+  <li><a href="#for-schleifen" id="toc-for-schleifen" class="nav-link" data-scroll-target="#for-schleifen"><span class="header-section-number">16.2</span> <em>for-Schleifen</em></a>
+  <ul class="collapse">
+  <li><a href="#for-schleifen-in-r-iter_loops-.unnumbered" id="toc-for-schleifen-in-r-iter_loops-.unnumbered" class="nav-link" data-scroll-target="#for-schleifen-in-r-iter_loops-.unnumbered"><span class="header-section-number">16.2.1</span> <em>for-Schleifen</em> in R {#iter_loops .unnumbered}</a></li>
+  <li><a href="#kernkomponenten" id="toc-kernkomponenten" class="nav-link" data-scroll-target="#kernkomponenten">Kernkomponenten</a></li>
+  <li><a href="#sequenz" id="toc-sequenz" class="nav-link" data-scroll-target="#sequenz">Sequenz</a></li>
+  <li><a href="#vorgänge" id="toc-vorgänge" class="nav-link" data-scroll-target="#vorgänge">Vorgänge</a></li>
+  <li><a href="#container" id="toc-container" class="nav-link" data-scroll-target="#container">Container</a></li>
+  <li><a href="#drucken" id="toc-drucken" class="nav-link" data-scroll-target="#drucken">Drucken</a></li>
+  <li><a href="#testen-deiner-for-schleife" id="toc-testen-deiner-for-schleife" class="nav-link" data-scroll-target="#testen-deiner-for-schleife">Testen deiner for-Schleife</a></li>
+  <li><a href="#schleifenplots" id="toc-schleifenplots" class="nav-link" data-scroll-target="#schleifenplots">Schleifenplots</a></li>
+  <li><a href="#verfolgen-des-fortschritts-einer-schleife" id="toc-verfolgen-des-fortschritts-einer-schleife" class="nav-link" data-scroll-target="#verfolgen-des-fortschritts-einer-schleife">Verfolgen des Fortschritts einer Schleife</a></li>
+  </ul></li>
+  <li><a href="#purrr-und-listen-iter_purrr" id="toc-purrr-und-listen-iter_purrr" class="nav-link" data-scroll-target="#purrr-und-listen-iter_purrr"><span class="header-section-number">16.3</span> <strong>purrr</strong> und Listen {#iter_purrr}</a>
+  <ul class="collapse">
+  <li><a href="#pakete-laden-1" id="toc-pakete-laden-1" class="nav-link" data-scroll-target="#pakete-laden-1">Pakete laden</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map"><code>map()</code></a></li>
+  <li><a href="#datensatz-aufteilen-und-exportieren" id="toc-datensatz-aufteilen-und-exportieren" class="nav-link" data-scroll-target="#datensatz-aufteilen-und-exportieren">Datensatz aufteilen und exportieren</a></li>
+  <li><a href="#benutzerdefinierte-funktionen" id="toc-benutzerdefinierte-funktionen" class="nav-link" data-scroll-target="#benutzerdefinierte-funktionen">Benutzerdefinierte Funktionen</a></li>
+  <li><a href="#eine-funktion-spaltenübergreifend-abbilden" id="toc-eine-funktion-spaltenübergreifend-abbilden" class="nav-link" data-scroll-target="#eine-funktion-spaltenübergreifend-abbilden">Eine Funktion spaltenübergreifend abbilden</a></li>
+  <li><a href="#auszug-aus-den-listen" id="toc-auszug-aus-den-listen" class="nav-link" data-scroll-target="#auszug-aus-den-listen">Auszug aus den Listen</a></li>
+  <li><a href="#liste-in-datenrahmen-umwandeln" id="toc-liste-in-datenrahmen-umwandeln" class="nav-link" data-scroll-target="#liste-in-datenrahmen-umwandeln">Liste in Datenrahmen umwandeln</a></li>
+  <li><a href="#listen-verwerfen-behalten-und-verdichten" id="toc-listen-verwerfen-behalten-und-verdichten" class="nav-link" data-scroll-target="#listen-verwerfen-behalten-und-verdichten">Listen verwerfen, behalten und verdichten</a></li>
+  <li><a href="#pmap" id="toc-pmap" class="nav-link" data-scroll-target="#pmap"><code>pmap()</code></a></li>
+  </ul></li>
+  <li><a href="#funktionen-anwenden" id="toc-funktionen-anwenden" class="nav-link" data-scroll-target="#funktionen-anwenden"><span class="header-section-number">16.4</span> Funktionen anwenden</a></li>
+  <li><a href="#ressourcen" id="toc-ressourcen" class="nav-link" data-scroll-target="#ressourcen"><span class="header-section-number">16.5</span> Ressourcen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.de.html">Datenmanagement</a></li><li class="breadcrumb-item"><a href="../new_pages/iteration.de.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Iteration, Schleifen und Listen</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Iteration, Schleifen und Listen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Epidemiologen sehen sich oft mit wiederholten Analysen von Untergruppen wie Ländern, Bezirken oder Altersgruppen konfrontiert. Dies sind nur einige der vielen Situationen, in denen <em>Iteration</em>. Wenn du deine iterativen Operationen mit den folgenden Ansätzen kodierst, kannst du solche sich wiederholenden Aufgaben schneller erledigen, die Fehlerwahrscheinlichkeit verringern und die Codelänge reduzieren.</p>
+<p>Auf dieser Seite werden zwei Ansätze für iterative Operationen vorgestellt - mit <em>for-Schleifen</em> und die Verwendung des Pakets <strong>purrr</strong>.</p>
+<ol type="1">
+<li><em>for-Schleifen</em> iterieren den Code über eine Reihe von Eingaben, sind aber in R weniger verbreitet als in anderen Programmiersprachen. Trotzdem stellen wir sie hier als Lernwerkzeug und Referenz vor</li>
+<li>Die <strong>purrr</strong> Paket ist das <strong>tidyverse</strong> Ansatz für iterative Operationen - er funktioniert, indem er eine Funktion auf viele Eingaben (Werte, Spalten, Datensätze usw.) “abbildet”.</li>
+</ol>
+<p>Auf dem Weg dorthin werden wir Beispiele zeigen wie:</p>
+<ul>
+<li>Importieren und Exportieren von mehreren Dateien</li>
+<li>Erstellen von Epikurven für mehrere Gerichtsbarkeiten</li>
+<li>T-Tests für mehrere Spalten in einem Datenrahmen durchführen</li>
+</ul>
+<p>In der <strong>purrr</strong> <a href="#iter_purrr">Abschnitt</a> werden wir auch einige Beispiele für die Erstellung und Handhabung von <code>lists</code>.</p>
+<section id="vorbereitung" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="vorbereitung"><span class="header-section-number">16.1</span> Vorbereitung</h2>
+<section id="pakete-laden" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pakete-laden">Pakete laden</h3>
+<p>Dieser Codeabschnitt zeigt das Laden von Paketen, die für die Analysen benötigt werden. In diesem Handbuch betonen wir <code>p_load()</code> von <strong>pacman</strong>, der das Paket bei Bedarf installiert <em>und</em> lädt es zur Verwendung. Du kannst installierte Pakete auch laden mit <code>library()</code> von <strong>base</strong>R. Siehe die Seite über [R-Grundlagen] für weitere Informationen über R-Pakete.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     rio,         <span class="co"># import/export</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     here,        <span class="co"># file locator</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     purrr,       <span class="co"># iteration</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>     grates,      <span class="co"># scales in ggplot</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>     tidyverse    <span class="co"># data management and visualization</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="daten-importieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="daten-importieren">Daten importieren</h3>
+<p>Wir importieren den Datensatz der Fälle aus einer simulierten Ebola-Epidemie. Wenn du mitmachen willst, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">klicke, um die “saubere” Linienliste herunterzuladen</a> (als .rds-Datei). Importiere Daten mit dem <code>import()</code> Funktion aus der <strong>rio</strong>Paket (sie verarbeitet viele Dateitypen wie .xlsx, .csv, .rds - siehe die [Import und Export] Seite für Details).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the linelist</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die ersten 50 Zeilen der Linienliste werden unten angezeigt.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d4d48db50d0f58d6a3c9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d4d48db50d0f58d6a3c9">{"x":{"filter":"none","vertical":false,"data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="for-schleifen" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="for-schleifen"><span class="header-section-number">16.2</span> <em>for-Schleifen</em></h2>
+<section id="for-schleifen-in-r-iter_loops-.unnumbered" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="for-schleifen-in-r-iter_loops-.unnumbered"><span class="header-section-number">16.2.1</span> <em>for-Schleifen</em> in R {#iter_loops .unnumbered}</h3>
+<p><em>for-Schleifen</em> werden in R nicht besonders betont, sind aber in anderen Programmiersprachen üblich. Als Anfänger können sie hilfreich sein, um sie zu erlernen und zu üben, weil es einfacher ist, sie zu “erforschen”, zu “entstören” und auf andere Weise genau zu verstehen, was bei jeder Iteration passiert, vor allem, wenn du noch nicht in der Lage bist, deine eigenen Funktionen zu schreiben.</p>
+<p>Du kannst dich schnell durch <em>for-Schleifen</em> zum Iterieren mit gemappten Funktionen mit <strong>purrr</strong> (siehe <a href="#iter_purrr">Abschnitt unten</a>).</p>
+</section>
+<section id="kernkomponenten" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="kernkomponenten">Kernkomponenten</h3>
+<p>A <em>for-Schleife</em> hat drei Hauptbestandteile:</p>
+<ol type="1">
+<li>Die <strong>Reihenfolge</strong> der Elemente, die durchlaufen werden sollen</li>
+<li>Die <strong>Operationen</strong> die pro Position in der Sequenz durchzuführen sind</li>
+<li>Die <strong>Container</strong> für die Ergebnisse (optional)</li>
+</ol>
+<p>Die grundlegende Syntax lautet: <code>for (item in sequence) {do operations using item}</code>. Beachte die Klammern und die geschweiften Klammern. Die Ergebnisse können auf der Konsole ausgedruckt oder in einem Container-R-Objekt gespeichert werden.</p>
+<p>Eine einfache <em>for-Schleife</em> Beispiel ist unten zu sehen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (num <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)) {  <span class="co"># the SEQUENCE is defined (numbers 1 to 5) and loop is opened with "{"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(num <span class="sc">+</span> <span class="dv">2</span>)             <span class="co"># The OPERATIONS (add two to each sequence number and print)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}                            <span class="co"># The loop is closed with "}"                            </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>                             <span class="co"># There is no "container" in this example</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sequenz" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sequenz">Sequenz</h3>
+<p>Dies ist der “for”-Teil einer <em>for-Schleife</em> - Die Operationen werden “für” jedes Element in der Sequenz ausgeführt. Die Sequenz kann eine Reihe von Werten sein (z. B. Namen von Gerichtsbarkeiten, Krankheiten, Spaltennamen, Listenelementen usw.) oder eine Reihe von aufeinanderfolgenden Zahlen (z. B. 1,2,3,4,5). Jede Methode hat ihre eigenen Vorteile, die im Folgenden beschrieben werden.</p>
+<p>Die Grundstruktur einer Sequenzanweisung ist <code>item in vector</code>.</p>
+<ul>
+<li>Du kannst jedes beliebige Zeichen oder Wort anstelle von “item” schreiben (z.B. “i”, “num”, “hosp”, “district”, etc.). Der Wert dieses “item” ändert sich bei jeder Iteration der Schleife, wobei jeder Wert im Vektor durchlaufen wird.</li>
+<li>Die <em>Vektor</em> kann aus Zeichenwerten, Spaltennamen oder einer Reihe von Zahlen bestehen - das sind die Werte, die sich bei jeder Iteration ändern werden. Du kannst sie innerhalb der <em>for-Schleife</em> Operationen mit dem Begriff “item” verwenden.</li>
+</ul>
+<p><strong>Beispiel: Folge von Zeichenwerten</strong></p>
+<p>In diesem Beispiel wird eine Schleife für jeden Wert in einem vordefinierten Zeichenvektor mit Krankenhausnamen ausgeführt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make vector of the hospital names</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>hospital_names <span class="ot">&lt;-</span> <span class="fu">unique</span>(linelist<span class="sc">$</span>hospital)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>hospital_names <span class="co"># print</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Other"                               
+[2] "Missing"                             
+[3] "St. Mark's Maternity Hospital (SMMH)"
+[4] "Port Hospital"                       
+[5] "Military Hospital"                   
+[6] "Central Hospital"                    </code></pre>
+</div>
+</div>
+<p>Wir haben den Begriff <code>hosp</code> gewählt, um die Werte aus dem Vektor <code>hospital_names</code>. Bei der ersten Iteration der Schleife wird der Wert von <code>hosp</code> sein <code>hospital_names[[1]]</code>. Für die zweite Schleife ist er <code>hospital_names[[2]]</code>. Und so weiter…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a 'for loop' with character sequence</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (hosp <span class="cf">in</span> hospital_names){       <span class="co"># sequence</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="co"># OPERATIONS HERE</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Beispiel: Reihenfolge der Spaltennamen</strong></p>
+<p>Dies ist eine Abwandlung der obigen Zeichenfolge, bei der die Namen eines bestehenden R-Objekts extrahiert und zum Vektor gemacht werden. Zum Beispiel die Spaltennamen eines Datenrahmens. Praktischerweise werden im Operationscode des <em>for-Schleife</em> können die Spaltennamen verwendet werden, um <em>indexieren</em> (Untermenge) ihres ursprünglichen Datenrahmens</p>
+<p>Unten ist die Sequenz die <code>names()</code> (Spaltennamen) der <code>linelist</code> Datenrahmens. Unser “Element”-Name ist <code>col</code> der im weiteren Verlauf der Schleifen für jeden Spaltennamen stehen wird.</p>
+<p>Für die Zwecke des Beispiels fügen wir den Code für die Operationen innerhalb der <em>for-Schleife</em> ein, der für jeden Wert in der Folge ausgeführt wird. In diesem Code werden die Sequenzwerte (Spaltennamen) verwendet, um <em>zu indizieren</em> (Teilmenge) <code>linelist</code>einer nach dem anderen. Wie im Kurs [R-Grundlagen] Seite beschrieben, werden doppelte Branches<code>[[ ]]</code> zum Subsumieren verwendet werden. Die resultierende Spalte wird an <code>is.na()</code> und dann an <code>sum()</code> um die Anzahl der fehlenden Werte in der Spalte zu ermitteln. Das Ergebnis wird auf der Konsole ausgegeben - eine Zahl für jede Spalte.</p>
+<p>Ein Hinweis zur Indizierung mit Spaltennamen - wenn du auf die Spalte selbst verweist <em>schreibe nicht einfach “col”!</em> <code>col</code> steht nur für den Namen der Spalte! Um auf die gesamte Spalte zu verweisen, musst du den Spaltennamen als <em>Index</em> auf verwenden. <code>linelist</code> über <code>linelist[[col]]</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">names</span>(linelist)){        <span class="co"># loop runs for each column in linelist; column name represented by "col" </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Example operations code - print number of missing values in column</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(linelist[[col]])))  <span class="co"># linelist is indexed by current value of "col"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0
+[1] 0
+[1] 2087
+[1] 256
+[1] 0
+[1] 936
+[1] 1323
+[1] 278
+[1] 86
+[1] 0
+[1] 86
+[1] 86
+[1] 86
+[1] 0
+[1] 0
+[1] 0
+[1] 2088
+[1] 2088
+[1] 0
+[1] 0
+[1] 0
+[1] 249
+[1] 249
+[1] 249
+[1] 249
+[1] 249
+[1] 149
+[1] 765
+[1] 0
+[1] 256</code></pre>
+</div>
+</div>
+<p><strong>Zahlenreihenfolge</strong></p>
+<p>Bei diesem Ansatz ist die Sequenz eine Reihe von aufeinanderfolgenden Zahlen. Der Wert des “Elements” ist also kein Zeichenwert (z. B. “Zentralkrankenhaus” oder “Datum_Untergang”), sondern eine Zahl. Das ist nützlich, um eine Schleife durch Datenrahmen zu ziehen, denn du kannst die “item”-Nummer innerhalb der <em>for-Schleife</em> verwenden, um den Datenrahmen zu indizieren durch <em>Zeilennummer</em>.</p>
+<p>Angenommen, du möchtest eine Schleife durch jede Zeile in deinem Datenrahmen ziehen und bestimmte Informationen extrahieren. Deine “Items” wären dann numerische Zeilennummern. Oft werden “Items” in diesem Fall geschrieben als <code>i</code>.</p>
+<p>Die <em>for-Schleife</em> Prozess könnte mit folgenden Worten erklärt werden: “Für jedes Element in einer Folge von Zahlen von 1 bis zur Gesamtzahl der Zeilen in meinem Datenrahmen mache X”. Bei der ersten Iteration der Schleife wird der Wert von “item” <code>i</code> 1 sein. Für die zweite Iteration, <code>i</code> 2 sein usw.</p>
+<p>So sieht die Reihenfolge im Code aus: <code>for (i in 1:nrow(linelist)) {OPERATIONS CODE}</code> wo <code>i</code> für das “Element” steht und <code>1:nrow(linelist)</code> eine Folge von aufeinanderfolgenden Zahlen von 1 bis zur Anzahl der Zeilen in <code>linelist</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(linelist)) {  <span class="co"># use on a data frame</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># OPERATIONS HERE</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn die Folge aus Zahlen bestehen soll, du aber von einem Vektor (und nicht von einem Datenrahmen) ausgehst, verwende die Abkürzung <code>seq_along()</code> um eine Zahlenfolge für jedes Element des Vektors zurückzugeben. Zum Beispiel, <code>for (i in seq_along(hospital_names) {OPERATIONS CODE}</code>.</p>
+<p>Der folgende Code gibt tatsächlich Zahlen zurück, die den Wert von <code>i</code> in ihrer jeweiligen Schleife.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(hospital_names)  <span class="co"># use on a named vector</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6</code></pre>
+</div>
+</div>
+<p>Ein Vorteil der Verwendung von Zahlen in der Sequenz ist, dass es einfach ist, auch die <code>i</code> Nummer als Index für eine <em>Container</em> zu indizieren, in dem die Schleifenausgänge gespeichert werden. Ein Beispiel dafür findest du im Abschnitt Operationen weiter unten.</p>
+</section>
+<section id="vorgänge" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="vorgänge">Vorgänge</h3>
+<p>Das ist der Code innerhalb der geschweiften Klammern <code>{ }</code> der <em>for-Schleife</em>. Du möchtest, dass dieser Code für jedes “Element” in der <em>Sequenz</em>. Achte deshalb darauf, dass jeder Teil deines Codes, der sich durch das “Item” ändert, korrekt kodiert ist, damit er sich tatsächlich ändert! Denke z.B. daran, dass du <code>[[ ]]</code> für die Indexierung.</p>
+<p>Im folgenden Beispiel durchlaufen wir jede Zeile in der Datei <code>linelist</code>. Die <code>gender</code> und <code>age</code> Werte jeder Zeile werden zusammengeklebt und im Containerzeichenvektor gespeichert <code>cases_demographics</code>. Beachte, dass wir auch die Indexierung verwenden <code>[[i]]</code> verwenden, um die Schleifenausgabe an der richtigen Stelle im “Container”-Vektor zu speichern.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create container to store results - a character vector</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cases_demographics <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"character"</span>, <span class="at">length =</span> <span class="fu">nrow</span>(linelist))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the for loop</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(linelist)){</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># OPERATIONS</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extract values from linelist for row i, using brackets for indexing</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  row_gender  <span class="ot">&lt;-</span> linelist<span class="sc">$</span>gender[[i]]</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  row_age     <span class="ot">&lt;-</span> linelist<span class="sc">$</span>age_years[[i]]    <span class="co"># don't forget to index!</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># combine gender-age and store in container vector at indexed location</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  cases_demographics[[i]] <span class="ot">&lt;-</span> <span class="fu">str_c</span>(row_gender, row_age, <span class="at">sep =</span> <span class="st">","</span>) </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># end for loop</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># display first 10 rows of container</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cases_demographics, <span class="dv">10</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "m,2"  "f,3"  "m,56" "f,18" "m,3"  "f,16" "f,16" "f,0"  "m,61" "f,27"</code></pre>
+</div>
+</div>
+</section>
+<section id="container" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="container">Container</h3>
+<p>Manchmal sind die Ergebnisse deines <em>for-Schleife</em> auf der Konsole oder im Plots-Fenster von RStudio ausgegeben werden. In anderen Fällen möchtest du die Ergebnisse in einem “Container” zur späteren Verwendung speichern. Ein solcher Container kann ein Vektor, ein Datenrahmen oder sogar eine Liste sein.</p>
+<p>Am effizientesten ist es, den Container für die Ergebnisse zu erstellen <em>zu ers, bevor</em> bevor man die <em>for-Schleife</em>. In der Praxis bedeutet das, dass du einen leeren Vektor, Datenrahmen oder eine Liste erstellst. Diese können mit folgenden Funktionen erstellt werden <code>vector()</code> für Vektoren oder Listen erstellt werden, oder mit <code>matrix()</code> und <code>data.frame()</code> für einen Datenrahmen.</p>
+<p><strong>Leerer Vektor</strong></p>
+<p>verwenden <code>vector()</code> und gib den <code>mode =</code> basierend auf der erwarteten Klasse der Objekte, die du einfügen willst - entweder “double” (für Zahlen), “character” oder “logical”. Du solltest auch die <code>length =</code> im Voraus festlegen. Dies sollte die Länge deines <em>for-Schleife</em> Sequenz sein.</p>
+<p>Angenommen, du möchtest den Median der Wartezeit bis zur Einlieferung für jedes Krankenhaus speichern. Du würdest “double” verwenden und die Länge auf die Anzahl der erwarteten Ausgaben (die Anzahl der einzelnen Krankenhäuser im Datensatz) setzen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>delays <span class="ot">&lt;-</span> <span class="fu">vector</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"double"</span>,                            <span class="co"># we expect to store numbers</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fu">length</span>(<span class="fu">unique</span>(linelist<span class="sc">$</span>hospital))) <span class="co"># the number of unique hospitals in the dataset</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Leerer Datenrahmen</strong></p>
+<p>Du kannst einen leeren Datenrahmen erstellen, indem du die Anzahl der Zeilen und Spalten wie folgt angibst:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>delays <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">3</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Leere Liste</strong></p>
+<p>Du möchtest vielleicht einige Plots speichern, die von einem <em>for-Schleife</em> in einer Liste speichern. Eine Liste ist wie ein Vektor, enthält aber andere R-Objekte, die von verschiedenen Klassen sein können. Elemente in einer Liste können eine einzelne Zahl, ein Datenrahmen, ein Vektor und sogar eine andere Liste sein.</p>
+<p>Du initialisierst eine leere Liste mit der gleichen <code>vector()</code> Befehl wie oben, aber mit <code>mode = "list"</code>. Gib die Länge der Liste an, wie du willst.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"list"</span>, <span class="at">length =</span> <span class="dv">16</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="drucken" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="drucken">Drucken</h3>
+<p>Beachten Sie, dass Sie zum Drucken aus einer <em>for-Schleife</em> zu drucken, musst du wahrscheinlich explizit mit der Funktion <code>print()</code>.</p>
+<p>In diesem Beispiel unten ist die Sequenz ein expliziter Zeichenvektor, der verwendet wird, um die Zeilenliste nach Krankenhaus zu unterteilen. Die Ergebnisse werden nicht in einem Container gespeichert, sondern auf der Konsole mit der Option <code>print()</code> Funktion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (hosp <span class="cf">in</span> hospital_names){ </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     hospital_cases <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hospital <span class="sc">==</span> hosp)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">nrow</span>(hospital_cases))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 885
+[1] 1469
+[1] 422
+[1] 1762
+[1] 896
+[1] 454</code></pre>
+</div>
+</div>
+</section>
+<section id="testen-deiner-for-schleife" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="testen-deiner-for-schleife">Testen deiner for-Schleife</h3>
+<p>Um deine Schleife zu testen, kannst du einen Befehl ausführen, der eine temporäre Zuweisung des “Elements” vornimmt, z. B. <code>i &lt;- 10</code> oder <code>hosp &lt;- "Central Hospital"</code>. Tu dies <em>außerhalb der Schleife</em> und führe dann nur deinen Operationscode aus (den Code innerhalb der geschweiften Klammern), um zu sehen, ob die erwarteten Ergebnisse erzielt werden.</p>
+</section>
+<section id="schleifenplots" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="schleifenplots">Schleifenplots</h3>
+<p>Um alle drei Komponenten (Container, Sequenz und Operationen) zusammenzubringen, wollen wir versuchen, für jedes Krankenhaus eine Epikurve zu zeichnen (siehe Seite über [Epidemie-Kurven]).</p>
+<p>Wir können eine schöne Epikurve erstellen von <em>allen</em> der Fälle nach Geschlecht erstellen, indem wir die <strong>Inzidenz2</strong> Paket wie unten beschrieben:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create 'incidence' object</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>outbreak <span class="ot">&lt;-</span> incidence2<span class="sc">::</span><span class="fu">incidence</span>(   </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> linelist,                   <span class="co"># dataframe - complete linelist</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">date_index =</span> <span class="st">"date_onset"</span>,        <span class="co"># date column</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">interval =</span> <span class="st">"week"</span>,              <span class="co"># aggregate counts weekly</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">groups =</span> <span class="st">"gender"</span>)               <span class="co"># group values by gender</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>     <span class="co">#na_as_group = TRUE)             # missing gender is own group</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># tracer la courbe d'épidémie</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(outbreak, <span class="co"># nom de l'objet d'incidence</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(<span class="at">x =</span> date_index, <span class="co">#aesthetiques et axes</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> count, </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> gender), <span class="co"># Fill colour of bars by gender</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"black"</span>      <span class="co"># Contour colour of bars</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span>  </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender) <span class="sc">+</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Outbreak of all cases"</span>, <span class="co">#titre</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"Counts"</span>, </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"Date"</span>, </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill =</span> <span class="st">"Gender"</span>, </span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"Gender"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="iteration.de_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Um ein separates Diagramm für die Fälle eines jeden Krankenhauses zu erstellen, können wir diesen Epikurvencode in eine <em>for-Schleife</em>.</p>
+<p>Zuerst speichern wir einen benannten Vektor mit den eindeutigen Namen der Krankenhäuser, <code>hospital_names</code>. Die <em>for-Schleife</em> wird für jeden dieser Namen einmal durchlaufen: <code>for (hosp in hospital_names)</code>. Jede Iteration der <em>for-Schleife</em> wird der aktuelle Krankenhausname aus dem Vektor dargestellt als <code>hosp</code> für die Verwendung innerhalb der Schleife.</p>
+<p>Innerhalb der Schleifenoperationen kannst du den R-Code wie gewohnt schreiben, aber das “Item” (<code>hosp</code> in diesem Fall) mit dem Wissen, dass sich sein Wert ändern wird. Innerhalb dieser Schleife:</p>
+<ul>
+<li>A <code>filter()</code> wird angewendet auf <code>linelist</code>, so dass die Spalte <code>hospital</code> gleich dem aktuellen Wert von <code>hosp</code></li>
+<li>Das Inzidenzobjekt wird auf der gefilterten Lineliste erstellt</li>
+<li>Der Plot für das aktuelle Krankenhaus wird erstellt, mit einem sich automatisch anpassenden Titel, der die <code>hosp</code></li>
+<li>Das Diagramm für das aktuelle Krankenhaus wird zwischengespeichert und dann gedruckt</li>
+<li>Die Schleife geht dann weiter und wiederholt sich mit dem nächsten Krankenhaus in <code>hospital_names</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make vector of the hospital names</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>hospital_names <span class="ot">&lt;-</span> <span class="fu">unique</span>(linelist<span class="sc">$</span>hospital)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># for each name ("hosp") in hospital_names, create and print the epi curve</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (hosp <span class="cf">in</span> hospital_names) {</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>     <span class="co"># create incidence object specific to the current hospital</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>     outbreak_hosp <span class="ot">&lt;-</span> incidence2<span class="sc">::</span><span class="fu">incidence</span>(</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> linelist <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hospital <span class="sc">==</span> hosp),   <span class="co"># linelist is filtered to the current hospital</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">date_index =</span> <span class="st">"date_onset"</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">interval =</span> <span class="st">"week"</span>, </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">groups =</span> <span class="st">"gender"</span><span class="co">#,</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>          <span class="co">#na_as_group = TRUE</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      plot_hosp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(outbreak_hosp, <span class="co"># incidence object name</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">aes</span>(<span class="at">x =</span> date_index, <span class="co">#axes</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> count, </span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> gender), <span class="co"># fill colour by gender</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">color =</span> <span class="st">"black"</span>      <span class="co"># colour of bar contour</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>                         ) <span class="sc">+</span>  </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>          <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>          <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender) <span class="sc">+</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>          <span class="fu">labs</span>(<span class="at">title =</span> stringr<span class="sc">::</span><span class="fu">str_glue</span>(<span class="st">"Epidemic of cases admitted to {hosp}"</span>), <span class="co">#title</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"Counts"</span>, </span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="st">"Date"</span>, </span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"Gender"</span>, </span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"Gender"</span>)</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>     <span class="co"># With older versions of R, remove the # before na_as_group and use this plot command instead.</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plot_hosp &lt;- plot(</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="co">#       outbreak_hosp,</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co">#       fill = "gender",</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a><span class="co">#       color = "black",</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="co">#       title = stringr::str_glue("Epidemic of cases admitted to {hosp}")</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>     <span class="co">#print the plot for hospitals</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(plot_hosp)</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>} <span class="co"># end the for loop when it has been run for every hospital in hospital_names </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="iteration.de_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="iteration.de_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="iteration.de_files/figure-html/unnamed-chunk-17-3.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="iteration.de_files/figure-html/unnamed-chunk-17-4.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="iteration.de_files/figure-html/unnamed-chunk-17-5.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-17-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="iteration.de_files/figure-html/unnamed-chunk-17-6.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="verfolgen-des-fortschritts-einer-schleife" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="verfolgen-des-fortschritts-einer-schleife">Verfolgen des Fortschritts einer Schleife</h3>
+<p>Eine Schleife mit vielen Iterationen kann viele Minuten oder sogar Stunden lang laufen. Daher kann es hilfreich sein, den Fortschritt auf der R-Konsole auszugeben. Die <code>if</code> Anweisung kann wie folgt platziert werden <em>innerhalb von</em> der Schleifenoperationen platziert werden, um jede 100ste Zahl zu drucken. Passe sie einfach so an, dass <code>i</code> das “Element” in deiner Schleife ist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop with code to print progress every 100 iterations</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(linelist))){</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print progress</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> <span class="dv">100</span><span class="sc">==</span><span class="dv">0</span>){    <span class="co"># The %% operator is the remainder</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ======================================================= -->
+</section>
+</section>
+<section id="purrr-und-listen-iter_purrr" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="purrr-und-listen-iter_purrr"><span class="header-section-number">16.3</span> <strong>purrr</strong> und Listen {#iter_purrr}</h2>
+<p>Ein weiterer Ansatz für iterative Operationen ist die <strong>purrr</strong> Paket - es ist die <strong>tidyverse</strong> Ansatz zur Iteration.</p>
+<p>Wenn du dieselbe Aufgabe mehrmals ausführen musst, lohnt es sich wahrscheinlich, eine verallgemeinerte Lösung zu erstellen, die du für viele Eingaben verwenden kannst. So kannst du zum Beispiel Plots für mehrere Gerichtsbarkeiten erstellen oder viele Dateien importieren und kombinieren.</p>
+<p>Es gibt noch ein paar andere Vorteile, die <strong>purrr</strong> - Du kannst es mit Rohren verwenden <code>%&gt;%</code>, es behandelt Fehler besser als normal <em>for-Schleifen</em> und die Syntax ist sehr sauber und einfach! Wenn du eine <em>for-Schleife</em> verwendest, kannst du es wahrscheinlich klarer und prägnanter machen mit <strong>purrr</strong>!</p>
+<p>Denke daran, dass <strong>purrr</strong> ist eine <em>funktionales Programmierwerkzeug</em>. Das heißt, die Operationen, die iterativ angewendet werden sollen, werden in <em>Funktionen</em>. Siehe die [Funktionen schreiben] Seite, um zu erfahren, wie du deine eigenen Funktionen schreiben kannst.</p>
+<p><strong>purrr</strong> basiert auch fast vollständig auf <em>Listen</em> und <em>Vektoren</em> - Betrachte es also als Anwendung einer Funktion auf jedes Element der Liste/des Vektors!</p>
+<section id="pakete-laden-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pakete-laden-1">Pakete laden</h3>
+<p><strong>purrr</strong> ist Teil der <strong>tidyverse</strong> ist Teil von tidyverse, du musst also kein separates Paket installieren/laden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>     rio,            <span class="co"># import/export</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     here,           <span class="co"># relative filepaths</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>     tidyverse,      <span class="co"># data mgmt and viz</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>     writexl,        <span class="co"># write Excel file with multiple sheets</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>     readxl          <span class="co"># import Excel with multiple sheets</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="map" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="map"><code>map()</code></h3>
+<p>Ein Kern <strong>purrr</strong> Funktion ist <code>map()</code> die eine Funktion auf jedes Eingabeelement einer Liste/eines Vektors, den du angibst, “abbildet” (anwendet).</p>
+<p>Die grundlegende Syntax lautet <code>map(.x = SEQUENCE, .f = FUNCTION, OTHER ARGUMENTS)</code>. Ein bisschen ausführlicher:</p>
+<ul>
+<li><code>.x =</code> Sind die <em>Eingänge</em> auf denen die <code>.f</code> Funktion iterativ angewendet wird - z. B. ein Vektor von Zuständigkeitsnamen, Spalten in einem Datenrahmen oder eine Liste von Datenrahmen</li>
+<li><code>.f =</code> ist die <em>Funktion</em> die auf jedes Element der Tabelle anzuwenden ist. <code>.x</code> Inputs anzuwenden - es könnte eine Funktion sein wie <code>print()</code> sein, die bereits existiert, oder eine eigene Funktion, die du definierst. Die Funktion wird oft nach einer Tilde geschrieben <code>~</code> geschrieben (Details weiter unten).</li>
+</ul>
+<p>Noch ein paar Hinweise zur Syntax:</p>
+<ul>
+<li>Wenn für die Funktion keine weiteren Argumente angegeben werden müssen, kann sie ohne Klammern und ohne Tilde geschrieben werden (z.B. <code>.f = mean</code>). Um Argumente anzugeben, die bei jeder Iteration den gleichen Wert haben, gibst du sie innerhalb von <code>map()</code> aber außerhalb der <code>.f =</code> Argumentes, wie zum Beispiel das <code>na.rm = T</code> in <code>map(.x = my_list, .f = mean, na.rm=T)</code>.</li>
+<li>Du kannst <code>.x</code> (oder einfach <code>.</code>) <em>innerhalb von</em> der <code>.f =</code> Funktion als Platzhalter für die <code>.x</code> Wert dieser Iteration</li>
+<li>Verwende die Tilde-Syntax (<code>~</code>), um eine bessere Kontrolle über die Funktion zu haben - schreibe die Funktion ganz normal mit Klammern, wie z. B: <code>map(.x = my_list, .f = ~mean(., na.rm = T))</code>. Verwende diese Syntax vor allem dann, wenn sich der Wert eines Arguments bei jeder Iteration ändert, oder wenn es sich um den Wert <code>.x</code> selbst ist (siehe Beispiele unten)</li>
+</ul>
+<p><strong>Die Ausgabe der Verwendung von <code>map()</code> ist eine <em>Liste</em></strong> - Eine Liste ist eine Objektklasse wie ein Vektor, deren Elemente aber unterschiedliche Klassen haben können. Eine Liste wird also erzeugt durch <code>map()</code> erzeugte Liste kann also viele Datenrahmen, viele Vektoren, viele Einzelwerte oder sogar viele Listen enthalten! Es gibt alternative Versionen von <code>map()</code> die weiter unten erklärt werden und andere Arten von Ausgaben erzeugen (z. B. <code>map_dfr()</code> um einen Datenrahmen zu erzeugen, <code>map_chr()</code> um Zeichenvektoren zu erzeugen, und <code>map_dbl()</code> um numerische Vektoren zu erzeugen).</p>
+<section id="beispiel---excel-tabellen-importieren-und-kombinieren-iter_combined-.unnumbered" class="level4" data-number="16.3.0.1">
+<h4 data-number="16.3.0.1" class="anchored" data-anchor-id="beispiel---excel-tabellen-importieren-und-kombinieren-iter_combined-.unnumbered"><span class="header-section-number">16.3.0.1</span> Beispiel - Excel-Tabellen importieren und kombinieren {#iter_combined .unnumbered}</h4>
+<p><strong>Lass uns das anhand einer gängigen Aufgabe für Epidemiologen demonstrieren:</strong> - <em>Du möchtest eine Excel-Arbeitsmappe mit Falldaten importieren, aber die Daten sind auf verschiedene benannte Blätter in der Arbeitsmappe verteilt. Wie kannst du die Blätter effizient importieren und in einem Datenrahmen zusammenfassen?</em></p>
+<p>Nehmen wir an, wir erhalten die unten stehende Excel-Arbeitsmappe. Jedes Blatt enthält Fälle aus einem bestimmten Krankenhaus.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/hospital_linelists_excel_sheets.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/hospital_linelists_excel_sheets.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="615"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hier ist ein Ansatz, bei dem <code>map()</code>:</p>
+<ol type="1">
+<li><code>map()</code> Die Funktion <code>import()</code> so, dass sie für jedes Excel-Blatt ausgeführt wird</li>
+<li>Kombiniere die importierten Datenrahmen zu einem einzigen mit <code>bind_rows()</code></li>
+<li>Behalte dabei den ursprünglichen Blattnamen für jede Zeile bei und speichere diese Information in einer neuen Spalte im endgültigen Datenrahmen</li>
+</ol>
+<p>Zuerst müssen wir die Blattnamen extrahieren und speichern. Wir geben den Dateipfad der Excel-Arbeitsmappe an die Funktion <code>excel_sheets()</code> aus dem Paket <strong>readxl</strong>, das die Blattnamen extrahiert. Wir speichern sie in einem Zeichenvektor namens <code>sheet_names</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sheet_names <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(<span class="st">"hospital_linelists.xlsx"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hier sind die Namen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sheet_names</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Central Hospital"              "Military Hospital"            
+[3] "Missing"                       "Other"                        
+[5] "Port Hospital"                 "St. Mark's Maternity Hospital"</code></pre>
+</div>
+</div>
+<p>Jetzt haben wir diesen Vektor von Namen, <code>map()</code> können wir sie nacheinander an die Funktion <code>import()</code>. In diesem Beispiel wird die <code>sheet_names</code> sind <code>.x</code> und <code>import()</code> ist die Funktion <code>.f</code>.</p>
+<p>Rückruf aus dem [Import und Export] Seite, dass bei der Verwendung in Excel-Arbeitsmappen ,<code>import()</code> das Argument akzeptieren kann <code>which =</code> akzeptieren, das das zu importierende Blatt angibt. Innerhalb der <code>.f</code> Funktion <code>import()</code> stellen wir <code>which = .x</code> an, deren Wert sich bei jeder Iteration durch den Vektor ändert <code>sheet_names</code> - zuerst “Zentralkrankenhaus”, dann “Militärkrankenhaus”, usw.</p>
+<p>Zu beachten ist - weil wir die <code>map()</code> verwendet haben, werden die Daten in jedem Excel-Blatt als ein separater Datenrahmen innerhalb einer Liste gespeichert. Wir möchten, dass jedes dieser Listenelemente (Datenrahmen) einen <em>Namen</em> haben, bevor wir also <code>sheet_names</code> an <code>map()</code> passieren wir es durch <code>set_names()</code> von <strong>purrr</strong>, wodurch sichergestellt wird, dass jedes Listenelement den richtigen Namen erhält.</p>
+<p>Wir speichern die Ausgabeliste als <code>combined</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> sheet_names <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">import</span>(<span class="st">"hospital_linelists.xlsx"</span>, <span class="at">which =</span> .x))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn wir die Ausgabe überprüfen, sehen wir, dass die Daten aus jedem Excel-Blatt mit einem Namen in der Liste gespeichert sind. Das ist gut, aber wir sind noch nicht ganz fertig.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/sheets_as_list.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/sheets_as_list.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="544"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zum Schluss verwenden wir die Funktion <code>bind_rows()</code> (von <strong>dplyr</strong>), die eine Liste ähnlich strukturierter Datenrahmen akzeptiert und sie zu einem Datenrahmen kombiniert. Um eine neue Spalte aus dem Listenelement zu erstellen <em>Namen</em> zu erstellen, verwenden wir das Argument <code>.id =</code> und geben ihm den gewünschten Namen für die neue Spalte.</p>
+<p>Im Folgenden findest du die gesamte Befehlssequenz:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sheet_names <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(<span class="st">"hospital_linelists.xlsx"</span>)  <span class="co"># extract sheet names</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> sheet_names <span class="sc">%&gt;%</span>                                     <span class="co"># begin with sheet names</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>() <span class="sc">%&gt;%</span>                                        <span class="co"># set their names</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">import</span>(<span class="st">"hospital_linelists.xlsx"</span>, <span class="at">which =</span> .x)) <span class="sc">%&gt;%</span>  <span class="co"># iterate, import, save in list</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"origin_sheet"</span>) <span class="co"># combine list of data frames, preserving origin in new column  </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Und jetzt haben wir einen Datenrahmen mit einer Spalte, die das Ursprungsblatt enthält!</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/sheets_as_df.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/sheets_as_df.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="543"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Es gibt Variationen von <code>map()</code> die du kennen solltest. Zum Beispiel, <code>map_dfr()</code> einen Datenrahmen zurück, keine Liste. Wir hätten ihn also für die obige Aufgabe verwenden können und hätten keine Zeilen binden müssen. Aber dann hätten wir nicht erfassen können, aus welchem Blatt (Krankenhaus) die einzelnen Fälle stammen.</p>
+<p>Andere Varianten sind <code>map_chr()</code>, <code>map_dbl()</code>. Diese Funktionen sind aus zwei Gründen sehr nützlich. Erstens wandeln sie die Ausgabe einer iterativen Funktion automatisch in einen Vektor (und nicht in eine Liste) um. Zweitens können sie explizit die Klasse steuern, in der die Daten zurückkommen - du stellst sicher, dass deine Daten als Zeichenvektor zurückkommen mit <code>map_chr()</code> oder als numerischer Vektor mit <code>map_dbl()</code>. Darauf kommen wir später in diesem Abschnitt zurück!</p>
+<p>Die Funktionen <code>map_at()</code> und <code>map_if()</code> sind ebenfalls sehr nützlich für die Iteration - mit ihnen kannst du angeben, welche Elemente einer Liste du iterieren sollst! Sie funktionieren, indem sie einfach einen Vektor von Indizes/Namen anwenden (im Fall von <code>map_at()</code>) oder einen logischen Test (im Fall von <code>map_if()</code>).</p>
+<p>Nehmen wir ein Beispiel, bei dem wir das erste Blatt der Krankenhausdaten nicht lesen wollten. Wir verwenden <code>map_at()</code> anstelle von <code>map()</code>, und geben die <code>.at =</code> Argument an <code>c(-1)</code> an, was bedeutet <em>nicht</em> das erste Element von <code>.x</code>. Alternativ kannst du auch einen Vektor mit positiven Zahlen oder Namen an <code>.at =</code> geben, um anzugeben, welche Elemente verwendet werden sollen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sheet_names <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(<span class="st">"hospital_linelists.xlsx"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> sheet_names <span class="sc">%&gt;%</span> </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>     purrr<span class="sc">::</span><span class="fu">set_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>     <span class="co"># exclude the first sheet</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map_at</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">import</span>( <span class="st">"hospital_linelists.xlsx"</span>, <span class="at">which =</span> .x),</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.at =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Beachte, dass der erste Blattname immer noch als Element der Ausgabeliste erscheint - aber es ist nur ein einstelliger Name (kein Datenrahmen). Du müsstest dieses Element entfernen, bevor du Zeilen bindest. Wie du Listenelemente entfernst und änderst, erfährst du in einem späteren Abschnitt.</p>
+</section>
+</section>
+<section id="datensatz-aufteilen-und-exportieren" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="datensatz-aufteilen-und-exportieren">Datensatz aufteilen und exportieren</h3>
+<p>Im Folgenden geben wir ein Beispiel dafür, wie man einen Datensatz in Teile aufteilt und dann mit <code>map()</code> Iteration, um jeden Teil als separates Excel-Blatt oder als separate CSV-Datei zu exportieren.</p>
+<section id="datensatz-teilen" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="datensatz-teilen">Datensatz teilen</h4>
+<p>Nehmen wir an, wir haben den vollständigen Fall <code>linelist</code> als Datenrahmen und wollen nun für jedes Krankenhaus eine eigene Liste erstellen und diese als separate CSV-Datei exportieren. Im Folgenden führen wir die folgenden Schritte aus:</p>
+<p>Verwende <code>group_split()</code> (von <strong>dplyr</strong>) zum Aufteilen der <code>linelist</code> Datenrahmen nach eindeutigen Werten in der Spalte <code>hospital</code>. Die Ausgabe ist eine Liste mit einem Datenrahmen pro Krankenhaus-Teilmenge.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>linelist_split <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_split</span>(hospital)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir können <code>View(linelist_split)</code> ausführen und sehen, dass diese Liste 6 Datenrahmen (“Tibbles”) enthält, die jeweils die Fälle eines Krankenhauses repräsentieren.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/purrr_linelist_split.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/purrr_linelist_split.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="574"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Beachte jedoch, dass die Datenrahmen in der Liste standardmäßig keine Namen haben! Wir möchten, dass jeder Datenrahmen einen Namen hat und dass dieser Name beim Speichern der CSV-Datei verwendet wird.</p>
+<p>Eine Möglichkeit, die Namen zu extrahieren, ist die Verwendung von <code>pull()</code> (aus <strong>dplyr</strong>) zum Extrahieren der <code>hospital</code> Spalte aus jedem Datenrahmen in der Liste zu extrahieren. Um sicherzugehen, wandeln wir die Werte dann in Zeichen um und verwenden dann <code>unique()</code> um den Namen für den jeweiligen Datenrahmen zu erhalten. Alle diese Schritte werden für jeden Datenrahmen über <code>map()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(linelist_split) <span class="ot">&lt;-</span> linelist_split <span class="sc">%&gt;%</span>   <span class="co"># Assign to names of listed data frames </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract the names by doing the following to each data frame: </span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">pull</span>(.x, hospital)) <span class="sc">%&gt;%</span>        <span class="co"># Pull out hospital column</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">as.character</span>(.x)) <span class="sc">%&gt;%</span>          <span class="co"># Convert to character, just in case</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">unique</span>(.x))                    <span class="co"># Take the unique hospital name</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir können nun sehen, dass jedes Listenelement einen Namen hat. Auf diese Namen kann man über <code>names(linelist_split)</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/purrr_linelist_split_named.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/purrr_linelist_split_named.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="575"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(linelist_split)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Central Hospital"                    
+[2] "Military Hospital"                   
+[3] "Missing"                             
+[4] "Other"                               
+[5] "Port Hospital"                       
+[6] "St. Mark's Maternity Hospital (SMMH)"</code></pre>
+</div>
+</div>
+<section id="mehr-als-eine-group_split-spalte" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="mehr-als-eine-group_split-spalte">Mehr als eine <code>group_split()</code> Spalte</h5>
+<p>Wenn du die Zeilenliste aufteilen möchtest nach <em>mehr als eine Gruppierungsspalte</em> aufteilen möchtest, z. B. um eine Unterliste nach Krankenhaus UND Geschlecht zu erstellen, brauchst du einen anderen Ansatz für die Benennung der Listenelemente. Dazu musst du die eindeutigen “Gruppenschlüssel” mit <code>group_keys()</code> von <strong>dplyr</strong> - werden sie als Datenrahmen zurückgegeben. Dann kannst du die Gruppenschlüssel zu Werten kombinieren mit <code>unite()</code> zu Werten kombinieren, wie unten gezeigt, und diese Konglomeratnamen den <code>linelist_split</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split linelist by unique hospital-gender combinations</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>linelist_split <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_split</span>(hospital, gender)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># extract group_keys() as a dataframe</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>groupings <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(hospital, gender) <span class="sc">%&gt;%</span>       </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_keys</span>()</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>groupings      <span class="co"># show unique groupings </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 2
+   hospital                             gender
+   &lt;chr&gt;                                &lt;chr&gt; 
+ 1 Central Hospital                     f     
+ 2 Central Hospital                     m     
+ 3 Central Hospital                     &lt;NA&gt;  
+ 4 Military Hospital                    f     
+ 5 Military Hospital                    m     
+ 6 Military Hospital                    &lt;NA&gt;  
+ 7 Missing                              f     
+ 8 Missing                              m     
+ 9 Missing                              &lt;NA&gt;  
+10 Other                                f     
+11 Other                                m     
+12 Other                                &lt;NA&gt;  
+13 Port Hospital                        f     
+14 Port Hospital                        m     
+15 Port Hospital                        &lt;NA&gt;  
+16 St. Mark's Maternity Hospital (SMMH) f     
+17 St. Mark's Maternity Hospital (SMMH) m     
+18 St. Mark's Maternity Hospital (SMMH) &lt;NA&gt;  </code></pre>
+</div>
+</div>
+<p>Nun fassen wir die Gruppierungen zusammen, trennen sie durch Bindestriche und weisen sie als Namen von Listenelementen in <code>linelist_split</code>. Dies erfordert einige zusätzliche Zeilen, da wir die <code>NA</code> durch “Fehlend”, verwenden <code>unite()</code> von <strong>dplyr</strong> um die Spaltenwerte zusammenzufassen (durch Bindestriche getrennt) und dann in einen unbenannten Vektor zu konvertieren, damit er als Namen für <code>linelist_split</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into one name value </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(linelist_split) <span class="ot">&lt;-</span> groupings <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), replace_na, <span class="st">"Missing"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># replace NA with "Missing" in all columns</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">unite</span>(<span class="st">"combined"</span>, <span class="at">sep =</span> <span class="st">"-"</span>) <span class="sc">%&gt;%</span>                         <span class="co"># Unite all column values into one</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">setNames</span>(<span class="cn">NULL</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as_vector</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as.list</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="als-excel-blätter-exportieren" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="als-excel-blätter-exportieren">Als Excel-Blätter exportieren</h4>
+<p>So exportieren Sie die Krankenhaus-Listen als <em>eine Excel-Arbeitsmappe mit einer Strichliste pro Blatt</em> können wir einfach die benannte Liste bereitstellen <code>linelist_split</code> an die <code>write_xlsx()</code> Funktion von der <strong>writexl</strong> Paket. Diese Funktion ermöglicht es, eine Excel-Arbeitsmappe mit mehreren Blättern zu speichern. Die Namen der Listenelemente werden automatisch als Blattnamen übernommen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>linelist_split <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>     writexl<span class="sc">::</span><span class="fu">write_xlsx</span>(<span class="at">path =</span> <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"hospital_linelists.xlsx"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Du kannst jetzt die Excel-Datei öffnen und sehen, dass jedes Krankenhaus sein eigenes Blatt hat.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/purrr_export_sheets.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/purrr_export_sheets.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="652"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exportieren-als-csv-dateien" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exportieren-als-csv-dateien">Exportieren als CSV-Dateien</h4>
+<p>Dieser Befehl ist etwas komplizierter, aber du kannst auch jede krankenhausspezifische Linienliste als separate CSV-Datei exportieren, mit einem Dateinamen, der dem Krankenhaus entspricht.</p>
+<p>Auch hier verwenden wir <code>map()</code>: Wir nehmen den Vektor der Listenelementnamen (siehe oben) und verwenden <code>map()</code> um durch sie zu iterieren, indem wir <code>export()</code> (aus dem <strong>rio</strong>Paket, siehe [Import und Export] Seite) auf den Datenrahmen in der Liste<code>linelist_split</code> der diesen Namen trägt. Wir verwenden den Namen auch, um einen eindeutigen Dateinamen zu erstellen. So funktioniert es:</p>
+<ul>
+<li>Wir beginnen mit dem Vektor der Zeichennamen, der an <code>map()</code> als <code>.x</code></li>
+<li>Die <code>.f</code> Funktion ist <code>export()</code> die einen Datenrahmen und einen Dateipfad benötigt, in den geschrieben werden soll</li>
+<li>Die Eingabe <code>.x</code> (der Name des Krankenhauses) wird verwendet <em>innerhalb von</em> <code>.f</code> zu extrahieren/indizieren, um dieses spezifische Element von <code>linelist_split</code> Liste. Dies führt dazu, dass jeweils nur ein Datenrahmen an die <code>export()</code>.</li>
+<li>Zum Beispiel, wenn <code>map()</code> nach “Militärkrankenhaus” iteriert, dann <code>linelist_split[[.x]]</code> ist eigentlich <code>linelist_split[["Military Hospital"]]</code> und liefert somit das zweite Element von <code>linelist_split</code> - das alle Fälle aus dem Militärkrankenhaus enthält.</li>
+<li>Der Dateipfad, der an <code>export()</code> ist dynamisch durch die Verwendung von <code>str_glue()</code>(siehe [Zeichen und Zeichenketten] Seite):
+<ul>
+<li><code>here()</code> wird verwendet, um die Basis des Dateipfads zu erhalten und den Ordner “data” anzugeben (beachte einfache Anführungszeichen, um die <code>str_glue()</code> doppelten Anführungszeichen)</li>
+</ul></li>
+<li>Dann ein Schrägstrich <code>/</code>, und dann wieder der <code>.x</code> das den aktuellen Krankenhausnamen ausgibt, um die Datei identifizierbar zu machen</li>
+<li>Schließlich die Erweiterung “.csv”, die <code>export()</code> verwendet, um eine CSV-Datei zu erstellen</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(linelist_split) <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">export</span>(linelist_split[[.x]], <span class="at">file =</span> <span class="fu">str_glue</span>(<span class="st">"{here('data')}/{.x}.csv"</span>)))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Jetzt kannst du sehen, dass jede Datei im Ordner “data” des R-Projekts “Epi_R_handbook” gespeichert wird!</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/purrr_export_csv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/purrr_export_csv.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="632"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="benutzerdefinierte-funktionen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="benutzerdefinierte-funktionen">Benutzerdefinierte Funktionen</h3>
+<p>Vielleicht möchtest du deine eigene Funktion erstellen, die du an <code>map()</code>.</p>
+<p>Nehmen wir an, wir wollen Epidemiekurven für die Fälle eines jeden Krankenhauses erstellen. Um dies zu tun, verwenden wir <strong>purrr</strong> unsere <code>.f</code> Funktion kann sein <code>ggplot()</code> und Erweiterungen mit <code>+</code> wie üblich. Da die Ausgabe von <code>map()</code> immer eine Liste ist, werden auch die Plots in einer Liste gespeichert. Da es sich um Plots handelt, können sie extrahiert und mit der Funktion <code>ggarrange()</code> Funktion aus der <strong>ggpubr</strong> Paket (<a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">Dokumentation</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load package for plotting elements from list</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggpubr)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># map across the vector of 6 hospital "names" (created earlier)</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use the ggplot function specified</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co"># output is a list with 6 ggplots</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>hospital_names <span class="ot">&lt;-</span> <span class="fu">unique</span>(linelist<span class="sc">$</span>hospital)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>my_plots <span class="ot">&lt;-</span> <span class="fu">map</span>(</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">.x =</span> hospital_names,</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">.f =</span> <span class="sc">~</span><span class="fu">ggplot</span>(<span class="at">data =</span> linelist <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hospital <span class="sc">==</span> .x)) <span class="sc">+</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_onset)) <span class="sc">+</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> .x)</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="co"># print the ggplots (they are stored in a list)</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="at">plotlist =</span> my_plots, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="iteration.de_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="iteration.de_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn diese <code>map()</code> Code zu chaotisch aussieht, kannst du das gleiche Ergebnis erzielen, indem du deine spezifischen <code>ggplot()</code> Befehl als benutzerdefinierte Funktion speicherst, zum Beispiel unter dem Namen <code>make_epicurve())</code>. Diese Funktion wird dann innerhalb der <code>map()</code>. <code>.x</code> iterativ durch den Namen des Krankenhauses ersetzt und als <code>hosp_name</code> in der <code>make_epicurve()</code>Funktion. Siehe die Seite über [Funktionen schreiben].</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create function</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>make_epicurve <span class="ot">&lt;-</span> <span class="cf">function</span>(hosp_name){</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> linelist <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hospital <span class="sc">==</span> hosp_name)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_onset)) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> hosp_name)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mapping</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>my_plots <span class="ot">&lt;-</span> <span class="fu">map</span>(hospital_names, <span class="sc">~</span><span class="fu">make_epicurve</span>(<span class="at">hosp_name =</span> .x))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the ggplots (they are stored in a list)</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="at">plotlist =</span> my_plots, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="eine-funktion-spaltenübergreifend-abbilden" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="eine-funktion-spaltenübergreifend-abbilden">Eine Funktion spaltenübergreifend abbilden</h3>
+<p>Ein weiterer häufiger Anwendungsfall ist die Zuordnung einer Funktion über mehrere Spalten hinweg. Im Folgenden werden wir <code>map()</code> die Funktion <code>t.test()</code> auf die numerischen Spalten des Datenrahmens <code>linelist</code> und vergleicht die numerischen Werte nach Geschlecht.</p>
+<p>Erinnere dich an die Seite über [Einfache statistische Tests] dass<code>t.test()</code> Eingaben im Formelformat annehmen können, wie zum Beispiel <code>t.test(numeric column ~ binary column)</code>. In diesem Beispiel gehen wir wie folgt vor:</p>
+<ul>
+<li>Die numerischen Spalten von Interesse werden ausgewählt aus <code>linelist</code> - diese werden zu den <code>.x</code> Eingaben für <code>map()</code></li>
+<li>Die Funktion <code>t.test()</code> wird als die <code>.f</code> Funktion, die auf jede numerische Spalte angewendet wird</li>
+<li>Innerhalb der Klammern von <code>t.test()</code>:
+<ul>
+<li>die erste <code>~</code> geht dem <code>.f</code> dass <code>map()</code> wird iteriert über <code>.x</code></li>
+<li>die <code>.x</code> steht für die aktuelle Spalte, die an die Funktion übergeben wird <code>t.test()</code></li>
+<li>die zweite <code>~</code> ist Teil der oben beschriebenen t-Test-Gleichung</li>
+<li>die <code>t.test()</code> Funktion erwartet eine binäre Spalte auf der rechten Seite der Gleichung. Wir liefern den Vektor <code>linelist$gender</code> unabhängig und statisch (beachte, dass er nicht in der <code>select()</code>).</li>
+</ul></li>
+</ul>
+<p><code>map()</code> gibt eine Liste zurück. Die Ausgabe ist also eine Liste mit t-Testergebnissen - ein Listenelement für jede analysierte numerische Spalte.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results are saved as a list</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, wt_kg, ht_cm, ct_blood, temp) <span class="sc">%&gt;%</span>  <span class="co"># keep only some numeric columns to map across</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="at">.f =</span> <span class="sc">~</span><span class="fu">t.test</span>(.x <span class="sc">~</span> linelist<span class="sc">$</span>gender))        <span class="co"># t.test function, with equation NUMERIC ~ CATEGORICAL</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So sieht die Liste aus <code>t.test_results</code> aussieht, wenn sie in RStudio geöffnet (betrachtet) wird. Wir haben die Teile hervorgehoben, die für die Beispiele auf dieser Seite wichtig sind.</p>
+<ul>
+<li>Oben kannst du sehen, dass die gesamte Liste den Namen <code>t.test_results</code> heißt und fünf Elemente hat. Diese fünf Elemente heißen <code>age</code>, <code>wt_km</code>, <code>ht_cm</code>, <code>ct_blood</code>, <code>temp</code> nach jeder Variable, die in einem t-Test verwendet wurde, mit <code>gender</code> von der <code>linelist</code>.</li>
+<li>Jedes dieser fünf Elemente ist selbst eine Liste, mit Elementen innerhalb dieser Listen wie <code>p.value</code> und <code>conf.int</code>. Einige dieser Elemente wie <code>p.value</code> sind einzelne Zahlen, während einige wie <code>estimate</code> aus zwei oder mehr Elementen bestehen (<code>mean in group f</code> und <code>mean in group m</code>).</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="../images/purrr_ttest.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/purrr_ttest.png" style="height:150.0%" width="286" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hinweis: Wenn du eine Funktion nur auf bestimmte Spalten in einem Datenrahmen anwenden willst, kannst du auch einfach die <code>mutate()</code> und <code>across()</code>verwenden, wie im Abschnitt [Reinigung von Daten und Kernfunktionen] Seite erklärt wird. Unten findest du ein Beispiel für die Anwendung<code>as.character()</code> nur auf die Spalten “Alter”. Beachte die Platzierung der Klammern und Kommas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert columns with column name containing "age" to class Character</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">contains</span>(<span class="st">"age"</span>), <span class="at">.fns =</span> as.character))  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="auszug-aus-den-listen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="auszug-aus-den-listen">Auszug aus den Listen</h3>
+<p>Als <code>map()</code> eine Ausgabe der Klasse Liste erzeugt, werden wir einige Zeit damit verbringen, zu erörtern, wie man Daten aus Listen extrahiert, indem man die zugehörigen <strong>purrr</strong> Funktionen. Um dies zu demonstrieren, werden wir die Liste <code>t.test_results</code> aus dem vorherigen Abschnitt. Dies ist eine Liste mit 5 Listen - jede der 5 Listen enthält die Ergebnisse eines t-Tests zwischen einer Spalte aus <code>linelist</code> Datenrahmen und seiner binären Spalte <code>gender</code>. Das Bild im obigen Abschnitt zeigt dir die Listenstruktur.</p>
+<section id="namen-der-elemente" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="namen-der-elemente">Namen der Elemente</h4>
+<p>Um die Namen der Elemente selbst zu extrahieren, verwendest du einfach <code>names()</code> von <strong>base</strong> R. In diesem Fall verwenden wir <code>names()</code> auf <code>t.test_results</code> um die Namen jeder Teilliste zurückzugeben, d.h. die Namen der 5 Variablen, für die t-Tests durchgeführt wurden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t.test_results)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "age"      "wt_kg"    "ht_cm"    "ct_blood" "temp"    </code></pre>
+</div>
+</div>
+</section>
+<section id="elemente-nach-name-oder-position" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="elemente-nach-name-oder-position">Elemente nach Name oder Position</h4>
+<p>Um Listenelemente nach Namen oder nach Position zu extrahieren, kannst du Klammern verwenden <code>[[ ]]</code>verwenden, wie es in den [R-Grundlagen] Seite beschrieben. Im Folgenden verwenden wir doppelte Klammern, um die Liste zu indizieren<code>t.tests_results</code> und zeigen das erste Element an, das die Ergebnisse des t-Tests auf <code>age</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>t.test_results[[<span class="dv">1</span>]] <span class="co"># first element by position</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  .x by linelist$gender
+t = -21.3, df = 4902.9, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group f and group m is not equal to 0
+95 percent confidence interval:
+ -7.544409 -6.272675
+sample estimates:
+mean in group f mean in group m 
+       12.66085        19.56939 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>t.test_results[[<span class="dv">1</span>]][<span class="st">"p.value"</span>] <span class="co"># return element named "p.value" from first element  </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$p.value
+[1] 2.350374e-96</code></pre>
+</div>
+</div>
+<p>Im Folgenden werden wir jedoch die Verwendung der einfachen und flexiblen <strong>purrr</strong> Funktionen <code>map()</code> und <code>pluck()</code> um die gleichen Ergebnisse zu erzielen.</p>
+</section>
+<section id="pluck" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="pluck"><code>pluck()</code></h4>
+<p><code>pluck()</code> zieht Elemente nach Namen oder nach Position heraus. Um zum Beispiel die Ergebnisse des t-Tests für das Alter zu extrahieren, kannst du Folgendes verwenden <code>pluck()</code> wie folgt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"age"</span>)        <span class="co"># alternatively, use pluck(1)</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  .x by linelist$gender
+t = -21.3, df = 4902.9, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group f and group m is not equal to 0
+95 percent confidence interval:
+ -7.544409 -6.272675
+sample estimates:
+mean in group f mean in group m 
+       12.66085        19.56939 </code></pre>
+</div>
+</div>
+<p>Indexiere tiefere Ebenen, indem du die weiteren Ebenen mit Kommas angibst. Im Folgenden wird das Element mit dem Namen “p.value” aus der Liste extrahiert <code>age</code> innerhalb der Liste <code>t.test_results</code>. Du kannst auch Zahlen anstelle von Zeichennamen verwenden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"age"</span>, <span class="st">"p.value"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.350374e-96</code></pre>
+</div>
+</div>
+<p>Du kannst solche inneren Elemente aus <em>allen</em> Elementen der ersten Ebene extrahieren, indem du <code>map()</code> um die <code>pluck()</code> Funktion über jedes Element der ersten Ebene ausführt. Der folgende Code extrahiert zum Beispiel die “p.value”-Elemente aus allen Listen innerhalb <code>t.test_results</code>. Die Liste der t-Testergebnisse ist die <code>.x</code> durch iteriert, <code>pluck()</code> ist die <code>.f</code> Funktion, die iteriert wird, und der Wert “p-value” wird der Funktion übergeben.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(pluck, <span class="st">"p.value"</span>)   <span class="co"># return every p-value</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$age
+[1] 2.350374e-96
+
+$wt_kg
+[1] 2.664367e-182
+
+$ht_cm
+[1] 3.515713e-144
+
+$ct_blood
+[1] 0.4473498
+
+$temp
+[1] 0.5735923</code></pre>
+</div>
+</div>
+<p>Als weitere Alternative, <code>map()</code> bietet eine Abkürzung, bei der du den Namen des Elements in Anführungszeichen schreiben kannst und er wird dann herausgepickt. Wenn du den <code>map()</code> verwendest, ist die Ausgabe eine Liste, während du bei der Verwendung von <code>map_chr()</code> ein benannter Zeichenvektor ist und wenn du <code>map_dbl()</code> ein benannter numerischer Vektor sein wird.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dbl</span>(<span class="st">"p.value"</span>)   <span class="co"># return p-values as a named numeric vector</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          age         wt_kg         ht_cm      ct_blood          temp 
+ 2.350374e-96 2.664367e-182 3.515713e-144  4.473498e-01  5.735923e-01 </code></pre>
+</div>
+</div>
+<p>Du kannst mehr darüber lesen <code>pluck()</code> in seinem <strong>purrr</strong> <a href="https://purrr.tidyverse.org/reference/pluck.html">Dokumentation</a>. Sie hat eine Geschwisterfunktion <code>chuck()</code> die einen Fehler anstelle von NULL zurückgibt, wenn ein Element nicht existiert.</p>
+</section>
+</section>
+<section id="liste-in-datenrahmen-umwandeln" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="liste-in-datenrahmen-umwandeln">Liste in Datenrahmen umwandeln</h3>
+<p>Dies ist ein komplexes Thema - im Abschnitt Ressourcen findest du ausführlichere Anleitungen. Dennoch wollen wir dir zeigen, wie du die Liste der t-Testergebnisse in einen Datenrahmen umwandelst. Wir erstellen einen Datenrahmen mit Spalten für die Variable, ihren p-Wert und die Mittelwerte der beiden Gruppen (männlich und weiblich).</p>
+<p>Hier sind einige der neuen Ansätze und Funktionen, die wir verwenden werden:</p>
+<ul>
+<li>Die Funktion <code>tibble()</code> wird verwendet, um ein Tibble (wie einen Datenrahmen) zu erstellen
+<ul>
+<li>Wir umgeben die <code>tibble()</code> Funktion mit geschweiften Klammern <code>{ }</code> um zu verhindern, dass die gesamte <code>t.test_results</code> nicht als erste Tibble-Spalte gespeichert wird</li>
+</ul></li>
+<li>Innerhalb von <code>tibble()</code> wird jede Spalte explizit erstellt, ähnlich der Syntax von <code>mutate()</code>:
+<ul>
+<li>Die <code>.</code> steht für <code>t.test_results</code></li>
+<li>Um eine Spalte mit den Namen der t-Test-Variablen (die Namen der einzelnen Listenelemente) zu erstellen, verwenden wir <code>names()</code> wie oben beschrieben</li>
+<li>Um eine Spalte mit den p-Werten zu erstellen, verwenden wir <code>map_dbl()</code> wie oben beschrieben, um die <code>p.value</code> Elemente und wandeln sie in einen numerischen Vektor um</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> {</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">names</span>(.),</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p         =</span> <span class="fu">map_dbl</span>(., <span class="st">"p.value"</span>))</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  variables         p
+  &lt;chr&gt;         &lt;dbl&gt;
+1 age       2.35e- 96
+2 wt_kg     2.66e-182
+3 ht_cm     3.52e-144
+4 ct_blood  4.47e-  1
+5 temp      5.74e-  1</code></pre>
+</div>
+</div>
+<p>Fügen wir nun Spalten hinzu, die die Mittelwerte für jede Gruppe (Männer und Frauen) enthalten.</p>
+<p>Dazu müssten wir das Element <code>estimate</code> extrahieren, aber das enthält eigentlich <em>zwei</em> Elemente in sich (<code>mean in group f</code> und <code>mean in group m</code>). Er kann also nicht zu einem Vektor vereinfacht werden mit <code>map_chr()</code> oder <code>map_dbl()</code>. Stattdessen verwenden wir <code>map()</code>, die innerhalb von <code>tibble()</code> verwendet wird, erzeugt <em>eine Spalte der Klassenliste innerhalb der Tibble</em>! Ja, das ist möglich!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  {<span class="fu">tibble</span>(</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">names</span>(.),</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">map_dbl</span>(., <span class="st">"p.value"</span>),</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">means =</span> <span class="fu">map</span>(., <span class="st">"estimate"</span>))}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  variables         p means       
+  &lt;chr&gt;         &lt;dbl&gt; &lt;named list&gt;
+1 age       2.35e- 96 &lt;dbl [2]&gt;   
+2 wt_kg     2.66e-182 &lt;dbl [2]&gt;   
+3 ht_cm     3.52e-144 &lt;dbl [2]&gt;   
+4 ct_blood  4.47e-  1 &lt;dbl [2]&gt;   
+5 temp      5.74e-  1 &lt;dbl [2]&gt;   </code></pre>
+</div>
+</div>
+<p>Sobald du diese Listenspalte hast, gibt es mehrere <strong>tidyr</strong> Funktionen (Teil von <strong>tidyverse</strong>), die dir helfen, diese “verschachtelten Listenspalten” zu “entschachteln” oder zu “entschachteln”. Lies mehr über sie <a href="">hier</a> oder indem du <code>vignette("rectangle")</code>. Kurz gefasst:</p>
+<ul>
+<li><code>unnest_wider()</code> - gibt jedem Element einer Listenspalte eine eigene Spalte</li>
+<li><code>unnest_longer()</code> - gibt jedem Element einer Listenspalte eine eigene Zeile</li>
+<li><code>hoist()</code> - verhält sich wie <code>unnest_wider()</code> aber du gibst an, welche Elemente entnestet werden sollen</li>
+</ul>
+<p>Im Folgenden übergeben wir das Tibble an <code>unnest_wider()</code> und geben dabei die <code>means</code> Spalte (die eine verschachtelte Liste ist). Das Ergebnis ist, dass <code>means</code> durch zwei neue Spalten ersetzt wird, die jeweils die beiden Elemente enthalten, die vorher in jeder <code>means</code> Zelle waren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>t.test_results <span class="sc">%&gt;%</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  {<span class="fu">tibble</span>(</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">names</span>(.),</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">map_dbl</span>(., <span class="st">"p.value"</span>),</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">means =</span> <span class="fu">map</span>(., <span class="st">"estimate"</span>)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    )} <span class="sc">%&gt;%</span> </span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  variables         p `mean in group f` `mean in group m`
+  &lt;chr&gt;         &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;
+1 age       2.35e- 96              12.7              19.6
+2 wt_kg     2.66e-182              45.8              59.6
+3 ht_cm     3.52e-144             109.              142. 
+4 ct_blood  4.47e-  1              21.2              21.2
+5 temp      5.74e-  1              38.6              38.6</code></pre>
+</div>
+</div>
+</section>
+<section id="listen-verwerfen-behalten-und-verdichten" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="listen-verwerfen-behalten-und-verdichten">Listen verwerfen, behalten und verdichten</h3>
+<p>Weil die Arbeit mit <strong>purrr</strong> so oft mit Listen zu tun hat, werden wir uns kurz mit einigen <strong>purrr</strong> Funktionen, um Listen zu verändern. Im Abschnitt Ressourcen findest du weitere vollständige Tutorials zu <strong>purrr</strong> Funktionen.</p>
+<ul>
+<li><code>list_modify()</code> hat viele Verwendungszwecke, einer davon kann das Entfernen eines Listenelements sein</li>
+<li><code>keep()</code> behält die Elemente bei, die in <code>.p =</code> übergebenen Elemente, oder wenn eine Funktion, die an <code>.p =</code> zu TRUE ausgewertet wird</li>
+<li><code>discard()</code> werden die Elemente entfernt, die in <code>.p</code> angegebenen Elemente entfernt, oder wenn eine Funktion, die an <code>.p =</code> zu TRUE ausgewertet wird</li>
+<li><code>compact()</code> Entfernt alle leeren Elemente</li>
+</ul>
+<p>Hier sind einige Beispiele, die die <code>combined</code> Liste, die im obigen Abschnitt über <a href="#iter_combined">map() verwenden, um mehrere Dateien zu importieren und zu kombinieren</a> erstellt wurde (sie enthält 6 Case-Linelist-Datenrahmen):</p>
+<p>Elemente können nach Namen entfernt werden mit <code>list_modify()</code> und dem Setzen des Namens gleich <code>NULL</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_modify</span>(<span class="st">"Central Hospital"</span> <span class="ot">=</span> <span class="cn">NULL</span>)   <span class="co"># remove list element by name</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Du kannst auch Elemente nach Kriterien entfernen, indem du eine “Prädikat”-Gleichung für <code>.p =</code> (eine Gleichung, die entweder TRUE oder FALSE ergibt). Setze eine Tilde <code>~</code> vor die Funktion und verwende <code>.x</code> um das Listenelement darzustellen. verwenden <code>keep()</code> werden die Listenelemente, die als TRUE ausgewertet werden, beibehalten. Umgekehrt, wenn du <code>discard()</code> werden die Listenelemente, die TRUE ergeben, entfernt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># keep only list elements with more than 500 rows</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">keep</span>(<span class="at">.p =</span> <span class="sc">~</span><span class="fu">nrow</span>(.x) <span class="sc">&gt;</span> <span class="dv">500</span>)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Im folgenden Beispiel werden Listenelemente verworfen, wenn ihre Klasse kein Datenrahmen ist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Discard list elements that are not data frames</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">discard</span>(<span class="at">.p =</span> <span class="sc">~</span><span class="fu">class</span>(.x) <span class="sc">!=</span> <span class="st">"data.frame"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Deine Prädikatsfunktion kann auch auf Elemente/Spalten innerhalb jedes Listenelements verweisen. Im folgenden Beispiel werden Listenelemente, die den Mittelwert der Spalte <code>ct_blood</code> über 25 liegt, verworfen werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># keep only list elements where ct_blood column mean is over 25</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">discard</span>(<span class="at">.p =</span> <span class="sc">~</span><span class="fu">mean</span>(.x<span class="sc">$</span>ct_blood) <span class="sc">&gt;</span> <span class="dv">25</span>)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dieser Befehl würde alle leeren Listenelemente entfernen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove all empty list elements</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compact</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pmap" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pmap"><code>pmap()</code></h3>
+<p>DIESER ABSCHNITT BEFINDET SICH IM AUFBAU</p>
+</section>
+</section>
+<section id="funktionen-anwenden" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="funktionen-anwenden"><span class="header-section-number">16.4</span> Funktionen anwenden</h2>
+<p>Die Familie der “apply”-Funktionen ist eine <strong>Basis</strong> R Alternative zu <strong>purrr</strong> für iterative Operationen. Du kannst mehr über sie lesen <a href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family">hier</a>.</p>
+<!-- ======================================================= -->
+</section>
+<section id="ressourcen" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="ressourcen"><span class="header-section-number">16.5</span> Ressourcen</h2>
+<p><a href="https://datacarpentry.org/semester-biology/materials/for-loops-R/">für Schleifen mit Data Carpentry</a></p>
+<p>Die <a href="https://r4ds.had.co.nz/iteration.html#iteration">R for Data Science Seite über Iteration</a></p>
+<p><a href="https://martinctc.github.io/blog/vignette-write-and-read-multiple-excel-files-with-purrr/">Vignette zum Schreiben/Lesen von Excel-Dateien</a></p>
+<p>Ein Schnurren <a href="https://jennybc.github.io/purrr-tutorial/index.html">tutorial</a> von jennybc</p>
+<p>Noch ein Schnurrer <a href="http://www.rebeccabarter.com/blog/2019-08-19_purrr/">tutorial</a> von Rebecca Barter</p>
+<p>Ein Schnurren <a href="http://zevross.com/blog/2019/06/11/the-power-of-three-purrr-poseful-iteration-in-r-with-map-pmap-and-imap/">tutorial</a> zu map, pmap und imap</p>
+<p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/purrr-cheatsheet-thumbs.png">purrr cheatsheet</a></p>
+<p><a href="https://www.emilhvitfeldt.com/post/2018-01-08-purrr-tips-and-tricks/">purrr Tipps und Tricks</a></p>
+<p><a href="https://hookedondata.org/going-off-the-map/#keep-and-discard">Behalten und wegwerfen</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../new_pages/deduplication.de.html" class="pagination-link" aria-label="De-Duplizierung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">De-Duplizierung</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../new_pages/tables_descriptive.de.html" class="pagination-link" aria-label="Beschreibende Tabellen">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Beschreibende Tabellen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

@@ -9,6 +9,19 @@ book:
   repo-url: https://github.com/appliedepi/epihandbook_quarto
   # site-url: https://epirhandbook.com
   sharing: ["twitter", "facebook", "linkedin"]
+  sidebar:
+        logo: "images/Applied_Epi_logo.png"
+        tools:
+                - icon: twitter
+                  href: "https://twitter.com/appliedepi"
+                - icon: linkedin
+                  href: "https://www.linkedin.com/company/appliedepi/"
+                # - icon: github
+                #   menu:
+                #         - text: Source Code
+                #           url: "https://github.com/appliedepi/epihandbook_quarto"
+                #         - text: Report a Bug
+                #           url: "https://github.com/appliedepi/epihandbook_quarto/issues/new"
   
   date: today
   date-format: "MMM D, YYYY"
@@ -189,7 +202,7 @@ babelquarto:
     text: "English"
 
   mainlanguage: 'en'
-  languages: ['vn', 'fr', 'es', 'jp', 'tr', 'pt', 'ru', 'de', 'en']  
+  languages: ['vn', 'fr', 'de']  # , 'es', 'jp', 'tr', 'pt', 'ru'
 
 
 title-vn: Cẩm nang dịch tễ học với R
