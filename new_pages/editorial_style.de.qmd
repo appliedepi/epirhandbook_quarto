@@ -1,4 +1,4 @@
-# Redaktionelle und technische Hinweise { }
+# Redaktionelle und technische Hinweise {#editorial-style}
 
 Auf dieser Seite beschreiben wir den philosophischen Ansatz, den Stil und die spezifischen redaktionellen Entscheidungen, die bei der Erstellung dieses Handbuchs getroffen wurden.
 

@@ -1,7 +1,7 @@
 
 # ggplot tips {}
 
-In this page we will cover tips and tricks to make your ggplots sharp and fancy. See the page on [ggplot basics] for the fundamentals.  
+In this page we will cover tips and tricks to make your ggplots sharp and fancy. See the page on [ggplot basics](ggplot_basics.qmd) for the fundamentals.  
 
 There a several extensive [**ggplot2** tutorials](https://ggplot2.tidyverse.org/) linked in the Resources section. You can also download this [data visualization with ggplot cheatsheet](https://rstudio.com/resources/cheatsheets/) from the RStudio website. We strongly recommend that you peruse for inspiration at the [R graph gallery](https://www.r-graph-gallery.com/) and [Data-to-viz](https://www.data-to-viz.com/caveats.html). 
 
@@ -12,7 +12,7 @@ There a several extensive [**ggplot2** tutorials](https://ggplot2.tidyverse.org/
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -29,7 +29,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}  
 
-For this page, we import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+For this page, we import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -59,7 +59,7 @@ In **ggplot2**, when aesthetics of plotted data (e.g. size, color, shape, fill, 
 
 ### Color schemes
 
-One thing that can initially be difficult to understand with **ggplot2** is control of color schemes. Note that this section discusses the color of *plot objects* (geoms/shapes) such as points, bars, lines, tiles, etc. To adjust color of accessory text, titles, or background color see the [Themes](#ggplot_basics_themes) section of the [ggplot basics] page. 
+One thing that can initially be difficult to understand with **ggplot2** is control of color schemes. Note that this section discusses the color of *plot objects* (geoms/shapes) such as points, bars, lines, tiles, etc. To adjust color of accessory text, titles, or background color see the [Themes](ggplot_basics.qmd#ggplot_basics_themes) section of the [ggplot basics] page. 
 
 To control "color" of *plot objects* you will be adjusting either the `color = ` aesthetic (the *exterior* color) or the `fill = ` aesthetic (the *interior* color). One exception to this pattern is `geom_point()`, where you really only get to control `color = `, which controls the color of the point (interior and exterior).  
 
@@ -76,7 +76,7 @@ ggplot(data = linelist, mapping = aes(x = age))+       # set data and axes
 
 
 
-As explained the [ggplot basics] section on [mapping data to the plot](#ggplot_basics_mapping), aesthetics such as `fill = ` and `color = ` can be defined either *outside* of a `mapping = aes()` statement or *inside* of one. If *outside* the `aes()`, the assigned value should be static (e.g. `color = "blue"`) and will apply for *all* data plotted by the geom. If *inside*, the aesthetic should be mapped to a column, like `color = hospital`, and the expression will vary by the value for that row in the data. A few examples:  
+As explained the [ggplot basics](ggplot_basics.qmd) section on [mapping data to the plot](ggplot_basics.qmd#ggplot_basics_mapping), aesthetics such as `fill = ` and `color = ` can be defined either *outside* of a `mapping = aes()` statement or *inside* of one. If *outside* the `aes()`, the assigned value should be static (e.g. `color = "blue"`) and will apply for *all* data plotted by the geom. If *inside*, the aesthetic should be mapped to a column, like `color = hospital`, and the expression will vary by the value for that row in the data. A few examples:  
 
 ```{r, out.width=c('50%', '50%'), fig.show='hold', warning=F, message=F}
 # Static color for points and for line
@@ -123,7 +123,7 @@ For continuous scales, use `breaks = ` to provide a sequence of values with `seq
 
 For discrete scales, you can adjust the order of level appearance with `breaks = `, and how the values display with the `labels = ` argument. Provide a character vector to each of those (see example below). You can also drop `NA` easily by setting `na.translate = FALSE`.  
 
-The nuances of date scales are covered more extensively in the [Epidemic curves] page.  
+The nuances of date scales are covered more extensively in the [Epidemic curves](epicurves.qmd) page.  
 
 
 ### Manual adjustments {.unnumbered}  
@@ -293,7 +293,7 @@ preparedness_plot+                   # begin with plot saved above
 
 Fill gradient scales can involve additional nuance. The defaults are usually quite pleasing, but you may want to adjust the values, cutoffs, etc.  
 
-To demonstrate how to adjust a continuous color scale, we'll use a data set from the [Contact tracing] page that contains the ages of cases and of their source cases.  
+To demonstrate how to adjust a continuous color scale, we'll use a data set from the [Contact tracing](contact_tracing.qmd) page that contains the ages of cases and of their source cases.  
 
 
 ```{r, warning=F, message=F}
@@ -373,7 +373,7 @@ The 'viridis' functions draw from viridis (colourblind friendly!) palettes, whic
 
 It is advised that you test your plot in this [color blindness simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/). If you have a red/green color scheme, try a "hot-cold" (red-blue) scheme instead as described [here](https://www.visualisingdata.com/2019/08/five-ways-to-design-for-red-green-colour-blindness/#:~:text=The%20pink%2Dred%20through%20to,green%20hues%20used%20by%20default.)  
 
-Here is an example from the [ggplot basics] page, using various color schemes. 
+Here is an example from the [ggplot basics](ggplot_basics.qmd) page, using various color schemes. 
 
 ```{r, out.width=c('50%'), fig.show='hold', warning=F, message=F} 
 symp_plot <- linelist %>%                                         # begin with linelist
@@ -624,7 +624,7 @@ ggplot()+
 <!-- ======================================================= -->
 ## Time axes {}
 
-Working with time axes in ggplot can seem daunting, but is made very easy with a few key functions. Remember that when working with time or date that you should ensure that the correct variables are formatted as date or datetime class - see the [Working with dates] page for more information on this, or [Epidemic curves] page (ggplot section) for examples.
+Working with time axes in ggplot can seem daunting, but is made very easy with a few key functions. Remember that when working with time or date that you should ensure that the correct variables are formatted as date or datetime class - see the [Working with dates](dates.qmd) page for more information on this, or [Epidemic curves] page (ggplot section) for examples.
 
 The single most useful set of functions for working with dates in `ggplot2` are the scale functions (`scale_x_date()`, `scale_x_datetime()`, and their cognate y-axis functions). These functions let you define how often you have axis labels, and how to format axis labels. To find out how to format dates, see the _working with dates_ section again! You can use the `date_breaks` and `date_labels` arguments to specify how dates should look:
 
@@ -736,7 +736,7 @@ pacman::p_load(
 ```
 
 
-While faceting (described in the [ggplot basics] page) is a convenient approach to plotting, sometimes its not possible to get the results you want from its relatively restrictive approach. Here, you may choose to combine plots by sticking them together into a larger plot. There are three well known packages that are great for this - **cowplot**, **gridExtra**, and **patchwork**. However, these packages largely do the same things, so we'll focus on **cowplot** for this section. 
+While faceting (described in the [ggplot basics](ggplot_basics.qmd) page) is a convenient approach to plotting, sometimes its not possible to get the results you want from its relatively restrictive approach. Here, you may choose to combine plots by sticking them together into a larger plot. There are three well known packages that are great for this - **cowplot**, **gridExtra**, and **patchwork**. However, these packages largely do the same things, so we'll focus on **cowplot** for this section. 
 
 ### `plot_grid()` {.unnumbered}
 
@@ -952,7 +952,7 @@ To demonstrate this technique we will overlay the epidemic curve with a line of 
 * The y-axis is moved to the right-side for plot 2 with the `position = ` argument of `scale_y_continuous()`.  
 * Both plots make use of `theme_cowplot()`  
 
-Note there is another example of this technique in the [Epidemic curves] page - overlaying cumulative incidence on top of the epicurve.  
+Note there is another example of this technique in the [Epidemic curves](epicurves.qmd) page - overlaying cumulative incidence on top of the epicurve.  
 
 **Make plot 1**  
 This is essentially the epicurve. We use `geom_area()` just to demonstrate its use (area under a line, by default)  

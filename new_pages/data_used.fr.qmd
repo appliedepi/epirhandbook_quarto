@@ -12,7 +12,7 @@ Vous pouvez télécharger la version hors-ligne de ce manuel en tant que fichier
 
 * Lorsque vous ouvrez le fichier, le chargement des images et de la table des matières peut prendre une minute ou deux.  
 * Le manuel hors ligne a une mise en page légèrement différente : une très longue page avec la table des matières à gauche. Pour rechercher des termes spécifiques, utilisez Ctrl + F (Cmd + F).  
-* Consultez la page [Paquets conseillés](#suggested_packages) pour vous aider à installer les paquets R appropriés avant de perdre votre connexion à Internet.  
+* Consultez la page [Paquets conseillés](suggested_packages.fr.qmd) pour vous aider à installer les paquets R appropriés avant de perdre votre connexion à Internet.  
 * Installez notre paquet R **epirhandbook** qui contient toutes les données utilisées dans les exemples (le processus d'installation est décrit ci-dessous).  
 
 **Il y a deux façons de télécharger le manuel :**  
@@ -81,7 +81,7 @@ get_data(file = "linelist_cleaned.rds")
 ```
 
 
-Une fois que vous avez utilisé `get_data()` pour enregistrer un fichier sur votre ordinateur, vous devrez encore l'importer dans R. Voir la page [Importer et exporter des données](#import_export) pour plus de détails.  
+Une fois que vous avez utilisé `get_data()` pour enregistrer un fichier sur votre ordinateur, vous devrez encore l'importer dans R. Voir la page [Importer et exporter des données](importing.fr.qmd) pour plus de détails.  
 
 Si vous le souhaitez, vous pouvez consulter toutes les données utilisées dans ce manuel dans le **["dossier données"](https://github.com/appliedepi/epirhandbook_eng/raw/main/data)** de notre dépôt Github.  
 
@@ -95,7 +95,7 @@ Vous pouvez télécharger les données fichier par fichier à partir de notre d�
 
 Il s'agit d'une linelist pour une épidémie d'Ebola fictive, développée par notre équipe à partir du jeu de données d'exemple `ebola_sim` du paquet **outbreaks**.  
 
-* <a href='https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_raw.xlsx' class='download-button'>Cliquer pour télécharger les données brutes (.xlsx)</span></a>. La liste de cas "brute" est une feuille de calcul Excel contenant des données désordonnées. Utilisez-la pour suivre la page [Nettoyer les données et fonctions essentielles](#cleaning_data).  
+* <a href='https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_raw.xlsx' class='download-button'>Cliquer pour télécharger les données brutes (.xlsx)</span></a>. La liste de cas "brute" est une feuille de calcul Excel contenant des données désordonnées. Utilisez-la pour suivre la page [Nettoyer les données et fonctions essentielles](cleaning.fr.qmd).  
 
 * <a href='https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_cleaned.rds' class='download-button'>Cliquer pour télécharger la linelist nettoyée (.rds)</a>. Utilisez ce fichier pour toutes les autres pages de ce manuel qui utilisent la linelist. Un fichier .rds est un type de fichier spécifique à R qui préserve les classes de colonnes. Cela garantit que vous n'aurez qu'un nettoyage minimal à faire après avoir importé les données dans R.  
 
@@ -125,7 +125,7 @@ Ces données sont des comptages fictifs de cas de paludisme par groupe d'âge, �
 
 #### Données sur l'échelle de Likert {.unnumbered}  
 
-Il s'agit de données fictives issues d'une enquête de type Likert, utilisées dans la page [Pyramides démographiques et échelles de Likert](#age_pyramid). Vous pouvez charger ces données directement dans R en exécutant les commandes suivantes :    
+Il s'agit de données fictives issues d'une enquête de type Likert, utilisées dans la page [Pyramides démographiques et échelles de Likert](age_pyramid.fr.qmd). Vous pouvez charger ces données directement dans R en exécutant les commandes suivantes :    
 
 
 ```{r, eval=F}
@@ -138,7 +138,7 @@ likert_data <- import("https://github.com/appliedepi/epiRhandbook_fr/raw/main/da
 
 #### Flexdashboard {.unnumbered}  
 
-Vous trouverez ci-dessous des liens vers le fichier associé à la page [Tableaux de bord avec R Markdown](#dashboards): 
+Vous trouverez ci-dessous des liens vers le fichier associé à la page [Tableaux de bord avec R Markdown](flexdashboard.fr.qmd): 
 
 * Pour télécharger le fichier  RMarkdown (.Rmd) du tableau de bord sur les épidémies, faites un clic droit sur ce [lien](https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/flexdashboard/outbreak_dashboard.Rmd) (Cmd+clic pour Mac) et sélectionnez "Enregistrer le lien sous".  
 * Pour télécharger le tableau de bord HTML, cliquez avec le bouton droit de la souris sur ce [lien](https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/flexdashboard/outbreak_dashboard_test.html). (Cmd + clic pour Mac) et sélectionnez "Enregistrer le lien sous".  

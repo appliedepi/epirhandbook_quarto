@@ -40,7 +40,7 @@ Il est souvent frustrant lorsque l'on suit un tutoriel R de ne pas savoir de que
 
 Dans ce guide, les noms des paquets seront écrits en gras (par exemple **dplyr**) et les fonctions sont écrites comme ceci : `mutate()`. Nous nous efforçons d'être explicites quant au paquet dont provient une fonction, soit en faisant référence au paquet dans le texte voisin, soit en spécifiant le paquet explicitement dans le code, comme ceci : `dplyr::mutate()`. Cela alourdit un petit peu le code, mais rend plus facile la réutilisation du code chez vous.  
 
-Consultez la page sur les [Bases de R](#rbasics) pour en savoir plus sur les paquets et les fonctions.
+Consultez la page sur les [Bases de R](basics.fr.qmd) pour en savoir plus sur les paquets et les fonctions.
 
 
 
@@ -83,7 +83,7 @@ Dans ce manuel, nous faisons généralement référence aux "colonnes" et aux "l
 
 Les *variables* contiennent les valeurs qui mesurent le même attribut sous-jacent (comme le groupe d'âge, le résultat ou la date d'apparition des symptomes). Les *observations* contiennent toutes les valeurs mesurées sur la même unité (par exemple, une personne, un site ou un échantillon de laboratoire). Ces aspects peuvent donc être plus difficiles à définir de manière tangible.  
 
-Dans les ensembles de données "ordonnés" (*tidy data* en anglais), chaque colonne est une variable, chaque ligne est une observation et chaque cellule est une valeur unique. Cependant, certains jeux de données que vous rencontrerez ne correspondront pas à ce modèle - un ensemble de données au format "large" peut avoir une variable répartie sur plusieurs colonnes (voir un exemple à la page  [Transformation long-large](#pivoting_data)). De même, les observations peuvent être réparties sur plusieurs lignes.  
+Dans les ensembles de données "ordonnés" (*tidy data* en anglais), chaque colonne est une variable, chaque ligne est une observation et chaque cellule est une valeur unique. Cependant, certains jeux de données que vous rencontrerez ne correspondront pas à ce modèle - un ensemble de données au format "large" peut avoir une variable répartie sur plusieurs colonnes (voir un exemple à la page  [Transformation long-large](pivoting.fr.qmd)). De même, les observations peuvent être réparties sur plusieurs lignes.  
 
 La majeure partie de ce manuel porte sur le nettoyage et la transformation des données, et il est donc plus pertinent de se référer aux structures de données concrètes que sont les lignes et les colonnes qu'aux observations et aux variables plus abstraites. Les exceptions se produisent principalement dans les pages sur l'analyse des données, où vous verrez davantage de références aux "variables" et aux "observations".  
 

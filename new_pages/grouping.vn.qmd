@@ -26,7 +26,7 @@ Chương này sẽ giải quyết các chủ đề sau:
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn này, chúng ta nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt packahe nếu cần *và* gọi để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn này, chúng ta nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt packahe nếu cần *và* gọi để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r}
 pacman::p_load(
@@ -38,7 +38,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Chúng ta nhập bộ dữ liệu về các trường hợp mô phỏng từ một vụ dịch Ebola. Nếu bạn muốn cùng thực hành, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm vào đây để tải bộ liệu `linelist` "sạch"</a> (tệp .rds). Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu] để biết các cách nhập dữ liệu khác nhau.
+Chúng ta nhập bộ dữ liệu về các trường hợp mô phỏng từ một vụ dịch Ebola. Nếu bạn muốn cùng thực hành, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm vào đây để tải bộ liệu `linelist` "sạch"</a> (tệp .rds). Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết các cách nhập dữ liệu khác nhau.
 
 ```{r, echo=F}
 linelist <- rio::import(here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -152,7 +152,7 @@ linelist %>%
 
 ## Tổng hợp {#group_summarise}
 
-Xem package **dplyr** trong chương [Bảng mô tả] để biết mô tả chi tiết về cách tạo bảng tổng hợp với hàm `summarise()`. Ở đây chúng ta giải quyết ngắn gọn cách hoạt động thay đổi khi áp dụng cho dữ liệu được nhóm.
+Xem package **dplyr** trong chương [Bảng mô tả](tables_descriptive.vn.qmd) để biết mô tả chi tiết về cách tạo bảng tổng hợp với hàm `summarise()`. Ở đây chúng ta giải quyết ngắn gọn cách hoạt động thay đổi khi áp dụng cho dữ liệu được nhóm.
 
 Hàm **dplyr** `summarise()` (hoặc `summarize()`) lấy một data frame và chuyển nó thành một data frame tổng hợp *mới*, với các cột chứa thông tin các giá trị thống kê do bạn xác định. Trên bộ dữ liệu chưa nhóm, các tổng hợp thống kê sẽ được tính toán từ tất cả các hàng. Việc áp dụng hàm `summarise()` vào dữ liệu được nhóm sẽ tổng hợp những giá trị thống kê cho từng nhóm.
 
@@ -269,11 +269,11 @@ linelist %>%                                  # case linelist
 
 ## Nhóm theo ngày
 
-Khi nhóm dữ liệu theo ngày, bạn phải có (hoặc tạo) một cột cho đơn vị ngày quan tâm - ví dụ: "ngày", "tuần dịch tễ", "tháng", v.v. Bạn có thể tạo cột này bằng cách sử dụng `floor_date()` từ **lubridate**, như được giải thích trong phần [Tuần dịch tễ học](#dates_epi_wks) trong chương [Làm việc với ngày tháng]. Khi bạn có cột này, bạn có thể sử dụng `count()` từ **dplyr** để nhóm các hàng theo các giá trị ngày duy nhất đó và thu về giá trị số lượng tổng hợp.
+Khi nhóm dữ liệu theo ngày, bạn phải có (hoặc tạo) một cột cho đơn vị ngày quan tâm - ví dụ: "ngày", "tuần dịch tễ", "tháng", v.v. Bạn có thể tạo cột này bằng cách sử dụng `floor_date()` từ **lubridate**, như được giải thích trong phần [Tuần dịch tễ học](dates.vn.qmd#dates_epi_wks) trong chương [Làm việc với ngày tháng](dates.vn.qmd). Khi bạn có cột này, bạn có thể sử dụng `count()` từ **dplyr** để nhóm các hàng theo các giá trị ngày duy nhất đó và thu về giá trị số lượng tổng hợp.
 
 Một bước bổ sung phổ biến cho các tình huống với ngày/tháng, là "điền vào" bất kỳ ngày nào trong chuỗi ngày không có trong dữ liệu. Sử dụng `complete()` từ **tidyr** để chuỗi ngày tổng hợp được *hoàn chỉnh* bao gồm *tất cả các đơn vị ngày có thể có* trong phạm vi. Nếu không có bước này, một tuần không có trường hợp nào được báo cáo có thể không xuất hiện trong dữ liệu của bạn!
 
-Trong `complete()`, bạn *xác định lại* cột ngày của mình dưới dạng một *chuỗi* ngày `seq.Date()` từ giá trị nhỏ nhất đến giá trị lớn nhất - do đó mà ngày/tháng được mở rộng. Mặc định, giá trị số lượng trong bất kỳ hàng "mở rộng" mới nào sẽ là `NA`. Bạn có thể đặt chúng thành 0 bằng cách sử dụng argument `fill =` của hàm `complete()`, trong đó yêu cầu một danh sách được đặt tên (nếu cột số lượng của bạn được đặt tên là `n`, hãy thêm `fill = list(n = 0)`). Xem `?complete` để biết chi tiết và xem ví dụ trong chương [Làm việc với ngày tháng](#dates_epi_wks).
+Trong `complete()`, bạn *xác định lại* cột ngày của mình dưới dạng một *chuỗi* ngày `seq.Date()` từ giá trị nhỏ nhất đến giá trị lớn nhất - do đó mà ngày/tháng được mở rộng. Mặc định, giá trị số lượng trong bất kỳ hàng "mở rộng" mới nào sẽ là `NA`. Bạn có thể đặt chúng thành 0 bằng cách sử dụng argument `fill =` của hàm `complete()`, trong đó yêu cầu một danh sách được đặt tên (nếu cột số lượng của bạn được đặt tên là `n`, hãy thêm `fill = list(n = 0)`). Xem `?complete` để biết chi tiết và xem ví dụ trong chương [Làm việc với ngày tháng](dates.vn.qmd#dates_epi_wks).
 
 ### Các trường hợp trong `linelist` theo ngày {.unnumbered}
 
@@ -396,7 +396,7 @@ linelist %>%
 `slice_min()` - chọn n dòng với giá trị cao nhất trong cột `order_by =`, sử dụng `with_ties = TRUE` để giữ mối liên hệ\
 `slice_max()` - chọn n dòng với giá trị thấp nhất trong cột `order_by =`,sử dụng `with_ties = TRUE` để giữ mối liên hệ
 
-Xem chương [Loại bỏ trùng lặp] để tham khảo thêm ví dụ và chi tiết về hàm `slice()`.
+Xem chương [Loại bỏ trùng lặp](deduplication.vn.qmd) để tham khảo thêm ví dụ và chi tiết về hàm `slice()`.
 
 ### Lọc theo quy mô nhóm {#group_filter_grp_size .unnumbered}
 

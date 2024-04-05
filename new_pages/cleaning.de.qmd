@@ -82,7 +82,7 @@ In a cleaning pipeline the order of the steps is important. Cleaning steps might
 <!-- ======================================================= -->
 ## Load packages  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, message = F}
 pacman::p_load(
@@ -1059,7 +1059,7 @@ knitr::include_graphics(here::here("images", "cleaning_dict.png"))
 ```
 
 
-2) Import the dictionary file into R. This example can be downloaded via instructions on the [Download handbook and data] page.  
+2) Import the dictionary file into R. This example can be downloaded via instructions on the [Download handbook and data](#data-used) page.  
 
 ```{r, echo=F}
 cleaning_dict <- rio::import(here("data", "case_linelists", "cleaning_dict.csv"))

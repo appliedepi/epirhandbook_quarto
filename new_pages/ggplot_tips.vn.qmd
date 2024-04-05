@@ -1,7 +1,7 @@
 
-# Các tips với ggplot {#ggplot-tips}
+# Các mẹo với ggplot {#ggplot-tips}
 
-Trong trang này, chúng tôi sẽ đề cập đến các mẹo và thủ thuật để làm cho biểu đồ ggplots của bạn đẹp và bóng bẩy hơn. Xem thêm chương [ggplot cơ bản] để có các kiến thức nền tảng.  
+Trong trang này, chúng tôi sẽ đề cập đến các mẹo và thủ thuật để làm cho biểu đồ ggplots của bạn đẹp và bóng bẩy hơn. Xem thêm chương [ggplot cơ bản](ggplot_basics.vn.qmd) để có các kiến thức nền tảng.  
 
 Có một số [hướng dẫn **ggplot2**](https://ggplot2.tidyverse.org/) mở rộng được liên kết trong phần Nguồn. Bạn cũng có thể tải xuống [cheatsheet trực quan hóa số liệu với ggplot](https://rstudio.com/resources/cheatsheets/) từ trang web của RStudio. Chúng tôi thực sự khuyên bạn nên tìm thêm cảm hứng tại các trang web sau: [R graph gallery](https://www.r-graph-gallery.com/) và [Data-to-viz](https://www.data-to-viz.com/caveats.html). 
 
@@ -12,7 +12,7 @@ Có một số [hướng dẫn **ggplot2**](https://ggplot2.tidyverse.org/) mở
 
 ### Gọi packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R. 
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R. 
 
 ```{r}
 pacman::p_load(
@@ -29,7 +29,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết.  
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết.  
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -51,19 +51,19 @@ DT::datatable(head(linelist, 50), rownames = FALSE, filter="top", options = list
 
 
 <!-- ======================================================= -->
-## Thang đo đối với màu sắc, tô màu, trục, v.v. {#ggplot_tips_colors}
+## Cân chỉnh lại màu sắc, trục, v.v. {#ggplot_tips_colors}
 
-Trong **ggplot2**, khi yếu tố thẩm mỹ của dữ liệu được vẽ (vd: kích thước, màu sắc, hình dạng, tô màu, trục biểu đồ) được gắn với các cột trong bộ dữ liệu, thì hiển thị chính xác có thể được điều chỉnh với lệnh "scale" tương ứng. Trong phần này, chúng tôi giải thích một số điều chỉnh thang đo phổ biến.  
+Trong **ggplot2**, khi các thuộc tính (vd: kích thước, màu sắc, hình dạng, tô màu, trục biểu đồ) được gắn với các cột trong bộ dữ liệu, thì chúng có thể được cân chỉnh lại với lệnh "scale" tương ứng. Trong phần này, chúng tôi sẽ giới một số các cân chỉnh thuộc tính biểu đồ phổ biến.  
 
 
 
 ### Phối màu
 
-Một điều ban đầu có thể khó hiểu khi dùng **ggplot2** là kiểm soát các phối màu. Lưu ý rằng phần này thảo luận về màu sắc của *các đối tượng biểu đồ* (geoms/shapes) ví dụ như điểm, cột, đường, ô, v.v. Để điều chỉnh màu của các văn bản, tiêu đề hoặc màu nền, hãy xem phần [Chủ đề](#ggplot_basics_themes) trong chương [ggplot cơ bản]. 
+Một điều ban đầu có thể khó hiểu khi dùng **ggplot2** là kiểm soát các phối màu. Lưu ý rằng phần này thảo luận về màu sắc của *các đối tượng biểu đồ* (geoms/shapes) ví dụ như điểm, cột, đường, ô, v.v. Để điều chỉnh màu của các văn bản, tiêu đề hoặc màu nền, hãy xem phần [Chủ đề](ggplot_basics.vn.qmd#ggplot_basics_themes) trong chương [ggplot cơ bản](ggplot_basics.vn.qmd). 
 
-Để kiểm soát "màu sắc" của *các đối tượng biểu đồ*, bạn sẽ điều chỉnh hoặc là `color = ` (màu *bên ngoài*) hoặc `fill = ` (màu *bên trong*). Một ngoại lệ đối với mẫu này là `geom_point()`, nơi bạn thực sự chỉ có thể điều khiển `color = `, để xác định màu của điểm (bên trong và bên ngoài).  
+Để kiểm soát "màu sắc" của *các đối tượng biểu đồ*, bạn sẽ điều chỉnh hoặc là `color = ` (màu *bên ngoài*) hoặc `fill = ` (màu *bên trong*). Một ngoại lệ đó là với biểu đồ điểm `geom_point()`, khi bạn thực sự chỉ có thể điều chỉnh `color = `, để xác định màu của điểm (bên trong và bên ngoài).  
 
-Khi thiết lập màu hoặc tô màu, bạn có thể sử dụng tên màu được R nhận dạng như `"red"` (xem [danh sách đầy đủ](http://sape.inf.usi.ch/quick-reference/ggplot2/colour) hoặc gõ `?colors`), hoặc cụ thể một mã màu hex như `"#ff0505"`.
+Khi thiết lập màu bên trong hoặc bên ngoài, bạn có thể sử dụng các tên màu phổ thông được R nhận dạng như `"red"` (xem [danh sách đầy đủ](http://sape.inf.usi.ch/quick-reference/ggplot2/colour) hoặc gõ `?colors`), hoặc chỉ rõ một mã màu hex như `"#ff0505"`.
 
 ```{r, warning=F, message=F}
 # histogram - 
@@ -76,7 +76,7 @@ ggplot(data = linelist, mapping = aes(x = age))+       # set data and axes
 
 
 
-Như đã được giải thích trong chương [ggplot cơ bản] phần [chọn dữ liệu cho biểu đồ](#ggplot_basics_mapping), các yếu tố thẩm mỹ như `fill = ` và `color = ` có thể được định nghĩa ở *bên ngoài* của biểu thức `mapping = aes()` hoặc *bên trong* câu lệnh. Nếu đặt *bên ngoài* hàm `aes()`, giá trị được gán nên là giá trị tĩnh (vd: `color = "blue"`) và sẽ áp dụng cho *toàn bộ* dữ liệu được vẽ bởi geom. Nếu đặt *bên trong*, các aesthetic nên được gán tới cột, ví dụ như `color = hospital`, và sự biểu diễn sẽ thay đổi theo giá trị của hàng đó trong dữ liệu. Một vài ví dụ:  
+Như đã được giải thích trong chương [ggplot cơ bản](ggplot_basics.vn.qmd) phần [gán dữ liệu cho biểu đồ](ggplot_basics.vn.qmd#ggplot_basics_mapping), các thuộc tính như `fill = ` và `color = ` có thể được định nghĩa ở *bên ngoài* của biểu thức `mapping = aes()` hoặc *bên trong* hàm. Nếu đặt *bên ngoài* hàm `aes()`, giá trị được gán nên là giá trị tĩnh (vd: `color = "blue"`) và sẽ áp dụng cho *toàn bộ* dữ liệu được vẽ. Nếu đặt *bên trong*, các thuộc tính cần được gán với các cột tương ứng trên biển đồ, ví dụ như `color = hospital`, và sự hiển thị sẽ thay đổi theo giá trị của dữ liệu. Sau đây là một vài ví dụ:  
 
 ```{r, out.width=c('50%', '50%'), fig.show='hold', warning=F, message=F}
 # Static color for points and for line
@@ -103,27 +103,27 @@ ggplot(data = linelist, mapping = aes(x = hospital))+
 ```
 
 
-### Thang đo {#ggplot_tips_scales .unnumbered}  
+### Cân chỉnh biểu đồ {#ggplot_tips_scales .unnumbered}  
 
-Một khi bạn gán cột tới một yếu tố thẩm mỹ của biểu đồ (vd: `x = `, `y = `, `fill = `, `color = `...), biểu đồ của bạn sẽ hiển thị một thang đo/chú giải. Xem ở trên cách thang đo có thể là các giá trị liên tục, rời rạc, ngày tháng, v.v. tùy thuộc vào kiểu dữ liệu của cột được chỉ định. Nếu bạn có nhiều yếu tố thẩm mỹ được gán tới cột, biểu đồ của bạn sẽ có nhiều thang đo.  
+Một khi bạn gán cột tới một trong các thuộc tính của biểu đồ của biểu đồ (vd: `x = `, `y = `, `fill = `, `color = `...), biểu đồ của bạn sẽ hiển thị thêm một chú giải. Xem ở trên để biết các cân chỉnh có thể thực hiện trên các giá trị liên tục, rời rạc, ngày tháng, v.v. tùy thuộc vào kiểu dữ liệu của cột được chỉ định. Nếu bạn có nhiều thuộc tính biểu đồ được gán tới cột, biểu đồ của bạn sẽ có nhiều thang đo.  
 
 Bạn có thể kiểm soát các thang đo bằng hàm `scales_()` thích hợp. Các hàm scale của **ggplot()** có 3 phần được viết như sau: `scale_AESTHETIC_METHOD()`.  
 
 1) Phần đầu tiên, `scale_()`, là cố định.  
-2) Phần thứ hai, AESTHETIC, là tên yếu tố thẩm mỹ bạn muốn điều chỉnh thang đó (`_fill_`, `_shape_`, `_color_`, `_size_`, `_alpha_`...) - các tùy chọn ở đây cũng bao gồm `_x_` và `_y_`.  
+2) Phần thứ hai, AESTHETIC, là tên thuộc tính biểu đồ bạn muốn điều chỉnh thang đó (`_fill_`, `_shape_`, `_color_`, `_size_`, `_alpha_`...) - các tùy chọn ở đây cũng bao gồm `_x_` và `_y_`.  
 3) Phần thứ ba, METHOD, sẽ là một trong số các tùy chọn sau `_discrete()`, `continuous()`, `_date()`, `_gradient()`, hoặc `_manual()`, tùy thuộc vào kiểu dữ liệu của cột và *cách* bạn muốn kiểm soát nó. Có những tùy chọn khác, tuy nhiên những lựa chọn trên thường được sử dụng nhất.  
 
 Hãy chắc chắn rằng bạn sử dụng đúng hàm scale! Nếu không, lệnh scale của bạn sẽ không xuất hiện để thay đổi bất cứ điều gì. Nếu bạn có nhiều thang đo, bạn có thể sử dụng nhiều hàm scale để điều chỉnh chúng! Ví dụ:  
 
 ### Các đối số của hàm Scale {.unnumbered}  
 
-Mỗi loại thang đo có những đối số riêng của chúng, mặc dù cũng có những sự trùng nhau. Truy vấn hàm chẳng hạn như `?scale_color_discrete` trong cửa sổ R console để xem tài liệu về các đối số của hàm.  
+Mỗi loại thang đo có những đối số riêng của chúng, mặc dù cũng có những sự trùng nhau. Hãy tìm đọc tài liệu về hàm bằng cách gõ `?scale_color_discrete` trong cửa sổ R console để hiểu thêm về các đối số của hàm.  
 
 Với thang đo liên tục, sử dụng `breaks = ` để cung cấp một chuỗi giá trị tới `seq()` (đặt `to = `, `from = `, và `by = ` như được minh họa trong ví dụ bên dưới. Thiết lập `expand = c(0,0)` để loại bỏ không gian đệm xung quanh các trục (điều này có thể được sử dụng trên bất kỳ thang đo của trục `_x_` hoặc `_y_` nào)  
 
 Với thang đo rời rạc, bạn có thể điều chỉnh thứ tự của các giá trị với `breaks = `, và cách các giá trị hiển thị với đối số `labels = `. Cung cấp một vectơ ký tự cho mỗi cái đó (xem ví dụ bên dưới). Bạn cũng có thể loại bỏ `NA` dễ dàng bằng cách đặt `na.translate = FALSE`.  
 
-Các điều chỉnh với thang đo ngày tháng được trình bãy rõ hơn trong chương [Đường cong dịch bệnh].  
+Các điều chỉnh với thang đo ngày tháng được trình bãy rõ hơn trong chương [Đường cong dịch bệnh](epicurves.vn.qmd).  
 
 
 ### Điều chỉnh thủ công {.unnumbered}  
@@ -293,7 +293,7 @@ preparedness_plot+                   # begin with plot saved above
 
 Tô màu thang đo gradient có thể liên quan đến sắc thái bổ sung. Các giá trị mặc định thường khá dễ chịu, nhưng bạn có thể muốn điều chỉnh các giá trị, điểm cắt, v.v.  
 
-Để trình bày cách điều chỉnh thang màu liên tục, chúng tôi sẽ sử dụng bộ dữ liệu từ chương [Truy vết tiếp xúc] chứa độ tuổi của các trường hợp và các trường hợp tiếp xúc gốc của chúng.  
+Để trình bày cách điều chỉnh thang màu liên tục, chúng tôi sẽ sử dụng bộ dữ liệu từ chương [Truy vết tiếp xúc](contact_tracing.vn.qmd) chứa độ tuổi của các trường hợp và các trường hợp tiếp xúc gốc của chúng.  
 
 
 ```{r, warning=F, message=F}
@@ -373,7 +373,7 @@ Các hàm 'viridis' lấy từ các bảng màu viridis (thân thiện với ng�
 
 Bạn nên kiểm tra biểu đồ của mình trong [trình mô phỏng mù màu này](https://www.color-blindness.com/coblis-color-blindness-simulator/). Nếu bạn có phối màu đỏ/xanh lá cây, hãy thử phối "nóng-lạnh" (đỏ-xanh lam) như được môt tả [ở đây](https://www.visualisingdata.com/2019/08/five-ways-to-design-for-red-green-colour-blindness/#:~:text=The%20pink%2Dred%20through%20to,green%20hues%20used%20by%20default.)  
 
-Sau đây là một ví dụ từ chương [ggplot cơ bản], sử dụng các phối màu khác nhau. 
+Sau đây là một ví dụ từ chương [ggplot cơ bản](ggplot_basics.vn.qmd), sử dụng các phối màu khác nhau. 
 
 ```{r, out.width=c('50%'), fig.show='hold', warning=F, message=F} 
 symp_plot <- linelist %>%                                         # begin with linelist
@@ -446,7 +446,7 @@ ggplot(
 
 #### **ggthemr** {.unnnumbered}  
 
-Bạn cũng có thể xem xét sử dụng package **ggthemr**.  Bạn có thể tải xuống package này từ Github theo hướng dẫn [này](https://github.com/Mikata-Project/ggthemr). INó cung cấp các bảng màu rất đẹp về mặt thẩm mỹ, nhưng hãy lưu ý rằng chúng thường có số lượng giá trị tối đa có thể bị giới hạn nếu bạn muốn nhiều hơn 7 hoặc 8 màu.  
+Bạn cũng có thể xem xét sử dụng package **ggthemr**.  Bạn có thể tải xuống package này từ Github theo hướng dẫn [này](https://github.com/Mikata-Project/ggthemr). Nó cung cấp các bảng màu rất đẹp về mặt thẩm mỹ, nhưng hãy lưu ý rằng chúng thường có số lượng giá trị tối đa có thể bị giới hạn nếu bạn muốn nhiều hơn 7 hoặc 8 màu.  
 
 
 
@@ -486,7 +486,7 @@ case_source_relationships %>%
 * Các đối số tùy chọn khác bao gồm `fill = ` (màu cột), `color = ` (màu đường), `size = ` (kích thương biểu đồ so với kích thước biên, do đó số lớn hơn làm biểu đồ biên nhỏ hơn).  
 * Bạn có thể cung cấp các đối số theo trục khác với `xparams = ` và `yparams = `. Ví dụ, để có các kích thước bin khác nhau trong biểu đồ histogram, như được minh họa dưới đây.  
 
-Bạn có thể có các nhóm biểu đồ biên phản ánh (các cột đã được gán tới `color = ` trong đối số thẩm mỹ của `ggplot()`). Nếu đúng như vậy, hãy thiết lập các đối số của hàm `ggMarginal()` như `groupColour = ` hoặc `groupFill = ` thành `TRUE`, như được trình bày dưới đây.  
+Bạn có thể có các nhóm biểu đồ biên phản ánh (các cột đã được gán tới `color = ` trong thuộc tính biểu đồ của `ggplot()`). Nếu đúng như vậy, hãy thiết lập các đối số của hàm `ggMarginal()` như `groupColour = ` hoặc `groupFill = ` thành `TRUE`, như được trình bày dưới đây.  
 
 Đọc thêm ở [vignette này](https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html), ở trang web [R Graph Gallery](https://www.r-graph-gallery.com/277-marginal-histogram-for-ggplot2.html) hoặc tài liệu trợ giúp hàm `?ggMarginal`.  
 
@@ -624,7 +624,7 @@ ggplot()+
 <!-- ======================================================= -->
 ## Trục thời gian {}
 
-Làm việc với các trục thời gian trong ggplot có vẻ khó khăn, nhưng được thực hiện rất dễ dàng với một vài hàm chính. Hãy nhớ rằng khi làm việc với thời gian hoặc ngày tháng, bạn phải đảm bảo rằng các biến cần được định dạng chính xác dưới kiểu date hoặc datetime - hãy xem chương [Làm việc với ngày tháng] để biết thêm chi tiết, hoặc chương [Đường con dịch bệnh] mục ggplot để xem các ví dụ.
+Làm việc với các trục thời gian trong ggplot có vẻ khó khăn, nhưng được thực hiện rất dễ dàng với một vài hàm chính. Hãy nhớ rằng khi làm việc với thời gian hoặc ngày tháng, bạn phải đảm bảo rằng các biến cần được định dạng chính xác dưới kiểu date hoặc datetime - hãy xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết thêm chi tiết, hoặc chương [Đường con dịch bệnh] mục ggplot để xem các ví dụ.
 
 Nhóm các hàm hữu dụng nhất khi làm việc với ngày tháng trong `ggplot2` là các hàm scale (`scale_x_date()`, `scale_x_datetime()`, và tương tự với các hàm trục y). Các hàm này cho phép bạn xác định tần suất bạn có nhãn trục và cách định dạng nhãn trục. Để tìm hiểu cách định dạng ngày tháng, hãy xem lại mục _làm việc với ngày tháng_ một lần nữa! Bạn có thể sử dụng các đối số `date_breaks` và `date_labels` để cụ thể ngày sẽ trông như thế nào:
 
@@ -723,7 +723,7 @@ pacman::p_load(
 ```
 
 
-Trong khi faceting (được mô tả trong chương [ggplot cơ bản]) là cách tiếp cận thuận tiện để vẽ biểu đồ, nhưng đôi khi không thể đạt được kết quả bạn muốn từ cách tiếp cận tương đối hạn chế của nó. Tại đây, bạn có thể chọn kết hợp các biểu đồ bằng cách dán chúng lại với nhau thành một biểu đồ lớn hơn. Có ba packages tuyệt vời được sử dụng cho mục đích này - **cowplot**, **gridExtra**, và **patchwork**. Tuy nhiên, các package này phần lớn tương tự nhau, do đó chúng ta sẽ tập trung vào package **cowplot** trong phần này. 
+Trong khi faceting (được mô tả trong chương [ggplot cơ bản](ggplot_basics.vn.qmd)) là cách tiếp cận thuận tiện để vẽ biểu đồ, nhưng đôi khi không thể đạt được kết quả bạn muốn từ cách tiếp cận tương đối hạn chế của nó. Tại đây, bạn có thể chọn kết hợp các biểu đồ bằng cách dán chúng lại với nhau thành một biểu đồ lớn hơn. Có ba packages tuyệt vời được sử dụng cho mục đích này - **cowplot**, **gridExtra**, và **patchwork**. Tuy nhiên, các package này phần lớn tương tự nhau, do đó chúng ta sẽ tập trung vào package **cowplot** trong phần này. 
 
 ### `plot_grid()` {.unnumbered}
 
@@ -938,7 +938,7 @@ Cách tiếp cận này bao gồm việc tạo hai biểu đồ riêng biệt - 
 * Trục y được chuyển sang phía bên phải cho biểu đồ 2 với đối số `position = ` của hàm `scale_y_continuous()`.  
 * Cả hai biểu đồ cùng sử dụng `theme_cowplot()`  
 
-Lưu ý rằng có một ví dụ khác về kỹ thuật này trong chương [Đường cong dịch bệnh] - phủ tỷ lệ mới mắc tích lũy lên trên đỉnh đường cong dịch bệnh.  
+Lưu ý rằng có một ví dụ khác về kỹ thuật này trong chương [Đường cong dịch bệnh](epicurves.vn.qmd) - phủ tỷ lệ mới mắc tích lũy lên trên đỉnh đường cong dịch bệnh.  
 
 **Tạo biểu đồ 1**  
 Đâu là biểu đồ đương cong dịch bệnh cơ bản. Chúng ta sử dụng hàm `geom_area()` chỉ để minh họa cách sử dụng của nó (mặc dịch là vùng dưới một đường)  

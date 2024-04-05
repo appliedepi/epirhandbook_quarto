@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cẩm nang dịch tễ học với R - 11&nbsp; Factors</title>
+<title>Cẩm nang dịch tễ học với R - 11&nbsp; Kiểu dữ liệu danh mục - Factors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.vn.html">Quản lý dữ liệu</a></li><li class="breadcrumb-item"><a href="../new_pages/factors.vn.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.vn.html">Quản lý dữ liệu</a></li><li class="breadcrumb-item"><a href="../new_pages/factors.vn.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -300,7 +300,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -442,7 +442,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -599,7 +599,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <li><a href="#nhập-dữ-liệu" id="toc-nhập-dữ-liệu" class="nav-link" data-scroll-target="#nhập-dữ-liệu">Nhập dữ liệu</a></li>
   <li><a href="#fct_newcat" id="toc-fct_newcat" class="nav-link" data-scroll-target="#fct_newcat">Thêm biến danh mục mới</a></li>
   </ul></li>
-  <li><a href="#chuyển-đổi-sang-factor" id="toc-chuyển-đổi-sang-factor" class="nav-link" data-scroll-target="#chuyển-đổi-sang-factor"><span class="header-section-number">11.2</span> Chuyển đổi sang factor</a></li>
+  <li><a href="#định-nghĩa-dữ-liệu-sang-kiểu-factor" id="toc-định-nghĩa-dữ-liệu-sang-kiểu-factor" class="nav-link" data-scroll-target="#định-nghĩa-dữ-liệu-sang-kiểu-factor"><span class="header-section-number">11.2</span> Định nghĩa dữ liệu sang kiểu factor</a></li>
   <li><a href="#thêm-hoặc-xóa-thứ-bậc" id="toc-thêm-hoặc-xóa-thứ-bậc" class="nav-link" data-scroll-target="#thêm-hoặc-xóa-thứ-bậc"><span class="header-section-number">11.3</span> Thêm hoặc xóa thứ bậc</a>
   <ul class="collapse">
   <li><a href="#fct_add" id="toc-fct_add" class="nav-link" data-scroll-target="#fct_add">Thêm thứ bậc</a></li>
@@ -616,10 +616,10 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <li><a href="#theo-giá-trị-cuối" id="toc-theo-giá-trị-cuối" class="nav-link" data-scroll-target="#theo-giá-trị-cuối">Theo giá trị cuối</a></li>
   </ul></li>
   <li><a href="#fct_missing" id="toc-fct_missing" class="nav-link" data-scroll-target="#fct_missing"><span class="header-section-number">11.5</span> Giá trị Missing</a></li>
-  <li><a href="#kết-hợp-các-thứ-bậc-trong-biến-factor" id="toc-kết-hợp-các-thứ-bậc-trong-biến-factor" class="nav-link" data-scroll-target="#kết-hợp-các-thứ-bậc-trong-biến-factor"><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong biến factor</a>
+  <li><a href="#kết-hợp-các-thứ-bậc-trong-kiểu-dữ-liệu-factor" id="toc-kết-hợp-các-thứ-bậc-trong-kiểu-dữ-liệu-factor" class="nav-link" data-scroll-target="#kết-hợp-các-thứ-bậc-trong-kiểu-dữ-liệu-factor"><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong kiểu dữ liệu factor</a>
   <ul class="collapse">
   <li><a href="#kết-hợp-thủ-công" id="toc-kết-hợp-thủ-công" class="nav-link" data-scroll-target="#kết-hợp-thủ-công">Kết hợp thủ công</a></li>
-  <li><a href="#rút-gọn-thành-other" id="toc-rút-gọn-thành-other" class="nav-link" data-scroll-target="#rút-gọn-thành-other">Rút gọn thành “Other”</a></li>
+  <li><a href="#rút-gọn-thành-nhóm-khác" id="toc-rút-gọn-thành-nhóm-khác" class="nav-link" data-scroll-target="#rút-gọn-thành-nhóm-khác">Rút gọn thành nhóm “Khác”</a></li>
   <li><a href="#rút-gọn-theo-tần-suất" id="toc-rút-gọn-theo-tần-suất" class="nav-link" data-scroll-target="#rút-gọn-theo-tần-suất">Rút gọn theo tần suất</a></li>
   </ul></li>
   <li><a href="#hiển-thị-tất-cả-thứ-bậc" id="toc-hiển-thị-tất-cả-thứ-bậc" class="nav-link" data-scroll-target="#hiển-thị-tất-cả-thứ-bậc"><span class="header-section-number">11.7</span> Hiển thị tất cả thứ bậc</a>
@@ -639,9 +639,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.vn.html">Quản lý dữ liệu</a></li><li class="breadcrumb-item"><a href="../new_pages/factors.vn.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/cleaning.vn.html">Quản lý dữ liệu</a></li><li class="breadcrumb-item"><a href="../new_pages/factors.vn.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="factors" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></h1>
+<h1 class="title"><span id="factors" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></h1>
 </div>
 
 
@@ -676,7 +676,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h2 data-number="11.1" class="anchored" data-anchor-id="chuẩn-bị"><span class="header-section-number">11.1</span> Chuẩn bị</h2>
 <section id="gọi-packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="gọi-packages">Gọi packages</h3>
-<p>Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt package nếu nó chưa được cài <em>và</em> gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm <code>library()</code> từ <strong>base</strong> R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.</p>
+<p>Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt package nếu nó chưa được cài <em>và</em> gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm <code>library()</code> từ <strong>base</strong> R. Xem chương <a href="../new_pages/basics.vn.html">R cơ bản</a> để biết thêm thông tin về các package trong R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  rio,           <span class="co"># import/export</span></span>
@@ -691,7 +691,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="nhập-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="nhập-dữ-liệu">Nhập dữ liệu</h3>
-<p>Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">bấm để tải bộ dữ liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm <code>import()</code> từ package <strong>rio</strong> (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).</p>
+<p>Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">bấm để tải bộ dữ liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm <code>import()</code> từ package <strong>rio</strong> (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a> để biết thêm chi tiết).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import your dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -703,7 +703,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Lưu ý rằng khi bạn chuyển đổi một cột dạng số thành dạng factor, bạn sẽ không thể thực hiện các tính toán thống kê đối với dữ liệu dạng số trên cột đó nữa.</p>
 <section id="tạo-biến" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="tạo-biến">Tạo biến</h4>
-<p>Chúng ta sẽ sử dụng một biến có sẵn, tên là <code>days_onset_hosp</code> (số ngày, tính từ khi bắt đầu có triệu chứng cho đến khi nhập viện) và tạo một biến mới có tên <code>delay_cat</code> bằng cách phân loại các giá trị trong mỗi hàng của biến có sẵn đó thành một số nhóm khác nhau. Chúng ta sẽ thực hiện việc này bằng hàm <code>case_when()</code> trong package <strong>dplyr</strong>, hàm này sẽ giúp áp dụng tuần tự các tiêu chí logic (phía bên phải) cho mỗi giá trị của biễn có sẵn và trả về giá trị bên trái tương ứng ở biến mới <code>delay_cat</code>. Đọc thêm về <code>case_when()</code> tại chương [Làm sạch số liệu và các hàm quan trọng].</p>
+<p>Chúng ta sẽ sử dụng một biến có sẵn, tên là <code>days_onset_hosp</code> (số ngày, tính từ khi bắt đầu có triệu chứng cho đến khi nhập viện) và tạo một biến mới có tên <code>delay_cat</code> bằng cách phân loại các giá trị trong mỗi hàng của biến có sẵn đó thành một số nhóm khác nhau. Chúng ta sẽ thực hiện việc này bằng hàm <code>case_when()</code> trong package <strong>dplyr</strong>, hàm này sẽ giúp áp dụng tuần tự các tiêu chí logic (phía bên phải) cho mỗi giá trị của biễn có sẵn và trả về giá trị bên trái tương ứng ở biến mới <code>delay_cat</code>. Đọc thêm về <code>case_when()</code> tại chương <a href="../new_pages/cleaning.vn.html">Làm sạch số liệu và các hàm quan trọng</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">case_when</span>(</span>
@@ -726,7 +726,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
     2990      602     2040      256 </code></pre>
 </div>
 </div>
-<p>Tương tự như vậy, nếu chúng ta tạo biểu đồ cột, các giá trị cũng xuất hiện theo thứ tự này trên trục x (xem chương [ggplot cơ bản] để hiểu thêm về package <strong>ggplot2</strong> - package giúp trực quan hóa dữ liệu phổ biến nhất trong R).</p>
+<p>Tương tự như vậy, nếu chúng ta tạo biểu đồ cột, các giá trị cũng xuất hiện theo thứ tự này trên trục x (xem chương <a href="../new_pages/ggplot_basics.vn.html">ggplot cơ bản</a> để hiểu thêm về package <strong>ggplot2</strong> - package giúp trực quan hóa dữ liệu phổ biến nhất trong R).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> delay_cat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -741,8 +741,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 </section>
 </section>
-<section id="chuyển-đổi-sang-factor" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="chuyển-đổi-sang-factor"><span class="header-section-number">11.2</span> Chuyển đổi sang factor</h2>
+<section id="định-nghĩa-dữ-liệu-sang-kiểu-factor" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="định-nghĩa-dữ-liệu-sang-kiểu-factor"><span class="header-section-number">11.2</span> Định nghĩa dữ liệu sang kiểu factor</h2>
 <p>Để chuyển đổi một biến dạng ký tự hoặc dạng số sang dạng <em>factor</em>, bạn có thể sử dụng bất kỳ hàm nào trong package <strong>forcats</strong> (nhiều hàm được nêu chi tiết tại <a href="#fct_adjust">mục dưới đây</a>). Các biến sẽ chuyển đổi sang dạng factor và sau đó cũng thực hiện hoặc sắp xếp theo một thứ tự nhất định của các levels - ví dụ: hàm <code>fct_relevel()</code> cho phép bạn chỉ định thứ tự levels theo cách thủ công. Hàm <code>as_factor()</code> chỉ đơn giản là chuyển đổi biến sang dạng factor mà không có thêm bất kỳ chức năng nào khác.</p>
 <p>Hàm <code>factor()</code> trong <strong>base</strong> R chuyển đổi một biến thành factor và cho phép bạn tự sắp xếp thứ tự của các nhóm giá trị, dưới dạng một vectơ ký tự của đối số <code>levels =</code>.</p>
 <p>Dưới đây, chúng tôi sử dụng hàm <code>mutate()</code> và hàm <code>fct_relevel()</code> để chuyển đối biến có sẵn <code>delay_cat</code> từ dạng ký tự sang dạng factor. Biến <code>delay_cat</code> đã được tạo ở phần <a href="#fct_newcat">Chuẩn bị</a> bên trên.</p>
@@ -757,7 +757,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <pre><code>[1] "&lt;2 days"  "&gt;5 days"  "2-5 days"</code></pre>
 </div>
 </div>
-<p>Hàm <code>fct_relevel()</code> có thêm chức năng cho phép bạn có thể tự sắp xếp trật tự của các thứ bậc trong factor. Đơn giản, bạn chỉ cần viết các thứ bậc theo thứ tự bạn muốn, để chúng trong dấu ngoặc kép, được phân tách bằng dấu phẩy, như được hiển thị bên dưới. Lưu ý rằng chính tả phải khớp chính xác với tên các thứ bậc. Nếu bạn muốn tạo các thứ bậc không tồn tại trong dữ liệu, hãy sử dụng hàm <a href="#fct_add"><code>fct_expand()</code></a> nhé.</p>
+<p>Hàm <code>fct_relevel()</code> có thêm chức năng cho phép bạn có thể tự sắp xếp trật tự của các thứ bậc trong factor. Đơn giản, bạn chỉ cần viết các thứ bậc theo thứ tự bạn muốn, để chúng trong dấu ngoặc kép, được phân tách bằng dấu phẩy, như được hiển thị bên dưới. Lưu ý rằng chính tả phải khớp chính xác với tên các thứ bậc. Nếu bạn muốn tạo các thứ bậc không tồn tại trong dữ liệu, hãy sử dụng hàm <a href="#fct_add"><code>fct_expand()</code></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_relevel</span>(delay_cat, <span class="st">"&lt;2 days"</span>, <span class="st">"2-5 days"</span>, <span class="st">"&gt;5 days"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -853,7 +853,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="đối-với-biểu-đồ" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="đối-với-biểu-đồ">Đối với biểu đồ</h3>
 <p>Các lệnh trong package <strong>forcats</strong> có thể được sử dụng để thay đổi trật tự của biến trong data frame hoặc trong biểu đồ. Bằng cách sử dụng các lệnh để “gói” tên biến vào <em>trong</em> các lệnh vẽ biểu đồ của package <code>ggplot()</code>, bạn có thể dảo ngược/thay đổi một trật tự có sẵn của biến. Sự thay đổi này chỉ áp dụng trong biểu đồ đang vẽ.</p>
-<p>Dưới đây, hai biểu đồ đều được vẽ bởi hàm <code>ggplot()</code> (xem thêm tại chương [ggplot cơ bản]). Trong biểu đồ đầu tiên, biến <code>delay_cat</code> được vẽ trên trục x của biểu đồ với thứ tự các thứ bậc là mặc định trong dữ liệu <code>linelist</code>. Trong biểu đồ thứ hai, biến được đặt trong bởi hàm <code>fct_relevel()</code> và trật tự của các thứ bậc đã được sắp xếp lại.</p>
+<p>Dưới đây, hai biểu đồ đều được vẽ bởi hàm <code>ggplot()</code> (xem thêm tại chương <a href="../new_pages/ggplot_basics.vn.html">ggplot cơ bản</a>). Trong biểu đồ đầu tiên, biến <code>delay_cat</code> được vẽ trên trục x của biểu đồ với thứ tự các thứ bậc là mặc định trong dữ liệu <code>linelist</code>. Trong biểu đồ thứ hai, biến được đặt trong bởi hàm <code>fct_relevel()</code> và trật tự của các thứ bậc đã được sắp xếp lại.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alpha-numeric default order - no adjustment within ggplot</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
@@ -882,7 +882,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="đảo-ngược-thứ-tự" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="đảo-ngược-thứ-tự">Đảo ngược thứ tự</h3>
 <p>Bạn sẽ thường xuyên cần đảo ngược trật tự của các thứ bậc trong một biến. Đơn giản, bạn chỉ cần thêm tên biến vào bên trong hàm <code>fct_rev()</code>.</p>
-<p>Lưu ý rằng, nếu bạn <em>chỉ</em> muốn đảo ngược thứ tự trong một biểu đồ chứ không phải thứ tự của biến đó, bạn có thể thực hiện điều đó với hàm <code>guides()</code> (Xem thêm tại chương [Các tips với ggplot]).</p>
+<p>Lưu ý rằng, nếu bạn <em>chỉ</em> muốn đảo ngược thứ tự trong một biểu đồ chứ không phải thứ tự của biến đó, bạn có thể thực hiện điều đó với hàm <code>guides()</code> (Xem thêm tại chương <a href="../new_pages/ggplot_tips.vn.html">Các mẹo với ggplot</a>).</p>
 </section>
 <section id="theo-tần-suất" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="theo-tần-suất">Theo tần suất</h3>
@@ -1020,12 +1020,12 @@ Caused by warning:
 </div>
 </div>
 </section>
-<section id="kết-hợp-các-thứ-bậc-trong-biến-factor" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="kết-hợp-các-thứ-bậc-trong-biến-factor"><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong biến factor</h2>
+<section id="kết-hợp-các-thứ-bậc-trong-kiểu-dữ-liệu-factor" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="kết-hợp-các-thứ-bậc-trong-kiểu-dữ-liệu-factor"><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong kiểu dữ liệu factor</h2>
 <section id="kết-hợp-thủ-công" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="kết-hợp-thủ-công">Kết hợp thủ công</h3>
-<p>Bạn có thể điều chỉnh cách hiển thị của các thứ bậc theo cách thủ công với hàm <code>fct_recode()</code>. Điều này giống như hàm <code>recode()</code> trong package <strong>dplyr</strong> (xem thêm tại chương [Làm sạch số liệu và các hàm quan trọng]), nhưng nó cho phép tạo các thứ bậc mới trong factor. Nếu bạn đơn giản chỉ sử dụng hàm <code>recode()</code> trên một factor, các giá trị được mã hóa mới sẽ bị từ chối trừ khi chúng đã được đặt ở thứ bậc cho phép.</p>
-<p>Công cụ này cũng có thể được sử dụng để “kết hợp” các thứ bậc trong factor, bằng cách gán cho nhiều thứ bậc cùng một giá trị được mã hóa lại. Bạn cần cẩn thận để không bị mất thông tin! Cân nhắc thực hiện các bước kết hợp này trong một biến mới (không ghi đè lên biến hiện tại).</p>
+<p>Bạn có thể điều chỉnh cách hiển thị của các thứ bậc theo cách thủ công với hàm <code>fct_recode()</code>. Điều này giống như hàm <code>recode()</code> trong package <strong>dplyr</strong> (xem thêm tại chương <a href="../new_pages/cleaning.vn.html">Làm sạch số liệu và các hàm quan trọng</a>), nhưng nó cho phép tạo các thứ bậc mới. Nếu bạn đơn giản chỉ sử dụng hàm <code>recode()</code>, các giá trị được mã hóa mới sẽ bị từ chối trừ khi chúng đã được đặt ở thứ bậc cho phép.</p>
+<p>Công cụ này cũng có thể được sử dụng để “nhóm” các thứ bậc trong factor, bằng cách gán cho nhiều thứ bậc cùng một giá trị được mã hóa lại. Bạn cần cẩn thận để không bị mất thông tin! Hãy cân nhắc thực hiện hành động này trên một cột mới (không ghi đè lên cột hiện tại).</p>
 <p>Hàm <code>fct_recode()</code> có cú pháp khác với hàm <code>recode()</code>. Hàm <code>recode()</code> sử dụng câu lệnh <code>OLD = NEW</code>, trong khi hàm <code>fct_recode()</code> sửu dụng câu lệnh <code>NEW = OLD</code>.</p>
 <p>Những thứ bậc sẵn có của biến <code>delay_cat</code> như sau:</p>
 <div class="cell">
@@ -1068,9 +1068,9 @@ Caused by warning:
 </div>
 </div>
 </section>
-<section id="rút-gọn-thành-other" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="rút-gọn-thành-other">Rút gọn thành “Other”</h3>
-<p>Bạn có thể sử dụng hàm <code>fct_other()</code> để gán các thứ bậc của factor theo cách thủ công cho thứ bậc “Other”. Dưới đây, tất cả các thứ bậc trong biến <code>hospital</code>, ngoại trừ “Port Hospital” và “Central Hospital”, được gộp chung thành “Other”. Bạn có thể cung cấp một vectơ để giữ <code>keep =</code>, hoặc loại bỏ <code>drop =</code>. Bạn có thể thay đổi cách hiển thị của thứ bậc “Other” bằng hàm <code>other_level =</code>.</p>
+<section id="rút-gọn-thành-nhóm-khác" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rút-gọn-thành-nhóm-khác">Rút gọn thành nhóm “Khác”</h3>
+<p>Bạn có thể sử dụng hàm <code>fct_other()</code> để gán các thứ bậc của một cột dạng factor thành một thứ bậc mới “Other”. Dưới đây, tất cả các thứ bậc trong biến <code>hospital</code>, ngoại trừ “Port Hospital” và “Central Hospital”, được gộp chung thành “Other”. Bạn có thể cung cấp một vectơ để giữ <code>keep =</code>, hoặc loại bỏ <code>drop =</code>. Bạn có thể thay đổi cách hiển thị của thứ bậc “Other” bằng hàm <code>other_level =</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span>    </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hospital =</span> <span class="fu">fct_other</span>(                      <span class="co"># adjust levels</span></span>
@@ -1138,17 +1138,17 @@ Caused by warning:
 <h3 class="unnumbered anchored" data-anchor-id="trong-bảng">Trong bảng</h3>
 <p>Cả hàm <code>table()</code> trong <strong>base</strong> R và hàm <code>tabyl()</code> trong package <strong>janitor</strong> đều sẽ hiển thị tất cả các thứ bậc trong factor (ngay cả các thứ bậc không sử dụng).</p>
 <p>Nếu bạn sử dụng hàm <code>count()</code> hoặc <code>summarise()</code> từ package <strong>dplyr</strong> để tạo bảng, hãy thêm đối số <code>.drop = FALSE</code> để hiển thị số lượng cho tất cả các thứ bậc trong factor ngay cả các thứ bậc không sử dụng.</p>
-<p>Đọc thêm tại chương [Bảng mô tả],hoặc tại các link sau <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, hoặc <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. Bạn có thể tìm các ví dụ khác tại chương [Truy vết tiếp xúc].</p>
+<p>Đọc thêm tại chương <a href="../new_pages/tables_descriptive.vn.html">Bảng mô tả</a>,hoặc tại các link sau <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, hoặc <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. Bạn có thể tìm các ví dụ khác tại chương <a href="../new_pages/contact_tracing.vn.html">Truy vết tiếp xúc</a>.</p>
 </section>
 </section>
 <section id="tuần-dịch-tễ" class="level2" data-number="11.8">
 <h2 data-number="11.8" class="anchored" data-anchor-id="tuần-dịch-tễ"><span class="header-section-number">11.8</span> Tuần dịch tễ</h2>
-<p>Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương [Nhóm dữ liệu].<br>
-Vui lòng xem chương [Làm việc với ngày tháng] để biết các mẹo về cách tạo và định dạng các tuần dịch tễ học.</p>
+<p>Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương <a href="../new_pages/grouping.vn.html">Nhóm dữ liệu</a>.<br>
+Vui lòng xem chương <a href="../new_pages/dates.vn.html">Làm việc với ngày tháng</a> để biết các mẹo về cách tạo và định dạng các tuần dịch tễ học.</p>
 <section id="tuần-dịch-tễ-trong-biểu-đồ" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tuần-dịch-tễ-trong-biểu-đồ">Tuần dịch tễ trong biểu đồ</h3>
-<p>Nếu mục tiêu của bạn là tạo các tuần dịch tễ học để hiển thị trong một biểu đồ, bạn có thể thực hiện việc này đơn giản với hàm <code>floor_date()</code> trong package <strong>lubridate</strong>, như được giải thích trong chương [Nhóm dữ liệu]. Các giá trị trả về sẽ thuộc loại Ngày tháng với định dạng YYYY-MM-DD. Nếu bạn sử dụng cột này trong một biểu đồ, ngày tháng sẽ tự nhiên được sắp xếp chính xác và bạn không cần phải lo lắng về thứ bậc hoặc chuyển đổi sang dạng factor. Xem biểu đồ histogram trong hàm <code>ggplot()</code> về các ngày khởi phát bên dưới.</p>
-<p>Trong cách tiếp cận này, bạn có thể điều chỉnh <em>việc hiển thị</em> của ngày tháng trên trục với <code>scale_x_date()</code>. Xem thêm tại trang [Đường cong dịch bệnh] để biết thêm thông tin. Bạn có thể chỉ định định dạng hiển thị <code>date_labels =</code> cho đối số <code>scale_x_date()</code>. Sử dụng “% Y” để đại diện cho năm có 4 chữ số và “% W” hoặc “% U” để đại diện cho số tuần (các tuần thứ Hai hoặc Chủ Nhật tương ứng).</p>
+<p>Nếu mục tiêu của bạn là tạo các tuần dịch tễ học để hiển thị trong một biểu đồ, bạn có thể thực hiện việc này đơn giản với hàm <code>floor_date()</code> trong package <strong>lubridate</strong>, như được giải thích trong chương <a href="../new_pages/grouping.vn.html">Nhóm dữ liệu</a>. Các giá trị trả về sẽ thuộc loại Ngày tháng với định dạng YYYY-MM-DD. Nếu bạn sử dụng cột này trong một biểu đồ, ngày tháng sẽ tự nhiên được sắp xếp chính xác và bạn không cần phải lo lắng về thứ bậc hoặc chuyển đổi sang dạng factor. Xem biểu đồ histogram trong hàm <code>ggplot()</code> về các ngày khởi phát bên dưới.</p>
+<p>Trong cách tiếp cận này, bạn có thể điều chỉnh <em>việc hiển thị</em> của ngày tháng trên trục với <code>scale_x_date()</code>. Xem thêm tại trang <a href="../new_pages/epicurves.vn.html">Đường cong dịch bệnh</a> để biết thêm thông tin. Bạn có thể chỉ định định dạng hiển thị <code>date_labels =</code> cho đối số <code>scale_x_date()</code>. Sử dụng “% Y” để đại diện cho năm có 4 chữ số và “% W” hoặc “% U” để đại diện cho số tuần (các tuần thứ Hai hoặc Chủ Nhật tương ứng).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">"week"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># create week column</span></span>
@@ -1170,7 +1170,7 @@ Vui lòng xem chương [Làm việc với ngày tháng] để biết các mẹo 
 <ol type="1">
 <li><em>Để kiểm soát tốt việc hiển thị</em>, hãy chuyển đổi cột <strong>lubridate</strong> tuần dịch tễ (YYYY-MM-DD) sang định dạng hiển thị mong muốn (YYYY-WWw) <em>trong chính data frame</em>, rồi chuyển đổi nó thành dạng factor.</li>
 </ol>
-<p>Đầu tiên, sử dụng hàm <code>format()</code> từ <strong>base</strong> R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương [Làm việc với ngày tháng]). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm <code>factor()</code>.</p>
+<p>Đầu tiên, sử dụng hàm <code>format()</code> từ <strong>base</strong> R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương <a href="../new_pages/dates.vn.html">Làm việc với ngày tháng</a>). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm <code>factor()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">"week"</span>),       <span class="co"># create epiweeks (YYYY-MM-DD)</span></span>
@@ -1202,7 +1202,7 @@ Vui lòng xem chương [Làm việc với ngày tháng] để biết các mẹo 
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(df<span class="sc">$</span>epiweek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Xem chương [Làm việc với ngày tháng] để biết thêm thông tin về package <strong>aweek</strong>. Nó cũng cung cấp thông tin về hàm đảo ngược <code>week2date()</code>.</p>
+<p>Xem chương <a href="../new_pages/dates.vn.html">Làm việc với ngày tháng</a> để biết thêm thông tin về package <strong>aweek</strong>. Nó cũng cung cấp thông tin về hàm đảo ngược <code>week2date()</code>.</p>
 <!-- ======================================================= -->
 </section>
 </section>
@@ -1759,7 +1759,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

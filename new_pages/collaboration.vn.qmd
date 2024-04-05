@@ -87,7 +87,7 @@ Giống như khi học R, bạn cần nhớ một chút thuật ngữ để hi�
 
 ### Kho lưu trữ (Repository) {.unnumbered}
 
-Kho *lưu trữ Git* ("*repo*") là một thư mục chứa tất cả các thư mục con và tệp cho dự án của bạn (dữ liệu, mã code, hình ảnh, v.v.) và lịch sử sửa đổi của chúng. Khi bạn bắt đầu theo dõi những thay đổi trong kho lưu trữ, Git sẽ tạo một thư mục ẩn chứa tất cả các thông tin theo dõi. Một kho lưu trữ Git điển hình là thư mục *Dự án R* của bạn (xem thêm chương [Dự án R] để biết thêm chi tiết).
+Kho *lưu trữ Git* ("*repo*") là một thư mục chứa tất cả các thư mục con và tệp cho dự án của bạn (dữ liệu, mã code, hình ảnh, v.v.) và lịch sử sửa đổi của chúng. Khi bạn bắt đầu theo dõi những thay đổi trong kho lưu trữ, Git sẽ tạo một thư mục ẩn chứa tất cả các thông tin theo dõi. Một kho lưu trữ Git điển hình là thư mục *Dự án R* của bạn (xem thêm chương [Dự án R](r_projects.vn.qmd)) để biết thêm chi tiết).
 
 Chúng tôi sẽ hướng dẫn bạn cách tạo (*initialize*) một kho lưu trữ Git từ Github, Github Desktop hoặc Rstudio trong phần tiếp theo của chương này.
 

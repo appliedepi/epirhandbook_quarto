@@ -47,8 +47,8 @@ knitr::include_graphics(here::here("images", "factory_new2.png"))
 * Thư mục *outputs* sẽ chứa các kết quả đầu ra của báo cáo (ví dụ: HTML, Word, PDF, v.v.)  
 * Thư mục *scripts* có thể được sử dụng để lưu trữ các scripts R khác (ví dụ: được lấy từ các scripts Rmd của bạn)  
 * Thư mục *data* có thể được sử dụng để chứa dữ liệu của bạn (bao gồm các thư mục con "thô" và "sạch")  
-* Tệp *.here*, vì vậy bạn có thể sử dụng **here** package để gọi các tệp trong thư mục con theo mối quan hệ của chúng với thư mục gốc này (xem chương [R projects] để biết thêm chi tiết)
-* Tệp *gitignore* được tạo trong trường hợp bạn liên kết dự án R này với kho lưu trữ Github (xem [Version control and collaboration with Github])  
+* Tệp *.here*, vì vậy bạn có thể sử dụng **here** package để gọi các tệp trong thư mục con theo mối quan hệ của chúng với thư mục gốc này (xem chương [R projects](r_projects.vn.qmd) để biết thêm chi tiết)
+* Tệp *gitignore* được tạo trong trường hợp bạn liên kết dự án R này với kho lưu trữ Github (xem [Version control and collaboration with Github](collaboration.vn.qmd))  
 * Tệp README trống, nếu bạn sử dụng kho lưu trữ Github  
 
 
@@ -85,7 +85,7 @@ knitr::include_graphics(here::here("images", "factory_overview.png"))
 
 ## Tạo báo cáo  
 
-Từ bên trong dự án R của nhà máy, hãy tạo báo cáo R Markdown giống như bạn thường làm và lưu nó vào thư mục "report_sources". Xem chương [R Markdown][Reports with R Markdown] để biết hướng dẫn. Để ví dụ, chúng tôi đã thêm những thứ sau vào nhà máy:  
+Từ bên trong dự án R của nhà máy, hãy tạo báo cáo R Markdown giống như bạn thường làm và lưu nó vào thư mục "report_sources". Xem chương [R Markdown](rmarkdown.vn.qmd) để biết hướng dẫn. Để ví dụ, chúng tôi đã thêm những thứ sau vào nhà máy:  
 
 * R markdown script mới có tên "daily_sitrep.Rmd", được lưu trong thư mục "report_sources"  
 * Dữ liệu cho báo cáo ("linelist_cleaned.rds"), được lưu vào thư mục con "clean" trong thư mục "data"   
@@ -105,7 +105,7 @@ knitr::include_graphics(here::here("images", "factory_new_rmd.png"))
 Trong script đơn giản này, có các lệnh để:  
 
 * Tải các packages cần thiết  
-* Nhập dữ liệu danh sách dòng bằng đường dẫn tệp từ package **here** (đọc thêm trong chương [Import and export])  
+* Nhập dữ liệu danh sách dòng bằng đường dẫn tệp từ package **here** (đọc thêm trong chương [Import and export](importing.vn.qmd))  
 
 ```{r, eval=F}
 linelist <- import(here("data", "clean", "linelist_cleaned.rds"))
@@ -186,7 +186,7 @@ compile_reports(reports = "for_partners/")
 
 ### Tham số hóa {.unnumbered}
 
-Như đã lưu ý trong chương về [Reports with R Markdown], bạn có thể chạy báo cáo với các thông số được chỉ định. Bạn có thể chuyển các tham số này dưới dạng danh sách tới `compile_reports ()` thông qua đối số `params =`. Ví dụ, trong báo cáo hư cấu này, có ba tham số được cung cấp cho báo cáo R Markdown.  
+Như đã lưu ý trong chương về [Reports with R Markdown](rmarkdown.vn.qmd), bạn có thể chạy báo cáo với các thông số được chỉ định. Bạn có thể chuyển các tham số này dưới dạng danh sách tới `compile_reports ()` thông qua đối số `params =`. Ví dụ, trong báo cáo hư cấu này, có ba tham số được cung cấp cho báo cáo R Markdown.  
 
 ```{r, eval=F}
 compile_reports(
@@ -247,7 +247,7 @@ Bạn vẫn có thể "knit" một trong các báo cáo R Markdown của mình b
 
 ### Scripts {.unnumbered}  
 
-Chúng tôi khuyến khích bạn sử dụng thư mục "scripts" để lưu trữ "runfiles" hoặc các .R scripts được lấy từ các .R scripts của bạn. Xem trang trên [R Markdown][Reports with R Markdown] để biết các mẹo về cách cấu trúc code của bạn trên một số tệp.  
+Chúng tôi khuyến khích bạn sử dụng thư mục "scripts" để lưu trữ "runfiles" hoặc các .R scripts được lấy từ các .R scripts của bạn. Xem trang trên [R Markdown](rmarkdown.vn.qmd) để biết các mẹo về cách cấu trúc code của bạn trên một số tệp.  
 
 
 ### Thêm {.unnumbered} 

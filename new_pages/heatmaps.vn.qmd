@@ -23,7 +23,7 @@ knitr::include_graphics(here::here("images", "heat_tile.png"))
 
 ### Gọi packages {.unnumbered}  
 
-Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho việc phân tích dữ liệu. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt packages nếu cần *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các packages trong R. 
+Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho việc phân tích dữ liệu. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt packages nếu cần *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các packages trong R. 
 
 ```{r}
 pacman::p_load(
@@ -46,10 +46,10 @@ Chương này sẽ sử dụng bộ dữ liệu linelist-một vụ dịch mô p
 
 Bảng nhiệt có thể hữu ích để trực quan hóa ma trận. Một ví dụ là hiển thị "ai đã lây nhiễm cho ai" trong một vụ dịch. Giả sử rằng bạn có đầy đủ thông tin về các sự kiện lây truyền. 
 
-Lưu ý rằng chương [Truy vết tiếp xúc] có một ví dụ khác về tạo ma trận tiếp xúc thành bảng nhiệt, sử dụng một dataset khác (có lẽ đơn giản hơn) trong đó tuổi của các trường hợp và nguồn lây của chúng được căn chỉnh gọn gàng trên cùng một hàng của data frame. Dataset này cũng được sử dụng để tạo bản đồ *mật độ* trong chương [Các tips với ggplot]. Ví dụ dưới đây bắt đầu từ một danh sách các trường hợp và yêu cầu nhiều thao tác biến đổi dữ liệu trước khi thành một data frame sẵn sàng để vẽ biểu đồ. Vì vậy, có rất nhiều kịch bản để bạn lựa chọn...
+Lưu ý rằng chương [Truy vết tiếp xúc] có một ví dụ khác về tạo ma trận tiếp xúc thành bảng nhiệt, sử dụng một dataset khác (có lẽ đơn giản hơn) trong đó tuổi của các trường hợp và nguồn lây của chúng được căn chỉnh gọn gàng trên cùng một hàng của data frame. Dataset này cũng được sử dụng để tạo bản đồ *mật độ* trong chương [Các mẹo với ggplot]. Ví dụ dưới đây bắt đầu từ một danh sách các trường hợp và yêu cầu nhiều thao tác biến đổi dữ liệu trước khi thành một data frame sẵn sàng để vẽ biểu đồ. Vì vậy, có rất nhiều kịch bản để bạn lựa chọn...
 
 
-Chúng tôi bắt đầu từ danh sách trường hợp của một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu của bạn bằng hàm `import()` từ package **rio**  (hàm này chấp nhận nhiều loại tệp như .xlsx, .rds, .csv - Xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết). 
+Chúng tôi bắt đầu từ danh sách trường hợp của một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu của bạn bằng hàm `import()` từ package **rio**  (hàm này chấp nhận nhiều loại tệp như .xlsx, .rds, .csv - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết). 
 
 
 Danh sách dưới đây bao gồm 50 hàng đầu tiên của linelist: 
@@ -189,7 +189,7 @@ DT::datatable(head(long_prop, 50), rownames = FALSE, options = list(pageLength =
 
 ### Tạo biểu đồ nhiệt {.unnumbered}  
 
-Cuối cùng, chúng ta có thể vẽ biểu đồ nhiệt với hàm `geom_tile()` trong package **ggplot2**. Xem chương [Các tips với ggplot] để tìm hiểu sâu hơn về thang màu/tô màu cho biểu đồ, đặc biệt là hàm `scale_fill_gradient()`. 
+Cuối cùng, chúng ta có thể vẽ biểu đồ nhiệt với hàm `geom_tile()` trong package **ggplot2**. Xem chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) để tìm hiểu sâu hơn về thang màu/tô màu cho biểu đồ, đặc biệt là hàm `scale_fill_gradient()`. 
 
 * Bên trong hàm `aes()` của hàm `geom_tile()`, thiết lập trục x và y tương ứng với tuổi của các trường hợp và tuổi của người lây nhiễm  
 * Ngoài ra trong hàm `aes()`, hãy đặt đối số `fill = ` tới cột tần suất `Freq` -  đây là giá trị sẽ được chuyển đổi thành màu gạch
@@ -227,7 +227,7 @@ Thông thường, trong lĩnh vực y tế công cộng, một mục tiêu là �
 
 ### Chuẩn bị dữ liệu {.unnumbered}
 
-Chúng ta bắt đầu bằng cách nhập bộ dữ liệu báo cáo về bệnh sốt rét hàng ngày từ nhiều cơ sở. Các báo cáo chứa dữu liệu về ngày, tỉnh, huyện và số trường hợp sốt rét. Xem chương [Tải sách và dữ liệu] để biết thông tin về cách tải xuống các dữ liệu này. Dưới đây là 30 hàng đầu tiên: 
+Chúng ta bắt đầu bằng cách nhập bộ dữ liệu báo cáo về bệnh sốt rét hàng ngày từ nhiều cơ sở. Các báo cáo chứa dữu liệu về ngày, tỉnh, huyện và số trường hợp sốt rét. Xem chương [Tải sách và dữ liệu](data_used.vn.qmd) để biết thông tin về cách tải xuống các dữ liệu này. Dưới đây là 30 hàng đầu tiên: 
 
 ```{r, echo=F}
 facility_count_data <- rio::import(here::here("data", "malaria_facility_count_data.rds")) %>% 
@@ -295,7 +295,7 @@ Cột tuần mới này có thể được nhìn thấy ở ngoài cùng bên ph
 DT::datatable(head(agg_weeks,30), rownames = FALSE, options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap')
 ```
 
-Bây giờ chúng ta nhóm dữ liệu thành các cơ sở-tuần và tóm tắt chúng để tạo ra số liệu thống kê cho mỗi cơ sở-tuần. Xem thêm chương [Bảng mô tả] để biết các mẹo. Bản thân việc nhóm sẽ không làm thay đổi data frame, nhưng nó ảnh hưởng đến cách các thống kê tóm tắt tiếp theo được tính toán. 
+Bây giờ chúng ta nhóm dữ liệu thành các cơ sở-tuần và tóm tắt chúng để tạo ra số liệu thống kê cho mỗi cơ sở-tuần. Xem thêm chương [Bảng mô tả](tables_descriptive.vn.qmd) để biết các mẹo. Bản thân việc nhóm sẽ không làm thay đổi data frame, nhưng nó ảnh hưởng đến cách các thống kê tóm tắt tiếp theo được tính toán. 
 
 Các hàng đầu tiên được hiển thị bên dưới. Lưu ý cách các cột đã thay đổi hoàn toàn để phản ánh thống kê tóm tắt mong muốn. Mỗi hàng phản ánh một cơ sở-tuần. 
 
@@ -322,7 +322,7 @@ DT::datatable(head(agg_weeks,30), rownames = FALSE, options = list(pageLength = 
 
 Cuối cùng, chúng ta chạy lệnh dưới đây để đảm bảo rằng TẤT CẢ các cặp cơ sở điều trị-tuần báo cáo có thể có trong dữ liệu, ngay cả khi chúng bị missing trước đó. 
 
-Chúng ta tiếp tục sử dụng hàm `right_join()` trên chính dữ liệu (tập dữ liệu được thể hiện bởi dấu ".") vừa được mở rộng để bao gồm tất cả các kết hợp có thể có của các cột `week` và `location_name`. Xem tài liệu về hàm `expand()` trong chương [Xoay trục dữ liệu]. Trước khi chạy đoạn lệnh này, tập dữ liệu cần chứa `nrow(agg_weeks)` hàng. 
+Chúng ta tiếp tục sử dụng hàm `right_join()` trên chính dữ liệu (tập dữ liệu được thể hiện bởi dấu ".") vừa được mở rộng để bao gồm tất cả các kết hợp có thể có của các cột `week` và `location_name`. Xem tài liệu về hàm `expand()` trong chương [Xoay trục dữ liệu](pivoting.vn.qmd). Trước khi chạy đoạn lệnh này, tập dữ liệu cần chứa `nrow(agg_weeks)` hàng. 
 
 ```{r, message=F, warning=F}
 # Create data frame of every possible facility-week
@@ -379,7 +379,7 @@ ggplot(data = agg_weeks)+
 
 ### Làm sạch biểu đồ nhiệt {.unnumbered}
 
-Chúng ta có thể làm cho biểu đồ này trông đẹp hơn bằng cách thêm các hàm **ggplot2** bổ sung, như được hiển thị bên dưới. Xem thêm chương [Các tips với ggplot] để biết thêm chi tiết.  
+Chúng ta có thể làm cho biểu đồ này trông đẹp hơn bằng cách thêm các hàm **ggplot2** bổ sung, như được hiển thị bên dưới. Xem thêm chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) để biết thêm chi tiết.  
 
 ```{r, message=FALSE, warning=FALSE}
 ggplot(data = agg_weeks)+ 
@@ -436,7 +436,7 @@ ggplot(data = agg_weeks)+
 <!-- ======================================================= -->
 ### Sắp xếp thứ tự trục y {.unnumbered}  
  
-Hiện tại, các cơ sở được sắp xếp theo thứ tự "theo bảng chữ cái" từ dưới lên trên. Nếu bạn muốn điều chỉnh thứ tự các cơ sở trục y, hãy chuyển đổi chúng thành factor thứ bậc và cung cấp thứ tự. Xem thêm chương [Factors] để biết các mẹo để thực hiện điều này. 
+Hiện tại, các cơ sở được sắp xếp theo thứ tự "theo bảng chữ cái" từ dưới lên trên. Nếu bạn muốn điều chỉnh thứ tự các cơ sở trục y, hãy chuyển đổi chúng thành factor thứ bậc và cung cấp thứ tự. Xem thêm chương [Factors](factors.vn.qmd) để biết các mẹo để thực hiện điều này. 
 
 Vì có rất nhiều cơ sở và chúng ta không muốn viết hết chúng ra, chúng ta sẽ thử một cách tiếp cận khác - sắp xếp thứ tự các cơ sở trong data frame và sử dụng cột tên kết quả làm thứ tự của factor. Bên dưới, cột `location_name` được chuyển đổi thành một factor và thứ tự của các cấp của nó được đặt dựa trên tổng số ngày báo cáo do cơ sở nộp trong toàn bộ khoảng thời gian. 
 

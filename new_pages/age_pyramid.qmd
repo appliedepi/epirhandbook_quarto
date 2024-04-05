@@ -28,7 +28,7 @@ Demographic pyramids are useful to show distributions of age and gender. Similar
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(rio,       # to import data
@@ -44,7 +44,7 @@ pacman::p_load(rio,       # to import data
 
 ### Import data {.unnumbered}  
 
-To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -176,7 +176,7 @@ apyramid::age_pyramid(
 
 The examples above assume your data are in a linelist format, with one row per observation. If your data are already aggregated into counts by age category, you can still use the **apyramid** package, as shown below.  
 
-For demonstration, we aggregate the linelist data into counts by age category and gender, into a "wide" format. This will simulate as if your data were in counts to begin with. Learn more about [Grouping data] and [Pivoting data] in their respective pages.  
+For demonstration, we aggregate the linelist data into counts by age category and gender, into a "wide" format. This will simulate as if your data were in counts to begin with. Learn more about [Grouping data](grouping.qmd) and [Pivoting data](pivoting.qmd) in their respective pages.  
 
 ```{r, warning=F, message=F}
 demo_agg <- linelist %>% 
@@ -222,7 +222,7 @@ apyramid::age_pyramid(data = demo_agg_long,
                       count = "counts")      # column name for case counts
 ```
 
-Note in the above, that the factor order of "m" and "f" is different (pyramid reversed). To adjust the order you must re-define gender in the aggregated data as a Factor and order the levels as desired. See the [Factors] page.  
+Note in the above, that the factor order of "m" and "f" is different (pyramid reversed). To adjust the order you must re-define gender in the aggregated data as a Factor and order the levels as desired. See the [Factors](factors.qmd) page.  
 
 
 
@@ -384,7 +384,7 @@ Finally we make the `ggplot()` on the percent data. We specify `scale_y_continuo
 
 With the flexibility of `ggplot()`, you can have a second layer of bars in the background that represent the "true" or "baseline" population pyramid. This can provide a nice visualization to compare the observed with the baseline.  
 
-Import and view the population data (see [Download handbook and data] page):
+Import and view the population data (see [Download handbook and data](#data-used) page):
 
 ```{r echo=F}
 # import the population demographics data
@@ -595,7 +595,7 @@ table(likert_data$status)
 rio::export(likert_data, here::here("data", "likert_data.csv"))
 ```
 
-Import the data (see [Download handbook and data] page if desired).  
+Import the data (see [Download handbook and data](#data-used) page if desired).  
 
 ```{r echo=F}
 # import the likert survey response data

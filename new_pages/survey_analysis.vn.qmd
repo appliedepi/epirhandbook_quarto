@@ -10,7 +10,7 @@ Hầu hết các packages R dùng để phân tích khảo sát đều dựa tr�
 
 Hầu hết chương này dựa trên công việc đã hoàn thành của [dự án "R4Epis"](https://r4epis.netlify.app/); để biết code chi tiết và mẫu R-markdown xem [trang github của "R4Epis"](https://github.com/R4EPI/sitrep). Một số package **survey** dựa trên các phiên bản đầu tiên của [các nghiên cứuu trường hợp EPIET](https://github.com/EPIET/RapidAssessmentSurveys).
 
-Hiện tại, chương này không đề cập đến các phép tính cỡ mẫu hoặc lấy mẫu. Để tính cỡ mẫu đơn giản, hãy xem [OpenEpi](https://www.openepi.com/Menu/OE_Menu.htm). Chương [GIS cơ bản] trong sổ tay này sẽ có một phần về lấy mẫu ngẫu nhiên theo không gian và chương này cũng sẽ đề cập một phần về khung lấy mẫu cũng như tính toán cỡ mẫu.
+Hiện tại, chương này không đề cập đến các phép tính cỡ mẫu hoặc lấy mẫu. Để tính cỡ mẫu đơn giản, hãy xem [OpenEpi](https://www.openepi.com/Menu/OE_Menu.htm). Chương [GIS cơ bản](gis.vn.qmd) trong sổ tay này sẽ có một phần về lấy mẫu ngẫu nhiên theo không gian và chương này cũng sẽ đề cập một phần về khung lấy mẫu cũng như tính toán cỡ mẫu.
 
 1.  Dữ liệu khảo sát
 2.  Thời gian quan sát
@@ -26,7 +26,7 @@ Hiện tại, chương này không đề cập đến các phép tính cỡ mẫ
 
 ### Packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R. Ở đây chúng tôi cũng minh họa việc sử dụng hàm `p_load_gh()` từ **pacman** để cài đặt một package tải từ github mà chưa được công bố trên CRAN.
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R. Ở đây chúng tôi cũng minh họa việc sử dụng hàm `p_load_gh()` từ **pacman** để cài đặt một package tải từ github mà chưa được công bố trên CRAN.
 
 ```{r}
 
@@ -66,7 +66,7 @@ Kobo cho phép bạn xuất cả dữ liệu đã thu thập, cũng như từ đ
 
 [***THẬN TRỌNG:*** Bộ dữ liệu ví dụ không giống nhau dưới dạng xuất (như trong Kobo, bạn xuất từng cấp bảng câu hỏi khác nhau) - xem phần dữ liệu khảo sát bên dưới để hợp nhất các cấp độ khác nhau.]{style="color: orange;"}
 
-Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương về [Nhập xuất dữ liệu] để biết các cách nhập dữ liệu khác nhau.
+Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương về [Nhập xuất dữ liệu](importing.vn.qmd) để biết các cách nhập dữ liệu khác nhau.
 
 ```{r echo = FALSE}
 # import the survey into R
@@ -123,9 +123,9 @@ cluster_counts <- tibble(cluster = c("village_1", "village_2", "village_3", "vil
 
 ### Làm sạch dữ liệu {.unnumbered}
 
-Dưới đây đảm bảo rằng cột ngày ở định dạng thích hợp. Có một số cách khác để thực hiện việc này (xem chương [Làm việc với ngày tháng] để biết chi tiết), tuy nhiên sử dụng từ điển để xác định ngày sẽ nhanh chóng và dễ dàng.
+Dưới đây đảm bảo rằng cột ngày ở định dạng thích hợp. Có một số cách khác để thực hiện việc này (xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết chi tiết), tuy nhiên sử dụng từ điển để xác định ngày sẽ nhanh chóng và dễ dàng.
 
-Chúng tôi cũng tạo một biến nhóm tuổi bằng cách sử dụng hàm `age_categories()` từ **epikit** - xem phần [Làm sạch dữ liệu](#cleaning) của sổ tay để biết chi tiết. Ngoài ra, chúng tôi tạo một biến ký tự xác định các cụm khác nhau nằm trong khu vực nào.
+Chúng tôi cũng tạo một biến nhóm tuổi bằng cách sử dụng hàm `age_categories()` từ **epikit** - xem phần [Làm sạch dữ liệu](cleaning.vn.qmd#num_cats) của sổ tay để biết chi tiết. Ngoài ra, chúng tôi tạo một biến ký tự xác định các cụm khác nhau nằm trong khu vực nào.
 
 Cuối cùng, chúng tôi mã hóa lại tất cả các biến yes/no thành các biến TRUE/FALSE - nếu không, các biến này không thể được sử dụng bởi các hàm tính tỷ lệ trong package **survey**.
 
@@ -299,7 +299,7 @@ survey_data <- survey_data %>%
 
 ## Áp dụng trọng số
 
-Điều quan trọng là bạn phải loại bỏ các đối tượng có lỗi trước khi thêm trọng số khảo sát. Ví dụ: nếu bạn có các quan sát với thời gian theo dõi âm, bạn sẽ cần kiểm tra các đối tượng đó (bạn có thể thực hiện việc này với hàm `assert_positive_timespan()` từ **sitrep**. Một điều khác là nếu bạn muốn bỏ các hàng trống (ví dụ: với `drop_na(uid)`) hoặc xóa các bản ghi trùng lặp (xem chương [Loại bỏ trùng lặp] trong sổ tay này để biết thêm chi tiết). Những đối tượng không có sự đồng ý tham gia nghiên cứu cũng cần phải bị xóa.  
+Điều quan trọng là bạn phải loại bỏ các đối tượng có lỗi trước khi thêm trọng số khảo sát. Ví dụ: nếu bạn có các quan sát với thời gian theo dõi âm, bạn sẽ cần kiểm tra các đối tượng đó (bạn có thể thực hiện việc này với hàm `assert_positive_timespan()` từ **sitrep**. Một điều khác là nếu bạn muốn bỏ các hàng trống (ví dụ: với `drop_na(uid)`) hoặc xóa các bản ghi trùng lặp (xem chương [Loại bỏ trùng lặp](deduplication.vn.qmd) trong sổ tay này để biết thêm chi tiết). Những đối tượng không có sự đồng ý tham gia nghiên cứu cũng cần phải bị xóa.  
 
 Trong ví dụ này, chúng ta lọc các trường hợp muốn loại bỏ và lưu trữ chúng trong một dataframe riêng - theo cách này, chúng ta có thể mô tả những trường hợp đã bị loại khỏi khảo sát. Sau đó, chúng ta sử dụng hàm `anti_join()` từ **dplyr** để xóa những trường hợp bị loại bỏ này khỏi dữ liệu khảo sát của chúng ta.
 
@@ -445,7 +445,7 @@ survey_design <- survey_data %>%
 
 ## Phân tích mô tả  
 
-Phân tích mô tả và trực quan hóa cơ bản được đề cập nhiều trong các chương khác của cuốn sổ tay, vì vậy chúng tôi sẽ không đi sâu vào nó ở đây. Để biết chi tiết, hãy xem các chương về [Bảng mô tả], [Các kiểm định thống kê cơ bản], [Trình bày bảng], [ggplot cơ bản] và [Báo cáo với R Markdown].  
+Phân tích mô tả và trực quan hóa cơ bản được đề cập nhiều trong các chương khác của cuốn sổ tay, vì vậy chúng tôi sẽ không đi sâu vào nó ở đây. Để biết chi tiết, hãy xem các chương về [Bảng mô tả](tables_descriptive.vn.qmd), [Các kiểm định thống kê cơ bản](stat_tests.vn.qmd), [Trình bày bảng](tables_presentation.vn.qmd), [ggplot cơ bản](ggplot_basics.vn.qmd) và [Báo cáo với R Markdown](rmarkdown.vn.qmd).  
 
 Trong phần này, chúng ta sẽ tập trung vào cách điều tra sai số trong mẫu của bạn và trực quan hóa chúng. Chúng ta cũng sẽ xem xét việc trực quan hóa dòng dân cư trong bối cảnh khảo sát bằng cách sử dụng sơ đồ luồng alluvial/sankey.  
 
@@ -515,7 +515,7 @@ left_join(ag, propcount, by = "age_group", suffix = c("", "_pop")) %>%
 
 Tháp dân số (hoặc tháp tuổi-giới) là một cách dễ dàng để trực quan hóa sự phân bố trong quần thể khảo sát của bạn. Cũng nên xem xét việc tạo [Bảng mô tả] về độ tuổi và giới tính theo tầng khảo sát. Chúng ta sẽ minh họa bằng package **apyramid** vì nó cho phép các tỷ lệ được áp dụng trọng số sử dụng đối tượng theo thiết kế nghiên cứu mà chúng ta đã tạo ở trên. Các tùy chọn khác để tạo [Tháp dân số](#age-pyramid) được đề cập nhiều hơn trong chương đó của sổ tay. Chúng ta cũng sẽ sử dụng một hàm trong package **apyramid** là `age_pyramid()` để code ngắn gọn hơn một biểu đồ theo tỷ lệ.  
 
-Giống như với phép kiểm định sự khác biệt giữa hai nhóm chuẩn được thảo luận ở trên trong phần sai số chọn mẫu, ở đây chúng ta quan tâm đến việc trực quan hóa liệu quần thể mẫu của chúng ta có khác biệt đáng kể so với quần thể gốc hay không, và liệu trọng số có sửa chữa được sự khác biệt này hay không. Để làm điều này, chúng ta sẽ sử dụng package **patchwork** để hiển thị các biểu đồ tạo bởi **ggplot** song song với nhau; chi tiết xem phần kết hợp các đồ thị trong chương [Các tips với ggplot] của sổ tay này. Chúng ta sẽ trực quan hóa quần thể gốc, quần thể khảo sát không trọng số và quần thể khảo sát có trọng số. Bạn cũng có thể xem xét trực quan theo từng tầng của khảo sát - bằng cách sử dụng đối số `stack_by  = "health_district"` trong ví dụ của chúng tôi ở đây (xem `?plot_age_pyramid` để biết chi tiết).  
+Giống như với phép kiểm định sự khác biệt giữa hai nhóm chuẩn được thảo luận ở trên trong phần sai số chọn mẫu, ở đây chúng ta quan tâm đến việc trực quan hóa liệu quần thể mẫu của chúng ta có khác biệt đáng kể so với quần thể gốc hay không, và liệu trọng số có sửa chữa được sự khác biệt này hay không. Để làm điều này, chúng ta sẽ sử dụng package **patchwork** để hiển thị các biểu đồ tạo bởi **ggplot** song song với nhau; chi tiết xem phần kết hợp các đồ thị trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) của sổ tay này. Chúng ta sẽ trực quan hóa quần thể gốc, quần thể khảo sát không trọng số và quần thể khảo sát có trọng số. Bạn cũng có thể xem xét trực quan theo từng tầng của khảo sát - bằng cách sử dụng đối số `stack_by  = "health_district"` trong ví dụ của chúng tôi ở đây (xem `?plot_age_pyramid` để biết chi tiết).  
 
 [***Lưu ý:*** Trục x và y được lật ngược trong tháp]{style="color: black;"}
 
@@ -627,7 +627,7 @@ source_population + sample_population + weighted_population +
 
 ### Sơ đồ alluvial/sankey
 
-Trực quan điểm bắt đầu và kết quả của từng cá nhân có thể rất hữu ích để có được cái nhìn tổng quan. Có một ứng dụng khá rõ ràng cho quần thể di động, tuy nhiên có rất nhiều ứng dụng khác như nhóm thuần tập hoặc bất kỳ tình huống nào khác trong đó có sự chuyển đổi ở các trạng thái của các cá nhân. Các sơ đồ này có một số tên khác nhau bao gồm các tập hợp alluvial, sankey và parallel - chi tiết có trong chương sổ tay về [Sơ đồ và biểu đồ].  
+Trực quan điểm bắt đầu và kết quả của từng cá nhân có thể rất hữu ích để có được cái nhìn tổng quan. Có một ứng dụng khá rõ ràng cho quần thể di động, tuy nhiên có rất nhiều ứng dụng khác như nhóm thuần tập hoặc bất kỳ tình huống nào khác trong đó có sự chuyển đổi ở các trạng thái của các cá nhân. Các sơ đồ này có một số tên khác nhau bao gồm các tập hợp alluvial, sankey và parallel - chi tiết có trong chương sổ tay về [Sơ đồ và biểu đồ](diagrams.vn.qmd).  
 
 ```{r visualise_population_flow}
 
@@ -682,7 +682,7 @@ svymean(~died, base_survey_design, na.rm = T, deff = T) %>%
 
 ```
 
-Chúng ta có thể kết hợp các hàm từ **survey** được hiển thị ở trên với một hàm mà chúng ta tự định nghĩa như bên dưới, được gọi là `svy_prop`; và sau đó chúng ta có thể sử dụng hàm đó cùng với hàm `map()` từ package **purrr** để lặp qua một số biến và tạo một bảng. Xem chương [Lặp, vòng lặp, và danh sách] để biết chi tiết về **purrr**.  
+Chúng ta có thể kết hợp các hàm từ **survey** được hiển thị ở trên với một hàm mà chúng ta tự định nghĩa như bên dưới, được gọi là `svy_prop`; và sau đó chúng ta có thể sử dụng hàm đó cùng với hàm `map()` từ package **purrr** để lặp qua một số biến và tạo một bảng. Xem chương [Lặp, vòng lặp, và danh sách](iteration.vn.qmd) để biết chi tiết về **purrr**.  
 
 ```{r survey_prop_fun}
 # Define function to calculate weighted counts, proportions, CI and design effect
@@ -762,7 +762,7 @@ survey_design %>%
 
 ```
 
-Ở đây, chúng ta cũng có thể viết một hàm để sau đó lặp qua nhiều biến bằng cách sử dụng package **purrr**. Xem chương [Lặp, vòng lặp, và danh sách] trong sổ tay này để biết chi tiết về **purrr**.  
+Ở đây, chúng ta cũng có thể viết một hàm để sau đó lặp qua nhiều biến bằng cách sử dụng package **purrr**. Xem chương [Lặp, vòng lặp, và danh sách](iteration.vn.qmd) trong sổ tay này để biết chi tiết về **purrr**.  
 
 ```{r srvyr_prop_fun}
 

@@ -12,7 +12,7 @@
 
 * Dosyaları açtığınızda resimler ve İçindekiler'in yüklenmesi bir veya iki dakika sürebilir.
 * Çevrimdışı kitabın düzeni biraz farklıdır - solda İçindekiler Tablosu olan uzun bir alan görecekseniz. Belirli terimleri aramak için Ctrl+F (Cmd-F) tuşlarını kullanabilirsiniz.
-* İnternet bağlantınızı kesmeden önce uygun R paketlerini kurmanıza yardımcı olması için [Önerilen paketler] sayfasına bakın.
+* İnternet bağlantınızı kesmeden önce uygun R paketlerini kurmanıza yardımcı olması için [Önerilen paketler](packages_suggested.tr.qmd) sayfasına bakın.
 * Tüm örnek verileri içeren R paketinizi **epirhandbook** kurun. (kurulum işlemi aşağıda açıklanmıştır)
 
 **El Kitabını iki farklı yoldan indirebilirsiniz:**  
@@ -102,7 +102,7 @@ get_data(file = "linelist_cleaned.rds")
 get_data("linelist_cleaned.rds")
 ```
 
-İstediğiniz dosyayı bilgisayarınıza kaydetmek için `get_data()`yı kullandıktan sonra, yine de onu R'a aktarmanız gerekecektir. Ayrıntılar için [İçe ve dışa aktar] sayfasına bakabilirsiniz.
+İstediğiniz dosyayı bilgisayarınıza kaydetmek için `get_data()`yı kullandıktan sonra, yine de onu R'a aktarmanız gerekecektir. Ayrıntılar için [İçe ve dışa aktar](importing.tr.qmd) sayfasına bakabilirsiniz.
 
 Dilerseniz bu el kitabında kullanılan tüm verileri Github sayfamızın **["data" klasöründe](https://github.com/appliedepi/epirhandbook_eng/tree/master/data)** inceleyebilirsiniz.
 
@@ -117,7 +117,7 @@ Bu seçenek, dosyaya özel bir bağlantı veya R komutu aracılığıyla Github 
 
 Aşağıdaki linkler, **outbreaks** paketindeki `ebola_sim` uygulama veri kümesinde yer alan kitabın ekibi tarafından genişletilen kurgusal bir Ebola salgına aittir.
 
-* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>"Ham" satır listesini indirmek için tıklayın (.xlsx)</span></a>. "Ham" vaka satır listesi, dağınık veriler içeren bir excel tablosudur. [Verileri temizleme ve temel işlevler] sayfasını takip etmek için bunu kullanabilirsiniz.  
+* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>"Ham" satır listesini indirmek için tıklayın (.xlsx)</span></a>. "Ham" vaka satır listesi, dağınık veriler içeren bir excel tablosudur. [Verileri temizleme ve temel işlevler](cleaning.tr.qmd) sayfasını takip etmek için bunu kullanabilirsiniz.  
 
 * <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"Temiz" satır listesini indirmek için tıklayın (.rds)</a>. Bu el kitabının satır listesini kullanan diğer tüm sayfaları için bu dosyayı kullanabilirsiniz. Rds dosyası, sütun sınıflarını koruyan R'a özgü bir dosya türüdür. Bu, verileri R'a aktardıktan sonra temizlik yapma ihtiyacını azaltır.
 
@@ -147,7 +147,7 @@ Bu veriler, yaş grubu, tesis ve güne göre sıtma vakalarının kurgusal sayı
 
 #### Likert ölçekli veri {.unnumbered}  
 
-Bunlar, [Demografik Piramitler ve Likert Ölçekleri] sayfasında kullanılan likert tarzı bir anketten alınan kurgusal verilerdir. Aşağıdaki komutları çalıştırarak bu verileri doğrudan R'a yükleyebilirsiniz:
+Bunlar, [Demografik Piramitler ve Likert Ölçekleri](age_pyramid.tr.qmd) sayfasında kullanılan likert tarzı bir anketten alınan kurgusal verilerdir. Aşağıdaki komutları çalıştırarak bu verileri doğrudan R'a yükleyebilirsiniz:
 
 ```{r, eval=F}
 pacman::p_load(rio) # rio paketini kurun/yükleyin
@@ -159,14 +159,14 @@ likert_data <- import("https://raw.githubusercontent.com/nsbatra/Epi_R_handbook/
 
 #### Esnek pano {.unnumbered}  
 
-Aşağıda [R Markdown ile Kontrol Panelleri]'ndeki sayfayla ilişkili dosyaya bağlantılar verilmiştir:
+Aşağıda [R Markdown ile Kontrol Panelleri](flexdashboard.tr.qmd)'ndeki sayfayla ilişkili dosyaya bağlantılar verilmiştir:
 
 * Salgın panosu ile ilgili R Markdown'ı indirmek için [linke](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard.Rmd) sağ fare tuşuyla tıklayın (Mac için Cmd + tıkla) ve "Farklı Kaydet" seçeneğini seçin.  
 * HTML kontrol panelini indirmek için [linke](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard_test.html) sağ fare tuşuyla tıklayın (Mac için Cmd + tıkla) ve "Farklı Kaydet" seçeneğini seçin.  
 
 #### Temaslı İzleme {.unnumbered} 
 
-[Temaslı İzleme] sayfası, aşağıdaki örnek verileri kullanarak kişi izleme verilerinin analizini göstermektedir. [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Sayfada kullanılan veriler aşağıdaki linklere tıklanarak .rds dosyaları olarak indirilebilir:
+[Temaslı İzleme](contact_tracing.tr.qmd) sayfası, aşağıdaki örnek verileri kullanarak kişi izleme verilerinin analizini göstermektedir. [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Sayfada kullanılan veriler aşağıdaki linklere tıklanarak .rds dosyaları olarak indirilebilir:
 
 <a href='https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/cases_clean.rds?raw=true' class='download-button'>
 	Vaka inceleme verilerini (.rds dosyası)
@@ -194,9 +194,9 @@ Aşağıda [R Markdown ile Kontrol Panelleri]'ndeki sayfayla ilişkili dosyaya b
 
 Şekil dosyaları, her biri farklı uzantıya sahip birçok alt bileşen dosyasına sahiptir. Bir dosya ".shp" uzantısına sahipken, bir diğeri ".dbf", ".prj" vb. uzantıya sahip olabilir.
 
-[GIS temel bilgileri] sayfası, sıkıştırılmış şekil dosyalarını indirebileceğiniz *Humanitarian Data Exchange* web sitesine ait bağlantıları barındırmaktadır.
+[GIS temel bilgileri](gis.tr.qmd) sayfası, sıkıştırılmış şekil dosyalarını indirebileceğiniz *Humanitarian Data Exchange* web sitesine ait bağlantıları barındırmaktadır.
 
-Örneğin sağlık tesisi puan verileri [buradan](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) indirilebilir. "hotosm_sierra_leone_health_facilities_points_shp.zip" dosyasını indirin. Bilgisayarınıza kaydettikten sonra, klasörü "açın". Farklı uzantılara sahip birkaç dosya göreceksiniz (örneğin ".shp", ".prj", ".shx") - bunların tümü bilgisayarınızda aynı klasöre kaydedilmelidir. Ardından, R'a aktarmak için ".shp" dosyasının dosya yolunu ve adını **sf** paketinden `st_read()` fonksiyonuna ekleyin ([GIS temel bilgileri] sayfasında açıklandığı gibi)
+Örneğin sağlık tesisi puan verileri [buradan](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) indirilebilir. "hotosm_sierra_leone_health_facilities_points_shp.zip" dosyasını indirin. Bilgisayarınıza kaydettikten sonra, klasörü "açın". Farklı uzantılara sahip birkaç dosya göreceksiniz (örneğin ".shp", ".prj", ".shx") - bunların tümü bilgisayarınızda aynı klasöre kaydedilmelidir. Ardından, R'a aktarmak için ".shp" dosyasının dosya yolunu ve adını **sf** paketinden `st_read()` fonksiyonuna ekleyin ([GIS temel bilgileri](gis.tr.qmd) sayfasında açıklandığı gibi)
 
 Tüm örnek verileri indirmek için Seçenek 1'i izlediyseniz (R paketimiz **epirhandbook** aracılığıyla), şekil dosyalarının tamamı içeride olacaktır.  
 
@@ -210,7 +210,7 @@ knitr::include_graphics(here::here("images", "download_shp.png"))
 
 #### Filogenetik ağaçlar {.unnumbered}  
 
-[Filogenetik ağaçlar] sayfayasında, 299 Shigella sonnei örneğinin tüm genom dizilimi ve buna karşılık gelen vaka verilerinden (bir metin dosyası halinde) oluşturulan filogenetik ağacı Newick dosyası göreceksiniz. Belçika örneklerinden elde edilen veriler, ECDC EUPHEM asistanı tarafından yürütülen bir proje kapsamında üretilmiştir. Salmonella ve Shigella'dan elde edilen bu veriler Belçika NRC'si tarafından sağlanmaktadır.Bu veriler yayına dönüştürülme aşamasındadır. Kullanılan uluslararası veriler kamuya açık veri tabanlarına (ncbi) kayıtlı ve yayınlanmış verilerden elde edilmiştir.
+[Filogenetik ağaçlar](phylogenetic_trees.tr.qmd) sayfayasında, 299 Shigella sonnei örneğinin tüm genom dizilimi ve buna karşılık gelen vaka verilerinden (bir metin dosyası halinde) oluşturulan filogenetik ağacı Newick dosyası göreceksiniz. Belçika örneklerinden elde edilen veriler, ECDC EUPHEM asistanı tarafından yürütülen bir proje kapsamında üretilmiştir. Salmonella ve Shigella'dan elde edilen bu veriler Belçika NRC'si tarafından sağlanmaktadır.Bu veriler yayına dönüştürülme aşamasındadır. Kullanılan uluslararası veriler kamuya açık veri tabanlarına (ncbi) kayıtlı ve yayınlanmış verilerden elde edilmiştir.
 
 * "Shigella_tree.txt" filogenetik ağaç dosyasını indirmek için  [linke](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/Shigella_tree.txt) sağ fare tuşuyla tıklayın (Mac için Cmd + tıkla) ve "Farklı Kaydet" seçeneğini seçin.  
 * Her örnekle ilgili ek bilgiler içeren "sample_data_Shigella_tree.csv" dosyasını indirmek için  [linke](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/sample_data_Shigella_tree.csv) sağ fare tuşuyla tıklayın (Mac için Cmd + tıkla) ve "Farklı Kaydet" seçeneğini seçin.  
@@ -226,7 +226,7 @@ ape::read.tree("Shigella_tree.txt")
 
 #### Standardizasyon {.unnumbered}  
 
-[Standartlaştırılmış oranlar] ile ilgili sayfaya bakın. Verileri doğrudan internetteki Github sayfamızdan aşağıdaki komutlarla R oturumunuza yükleyebilirsiniz:
+[Standartlaştırılmış oranlar](standardization.tr.qmd) ile ilgili sayfaya bakın. Verileri doğrudan internetteki Github sayfamızdan aşağıdaki komutlarla R oturumunuza yükleyebilirsiniz:
 
 
 ```{r, eval=F}
@@ -263,7 +263,7 @@ standard_pop_data <- import("https://github.com/appliedepi/epirhandbook_eng/raw/
 
 #### Zaman serileri ve salgın tespiti {#data_outbreak .unnumbered}  
 
-[Zaman serisi ve salgın tespiti] sayfasında Almanya 2002-2011'de rapor edilen Campylobacter vakalarını **surveillance** R paketinde olduğu gibi kullanıyoruz. (*ek bilgi:* bu veri seti orijinalinden uyarlanmıştır, 2011'in son 3 aylık verileri demo amacıyla silinmiştir)
+[Zaman serisi ve salgın tespiti](epidemic_models.tr.qmd) sayfasında Almanya 2002-2011'de rapor edilen Campylobacter vakalarını **surveillance** R paketinde olduğu gibi kullanıyoruz. (*ek bilgi:* bu veri seti orijinalinden uyarlanmıştır, 2011'in son 3 aylık verileri demo amacıyla silinmiştir)
 
 <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/campylobacter_germany.xlsx' class='download-button'>
 	Almanya Campylobacter verilerini (.xlsx)
@@ -348,7 +348,7 @@ Kitapta ayrıca Almanya 2002-2011 iklim verilerini kullanıyoruz (santigrat dere
 
 #### Shiny {#data_shiny .unnumbered}  
 
-[Shiny Gösterge Tabloları] ile ilgili sayfa, sıtma verilerini görüntülemek için uygulamanın yapısını göstermektedir.
+[Shiny Gösterge Tabloları](shiny_basics.tr.qmd) ile ilgili sayfa, sıtma verilerini görüntülemek için uygulamanın yapısını göstermektedir.
 
 Shiny uygulamasını oluşturan R dosyalarını indirmek için:  
 

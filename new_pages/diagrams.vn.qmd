@@ -24,7 +24,7 @@ Chương này này bao gồm hướng dẫn sử dụng code để vẽ:
 
 ### Gọi packages {.unnumbered}  
 
-Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt gói nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R Cơ bản] để biết thêm thông tin về các package R. 
+Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt gói nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package R. 
 
 ```{r}
 pacman::p_load(
@@ -35,7 +35,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Hầu hết nội dung trong chương này không yêu cầu bộ dữ liệu. Tuy nhiên, trong phần sơ đồ Sankey, chúng ta sẽ sử dụng bộ dữ liệu linelist từ một vụ dịch Ebola mô phỏng. Để tiện theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã làm sạch" ở đây</a> (as .rds file). Nhập dữ liệu bằng hàm `import ()` từ package **rio** (có thể xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem chương [Nhập xuất dữ liệu] để biết chi tiết). 
+Hầu hết nội dung trong chương này không yêu cầu bộ dữ liệu. Tuy nhiên, trong phần sơ đồ Sankey, chúng ta sẽ sử dụng bộ dữ liệu linelist từ một vụ dịch Ebola mô phỏng. Để tiện theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã làm sạch" ở đây</a> (as .rds file). Nhập dữ liệu bằng hàm `import ()` từ package **rio** (có thể xử lý nhiều loại tệp như .xlsx, .csv, .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết chi tiết). 
 
 ```{r, echo=F}
 # import the linelist into R
@@ -513,7 +513,7 @@ Chúng tôi khuyến khích bạn xem lại hướng dẫn này nếu tham số 
 
 ### Gọi packages {.unnumbered}  
 
-Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt gói nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R Cơ bản] để biết thêm thông tin về các package R. 
+Đoạn code dưới đây hiển thị cách gọi các packages cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt gói nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package R. 
 
 Chúng ta gọi package **networkD3** để vẽ sơ đồ và package **tidyverse** cho các bước chuẩn bị dữ liệu. 
 

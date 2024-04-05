@@ -80,7 +80,7 @@ knitr::include_graphics(here::here("images", "Excel_nonTidy_2.png"))
 
 *Problems:* In the spreadsheet above, there are numerous extra empty rows and columns within the dataset - this will cause cleaning headaches in R. Furthermore, the GPS coordinates are spread across two rows for a given treatment center. As a side note - the GPS coordinates are in two different formats!  
 
-"Tidy" datasets may not be as readable to a human eye, but they make data cleaning and analysis much easier! Tidy data can be stored in various formats, for example "long" or "wide""(see page on [Pivoting data]), but the principles above are still observed.
+"Tidy" datasets may not be as readable to a human eye, but they make data cleaning and analysis much easier! Tidy data can be stored in various formats, for example "long" or "wide""(see page on [Pivoting data](pivoting.qmd)), but the principles above are still observed.
 
 
 ### Functions {.unnumbered}  
@@ -94,7 +94,7 @@ The R word "function" might be new, but the concept exists in Excel too as *form
 Instead of clicking buttons and dragging cells you will be writing *every* step and procedure into a "script". 
 Excel users may be familiar with "VBA macros" which also employ a scripting approach.  
 
-*The R script consists of step-by-step instructions.* This allows any colleague to read the script and easily see the steps you took. This also helps de-bug errors or inaccurate calculations. See the [R basics] section on scripts for examples.  
+*The R script consists of step-by-step instructions.* This allows any colleague to read the script and easily see the steps you took. This also helps de-bug errors or inaccurate calculations. See the [R basics](basics.qmd) section on scripts for examples.  
 
 Here is an example of an R script:  
 
@@ -147,7 +147,7 @@ Online community available through [https://www.statalist.org/](https://www.stat
 Point and click functionality as an option | Minimal point and click functionality
 Help for commands available by `help [command]` | Help available by `[function]?` or search in the Help pane
 Comment code using * or /// or  /* TEXT */ | Comment code using #
-Almost all commands are built-in to Stata. New/user-written functions can be installed as **ado** files using **ssc install** [package] | R installs with **base** functions, but typical use involves installing other packages from CRAN (see page on [R basics])
+Almost all commands are built-in to Stata. New/user-written functions can be installed as **ado** files using **ssc install** [package] | R installs with **base** functions, but typical use involves installing other packages from CRAN (see page on [R basics](basics.qmd))
 Analysis is usually written in a **do** file | Analysis written in an R script in the RStudio source pane. R markdown scripts are an alternative.
 
 
@@ -155,7 +155,7 @@ Analysis is usually written in a **do** file | Analysis written in an R script i
 
 **STATA**                        | **R**  
 -------------------------------- | ---------------------------------------------
-Working directories involve absolute filepaths (e.g. "C:/usename/documents/projects/data/")| Working directories can be either absolute, or relative to a project root folder by using the **here** package (see [Import and export]) 
+Working directories involve absolute filepaths (e.g. "C:/usename/documents/projects/data/")| Working directories can be either absolute, or relative to a project root folder by using the **here** package (see [Import and export](importing.qmd)) 
 See current working directory with **pwd** | Use `getwd()` or `here()` (if using the **here** package), with empty parentheses 
 Set working directory with **cd** “folder location” | Use `setwd(“folder location”)`, or `set_here("folder location)` (if using **here** package)
 
@@ -163,7 +163,7 @@ Set working directory with **cd** “folder location” | Use `setwd(“folder l
 
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
-Specific commands per file type | Use `import()` from **rio** package for almost all filetypes. Specific functions exist as alternatives (see [Import and export])
+Specific commands per file type | Use `import()` from **rio** package for almost all filetypes. Specific functions exist as alternatives (see [Import and export](importing.qmd))
 Reading in csv files is done by **import delimited** “filename.csv” | Use `import("filename.csv")`
 Reading in xslx files is done by **import excel** “filename.xlsx” | Use `import("filename.xlsx")`
 Browse your data in a new window using the command **browse** | View a dataset in the RStudio source pane using `View(dataset)`. *You need to specify your dataset name to the function in R because multiple datasets can be held at the same time. Note capital "V" in this function*
@@ -174,17 +174,17 @@ Get a high-level overview of your dataset using **summarize**, which provides th
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
 Dataset columns are often referred to as "variables" | More often referred to as "columns" or sometimes as "vectors" or "variables"
-No need to specify the dataset | In each of the below commands, you need to specify the dataset - see the page on [Cleaning data and core functions] for examples
-New variables are created using the command **generate** *varname* =  | Generate new variables using the function `mutate(varname = )`. See page on [Cleaning data and core functions] for details on all the below **dplyr** functions.
+No need to specify the dataset | In each of the below commands, you need to specify the dataset - see the page on [Cleaning data and core functions](cleaning.qmd) for examples
+New variables are created using the command **generate** *varname* =  | Generate new variables using the function `mutate(varname = )`. See page on [Cleaning data and core functions](cleaning.qmd) for details on all the below **dplyr** functions.
 Variables are renamed using **rename** *old_name new_name* | Columns can be renamed using the function `rename(new_name = old_name)`
 Variables are dropped using **drop** *varname* | Columns can be removed using the function `select()` with the column name in the parentheses following a minus sign
-Factor variables can be labeled using a series of commands such as **label define** | Labeling values can done by converting the column to Factor class and specifying levels. See page on [Factors]. Column names are not typically labeled as they are in Stata.
+Factor variables can be labeled using a series of commands such as **label define** | Labeling values can done by converting the column to Factor class and specifying levels. See page on [Factors](factors.qmd). Column names are not typically labeled as they are in Stata.
 
 **Descriptive analysis**  
 
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
-Tabulate counts of a variable using **tab** *varname* | Provide the dataset and column name to `table()` such as `table(dataset$colname)`. Alternatively, use `count(varname)` from the **dplyr** package, as explained in [Grouping data]
+Tabulate counts of a variable using **tab** *varname* | Provide the dataset and column name to `table()` such as `table(dataset$colname)`. Alternatively, use `count(varname)` from the **dplyr** package, as explained in [Grouping data](grouping.qmd)
 Cross-tabulaton of two variables in a 2x2 table is done with **tab** *varname1 varname2* | Use `table(dataset$varname1, dataset$varname2` or `count(varname1, varname2)`
 
 
@@ -212,14 +212,14 @@ Below outlines the key translations in data management and descriptive analysis 
 Online community available through [SAS Customer Support](https://support.sas.com/en/support-home.html)|Online community available through RStudio, StackOverFlow, and R-bloggers
 Help for commands available by `help [command]`|Help available by [function]? or search in the Help pane
 Comment code using `* TEXT ;` or `/* TEXT */`|Comment code using #
-Almost all commands are built-in.  Users can write new functions using SAS macro, SAS/IML, SAS Component Language (SCL), and most recently, procedures `Proc Fcmp` and `Proc Proto`|R installs with **base** functions, but typical use involves installing other packages from CRAN (see page on [R basics])
+Almost all commands are built-in.  Users can write new functions using SAS macro, SAS/IML, SAS Component Language (SCL), and most recently, procedures `Proc Fcmp` and `Proc Proto`|R installs with **base** functions, but typical use involves installing other packages from CRAN (see page on [R basics](basics.qmd))
 Analysis is usually conducted by writing a SAS program in the Editor window.|Analysis written in an R script in the RStudio source pane. R markdown scripts are an alternative.
 
 **Working directory**  
 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
-Working directories can be either absolute, or relative to a project root folder by defining the root folder using `%let rootdir=/root path; %include “&rootdir/subfoldername/filename”`|Working directories can be either absolute, or relative to a project root folder by using the **here** package (see [Import and export])
+Working directories can be either absolute, or relative to a project root folder by defining the root folder using `%let rootdir=/root path; %include “&rootdir/subfoldername/filename”`|Working directories can be either absolute, or relative to a project root folder by using the **here** package (see [Import and export](importing.qmd)))
 See current working directory with `%put %sysfunc(getoption(work));`|Use `getwd()` or `here()` (if using the **here** package), with empty parentheses
 Set working directory with `libname “folder location”`|Use `setwd(“folder location”)`, or `set_here("folder location)` if using **here** package
 
@@ -228,7 +228,7 @@ Set working directory with `libname “folder location”`|Use `setwd(“folder 
 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
-Use `Proc Import` procedure or using `Data Step Infile` statement.|Use `import()` from **rio** package for almost all filetypes. Specific functions exist as alternatives (see [Import and export])
+Use `Proc Import` procedure or using `Data Step Infile` statement.|Use `import()` from **rio** package for almost all filetypes. Specific functions exist as alternatives (see [Import and export](importing.qmd))
 Reading in csv files is done by using `Proc Import datafile=”filename.csv” out=work.filename dbms=CSV; run;` OR using [Data Step Infile statement](http://support.sas.com/techsup/technote/ts673.pdf)|Use `import("filename.csv")`
 Reading in xslx files is done by using `Proc Import datafile=”filename.xlsx” out=work.filename dbms=xlsx; run;` OR using [Data Step Infile statement](http://support.sas.com/techsup/technote/ts673.pdf)|Use import("filename.xlsx")
 Browse your data in a new window by opening the Explorer window and select desired library and the dataset|View a dataset in the RStudio source pane using View(dataset). You need to specify your dataset name to the function in R because multiple datasets can be held at the same time. Note capital “V” in this function
@@ -238,21 +238,21 @@ Browse your data in a new window by opening the Explorer window and select desir
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
 Dataset columns are often referred to as “variables”|More often referred to as “columns” or sometimes as “vectors” or “variables”
-No special procedures are needed to create a variable. New variables are created simply by typing the new variable name, followed by an equal sign, and then an expression for the value|Generate new variables using the function `mutate()`. See page on [Cleaning data and core functions] for details on all the below **dplyr** functions.
+No special procedures are needed to create a variable. New variables are created simply by typing the new variable name, followed by an equal sign, and then an expression for the value|Generate new variables using the function `mutate()`. See page on [Cleaning data and core functions](cleaning.qmd) for details on all the below **dplyr** functions.
 Variables are renamed using `rename *old_name=new_name*`|Columns can be renamed using the function `rename(new_name = old_name)`
 Variables are kept using `**keep**=varname`|Columns can be selected using the function `select()` with the column name in the parentheses
 Variables are dropped using `**drop**=varname`|Columns can be removed using the function `select()` with the column name in the parentheses following a minus sign
-Factor variables can be labeled in the Data Step using `Label` statement|Labeling values can done by converting the column to Factor class and specifying levels. See page on [Factors]. Column names are not typically labeled.
+Factor variables can be labeled in the Data Step using `Label` statement|Labeling values can done by converting the column to Factor class and specifying levels. See page on [Factors](factors.qmd). Column names are not typically labeled.
 Records are selected using `Where` or `If` statement in the Data Step. Multiple selection conditions are separated using “and” command.|Records are selected using the function `filter()` with multiple selection conditions separated either by an AND operator (&) or a comma  
-Datasets are combined using `Merge` statement in the Data Step. The datasets to be merged need to be sorted first using `Proc Sort` procedure.|**dplyr** package offers a few functions for merging datasets. See page [Joining Data] for details.
+Datasets are combined using `Merge` statement in the Data Step. The datasets to be merged need to be sorted first using `Proc Sort` procedure.|**dplyr** package offers a few functions for merging datasets. See page [Joining Data](joining_matching.qmd) for details.
 
 **Descriptive analysis**  
 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
 Get a high-level overview of your dataset using `Proc Summary` procedure, which provides the variable names and descriptive statistics|Get a high-level overview of your dataset using `summary(dataset)` or `skim(dataset)` from the **skimr** package
-Tabulate counts of a variable using `proc freq data=Dataset; Tables varname; Run;`|See the page on [Descriptive tables]. Options include `table()` from **base** R, and `tabyl()` from **janitor** package, among others. Note you will need to specify the dataset and column name as R holds multiple datasets.
-Cross-tabulation of two variables in a 2x2 table is done with `proc freq data=Dataset; Tables rowvar*colvar; Run;`|Again, you can use `table()`, `tabyl()` or other options as described in the [Descriptive tables] page.  
+Tabulate counts of a variable using `proc freq data=Dataset; Tables varname; Run;`|See the page on [Descriptive tables](tables_descriptive.qmd). Options include `table()` from **base** R, and `tabyl()` from **janitor** package, among others. Note you will need to specify the dataset and column name as R holds multiple datasets.
+Cross-tabulation of two variables in a 2x2 table is done with `proc freq data=Dataset; Tables rowvar*colvar; Run;`|Again, you can use `table()`, `tabyl()` or other options as described in the [Descriptive tables](tables_desciptive.qmd) page.  
 
 **Some useful resources:**  
 
@@ -265,7 +265,7 @@ Cross-tabulation of two variables in a 2x2 table is done with `proc freq data=Da
 ## Data interoperability  
 <!-- ======================================================= -->
 
-See the [Import and export] page for details on how the R package **rio** can import and export files such as STATA .dta files, SAS .xpt and.sas7bdat files, SPSS .por and.sav files, and many others.  
+see the [Import and export](importing.qmd)(importing.qmd) page for details on how the R package **rio** can import and export files such as STATA .dta files, SAS .xpt and.sas7bdat files, SPSS .por and.sav files, and many others.  
 
 
 

@@ -15,7 +15,7 @@ You can read more about the Go.Data project on the [Github Documentation site](h
 
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, message = F}
 pacman::p_load(
@@ -37,7 +37,7 @@ pacman::p_load(
 
 We will import sample datasets of contacts, and of their "follow-up". These data have been retrieved and un-nested from the Go.Data API and stored as ".rds" files.  
 
-You can download all the example data for this handbook from the [Download handbook and data] page. 
+You can download all the example data for this handbook from the [Download handbook and data](data_used.qmd) page. 
 
 If you want to download the example contact tracing data specific to this page, use the three download links below:  
 
@@ -63,7 +63,7 @@ If you want to download the example contact tracing data specific to this page, 
 
 In their original form in the downloadable files, the data reflect data as provided by the Go.Data API (learn about [APIs here](#import_api)). For example purposes here, we will clean the data to make it easier to read on this page. If you are using a Go.Data instance, you can view complete instructions on how to retrieve your data [here](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting).  
 
-Below, the datasets are imported using the `import()` function from the **rio** package. See the page on [Import and export] for various ways to import data. We use `here()` to specify the file path - you should provide the file path specific to your computer. We then use `select()` to select only certain columns of the data, to simplify for purposes of demonstration.  
+Below, the datasets are imported using the `import()` function from the **rio** package. See the page on [Import and export](importing.qmd) for various ways to import data. We use `here()` to specify the file path - you should provide the file path specific to your computer. We then use `select()` to select only certain columns of the data, to simplify for purposes of demonstration.  
 
 #### Case data {.unnumbered}  
 
@@ -156,7 +156,7 @@ You can use the techniques covered in other pages of this handbook to conduct de
 
 ### Demographics {.unnumbered}  
 
-As demonstrated in the page covering [Demographic pyramids][Demographic pyramids and Likert-scales], you can visualise the age and gender distribution (here we use the **apyramid** package).  
+As demonstrated in the page covering [Demographic pyramids](age_pyramid.qmd), you can visualise the age and gender distribution (here we use the **apyramid** package).  
 
 
 #### Age and Gender of contacts {.unnumbered}  
@@ -175,7 +175,7 @@ apyramid::age_pyramid(
 ```
 
 
-With the Go.Data data structure, the `relationships` dataset contains the ages of both cases and contacts, so you could use that dataset and create an age pyramid showing the differences between these two groups of people. The `relationships` data frame will be mutated to transform the numberic age columns into categories (see the [Cleaning data and core functions] page). We also pivot the dataframe longer to facilitate easy plotting with **ggplot2** (see [Pivoting data]).  
+With the Go.Data data structure, the `relationships` dataset contains the ages of both cases and contacts, so you could use that dataset and create an age pyramid showing the differences between these two groups of people. The `relationships` data frame will be mutated to transform the numberic age columns into categories (see the [Cleaning data and core functions](cleaning.qmd) page). We also pivot the dataframe longer to facilitate easy plotting with **ggplot2** (see [Pivoting data](pivoting.qmd)).  
 
 ```{r}
 relation_age <- relationships %>% 
@@ -275,7 +275,7 @@ Contact tracing data often contain "follow-up" data, which record outcomes of da
 
 ### Data cleaning {.unnumbered}  
 
-These data can exist in a variety of formats. They may exist as a "wide" format Excel sheet with one row per contact, and one column per follow-up "day". See [Pivoting data] for descriptions of "long" and "wide" data and how to pivot data wider or longer.  
+These data can exist in a variety of formats. They may exist as a "wide" format Excel sheet with one row per contact, and one column per follow-up "day". See [Pivoting data](pivoting.qmd) for descriptions of "long" and "wide" data and how to pivot data wider or longer.  
 
 In our Go.Data example, these data are stored in the `followups` data frame, which is in a "long" format  with one row per follow-up interaction. The first 50 rows look like this:   
 
@@ -295,7 +295,7 @@ followups %>%
   filter(n > 1)                             # view records where count is more than 1  
 ```
 
-In our example data, the only records that this applies to are ones missing an ID! We can remove those. But, for purposes of demonstration we will go show the steps for de-duplication so there is only one follow-up encoutner per person per day. See the page on [De-duplication] for more detail. We will assume that the most recent encounter record is the correct one. We also take the opportunity to clean the `followup_number` column (the "day" of follow-up which should range 1 - 14).  
+In our example data, the only records that this applies to are ones missing an ID! We can remove those. But, for purposes of demonstration we will go show the steps for de-duplication so there is only one follow-up encoutner per person per day. See the page on [De-duplication](deduplication.qmd) for more detail. We will assume that the most recent encounter record is the correct one. We also take the opportunity to clean the `followup_number` column (the "day" of follow-up which should range 1 - 14).  
 
 ```{r, warning=F, message=F}
 followups_clean <- followups %>%
@@ -311,7 +311,7 @@ followups_clean <- followups %>%
   drop_na(contact_id)                               # remove rows with missing contact_id
 ```
 
-For each follow-up encounter, we have a follow-up status (such as whether the encounter occurred and if so, did the contact have symptoms or not). To see all the values we can run a quick `tabyl()` (from **janitor**) or `table()` (from **base** R) (see [Descriptive tables]) by `followup_status` to see the frequency of each of the outcomes.  
+For each follow-up encounter, we have a follow-up status (such as whether the encounter occurred and if so, did the contact have symptoms or not). To see all the values we can run a quick `tabyl()` (from **janitor**) or `table()` (from **base** R) (see [Descriptive tables](tables_descriptive.qmd)) by `followup_status` to see the frequency of each of the outcomes.  
 
 In this dataset, "seen_not_ok" means "seen with symptoms", and "seen_ok" means "seen without symptoms".  
 
@@ -349,7 +349,7 @@ ggplot(data = followups_clean)+
 
 If your outbreak is small enough, you may want to look at each contact individually and see their status over the course of their follow-up. Fortunately, this `followups` dataset already contains a column with the day "number" of follow-up (1-14). If this does not exist in your data, you could create it by calculating the difference between the encounter date and the date follow-up was intended to begin for the contact.  
 
-A convenient visualisation mechanism (if the number of cases is not too large) can be a heat plot, made with `geom_tile()`. See more details in the [heat plot] page.  
+A convenient visualisation mechanism (if the number of cases is not too large) can be a heat plot, made with `geom_tile()`. See more details in the [heat plot](heatmaps.qmd) page.  
 
 ```{r, warning=F, message=F}
 ggplot(data = followups_clean)+
@@ -420,9 +420,9 @@ Process Indicator - Speed of Contact Tracing|% contacts notified and quarantined
 Process Indicator - Completeness of Testing|% new symptomatic cases tested and interviewed within 3 days of onset of symptoms|COUNT OF `case_id` WHERE (`date_of_reporting` - `date_of_onset`) < =3 days|COUNT OF  `case_id`
 Outcome Indicator - Overall|% new cases among existing contact list|COUNT OF `case_id` WHERE `was_contact` == "TRUE"|COUNT OF  `case_id`
 
-Below we will walk through a sample exercise of creating a nice table visual to show contact follow-up across admin areas. At the end, we will make it fit for presentation with the **formattable** package (but you could use other packages like **flextable** - see [Tables for presentation]).  
+Below we will walk through a sample exercise of creating a nice table visual to show contact follow-up across admin areas. At the end, we will make it fit for presentation with the **formattable** package (but you could use other packages like **flextable** - see [Tables for presentation](tables_presentation.qmd)).  
 
-How you create a table like this will depend on the structure of your contact tracing data. Use the [Descriptive tables] page to learn how to summarise data using **dplyr** functions. 
+How you create a table like this will depend on the structure of your contact tracing data. Use the [Descriptive tables](tables_descriptive.qmd) page to learn how to summarise data using **dplyr** functions. 
 
 We will create a table that will be dynamic and change as the data change. To make the results interesting, we will set a `report_date` to allow us to simulate running the table on a certain day (we pick 10th June 2020). The data are filtered to that date.  
 
@@ -543,7 +543,7 @@ contacts_table %>%
 
 ## Transmission Matrices  
 
-As discussed in the [Heat plots] page, you can create a matrix of "who infected whom" using `geom_tile()`.
+As discussed in the [Heat plots](heatmaps.qmd) page, you can create a matrix of "who infected whom" using `geom_tile()`.
 
 When new contacts are created, Go.Data stores this relationship information in the `relationships` API endpoint; and we can see the first 50 rows of this dataset below. This means that we can create a heat plot with relatively few steps given each contact is already joined to it's source case.
 

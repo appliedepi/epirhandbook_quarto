@@ -119,7 +119,7 @@ forecasting case incidence.
 
 This code chunk shows the loading of packages required for the analyses. 
 In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. 
-You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 	
 ```{r epidemic_models_packages, }
@@ -137,7 +137,7 @@ pacman::p_load(
 )
 ```
 	
-We will use the cleaned case linelist for all analyses in this section. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). See the [Download handbook and data] page to download all example data used in this handbook.  
+We will use the cleaned case linelist for all analyses in this section. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). See the [Download handbook and data](data_used.qmd) page to download all example data used in this handbook.  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -259,7 +259,7 @@ distribution from the linelist by calculating the delay between infection times
 of infector-infectee pairs. To do this, we use the handy `get_pairwise` function
 from the package **epicontacts**, which allows us to calculate pairwise
 differences of linelist properties between transmission pairs. We first create an
-epicontacts object (see [Transmission chains] page for further
+epicontacts object (see [Transmission chains](transmission_chains.qmd) page for further
 details):
 
 ```{r epidemic_models_epicontacts, eval=F}
@@ -461,7 +461,7 @@ object from the original **incidence** package. You can even distinguish between
 and locally acquired infections; see the documentation at `?estimate_R` for
 further details.  
 
-We will create the input using **incidence2**. See the page on [Epidemic curves] for more examples with the **incidence2** package. Since there have been updates to the **incidence2** package that don't completely align with `estimateR()`'s expected input, there are some minor additional steps needed. The incidence object consists of a tibble with dates and their respective case counts. We use `complete()` from **tidyr** to ensure all dates are included (even those with no cases), and then `rename()` the columns to align with what is expected by `estimate_R()` in a later step.  
+We will create the input using **incidence2**. See the page on [Epidemic curves](epicurves.qmd) for more examples with the **incidence2** package. Since there have been updates to the **incidence2** package that don't completely align with `estimateR()`'s expected input, there are some minor additional steps needed. The incidence object consists of a tibble with dates and their respective case counts. We use `complete()` from **tidyr** to ensure all dates are included (even those with no cases), and then `rename()` the columns to align with what is expected by `estimate_R()` in a later step.  
 
 ```{r epidemic_models_epiestim_incidence,}
 ## get incidence from onset date
@@ -532,7 +532,7 @@ between onset dates of infector-infectee pairs. As we did in the **EpiNow2**
 section, we will use the `get_pairwise` function from the **epicontacts**
 package, which allows us to calculate pairwise differences of linelist
 properties between transmission pairs. We first create an epicontacts object
-(see [Transmission chains] page for further details):
+(see [Transmission chains](transmission_chains.qmd) page for further details):
 
 ```{r epidemic_models_epicontacts_epiestim, eval=F}
 ## generate contacts
@@ -864,7 +864,7 @@ between onset dates of infector-infectee pairs. As we did in the **EpiNow2**
 section, we will use the `get_pairwise` function from the **epicontacts**
 package, which allows us to calculate pairwise differences of linelist
 properties between transmission pairs. We first create an epicontacts object
-(see [Transmission chains] page for further details):
+(see [Transmission chains](transmission_chains.qmd) page for further details):
 
 ```{r epidemic_models_epicontacts_projections, eval=F}
 ## generate contacts

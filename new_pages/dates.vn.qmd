@@ -24,7 +24,7 @@ Ngày trong R có kiểu đối tượng riêng - kiểu `Date`. Nên lưu ý r�
 
 ### Gọi packages {.unnumbered}  
 
-Đoạn code này hiển thị tải các package cần thiết để sử dụng. Trong tài liệu này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, mà có thể cài đặt package nếu cần thiết *và* gọi package để sử dụng. Bạn cũng có thể gọi và cài đặt package với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.  
+Đoạn code này hiển thị tải các package cần thiết để sử dụng. Trong tài liệu này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, mà có thể cài đặt package nếu cần thiết *và* gọi package để sử dụng. Bạn cũng có thể gọi và cài đặt package với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.  
 
 ```{r dates_packages, warning=F, message=F}
 # Checks if package is installed, installs if necessary, and loads package for current session
@@ -41,7 +41,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Chúng ta sẽ nhập bộ dữ liệu với các ca bệnh từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải xuống dữ liệu để thực hành theo từng bước, hãy xem hướng dẫn ở chương [Tải sách và dữ liệu]. Chúng ta giả định rằng tệp dữ liệu đã nằm trong thư mục làm việc của bạn nên bạn không cần chỉ định thư mục con trong đường dẫn này.  
+Chúng ta sẽ nhập bộ dữ liệu với các ca bệnh từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải xuống dữ liệu để thực hành theo từng bước, hãy xem hướng dẫn ở chương [Tải sách và dữ liệu](data_used.vn.qmd). Chúng ta giả định rằng tệp dữ liệu đã nằm trong thư mục làm việc của bạn nên bạn không cần chỉ định thư mục con trong đường dẫn này.  
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -200,7 +200,7 @@ Khi các giá trị nằm trong phân lớp Ngày tiêu chuẩn, R sẽ mặc đ
 
 Lưu ý rằng các hàm trên sử dụng tốt nhất với thông tin về năm có 4 chữ số. Thông tin về năm có 2 chữ số có thể tạo ra các kết quả không mong muốn, bởi vì lubridate sẽ cố gắng đoán và lấy thông tin về thế kỷ.  
 
-Để chuyển đổi thông tin về năm 2 chữ số thành 4 chữ số (tất cả trong cùng một thế kỷ), bạn có thể chuyển thành dạng ký tự và sau đó kết hợp các chữ số hiện có với một tiền tố sử dụng hàm `str_glue()` từ package **stringr** (xem chương [Ký tự và chuỗi]). Sau đó chuyển đổi sang dạng ngày.  
+Để chuyển đổi thông tin về năm 2 chữ số thành 4 chữ số (tất cả trong cùng một thế kỷ), bạn có thể chuyển thành dạng ký tự và sau đó kết hợp các chữ số hiện có với một tiền tố sử dụng hàm `str_glue()` từ package **stringr** (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)). Sau đó chuyển đổi sang dạng ngày.  
 
 ```{r}
 two_digit_years <- c("15", "15", "16", "17")
@@ -309,7 +309,7 @@ mdy_hms("01 January 2020, 16:20:40 PST")
 
 ```
 
-Khi làm việc với một data frame, các cột ngày và giờ có thể được kết hợp để tạo cột ngày-giờ bằng cách sử dụng hàm `str_glue()` từ package **stringr**  và các hàm của package **lubridate**. Xem chương [Ký tự và chuỗi] để biết thêm chi tiết về **stringr**.  
+Khi làm việc với một data frame, các cột ngày và giờ có thể được kết hợp để tạo cột ngày-giờ bằng cách sử dụng hàm `str_glue()` từ package **stringr**  và các hàm của package **lubridate**. Xem chương [Ký tự và chuỗi](characters_strings.vn.qmd) để biết thêm chi tiết về **stringr**.  
 
 Trong ví dụ này, bộ dữ liệu `linelist` có một cột ở định dạng “giờ:phút”. Để chuyển đổi thành ngày giờ, chúng tôi làm theo một số bước:  
 
@@ -378,7 +378,7 @@ linelist <- linelist %>%
     hour_admit >=21 | hour_admit <= 6 ~ "Night"))
 ```
 
-Để tìm hiểu thêm về hàm `case_when()`, hãy xem chương [Làm sạch số liệu và các hàm quan trọng].  
+Để tìm hiểu thêm về hàm `case_when()`, hãy xem chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd).  
 
 <!-- ======================================================= -->
 ## Làm việc với ngày   
@@ -551,7 +551,7 @@ test_format <- linelist %>%
 table(test_format$yearmon)
 ```
 
-Lưu ý: nếu bạn đang làm việc với hàm `ggplot()` và chỉ muốn điều chỉnh chỉ *hiển thị* ngày, bạn chỉ cần cung cấp định dạng strptime là đủ tới đối số `date_labels = ` của hàm `scale_x_date()` - bạn có thể sử dụng `"%b %Y"` hoặc `"%Y %b"`. Xem thêm chương [Các tips với ggplot].  
+Lưu ý: nếu bạn đang làm việc với hàm `ggplot()` và chỉ muốn điều chỉnh chỉ *hiển thị* ngày, bạn chỉ cần cung cấp định dạng strptime là đủ tới đối số `date_labels = ` của hàm `scale_x_date()` - bạn có thể sử dụng `"%b %Y"` hoặc `"%Y %b"`. Xem thêm chương [Các mẹo với ggplot](ggplot_tips.vn.qmd).  
 
 
 Package **zoo** cũng cung cấp hàm `as.yearqtr()`, và bạn có thể sử dụng hàm `scale_x_yearmon()` khi sử dụng hàm `ggplot()`.  
@@ -563,7 +563,7 @@ Package **zoo** cũng cung cấp hàm `as.yearqtr()`, và bạn có thể sử d
 
 ### **lubridate** {.unnumbered}  
 
-Xem chương [Nhóm dữ liệu] để biết thêm các ví dụ mở rộng về nhóm dữ liệu theo ngày. Dưới đây chúng tôi mô tả ngắn gọn cách nhóm dữ liệu theo tuần.  
+Xem chương [Nhóm dữ liệu](grouping.vn.qmd) để biết thêm các ví dụ mở rộng về nhóm dữ liệu theo ngày. Dưới đây chúng tôi mô tả ngắn gọn cách nhóm dữ liệu theo tuần.  
 
 Thông thường, chúng tôi khuyên bạn nên sử dụng hàm `floor_date()` từ package **lubridate**, với đối số `unit = "week"`. Điều này làm tròn ngày cần xử lý thành ngày "bắt đầu" của tuần, như được xác định bởi đối số `week_start = `. Ngày bắt đầu của tuần mặc định là 1 (đối với Thứ Hai) nhưng bạn có thể chỉ định bất kỳ ngày nào trong tuần làm ngày bắt đầu (ví dụ: 7 đối với Chủ Nhật). Hàm `floor_date()` rất linh hoạt và có thể sử dụng để làm tròn xuống các đơn vị thời gian khác bằng cách thiết lập đối số `unit = ` bằng “giây”, “phút”, “giờ”, “ngày”, “tháng”, hoặc “năm”.  
 
@@ -573,7 +573,7 @@ Nếu bạn chỉ quan tâm đến việc điều chỉnh ngày để *hiển th
 
 ### Đếm theo tuần {.unnumbered}  
 
-Xem chương [Nhóm dữ liệu] để được giải thích kỹ hơn về cách nhóm dữ liệu với hàm `count()`, `group_by()`, và `summarise()`. Dưới đây là một ví dụ ngắn gọn.  
+Xem chương [Nhóm dữ liệu](grouping.vn.qmd) để được giải thích kỹ hơn về cách nhóm dữ liệu với hàm `count()`, `group_by()`, và `summarise()`. Dưới đây là một ví dụ ngắn gọn.  
 
 1) Tạo cột ‘tuần’ mới với hàm `mutate()`, sử dụng hàm `floor_date()` với đối số `unit = "week"`  
 2) Đếm số lượng dòng (quan sát) mỗi tuần với hàm `count()`; lọc ra bất kỳ trường hợp nào bị thiếu ngày  
@@ -610,7 +610,7 @@ Lưu ý là package **lubridate** cũng có các hàm `week()`, `epiweek()`, và
 Bạn có thể cân nhắc sử dụng package **aweek** để thiết lập tuần dịch tễ học. Bạn có thể đọc thêm về nó [ở trang web của RECON](https://www.repidemicsconsortium.org/aweek/). Nó có các hàm `date2week()` và `week2date()` trong đó bạn có thể đặt ngày bắt đầu tuần với `week_start = "Monday"`. Package này là dễ sử dụng nhất nếu bạn muốn hiển thị "tuần" theo kiểu đầu ra (vd: "2020-W12"). Một ưu điểm khác của **aweek** là khi áp dụng hàm `date2week()` cho cột ngày, cột trả về (định dạng tuần) sẽ tự động thuộc kiểu Factor và bao gồm các cấp độ cho tất cả các tuần trong khoảng thời gian (điều này tránh thêm bước `complete()` được mô tả ở trên). Tuy nhiên, **aweek** không có chức năng làm tròn ngày thành các đơn vị thời gian khác như tháng, năm, v.v.  
 
 
-Một giải pháp thay thế khác cho chuỗi thời gian cũng hoạt động tốt để hiển thị định dạng “tuần” ("2020 W12") là hàm `yearweek()` từ package **tsibble**, như được minh họa trong chương [Chuỗi thời gian và phát hiện ổ dịch].  
+Một giải pháp thay thế khác cho chuỗi thời gian cũng hoạt động tốt để hiển thị định dạng “tuần” ("2020 W12") là hàm `yearweek()` từ package **tsibble**, như được minh họa trong chương [Chuỗi thời gian và phát hiện ổ dịch](time_series.vn.qmd).  
 
 
 <!-- ======================================================= -->

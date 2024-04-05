@@ -300,7 +300,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -442,7 +442,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -649,12 +649,12 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <!-- R based dashboards are also advantageous in that they centralise how code is run - when the same code is run on different machines, often people will have to deal with differing file paths, different R versions, and different package installations. For this reason, dashboards are a great way to share code with others in a user friendly way! -->
 <p>Chúng tôi khuyến nghị rằng ai đó đang học dashboards với <strong>shiny</strong> phải có kiến thức tốt về biến đổi và trực quan hóa dữ liệu, đồng thời có thể tự tin gỡ lỗi code và viết hàm. Làm việc với dashboards không dễ khi bạn mới bắt đầu và đôi khi khó hiểu, nhưng là một kỹ năng tuyệt vời để học và trở nên dễ dàng hơn nhiều khi thực hành!</p>
 <p>Chương này sẽ cung cấp tổng quan ngắn gọn về cách tạo dashboards với <strong>shiny</strong> và các tiện ích mở rộng của nó.<br>
-Để biết một phương pháp thay thế tạo dashboards nhanh hơn, dễ dàng hơn nhưng có thể ít tùy chỉnh hơn, hãy xem thêm về <strong>flextable</strong> trong chương ([Dashboards với R Markdown]).</p>
+Để biết một phương pháp thay thế tạo dashboards nhanh hơn, dễ dàng hơn nhưng có thể ít tùy chỉnh hơn, hãy xem thêm về <strong>flextable</strong> trong chương (<a href="../new_pages/flexdashboard.vn.html">Dashboards với R Markdown</a>).</p>
 <section id="chuẩn-bị" class="level2" data-number="43.1">
 <h2 data-number="43.1" class="anchored" data-anchor-id="chuẩn-bị"><span class="header-section-number">43.1</span> Chuẩn bị</h2>
 <section id="gọi-packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="gọi-packages">Gọi packages</h3>
-<p>Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code>library()</code> của <strong>base</strong> R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.</p>
+<p>Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code>library()</code> của <strong>base</strong> R. Xem thêm chương <a href="../new_pages/basics.vn.html">R cơ bản</a> để có thêm thông tin về các packages trong R.</p>
 <p>Chúng ta bắt đầu bằng cách cài đặt package <strong>shiny</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -662,7 +662,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="nhập-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="nhập-dữ-liệu">Nhập dữ liệu</h3>
-<p>Nếu bạn muốn theo dõi chương này, hãy xem phần này trong chương <a href="data_used.vn.html#data_shiny">Tải sách và dữ liệu</a>. Có các liên kết để tải xuống scripts R và các tệp dữ liệu tạo ra ứng dụng Shiny cuối cùng.</p>
+<p>Nếu bạn muốn theo dõi chương này, hãy xem phần này trong chương <a href="../new_pages/data_used.vn.html#data_shiny">Tải sách và dữ liệu</a>. Có các liên kết để tải xuống scripts R và các tệp dữ liệu tạo ra ứng dụng Shiny cuối cùng.</p>
 <p>Nếu bạn cố gắng xây dựng lại app bằng các tệp này, hãy lưu ý về cấu trúc thư mục dự án R được tạo trong quá trình thực hiện (ví dụ: thư mục cho “data” và “funcs”).</p>
 <!-- ======================================================= -->
 </section>
@@ -890,7 +890,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 #   malaria_tot &lt;int&gt;, newid &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>Sẽ dễ dàng hơn để làm việc với dữ liệu này nếu chúng ta sử dụng các tiêu chuẩn dữ liệu tidy, vì vậy chúng ta cũng nên chuyển đổi dữ liệu sang định dạng dài hơn, trong đó nhóm tuổi là một cột và các trường hợp là một cột khác. Chúng ta có thể thực hiện việc này một cách dễ dàng bằng cách sử dụng những gì chúng ta đã học được trong chương [Xoay trục dữ liệu].</p>
+<p>Sẽ dễ dàng hơn để làm việc với dữ liệu này nếu chúng ta sử dụng các tiêu chuẩn dữ liệu tidy, vì vậy chúng ta cũng nên chuyển đổi dữ liệu sang định dạng dài hơn, trong đó nhóm tuổi là một cột và các trường hợp là một cột khác. Chúng ta có thể thực hiện việc này một cách dễ dàng bằng cách sử dụng những gì chúng ta đã học được trong chương <a href="../new_pages/pivoting.vn.html">Xoay trục dữ liệu</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>malaria_data <span class="ot">&lt;-</span> malaria_data <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>newid) <span class="sc">%&gt;%</span></span>
@@ -915,7 +915,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 # ℹ 1 more variable: cases_reported &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>Và cùng với đó, chúng ta đã chuẩn bị xong dữ liệu của mình! Chúng ta đã hoàn thành các mục 1, 2 và 3 trong danh sách những thứ cần phát triển cho một “script R thử nghiệm”. Nhiệm vụ cuối cùng và khó khăn nhất sẽ là xây dựng một hàm để tạo ra một đường cong dịch bệnh dựa trên các thông số do người dùng xác định. Như đã đề cập trước đây, chúng tôi <em>rất khuyến khích</em> bất kỳ ai học shiny trước tiên hãy xem phần về lập trình hướng chức năng ([Viết hàm]) để hiểu cách thức hoạt động của nó!</p>
+<p>Và cùng với đó, chúng ta đã chuẩn bị xong dữ liệu của mình! Chúng ta đã hoàn thành các mục 1, 2 và 3 trong danh sách những thứ cần phát triển cho một “script R thử nghiệm”. Nhiệm vụ cuối cùng và khó khăn nhất sẽ là xây dựng một hàm để tạo ra một đường cong dịch bệnh dựa trên các thông số do người dùng xác định. Như đã đề cập trước đây, chúng tôi <em>rất khuyến khích</em> bất kỳ ai học shiny trước tiên hãy xem phần về lập trình hướng chức năng (<a href="../new_pages/writing_functions.vn.html">Viết hàm</a>) để hiểu cách thức hoạt động của nó!</p>
 <p>Khi định nghĩa một hàm, có thể khó khăn khi nghĩ về những tham số chúng ta muốn đưa vào. Đối với lập trình hướng chức năng với shiny, mọi tham số liên quan thường sẽ có một widget liên kết với nó, vì vậy việc suy nghĩ về điều này thường khá dễ dàng! Ví dụ: trong ứng dụng hiện tại, chúng ta muốn có thể lọc theo quận và có một widget cho việc này, vì vậy chúng ta có thể thêm thông số quận để phản ánh điều này. Chúng ta (hiện tại) <em>không</em> có bất kỳ chức năng ứng dụng nào để lọc theo cơ sở, vì vậy chúng ta không cần thêm thông số này làm tham số. Hãy bắt đầu bằng cách tạo một hàm với ba tham số:</p>
 <ol type="1">
 <li>Bộ dữ liệu cốt lõi<br>
@@ -2486,7 +2486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

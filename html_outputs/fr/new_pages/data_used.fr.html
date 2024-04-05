@@ -637,7 +637,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </li>
 <li>Le manuel hors ligne a une mise en page légèrement différente : une très longue page avec la table des matières à gauche. Pour rechercher des termes spécifiques, utilisez Ctrl + F (Cmd + F).<br>
 </li>
-<li>Consultez la page <a href="packages_suggested.fr.html">Paquets conseillés</a> pour vous aider à installer les paquets R appropriés avant de perdre votre connexion à Internet.<br>
+<li>Consultez la page <a href="suggested_packages.fr.qmd">Paquets conseillés</a> pour vous aider à installer les paquets R appropriés avant de perdre votre connexion à Internet.<br>
 </li>
 <li>Installez notre paquet R <strong>epirhandbook</strong> qui contient toutes les données utilisées dans les exemples (le processus d’installation est décrit ci-dessous).</li>
 </ul>
@@ -682,7 +682,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># enregistrer les données linelist dans un dossiet sur votre ordinateur</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_data</span>(<span class="at">file =</span> <span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Une fois que vous avez utilisé <code>get_data()</code> pour enregistrer un fichier sur votre ordinateur, vous devrez encore l’importer dans R. Voir la page <a href="importing.fr.html">Importer et exporter des données</a> pour plus de détails.</p>
+<p>Une fois que vous avez utilisé <code>get_data()</code> pour enregistrer un fichier sur votre ordinateur, vous devrez encore l’importer dans R. Voir la page <a href="../new_pages/importing.fr.html">Importer et exporter des données</a> pour plus de détails.</p>
 <p>Si vous le souhaitez, vous pouvez consulter toutes les données utilisées dans ce manuel dans le <strong><a href="https://github.com/appliedepi/epirhandbook_eng/raw/main/data">“dossier données”</a></strong> de notre dépôt Github.</p>
 </section>
 <section id="téléchargement-manuel" class="level3 unnumbered">
@@ -692,7 +692,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h4 class="unnumbered anchored" data-anchor-id="liste-de-cas-linelist">Liste de cas (linelist)</h4>
 <p>Il s’agit d’une linelist pour une épidémie d’Ebola fictive, développée par notre équipe à partir du jeu de données d’exemple <code>ebola_sim</code> du paquet <strong>outbreaks</strong>.</p>
 <ul>
-<li><p><a href="https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_raw.xlsx" class="download-button">Cliquer pour télécharger les données brutes (.xlsx)</a>. La liste de cas “brute” est une feuille de calcul Excel contenant des données désordonnées. Utilisez-la pour suivre la page <a href="cleaning.fr.html">Nettoyer les données et fonctions essentielles</a>.</p></li>
+<li><p><a href="https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_raw.xlsx" class="download-button">Cliquer pour télécharger les données brutes (.xlsx)</a>. La liste de cas “brute” est une feuille de calcul Excel contenant des données désordonnées. Utilisez-la pour suivre la page <a href="../new_pages/cleaning.fr.html">Nettoyer les données et fonctions essentielles</a>.</p></li>
 <li><p><a href="https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/case_linelists/linelist_cleaned.rds" class="download-button">Cliquer pour télécharger la linelist nettoyée (.rds)</a>. Utilisez ce fichier pour toutes les autres pages de ce manuel qui utilisent la linelist. Un fichier .rds est un type de fichier spécifique à R qui préserve les classes de colonnes. Cela garantit que vous n’aurez qu’un nettoyage minimal à faire après avoir importé les données dans R.</p></li>
 </ul>
 <p><em>Autres fichiers linelist :</em></p>
@@ -714,7 +714,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="données-sur-léchelle-de-likert" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="données-sur-léchelle-de-likert">Données sur l’échelle de Likert</h4>
-<p>Il s’agit de données fictives issues d’une enquête de type Likert, utilisées dans la page <a href="age_pyramid.fr.html">Pyramides démographiques et échelles de Likert</a>. Vous pouvez charger ces données directement dans R en exécutant les commandes suivantes :</p>
+<p>Il s’agit de données fictives issues d’une enquête de type Likert, utilisées dans la page <a href="../new_pages/age_pyramid.fr.html">Pyramides démographiques et échelles de Likert</a>. Vous pouvez charger ces données directement dans R en exécutant les commandes suivantes :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio)  <span class="co"># installer/importer le paquet **rio**</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -724,7 +724,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="flexdashboard" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="flexdashboard">Flexdashboard</h4>
-<p>Vous trouverez ci-dessous des liens vers le fichier associé à la page <a href="flexdashboard.fr.html">Tableaux de bord avec R Markdown</a>:</p>
+<p>Vous trouverez ci-dessous des liens vers le fichier associé à la page <a href="../new_pages/flexdashboard.fr.html">Tableaux de bord avec R Markdown</a>:</p>
 <ul>
 <li>Pour télécharger le fichier RMarkdown (.Rmd) du tableau de bord sur les épidémies, faites un clic droit sur ce <a href="https://github.com/appliedepi/epiRhandbook_fr/raw/main/data/flexdashboard/outbreak_dashboard.Rmd">lien</a> (Cmd+clic pour Mac) et sélectionnez “Enregistrer le lien sous”.<br>
 </li>
@@ -1388,7 +1388,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

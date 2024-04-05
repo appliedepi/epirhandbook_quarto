@@ -22,8 +22,7 @@ This page demonstrates use of the **stringr** package to evaluate and handle cha
 
 For ease of display most examples are shown acting on a short defined character vector, however they can easily be adapted to a column within a data frame.  
 
-This [stringr vignette](
-https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html) provided much of the inspiration for this page.  
+This [stringr vignette](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html) provided much of the inspiration for this page.  
 
 
 
@@ -47,7 +46,7 @@ pacman::p_load(
 ### Import data  {.unnumbered}  
 
 
-In this page we will occassionally reference the cleaned `linelist` of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+In this page we will occassionally reference the cleaned `linelist` of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd)(importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -177,7 +176,7 @@ case_table %>%
 
 **Combine strings across rows**  
 
-If you are trying to "roll-up" values in a data frame column, e.g. combine values from multiple rows into just one row by pasting them together with a separator, see the section of the [De-duplication] page on ["rolling-up" values](#str_rollup).  
+If you are trying to "roll-up" values in a data frame column, e.g. combine values from multiple rows into just one row by pasting them together with a separator, see the section of the [De-duplication](deduplication.qmd) page on ["rolling-up" values](deduplication.qmd#str_rollup).  
 
 **Data frame to one line**  
 
@@ -265,7 +264,7 @@ str_split(string = "jaundice, fever, chills",
           pattern = ",")
 ```
 
-If the output is saved, you can then access the nth split value with bracket syntax. To access a specific value you can use syntax like this: `the_returned_object[[1]][2]`, which would access the second value from the first evaluated string ("fever"). See the [R basics] page for more detail on accessing elements.    
+If the output is saved, you can then access the nth split value with bracket syntax. To access a specific value you can use syntax like this: `the_returned_object[[1]][2]`, which would access the second value from the first evaluated string ("fever"). See the [R basics](basics.qmd) page for more detail on accessing elements.    
 
 ```{r}
 pt1_symptoms <- str_split("jaundice, fever, chills", ",")

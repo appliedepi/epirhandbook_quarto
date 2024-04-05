@@ -48,8 +48,9 @@ Fonksiyon      | Kullanımı                             | Paket
 `match_df()`|Veri sözlüğü kullanarak değerlerin yeniden kodlanması ve temizliği|**matchmaker**
 `which()`|Mantık kriterlerinin uygulanması, endekslerin elde edilmesi |**base** R
 
-Bu komutların Stata ya da SAS komutları ile karşılaştırılmasını görmek için R’a geçiş sayfasını inceleyin. 
-Alternatif bir veri yönetim çerçevesi olarak data.table R paketi := gibi operatörler ve sıkça köşeli parantezler [ ] kullanır. Bu yaklaşım ve sintaksı kısaca Veri Tablosu sayfasında anlatılmıştır. 
+Bu komutların Stata ya da SAS komutları ile karşılaştırılmasını görmek için [R’a geçiş](transition_to_R.tr.qmd) sayfasını inceleyin. 
+
+Alternatif bir veri yönetim çerçevesi olarak data.table R paketi := gibi operatörler ve sıkça köşeli parantezler [ ] kullanır. Bu yaklaşım ve sintaksı kısaca [Veri Tablosu](data_table.tr.qmd) sayfasında anlatılmıştır. 
  
 
 ### İsimlendirme {.unnumbered}  
@@ -140,7 +141,7 @@ DT::datatable(head(linelist_raw,50), rownames = FALSE, options = list(pageLength
 ```
 ### Gözden geçirme {.unnumbered}  
 
-Tüm veri çerçevesine genel bir bakış elde etmek için skimr paketindeki skim() fonksiyonunu kullanabilirsiniz (daha fazla bilgi için Tanımlayıcı tablolar sayfasına bakın). Sütunlar karakter, sayısal gibi sınıflara göre özetlenir. Not: “POSIXct” bir tür ham tarih sınıfıdır (bkz. [Tarihlerle çalışma])  
+Tüm veri çerçevesine genel bir bakış elde etmek için skimr paketindeki skim() fonksiyonunu kullanabilirsiniz (daha fazla bilgi için Tanımlayıcı tablolar sayfasına bakın). Sütunlar karakter, sayısal gibi sınıflara göre özetlenir. Not: “POSIXct” bir tür ham tarih sınıfıdır (bkz. [Tarihlerle çalışma](dates.tr.qmd))  
 
 
 ```{r, eval=F}
@@ -166,7 +167,7 @@ skimr::skim_without_charts(linelist_raw)
 ## Sütun isimleri {} 
 R'de sütun adları, bir sütunun "başlık" veya "üst" değeridir. Koddaki sütunlara atıfta bulunmak için kullanılırlar ve şekillerde varsayılan bir etiket görevi görürler.
 
-SAS ve STATA gibi diğer istatistiksel yazılımlar, daha kısa sütun adlarının daha uzun basılı sürümleri olarak birlikte oldukları “etiketler” kullanır. R, verilere sütun etiketleri ekleme olanağı sunarken, uygulamada çoğu zaman bu vurgulanmamaktadır. Şekiller için sütun adlarını "yazıcı dostu" yapmak için, çıktı oluşturan çizim komutları içinde sütun adı gösterimleri uygun şekilde ayarlanabilir (Örneğin, bir grafiğin eksen veya gösterge (legend)  başlıkları veya basılı bir tablodaki sütun başlıkları – [ggplot için ipuçları ölçekler bölümü](#ggplot_tips_scales) ve [sunum sayfaları için tablolar] sayfalarına bakabilirsiniz). Veride sütun etiketleri atamak istiyorsanız,[buradan] (https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) ve [buradan](https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html) çevrimiçi olarak daha fazlasını okuyabilirsiniz.
+SAS ve STATA gibi diğer istatistiksel yazılımlar, daha kısa sütun adlarının daha uzun basılı sürümleri olarak birlikte oldukları “etiketler” kullanır. R, verilere sütun etiketleri ekleme olanağı sunarken, uygulamada çoğu zaman bu vurgulanmamaktadır. Şekiller için sütun adlarını "yazıcı dostu" yapmak için, çıktı oluşturan çizim komutları içinde sütun adı gösterimleri uygun şekilde ayarlanabilir (Örneğin, bir grafiğin eksen veya gösterge (legend)  başlıkları veya basılı bir tablodaki sütun başlıkları – [ggplot için ipuçları ölçekler bölümü](ggplot_tips.tr.qmd#ggplot_tips_scales) ve [sunum sayfaları için tablolar](tables_presentation.tr.qmd) sayfalarına bakabilirsiniz). Veride sütun etiketleri atamak istiyorsanız,[buradan] (https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) ve [buradan](https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html) çevrimiçi olarak daha fazlasını okuyabilirsiniz.
 
 R sütun adları çok sık kullanıldığından, "temiz" sintaksa sahip olmalıdır. Aşağıdakileri öneriyoruz:
 
@@ -254,7 +255,7 @@ rename(newNameForFirstColumn  = 1,
 
 #### `select()` ve `summarise()`  ile yeniden adlandırma  {.unnumbered}  
 
-Kısa yol olarak, dplyr select() ve summarise() fonksiyonları ile sütunları yeniden adlandırabilirsiniz. select() yalnızca belirli sütunları tutmak için kullanılır (ve bu sayfanın ilerleyen kısımlarında ele alınacaktır). summarise(),[Verilerin gruplanması] ve [Tanımlayıcı tablolar] sayfalarında ele alınmıştır. Bu fonksiyonlar da yeni_adı = eski_adı biçimini kullanır. İşte bir örnek: 
+Kısa yol olarak, dplyr select() ve summarise() fonksiyonları ile sütunları yeniden adlandırabilirsiniz. select() yalnızca belirli sütunları tutmak için kullanılır (ve bu sayfanın ilerleyen kısımlarında ele alınacaktır). summarise(),[Verilerin gruplanması](grouping.tr.qmd) ve [Tanımlayıcı tablolar](tables_descriptive.tr.qmd) sayfalarında ele alınmıştır. Bu fonksiyonlar da yeni_adı = eski_adı biçimini kullanır. İşte bir örnek: 
 
 ```{r, eval=F}
 linelist_raw %>% 
@@ -281,7 +282,7 @@ Bu adları, konum numaralarına (yukarıdaki örneğe bakın) veya atanmış adl
 
 #### Birleştirilmiş Excel sütun adları ve hücreleri {.unnumbered}  
 
-Bir Excel dosyasındaki birleştirilmiş hücreler, veri alırken sık karşılaşılan bir durumdur. R'a Geçiş bölümünde açıklandığı gibi, birleştirilmiş hücreler verinin insan tarafından okunması için iyi olabilir, ancak "düzenli-tidy veri" değildir ve verilerin makine tarafından okunması için birçok soruna neden olur. R, birleştirilmiş hücreleri barındıramaz.
+Bir Excel dosyasındaki birleştirilmiş hücreler, veri alırken sık karşılaşılan bir durumdur. [R'a Geçiş](transition_to_R.tr.qmd) bölümünde açıklandığı gibi, birleştirilmiş hücreler verinin insan tarafından okunması için iyi olabilir, ancak "düzenli-tidy veri" değildir ve verilerin makine tarafından okunması için birçok soruna neden olur. R, birleştirilmiş hücreleri barındıramaz.
 
 Veri girişi yapan kişilere, insan tarafından okunabilen verilerin makine tarafından okunabilen verilerle aynı olmadığını hatırlatın. Kullanıcıları düzenli veri [**tidy data**](https://r4ds.had.co.nz/tidy-data.html) ilkeleri konusunda eğitmeye çalışın. Mümkünse, verilerin birleştirilmiş hücreler olmadan düzenli bir biçimde aktarımı için prosedürleri değiştirmeye çalışın.
 
@@ -647,7 +648,7 @@ Tidyverse mutate belgelerinden gruplanmış veri çerçevelerinde mutate () kull
 ### Birden çok sütunu dönüştürün {#clean_across .unnumbered}
 
 
-Genellikle kısa bir kod ile aynı dönüşümü birden çok sütuna aynı anda uygulamak amaçlanır. dplyr paketindeki (ayrıca tidyverse paketinde de bulunur) across() fonksiyonu kullanılarak aynı anda birden çok sütuna bir dönüşüm uygulanabilir. across() herhangi bir dplyr fonksiyonuyla kullanılabilir, ancak genellikle select(), mutate(), filter() veya summarise() içinde kullanılır. [Tanımlayıcı tablolar] sayfasındaki summarise() fonksiyonuna nasıl uygulandığını inceleyin.  
+Genellikle kısa bir kod ile aynı dönüşümü birden çok sütuna aynı anda uygulamak amaçlanır. dplyr paketindeki (ayrıca tidyverse paketinde de bulunur) across() fonksiyonu kullanılarak aynı anda birden çok sütuna bir dönüşüm uygulanabilir. across() herhangi bir dplyr fonksiyonuyla kullanılabilir, ancak genellikle select(), mutate(), filter() veya summarise() içinde kullanılır. [Tanımlayıcı tablolar](tables_descriptive.tr.qmd) sayfasındaki summarise() fonksiyonuna nasıl uygulandığını inceleyin.  
 
 .cols =  argümanına sütunlar ve .fns =  argümanına uygulanacak fonksiyonlar atanır. .fns fonksiyonuna sağlanacak herhangi bir argüman, yine across() içinde olmak üzere virgülden sonra dahil edilebilir.
 
@@ -698,9 +699,9 @@ linelist <- linelist %>%
 
 across() fonksiyonlarına ilişkin ayrıntılar için ?across ile ilgili belgeleri okuyabilirsiniz. Birkaç özet nokta: Bir sütunda gerçekleştirilecek fonksiyonları belirtmenin birkaç yolu vardır ve hatta kendi fonksiyonlarınızı tanımlayabilirsiniz:
 •	Yalnızca fonksiyon adını sağlayabilirsiniz (örneğin, mean veya as.character)
-•	Fonksiyonu purr stilinde yazabilirsinizi (örneğin ~ mean(.x, na.rm = TRUE)) ([bu sayfaya bakabilirsiniz][Iteration, loops, and lists])  
+•	Fonksiyonu purr stilinde yazabilirsinizi (örneğin ~ mean(.x, na.rm = TRUE)) ([bu sayfaya bakabilirsiniz](iteration.tr.qmd))  
 * •	Bir liste ile çoklu fonksiyonlar belirlenebilir  (örneğin list(mean = mean, n_miss = ~ sum(is.na(.x))). 
-•	Birden çok fonkisyon yazarsanız, giriş sütunu başına farklı adlarla col_fn biçiminde birden çok dönüştürülmüş sütun oluşturulur. Yeni sütunların .names = argümanıyla nasıl adlandırılacağını, {.col} ve {.fn}'nin giriş sütunu ve fonksiyonu için kısayol olduğu tutkal sintaksının  [Karakterler ve dizeler] sayfasına bakınız) kullanarak ayarlayabilirsiniz.
+•	Birden çok fonkisyon yazarsanız, giriş sütunu başına farklı adlarla col_fn biçiminde birden çok dönüştürülmüş sütun oluşturulur. Yeni sütunların .names = argümanıyla nasıl adlandırılacağını, {.col} ve {.fn}'nin giriş sütunu ve fonksiyonu için kısayol olduğu tutkal sintaksının  [Karakterler ve dizeler](characters_strings.tr.qmd) sayfasına bakınız) kullanarak ayarlayabilirsiniz.
 
   
   
@@ -761,7 +762,7 @@ Aşağıda ilk 10 satır görülmektedir:
 head(cumulative_case_counts, 10)
 ```
 
-Epikurve ile kümülatif insidansın nasıl çizileceğini öğrenmek için [Epidemik eğriler] sayfasına bakın.
+Epikurve ile kümülatif insidansın nasıl çizileceğini öğrenmek için [Epidemik eğriler](epicurves.tr.qmd) sayfasına bakın.
 
 Bunlara da bakın:
 `cumsum()`, `cummean()`, `cummin()`, `cummax()`, `cumany()`, `cumall()`
@@ -1003,7 +1004,7 @@ linelist <- linelist %>%
           TRUE                            ~ "To investigate"))
 ```
 
-<span style="color: red;">**_TEHLİKE:_** **Sağ taraftaki değerlerin tümü aynı sınıfta olmalıdır** - sayısal, karakter, tarih, mantıksal vb. Eksik (NA) ya senaryoyu ele almadan bırakın ya da NA_character_, NA_real_ (sayısal veya POSIX) ve as.Date(NA) gibi NA'nın özel varyasyonlarını kullanmanız gerekebilir. [Tarihlerle çalışma] bölümünden daha fazlasını okuyabilirsiniz.</span>  
+<span style="color: red;">**_TEHLİKE:_** **Sağ taraftaki değerlerin tümü aynı sınıfta olmalıdır** - sayısal, karakter, tarih, mantıksal vb. Eksik (NA) ya senaryoyu ele almadan bırakın ya da NA_character_, NA_real_ (sayısal veya POSIX) ve as.Date(NA) gibi NA'nın özel varyasyonlarını kullanmanız gerekebilir. [Tarihlerle çalışma](dates.tr.qmd) bölümünden daha fazlasını okuyabilirsiniz.</span>  
 
 
 ### Eksik değerler {.unnumbered} 
@@ -1082,7 +1083,7 @@ knitr::include_graphics(here::here("images", "cleaning_dict.png"))
 ```
 
 
-2. Sözlük dosyasını R'a aktarın. Bu örnek, [El kitabı ve veri indirme] sayfasındaki talimatlar aracılığıyla indirilebilir.
+2. Sözlük dosyasını R'a aktarın. Bu örnek, [El kitabı ve veri indirme](data_used.tr.qmd) sayfasındaki talimatlar aracılığıyla indirilebilir.
 
 ```{r, echo=F}
 cleaning_dict <- rio::import(here("data", "case_linelists", "cleaning_dict.csv"))
@@ -1211,7 +1212,7 @@ Bu örnek için age_years sütununu kullanarak bir age_cat sütunu oluşturacağ
 class(linelist$age_years)
 ```
 
-İlk olarak, uygun kesme noktaları yapmak için verilerinizin dağılımını inceleyin. [ggplot temelleri] ile ilgili sayfaya bakabilirsiniz.
+İlk olarak, uygun kesme noktaları yapmak için verilerinizin dağılımını inceleyin. [ggplot temelleri](ggplot_basics.tr.qmd) ile ilgili sayfaya bakabilirsiniz.
 
 ```{r, out.height='50%'}
 # dağılımın incelenmesi
@@ -1368,7 +1369,7 @@ table("Numeric Values" = linelist$age_years,   # netlik için tabloda belirtilen
 
 **NA değerlerinin yeniden etiketlenmesi **
 
-NA değerlerine “Eksik” gibi bir etiket atamak isteyebilirsiniz. Yeni sütun faktör sınıfından (kısıtlı değerler) olduğundan replace_na() ile değiştiremezsiniz. Bunun yerine, [Faktörler] sayfasında açıklandığı gibi forcat'lerden fct_explicit_na() kullanın.
+NA değerlerine “Eksik” gibi bir etiket atamak isteyebilirsiniz. Yeni sütun faktör sınıfından (kısıtlı değerler) olduğundan replace_na() ile değiştiremezsiniz. Bunun yerine, [Faktörler](factors.tr.qmd) sayfasında açıklandığı gibi forcat'lerden fct_explicit_na() kullanın.
 
 ```{r}
 linelist <- linelist %>% 
@@ -1393,7 +1394,7 @@ table(linelist$age_cat, useNA = "always")
 
 **Hızlı şekilde kesim noktaları ve etiket oluşturma **  
 
-Kesim noktası oluşturma ve vektörleri etiketlemenin hızlı bir yolu için aşağıdaki yöntemi kullanın. seq() ve rep() ile ilgili referanslar için [R temelleri] sayfasına bakınız.
+Kesim noktası oluşturma ve vektörleri etiketlemenin hızlı bir yolu için aşağıdaki yöntemi kullanın. seq() ve rep() ile ilgili referanslar için [R temelleri](basics.tr.qmd) sayfasına bakınız.
 
 ```{r, eval=F}
 # 0'dan 90'a 5'erli kesim noktaları yapın
@@ -1433,7 +1434,7 @@ quantile(linelist$age_years,               # üzerinde çalışılacak sayısal 
   na.rm = TRUE)                            # eksik değerleri yoksay 
 ```
 
-quantile() sonuçlarını age_categories() veya cut() içinde kesim noktaları olarak kullanabilirsiniz. Aşağıda cut() kullanarak yeni bir sütun oluşturuyoruz, burada kesim noktaları age_years üzerinde quantiles() kullanılarak tanımlanıyor. Aşağıda, yüzdeleri görebilmeniz için janitor’dan tabyl() fonksiyonu kullanarak sonuçları gösteriyoruz [Tanımlayıcı tablolar] sayfasına bakabilirsiniz. Her gruptaki, yüzdeliklerin tam olarak %10 olmadıklarına dikkat edin.
+quantile() sonuçlarını age_categories() veya cut() içinde kesim noktaları olarak kullanabilirsiniz. Aşağıda cut() kullanarak yeni bir sütun oluşturuyoruz, burada kesim noktaları age_years üzerinde quantiles() kullanılarak tanımlanıyor. Aşağıda, yüzdeleri görebilmeniz için janitor’dan tabyl() fonksiyonu kullanarak sonuçları gösteriyoruz [Tanımlayıcı tablolar](tables_descriptive.tr.qmd) sayfasına bakabilirsiniz. Her gruptaki, yüzdeliklerin tam olarak %10 olmadıklarına dikkat edin.
 
 ```{r}
 linelist %>%                                # linelist ile başla 
@@ -1591,7 +1592,7 @@ Error: Can't combine ..1$infection date <date> and ..2$infection date <character
 
 ### Satırların bağlanması {.unnumbered}  
 
-Bir veri çerçevesinin satırlarını başka bir veri çerçevesinin altına bağlayarak veri kümelerini birleştirmek için dplyr'den bind_rows() öğesini kullanabilirsiniz. Bu yöntem, [Verileri birleştirme] sayfasında daha ayrıntılı olarak açıklanmaktadır. 
+Bir veri çerçevesinin satırlarını başka bir veri çerçevesinin altına bağlayarak veri kümelerini birleştirmek için dplyr'den bind_rows() öğesini kullanabilirsiniz. Bu yöntem, [Verileri birleştirme](joining_matching.tr.qmd) sayfasında daha ayrıntılı olarak açıklanmaktadır. 
 
 
 
@@ -1634,7 +1635,7 @@ linelist %>%
   drop_na(case_id, age_years)  # case_id veya age_years için eksik değerleri olan satırları bırak
 ```
 
-Verilerinizdeki eksiklikleri analiz etmeye ve yönetmeye yönelik birçok teknik için [Eksik veriler] sayfasına bakın. 
+Verilerinizdeki eksiklikleri analiz etmeye ve yönetmeye yönelik birçok teknik için [Eksik veriler](missing_data.tr.qmd) sayfasına bakın. 
  
 
 
@@ -1886,9 +1887,8 @@ linelist <- linelist_raw %>%
 <!-- ======================================================= -->
 ## Satır tabanlı hesaplamalar  
 
-Bir satır içinde bir hesaplama yapmak istiyorsanız, dplyr'den rowwise() fonksiyonuni kullanabilirsiniz. [Satır bazında hesaplamalar için bu çevrimiçi gösterime](https://cran.r-project.org/web/packages/dplyr/vignettes/rowwise.html) bakabilirsiniz.
-
-Örneğin, bu kod rowwise() komutunu uygular ve ardından satır listesindeki her satır için "evet" değerine sahip belirtilen semptom sütunlarının sayısını toplayan yeni bir sütun oluşturur. Sütunlar, bir c() vektörü içinde adlarıyla sum() içinde belirtilir. rowwise() aslında özel bir group_by() türüdür, bu nedenle işiniz bittiğinde ungroup() komutunu kullanmak en iyisidir [verileri gruplandırma sayfasınd].
+Bir satır içinde bir hesaplama yapmak istiyorsanız, **dplyr**'den `rowwise()` fonksiyonuni kullanabilirsiniz. [Satır bazında hesaplamalar için bu çevrimiçi gösterime](https://cran.r-project.org/web/packages/dplyr/vignettes/rowwise.html) bakabilirsiniz. 
+Örneğin, bu kod `rowwise()` komutunu uygular ve ardından satır listesindeki her satır için "evet" değerine sahip belirtilen semptom sütunlarının sayısını toplayan yeni bir sütun oluşturur. Sütunlar, bir `c()` vektörü içinde adlarıyla `sum()` içinde belirtilir. `rowwise()` aslında özel bir `group_by()` türüdür, bu nedenle işiniz bittiğinde `ungroup()` komutunu kullanmak en iyisidir [verileri gruplandırma sayfasınd](grouping.tr.qmd).
 
 
 ```{r,}
@@ -1930,15 +1930,15 @@ linelist %>%
 
 ## Düzenle ve sıraya diz 
 
-Satırları sütun değerlerine göre sıralamak veya sıralamak için dplyr fonksiyonu arrange()'i kullanın.
+Satırları sütun değerlerine göre sıralamak veya sıralamak için **dplyr** fonksiyonu `arrange()`'i kullanın.
 
-Sütunları gereken sırayla basit bir şekilde listeleyin. Sıralamanın önce verilere uygulanan herhangi bir gruplandırma tarafından yapılmasını istiyorsanız .by_group = argümanını  DOĞRU belirtin (bkz. Verileri gruplama sayfası).
+Sütunları gereken sırayla basit bir şekilde listeleyin. Sıralamanın önce verilere uygulanan herhangi bir gruplandırma tarafından yapılmasını istiyorsanız `.by_group = TRUE`  DOĞRU belirtin (bkz. Verileri gruplama sayfası).
 
-Varsayılan olarak, sütun "artan" düzende sıralanır (sayısal ve ayrıca karakter sütunları için geçerlidir). Bir değişkeni desc() fonksiyonu ile sararak "azalan" düzende sıralayabilirsiniz.
+Varsayılan olarak, sütun "artan" düzende sıralanır (sayısal ve ayrıca karakter sütunları için geçerlidir). Bir değişkeni `desc()` fonksiyonu ile sararak "azalan" düzende sıralayabilirsiniz.
 
-Verileri arrange () ile sıralamak, sunum için tablolar hazırlarken, grup başına "üst" satırları almak için slice() kullanırken veya görünüm sırasına göre faktör düzeyi sırasını ayarlarken özellikle yararlıdır.
+Verileri `arrange()` ile sıralamak, sunum için tablolar hazırlarken, grup başına "üst" satırları almak için `slice()` kullanırken veya görünüm sırasına göre faktör düzeyi sırasını ayarlarken özellikle yararlıdır.
 
-Örneğin, satır listesi satırlarımızı hastaneye göre, ardından azalan düzende date_onset'e göre sıralamak için şunu kullanırız:
+Örneğin, satır listesi satırlarımızı hastaneye göre, ardından azalan düzende `date_onset`'e göre sıralamak için şunu kullanırız:
 
 
 ```{r, eval=F}

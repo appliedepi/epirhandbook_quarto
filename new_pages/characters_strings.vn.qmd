@@ -45,7 +45,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -163,7 +163,7 @@ case_table %>%
 
 **Kết hợp các chuỗi ký tự trên các dòng**
 
-Nếu bạn đang cố gắng để "gộp" các giá trị trong một cột của bộ dữ liệu, ví dụ: kết hợp các giá trị từ nhiều hàng thành một hàng bằng cách gắn chúng với nhau cùng ký tự phân cách, hãy xem thêm ở chương [Loại bỏ trùng lặp] mục ["gộp" các giá trị](#str_rollup).
+Nếu bạn đang cố gắng để "gộp" các giá trị trong một cột của bộ dữ liệu, ví dụ: kết hợp các giá trị từ nhiều hàng thành một hàng bằng cách gắn chúng với nhau cùng ký tự phân cách, hãy xem thêm ở chương [Loại bỏ trùng lặp](deduplication.vn.qmd) mục ["gộp" các giá trị](deduplication.vn.qmd#str_rollup).
 
 **Một bộ dữ liệu thành một dòng**
 
@@ -241,7 +241,7 @@ str_split(string = "jaundice, fever, chills",
           pattern = ",")
 ```
 
-Nếu kết quả được lưu, thì bạn có thể truy cập giá trị phân chia thứ n bằng cú pháp dấu ngoặc vuông. Để truy cập vào một giá trị cụ thể, bạn có thể sử dụng cú pháp như sau: `the_returned_object[[1]][2]`, sẽ truy cập giá trị thứ hai từ chuỗi ký tự được đánh giá thứ nhất ("fever"). Xem thêm ở chương [R Cơ bản] để biết thêm chi tiết về cách truy vấn các phần tử.
+Nếu kết quả được lưu, thì bạn có thể truy cập giá trị phân chia thứ n bằng cú pháp dấu ngoặc vuông. Để truy cập vào một giá trị cụ thể, bạn có thể sử dụng cú pháp như sau: `the_returned_object[[1]][2]`, sẽ truy cập giá trị thứ hai từ chuỗi ký tự được đánh giá thứ nhất ("fever"). Xem thêm ở chương [R Cơ bản](basics.vn.qmd) để biết thêm chi tiết về cách truy vấn các phần tử.
 
 ```{r}
 pt1_symptoms <- str_split("jaundice, fever, chills", ",")

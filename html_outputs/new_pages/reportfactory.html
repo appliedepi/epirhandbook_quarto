@@ -689,9 +689,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </li>
 <li>The <em>data</em> folder can be used to hold your data (“raw” and “clean” subfolders are included)<br>
 </li>
-<li>A <em>.here</em> file, so you can use the <strong>here</strong> package to call files in sub-folders by their relation to this root folder (see [R projects] page for details)<br>
+<li>A <em>.here</em> file, so you can use the <strong>here</strong> package to call files in sub-folders by their relation to this root folder (see <a href="../new_pages/r_projects.html">R projects</a> page for details)<br>
 </li>
-<li>A <em>gitignore</em> file was created in case you link this R project to a Github repository (see [Version control and collaboration with Github])<br>
+<li>A <em>gitignore</em> file was created in case you link this R project to a Github repository (see <a href="../new_pages/collaboration.html">Version control and collaboration with Github</a>)<br>
 </li>
 <li>An empty README file, for if you use a Github repository</li>
 </ul>
@@ -728,7 +728,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="create-a-report" class="level2" data-number="41.3">
 <h2 data-number="41.3" class="anchored" data-anchor-id="create-a-report"><span class="header-section-number">41.3</span> Create a report</h2>
-<p>From within the factory R project, create a R Markdown report just as you would normally, and save it into the “report_sources” folder. See the [R Markdown][Reports with R Markdown] page for instructions. For purposes of example, we have added the following to the factory:</p>
+<p>From within the factory R project, create a R Markdown report just as you would normally, and save it into the “report_sources” folder. See the <a href="../new_pages/rmarkdown.html">R Markdown</a> page for instructions. For purposes of example, we have added the following to the factory:</p>
 <ul>
 <li>A new R markdown script entitled “daily_sitrep.Rmd”, saved within the “report_sources” folder<br>
 </li>
@@ -758,7 +758,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <ul>
 <li>Load necessary packages<br>
 </li>
-<li>Import the linelist data using a filepath from the <strong>here</strong> package (read more in the page on [Import and export])</li>
+<li>Import the linelist data using a filepath from the <strong>here</strong> package (read more in the page on <a href="../new_pages/importing.html">Import and export</a>)</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span>, <span class="st">"linelist_cleaned.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -831,7 +831,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="parameterization" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="parameterization">Parameterization</h3>
-<p>As noted in the page on [Reports with R Markdown], you can run reports with specified parameters. You can pass these parameters as a list to <code>compile_reports()</code> via the <code>params =</code> argument. For example, in this fictional report there are three parameters provided to the R Markdown reports.</p>
+<p>As noted in the page on <a href="../new_pages/rmarkdown.html">Reports with R Markdown</a>, you can run reports with specified parameters. You can pass these parameters as a list to <code>compile_reports()</code> via the <code>params =</code> argument. For example, in this fictional report there are three parameters provided to the R Markdown reports.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compile_reports</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">reports =</span> <span class="st">"daily_sitrep.Rmd"</span>,</span>
@@ -900,7 +900,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="scripts" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="scripts">Scripts</h3>
-<p>We encourage you to utilize the “scripts” folder to store “runfiles” or .R scripts that are sourced by your .Rmd scripts. See the page on [R Markdown][Reports with R Markdown] for tips on how to structure your code across several files.</p>
+<p>We encourage you to utilize the “scripts” folder to store “runfiles” or .R scripts that are sourced by your .Rmd scripts. See the page on <a href="../new_pages/rmarkdown.html">R Markdown</a> for tips on how to structure your code across several files.</p>
 </section>
 <section id="extras" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="extras">Extras</h3>
@@ -1469,7 +1469,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

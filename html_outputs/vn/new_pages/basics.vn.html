@@ -300,7 +300,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -442,7 +442,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -662,12 +662,12 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <li><a href="#truy-cập-indexing-đối-tượng-bằng-dấu-ngoặc-vuông" id="toc-truy-cập-indexing-đối-tượng-bằng-dấu-ngoặc-vuông" class="nav-link" data-scroll-target="#truy-cập-indexing-đối-tượng-bằng-dấu-ngoặc-vuông">Truy cập / indexing đối tượng bằng dấu ngoặc vuông (<code>[ ]</code>)</a></li>
   <li><a href="#xóa-đối-tượng" id="toc-xóa-đối-tượng" class="nav-link" data-scroll-target="#xóa-đối-tượng">Xóa đối tượng</a></li>
   </ul></li>
-  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">3.11</span> Piping (<code>%&gt;%</code>)</a>
+  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">8.1</span> Piping (<code>%&gt;%</code>)</a>
   <ul class="collapse">
   <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><strong>Pipes</strong></a></li>
   <li><a href="#định-nghĩa-đối-tượng-trung-gian" id="toc-định-nghĩa-đối-tượng-trung-gian" class="nav-link" data-scroll-target="#định-nghĩa-đối-tượng-trung-gian">Định nghĩa đối tượng trung gian</a></li>
   </ul></li>
-  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">3.12</span> Các toán tử và hàm chính</a>
+  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">8.2</span> Các toán tử và hàm chính</a>
   <ul class="collapse">
   <li><a href="#toán-tử-gán" id="toc-toán-tử-gán" class="nav-link" data-scroll-target="#toán-tử-gán">Toán tử gán</a></li>
   <li><a href="#toán-tử-quan-hệ-và-logic" id="toc-toán-tử-quan-hệ-và-logic" class="nav-link" data-scroll-target="#toán-tử-quan-hệ-và-logic">Toán tử quan hệ và logic</a></li>
@@ -675,7 +675,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   <li><a href="#toán-học-và-thống-kê" id="toc-toán-học-và-thống-kê" class="nav-link" data-scroll-target="#toán-học-và-thống-kê">Toán học và thống kê</a></li>
   <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in"><code>%in%</code></a></li>
   </ul></li>
-  <li><a href="#lỗi-và-cảnh-báo" id="toc-lỗi-và-cảnh-báo" class="nav-link" data-scroll-target="#lỗi-và-cảnh-báo"><span class="header-section-number">3.13</span> Lỗi và cảnh báo</a>
+  <li><a href="#lỗi-và-cảnh-báo" id="toc-lỗi-và-cảnh-báo" class="nav-link" data-scroll-target="#lỗi-và-cảnh-báo"><span class="header-section-number">12.1</span> Lỗi và cảnh báo</a>
   <ul class="collapse">
   <li><a href="#lỗi-và-cảnh-báo-1" id="toc-lỗi-và-cảnh-báo-1" class="nav-link" data-scroll-target="#lỗi-và-cảnh-báo-1">Lỗi và Cảnh báo</a></li>
   <li><a href="#mẹo-cú-pháp-chung" id="toc-mẹo-cú-pháp-chung" class="nav-link" data-scroll-target="#mẹo-cú-pháp-chung">Mẹo cú pháp chung</a></li>
@@ -718,7 +718,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Chào mừng bạn!</p>
 <p>Chương này sẽ mô tả những kỹ thuật cơ bản của R. Đây không phải là hướng dẫn sử dụng toàn diện, nhưng sẽ cung cấp những kiến thức cơ bản và có thể hữu ích trong việc làm mới hiểu biết của bạn. Phần <a href="#learning">Tài nguyên học liệu</a> sẽ liên kết đến những hướng dẫn sử dụng R bao quát hơn.</p>
 <p>Các phần của chương này đã được điều chỉnh dưới sự cho phép của <a href="https://r4epis.netlify.app/">Dự án R4Epis</a>.</p>
-<p>Xem chương [Chuyển đổi sang R] để biết các mẹo khi chuyển đổi từ STATA, SAS hoặc Excel sang R.</p>
+<p>Xem chương <a href="../new_pages/transition_to_R.vn.html">Chuyển đổi sang R</a> để biết các mẹo khi chuyển đổi từ STATA, SAS hoặc Excel sang R.</p>
 <!-- ======================================================= -->
 <section id="tại-sao-sử-dụng-r" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="tại-sao-sử-dụng-r"><span class="header-section-number">3.1</span> Tại sao sử dụng R?</h2>
@@ -823,13 +823,13 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p><strong>Làm thế nào để cài đặt RStudio</strong></p>
 <p>Truy cập vào trang web <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> và tải phiên bản Desktop mới nhất của RStudio phù hợp với máy tính của bạn.</p>
 <p><strong>Quyền truy cập</strong><br>
-Lưu ý rằng bạn nên cài đặt R và RStudio vào một ổ đĩa mà bạn có quyền đọc và ghi lại. Nếu không, khả năng cài đặt các package R (thường xuyên xảy ra) của bạn sẽ bị ảnh hưởng. Nếu bạn gặp sự cố, hãy thử mở RStudio bằng cách nhấp chuột phải vào biểu tượng và chọn “Run as administrator”. Các mẹo khác có thể được tìm thấy trong chương [R trên ổ cứng mạng].</p>
+Lưu ý rằng bạn nên cài đặt R và RStudio vào một ổ đĩa mà bạn có quyền đọc và ghi lại. Nếu không, khả năng cài đặt các package R (thường xuyên xảy ra) của bạn sẽ bị ảnh hưởng. Nếu bạn gặp sự cố, hãy thử mở RStudio bằng cách nhấp chuột phải vào biểu tượng và chọn “Run as administrator”. Các mẹo khác có thể được tìm thấy trong chương <a href="../new_pages/network_drives.vn.html">R trên ổ cứng mạng</a>.</p>
 <p><strong>Làm thế nào để cập nhật R và RStudio</strong></p>
 <p>Phiên bản R của bạn được in ra R Console khi khởi động. Bạn cũng có thể chạy lệnh <code>sessionInfo()</code>.</p>
 <p>Để cập nhật R, truy cập đến trang web được nhắc đến ở trên và cài đặt lại R. Ngoài ra, bạn có thể sử dụng package <strong>installr</strong> (trên Windows) bằng cách chạy câu lệnh <code>installr::updateR()</code>. Thao tác này sẽ mở ra các hộp thoại giúp bạn tải xuống phiên bản R mới nhất và cập nhật các package của bạn lên phiên bản R mới. Có thể tìm thấy thêm chi tiết trong <a href="https://www.r-project.org/nosvn/pandoc/installr.html">tài liệu</a> <strong>installr</strong> .</p>
 <p>Lưu ý rằng phiên bản R cũ sẽ vẫn tồn tại trong máy tính của bạn. Bạn có thể tạm thời chạy phiên bản cũ hơn (“installation” cũ hơn) của R bằng cách nhấp vào “Tools” -&gt; “Global Options” trong RStudio và chọn một phiên bản R. Điều này có thể hữu ích nếu bạn muốn sử dụng một package chưa được cập nhật để hoạt động trên phiên bản R mới nhất.</p>
 <p>Để cập nhật RStudio, truy cập đến trang web được nhắc đến ở trên và cài đặt lại RStudio. Một tùy chọn khác là nhấp vào “Help” -&gt; “Check for Updates” trong RStudio, nhưng điều này có thể dẫn đến việc không hiển thị các bản cập nhật mới nhất.</p>
-<p>Để xem phiên bản R, RStudio hoặc package nào đã được sử dụng khi viết Sổ tay này, hãy xem chương [Biên tập và ghi chú kỹ thuật].</p>
+<p>Để xem phiên bản R, RStudio hoặc package nào đã được sử dụng khi viết Sổ tay này, hãy xem chương <a href="../new_pages/editorial_style.vn.html">Biên tập và ghi chú kỹ thuật</a>.</p>
 </section>
 <section id="những-phần-mềm-khác-bạn-có-thể-cần-cài-đặt" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="những-phần-mềm-khác-bạn-có-thể-cần-cài-đặt">Những phần mềm khác bạn <em>có thể</em> cần cài đặt</h3>
@@ -1206,7 +1206,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <section id="thư-viện-của-bạn" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="thư-viện-của-bạn">Thư viện của bạn</h4>
 <p>“Thư viện” của bạn thực ra là một thư mục trên máy tính của bạn, bao gồm các thư mục chứa các package đã được cài đặt. Hãy tìm nơi R được cài đặt trong máy tính của bạn và tìm kiếm một thư mục có tên “win-library”. Ví dụ: <code>R\win-library\4.0</code> (4.0 là phiên bản R - bạn sẽ có các thư viện khác nhau tùy theo phiên bản R mà bạn đã tải xuống).</p>
-<p>Bạn có thể in ra đường dẫn tệp đến thư viện của mình bằng cách gõ lệnh <code>.libPaths()</code> (dấu ngoặc bỏ trống). Điều này trở nên đặc biệt quan trọng nếu làm việc với [R trên ổ cứng mạng].</p>
+<p>Bạn có thể in ra đường dẫn tệp đến thư viện của mình bằng cách gõ lệnh <code>.libPaths()</code> (dấu ngoặc bỏ trống). Điều này trở nên đặc biệt quan trọng nếu làm việc với <a href="../new_pages/network_drives.vn.html">R trên ổ cứng mạng</a>.</p>
 </section>
 <section id="cài-đặt-từ-cran" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="cài-đặt-từ-cran">Cài đặt từ CRAN</h4>
@@ -1337,7 +1337,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </section>
 <section id="packages-đề-xuất" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="packages-đề-xuất">Packages đề xuất</h3>
-<p>Xem chương [Package đề xuất] để biết danh sách các packages thường được sử dụng trong dịch tễ học.</p>
+<p>Xem chương <a href="../new_pages/packages_suggested.vn.html">Package đề xuất</a> để biết danh sách các packages thường được sử dụng trong dịch tễ học.</p>
 <!-- ======================================================= -->
 </section>
 </section>
@@ -1396,7 +1396,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <section id="r-markdown" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="r-markdown">R markdown</h3>
 <p>R markdown là một dạng của R script và có khả năng <em>xuất</em> thành các tệp đầu ra (PDF, Word, HTML, Powerpoint, v.v.). Đây là những công cụ vô cùng hữu ích và linh hoạt thường được sử dụng để tạo các báo cáo tự động. Ngay cả trang web và cuốn sách này cũng được viết bằng R markdown!</p>
-<p>Bạn cần biết rằng những người mới bắt đầu dùng R cũng có thể sử dụng R Markdown - do đó đừng sợ! Để tìm hiểu thêm, hãy xem chương [Báo cáo với R Markdown] trong cuốn sách này.</p>
+<p>Bạn cần biết rằng những người mới bắt đầu dùng R cũng có thể sử dụng R Markdown - do đó đừng sợ! Để tìm hiểu thêm, hãy xem chương <a href="../new_pages/rmarkdown.vn.html">Báo cáo với R Markdown</a> trong cuốn sách này.</p>
 <!-- ======================================================= -->
 </section>
 <section id="r-notebooks" class="level3 unnumbered">
@@ -1414,7 +1414,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </li>
 <li>Một lệng gọi hàm <code>shinyApp</code></li>
 </ol>
-<p>Xem thêm trong cuốn sách này tại chương [Dashboards với Shiny], hoặc hướng dẫn trực tuyến này: <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/">Shiny tutorial</a></p>
+<p>Xem thêm trong cuốn sách này tại chương <a href="../new_pages/shiny_basics.vn.html">Dashboards với Shiny</a>, hoặc hướng dẫn trực tuyến này: <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/">Shiny tutorial</a></p>
 <p><em>Trước đây, tệp bên trên được chia thành 2 tệp con (<code>ui.R</code> và <code>server.R</code>)</em></p>
 </section>
 <section id="thu-gọn-code" class="level3 unnumbered">
@@ -1461,20 +1461,20 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </div>
 <section id="gợi-ý-cách-tiếp-cận" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="gợi-ý-cách-tiếp-cận">Gợi ý cách tiếp cận</h3>
-<p><strong>Xem thêm tại chương [Dự án R] để biết chi tiết về gợi ý các cách tiếp cận của chúng tôi trong việc quản lý thư mục làm việc của bạn.</strong><br>
-Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý thư mục làm việc và đường dẫn tệp là kết hợp 3 yếu tố này trong một quy trình làm việc với [Dự án R] có định hướng :</p>
+<p><strong>Xem thêm tại chương <a href="../new_pages/r_projects.vn.html">Dự án R</a> để biết chi tiết về gợi ý các cách tiếp cận của chúng tôi trong việc quản lý thư mục làm việc của bạn.</strong><br>
+Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý thư mục làm việc và đường dẫn tệp là kết hợp 3 yếu tố này trong một quy trình làm việc với <a href="../new_pages/r_projects.vn.html">Dự án R</a> có định hướng :</p>
 <ol type="1">
 <li>Một dự án R để lưu trữ tất cả tệp của bạn (xem chương [Dự án R])<br>
 </li>
-<li>Package <strong>here</strong> để định vị tệp (xem chương [Nhập xuất dữ liệu])<br>
+<li>Package <strong>here</strong> để định vị tệp (xem chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>)<br>
 </li>
-<li>Packge <strong>rio</strong> để nhập/xuất tệp (xem chương [Nhập xuất dữ liệu])</li>
+<li>Packge <strong>rio</strong> để nhập/xuất tệp (xem chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>)</li>
 </ol>
 <!-- ======================================================= -->
 </section>
 <section id="thiết-lập-bằng-lệnh" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="thiết-lập-bằng-lệnh">Thiết lập bằng lệnh</h3>
-<p>Cho tới gần đây, nhiều người học R đã được dạy để bắt đầu script của họ bằng lệnh <code>setwd()</code>. Hãy thay đổi thói quen đó bằng cách sử dụng [Dự án R] và đọc thêm tài liệu sau để hiểu <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">lý do không nên sử dụng <code>setwd()</code></a>. Một cách ngắn gọn là, công việc của bạn chỉ thực hiện được trên máy tính của bạn, các đường dẫn tệp được sử dụng để nhập và xuất tệp trở nên “dễ lỗi” và điều này cản trở nghiêm trọng đến việc cộng tác và sử dụng code của bạn trên bất kỳ máy tính nào khác. Bạn có những lựa chọn khác dễ dàng hơn!</p>
+<p>Cho tới gần đây, nhiều người học R đã được dạy để bắt đầu script của họ bằng lệnh <code>setwd()</code>. Hãy thay đổi thói quen đó bằng cách sử dụng <a href="../new_pages/r_projects.vn.html">Dự án R</a> và đọc thêm tài liệu sau để hiểu <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">lý do không nên sử dụng <code>setwd()</code></a>. Một cách ngắn gọn là, công việc của bạn chỉ thực hiện được trên máy tính của bạn, các đường dẫn tệp được sử dụng để nhập và xuất tệp trở nên “dễ lỗi” và điều này cản trở nghiêm trọng đến việc cộng tác và sử dụng code của bạn trên bất kỳ máy tính nào khác. Bạn có những lựa chọn khác dễ dàng hơn!</p>
 <p>Như đã nói ở trên, mặc dù chúng tôi không khuyến nghị phương pháp này trong hầu hết các trường hợp, bạn vẫn có thể sử dụng lệnh <code>setwd()</code> với đường dẫn tệp thư mục mong muốn trong dấu ngoặc kép, ví dụ:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Documents/R Files/My analysis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1494,7 +1494,7 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 </section>
 <section id="thư-mục-làm-việc-với-r-markdown" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="thư-mục-làm-việc-với-r-markdown">Thư mục làm việc với R markdown</h3>
-<p>Trong script ở R markdown, thư mục làm việc mặc định là thư mục chứa tệp R markdown (<code>.Rmd</code>). Nếu sử dụng dự án R và package <strong>here</strong>, điều này sẽ không được áp dụng. Để biết thư mục làm việc là gì, sử dụng lệnh <code>here()</code> như đã được giải thích tại chương [Dự án R].</p>
+<p>Trong script ở R markdown, thư mục làm việc mặc định là thư mục chứa tệp R markdown (<code>.Rmd</code>). Nếu sử dụng dự án R và package <strong>here</strong>, điều này sẽ không được áp dụng. Để biết thư mục làm việc là gì, sử dụng lệnh <code>here()</code> như đã được giải thích tại chương <a href="../new_pages/r_projects.vn.html">Dự án R</a>.</p>
 <p>Nếu bạn muốn thay đổi thư mục làm việc của một tệp độc lập ở R markdown (không phải ở dự án R), nếu bạn sử dụng <code>setwd()</code> điều này sẽ chỉ áp dụng chỉ cho đoạn code đó. Để thực hiện thay đổi cho tất cả các đoạn code trong R markdown, hãy điều chỉnh ở bước thiết lập để thêm tham số <code>root.dir =</code>, như bên dưới:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">'desired/directorypath'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1504,14 +1504,14 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 </section>
 <section id="cung-cấp-đường-dẫn-tệp" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cung-cấp-đường-dẫn-tệp">Cung cấp đường dẫn tệp</h3>
-<p>Có lẽ điều khiến những người mới bắt đầu với R cảm thấy nản nhất (ít nhất là với người dùng máy tính Windows) đó là gõ đường dẫn tệp để nhập xuất dữ liệu. Chúng tôi có giải thích cặn kẽ về cách tạo đường dẫn tệp đầu vào tốt nhất trong chương [Nhập xuất dữ liệu], nhưng dưới đây là một số điểm chính:</p>
+<p>Có lẽ điều khiến những người mới bắt đầu với R cảm thấy nản nhất (ít nhất là với người dùng máy tính Windows) đó là gõ đường dẫn tệp để nhập xuất dữ liệu. Chúng tôi có giải thích cặn kẽ về cách tạo đường dẫn tệp đầu vào tốt nhất trong chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>, nhưng dưới đây là một số điểm chính:</p>
 <p><strong>Đường dẫn tệp bị lỗi</strong></p>
 <p>Dưới đây là ví dụ về đường dẫn tệp “tuyệt đối” hoặc “địa chỉ đầy đủ”. Chúng có thể bị lỗi nếu được sử dụng bởi một máy tính khác. Một ngoại lệ là nếu bạn đang sử dụng ổ đĩa chia sẻ/mạng.</p>
 <pre><code>C:/Users/Name/Document/Analytic Software/R/Projects/Analysis2019/data/March2019.csv  </code></pre>
 <p><strong>Đường dẫn với dấu gạch chéo</strong></p>
-<p><em>Nếu nhập đường dẫn tệp, hãy lưu ý hướng của các dấu gạch chéo.</em> Sử dụng dấu <em>gạch chéo xuôi</em> (<code>/</code>) để tách các thành phần (“data/provincial.csv”). Đối với người dùng Windows, cách mặc định mà đường dẫn tệp được hiển thị là dấu <em>gạch chéo ngược</em> (\) - vì vậy bạn sẽ cần phải thay đổi hướng của mỗi dấu gạch chéo. Nếu bạn sử dụng package <strong>here</strong> được miêu tả ở [Dự án R] thì dấu gạch chéo không còn là vấn đề với bạn nữa.</p>
+<p><em>Nếu nhập đường dẫn tệp, hãy lưu ý hướng của các dấu gạch chéo.</em> Sử dụng dấu <em>gạch chéo xuôi</em> (<code>/</code>) để tách các thành phần (“data/provincial.csv”). Đối với người dùng Windows, cách mặc định mà đường dẫn tệp được hiển thị là dấu <em>gạch chéo ngược</em> (\) - vì vậy bạn sẽ cần phải thay đổi hướng của mỗi dấu gạch chéo. Nếu bạn sử dụng package <strong>here</strong> được miêu tả ở <a href="../new_pages/r_projects.vn.html">Dự án R</a> thì dấu gạch chéo không còn là vấn đề với bạn nữa.</p>
 <p><strong>Đường dẫn tệp tương đối</strong></p>
-<p>Nói chung, chúng tôi khuyên bạn nên cung cấp các đường dẫn tệp theo cách “tương đối” - nghĩa là, đường dẫn <em>liên quan đến</em> thư mục gốc Dự án R của bạn. Bạn có thể thực hiện việc này bằng cách sử dụng package <strong>here</strong> như được giải thích trong chương [Dự án R]. Một đường dẫn tệp tương đối sẽ trông như thế này:</p>
+<p>Nói chung, chúng tôi khuyên bạn nên cung cấp các đường dẫn tệp theo cách “tương đối” - nghĩa là, đường dẫn <em>liên quan đến</em> thư mục gốc Dự án R của bạn. Bạn có thể thực hiện việc này bằng cách sử dụng package <strong>here</strong> như được giải thích trong chương <a href="../new_pages/r_projects.vn.html">Dự án R</a>. Một đường dẫn tệp tương đối sẽ trông như thế này:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import csv linelist from the data/linelist/clean/ sub-folders of an R project</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span>, <span class="st">"linelists"</span>, <span class="st">"marin_country.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1578,7 +1578,7 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linelist is created and assigned the value of the imported CSV file</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"my_linelist.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Bạn có thể đọc thêm về nhập và xuất dữ liệu trong chương [Nhập xuất dữ liệu].</p>
+<p>Bạn có thể đọc thêm về nhập và xuất dữ liệu trong chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>.</p>
 <p><span style="color: orange;"><strong><em>THẬN TRỌNG:</em></strong> Lưu ý nhanh về cách đặt tên đối tượng:</span></p>
 <ul>
 <li>Tên đối tượng không được chứa dấu cách, nhưng bạn nên sử dụng dấu gạch dưới (_) hoặc dấu chấm (.) thay vì dấu cách.<br>
@@ -1619,7 +1619,7 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new "bmi" column using base R syntax</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>linelist<span class="sc">$</span>bmi <span class="ot">&lt;-</span> linelist<span class="sc">$</span>wt_kg <span class="sc">/</span> (linelist<span class="sc">$</span>ht_cm<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tuy nhiên, trong cuốn sách này, chúng tôi tập trung vào một cách tiếp cận khác để định nghĩa cột, sử dụng hàm <code>mutate()</code> trong package <strong>dplyr</strong> và <em>piping</em> với toán tử pipe (<code>%&gt;%</code>). Cú pháp dễ đọc hơn và có những ưu điểm khác đã được giải thích trong cuốn sách này ở chương [Làm sạch số liệu và các hàm quan trọng]. Bạn có thể đọc thêm về <em>piping</em> trong phần Piping phía bên dưới.</p>
+<p>Tuy nhiên, trong cuốn sách này, chúng tôi tập trung vào một cách tiếp cận khác để định nghĩa cột, sử dụng hàm <code>mutate()</code> trong package <strong>dplyr</strong> và <em>piping</em> với toán tử pipe (<code>%&gt;%</code>). Cú pháp dễ đọc hơn và có những ưu điểm khác đã được giải thích trong cuốn sách này ở chương <a href="../new_pages/cleaning.vn.html">Làm sạch số liệu và các hàm quan trọng</a>. Bạn có thể đọc thêm về <em>piping</em> trong phần Piping phía bên dưới.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new "bmi" column using dplyr syntax</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
@@ -1630,7 +1630,7 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <section id="objectstructure" class="level3" data-number="3.10.1">
 <h3 data-number="3.10.1" class="anchored" data-anchor-id="objectstructure"><span class="header-section-number">3.10.1</span> Cấu trúc đối tượng</h3>
 <p><strong>Các đối tượng có thể là một phần dữ liệu đơn lẻ (ví dụ: <code>my_number &lt;- 24</code>), hoặc chúng có thể bao gồm dữ liệu có cấu trúc.</strong></p>
-<p>Hình ảnh dưới đây được tham khảo từ <a href="http://venus.ifca.unican.es/Rintro/dataStruct.html">hướng dẫn R trực tuyến này</a>. Nó cho thấy một số cấu trúc dữ liệu phổ biến và tên của chúng. Hình ảnh này không bao gồm dữ liệu không gian. Bạn có thể xem thêm về dữ liệu không gian tại chương [GIS cơ bản].</p>
+<p>Hình ảnh dưới đây được tham khảo từ <a href="http://venus.ifca.unican.es/Rintro/dataStruct.html">hướng dẫn R trực tuyến này</a>. Nó cho thấy một số cấu trúc dữ liệu phổ biến và tên của chúng. Hình ảnh này không bao gồm dữ liệu không gian. Bạn có thể xem thêm về dữ liệu không gian tại chương <a href="../new_pages/gis.vn.html">GIS cơ bản</a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1674,63 +1674,69 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <h3 class="unnumbered anchored" data-anchor-id="kiểu-đối-tượng">Kiểu đối tượng</h3>
 <p>Tất cả các đối tượng được lưu trữ trong R đều có một <em>kiểu</em> dữ liệu cho biết cách nó được xử lý. Có nhiều kiểu đối tượng, nhưng những kiểu phổ biến bao gồm:</p>
 <table class="table">
-<colgroup>
-<col style="width: 3%">
-<col style="width: 61%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Kiểu</th>
-<th>Giải thích</th>
-<th>Ví dụ</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Ký tự</td>
-<td>Là các chữ/từ/câu được đặt <strong>“trong dấu ngoặc kép”</strong>. Đối tượng kiểu ký tự thì không thể tính toán</td>
-<td>“Những ký tự nằm trong dấu ngoặc kép”</td>
+<td><h1 id="kiểu" data-number="4"><span class="header-section-number">4</span> Kiểu</h1>
+<p>Ký tự</p></td>
+<td><h1 id="giải-thích" data-number="5"><span class="header-section-number">5</span> Giải thích</h1>
+<p>Là các chữ/từ/câu được đặt <strong>“trong dấu ngoặc kép”</strong>. Đối tượng kiểu ký tự thì không thể tính toán</p></td>
+<td><h1 id="ví-dụ" data-number="6"><span class="header-section-number">6</span> Ví dụ</h1>
+<p>“Những ký tự nằm trong dấu ngoặc kép”</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Số nguyên</td>
 <td>Các số <strong>nguyên</strong> (không có phần thập phân)</td>
 <td>-5, 14, hoặc 2000</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Số thực</td>
 <td>Bao gồm các số nguyên và <strong>có thể bao gồm phần thập phân</strong>. Nếu trong dấu ngoặc kép, chúng sẽ được coi là dạng ký tự</td>
 <td>23.1 hoặc 14</td>
-</tr>
-<tr class="even">
-<td>Factor</td>
-<td>Đây là các vector có <strong>trật tự xác định</strong> hoặc các giá trị có nhiều danh mục</td>
-<td>Biến số của tình trạng kinh tế với các giá trị theo tứ tự</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>Ngày tháng</td>
-<td><strong>Khi R được thông báo rằng một dữ liệu ở dạng ngày tháng R</strong>, những dữ liệu này có thể được thao tác và hiển thị theo những cách đặc biệt. Xem thêm về biến ngày tháng tại chương [Làm việc với ngày tháng].</td>
-<td>2018-04-12 hoặc 15/3/1954 hoặc Wed 4 Jan 1980</td>
+<td>Danh mục</td>
+<td>Đây là các vector có <strong>trật tự xác định</strong> hoặc các giá trị có nhiều danh mục</td>
+<td>Biến số của tình trạng kinh tế với các giá trị theo tứ tự</td>
+<td></td>
 </tr>
 <tr class="even">
+<td>Ngày tháng</td>
+<td><strong>Khi R được thông báo rằng một dữ liệu ở dạng ngày tháng R</strong>, những dữ liệu này có thể được thao tác và hiển thị theo những cách đặc biệt. Xem thêm về biến ngày tháng tại chương <a href="../new_pages/dates.vn.html">Làm việc với ngày tháng</a>. | 2018-04-12 hoặc 15/3/1954 hoặc Wed 4 Jan 1980</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Logic</td>
 <td>Giá trị của biến chỉ có thể là hai giá trị đặc biệt sau TRUE hoặc FALSE (lưu ý đây <strong>không phải</strong> là “TRUE” và”FALSE” trong dấu ngoặc kép)</td>
 <td>TRUE hoặc FALSE</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>data.frame</td>
 <td>Một data.frame trong R lưu trữ một <strong>tập dữ liệu điển hình</strong>. Data.frame bao gồm các vector (cột) dữ liệu được liên kết với nhau, tất cả chúng đều có cùng một số lượng quan sát (hàng).</td>
 <td>Tập dữ liệu mẫu AJS có tên là <code>linelist_raw</code>chứa 68 biến với 300 quan sát (mỗi hàng)</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tibble</td>
 <td>tibbles là một dạng khác của data.frame, sự khác biệt chính là tibble in đẹp hơn trong R console (hiển thị 10 hàng đầu tiên và chỉ các cột vừa với màn hình)</td>
 <td>data frame, danh sách, hoặc ma trận có thể chuyển đổi thành tibble bằng hàm <code>as_tibble()</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Danh sách</td>
 <td>Một danh sách giống như một vector, nhưng chứa các đối tượng có kiểu khác nhau</td>
 <td>Một danh sách có thể chứa một số duy nhất, một data.frame, một vector và thậm chí một danh sách khác bên trong nó!</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1749,7 +1755,7 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>Đôi khi, một cột sẽ được tự động chuyển đổi thành một kiểu khác bởi R. Hãy coi chừng điều này! Ví dụ: nếu bạn có một vectơ hoặc cột kiểu số, nhưng một giá trị ký tự được chèn vào … thì toàn bộ cột sẽ thay đổi thành kiểu ký tự.</p>
+<p>Đôi khi, một cột sẽ được tự động chuyển đổi thành một kiểu khác bởi R. Hãy coi chừng điều này! Ví dụ: nếu bạn có một vectơ hoặc cột kiểu số, nhưng nếu có bất kỳ một giá trị dạng ký tự nào xuất hiện trong cột thì toàn bộ cột sẽ thay đổi thành kiểu ký tự.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co"># define vector as all numbers</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(num_vector)          <span class="co"># vector is numeric class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1762,35 +1768,41 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>Một ví dụ phổ biến của điều này là khi thao tác với một data frame để in bảng - nếu bạn tạo một hàng tính tổng và cố gắng dán /gắn phần trăm với số trong cùng một ô (ví dụ: <code>23 (40%)</code>), toàn bộ cột dạng số ở trên sẽ chuyển đổi thành ký tự và không còn có thể được sử dụng cho các phép tính toán học nữa.</p>
+<p>Một ví dụ phổ biến của điều này là khi thao tác với một bộ dữ liệu để tạo bảng - nếu bạn tạo một hàng tính tổng và cố gắng dán /gắn phần trăm với số trong cùng một ô (ví dụ: <code>23 (40%)</code>), toàn bộ cột dạng số ở trên sẽ chuyển đổi thành ký tự và không còn có thể được sử dụng cho các phép tính toán học nữa.</p>
 <p><strong>Đôi khi, bạn sẽ cần chuyển đổi các đối tượng hoặc cột sang một loại khác.</strong></p>
 <table class="table">
-<thead>
-<tr class="header">
-<th>Hàm</th>
-<th>Chức năng</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td><code>as.character()</code></td>
-<td>Chuyển sang kiểu ký tự</td>
+<td><h1 id="hàm" data-number="7"><span class="header-section-number">7</span> Hàm</h1>
+<p><code>as.character()</code></p></td>
+<td><h1 id="chức-năng" data-number="8"><span class="header-section-number">8</span> Chức năng</h1>
+<p>Chuyển sang kiểu ký tự</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><code>as.numeric()</code></td>
 <td>Chuyển sang kiểu số</td>
-</tr>
-<tr class="odd">
-<td><code>as.integer()</code></td>
-<td>Chuyển sang kiểu số nguyên</td>
+<td></td>
 </tr>
 <tr class="even">
-<td><code>as.Date()</code></td>
-<td>Chuyển sang kiểu ngày tháng - Chú ý: Xem mục <a href="dates.vn.html">Ngày tháng</a> để biết thêm chi tiết</td>
+<td><code>as.integer()</code></td>
+<td>Chuyển sang kiểu số nguyên</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td><code>as.Date()</code></td>
+<td>Chuyển sang kiểu ngày tháng - Chú ý: Xem mục <a href="../new_pages/dates.vn.html">Ngày tháng</a> để biết thêm chi tiết</td>
+<td></td>
+</tr>
+<tr class="even">
 <td><code>factor()</code></td>
-<td>Chuyển sang kiểu factor - Chú ý: nếu muốn định nghĩa lại thứ tự của các giá trị trong biến factor thì cần thêm các đối số bổ sung</td>
+<td>Chuyển sang kiểu danh mục- Chú ý: nếu muốn định nghĩa lại thứ tự của các giá trị trong biến factor thì cần thêm các đối số bổ sung</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1893,7 +1905,7 @@ Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương v
 <span id="cb59-24"><a href="#cb59-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as a new object</span></span>
 <span id="cb59-25"><a href="#cb59-25" aria-hidden="true" tabindex="-1"></a>new_table <span class="ot">&lt;-</span> linelist[<span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, <span class="fu">c</span>(<span class="st">"date_onset"</span>)] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Lưu ý rằng bạn cũng có thể indexing hàng / cột trong một data frames và tibbles bằng cách sử dụng cú pháp của package <strong>dplyr</strong> (hàm <code>filter()</code> đối với hàng, và <code>select()</code> đối với cột). Đọc thêm về các hàm quan trọng này trong chương [Làm sạch số liệu và các hàm quan trọng].</p>
+<p>Lưu ý rằng bạn cũng có thể indexing hàng / cột trong một data frames và tibbles bằng cách sử dụng cú pháp của package <strong>dplyr</strong> (hàm <code>filter()</code> đối với hàng, và <code>select()</code> đối với cột). Đọc thêm về các hàm quan trọng này trong chương <a href="../new_pages/cleaning.vn.html">Làm sạch số liệu và các hàm quan trọng</a>.</p>
 <p>Để lọc dựa trên “số thứ tự hàng”, bạn có thể sử dụng hàm <code>row_number()</code>trong package <strong>dplyr</strong> với dấu ngoặc đơn mở như một phần của biểu thức lọc logic. Thường thì bạn sẽ sử dụng toán tử <code>%in%</code> và một khoảng giá trị số như một phần của câu lệnh logic đó, như được trình bày dưới đây. Để xem N hàng <em>đầu tiên</em>, bạn cũng có thể sử dụng hàm <code>head()</code> của package <strong>dplyr</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View first 100 rows</span></span>
@@ -1984,8 +1996,8 @@ $addresses
 <!-- ======================================================= -->
 </section>
 </section>
-<section id="piping" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="piping"><span class="header-section-number">3.11</span> Piping (<code>%&gt;%</code>)</h2>
+<section id="piping" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="piping"><span class="header-section-number">8.1</span> Piping (<code>%&gt;%</code>)</h2>
 <p><strong>Hai cách tiếp cận chung để làm việc với các đối tượng là:</strong></p>
 <ol type="1">
 <li><strong>Pipes/tidyverse</strong> - pipes chuyển một đối tượng từ hàm này sang hàm khác - tập trung vào <em>hành động</em> chứ không phải đối tượng<br>
@@ -1995,18 +2007,18 @@ $addresses
 <!-- ======================================================= -->
 <section id="pipes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pipes"><strong>Pipes</strong></h3>
-<p><strong>Giải thích một cách đơn giản, toán tử pipe (<code>%&gt;%</code>) chuyển một đầu ra trung gian từ hàm này sang hàm tiếp theo.</strong><br>
-Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể được liên kết với nhau bằng toán tử <code>%&gt;%</code>.</p>
+<p><strong>Giải thích một cách đơn giản, toán tử pipe (<code>%&gt;%</code>) nhận dữ liệu đầu ra trung gian từ một hàm và chuyển tiếp sang hàm tiếp theo.</strong><br>
+Hiểu đơn giản thì pipe nghĩa là “tiếp tục”. Nhiều hàm có thể được liên kết với nhau bằng toán tử <code>%&gt;%</code>.</p>
 <ul>
 <li><strong>Piping nhấn mạnh một chuỗi các hành động, không phải đối tượng mà các hành động đang áp dụng</strong><br>
 </li>
 <li>Pipes được áp dụng tốt nhất khi một chuỗi hành động phải được thực hiện trên một đối tượng<br>
 </li>
 <li>Pipes đến từ package <strong>magrittr</strong>, và đã tự động được thêm vào packages <strong>dplyr</strong> và <strong>tidyverse</strong></li>
-<li>Pipes làm cho code sạch hơn, dễ đọc hơn và trực quan hơn</li>
+<li>Pipes làm cho code gọn hơn, dễ đọc hơn và trực quan hơn</li>
 </ul>
 <p>Đọc thêm về cách tiếp cận này trong package tidyverse tại đây <a href="https://style.tidyverse.org/pipes.html">Hướng dẫn</a></p>
-<p>Đây là một ví dụ mô phỏng dùng để so sánh, sử dụng các hàm hư cấu để “nướng bánh”. Đầu tiên, phương pháp pipe:</p>
+<p>Đây là một ví dụ mô phỏng, ẩn dụ việc phân tích dữ liệu sử dụng các hàm như là các quy trình “nướng bánh”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A fake example of how to bake a cake using piping syntax</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2023,8 +2035,8 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 <span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">let_cool</span>()            <span class="co"># let it cool down</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Đây là một <a href="https://cfss.uchicago.edu/notes/pipes/#:~:text=Pipes%20are%20an%20extremely%20useful,code%20and%20combine%20multiple%20operations">link</a> khác mô tả công dụng của pipe.</p>
-<p>Piping không phải là một hàm trong <strong>base</strong> R. Để sử dụng piping, package <strong>magrittr</strong> phải được cài đặt và gọi ra trong phiên làm việc hiện tại (điều này thường được thực hiện bằng cách gọi package <strong>tidyverse</strong> hoặc <strong>dplyr</strong>). Bạn có thể <a href="https://magrittr.tidyverse.org/">đọc thêm về piping trong tài liệu magrittr</a>.</p>
-<p>Lưu ý rằng cũng giống như các lệnh R khác, các pipes có thể được sử dụng để hiển thị kết quả hoặc lưu/lưu lại một đối tượng, tùy thuộc vào toán tử <code>&lt;-</code> được code như thế nào. Xem hai ví dụ dưới đây:</p>
+<p>Piping không phải là một hàm trong <strong>base</strong> R. Để sử dụng piping, package <strong>magrittr</strong> phải được cài đặt và gọi ra trong mỗi phiên làm việc (điều này thường được thực hiện bằng cách gọi package <strong>tidyverse</strong> hoặc <strong>dplyr</strong>). Bạn có thể <a href="https://magrittr.tidyverse.org/">đọc thêm về piping trong tài liệu magrittr</a>.</p>
+<p>Lưu ý rằng cũng giống như các hàm R khác, các pipes có thể được sử dụng để hiển thị kết quả hoặc lưu lại một đối tượng, tùy thuộc vào việc toán tử gán <code>&lt;-</code> có được thực hiện hay không. Xem hai ví dụ dưới đây:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create or overwrite object, defining as aggregate counts by age category (not printed)</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>linelist_summary <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
@@ -2096,8 +2108,8 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 <!-- ======================================================= -->
 </section>
 </section>
-<section id="operators" class="level2" data-number="3.12">
-<h2 data-number="3.12" class="anchored" data-anchor-id="operators"><span class="header-section-number">3.12</span> Các toán tử và hàm chính</h2>
+<section id="operators" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="operators"><span class="header-section-number">8.2</span> Các toán tử và hàm chính</h2>
 <p>Mục này sẽ trình bày chi tiết các toán tử trong R, chẳng hạn như :</p>
 <ul>
 <li>Toán tử định nghĩa<br>
@@ -2120,7 +2132,7 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 Toán tử gán này cũng có thể được viết là <code>=</code>. Chúng tôi khuyên bạn nên sử dụng <code>&lt;-</code>.<br>
 Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán để dễ đọc hơn.</p>
 <p><strong><code>&lt;&lt;-</code></strong></p>
-<p>Khi <a href="#viết-hàm">Viết hàm</a>, hoặc khi sử dụng R với scipt nguồn, thì bạn có thể cần sử dụng toán tử gán này <code>&lt;&lt;-</code> (từ <strong>base</strong> R). Toán tử này được sử dụng để định nghĩa một đối tượng trong một hàm lồng trong một hàm khác. Xem thêm tại <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">nguồn tham khảo online này</a>.</p>
+<p>Khi <a href="../new_pages/writing_functions.vn.html">Viết hàm</a>, hoặc khi sử dụng R với scipt nguồn, thì bạn có thể cần sử dụng toán tử gán này <code>&lt;&lt;-</code> (từ <strong>base</strong> R). Toán tử này được sử dụng để định nghĩa một đối tượng trong một hàm lồng trong một hàm khác. Xem thêm tại <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">nguồn tham khảo online này</a>.</p>
 <p><strong><code>%&lt;&gt;%</code></strong></p>
 <p>Đây là một “pipe gán” từ package <strong>magrittr</strong>, package này sẽ <em>gán một đối tượng theo chiều tiến lên và cũng định nghĩa lại đối tượng</em>. Pipe gán phải là toán tử đầu tiên trong chuỗi pipe code. Đây là cách viết ngắn gọn, như được trình bày dưới đây là hai ví dụ tương đương với nhau:</p>
 <div class="cell">
@@ -2132,75 +2144,80 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">age_months =</span> age_years <span class="sc">*</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><code>%&lt;+%</code></strong></p>
-<p>Toán tử này được sử dụng dể thêm dữ liệu vào Cây phả hệ với package <strong>ggtree</strong>. Xem thêm chương [Cây phả hệ] hoặc <a href="https://yulab-smu.top/treedata-book/">Sách online này</a>.</p>
+<p>Toán tử này được sử dụng dể thêm dữ liệu vào Cây phả hệ với package <strong>ggtree</strong>. Xem thêm chương <a href="../new_pages/phylogenetic_trees.vn.html">Cây phả hệ</a> hoặc <a href="https://yulab-smu.top/treedata-book/">Sách online này</a>.</p>
 <!-- ======================================================= -->
 </section>
 <section id="toán-tử-quan-hệ-và-logic" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="toán-tử-quan-hệ-và-logic">Toán tử quan hệ và logic</h3>
 <p>Toán tử quan hệ so sánh các giá trị và thường được sử dụng khi định nghĩa các biến mới và tập con của bộ dữ liệu. Dưới đây là các toán tử quan hệ phổ biến trong R:</p>
 <table class="table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 74%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Ý nghĩa</th>
-<th>Toán tử</th>
-<th>Ví dụ</th>
-<th>Kết quả đầu ra của ví dụ</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Bằng</td>
-<td><code>==</code></td>
-<td><code>"A" == "a"</code></td>
-<td><code>FALSE</code> (vì R phân biệt chữ hoa chữ thường) Lưu ý rằng <em>== (hai dấu bằng) khác với = (một dấu bằng), một dấu bằng hoạt động tương tự với toán tử gán <code>&lt;-</code></em></td>
+<td><h1 id="ý-nghĩa" data-number="9"><span class="header-section-number">9</span> Ý nghĩa</h1>
+<p>Bằng</p></td>
+<td><h1 id="toán-tử" data-number="10"><span class="header-section-number">10</span> Toán tử</h1>
+<p><code>==</code></p></td>
+<td><h1 id="ví-dụ-1" data-number="11"><span class="header-section-number">11</span> Ví dụ</h1>
+<p><code>"A" == "a"</code></p></td>
+<td><h1 id="kết-quả-đầu-ra-của-ví-dụ" data-number="12"><span class="header-section-number">12</span> Kết quả đầu ra của ví dụ</h1>
+<p><code>FALSE</code> (vì R phân biệt chữ hoa chữ thường) Lưu ý rằng <em>== (hai dấu bằng) khác với = (một dấu bằng), một dấu bằng hoạt động tương tự với toán tử gán <code>&lt;-</code></em></p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Không bằng</td>
 <td><code>!=</code></td>
 <td><code>2 != 0</code></td>
 <td><code>TRUE</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lớn hơn</td>
 <td><code>&gt;</code></td>
 <td><code>4 &gt; 2</code></td>
 <td><code>TRUE</code></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nhỏ hơn</td>
 <td><code>&lt;</code></td>
 <td><code>4 &lt; 2</code></td>
 <td><code>FALSE</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lớn hơn hoặc bằng</td>
 <td><code>&gt;=</code></td>
 <td><code>6 &gt;= 4</code></td>
 <td><code>TRUE</code></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nhỏ hơn hoặc bằng</td>
 <td><code>&lt;=</code></td>
 <td><code>6 &lt;= 4</code></td>
 <td><code>FALSE</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Giá trị bị missing</td>
 <td><code>is.na()</code></td>
 <td><code>is.na(7)</code></td>
-<td><code>FALSE</code> (Xem thêm chương [Dữ liệu Missing])</td>
+<td><code>FALSE</code> (Xem thêm chương <a href="../new_pages/missing_data.vn.html">Dữ liệu Missing</a>)</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Giá trị không missing</td>
 <td><code>!is.na()</code></td>
 <td><code>!is.na(7)</code></td>
 <td><code>TRUE</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2276,7 +2293,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </section>
 <section id="giá-trị-missing" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="giá-trị-missing">Giá trị Missing</h3>
-<p>Trong R, giá trị missing được biểu diễn bằng giá trị đặc biệt <code>NA</code> (giá trị “dành riêng cho missing”) (chữ N và A viết hoa - không nằm trong dấu ngoặc kép). Nếu dữ liệu bạn nhập vào R bị missing theo cách khác (ví dụ: 99, “Missing”, or .), bạn có thể sẽ cần phải mã hóa lại các giá trị đó thành <code>NA</code>. Cách thực hiện việc này được đề cập trong chương [Nhập xuất dữ liệu].</p>
+<p>Trong R, giá trị missing được biểu diễn bằng giá trị đặc biệt <code>NA</code> (giá trị “dành riêng cho missing”) (chữ N và A viết hoa - không nằm trong dấu ngoặc kép). Nếu dữ liệu bạn nhập vào R bị missing theo cách khác (ví dụ: 99, “Missing”, or .), bạn có thể sẽ cần phải mã hóa lại các giá trị đó thành <code>NA</code>. Cách thực hiện việc này được đề cập trong chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>.</p>
 <p><strong>Để kiểm tra xem một giá trị có phải là <code>NA</code> hay không, sử dụng hàm đặc biệt <code>is.na()</code></strong>, kết quả sẽ trả về <code>TRUE</code> hoặc <code>FALSE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>rdt_result <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Positive"</span>, <span class="st">"Suspected"</span>, <span class="st">"Positive"</span>, <span class="cn">NA</span>)   <span class="co"># two positive cases, one suspected, and one unknown</span></span>
@@ -2285,7 +2302,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <pre><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
-<p>Đọc thêm về missing, vô hạn, <code>NULL</code>, và các giá trị không thể trong chương [Dữ liệu Missing]. Tìm hiểu thêm cách chuyển đổi các giá trị bị missing khi nhập dữ liệu trong chương [Nhập xuất dữ liệu].</p>
+<p>Đọc thêm về missing, vô hạn, <code>NULL</code>, và các giá trị không thể trong chương <a href="../new_pages/missing_data.vn.html">Dữ liệu Missing</a>. Tìm hiểu thêm cách chuyển đổi các giá trị bị missing khi nhập dữ liệu trong chương <a href="importing.vn/qmd">Nhập xuất dữ liệu</a>.</p>
 <!-- ======================================================= -->
 </section>
 <section id="toán-học-và-thống-kê" class="level3 unnumbered">
@@ -2518,7 +2535,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </section>
 <section id="in" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="in"><code>%in%</code></h3>
-<p>Một toán tử rất hữu ích để nhanh chóng đánh giá xem một giá trị có nằm trong một vectơ hoặc một dataframe hay không.</p>
+<p>Một toán tử rất hữu ích để nhanh chóng tìm kiếm xem một giá trị có nằm trong một vectơ hoặc một dataframe hay không.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2553,7 +2570,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>    hospitalized <span class="sc">%in%</span> affirmative <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">"Hospitalized Child"</span>,</span>
 <span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>                                      <span class="sc">~</span> <span class="st">"Not"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Lưu ý: Nếu bạn muốn phát hiện một phần của chuỗi, có lẽ việc sử dụng hàm <code>str_detect()</code> từ package <strong>stringr</strong>, sẽ không chấp nhận một vectơ ký tự kiểu như <code>c("1", "Yes", "yes", "y")</code>. Thay vào đó, nó cần được cung cấp dưới dạng một <em>biểu thức chính quy</em> - một chuối cô đọng với thanh dọc cho phép so sánh OR, chẳng hạn như “1|Yes|yes|y”. Ví dụ, <code>str_detect(hospitalized, "1|Yes|yes|y")</code>. Xem thêm chương [Ký tự và chuỗi] để biết thêm chi tiết.</p>
+<p>Lưu ý: Nếu bạn muốn phát hiện một phần của chuỗi, có lẽ việc sử dụng hàm <code>str_detect()</code> từ package <strong>stringr</strong>, sẽ không chấp nhận một vectơ ký tự kiểu như <code>c("1", "Yes", "yes", "y")</code>. Thay vào đó, nó cần được cung cấp dưới dạng một <em>biểu thức chính quy</em> - một chuối cô đọng với thanh dọc cho phép so sánh OR, chẳng hạn như “1|Yes|yes|y”. Ví dụ, <code>str_detect(hospitalized, "1|Yes|yes|y")</code>. Xem thêm chương <a href="../new_pages/characters_strings.vn.html">Ký tự và chuỗi</a> để biết thêm chi tiết.</p>
 <p>Bạn có thể chuyển đổi một vectơ ký tự thành một biểu thức chính quy được đặt tên bằng lệnh này:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>affirmative <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"Yes"</span>, <span class="st">"YES"</span>, <span class="st">"yes"</span>, <span class="st">"y"</span>, <span class="st">"Y"</span>, <span class="st">"oui"</span>, <span class="st">"Oui"</span>, <span class="st">"Si"</span>)</span>
@@ -2575,8 +2592,8 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <!-- ======================================================= -->
 </section>
 </section>
-<section id="lỗi-và-cảnh-báo" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="lỗi-và-cảnh-báo"><span class="header-section-number">3.13</span> Lỗi và cảnh báo</h2>
+<section id="lỗi-và-cảnh-báo" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="lỗi-và-cảnh-báo"><span class="header-section-number">12.1</span> Lỗi và cảnh báo</h2>
 <p>Phần này giải thích:</p>
 <ul>
 <li>Sự khác biệt giữa lỗi và cảnh báo<br>
@@ -2585,7 +2602,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </li>
 <li>Trợ giúp viết code</li>
 </ul>
-<p>Các lỗi thường gặp và cảnh báo cũng như mẹo khắc phục sự cố có thể được tìm thấy trong chương [Các lỗi thường gặp].</p>
+<p>Các lỗi thường gặp và cảnh báo cũng như mẹo khắc phục sự cố có thể được tìm thấy trong chương <a href="../new_pages/errors.vn.html">Các lỗi thường gặp</a>.</p>
 <!-- ======================================================= -->
 <section id="lỗi-và-cảnh-báo-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="lỗi-và-cảnh-báo-1">Lỗi và Cảnh báo</h3>
@@ -3166,7 +3183,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

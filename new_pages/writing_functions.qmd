@@ -7,7 +7,7 @@
 
 ### Load packages {-}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, echo=F, warning=F, message=F}
 pacman::p_load(
@@ -27,7 +27,7 @@ pacman::p_load(
 
 ### Import data {-}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow step-by-step, see instructions in the [Download book and data] page. The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export] for various ways to import data.
+We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow step-by-step, see instructions in the [Download book and data](data_used.qmd) page. The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export](importing.qmd) for various ways to import data.
 
 We will also use in the last part of this page some data on H7N9 flu from 2013.
 
@@ -57,7 +57,7 @@ Lot of very advanced resources on functional programming exist and we will only 
 
 ## Why would you use a function? 
 
-Before answering this question, it is important to note that you have already had tips to get to write your very first R functions in the page on [Iteration, loops, and lists] of this handbook. In fact, use of "if/else" and loops is often a core part of many of our functions since they easily help to either broaden the application of our code allowing multiple conditions or to iterate codes for repeating tasks.
+Before answering this question, it is important to note that you have already had tips to get to write your very first R functions in the page on [Iteration, loops, and lists](iteration.qmd) of this handbook. In fact, use of "if/else" and loops is often a core part of many of our functions since they easily help to either broaden the application of our code allowing multiple conditions or to iterate codes for repeating tasks.
 
 - I am repeating multiple times the same block of code to apply it to a different variable or data?
 

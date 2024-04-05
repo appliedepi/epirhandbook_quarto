@@ -18,7 +18,7 @@ Bu sayfa aşağıdaki veri tekilleştirme tekniklerini kapsamaktadır:
 
 ### Paketleri yükleme {.unnumbered}
 
-Bu kod parçası, analizler için gereken paketlerin yüklenmesini göstermektedir. Bu el kitabında, paketi kuran *ve* eğer gerekirse kullanım için yükleyen pacman'ın `p_load()` işlevlerini vurgulamaktayız. Ayrıca, **base** R'den `library()` fonksiyonu ile kurulu paketleri yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R'ın Temelleri] sayfasına bakabilirsiniz.
+Bu kod parçası, analizler için gereken paketlerin yüklenmesini göstermektedir. Bu el kitabında, paketi kuran *ve* eğer gerekirse kullanım için yükleyen pacman'ın `p_load()` işlevlerini vurgulamaktayız. Ayrıca, **base** R'den `library()` fonksiyonu ile kurulu paketleri yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R'ın Temelleri](basics.tr.qmd) sayfasına bakabilirsiniz.
 
 ```{r}
 pacman::p_load(
@@ -149,7 +149,7 @@ Daha fazla ayrıntı için `?get_dupes` fonksiyonunu kullanabilir veya bu [çevr
 ### Yalnızca benzersiz satırları tutma  {.unnumbered}
 
 
-Bir veri çerçevesinin yalnızca benzersiz satırlarını tutmak için **dplyr** paketinden `distinct()` fonksiyonunu kullanabilirsiniz ([Veri ve temel işlevleri temizleme] sayfasında gösterildiği gibi). Yinelenen satırlar, bu tür satırlardan yalnızca ilki tutulacak şekilde kaldırılır. Varsayılan olarak, "ilk" en yüksek satır sayısı - `rownumber` anlamına gelir (yukarıdan aşağıya sırasında). Yalnızca benzersiz satırlar kalır.
+Bir veri çerçevesinin yalnızca benzersiz satırlarını tutmak için **dplyr** paketinden `distinct()` fonksiyonunu kullanabilirsiniz ([Veri ve temel işlevleri temizleme](cleaning.tr.qmd) sayfasında gösterildiği gibi). Yinelenen satırlar, bu tür satırlardan yalnızca ilki tutulacak şekilde kaldırılır. Varsayılan olarak, "ilk" en yüksek satır sayısı - `rownumber` anlamına gelir (yukarıdan aşağıya sırasında). Yalnızca benzersiz satırlar kalır.
 
 Aşağıdaki örnekte, kayıt kimliği - `recordID` sütununun dikkate alınmaması için `distinct()` fonksiyonunu çalıştırıyoruz - bu nedenle *iki yinelenen satır* kaldırılmaktadır. İlk satır ("adam" için) %100 kopyalandı ve kaldırıldı. Ayrıca 3. satır ("amrish" için) `recordID` (değerlendirilmemiştir) *dışındaki* her sütunda bir kopyaydı ve bu nedenle de kaldırıldı. `obs` veri kümesinin n'i `nrow(obs)-2`dir, `nrow(obs)` satırı değil.
 

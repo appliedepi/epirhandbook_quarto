@@ -52,7 +52,7 @@ R'ın kendi veri biçimleri bile vardır:
 
 **rio**'nun `import()` ve `export()` fonksiyonları, dosya uzantısına bağlı olarak belirli bir dosya için uygun paketi ve fonksiyonu kullanır. **rio**'nun arka planda kullandığı paketlerin/fonksiyonların tam bir tablosu için bu sayfanın sonuna bakabilirsiiniz. Düzinelerce başka dosya türü arasından STATA, SAS ve SPSS dosyalarını içe aktarmak için de kullanılabilir.
 
-Şekil dosyalarının içe/dışa aktarımı, [GIS temelleri] sayfasında ayrıntılı olarak açıklandığı gibi başka paketler gerektirir.
+Şekil dosyalarının içe/dışa aktarımı, [GIS temelleri](gis.tr.qmd) sayfasında ayrıntılı olarak açıklandığı gibi başka paketler gerektirir.
 
 
 
@@ -129,7 +129,7 @@ Mutlak dosya yolları hakkında dikkat edilmesi gereken birkaç nokta:
 
 * **Mutlak dosya yollarını kullanmaktan kaçının** çünkü komut dosyası farklı bir bilgisayarda çalıştırılırsa bozulurlar
 * Yukarıdaki örnekte olduğu gibi *ileri* eğik çizgi (`/`) kullanın (not: bu, Windows dosya yolları için varsayılan *DEĞİLDİR*)
-* Çift eğik çizgiyle başlayan dosya yolları (ör. "//...") büyük olasılıkla **R** tarafından tanınmayacak ve bir hata üretecektir. Çalışmanızı bir harfle başlayan "adlandırılmış" veya "harfli" bir sürücüye taşımayı düşünün (ör. "J:" veya "C:"). Bu sorunla ilgili daha fazla ayrıntı için [Dizin etkileşimleri] hakkındaki sayfaya bakabilirsiniz.
+* Çift eğik çizgiyle başlayan dosya yolları (ör. "//...") büyük olasılıkla **R** tarafından tanınmayacak ve bir hata üretecektir. Çalışmanızı bir harfle başlayan "adlandırılmış" veya "harfli" bir sürücüye taşımayı düşünün (ör. "J:" veya "C:"). Bu sorunla ilgili daha fazla ayrıntı için [Dizin etkileşimleri](directories.tr.qmd) hakkındaki sayfaya bakabilirsiniz.
 
 Mutlak dosya yollarının uygun olabileceği bir senaryo, tüm kullanıcılar için aynı tam dosya yoluna sahip bir paylaşılan sürücüden bir dosyayı içe aktarmak istediğiniz zamandır.
 
@@ -198,9 +198,9 @@ my_data <- import("my_excel_file.xlsx", which = "Sheetname")
 linelist_raw <- import(here("data", "linelist.xlsx"), which = "Sheet1")`  
 ```
 
-Bir veri çerçevesini R'dan belirli bir Excel sayfasına *dışa aktarmak* ve Excel çalışma kitabının geri kalanının değişmeden kalmasını sağlamak için, bu amaca yönelik **openxlsx** gibi alternatif bir paketle içe aktarmanız, düzenlemeniz ve dışa aktarmanız gerekir. . [Dizin etkileşimleri] sayfasındaki veya [bu github sayfasındaki](https://ycphs.github.io/openxlsx/) daha fazla bilgiye bakabilirsiniz.
+Bir veri çerçevesini R'dan belirli bir Excel sayfasına *dışa aktarmak* ve Excel çalışma kitabının geri kalanının değişmeden kalmasını sağlamak için, bu amaca yönelik **openxlsx** gibi alternatif bir paketle içe aktarmanız, düzenlemeniz ve dışa aktarmanız gerekir. . [Dizin etkileşimleri](directories.tr.qmd) sayfasındaki veya [bu github sayfasındaki](https://ycphs.github.io/openxlsx/) daha fazla bilgiye bakabilirsiniz.
 
-Excel çalışma kitabınız .xlsb (ikili biçimli Excel çalışma kitabı) ise **rio** kullanarak içe aktaramayabilirsiniz. .xlsx olarak yeniden kaydetmeyi veya [bu amaç için] oluşturulmuş **readxlsb** gibi bir paket kullanmayı düşünebilirsiniz(https://cran.r-project.org/web/packages/readxlsb/vignettes/read- xlsb-workbook.html).
+Excel çalışma kitabınız .xlsb (ikili biçimli Excel çalışma kitabı) ise **rio** kullanarak içe aktaramayabilirsiniz. .xlsx olarak yeniden kaydetmeyi veya [bu amaç için](https://cran.r-project.org/web/packages/readxlsb/vignettes/read- xlsb-workbook.html) oluşturulmuş **readxlsb** gibi bir paket kullanmayı düşünebilirsiniz.
 
 
 
@@ -210,7 +210,7 @@ Excel çalışma kitabınız .xlsb (ikili biçimli Excel çalışma kitabı) ise
 <!-- ============================================ ========= -->
 ### Eksik değerler {#import_missing .unnumbered}
 
-Veri kümenizdeki hangi değer(ler)in eksik olarak kabul edilmesi gerektiğini belirlemek isteyebilirsiniz. [Eksik veri] sayfasında açıklandığı gibi, R'daki eksik veriler için değer `NA'dır, ancak belki de içe aktarmak istediğiniz veri kümesi bunun yerine 99, "Eksik" veya yalnızca boş karakter alanı "" kullanır.
+Veri kümenizdeki hangi değer(ler)in eksik olarak kabul edilmesi gerektiğini belirlemek isteyebilirsiniz. [Eksik veri](missing_data.tr.qmd) sayfasında açıklandığı gibi, R'daki eksik veriler için değer `NA'dır, ancak belki de içe aktarmak istediğiniz veri kümesi bunun yerine 99, "Eksik" veya yalnızca boş karakter alanı "" kullanır.
 
 'import()' için 'na = ' bağımsız değişkenini kullanın ve değer(ler)i tırnak işaretleri içinde sağlayın (sayı olsalar bile). Aşağıda gösterildiği gibi `c()` kullanarak bunları bir vektöre dahil ederek birden çok değer belirtebilirsiniz.
 
@@ -396,7 +396,7 @@ Başka bir paket olan **googledrive**, Google sayfalarını yazmak, düzenlemek 
 
 ## Birden çok dosya - içe aktarma, dışa aktarma, bölme, birleştirme
 
-Birden çok dosyanın veya birden çok Excel çalışma kitabı dosyasının nasıl içe aktarılacağına ve birleştirileceğine ilişkin örnekler için [Yineleme, döngüler ve listeler] hakkındaki sayfaya bakın. Bu sayfada ayrıca bir veri çerçevesinin parçalara nasıl bölüneceği ve her birinin ayrı ayrı veya bir Excel çalışma kitabında adlandırılmış sayfalar olarak nasıl dışa aktarılacağına ilişkin örnekler de vardır.
+Birden çok dosyanın veya birden çok Excel çalışma kitabı dosyasının nasıl içe aktarılacağına ve birleştirileceğine ilişkin örnekler için [Yineleme, döngüler ve listeler](iteration.tr.qmd) hakkındaki sayfaya bakın. Bu sayfada ayrıca bir veri çerçevesinin parçalara nasıl bölüneceği ve her birinin ayrı ayrı veya bir Excel çalışma kitabında adlandırılmış sayfalar olarak nasıl dışa aktarılacağına ilişkin örnekler de vardır.
 
 
 
@@ -436,7 +436,7 @@ knitr::include_graphics(here::here("images", "download_xlsx.png"))
 
 Şekil dosyaları, her biri farklı bir dosya uzantısına sahip birçok alt bileşen dosyasına sahiptir. Bir dosya ".shp" uzantısına sahip olacaktır, ancak diğerleri ".dbf", ".prj" vb. uzantılara sahip olabilir. Github'dan bir şekil dosyası indirmek için, alt bileşen dosyalarının her birini ayrı ayrı indirmeniz ve kaydetmeniz gerekir. bunları bilgisayarınızdaki *aynı* klasöre yerleştirin. Github'da her dosyaya tek tek tıklayın ve "İndir" butonuna tıklayarak indirin.
 
-Bilgisayarınıza kaydettikten sonra, **sf** paketinden `st_read()` kullanarak şekil dosyasını [GIS temel bilgileri] sayfasında gösterildiği gibi içe aktarabilirsiniz. Diğer ilgili dosyalar bilgisayarınızda aynı klasörde olduğu sürece yalnızca ".shp" dosyasının dosya yolunu ve adını sağlamanız gerekir. 
+Bilgisayarınıza kaydettikten sonra, **sf** paketinden `st_read()` kullanarak şekil dosyasını [GIS temel bilgileri](gis.tr.qmd) sayfasında gösterildiği gibi içe aktarabilirsiniz. Diğer ilgili dosyalar bilgisayarınızda aynı klasörde olduğu sürece yalnızca ".shp" dosyasının dosya yolunu ve adını sağlamanız gerekir. 
 
 Aşağıda, "sle_adm3" şekil dosyasının her biri Github'dan indirilmesi gereken birçok dosyadan nasıl oluştuğunu görebilirsiniz. 
 
@@ -550,21 +550,21 @@ Bu yaklaşım üç öncüle bağlıdır:
 
 Her adımı açıklayacağız ve sonunda size bunların birleştirilmiş halini göstereceğiz.
 
-İlk olarak, ilgilenilen klasördeki her dosya için yalnızca dosya adlarını çıkarmak için **base** R'dan `dir()` kullanın. 'dir()' hakkında daha fazla ayrıntı için [Dizin etkileşimleri] sayfasına bakın. Bu örnekte, ilgilenilen klasör, R projesi içindeki "data" içindeki "example" klasörü içindeki "linelists" klasörüdür.
+İlk olarak, ilgilenilen klasördeki her dosya için yalnızca dosya adlarını çıkarmak için **base** R'dan `dir()` kullanın. 'dir()' hakkında daha fazla ayrıntı için [Dizin etkileşimleri](directories.tr.qmd) sayfasına bakın. Bu örnekte, ilgilenilen klasör, R projesi içindeki "data" içindeki "example" klasörü içindeki "linelists" klasörüdür.
 
 ```{r}
 linelist_filenames <- dir(here("data", "example", "linelists")) # klasörden dosya isimlerini al
 linelist_filenames                                              # yazdır
 ```
 
-Bu ad vektörüne sahip olduğunuzda, bu normal ifadeyi kullanarak **stringr**'den `str_extract()` uygulayarak tarihleri çıkarabilirsiniz. Dosya adındaki herhangi bir sayıyı çıkarır (ortadaki tire veya eğik çizgi gibi diğer karakterler dahil). [Dizeler ve karakterler] sayfasında **stringr** hakkında daha fazla bilgi edinebilirsiniz.
+Bu ad vektörüne sahip olduğunuzda, bu normal ifadeyi kullanarak **stringr**'den `str_extract()` uygulayarak tarihleri çıkarabilirsiniz. Dosya adındaki herhangi bir sayıyı çıkarır (ortadaki tire veya eğik çizgi gibi diğer karakterler dahil). [Dizeler ve karakterler](characters_strings.tr.qmd) sayfasında **stringr** hakkında daha fazla bilgi edinebilirsiniz.
 
 ```{r}
 linelist_dates_raw <- stringr::str_extract(linelist_filenames, "[0-9].*[0-9]") # sayıları ve aradaki karakterleri ayıklayın
 linelist_dates_raw  # yazdır
 ```
 
-Tarihlerin genellikle aynı tarih formatında yazıldığını (örneğin Yıl sonra Ay sonra Gün) ve yılların 4 basamaklı olduğunu varsayarsak, **lubridate**'nin esnek dönüştürme fonksiyonlarını (`ymd()`, `dmy() kullanabilirsiniz. )` veya `mdy()`) tarihlere dönüştürmek için. Bu fonksiyonlar için tireler, boşluklar veya eğik çizgiler önemli değildir, yalnızca sayıların sırası önemlidir. [Tarihlerle çalışma] sayfasında daha fazlasını okuyun.  
+Tarihlerin genellikle aynı tarih formatında yazıldığını (örneğin Yıl sonra Ay sonra Gün) ve yılların 4 basamaklı olduğunu varsayarsak, **lubridate**'nin esnek dönüştürme fonksiyonlarını (`ymd()`, `dmy() kullanabilirsiniz. )` veya `mdy()`) tarihlere dönüştürmek için. Bu fonksiyonlar için tireler, boşluklar veya eğik çizgiler önemli değildir, yalnızca sayıların sırası önemlidir. [Tarihlerle çalışma](dates.tr.qmd) sayfasında daha fazlasını okuyun.  
 
 ```{r}
 linelist_dates_clean <- lubridate::ymd(linelist_dates_raw)
@@ -621,7 +621,7 @@ import(here("data", "example", "linelists", latest_file)) # içe aktar
 
 Dosyalarınızın adlarında tarih yoksa (veya bu tarihlere güvenmiyorsanız), dosya meta verilerinden son değişiklik tarihini çıkarmayı deneyebilirsiniz. Her dosya için son değişiklik zamanını ve dosya yolunu içeren meta veri bilgilerini incelemek için **fs** paketindeki fonksiyonları kullanın.
 
-Aşağıda, **fs**'nin `dir_info()` dosyasının ilgilendiği klasörü sunuyoruz. Bu durumda, ilgilenilen klasör "data" klasöründeki R projesinde, "example" alt klasöründe ve alt klasörü "linelists"tedir. Sonuç, dosya başına bir satır ve "modification_time", "path" vb. için sütunlar içeren bir veri çerçevesidir. Bunun görsel bir örneğini [Dizin etkileşimleri] sayfasında görebilirsiniz.
+Aşağıda, **fs**'nin `dir_info()` dosyasının ilgilendiği klasörü sunuyoruz. Bu durumda, ilgilenilen klasör "data" klasöründeki R projesinde, "example" alt klasöründe ve alt klasörü "linelists"tedir. Sonuç, dosya başına bir satır ve "modification_time", "path" vb. için sütunlar içeren bir veri çerçevesidir. Bunun görsel bir örneğini [Dizin etkileşimleri](directories.tr.qmd) sayfasında görebilirsiniz.
 
 Dosyaların bu veri çerçevesini 'modification_time' sütununa göre sıralayabiliriz ve ardından **base** R'ın 'head()' ile yalnızca en üstteki/en son satırı (dosyayı) tutabiliriz. Daha sonra bu en son dosyanın dosya yolunu sadece 'path' sütunundaki **dplyr** fonksiyonu 'pull()' ile ayıklayabiliriz. Sonunda bu dosya yolunu `import()`a geçirebiliriz. İçe aktarılan dosya "latest_file" olarak kaydedilir.
 
@@ -768,7 +768,7 @@ contacts <- as_tibble(fromJSON(json_contacts, flatten = TRUE))   # JSON'u tibble
 <span style="color: darkgreen;">**_İPUCU:_** **jsonlite** paketindeki `fromJSON()` fonksiyonu, ilk çalıştırıldığında yuvayı tamamen açmaz, bu nedenle muhtemelen yine de sonuçta ortaya çıkan tibble'ınızda liste öğeleri vardır. .json dosyanızın ne kadar iç içe olduğuna bağlı olarak belirli değişkenler için daha fazla yuva açmanız gerekecektir. Bununla ilgili daha fazla bilgi görüntülemek için, [`flatten()` fonksiyonu](https://rdrr.io/cran/jsonlite/man/flatten.html) gibi **jsonlite** paketinin belgelerine bakabilirsiniz. </span>
 
 
-Daha fazla ayrıntı için [LoopBack Explorer](https://loopback.io/doc/en/lb4/index.html), [Kişi İzleme] sayfası veya [Go.Data Github deposundaki](https://worldhealthorganization.github.io/godata/api-docs) API ipuçları hakkındaki belgeleri görüntüleyin. 
+Daha fazla ayrıntı için [LoopBack Explorer](https://loopback.io/doc/en/lb4/index.html), [Kişi İzleme](contact_tracing.tr.qmd) sayfası veya [Go.Data Github deposundaki](https://worldhealthorganization.github.io/godata/api-docs) API ipuçları hakkındaki belgeleri görüntüleyin. 
 
 *httr* paketi hakkında daha fazla bilgiyi [buradan](https://httr.r-lib.org/articles/quickstart.html) okuyabilirsiniz.
 
@@ -848,11 +848,11 @@ rio::import_list("my_list.Rdata")
 <!-- ======================================================= -->
 ## Grafikleri kaydetme {}
 
-"ggplot()" tarafından oluşturulanlar gibi grafiklerin nasıl kaydedileceğine ilişkin talimatlar [ggplot temelleri] sayfasında ayrıntılı olarak tartışılmaktadır.
+"ggplot()" tarafından oluşturulanlar gibi grafiklerin nasıl kaydedileceğine ilişkin talimatlar [ggplot temelleri](ggplot_basics.tr.qmd) sayfasında ayrıntılı olarak tartışılmaktadır.
 
 Özetle, grafiğinizi yazdırdıktan sonra `ggsave("my_plot_filepath_and_name.png")` komutunu çalıştırın. `plot =` değişkenine kaydedilmiş bir çizim nesnesi sağlayabilir veya en son görüntülenen grafiği kaydetmek için yalnızca hedef dosya yolunu (dosya uzantısıyla) belirtebilirsiniz. Ayrıca 'width = ', 'height = ', 'units = ' ve 'dpi = ' değerlerini de kontrol edebilirsiniz.
 
-İletim ağacı gibi bir ağ grafiğinin nasıl kaydedileceği [İletim zincirleri] sayfasında açıklanmıştır.
+İletim ağacı gibi bir ağ grafiğinin nasıl kaydedileceği [İletim zincirleri](transmission_chains.tr.qmd) sayfasında açıklanmıştır.
 
 
 <!-- ============================================= ========= -->

@@ -6,7 +6,7 @@ knitr::include_graphics(here::here("images", "descriptive_tables.png"))
 
 Chương này minh họa cách sử dụng các package **janitor**, **dplyr**, **gtsummary**, **rstatix**, và **base** R để tóm tắt dữ liệu và tạo bảng với thống kê mô tả.
 
-*Chương này bao gồm cách để tạo* bảng cơ bản, trong khi đó chương [Trình bày bảng] bao gồm cách để định dạng đẹp và in chúng.\*
+*Chương này bao gồm cách để tạo* bảng cơ bản, trong khi đó chương [Trình bày bảng](tables_presentation.vn.qmd) bao gồm cách để định dạng đẹp và in chúng.\*
 
 Mỗi package này đều có những ưu và nhược điểm trong từng khía cạnh như sự đơn giản, khả năng tiếp cận kết quả, chất lượng kết quả được hiển thị. Sử dụng chương này để quyết định cách tiếp cận nào phù hợp với trường hợp của bạn.
 
@@ -24,7 +24,7 @@ Bạn có một số lựa chọn khi tạo bảng tóm tắt và bảng chéo. 
 
 ### Gọi packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các packages cần thiết cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến lệnh `p_load()` từ **pacman**, giúp cài đặt các package nếu cần *và* gọi chúng để sử dụng. Bạn cũng có thể gọi các package đã được cài đặt với `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package của R.
+Đoạn code này hiển thị việc gọi các packages cần thiết cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến lệnh `p_load()` từ **pacman**, giúp cài đặt các package nếu cần *và* gọi chúng để sử dụng. Bạn cũng có thể gọi các package đã được cài đặt với `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package của R.
 
 ```{r, warning=F, message=F}
 pacman::p_load(
@@ -42,7 +42,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải xuống dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu của bạn bằng hàm `import()` từ package **rio** (chấp nhận nhiều loại tệp như .xlsx, .rds, .csv - xem thêm chi tiết tại chương [Nhập xuất dữ liệu]).
+Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải xuống dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu của bạn bằng hàm `import()` từ package **rio** (chấp nhận nhiều loại tệp như .xlsx, .rds, .csv - xem thêm chi tiết tại chương [Nhập xuất dữ liệu](importing.vn.qmd)).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -104,11 +104,11 @@ summary(linelist$age_years)[[2]]            # return only the 2nd element
 # summary(linelist$age_years)[["1st Qu."]]  
 ```
 
-Bạn có thể trả về các thống kê riêng lẻ với các hàm **base** R như `max()`, `min()`, `median()`, `mean()`, `quantile()`, `sd()`, và `range()`. Xem chương [R cơ bản] để có danh sách đầy đủ.
+Bạn có thể trả về các thống kê riêng lẻ với các hàm **base** R như `max()`, `min()`, `median()`, `mean()`, `quantile()`, `sd()`, và `range()`. Xem chương [R cơ bản](basics.vn.qmd) để có danh sách đầy đủ.
 
 [***THẬN TRỌNG:*** Nếu dữ liệu của bạn chứa các giá trị missing, R muốn bạn biết điều này và do đó sẽ trả về `NA` trừ khi bạn chỉ định cho các hàm toán học ở trên mà bạn muốn R bỏ qua các giá trị bị thiếu, thông qua đối số `na.rm = TRUE`.]{style="color: orange;"}
 
-Bạn có thể sử dụng hàm `get_summary_stats()` từ package **rstatix** để trả về thống kê tóm tắt *ở định dạng data frame*. Điều này có thể hữu ích cho việc thực hiện các hoạt động tiếp theo hoặc vẽ biểu đồ trên các con số. Xem chương [Các kiểm định thống kê cơ bản] để biết thêm chi tiết về package **rstatix** và các hàm của nó.
+Bạn có thể sử dụng hàm `get_summary_stats()` từ package **rstatix** để trả về thống kê tóm tắt *ở định dạng data frame*. Điều này có thể hữu ích cho việc thực hiện các hoạt động tiếp theo hoặc vẽ biểu đồ trên các con số. Xem chương [Các kiểm định thống kê cơ bản](stat_tests.vn.qmd) để biết thêm chi tiết về package **rstatix** và các hàm của nó.
 
 ```{r}
 linelist %>% 
@@ -134,7 +134,7 @@ linelist %>% tabyl(age_cat)
 
 Như bạn có thể thấy ở trên, các giá trị missing sẽ được hiển thị trong một hàng có nhãn `<NA>`. Bạn có thể ngăn điều này bằng cách thêm `show_na = FALSE`. Nếu không có giá trị missing, hàng này sẽ không xuất hiện. Nếu có giá trị missing, tất cả các tỷ lệ sẽ được trình bày dưới dạng thô (mẫu số bao gồm cả `NA`) và "hợp lý" (mẫu số không bao gồm `NA`).
 
-Nếu giá trị cột là dạng Factor và chỉ một vài level nhất định có trong dữ liệu của bạn, thì tất cả các level sẽ vẫn xuất hiện trong bảng. Bạn có thể loại bỏ tính năng này bằng cách thêm `show_missing_levels = FALSE`. Đọc thêm trong chương [Factors].
+Nếu giá trị cột là dạng Factor và chỉ một vài level nhất định có trong dữ liệu của bạn, thì tất cả các level sẽ vẫn xuất hiện trong bảng. Bạn có thể loại bỏ tính năng này bằng cách thêm `show_missing_levels = FALSE`. Đọc thêm trong chương [Factors](factors.vn.qmd).
 
 ### Bảng chéo {.unnumbered}
 
@@ -233,7 +233,7 @@ linelist %>%
 
 ### Lưu với tabyl {.unnumbered}
 
-Nếu bạn muốn chuyển đổi bảng thành một hình ảnh “đẹp” với package **flextable**, bạn có thể lưu nó bằng các hàm như `save_as_html()`, `save_as_word()`, `save_as_ppt()`, và `save_as_image()` từ package **flextable** (sẽ được bàn luận kỹ hơn ở chương [Trình bày bảng]). Ví dụ dưới đây, bảng được lưu lại dưới dạng tệp Word, và có khả năng chỉnh sửa được.
+Nếu bạn muốn chuyển đổi bảng thành một hình ảnh “đẹp” với package **flextable**, bạn có thể lưu nó bằng các hàm như `save_as_html()`, `save_as_word()`, `save_as_ppt()`, và `save_as_image()` từ package **flextable** (sẽ được bàn luận kỹ hơn ở chương [Trình bày bảng](tables_presentation.vn.qmd)). Ví dụ dưới đây, bảng được lưu lại dưới dạng tệp Word, và có khả năng chỉnh sửa được.
 
 ```{r, eval=F}
 linelist %>%
@@ -266,7 +266,7 @@ age_by_outcome <- linelist %>%
 chisq.test(age_by_outcome)
 ```
 
-Xem chương [Các kiểm định thống kê cơ bản] để có thêm code và các mẹo liên quan đến thống kê.
+Xem chương [Các kiểm định thống kê cơ bản](stat_tests.vn.qmd) để có thêm code và các mẹo liên quan đến thống kê.
 
 ### Các mẹo khác {.unnumbered}
 
@@ -278,7 +278,7 @@ Xem chương [Các kiểm định thống kê cơ bản] để có thêm code v�
 
 **dplyr** là một phần của package **tidyverse** và là một công cụ quản lý dữ liệu rất phổ biến. Tạo bảng với các hàm của **dplyr** như `summarise()` và `count()` là một cách tiếp cận hữu ích để tính toán các tóm tắt thống kê, tổng hợp *theo nhóm*, hoặc chuyển bảng tới `ggplot()`.
 
-`summarise()` tạo một *data frame tổng hợp mới*. Nếu dữ liệu được *tách nhóm*, nó sẽ trả về data frame có một hàng với thống kê tóm tắt được chỉ định cho toàn bộ data frame. Nếu dữ liệu được *nhóm lại*, data frames sẽ có một hàng cho từng *nhóm* (xem chương [Nhóm dữ liệu]).
+`summarise()` tạo một *data frame tổng hợp mới*. Nếu dữ liệu được *tách nhóm*, nó sẽ trả về data frame có một hàng với thống kê tóm tắt được chỉ định cho toàn bộ data frame. Nếu dữ liệu được *nhóm lại*, data frames sẽ có một hàng cho từng *nhóm* (xem chương [Nhóm dữ liệu](grouping.vn.qmd)).
 
 Bên trong dấu ngoặc đơn của hàm `summarise()`, bạn sẽ cung cấp tên của từng cột cần tổng hợp mới, theo sau là dấu bằng và một hàm thống kê để áp dụng.
 
@@ -314,7 +314,7 @@ linelist %>%
 
 Bạn có thể thay đổi tên của cột đếm từ mặc định là `n` thành một cái gì đó cụ thể chẳng hạn như `name =`.
 
-Tạo bảng đếm cho hai hoặc nhiều cột sẽ vẫn trả về địng dạng "dọc", với số lượng ở cột `n`. Xem chương [Pivoting dữ liệu] để hiểu thêm về định dạng dữ liệu "dọc" và "ngang".
+Tạo bảng đếm cho hai hoặc nhiều cột sẽ vẫn trả về địng dạng "dọc", với số lượng ở cột `n`. Xem chương [Pivoting dữ liệu](pivoting.vn.qmd) để hiểu thêm về định dạng dữ liệu "dọc" và "ngang".
 
 ```{r}
 linelist %>% 
@@ -327,13 +327,13 @@ Nếu bạn tạo bảng cho một cột có kiểu dữ liệu là *factor*, b�
 
 Kỹ thuật này rất hữu ích để chuẩn hóa các bảng/biểu đồ của bạn. Ví dụ: nếu bạn đang tạo số liệu cho nhiều nhóm con, hoặc liên tục tạo số liệu cho các báo cáo thường quy. Trong các trường hợp này, sự hiện diện của các giá trị trong dữ liệu có thể dao động, nhưng bạn có thể xác định các mức không đổi.
 
-Xem chương [Factors] để có nhiều thông tin hơn.
+Xem chương [Factors](factors.vn.qmd) để có nhiều thông tin hơn.
 
 ### Tỷ lệ {#tbl_dplyr_prop .unnumbered}
 
 Tỷ lệ có thể được thêm vào bằng cách piping bảng tới hàm `mutate()` để tạo một cột mới. Định nghĩa cột mới là thương của số quan sát của từng yếu tố (mặc định là `n`) và tổng số quan sát `sum()` của cột (sẽ trả về giá trị là một tỷ lệ).
 
-Lưu ý trong trường hợp này, `sum()` trong lệnh `mutate()` sẽ trả về giá trị của toàn bộ cột `n` để dùng làm mẫu số của tỷ lệ. Như đã được giải thích [trong chương Nhóm dữ liệu](#group_summarise), *nếu* `sum()` được sử dụng với dữ liệu *đã được nhóm* (vd: nếu hàm `mutate()` được theo ngay phía sai hàm `group_by()`), nó sẽ trả về kết quả tổng hợp *theo nhóm*. Như đã nếu ở trên, `count()` hoàn thành nhiệm vụ của mình bằng cách *tách nhóm*. Vì vậy, trong trường hợp này chúng ta sẽ lấy toàn bộ tỷ lệ của cột.
+Lưu ý trong trường hợp này, `sum()` trong lệnh `mutate()` sẽ trả về giá trị của toàn bộ cột `n` để dùng làm mẫu số của tỷ lệ. Như đã được giải thích [trong chương Nhóm dữ liệu](grouping.vn.qmd#group_summarise), *nếu* `sum()` được sử dụng với dữ liệu *đã được nhóm* (vd: nếu hàm `mutate()` được theo ngay phía sai hàm `group_by()`), nó sẽ trả về kết quả tổng hợp *theo nhóm*. Như đã nếu ở trên, `count()` hoàn thành nhiệm vụ của mình bằng cách *tách nhóm*. Vì vậy, trong trường hợp này chúng ta sẽ lấy toàn bộ tỷ lệ của cột.
 
 Để dễ dàng hiển thị phần trăm, bạn có thể đưa tỷ lệ vào trong hàm `percent()` từ package **scales** (lưu ý là điều nãy sẽ chuyển kết quả thành dạng ký tự (character)).
 
@@ -362,7 +362,7 @@ DT::datatable(age_by_outcome, rownames = FALSE, options = list(pageLength = 12, 
 
 ### Vẽ biểu đồ {.unnumbered}
 
-Để hiển thị kết quả từ một bảng "dài" như trên thì vẽ biểu đồ bằng hàm `ggplot()` tương đối trực quan. Dữ liệu một cách tự nhiên có định dạng "dọc", nên tương thích với `ggplot()` một cách tự nhiên. Xem thêm các ví dụ ở chương [ggplot cơ bản] và [Các tips với ggplot].
+Để hiển thị kết quả từ một bảng "dài" như trên thì vẽ biểu đồ bằng hàm `ggplot()` tương đối trực quan. Dữ liệu một cách tự nhiên có định dạng "dọc", nên tương thích với `ggplot()` một cách tự nhiên. Xem thêm các ví dụ ở chương [ggplot cơ bản](ggplot_basics.vn.qmd) và [Các mẹo với ggplot](ggplot_tips.vn.qmd).
 
 ```{r, warning=F, message=F}
 linelist %>%                      # begin with linelist
@@ -437,13 +437,13 @@ linelist %>%
 
 Hàm `str_glue()` từ package **stringr** rất hữu ích để kết hợp các giá trị từ một số cột thành một cột mới. Trong trường hợp này nó được sử dụng *sau* hàm `summarise()`.
 
-Trong chương [Ký tự và chuỗi], có nhiều lựa chọn khác nhau để kết hợp các cột được thảo luận, bao gồm cả `unite()`, và `paste0()`. Trong trường hợp sử dụng này, chúng tôi ủng hộ `str_glue()` bởi vì nó linh hoạt hơn `unite()` và có cú pháp đơn giẩn hơn `paste0()`.
+Trong chương [Ký tự và chuỗi](characters_strings.vn.qmd), có nhiều lựa chọn khác nhau để kết hợp các cột được thảo luận, bao gồm cả `unite()`, và `paste0()`. Trong trường hợp sử dụng này, chúng tôi ủng hộ `str_glue()` bởi vì nó linh hoạt hơn `unite()` và có cú pháp đơn giẩn hơn `paste0()`.
 
 Dưới đây, data frame `summary_table` (được tạo bên trên) được biến đổi để kết hợp cột `delay_mean` và `delay_sd`, định dạng dấu ngoặc đơn được thêm vào cột mới, và các cột cũ tương ứng của chúng bị xóa.
 
 Sau đó, để làm cho bảng dễ nhìn hơn, tổng hàng được thêm vào bằng hàm `adorn_totals()` từ **janitor** (bỏ qua các cột không phải số). Cuối cùng, chúng tôi sử dụng hàm `select()` từ **dplyr** để sắp xếp và đặt tên lại cho các cột.
 
-Bây giờ bạn có thể chuyển kết quả tới **flextable** và in chúng thành bảng trong Word, .png, .jpeg, .html, Powerpoint, RMarkdown, v.v.! (xem chương [Trình bày bảng]).
+Bây giờ bạn có thể chuyển kết quả tới **flextable** và in chúng thành bảng trong Word, .png, .jpeg, .html, Powerpoint, RMarkdown, v.v.! (xem chương [Trình bày bảng](tables_presentation.vn.qmd)).
 
 ```{r}
 summary_table %>% 
@@ -587,7 +587,7 @@ linelist %>%
 
 ### Xoay trục ngang (Pivot wider) {#tbls_pivot_wider .unnumbered}
 
-Nếu bạn thích bảng của mình ở định dạng "rộng", bạn có thể biến đổi nó sử dụng hàm **tidyr** `pivot_wider()`. Bạn có thể sẽ cần đặt lại tên cho các cột bằng `rename()`. Để tìm hiểu thêm, vui lòng xem chương [Pivoting dữ liệu].
+Nếu bạn thích bảng của mình ở định dạng "rộng", bạn có thể biến đổi nó sử dụng hàm **tidyr** `pivot_wider()`. Bạn có thể sẽ cần đặt lại tên cho các cột bằng `rename()`. Để tìm hiểu thêm, vui lòng xem chương [Pivoting dữ liệu](pivoting.vn.qmd).
 
 Ví dụ sau đây bắt đầu bằng một bảng "dài" `age_by_outcome` từ mục [Tỷ lệ](#tbl_dplyr_prop). Để dễ hình dung, chúng ta tạo lại bảng và in ra:
 
@@ -636,7 +636,7 @@ linelist %>%
 
 #### `summarise()` trên dữ liệu "tổng" rồi sau đó `bind_rows()` {.unnumbered}
 
-Nếu bảng của bạn chứa các phép tính thống kế chẳng hạn như `median()`, `mean()`, v.v, thì cách tiếp cận dùng hàm `adorn_totals()` bên trên sẽ *không* đủ. Thay vào đó, để có được thống kê tóm tắt cho toàn bộ tập dữ liệu, bạn phải tính toán chúng bằng lệnh `summarise()` một cách độc lập sau đó gắn các kết quả này với bảng tổng hợp theo nhóm ban đầu. Để làm điều này, bạn có thể sử dụng hàm `bind_rows()` từ **dplyr** như được mô tả trong chương [Nối dữ liệu]. Dưới đây là một ví dụ:
+Nếu bảng của bạn chứa các phép tính thống kế chẳng hạn như `median()`, `mean()`, v.v, thì cách tiếp cận dùng hàm `adorn_totals()` bên trên sẽ *không* đủ. Thay vào đó, để có được thống kê tóm tắt cho toàn bộ tập dữ liệu, bạn phải tính toán chúng bằng lệnh `summarise()` một cách độc lập sau đó gắn các kết quả này với bảng tổng hợp theo nhóm ban đầu. Để làm điều này, bạn có thể sử dụng hàm `bind_rows()` từ **dplyr** như được mô tả trong chương [Nối dữ liệu](joining_matching.vn.qmd). Dưới đây là một ví dụ:
 
 Bạn có thể tạo bảng tổng hợp của outcome *theo bệnh viện* với `group_by()` và `summarise()` như sau:
 
@@ -664,7 +664,7 @@ totals <- linelist %>%
 totals # print table
 ```
 
-Bây giờ chúng ta có thể nối hai data frames này lại với nhau. Lưu ý là bảng `by_hospital` có 4 cột trong khi đó bảng kết quả `totals` có 3 cột. Bằng việc sử dụng `bind_rows()`, các cột được kết hợp theo tên, và bất kỳ khoảng trống nào sẽ được điền vào bằng giá trị `NA` (ví dụ ở cột `hospital` là các giá trị cho hai hàng `totals` mới). Sau khi gắn các hàng, chúng ta chuyển các khoảng trống đó thành "Tổng" bằng cách sử dụng `replace_na()` (xem chương [Làm sạch số liệu và các hàm quan trọng]).
+Bây giờ chúng ta có thể nối hai data frames này lại với nhau. Lưu ý là bảng `by_hospital` có 4 cột trong khi đó bảng kết quả `totals` có 3 cột. Bằng việc sử dụng `bind_rows()`, các cột được kết hợp theo tên, và bất kỳ khoảng trống nào sẽ được điền vào bằng giá trị `NA` (ví dụ ở cột `hospital` là các giá trị cho hai hàng `totals` mới). Sau khi gắn các hàng, chúng ta chuyển các khoảng trống đó thành "Tổng" bằng cách sử dụng `replace_na()` (xem chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd)).
 
 ```{r}
 table_long <- bind_rows(by_hospital, totals) %>% 
@@ -677,7 +677,7 @@ table_long <- bind_rows(by_hospital, totals) %>%
 DT::datatable(table_long, rownames = FALSE, options = list(pageLength = 12, scrollX=T), class = 'white-space: nowrap' )
 ```
 
-Bảng này đang có định dạng "dài", có thể là những gì bạn muốn. *Tuy nhiên*, bạn có thể *xoay* bảng này *rộng hơn* theo chiều ngang để dễ đọc. Xem thêm ở phần Xoay trục ngang (Pivot wider) bên trên, và chương [Xoay trục dữ liệu]. Bạn cũng có thêm nhiều cột nữa, và sắp xếp chúng một cách đẹp mắt. Phần code được trình bày bên dưới.
+Bảng này đang có định dạng "dài", có thể là những gì bạn muốn. *Tuy nhiên*, bạn có thể *xoay* bảng này *rộng hơn* theo chiều ngang để dễ đọc. Xem thêm ở phần Xoay trục ngang (Pivot wider) bên trên, và chương [Xoay trục dữ liệu](pivoting.vn.qmd). Bạn cũng có thêm nhiều cột nữa, và sắp xếp chúng một cách đẹp mắt. Phần code được trình bày bên dưới.
 
 ```{r}
 table_long %>% 
@@ -700,7 +700,7 @@ table_long %>%
 
 ```
 
-Tiếp đó bạn có thể in bảng kết quả dưới dạng một bức ảnh đẹp - sau đây là output được in bằng **flextable**. Bạn có thể đọc chuyên sâu hơn về ví dụ này và cách tạo được bảng "đẹp" tương tự thế này trong chương [Trình bày bảng].
+Tiếp đó bạn có thể in bảng kết quả dưới dạng một bức ảnh đẹp - sau đây là output được in bằng **flextable**. Bạn có thể đọc chuyên sâu hơn về ví dụ này và cách tạo được bảng "đẹp" tương tự thế này trong chương [Trình bày bảng](tables_presentation.vn.qmd).
 
 ```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%')}
 
@@ -824,7 +824,7 @@ Bạn có thể phân tầng bảng của mình theo một cột (ví dụ theo 
 **`statistic =`**\
 Sử dụng phương trình để chỉ định thống kê nào sẽ được hiển thị và cách hiển thị chúng. Có hai vế của phương trình, được ngăn cách bởi dấu `~`. Ở vế phải, trong dấu ngoặc kép, là hiển thị phép toán thống kê mong muốn, và ở vế trái là các cột mà phép thống kê đó sẽ áp dụng.
 
--   Vế phải của phương trình sử dụng cú pháp của hàm `str_glue()` từ **stringr** (xem [Ký tự và chuỗi]), với chuỗi hiển thị mong muốn trong dấu ngoặc kép và các phép toán thống kê trong dấu ngoặc nhọn. Bạn có thể thêm các phép thống kê như là "n" (số lượng), "N" (mẫu số), "mean", "median", "sd", "max", "min", phân vị "p\#\#" như là  "p25", hoặc phần trăm của một tổng như là "p". Xem `?tbl_summary` để biết thêm chi tiết.\
+-   Vế phải của phương trình sử dụng cú pháp của hàm `str_glue()` từ **stringr** (xem [Ký tự và chuỗi](characters_strings.vn.qmd)), với chuỗi hiển thị mong muốn trong dấu ngoặc kép và các phép toán thống kê trong dấu ngoặc nhọn. Bạn có thể thêm các phép thống kê như là "n" (số lượng), "N" (mẫu số), "mean", "median", "sd", "max", "min", phân vị "p\#\#" như là  "p25", hoặc phần trăm của một tổng như là "p". Xem `?tbl_summary` để biết thêm chi tiết.\
 -   Đối với phía bên trái của phương trình, bạn có thể chỉ định các cột theo tên (ví dụ: `age` hoặc `c(age, gender)`) hoặc sử dụng các hàm trợ giúp như `all_continuous()`, `all_categorical()`, `contains()`, `starts_with()`, v.v.
 
 Một ví dụ đơn giản về phương trình `statistic =` có thể tham khảo ở bên dưới, để chỉ in giá trị trung bình của cột `age_years`:
@@ -945,7 +945,7 @@ Chuyển đổi trực tiếp một đối tượng dạng `table()` sang một 
 2)  Thêm tổng (tùy chọn) bằng cách piping tới `addmargins()`\
 3)  Pipe tới hàm `as.data.frame.matrix()` của **base** R\
 4)  Pipe bảng trên vào hàm `rownames_to_column()` của package **tibble**, ghi rõ tên cho cột đầu tiên\
-5)  In, Xem hoặc xuất bảng như mong muốn. Trong ví dụ này, chúng ta sử dụng hàm `flextable()` từ package **flextable** như đã được mô tả trong chương Kết quả sẽ được in ra cửa sổ RStudio viewer dưới dạng một hình ảnh HTML đẹp.
+5)  In, Xem hoặc xuất bảng như mong muốn. Trong ví dụ này, chúng ta sử dụng hàm `flextable()` từ package **flextable** như đã được mô tả trong chương [Trình bày bảng](tables_presentation.vn.qmd) Kết quả sẽ được in ra cửa sổ RStudio viewer dưới dạng một hình ảnh HTML đẹp.
 
 ```{r, warning=F, message=F}
 table(fct_explicit_na(linelist$age_cat), fct_explicit_na(linelist$outcome)) %>% 

@@ -11,7 +11,7 @@ ratios). It also uses functions like `tidy()` from the **broom** package to clea
 3.  Multivariable: variable selection, model selection, final table
 4.  Forest plots
 
-For Cox proportional hazard regression, see the [Survival analysis] page.  
+For Cox proportional hazard regression, see the [Survival analysis](survival_analysis.qmd) page.  
 
 <span style="color: black;">**_NOTE:_** We use the term *multivariable* to refer to a regression with multiple explanatory variables. In this sense a *multivariate* model would be a regression with several outcomes - see this [editorial](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3518362/) for detail </span> 
 
@@ -22,7 +22,7 @@ For Cox proportional hazard regression, see the [Survival analysis] page.
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -41,7 +41,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export](importing.qmd) page for details).  
 
 
 ```{r, echo=F}
@@ -75,7 +75,7 @@ explanatory_vars <- c("gender", "fever", "chills", "cough", "aches", "vomit")
 
 #### Convert to 1's and 0's  {.unnumbered}   
 
-Below we convert the explanatory columns from "yes"/"no", "m"/"f", and "dead"/"alive" to **1 / 0**, to cooperate with the expectations of logistic regression models. To do this efficiently, used `across()` from **dplyr** to transform multiple columns at one time. The function we apply to each column is `case_when()` (also **dplyr**) which applies logic to convert specified values to 1's and 0's. See sections on `across()` and `case_when()` in the [Cleaning data and core functions page](#clean_across)).  
+Below we convert the explanatory columns from "yes"/"no", "m"/"f", and "dead"/"alive" to **1 / 0**, to cooperate with the expectations of logistic regression models. To do this efficiently, used `across()` from **dplyr** to transform multiple columns at one time. The function we apply to each column is `case_when()` (also **dplyr**) which applies logic to convert specified values to 1's and 0's. See sections on `across()` and `case_when()` in the [Cleaning data and core functions page](cleaning.qmd#clean_across)).  
 
 Note: the "." below represents the column that is being processed by `across()` at that moment.
 
@@ -120,7 +120,7 @@ The number of rows remaining in `linelist` is ` nrow(linelist)`.
 
 ## Univariate {  }
 
-Just like in the page on [Descriptive tables](https://epirhandbook.com/descriptive-tables.html), your use case will determine which R package you use. We present two options for doing univariate analysis:  
+Just like in the page on [Descriptive tables](tables_descriptive.qmd), your use case will determine which R package you use. We present two options for doing univariate analysis:  
 
 * Use functions available in **base** R to quickly print results to the console. Use the **broom** package to tidy up the outputs.  
 * Use the **gtsummary** package to model and get publication-ready outputs  
@@ -235,7 +235,7 @@ model <- glm(outcome ~ age_cat, family = "binomial", data = linelist)
 summary(model)
 ```
 
-To alter the baseline level of a given variable, ensure the column is class Factor and move the desired level to the first position with `fct_relevel()` (see page on [Factors]). For example, below we take column `age_cat` and set "20-29" as the baseline before piping the modified data frame into `glm()`.  
+To alter the baseline level of a given variable, ensure the column is class Factor and move the desired level to the first position with `fct_relevel()` (see page on [Factors](factors.qmd)). For example, below we take column `age_cat` and set "20-29" as the baseline before piping the modified data frame into `glm()`.  
 
 ```{r}
 linelist %>% 
@@ -266,7 +266,7 @@ Below is the outputted tibble `model`:
 DT::datatable(model, rownames = FALSE, options = list(pageLength = nrow(model), scrollX=T), class = 'white-space: nowrap' )
 ```
 
-2) Combine these model results with a table of counts. Below, we create the a counts cross-table with the `tabyl()` function from **janitor**, as covered in the [Descriptive tables] page.  
+2) Combine these model results with a table of counts. Below, we create the a counts cross-table with the `tabyl()` function from **janitor**, as covered in the [Descriptive tables](tables_descriptive.qmd) page.  
 
 ```{r}
 counts_table <- linelist %>% 
@@ -305,7 +305,7 @@ combined <- counts_table %>%           # begin with table of counts
   mutate(across(where(is.numeric), round, digits = 2)) ## round to 2 decimal places
 ```
 
-Here is what the combined data frame looks like, printed nicely as an image with a function from **flextable**. The [Tables for presentation] explains how to customize such tables with **flextable**, or or you can use numerous other packages such as **knitr** or **GT**.  
+Here is what the combined data frame looks like, printed nicely as an image with a function from **flextable**. The [Tables for presentation](tables_presentation.qmd) explains how to customize such tables with **flextable**, or or you can use numerous other packages such as **knitr** or **GT**.  
 
 ```{r}
 combined <- combined %>% 
@@ -317,7 +317,7 @@ combined <- combined %>%
 
 Below we present a method using `glm()` and `tidy()` for a more simple approach, see the section on **gtsummary**.  
 
-To run the models on several exposure variables to produce univariate odds ratios (i.e. not controlling for each other), you can use the approach below. It uses `str_c()` from **stringr** to create univariate formulas (see [Characters and strings]), runs the `glm()` regression on each formula, passes each `glm()` output to `tidy()` and finally collapses all the model outputs together with `bind_rows()` from **tidyr**. This approach uses `map()` from the package **purrr** to iterate - see the page on [Iteration, loops, and lists] for more information on this tool.  
+To run the models on several exposure variables to produce univariate odds ratios (i.e. not controlling for each other), you can use the approach below. It uses `str_c()` from **stringr** to create univariate formulas (see [Characters and strings](characters_strings.qmd)), runs the `glm()` regression on each formula, passes each `glm()` output to `tidy()` and finally collapses all the model outputs together with `bind_rows()` from **tidyr**. This approach uses `map()` from the package **purrr** to iterate - see the page on [Iteration, loops, and lists](iteration.qmd) for more information on this tool.  
 
 1) Create a vector of column names of the explanatory variables. We already have this as `explanatory_vars` from the Preparation section of this page.  
 
@@ -400,7 +400,7 @@ univ_tab_base <- explanatory_vars %>%
 
 ```
 
-Below is what the data frame looks like. See the page on [Tables for presentation] for ideas on how to further convert this table to pretty HTML output (e.g. with **flextable**).  
+Below is what the data frame looks like. See the page on [Tables for presentation](tables_descriptive.qmd) for ideas on how to further convert this table to pretty HTML output (e.g. with **flextable**).  
 
 ```{r, message=FALSE, echo=F}
 # display the linelist data as a table
@@ -618,7 +618,7 @@ This section shows how to produce a plot with the outputs of your regression.
 There are two options, you can build a plot yourself using **ggplot2** or use a 
 meta-package called **easystats** (a package that includes many packages).  
 
-See the page on [ggplot basics] if you are unfamiliar with the **ggplot2** plotting package.  
+See the page on [ggplot basics](ggplot_basics.qmd) if you are unfamiliar with the **ggplot2** plotting package.  
 
 
 <!-- ======================================================= -->
@@ -631,7 +631,7 @@ You can build a forest plot with `ggplot()` by plotting elements of the multivar
 * confidence intervals with `geom_errorbar()`  
 * a vertical line at OR = 1 with `geom_vline()`  
 
-Before plotting, you may want to use `fct_relevel()` from the **forcats** package to set the order of the variables/levels on the y-axis. `ggplot()` may display them in alpha-numeric order which would not work well for these age category values ("30" would appear before "5"). See the page on [Factors] for more details.  
+Before plotting, you may want to use `fct_relevel()` from the **forcats** package to set the order of the variables/levels on the y-axis. `ggplot()` may display them in alpha-numeric order which would not work well for these age category values ("30" would appear before "5"). See the page on [Factors](factors.qmd) for more details.  
 
 ```{r ggplot_forest}
 

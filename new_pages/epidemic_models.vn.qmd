@@ -108,7 +108,7 @@ plot(epinow_res)
 
 Chúng ta sẽ sử dụng hai phương pháp và package khác nhau để ước tính R<sub>t</sub>, cụ thể là package **EpiNow** và package **EpiEstim**, cũng như package **projections** cho dự báo các trường hợp mới mắc.
 
-Đoạn code này hiển thị tải các package cần thiết cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, để cài đặt package nếu cần thiết *và* gọi package để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem thêm chương [R cơ bản] để biết thêm thông tin về package R.
+Đoạn code này hiển thị tải các package cần thiết cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, để cài đặt package nếu cần thiết *và* gọi package để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về package R.
 
 ```{r epidemic_models_packages, }
 pacman::p_load(
@@ -125,7 +125,7 @@ pacman::p_load(
 )
 ```
 
-Chúng ta sẽ sử dụng bộ dữ liệu các trường hợp linelist đã được làm sạch cho tất cả các phân tích trong chương này. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'> bấm để tải xuống bộ dữ liệu linelist đã được "làm sạch" </a> (dưới dạng tệp .rds). Xem chương [Tải sách và dữ liệu] để tải xuống tất cả các dữ liệu minh họa được sử dụng trong sổ tay này.
+Chúng ta sẽ sử dụng bộ dữ liệu các trường hợp linelist đã được làm sạch cho tất cả các phân tích trong chương này. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'> bấm để tải xuống bộ dữ liệu linelist đã được "làm sạch" </a> (dưới dạng tệp .rds). Xem chương [Tải sách và dữ liệu](data_used.vn.qmd) để tải xuống tất cả các dữ liệu minh họa được sử dụng trong sổ tay này.
 
 ```{r, echo=F}
 # import the linelist into R
@@ -191,7 +191,7 @@ incubation_period <- bootstrapped_dist_fit(
 )
 ```
 
-Phân phối khác mà chúng ta cần là thời gian phát sinh một thế hệ. Vì chúng ta có dữ liệu về thời gian nhiễm bệnh **và** đường lây truyền, chúng ta có thể ước tính phân phối này từ linelist bằng cách tính toán đỗ trễ giữa các lần lây nhiễm của các cặp người lây nhiễm-người bị lây nhiễm. Để làm điều này, chúng ta sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán sự khác biệt từng cặp trường hợp lây nhiễm của linelist. Đầu tiên, chúng ta tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm] để biết thêm chi tiết):
+Phân phối khác mà chúng ta cần là thời gian phát sinh một thế hệ. Vì chúng ta có dữ liệu về thời gian nhiễm bệnh **và** đường lây truyền, chúng ta có thể ước tính phân phối này từ linelist bằng cách tính toán đỗ trễ giữa các lần lây nhiễm của các cặp người lây nhiễm-người bị lây nhiễm. Để làm điều này, chúng ta sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán sự khác biệt từng cặp trường hợp lây nhiễm của linelist. Đầu tiên, chúng ta tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd) để biết thêm chi tiết):
 
 ```{r epidemic_models_epicontacts, eval=F}
 ## generate contacts
@@ -372,7 +372,7 @@ ggplot() +
 
 Dữ liệu về con số mới mắc có thể được cung cấp cho **EpiEstim** dưới dạng một vectơ, một bảng số liệu, hoặc một đối tượng `incidence` nguyên bản từ package **incidence**. Bạn thậm chí có thể phân biệt giữa ca nhiễm bệnh từ nơi khác đến và tại địa phương; xem tài liệu hướng dẫn bằng cách gõ `?estimate_R` để biết thêm chi tiết.
 
-Chúng ta sẽ tạo dữ liệu đầu vào bằng cách sử dụng package **incidence2**. Xem chương [Đường cong dịch bệnh] để xem thêm các ví dụ về package **incidence2**. Do có một số cập nhật của package **incidence2** khiến nó không hoàn toàn phù hợp với đầu vào kỳ vọng của hàm `estimateR()`, bạn cần thực hiện một số bước bổ sung cần thiết. Đối tượng incidence bao gồm một tibble với thông tin về ngày tháng và số lượng trường hợp tương ứng. Chúng ta sử dụng hàm `complete()` từ package **tidyr** để đảm bảo tất cả các ngày đều được bao gồm (kể cả những ngày không có trường hợp), và sau đó dùng hàm `rename()` để đổi tên các cột để căn chỉnh sao cho phù hợp với hàm `estimate_R()` ở bước sau.
+Chúng ta sẽ tạo dữ liệu đầu vào bằng cách sử dụng package **incidence2**. Xem chương [Đường cong dịch bệnh](epicurves.vn.qmd) để xem thêm các ví dụ về package **incidence2**. Do có một số cập nhật của package **incidence2** khiến nó không hoàn toàn phù hợp với đầu vào kỳ vọng của hàm `estimateR()`, bạn cần thực hiện một số bước bổ sung cần thiết. Đối tượng incidence bao gồm một tibble với thông tin về ngày tháng và số lượng trường hợp tương ứng. Chúng ta sử dụng hàm `complete()` từ package **tidyr** để đảm bảo tất cả các ngày đều được bao gồm (kể cả những ngày không có trường hợp), và sau đó dùng hàm `rename()` để đổi tên các cột để căn chỉnh sao cho phù hợp với hàm `estimate_R()` ở bước sau.
 
 ```{r epidemic_models_epiestim_incidence,}
 ## get incidence from onset date
@@ -428,7 +428,7 @@ plot(epiestim_res_lit)
 
 #### Sử dụng ước tính khoảng thời gian nối tiếp từ dữ liệu {.unnumbered}
 
-Vì chúng ta có dữ liệu về ngày khởi phát triệu chứng *và* các liên kết lây truyền, chúng ta cũng có thể ước tính khoảng thời gian nối tiếp từ bộ số liệu linelist bằng cách tính toán độ trễ giữa ngày khởi phát của các cặp người truyền bệnh-người nhiễm bệnh. Như chúng ta đã làm trong mục **EpiNow2**, chúng ta sẽ sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán theo từng cặp sự khác biệt giữa các cặp lây truyền trong bộ số liệu linelist. Chúng ta trước hết tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm] để biết thêm chi tiết):
+Vì chúng ta có dữ liệu về ngày khởi phát triệu chứng *và* các liên kết lây truyền, chúng ta cũng có thể ước tính khoảng thời gian nối tiếp từ bộ số liệu linelist bằng cách tính toán độ trễ giữa ngày khởi phát của các cặp người truyền bệnh-người nhiễm bệnh. Như chúng ta đã làm trong mục **EpiNow2**, chúng ta sẽ sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán theo từng cặp sự khác biệt giữa các cặp lây truyền trong bộ số liệu linelist. Chúng ta trước hết tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd) để biết thêm chi tiết):
 
 ```{r epidemic_models_epicontacts_epiestim, eval=F}
 ## generate contacts
@@ -724,7 +724,7 @@ qplot(
 
 #### Sử dụng ước tính khoảng thời gian nối tiếp từ dữ liệu {.unnumbered}
 
-Vì chúng ta có dữ liệu về ngày khởi phát triệu chứng *và* các liên kết lây truyền, chúng ta cũng có thể ước tính khoảng thời gian nối tiếp từ bộ số liệu linelist bằng cách tính toán độ trễ giữa ngày khởi phát của các cặp người truyền bệnh-người nhiễm bệnh. Như chúng ta đã làm trong mục **EpiNow2**, chúng ta sẽ sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán theo từng cặp sự khác biệt giữa các cặp lây truyền trong bộ số liệu linelist. Chúng ta trước hết tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm] để biết thêm chi tiết):
+Vì chúng ta có dữ liệu về ngày khởi phát triệu chứng *và* các liên kết lây truyền, chúng ta cũng có thể ước tính khoảng thời gian nối tiếp từ bộ số liệu linelist bằng cách tính toán độ trễ giữa ngày khởi phát của các cặp người truyền bệnh-người nhiễm bệnh. Như chúng ta đã làm trong mục **EpiNow2**, chúng ta sẽ sử dụng hàm `get_pairwise` từ package **epicontacts**, cho phép chúng ta tính toán theo từng cặp sự khác biệt giữa các cặp lây truyền trong bộ số liệu linelist. Chúng ta trước hết tạo một đối tượng epicontacts (xem chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd) để biết thêm chi tiết):
 
 ```{r epidemic_models_epicontacts_projections, eval=F}
 ## generate contacts

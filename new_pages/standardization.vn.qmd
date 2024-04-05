@@ -26,14 +26,14 @@ Có hai cách để chuẩn hóa: trực tiếp và gián tiếp. Giả sử ch�
 4. Xoay trục bộ số liệu dọc/dài hơn để có một hàng là một tầng theo tuổi-giới
 5. Làm sạch quần thể tham chiếu (dân số thế giới chuẩn) và kết nối nó với số liệu của quốc gia  
 
-Trong trường hợp này, số liệu của chúng ta có thể có các định dạng khác nhau. Có lẽ số liệu của chúng ta theo tỉnh, thành phố, hoặc khu vực dịch vụ khác. Chúng ta có thể có một hàng cho mỗi ca tử vong và các thông tin về tuổi và giới cho mỗi trường hợp (hoặc một tỷ lệ có ý nghĩa) của các ca tử vong này. Trong trường hợp này, hãy xem các chương về [Nhóm dữ liệu], [Xoay trục dữ liệu], và [Bảng mô tả] để tạo một bộ số liệu với số lượng tử vong và dân số theo tầng của tuổi-giới tính.  
+Trong trường hợp này, số liệu của chúng ta có thể có các định dạng khác nhau. Có lẽ số liệu của chúng ta theo tỉnh, thành phố, hoặc khu vực dịch vụ khác. Chúng ta có thể có một hàng cho mỗi ca tử vong và các thông tin về tuổi và giới cho mỗi trường hợp (hoặc một tỷ lệ có ý nghĩa) của các ca tử vong này. Trong trường hợp này, hãy xem các chương về [Nhóm dữ liệu](grouping.vn.qmd), [Xoay trục dữ liệu](pivoting.vn.qmd), và [Bảng mô tả](tables_descriptive.vn.qmd) để tạo một bộ số liệu với số lượng tử vong và dân số theo tầng của tuổi-giới tính.  
 
 Chúng ta cũng cần một quần thể tham chiếu, dân số chuẩn. Với mục đích của thực hành này, chúng ta sẽ sử dụng bộ số liệu `world_standard_population_by_sex`. Dân số chuẩn này dựa trên dân số của 46 quốc gia và được tạo ra vào năm 1960. Có rất nhiều dân số “chuẩn” – ví dụ, trang web của [NHS Scotland](https://www.opendata.nhs.scot/dataset/standard-populations) cung cấp khá nhiều thông tin về Dân số Chuẩn của châu  u, Dân số Chuẩn Thế giới, Dân số Chuẩn của Scotland. 
 
 <!-- ======================================================= -->
 ### Gọi packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R. 
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R. 
 
 ```{r}
 pacman::p_load(
@@ -74,7 +74,7 @@ devtools::install_version("dsr", version="0.2.2", repos="https://mac.R-project.o
 
 ### Tải số liệu dân số {.unnumbered}  
 
-Xem chương [Tải sách và dữ liệu] để biết các hướng dẫn về cách tải tất cả các bộ số liệu mẫu trong cuốn số tay này. Chúng ta có thể nhập trực tiếp dữ liệu trong chương Chuẩn hóa này tới R thông qua kho lưu trữ Github của chúng tôi bằng cách thực hiện lệnh sau `import()`:  
+Xem chương [Tải sách và dữ liệu](data_used.vn.qmd) để biết các hướng dẫn về cách tải tất cả các bộ số liệu mẫu trong cuốn số tay này. Chúng ta có thể nhập trực tiếp dữ liệu trong chương Chuẩn hóa này tới R thông qua kho lưu trữ Github của chúng tôi bằng cách thực hiện lệnh sau `import()`:  
 
 ```{r, eval=F}
 # import demographics for country A directly from Github
@@ -181,7 +181,7 @@ Chúng ta cần kết nối và chuyển đổi các số liệu này theo nhữ
 * Liên kết số liệu tử vong của các quốc gia vào một bộ số liệu và xoay trục thành bộ số liệu dạng “dọc/dài” để mỗi tầng tuổi-giới là một hàng  
 * Nối số liệu tử vong với số liệu dân số  
 
-Đầu tiên, chúng ta liên kết các bộ số liệu dân số quốc gia, chuyển đổi thành số liệu dạng dọc/dài hơn, và làm sạch số liệu. Xem chương [Xoay trục dữ liệu] để biết thêm chi tiết.  
+Đầu tiên, chúng ta liên kết các bộ số liệu dân số quốc gia, chuyển đổi thành số liệu dạng dọc/dài hơn, và làm sạch số liệu. Xem chương [Xoay trục dữ liệu](pivoting.vn.qmd) để biết thêm chi tiết.  
 
 ```{r}
 pop_countries <- A_demo %>%  # begin with country A dataset
@@ -227,7 +227,7 @@ country_data <- pop_countries %>%
      left_join(deaths_countries, by = c("Country", "age_cat5", "Sex"))
 ```
 
-Bây giờ, chúng ta có thể phân loại các biến số `Sex`, `age_cat5`, và `Country` thành dạng factors  và đặt thứ tự các giá trị của biến số bằng cách sử dụng hàm `fct_relevel()` từ package **forcats**, như được mô tả trong chương [Factors]. Lưu ý rằng việc phân loại giá trị biến không thay đổi số liệu một cách rõ ràng, nhưng lệnh `arrange()` sẽ sắp xếp nó theo Quốc gia, nhóm tuổi và giới tính.  
+Bây giờ, chúng ta có thể phân loại các biến số `Sex`, `age_cat5`, và `Country` thành dạng factors  và đặt thứ tự các giá trị của biến số bằng cách sử dụng hàm `fct_relevel()` từ package **forcats**, như được mô tả trong chương [Factors](factors.vn.qmd). Lưu ý rằng việc phân loại giá trị biến không thay đổi số liệu một cách rõ ràng, nhưng lệnh `arrange()` sẽ sắp xếp nó theo Quốc gia, nhóm tuổi và giới tính.  
 
 ```{r, warning=F, message=F}
 country_data <- country_data %>% 
@@ -283,7 +283,7 @@ DT::datatable(standard_pop_data, rownames = FALSE, options = list(pageLength = 5
 
 Các giá trị của biến tuổi trong bộ số liệu `country_data` và `standard_pop_data` cần phải được căn chỉnh.  
 
-Hiện tại, các giá trị của cột biến phân loại `age_cat5` trong bộ số liệu `standard_pop_data` có chứa từ “years” và “plus”, trong khi không có các từ này trong trong bộ số liệu `country_data`. Chúng ta cần phải chuyển đổi các giá trị này giống nhau. Chúng ta sẽ sử dụng hàm `str_replace_all()` từ package **stringr**, như được mô tả trong chương [Ký tự và chuỗi], để thay thế thành những kiểu mẫu không có khoảng trắng `""`.  
+Hiện tại, các giá trị của cột biến phân loại `age_cat5` trong bộ số liệu `standard_pop_data` có chứa từ “years” và “plus”, trong khi không có các từ này trong trong bộ số liệu `country_data`. Chúng ta cần phải chuyển đổi các giá trị này giống nhau. Chúng ta sẽ sử dụng hàm `str_replace_all()` từ package **stringr**, như được mô tả trong chương [Ký tự và chuỗi](characters_strings.vn.qmd), để thay thế thành những kiểu mẫu không có khoảng trắng `""`.  
 
 Hơn nữa, package **dsr** đòi hỏi cột chứa số lượng trong bộ số liệu dân số chuẩn phải được gọi là `"pop"`. Vì vậy, chúng ta đổi tên cột này cho phù hợp.  
 

@@ -8,7 +8,7 @@ knitr::include_graphics(here::here("images", "ggplot_basics_top.png"))
 
 Cú pháp của nó khác biệt đáng kể so với vẽ biểu đồ bằng **base** `R`, cũng như có một đường cong học tập gắn với nó. Sử dụng **ggplot2** thông thường yêu cầu người sử dụng phải định dạng lại dữ liệu của họ để tương thích với **tidyverse**, giúp cho việc sử dụng các packages này cùng nhau một cách có hiệu quả.
 
-Trong chương này, chúng tôi sẽ trình bày các nguyên tắc cơ bản về vẽ biểu đồ bằng **ggplot2**. Xem chương [Các tips với ggplot] để biết các gợi ý và các kỹ thuật nâng cao giúp cho biểu đồ của bạn thực sự trông đẹp mắt.
+Trong chương này, chúng tôi sẽ trình bày các nguyên tắc cơ bản về vẽ biểu đồ bằng **ggplot2**. Xem chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) để biết các gợi ý và các kỹ thuật nâng cao giúp cho biểu đồ của bạn thực sự trông đẹp mắt.
 
 Có một số hướng dẫn **ggplot2** mở rộng được liên kết trong phần tài nguyên học liệu. Bạn cũng có thể tải xuống [trực quan hóa dữ liệu với ggplot cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) từ trang web của RStudio. Nếu bạn muốn có cảm hứng cho các cách trực quan hóa dữ liệu của mình một cách sáng tạo, chúng tôi khuyên bạn nên ghé thăm các trang web như [R graph gallery](https://www.r-graph-gallery.com/) và [Data-to-viz](https://www.data-to-viz.com/caveats.html).
 
@@ -18,7 +18,7 @@ Có một số hướng dẫn **ggplot2** mở rộng được liên kết trong
 
 ### Gọi packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R.
 
 ```{r}
 pacman::p_load(
@@ -33,7 +33,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -53,13 +53,13 @@ DT::datatable(head(linelist, 50), rownames = FALSE, filter="top", options = list
 
 ### Làm sạch chung {.unnumbered}
 
-Khi chuẩn bị dữ liệu để vẽ biểu đồ, tốt nhất là làm cho dữ liệu tuân thủ [tiêu chuẩn dữ liệu "gọn gàng"](https://r4ds.had.co.nz/tidy-data.html) nhất có thể. Để đạt được điều này, bạn có thể tham khảo chương [Làm sạch số liệu và các hàm quan trọng] trong cuốn sổ tay này.
+Khi chuẩn bị dữ liệu để vẽ biểu đồ, tốt nhất là làm cho dữ liệu tuân thủ [tiêu chuẩn dữ liệu "gọn gàng"](https://r4ds.had.co.nz/tidy-data.html) nhất có thể. Để đạt được điều này, bạn có thể tham khảo chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd) trong cuốn sổ tay này.
 
 Một số cách đơn giản mà chúng ta có thể chuẩn bị dữ liệu của mình để tốt hơn cho việc vẽ biểu đồ, có thể bao gồm việc làm cho nội dung của dữ liệu hiển thị tốt hơn - điều này không nhất thiết phải tương đương với việc bạn chuẩn bị dữ liệu tốt hơn để thao tác với dữ liệu. Ví dụ:
 
 -   Thay thế giá trị `NA` trong cột kiểu ký tự thành "Unknown"\
 -   Cân nhắc chuyển đổi cột thành dạng *factor* để các giá trị của chúng được quy định một có thứ tự\
--   Làm sạch một số cột để các giá trị "thân thiện với dữ liệu" của chúng với dấu gạch dưới, v.v. được thay đổi thành văn bản bình thường hoặc chữ hoa tiêu đề (xem chương [Ký tự và chuỗi])
+-   Làm sạch một số cột để các giá trị "thân thiện với dữ liệu" của chúng với dấu gạch dưới, v.v. được thay đổi thành văn bản bình thường hoặc chữ hoa tiêu đề (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd))
 
 Sau đây là một số ví dụ:
 
@@ -75,9 +75,9 @@ linelist <- linelist %>%
   )
 ```
 
-### Xoay trục dài hơn {.unnumbered}
+### Chuyển đổi dữ liệu sang dạng dọc {.unnumbered}
 
-Về cấu trúc dữ liệu, đối với **ggplot2** chúng ta thường muốn xoay trục dữ liệu sang định dạng *dài hơn*. Xem thêm ở chương [Xoay trục dữ liệu].
+Về cấu trúc dữ liệu, đối với **ggplot2** chúng ta thường muốn xoay trục dữ liệu sang định dạng *dọc*. Xem thêm ở chương [Xoay trục dữ liệu](pivoting.vn.qmd).
 
 ```{r out.width = "100%", fig.align = "center", echo=F}
 knitr::include_graphics(here::here("images", "pivoting", "pivot_longer_new.png"))
@@ -97,7 +97,7 @@ symptoms_data <- linelist %>%
 DT::datatable(head(symptoms_data, 50), rownames = FALSE, filter="top", options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap' )
 ```
 
-Nếu chúng ta muốn lập biểu đồ số trường hợp có các triệu chứng cụ thể, chúng ta bị giới hạn bởi thực tế là mỗi triệu chứng là một cột khác nhau. Tuy nhiên, chúng ta có thể *xoay* các cột triệu chứng sang một định dạng dài hơn như sau:
+Nếu chúng ta muốn lập biểu đồ số trường hợp có các triệu chứng cụ thể, chúng ta bị giới hạn bởi thực tế là mỗi triệu chứng là một cột khác nhau. Tuy nhiên, chúng ta có thể *xoay* các cột triệu chứng sang một định dạng dọc như sau:
 
 ```{r, }
 symptoms_data_long <- symptoms_data %>%    # begin with "mini" linelist called symptoms_data
@@ -156,7 +156,7 @@ Lệnh này sẽ kết thúc bằng một dấu `+` sau dấu ngoặc đơn đó
 ggplot(data = linelist)
 ```
 
-## Geoms
+## Kiểu biều đồ - Geoms
 
 Một khung trống chắc chắn là không đủ - chúng ta cần tạo thêm các hình học (dạng) từ dữ liệu (vd: biểu đồ cột, histograms, biểu đồ phân tán, box plots).
 
@@ -193,11 +193,11 @@ ggplot(data = linelist, mapping = aes(x = age))+
   geom_histogram()
 ```
 
-### Thẩm mỹ đồ thị {.unnumbered}
+### Thuộc tính biểu đồ {.unnumbered}
 
-Trong ggplot, thuật ngữ "thẩm mỹ đồ thị" có một ý nghĩa đặc biệt. Nó đề cập đến một thuộc tính trực quan của *dữ liệu được vẽ*. Lưu ý rằng "thẩm mỹ" ở đây đề cập đến *dữ liệu đưuợc vẽ bằng các geoms/shapes* - không phải các thành phần hiển thị xung quanh như là tiêu đề, nhãn của trục, màu nền, mà bạn có thể liên kết với từ "thẩm mỹ" trong tiếng Anh thông dụng. Trong ggplot, những chi tiết đó được gọi là "chủ đề" và được điều chỉnh trong lệnh `theme()`(xem [phần này](#ggplot_basics_themes)).
+Trong ggplot, thuật ngữ "thẩm mỹ đồ thị" có một ý nghĩa đặc biệt. Nó đề cập đến một thuộc tính trực quan của *dữ liệu được vẽ*. Lưu ý rằng "thẩm mỹ" ở đây đề cập đến *dữ liệu đưuợc vẽ bằng các geoms/shapes* - không phải các thành phần hiển thị xung quanh như là tiêu đề, nhãn của trục, màu nền, mà bạn có thể liên kết với từ "thẩm mỹ" trong Tiếng Anh thông dụng. Trong ggplot, những chi tiết đó được gọi là "chủ đề" và được điều chỉnh trong lệnh `theme()`(xem [phần này](#ggplot_basics_themes)).
 
-Do đó, *thẩm mỹ* của đối tượng biểu đồ có thể là màu sắc, kích thước, độ trong suốt, vị trí, v.v. của *dữ liệu được vẽ*. Không phải tất cả các geoms sẽ có các tùy chọn thẩm mỹ giống nhau, nhưng một số tùy chọn được áp dụng với phần lớn các geoms. Dưới đây là một số ví dụ:
+Do đó, *thẩm mỹ* của đối tượng biểu đồ có thể là màu sắc, kích thước, độ trong suốt, vị trí, v.v. của *dữ liệu được vẽ*. Không phải tất cả các geoms sẽ có các tùy chọnthuộc tính  giống nhau, nhưng một số tùy chọn được áp dụng với phần lớn các geoms. Dưới đây là một số ví dụ:
 
 -   `shape =` Hiển thị một điểm với hàm `geom_point()` dưới dạng dấu chấm, ngôi sao, hình tam giác hoặc hình vuông...\
 -   `fill =` Màu sắc bên trong (vd: của cột hoặc boxplot)\
@@ -217,9 +217,9 @@ Thẩm mỹ của đối tượng biểu đồ có thể được gán giá tr�
 
 ### Gán một giá trị tĩnh {.unnumbered}
 
-Nếu bạn muốn yếu tố thẩm mỹ cho đối tượng biểu đồ là tĩnh, nghĩa là - giống nhau đối với mọi quan sát trong dữ liệu, bạn viết phép gán của nó bên trong geom nhưng *ở bên ngoài* của bất cứ đối số `mapping = aes()` nào. Các phép gán này có thể trông như này `size = 1` hoặc `color = "blue"`. Sau đây là hai ví dụ:
+Nếu bạn muốn thuộc tính biểu đồ cho đối tượng biểu đồ là tĩnh, nghĩa là - giống nhau đối với mọi quan sát trong dữ liệu, bạn viết phép gán của nó bên trong geom nhưng *ở bên ngoài* của bất cứ đối số `mapping = aes()` nào. Các phép gán này có thể trông như này `size = 1` hoặc `color = "blue"`. Sau đây là hai ví dụ:
 
--   Trong ví dụ đầu tiên, đối số `mapping = aes()` ở bên trong hàm `ggplot()` và các trục được gán tới cột age và weight trong bộ dữ liệu. Các yếu tố thẩm mỹ như là `color =`, `size =`, và `alpha =` (độ trong suốt) được gán các giá trị tĩnh. Để rõ ràng, điều này được thực hiện trong hàm `geom_point()`, vì bạn có thể thêm các geom khác sau đó mà sẽ nhận các giá trị khác nhau cho các yếu tố thẩm mỹ của biểu đồ.\
+-   Trong ví dụ đầu tiên, đối số `mapping = aes()` ở bên trong hàm `ggplot()` và các trục được gán tới cột age và weight trong bộ dữ liệu. Các thuộc tính biểu đồ như là `color =`, `size =`, và `alpha =` (độ trong suốt) được gán các giá trị tĩnh. Để rõ ràng, điều này được thực hiện trong hàm `geom_point()`, vì bạn có thể thêm các geom khác sau đó mà sẽ nhận các giá trị khác nhau cho các thuộc tính biểu đồ của biểu đồ.\
 -   Trong ví dụ thứ hai, biểu đồ histogram chỉ yêu cầu trục x được gán với một cột. Các thông số của biểu đồ histogram như `binwidth =`, `color =`, `fill =` (màu sắc bên trong), và `alpha =` một lần nữa được đặt trong geom thành các giá trị tĩnh.
 
 ```{r, out.width=c('50%', '50%'), fig.show='hold', warning=F, message=F}
@@ -238,14 +238,14 @@ ggplot(data = linelist, mapping = aes(x = age))+       # set data and axes
 
 ### Vẽ theo tỷ lệ giá trị của cột {.unnumbered}
 
-Một cách khác đó là vẽ theo tỷ lệ giá trị của cột các đối tượng thẩm mỹ của biểu đồ. Theo cách tiếp cận này, việc hiển thị các đối tượng thẩm mỹ sẽ phụ thuộc vào giá trị của quan sát trong cột dữ liệu đó. Nếu các giá trị cột là liên tục, thang đo hiển thị (chú giải) cho thẩm mỹ đó sẽ là liên tục. Nếu các giá trị cột là rời rạc, chú giải sẽ hiển thị từng giá trị và dữ liệu được vẽ biểu đồ sẽ xuất hiện dưới dạng "được nhóm" (đọc thêm ở mục [Nhóm](#ggplotgroups) trong chương này).
+Một cách khác đó là vẽ theo tỷ lệ giá trị của cột các đối tượngthuộc tính  của biểu đồ. Theo cách tiếp cận này, việc hiển thị các đối tượngthuộc tính  sẽ phụ thuộc vào giá trị của quan sát trong cột dữ liệu đó. Nếu các giá trị cột là liên tục, thang đo hiển thị (chú giải) chothuộc tính  đó sẽ là liên tục. Nếu các giá trị cột là rời rạc, chú giải sẽ hiển thị từng giá trị và dữ liệu được vẽ biểu đồ sẽ xuất hiện dưới dạng "được nhóm" (đọc thêm ở mục [Nhóm](#ggplotgroups) trong chương này).
 
-Để đạt được điều này, bạn gán yếu tố thẩm mỹ của biểu đồ với một *tên cột* (không trong dấu ngoặc kép). Điều này phải được thực hiện *bên trong một hàm `mapping = aes()`* (lưu ý: có một số vị trí trong code mà bạn có thể thực hiện các phép gán, như được thảo luận [bên dưới](##ggplot_basics_map_loc)).
+Để đạt được điều này, bạn gán thuộc tính biểu đồ của biểu đồ với một *tên cột* (không trong dấu ngoặc kép). Điều này phải được thực hiện *bên trong một hàm `mapping = aes()`* (lưu ý: có một số vị trí trong code mà bạn có thể thực hiện các phép gán, như được thảo luận [bên dưới](##ggplot_basics_map_loc)).
 
 Hai ví dụ như sau.
 
--   Ở ví dụ đầu tiên, yếu tố thẩm mỹ `color =` (của mỗi điểm) được gán cho cột `age` - và thang đo liên tục được xuất hiện dưới dạng chú thích! Hiện tại bạn chỉ cần quan tâm tới sự xuất hiện của thanh này - chúng ta sẽ học cách chỉnh sửa nó trong các phần sau.\
--   Trong ví dụ thứ hai, hai yếu tố thẩm mỹ được gán cho hai cột tương ứng (`color =` và `size =`), trong khi `shape =` và `alpha =` được gán cho các giá trị tĩnh bên ngoài đối số `mapping = aes()`.
+-   Ở ví dụ đầu tiên, thuộc tính biểu đồ `color =` (của mỗi điểm) được gán cho cột `age` - và thang đo liên tục được xuất hiện dưới dạng chú thích! Hiện tại bạn chỉ cần quan tâm tới sự xuất hiện của thanh này - chúng ta sẽ học cách chỉnh sửa nó trong các phần sau.\
+-   Trong ví dụ thứ hai, hai thuộc tính biểu đồ được gán cho hai cột tương ứng (`color =` và `size =`), trong khi `shape =` và `alpha =` được gán cho các giá trị tĩnh bên ngoài đối số `mapping = aes()`.
 
 ```{r, out.width=c('50%', '50%'), fig.show='hold', warning=F, message=F}
 # scatterplot
@@ -273,7 +273,7 @@ ggplot(data = linelist,   # set data
 
 Lưu ý: Các phép gán trục luôn được gán cho các cột trong dữ liệu (không phải cho các giá trị tĩnh) và điều này luôn được thực hiện với `mapping = aes()`.
 
-Điều quan trọng là phải theo dõi các lớp của biểu đồ và các đối tượng thẩm mỹ khi vẽ các biểu đồ phức tạp - ví dụ biểu đồ được cấu thành từ nhiều geoms. ITrong ví dụ dưới đây, `size =` được gán hai lần - một lần cho `geom_point()` và một lần cho `geom_smooth()` - cả hai lần đều là giá trị tĩnh.
+Điều quan trọng là phải theo dõi các lớp của biểu đồ và các đối tượngthuộc tính  khi vẽ các biểu đồ phức tạp - ví dụ biểu đồ được cấu thành từ nhiều geoms. ITrong ví dụ dưới đây, `size =` được gán hai lần - một lần cho `geom_point()` và một lần cho `geom_smooth()` - cả hai lần đều là giá trị tĩnh.
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist,
@@ -290,14 +290,14 @@ ggplot(data = linelist,
     size = 2)                   # size (width of line) of 2
 ```
 
-### Thực hiện phép gán ở đâu {#ggplot_basics_map_loc .unnumbered}
+### Cách gán thuộc tính đồ thị {#ggplot_basics_map_loc .unnumbered}
 
-Việc gán các yếu tố thẩm mỹ bên trong đối số `mapping = aes()` có thể được viết ở một số chỗ trong các lệnh vẽ biểu đồ và thậm chí có thể được viết nhiều lần. Nó có thể được viết trong lệnh `ggplot()` trên cùng, và/hoặc cho từng geom riêng lẻ bên dưới. Các kiểu viết bao gồm:
+Việc gán các thuộc tính biểu đồ bên trong đối số `mapping = aes()` có thể được viết ở nhiều hàm vẽ biểu đồ và thậm chí có thể được viết nhiều lần. Nó có thể được viết ở hàm `ggplot()` cao nhất, và/hoặc cho từng biểu đồ riêng lẻ bên dưới. Các kiểu viết bao gồm:
 
--   Các phép gán được thực hiện ở lệnh `ggplot()` trên cùng sẽ được mặc định kế thừa ở bất kỳ các geom bên dưới, giống như cách mà `x =` và `y =` được kế thừa
--   Các phép gán được thực hiện trong một geom chỉ áp dụng cho geom đó
+-   Các phép gán được thực hiện ở lệnh `ggplot()` trên cùng sẽ được mặc định kế thừa ở bất kỳ các biểu đồ bên dưới, giống như cách mà `x =` và `y =` được kế thừa
+-   Các phép gán được thực hiện trong một hàm vẽ biểu đồ chỉ áp dụng cho biểu đồ đó
 
-Tương tự, `data =` được chỉ định cho lệnh `ggplot()` ở trên đầu sẽ áp dụng mặc định cho tất cả các geom bên dưới, nhưng bạn vẫn có thể chỉ định data riêng cho từng geom (nhưng sẽ khó hơn).
+Tương tự, `data =` được chỉ định cho lệnh `ggplot()` ở trên đầu sẽ áp dụng mặc định cho tất cả các biểu đồ bên dưới, nhưng bạn vẫn có thể chỉ định data riêng cho từng biểu đồ (nhưng sẽ khó hơn).
 
 Do đó, mỗi lệnh sau sẽ tạo ra cùng một biểu đồ giống nhau:
 
@@ -317,9 +317,9 @@ ggplot()+
 
 Bạn có thể dễ dàng nhóm dữ liệu và "vẽ biểu đồ theo nhóm". Trên thực tế, bạn đã làm điều này rồi!
 
-Gán cột "phân nhóm" với yếu tố thẩm mỹ biều đồ phù hợp, bên trong đối số `mapping = aes()`. Ở bên trên, chúng ta đã minh họa nó bằng cách sử dụng các giá trị liên tục khi gán điểm `size =` tới cột `age`. Tuy nhiên, cách này cũng hoạt động theo cùng một cơ chế đối với các cột rời rạc/phân loại.
+Gán cột "phân nhóm" với thuộc tính biểu đồ biều đồ phù hợp, bên trong đối số `mapping = aes()`. Ở bên trên, chúng ta đã minh họa nó bằng cách sử dụng các giá trị liên tục khi gán điểm `size =` tới cột `age`. Tuy nhiên, cách này cũng hoạt động theo cùng một cơ chế đối với các cột rời rạc/phân loại.
 
-Ví dụ, nếu bạn muốn các điểm được hiển thị theo giới, bạn sẽ đặt `mapping = aes(color = gender)`. Một chú giải tự động hiện lên. Phép gán này có thể được thực hiện bên trong `mapping = aes()` ở lệnh `ggplot()` đầu tiên (và được thừa kế bởi các geom), hoặc nó thể được đặt trong một `mapping = aes()` riêng biệt bên trong geom. Cả hai cách tiếp cận được trình bày dưới đây:
+Ví dụ, nếu bạn muốn các điểm được hiển thị theo giới, bạn sẽ đặt `mapping = aes(color = gender)`. Một chú giải tự động hiện lên. Phép gán này có thể được thực hiện bên trong `mapping = aes()` ở lệnh `ggplot()` đầu tiên (và được thừa kế bởi các biểu đồ), hoặc nó thể được đặt trong một `mapping = aes()` riêng biệt bên trong biểu đồ Cả hai cách tiếp cận được trình bày dưới đây:
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist,
@@ -341,13 +341,13 @@ Lưu ý rằng tùy thuộc vào loại geom bạn sử dụng, bạn sẽ cần
 
 Cách cơ bản nhất để nhóm dữ liệu là chỉ sử dụng đối số `group =` bên trong `mapping = aes()`. Tuy nhiên, cách này tự nó sẽ không làm thay đổi màu sắc, hình dạng hoặc tạo ra chú thích. Tuy nhiên dữ liệu được nhóm lại, do đó hiển thị thống kê có thể bị ảnh hưởng.
 
-Để thay đổi thứ tự của các nhóm trong biểu đồ, xem chương [Các tips với ggplot] hoặc chương [Factors]. Ngoài ra cũng có rất nhiều ví dụ về các biểu đồ được nhóm trong các phần bên dưới đối với dữ liệu dạng liên tục và danh mục.
+Để thay đổi thứ tự của các nhóm trong biểu đồ, xem chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) hoặc chương [Factors](factors.vn.qmd). Ngoài ra cũng có rất nhiều ví dụ về các biểu đồ được nhóm trong các phần bên dưới đối với dữ liệu dạng liên tục và danh mục.
 
 ## Facets / Chia nhỏ biểu đồ {#ggplot_basics_facet}
 
 Facets, hay "chia nhỏ biểu đồ", được sử dụng để chia một biểu đồ thành nhiều phần nhỏ, với mỗi phần ("facet") đại diện cho một nhóm của dữ liệu. Các biểu đồ giống nhau được tạo nhiều lần, mỗi cái sử dụng một phân nhóm của cùng một bộ dữ liệu.
 
-Faceting là một chức năng đi kèm với **ggplot2**, vì vậy các chú giải và trục của các biểu đồ nhỏ được căn chỉnh tự động. Có các package khác được thảo luận trong chương [Các tips với ggplot] được sử dụng để kết hợp các biểu đồ hoàn toàn khác nhau (**cowplot** và **patchwork**) thành một biểu đồ.
+Faceting là một chức năng đi kèm với **ggplot2**, vì vậy các chú giải và trục của các biểu đồ nhỏ được căn chỉnh tự động. Có các package khác được thảo luận trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) được sử dụng để kết hợp các biểu đồ hoàn toàn khác nhau (**cowplot** và **patchwork**) thành một biểu đồ.
 
 Faceting được thực hiện bằng các hàm **ggplot2** sau đây:
 
@@ -365,7 +365,7 @@ Mỗi hàm này chấp nhận một cú pháp công thức để chỉ định c
 
 -   Đối với `facet_grid()` bạn cũng có thể chỉ định một hoặc hai cột tới công thức (grid `rows ~ columns`). Nếu bạn chỉ muốn chỉ định một cột, hãy đặt một dấu chấm `.` ở một phía của dấu ngã chẳng hạn như `facet_grid(. ~ hospital)` hoặc `facet_grid(hospital ~ .)`.
 
-Facets có thể chứa một lượng lớn thông tin - vì vậy bạn nên đảm bảo những biến số được lựa chọn để facets không có quá nhiều thứ bậc. Dưới đây là một số ví dụ nhanh với tập dữ liệu sốt rét (xem chương [Tải sách và dữ liệu]) bao gồm số lượng trường hợp sốt rét hàng ngày của các cơ sở theo nhóm tuổi..
+Facets có thể chứa một lượng lớn thông tin - vì vậy bạn nên đảm bảo những biến số được lựa chọn để facets không có quá nhiều thứ bậc. Dưới đây là một số ví dụ nhanh với tập dữ liệu sốt rét (xem chương [Tải sách và dữ liệu](data_used.vn.qmd)) bao gồm số lượng trường hợp sốt rét hàng ngày của các cơ sở theo nhóm tuổi..
 
 Sau đây chúng ta nhập số liệu vào và thực hiện một số biến đổi để đơn giản hóa:
 
@@ -402,7 +402,7 @@ ggplot(malaria_data, aes(x = data_date, y = malaria_tot)) +
 
 ### `facet_grid()` {.unnumbered}
 
-Chúng ta có thể sử dụng cách tiếp cận `facet_grid()` đối với hai biến. Giả sử chúng ta muốn thêm `District` and age vào biểu đồ của mình. Trước hết, chúng ta cần thực hiện một số biến đổi dữ liệu trên các cột tuổi để đưa những dữ liệu này sang định dạng "dài" được ggplot ưu tiên. Tất cả các nhóm tuổi đều có các cột riêng - chúng ta cần chúng nhập vào một cột duy nhất có tên `age_group` và một cột khasc có tên `num_cases`. Xem chương [Xoay trục dữ liệu] để hiểu thêm về quy trình này.
+Chúng ta có thể sử dụng cách tiếp cận `facet_grid()` đối với hai biến. Giả sử chúng ta muốn thêm `District` and age vào biểu đồ của mình. Trước hết, chúng ta cần thực hiện một số biến đổi dữ liệu trên các cột tuổi để đưa những dữ liệu này sang định dạng "dài" được ggplot ưu tiên. Tất cả các nhóm tuổi đều có các cột riêng - chúng ta cần chúng nhập vào một cột duy nhất có tên `age_group` và một cột khasc có tên `num_cases`. Xem chương [Xoay trục dữ liệu](pivoting.vn.qmd) để hiểu thêm về quy trình này.
 
 ```{r, message=F, warning=F}
 malaria_age <- malaria_data %>%
@@ -492,15 +492,15 @@ ggplot(malaria_data, aes(x = data_date, y = malaria_tot)) +
 
 <!-- ``` -->
 
-### Trật tự thức bậc của Factor trong facets {.unnumbered}
+### Trật tự thứ bậc của Factor trong facets {.unnumbered}
 
 Xem [bài viết](https://juliasilge.com/blog/reorder-within/) này về cách làm thế nào để sắp xếp lại thức bậc của biến factor *bên trong* facets.
 
-## Lưu trữ biểu đồ
+## Lưu biểu đồ
 
 ### Lưu biểu đồ {.unnumbered}
 
-Mặc định khi bạn chạy lệnh `ggplot()`, biểu đồ sẽ được in ở cửa số Plots của RStudio. Tuy nhiên, bạn cũng có thể lưu biểu đồ dưới dạng một đối tượng bằng cách sử dụng toán tử gán `<-` và đặt tên cho nó. Biểu đồ sẽ không được in ra trừ khi bạn gọi tên của đối tượng. Bạn cũng có thể in nó bằng cách đưa tên biểu đồ vào hàm `print()`, nhưng điều này chỉ cần thiết trong một số trường hợp nhất định chẳng hạn như khi biểu đồ được tạo bên trong một *vòng lặp for* để in nhiều biểu đồ cùng một lúc (xem chương [Lặp, vòng lặp, và danh sách]).
+Mặc định khi bạn chạy lệnh `ggplot()`, biểu đồ sẽ được in ở cửa số Plots của RStudio. Tuy nhiên, bạn cũng có thể lưu biểu đồ dưới dạng một đối tượng bằng cách sử dụng toán tử gán `<-` và đặt tên cho nó. Biểu đồ sẽ không được in ra trừ khi bạn gọi tên của đối tượng. Bạn cũng có thể in nó bằng cách đưa tên biểu đồ vào hàm `print()`, nhưng điều này chỉ cần thiết trong một số trường hợp nhất định chẳng hạn như khi biểu đồ được tạo bên trong một *vòng lặp for* để in nhiều biểu đồ cùng một lúc (xem chương [Lặp, vòng lặp, và danh sách](iteration.vn.qmd)).
 
 ```{r, warning=F, message=F}
 # define plot
@@ -538,7 +538,7 @@ Bạn có thể xuất dưới dạng tệp png, pdf, jpeg, tiff, bmp, svg, ho�
 
 Bạn cũng có thể chỉ định các đối số `width =`, `height =`, và `units =` ("in", "cm", hoặc "mm"). Bạn cũng có thể chỉ định `dpi =` để điều chỉnh độ phân giâỉ của biểu đồ (vd: dpi = 300). Xem hướng dẫn chi tiết về hàm bằng cách gõ `?ggsave` hoặc đọc [tài liệu online này](https://ggplot2.tidyverse.org/reference/ggsave.html).
 
-Hãy nhớ rằng bạn có thể sử dụng cú pháp `here()` để cung cấp đường dẫn tệp mong muốn. Xem chương [Nhập xuất dữ liệu] để biết thêm thông tin.
+Hãy nhớ rằng bạn có thể sử dụng cú pháp `here()` để cung cấp đường dẫn tệp mong muốn. Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm thông tin.
 
 ## Nhãn
 
@@ -572,9 +572,9 @@ age_by_wt <- ggplot(
 age_by_wt
 ```
 
-Hãy để ý chúng ta đã sử dụng hàm `str_glue()` từ package **stringr** để tạo một code R động bên trong văn bản khi gán giá trị cho caption. Caption sẽ hiển thị "Dữ liệu kể từ: " phản ánh ngày nhập viện gần nhất trong bộ dữ liệu linelist. Đọc thêm ở chương [Ký tự và chuỗi].
+Hãy để ý chúng ta đã sử dụng hàm `str_glue()` từ package **stringr** để tạo một code R động bên trong văn bản khi gán giá trị cho caption. Caption sẽ hiển thị "Dữ liệu kể từ: " phản ánh ngày nhập viện gần nhất trong bộ dữ liệu linelist. Đọc thêm ở chương [Ký tự và chuỗi](characters_strings.vn.qmd).
 
-Một chú ý khi bạn muốn thêm tiêu đề cho *chú giải*: Đó là không có đối số "legend title", vì bạn có thể có nhiều thang đo trong chú giải của mình. Bên trong lệnh `labs()`, bạn có thể viết đối số cho yếu tố thẩm mỹ được sử dụng để tạo chú giải, và cung cấp tiêu đề cho nó theo cách này. Trong ví dụ bên trên, chúng ta đã gán `color = age` để tạo chú giải. Do đó, chúng ta cũng cung cấp đối số `color =` ttrong hàm `labs()` và gán tiêu đề chú giải mong muốn ("Age" với chữ A được viết hoa). Nếu bạn tạo chú thích bằng đối số `aes(fill = COLUMN)`, thì trong lệnh `labs()` bạn nên viết `fill =` để điều chỉnh tiêu đề cho chú thích. Xem thêm mục thang đo màu sắc trong chương [Các tips với ggplot] để biết thêm chi tiết về cách chỉnh sửa chú giải và cách tiếp cận thay thế bằng cách sử dụng các hàm `scales_()`.
+Một chú ý khi bạn muốn thêm tiêu đề cho *chú giải*: Đó là không có đối số "legend title", vì bạn có thể có nhiều thang đo trong chú giải của mình. Bên trong lệnh `labs()`, bạn có thể viết đối số cho thuộc tính biểu đồ được sử dụng để tạo chú giải, và cung cấp tiêu đề cho nó theo cách này. Trong ví dụ bên trên, chúng ta đã gán `color = age` để tạo chú giải. Do đó, chúng ta cũng cung cấp đối số `color =` ttrong hàm `labs()` và gán tiêu đề chú giải mong muốn ("Age" với chữ A được viết hoa). Nếu bạn tạo chú thích bằng đối số `aes(fill = COLUMN)`, thì trong lệnh `labs()` bạn nên viết `fill =` để điều chỉnh tiêu đề cho chú thích. Xem thêm mục thang đo màu sắc trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) để biết thêm chi tiết về cách chỉnh sửa chú giải và cách tiếp cận thay thế bằng cách sử dụng các hàm `scales_()`.
 
 ## Chủ đề {#ggplot_basics_themes}
 
@@ -695,7 +695,7 @@ Tài liệu hướng dẫn của **tidyverse** phần [tùy chỉnh chủ đề]
 
 ## Màu sắc
 
-Xem mục [thang đo cho màu sắc trong chương Các tips với ggplot](#ggplot_tips_colors).
+Xem mục [thang đo cho màu sắc trong chương Các mẹo với ggplot](#ggplot_tips_colors).
 
 ## Piping tới **ggplot2**
 
@@ -740,7 +740,7 @@ Các ví dụ bao gồm:
 
 -   **Biểu đồ phân tán (Scatter plot)** cho hai biến liên tục.\
 
--   **Biểu đồ nhiệt** dành cho ba biến liên tục (xem chương [Biểu đồ nhiệt] )
+-   **Biểu đồ nhiệt** dành cho ba biến liên tục (xem chương [Biểu đồ nhiệt](heatmaps.vn.qmd))
 
 ### Histograms {.unnumbered}
 
@@ -840,7 +840,7 @@ knitr::include_graphics(here::here("images", "boxplot.png"))
 
 Khi sử dụng `geom_boxplot()` để tạo biểu đồ box plot, bạn thường chỉ map duy nhất một trục (x hoặc y) bên trong `aes()`. Trục được chỉ định sẽ xác định xem các ô nằm ngang hay dọc.
 
-Trong hầu hết các geoms, bạn tạo ra một biểu đồ theo từng nhóm bằng cách mapping các thuộc tính thẩm mỹ như `color =` hoặc `fill =` tới cột bên trong `aes()`. Tuy nhiên, biểu đồ box plots làm điều này bằng cách gán cột phân nhóm cho trục chưa được gán (x hoặc y). Dưới đây là code cho một boxplot của *tất cả* các giá trị tuổi trong bộ dữ liệu, và code còn lại là để hiển thị từng box plot cho từng nhóm giới tính (không-missing) trong dữ liệu. Lưu ý là giá trị missing `NA` sẽ xuất hiện dưới dạng một box plot riêng rẽ trừ khi nó được loại bỏ. Ở ví dụ này chúng tôi cũng thiết lập `fill` tới cột `outcome`, do đó mà mỗi biểu đồ sẽ có màu khác nhau- nhưng điều này không quan trọng.
+Trong hầu hết các geoms, bạn tạo ra một biểu đồ theo từng nhóm bằng cách mapping các thuộc tính biểu đồ như `color =` hoặc `fill =` tới cột bên trong `aes()`. Tuy nhiên, biểu đồ box plots làm điều này bằng cách gán cột phân nhóm cho trục chưa được gán (x hoặc y). Dưới đây là code cho một boxplot của *tất cả* các giá trị tuổi trong bộ dữ liệu, và code còn lại là để hiển thị từng box plot cho từng nhóm giới tính (không-missing) trong dữ liệu. Lưu ý là giá trị missing `NA` sẽ xuất hiện dưới dạng một box plot riêng rẽ trừ khi nó được loại bỏ. Ở ví dụ này chúng tôi cũng thiết lập `fill` tới cột `outcome`, do đó mà mỗi biểu đồ sẽ có màu khác nhau- nhưng điều này không quan trọng.
 
 ```{r fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%')}
 # A) Overall boxplot
@@ -855,7 +855,7 @@ ggplot(data = linelist, mapping = aes(y = age, x = gender, fill = gender)) +
   labs(title = "B) Boxplot by gender")      
 ```
 
-Code để thêm một box plot vào các cạnh của biểu đồ phân tán (còn gọi là "marginal" plots), vui lòng xem chương [Các tips với ggplot].
+Code để thêm một box plot vào các cạnh của biểu đồ phân tán (còn gọi là "marginal" plots), vui lòng xem chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) .
 
 ### Violin, jitter, và sina plots {.unnumbered}
 
@@ -934,13 +934,13 @@ ggplot(data = linelist %>% drop_na(gender, outcome), # filter retains non-missin
 
 ### Ba biến liên tục {.unnumbered}
 
-Bạn có thể hiển thị ba biến liên tục bằng cách sử dụng đối số `fill =` để tạo một *biểu đồ nhiệt*. Màu của mỗi “ô” sẽ phản ánh giá trị của biên liên tục thứ ba trong bộ dữ liệu. Xem chương [Các tips với ggplot] để biết thêm chi tiết và một số ví dụ.
+Bạn có thể hiển thị ba biến liên tục bằng cách sử dụng đối số `fill =` để tạo một *biểu đồ nhiệt*. Màu của mỗi “ô” sẽ phản ánh giá trị của biên liên tục thứ ba trong bộ dữ liệu. Xem chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) và chương [Biều đồ nhiệt](heatmaps.qmd) để biết thêm chi tiết và một số ví dụ.
 
 Có nhiều cách để tạo biểu đồ 3D trong R, nhưng đối với dịch tễ học ứng dụng, chúng thường khó giải thích và do đó ít hữu ích hơn trong việc ra quyết định.
 
 ## Vẽ biểu đồ cho biến danh mục
 
-Dữ liệu dạng danh mục có thể là các giá trị ký tự, có thể là logic (TRUE/FALSE), hoặc factors (Xem chương [Factors]).
+Dữ liệu dạng danh mục có thể là các giá trị ký tự, có thể là logic (TRUE/FALSE), hoặc factors (Xem chương [Factors](factors.vn.qmd)).
 
 ### Chuẩn bị {.unnumbered}
 
@@ -964,7 +964,7 @@ linelist %>%
   tabyl(hospital)
 ```
 
-Chúng ta có thể thấy các giá trị bên trong là các ký tự, vì chúng là tên bệnh viện và theo mặc định, chúng được sắp xếp theo thứ tự bảng chữ cái. Ngoài ra còn có các giá trị 'other' và 'missing', thứ mà chúng ta muốn nó sẽ là danh mục cuối cùng khi trình bày. Vì thế chúng ta cần chuyển cột này sang dạng factor và sắp xếp lại chúng. Xem chương [Factors] để biết chi tiết cách thực hiện.
+Chúng ta có thể thấy các giá trị bên trong là các ký tự, vì chúng là tên bệnh viện và theo mặc định, chúng được sắp xếp theo thứ tự bảng chữ cái. Ngoài ra còn có các giá trị 'other' và 'missing', thứ mà chúng ta muốn nó sẽ là danh mục cuối cùng khi trình bày. Vì thế chúng ta cần chuyển cột này sang dạng factor và sắp xếp lại chúng. Xem chương [Factors](factors.vn.qmd) để biết chi tiết cách thực hiện.
 
 ```{r}
 # Convert to factor and define level order so "Other" and "Missing" are last
@@ -1042,7 +1042,7 @@ ggplot(outcomes) +
 
 ```
 
-Để trình bày kết quả tách theo từng bệnh viện, chúng ta cần bảng phải chứa nhiều thông tin hơn, và ở định dạng "dài". Chúng ta tạo bảng này với các tần số là sự kết hợp của các danh mục của biến `outcome` và `hospital` (xem chương [Nhóm dữ liệu] để biết thêm các mẹo).
+Để trình bày kết quả tách theo từng bệnh viện, chúng ta cần bảng phải chứa nhiều thông tin hơn, và ở định dạng "dài". Chúng ta tạo bảng này với các tần số là sự kết hợp của các danh mục của biến `outcome` và `hospital` (xem chương [Nhóm dữ liệu](grouping.vn.qmd) để biết thêm các mẹo).
 
 ```{r, fig.height = 4, fig.width=6}
 outcomes2 <- linelist %>% 
@@ -1090,7 +1090,7 @@ Nếu sử dụng `geom_col()` cho dữ liệu ngày tháng (vd: đường cong 
 
 ### `geom_histogram()` {.unnumbered}
 
-Histograms có thể trông giống biểu đồ cột, nhưng khác biệt vì nó đo lường sự phân bố của một biến *liên tục*. Không có khoảng cách giữa các "cột", và chỉ có một cột được cung cấp cho hàm `geom_histogram()`. Có các đối số cụ thể cho biểu đồ chẳng hạn như `bin_width =` và `breaks =` ể chỉ định cách dữ liệu nên được xếp. Phần bên trên về dữ liệu liên tục và chương [Đường cong dịch bệnh] sẽ cung cấp thêm các hi tiết.
+Histograms có thể trông giống biểu đồ cột, nhưng khác biệt vì nó đo lường sự phân bố của một biến *liên tục*. Không có khoảng cách giữa các "cột", và chỉ có một cột được cung cấp cho hàm `geom_histogram()`. Có các đối số cụ thể cho biểu đồ chẳng hạn như `bin_width =` và `breaks =` ể chỉ định cách dữ liệu nên được xếp. Phần bên trên về dữ liệu liên tục và chương [Đường cong dịch bệnh](epicurves.vn.qmd) sẽ cung cấp thêm các hi tiết.
 
 ## Tài nguyên học liệu
 

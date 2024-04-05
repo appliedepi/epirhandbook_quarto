@@ -34,7 +34,7 @@ Es frustrante cuando en algunos tutoriales de R, se muestra una función (en có
 
 En el texto explicativo, los nombres de los paquetes se escriben en negrita (por ejemplo, **dplyr**) y las funciones se escriben así: `mutate()`. Nos esforzaremos en dejar claro el paquete del que proviene una función, ya sea haciendo referencia al paquete en el texto o especificando el paquete en el código mediante esta sintaxis: `dplyr::mutate()`. Puede parecer redundante, pero lo hacemos a propósito.
 
-Consulta la página sobre [fundamentos de R](#r-basics) para saber más sobre los paquetes y las funciones.
+Consulta la página sobre [fundamentos de R](basics.es.qmd) para saber más sobre los paquetes y las funciones.
 
 
 ### Código de estilo {.unnumbered}
@@ -78,7 +78,7 @@ En este manual, generalmente hacemos referencia a "columnas" y "filas" en lugar 
 
 *Las variables contienen* los valores que miden el mismo atributo subyacente (como el grupo de edad, el resultado o la fecha de inicio). Las *observaciones contienen* todos los valores medidos en la misma unidad (por ejemplo, una persona, un lugar o una muestra de laboratorio). Por lo tanto, estos aspectos pueden ser más difíciles de definir de forma tangible.
 
-En los conjuntos de datos "ordenados", cada columna es una variable, cada fila es una observación y cada celda es un único valor. Sin embargo, algunos conjuntos de datos que se encuentran no se ajustan a este molde: unos datos de formato "amplio" puede tener una variable dividida en varias columnas (véase un ejemplo en la página [Pivotar datos](#pivoting-data)). Del mismo modo, las observaciones pueden estar divididas en varias filas.
+En los conjuntos de datos "ordenados", cada columna es una variable, cada fila es una observación y cada celda es un único valor. Sin embargo, algunos conjuntos de datos que se encuentran no se ajustan a este molde: unos datos de formato "amplio" puede tener una variable dividida en varias columnas (véase un ejemplo en la página [Pivotar datos](pivoting.es.qmd)). Del mismo modo, las observaciones pueden estar divididas en varias filas.
 
 La mayor parte de este manual trata sobre la gestión y la transformación de datos, por lo que las referencias a las estructuras de datos concretas de filas y columnas son más relevantes que las observaciones y las variables más abstractas. Las excepciones se dan sobre todo en las páginas sobre análisis de datos, en las que verás más referencias a las variables y las observaciones.
 

@@ -27,14 +27,14 @@ To show how standardization is done, we will use fictitious population counts an
 4. Pivot longer so there is one row per age-sex stratum
 5. Clean the reference population (world standard population) and join it to the country data  
 
-In your scenario, your data may come in a different format. Perhaps your data are by province, city, or other catchment area. You may have one row for each death and information on age and sex for each (or a significant proportion) of these deaths. In this case, see the pages on [Grouping data], [Pivoting data], and [Descriptive tables] to create a dataset with event and population counts per age-sex stratum.  
+In your scenario, your data may come in a different format. Perhaps your data are by province, city, or other catchment area. You may have one row for each death and information on age and sex for each (or a significant proportion) of these deaths. In this case, see the pages on [Grouping data](grouping.qmd), [Pivoting data](pivoting.qmd), and [Descriptive tables](tables_descriptive.qmd) to create a dataset with event and population counts per age-sex stratum.  
 
 We also need a reference population, the standard population. For the purposes of this exercise we will use the `world_standard_population_by_sex`. The World standard population is based on the populations of 46 countries and was developed in 1960. There are many "standard" populations - as one example, the website of [NHS Scotland](https://www.opendata.nhs.scot/dataset/standard-populations) is quite informative on the European Standard Population, World Standard Population and Scotland Standard Population. 
 
 <!-- ======================================================= -->
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -75,7 +75,7 @@ devtools::install_version("dsr", version="0.2.2", repos="https://mac.R-project.o
 
 ### Load population data {.unnumbered}  
 
-See the [Download handbook and data] page for instructions on how to download all the example data in the handbook. You can import the Standardisation page data directly into R from our Github repository by running the following `import()` commands:  
+See the [Download handbook and data](data_used.qmd) page for instructions on how to download all the example data in the handbook. You can import the Standardisation page data directly into R from our Github repository by running the following `import()` commands:  
 
 ```{r, eval=F}
 # import demographics for country A directly from Github
@@ -182,7 +182,7 @@ We need to join and transform these data in the following ways:
 * Combine country death counts into one dataset and pivot "long" so each age-sex stratum is one row  
 * Join the deaths to the populations  
 
-First, we combine the country populations datasets, pivot longer, and do minor cleaning. See the page on [Pivoting data] for more detail.  
+First, we combine the country populations datasets, pivot longer, and do minor cleaning. See the page on [Pivoting data](pivoting.qmd) for more detail.  
 
 ```{r}
 pop_countries <- A_demo %>%  # begin with country A dataset
@@ -228,7 +228,7 @@ country_data <- pop_countries %>%
      left_join(deaths_countries, by = c("Country", "age_cat5", "Sex"))
 ```
 
-We can now classify `Sex`, `age_cat5`, and `Country` as factors and set the level order using `fct_relevel()` function from the **forcats** package, as described in the page on [Factors]. Note, classifying the factor levels doesn't visibly change the data, but the `arrange()` command does sort it by Country, age category, and sex.  
+We can now classify `Sex`, `age_cat5`, and `Country` as factors and set the level order using `fct_relevel()` function from the **forcats** package, as described in the page on [Factors](factors.qmd). Note, classifying the factor levels doesn't visibly change the data, but the `arrange()` command does sort it by Country, age category, and sex.  
 
 ```{r, warning=F, message=F}
 country_data <- country_data %>% 
@@ -284,7 +284,7 @@ DT::datatable(standard_pop_data, rownames = FALSE, options = list(pageLength = 5
 
 The age category values in the `country_data` and `standard_pop_data` data frames will need to be aligned.  
 
-Currently, the values of the column `age_cat5` from the `standard_pop_data` data frame contain the word "years" and "plus", while those of the `country_data` data frame do not. We will have to make the age category values match. We use `str_replace_all()` from the **stringr** package, as described in the page on [Characters and strings], to replace these patterns with no space `""`.  
+Currently, the values of the column `age_cat5` from the `standard_pop_data` data frame contain the word "years" and "plus", while those of the `country_data` data frame do not. We will have to make the age category values match. We use `str_replace_all()` from the **stringr** package, as described in the page on [Characters and strings](characters_strings.qmd), to replace these patterns with no space `""`.  
 
 Furthermore, the package **dsr** expects that in the standard population, the column containing counts will be called `"pop"`. So we rename that column accordingly.  
 

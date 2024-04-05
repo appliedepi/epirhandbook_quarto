@@ -1,4 +1,4 @@
-# Factors {#factors}
+# Kiểu dữ liệu danh mục - Factors {#factors}
 
 ```{r, out.width=c('100%'), echo=F, message=F}
 knitr::include_graphics(here::here("images", "Factors_1500x500.png"))
@@ -18,7 +18,7 @@ Bạn có thể tìm thấy danh sách đầy đủ các hàm của package **fo
 
 ### Gọi packages {.unnumbered}
 
-Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu nó chưa được cài *và* gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu nó chưa được cài *và* gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r}
 pacman::p_load(
@@ -35,7 +35,7 @@ pacman::p_load(
 ### Nhập dữ liệu {.unnumbered}
 
 
-Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã được làm sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist "đã được làm sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 
 ```{r, echo=F}
@@ -56,7 +56,7 @@ Lưu ý rằng khi bạn chuyển đổi một cột dạng số thành dạng f
 
 #### Tạo biến {.unnumbered}
 
-Chúng ta sẽ sử dụng một biến có sẵn, tên là `days_onset_hosp` (số ngày, tính từ khi bắt đầu có triệu chứng cho đến khi nhập viện) và tạo một biến mới có tên `delay_cat` bằng cách phân loại các giá trị trong mỗi hàng của biến có sẵn đó thành một số nhóm khác nhau. Chúng ta sẽ thực hiện việc này bằng hàm `case_when()` trong package **dplyr**, hàm này sẽ giúp áp dụng tuần tự các tiêu chí logic (phía bên phải) cho mỗi giá trị của biễn có sẵn và trả về giá trị bên trái tương ứng ở biến mới `delay_cat`. Đọc thêm về `case_when()` tại chương [Làm sạch số liệu và các hàm quan trọng].
+Chúng ta sẽ sử dụng một biến có sẵn, tên là `days_onset_hosp` (số ngày, tính từ khi bắt đầu có triệu chứng cho đến khi nhập viện) và tạo một biến mới có tên `delay_cat` bằng cách phân loại các giá trị trong mỗi hàng của biến có sẵn đó thành một số nhóm khác nhau. Chúng ta sẽ thực hiện việc này bằng hàm `case_when()` trong package **dplyr**, hàm này sẽ giúp áp dụng tuần tự các tiêu chí logic (phía bên phải) cho mỗi giá trị của biễn có sẵn và trả về giá trị bên trái tương ứng ở biến mới `delay_cat`. Đọc thêm về `case_when()` tại chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd).
 
 ```{r}
 linelist <- linelist %>% 
@@ -77,14 +77,14 @@ Khi sử dụng hàm `case_when()`, biến mới `delay_cat` tạo ra sẽ là m
 table(linelist$delay_cat, useNA = "always")
 ```
 
-Tương tự như vậy, nếu chúng ta tạo biểu đồ cột, các giá trị cũng xuất hiện theo thứ tự này trên trục x (xem chương [ggplot cơ bản] để hiểu thêm về package **ggplot2** - package giúp trực quan hóa dữ liệu phổ biến nhất trong R).
+Tương tự như vậy, nếu chúng ta tạo biểu đồ cột, các giá trị cũng xuất hiện theo thứ tự này trên trục x (xem chương [ggplot cơ bản](ggplot_basics.vn.qmd) để hiểu thêm về package **ggplot2** - package giúp trực quan hóa dữ liệu phổ biến nhất trong R).
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist)+
   geom_bar(mapping = aes(x = delay_cat))
 ```
 
-## Chuyển đổi sang factor
+## Định nghĩa dữ liệu sang kiểu factor
 
 Để chuyển đổi một biến dạng ký tự hoặc dạng số sang dạng *factor*, bạn có thể sử dụng bất kỳ hàm nào trong package **forcats** (nhiều hàm được nêu chi tiết tại [mục dưới đây](#fct_adjust)). Các biến sẽ chuyển đổi sang dạng factor và sau đó cũng thực hiện hoặc sắp xếp theo một thứ tự nhất định của các levels - ví dụ: hàm `fct_relevel()` cho phép bạn chỉ định thứ tự levels theo cách thủ công. Hàm `as_factor()` chỉ đơn giản là chuyển đổi biến sang dạng factor mà không có thêm bất kỳ chức năng nào khác.
 
@@ -103,7 +103,7 @@ linelist <- linelist %>%
 levels(linelist$delay_cat)
 ```
 
-Hàm `fct_relevel()` có thêm chức năng cho phép bạn có thể tự sắp xếp trật tự của các thứ bậc trong factor. Đơn giản, bạn chỉ cần viết các thứ bậc theo thứ tự bạn muốn, để chúng trong dấu ngoặc kép, được phân tách bằng dấu phẩy, như được hiển thị bên dưới. Lưu ý rằng chính tả phải khớp chính xác với tên các thứ bậc. Nếu bạn muốn tạo các thứ bậc không tồn tại trong dữ liệu, hãy sử dụng hàm [`fct_expand()`](#fct_add) nhé.
+Hàm `fct_relevel()` có thêm chức năng cho phép bạn có thể tự sắp xếp trật tự của các thứ bậc trong factor. Đơn giản, bạn chỉ cần viết các thứ bậc theo thứ tự bạn muốn, để chúng trong dấu ngoặc kép, được phân tách bằng dấu phẩy, như được hiển thị bên dưới. Lưu ý rằng chính tả phải khớp chính xác với tên các thứ bậc. Nếu bạn muốn tạo các thứ bậc không tồn tại trong dữ liệu, hãy sử dụng hàm [`fct_expand()`](#fct_add).
 
 ```{r}
 linelist <- linelist %>%
@@ -186,7 +186,7 @@ linelist %>%
 
 Các lệnh trong package **forcats** có thể được sử dụng để thay đổi trật tự của biến trong data frame hoặc trong biểu đồ. Bằng cách sử dụng các lệnh để "gói" tên biến vào *trong* các lệnh vẽ biểu đồ của package `ggplot()`, bạn có thể dảo ngược/thay đổi một trật tự có sẵn của biến. Sự thay đổi này chỉ áp dụng trong biểu đồ đang vẽ.
 
-Dưới đây, hai biểu đồ đều được vẽ bởi hàm `ggplot()` (xem thêm tại chương [ggplot cơ bản]). Trong biểu đồ đầu tiên, biến `delay_cat` được vẽ trên trục x của biểu đồ với thứ tự các thứ bậc là mặc định trong dữ liệu `linelist`. Trong biểu đồ thứ hai, biến được đặt trong bởi hàm `fct_relevel()` và trật tự của các thứ bậc đã được sắp xếp lại.
+Dưới đây, hai biểu đồ đều được vẽ bởi hàm `ggplot()` (xem thêm tại chương [ggplot cơ bản](ggplot_basics.vn.qmd)). Trong biểu đồ đầu tiên, biến `delay_cat` được vẽ trên trục x của biểu đồ với thứ tự các thứ bậc là mặc định trong dữ liệu `linelist`. Trong biểu đồ thứ hai, biến được đặt trong bởi hàm `fct_relevel()` và trật tự của các thứ bậc đã được sắp xếp lại.
 
 ```{r, echo =F}
 linelist <- linelist %>% 
@@ -210,7 +210,7 @@ Lưu ý rằng, ở biểu đồ thứ hai, tiêu đề mặc định của tr�
 
 Bạn sẽ thường xuyên cần đảo ngược trật tự của các thứ bậc trong một biến. Đơn giản, bạn chỉ cần thêm tên biến vào bên trong hàm `fct_rev()`.
 
-Lưu ý rằng, nếu bạn *chỉ* muốn đảo ngược thứ tự trong một biểu đồ chứ không phải thứ tự của biến đó, bạn có thể thực hiện điều đó với hàm `guides()` (Xem thêm tại chương [Các tips với ggplot]).
+Lưu ý rằng, nếu bạn *chỉ* muốn đảo ngược thứ tự trong một biểu đồ chứ không phải thứ tự của biến đó, bạn có thể thực hiện điều đó với hàm `guides()` (Xem thêm tại chương [Các mẹo với ggplot](ggplot_tips.vn.qmd)).
 
 ### Theo tần suất {.unnumbered}
 
@@ -307,13 +307,13 @@ linelist %>%
   tabyl(delay_cat)
 ```
 
-## Kết hợp các thứ bậc trong biến factor
+## Kết hợp các thứ bậc trong kiểu dữ liệu factor
 
 ### Kết hợp thủ công {.unnumbered}
 
-Bạn có thể điều chỉnh cách hiển thị của các thứ bậc theo cách thủ công với hàm `fct_recode()`. Điều này giống như hàm `recode()` trong package **dplyr** (xem thêm tại chương [Làm sạch số liệu và các hàm quan trọng]), nhưng nó cho phép tạo các thứ bậc mới trong factor. Nếu bạn đơn giản chỉ sử dụng hàm `recode()` trên một factor, các giá trị được mã hóa mới sẽ bị từ chối trừ khi chúng đã được đặt ở thứ bậc cho phép.
+Bạn có thể điều chỉnh cách hiển thị của các thứ bậc theo cách thủ công với hàm `fct_recode()`. Điều này giống như hàm `recode()` trong package **dplyr** (xem thêm tại chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd)), nhưng nó cho phép tạo các thứ bậc mới. Nếu bạn đơn giản chỉ sử dụng hàm `recode()`, các giá trị được mã hóa mới sẽ bị từ chối trừ khi chúng đã được đặt ở thứ bậc cho phép.
 
-Công cụ này cũng có thể được sử dụng để "kết hợp" các thứ bậc trong factor, bằng cách gán cho nhiều thứ bậc cùng một giá trị được mã hóa lại. Bạn cần cẩn thận để không bị mất thông tin! Cân nhắc thực hiện các bước kết hợp này trong một biến mới (không ghi đè lên biến hiện tại).
+Công cụ này cũng có thể được sử dụng để "nhóm" các thứ bậc trong factor, bằng cách gán cho nhiều thứ bậc cùng một giá trị được mã hóa lại. Bạn cần cẩn thận để không bị mất thông tin! Hãy cân nhắc thực hiện hành động này trên một cột mới (không ghi đè lên cột hiện tại).
 
 Hàm `fct_recode()` có cú pháp khác với hàm `recode()`. Hàm `recode()` sử dụng câu lệnh `OLD = NEW`, trong khi hàm `fct_recode()` sửu dụng câu lệnh `NEW = OLD`.
 
@@ -352,9 +352,9 @@ linelist %>%
   tabyl(delay_cat)
 ```
 
-### Rút gọn thành "Other" {.unnumbered}
+### Rút gọn thành nhóm "Khác" {.unnumbered}
 
-Bạn có thể sử dụng hàm `fct_other()` để gán các thứ bậc của factor theo cách thủ công cho thứ bậc "Other". Dưới đây, tất cả các thứ bậc trong biến `hospital`, ngoại trừ "Port Hospital" và "Central Hospital", được gộp chung thành "Other". Bạn có thể cung cấp một vectơ để giữ `keep =`, hoặc loại bỏ `drop =`. Bạn có thể thay đổi cách hiển thị của thứ bậc "Other" bằng hàm `other_level =`.
+Bạn có thể sử dụng hàm `fct_other()` để gán các thứ bậc của một cột dạng factor thành một thứ bậc mới "Other". Dưới đây, tất cả các thứ bậc trong biến `hospital`, ngoại trừ "Port Hospital" và "Central Hospital", được gộp chung thành "Other". Bạn có thể cung cấp một vectơ để giữ `keep =`, hoặc loại bỏ `drop =`. Bạn có thể thay đổi cách hiển thị của thứ bậc "Other" bằng hàm `other_level =`.
 
 ```{r}
 linelist %>%    
@@ -413,18 +413,18 @@ Cả hàm `table()` trong **base** R và hàm `tabyl()` trong package **janitor*
 
 Nếu bạn sử dụng hàm `count()` hoặc `summarise()` từ package **dplyr** để tạo bảng, hãy thêm đối số `.drop = FALSE` để hiển thị số lượng cho tất cả các thứ bậc trong factor ngay cả các thứ bậc không sử dụng.
 
-Đọc thêm tại chương [Bảng mô tả],hoặc tại các link sau [scale_discrete documentation](https://ggplot2.tidyverse.org/reference/scale_discrete.html), hoặc [count() documentation](https://dplyr.tidyverse.org/reference/count.html). Bạn có thể tìm các ví dụ khác tại chương [Truy vết tiếp xúc].
+Đọc thêm tại chương [Bảng mô tả](tables_descriptive.vn.qmd),hoặc tại các link sau [scale_discrete documentation](https://ggplot2.tidyverse.org/reference/scale_discrete.html), hoặc [count() documentation](https://dplyr.tidyverse.org/reference/count.html). Bạn có thể tìm các ví dụ khác tại chương [Truy vết tiếp xúc](contact_tracing.vn.qmd).
 
 ## Tuần dịch tễ
 
-Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương [Nhóm dữ liệu].\
-Vui lòng xem chương [Làm việc với ngày tháng] để biết các mẹo về cách tạo và định dạng các tuần dịch tễ học.
+Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương [Nhóm dữ liệu](grouping.vn.qmd).\
+Vui lòng xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết các mẹo về cách tạo và định dạng các tuần dịch tễ học.
 
 ### Tuần dịch tễ trong biểu đồ {.unnumbered}
 
-Nếu mục tiêu của bạn là tạo các tuần dịch tễ học để hiển thị trong một biểu đồ, bạn có thể thực hiện việc này đơn giản với hàm `floor_date()` trong package **lubridate**, như được giải thích trong chương [Nhóm dữ liệu]. Các giá trị trả về sẽ thuộc loại Ngày tháng với định dạng YYYY-MM-DD. Nếu bạn sử dụng cột này trong một biểu đồ, ngày tháng sẽ tự nhiên được sắp xếp chính xác và bạn không cần phải lo lắng về thứ bậc hoặc chuyển đổi sang dạng factor. Xem biểu đồ histogram trong hàm `ggplot()` về các ngày khởi phát bên dưới.
+Nếu mục tiêu của bạn là tạo các tuần dịch tễ học để hiển thị trong một biểu đồ, bạn có thể thực hiện việc này đơn giản với hàm `floor_date()` trong package **lubridate**, như được giải thích trong chương [Nhóm dữ liệu](grouping.vn.qmd). Các giá trị trả về sẽ thuộc loại Ngày tháng với định dạng YYYY-MM-DD. Nếu bạn sử dụng cột này trong một biểu đồ, ngày tháng sẽ tự nhiên được sắp xếp chính xác và bạn không cần phải lo lắng về thứ bậc hoặc chuyển đổi sang dạng factor. Xem biểu đồ histogram trong hàm `ggplot()` về các ngày khởi phát bên dưới.
 
-Trong cách tiếp cận này, bạn có thể điều chỉnh *việc hiển thị* của ngày tháng trên trục với `scale_x_date()`. Xem thêm tại trang [Đường cong dịch bệnh] để biết thêm thông tin. Bạn có thể chỉ định định dạng hiển thị `date_labels =` cho đối số `scale_x_date()`. Sử dụng "% Y" để đại diện cho năm có 4 chữ số và "% W" hoặc "% U" để đại diện cho số tuần (các tuần thứ Hai hoặc Chủ Nhật tương ứng).
+Trong cách tiếp cận này, bạn có thể điều chỉnh *việc hiển thị* của ngày tháng trên trục với `scale_x_date()`. Xem thêm tại trang [Đường cong dịch bệnh](epicurves.vn.qmd) để biết thêm thông tin. Bạn có thể chỉ định định dạng hiển thị `date_labels =` cho đối số `scale_x_date()`. Sử dụng "% Y" để đại diện cho năm có 4 chữ số và "% W" hoặc "% U" để đại diện cho số tuần (các tuần thứ Hai hoặc Chủ Nhật tương ứng).
 
 ```{r, warning=F, message=F}
 linelist %>% 
@@ -440,7 +440,7 @@ Tuy nhiên, nếu mục đích của bạn với biến factor *không phải* �
 
 1)  *Để kiểm soát tốt việc hiển thị*, hãy chuyển đổi cột **lubridate** tuần dịch tễ (YYYY-MM-DD) sang định dạng hiển thị mong muốn (YYYY-WWw) *trong chính data frame*, rồi chuyển đổi nó thành dạng factor.
 
-Đầu tiên, sử dụng hàm `format()` từ **base** R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương [Làm việc với ngày tháng]). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm `factor()`.
+Đầu tiên, sử dụng hàm `format()` từ **base** R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương [Làm việc với ngày tháng](dates.vn.qmd)). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm `factor()`.
 
 ```{r}
 linelist <- linelist %>% 
@@ -463,7 +463,7 @@ df <- linelist %>%
 levels(df$epiweek)
 ```
 
-Xem chương [Làm việc với ngày tháng] để biết thêm thông tin về package **aweek**. Nó cũng cung cấp thông tin về hàm đảo ngược `week2date()`.
+Xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết thêm thông tin về package **aweek**. Nó cũng cung cấp thông tin về hàm đảo ngược `week2date()`.
 
 <!-- ======================================================= -->
 

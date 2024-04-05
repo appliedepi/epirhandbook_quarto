@@ -27,7 +27,7 @@ Bu sayfa aşağıdaki konuları ele alacaktır:
      
 ### Paketleri yükleyin {.unnumbered}
      
-Bu kod parçası, analizler için gereken paketlerin yüklenmesini gösterir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` vurgusunu yapıyoruz.  R **tabanı**ndan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics] sayfasına bakabilirsiniz.
+Bu kod parçası, analizler için gereken paketlerin yüklenmesini gösterir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` vurgusunu yapıyoruz.  R **tabanı**ndan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics](basics.tr.qmd) sayfasına bakabilirsiniz.
 
 
 ```{r}
@@ -43,7 +43,7 @@ pacman::p_load(
 
 ### Verileri içe aktar {.unnumbered}
 
-Simüle edilmiş bir Ebola salgınından vakaların veri setini içe aktarıyoruz. Takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"clean" dosyasını indirmek için tıklayın</a> (.rds dosyası olarak). Veri kümesi, **rio** paketinden `import()` fonksiyonu kullanılarak içe aktarılır. Verileri içe aktarmanın çeşitli yolları için [İçe ve dışa aktar] hakkındaki sayfaya bakın.
+Simüle edilmiş bir Ebola salgınından vakaların veri setini içe aktarıyoruz. Takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"clean" dosyasını indirmek için tıklayın</a> (.rds dosyası olarak). Veri kümesi, **rio** paketinden `import()` fonksiyonu kullanılarak içe aktarılır. Verileri içe aktarmanın çeşitli yolları için [İçe ve dışa aktar](importing.tr.qmd) hakkındaki sayfaya bakın.
 
 ```{r, echo=F}
 linelist <- rio::import(here("data", "case_linelists", "linelist_cleaned.rds"))

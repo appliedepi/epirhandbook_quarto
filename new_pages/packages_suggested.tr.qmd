@@ -8,10 +8,10 @@ Ek not:
 
 * Aşağıdaki kodu çalıştırmadan önce **pacman** paketini kurmalısınız. Bunu `install.packages("pacman")` ile yapabilirsiniz. Bu el kitabında, gerekirse paketi kuran *and* mevcut R oturumunda kullanmak üzere yükleyen **pacman**'dan `p_load()`a vurgu yapmaktayız. Ayrıca **base** R'dan `library()` ile önceden kurulmuş paketleri de yükleyebilirsiniz.  
 * Aşağıdaki kodda, yüklenen paketlerin bağımlı olduğu diğer paketler bir girinti ve hash ile belirtilmiştir. Örnek olarak, **ggplot2**'nin **tidyverse** altında nasıl listelendiği inceleyebilirsiniz.
-* Yüklenen birden çok paket aynı adda fonksiyonlara sahipse, en son yüklenen paketten gelen fonksiyonun önceliklendirildiği *masking*  ortaya çıkabilmektedir. [R temelleri] sayfasında daha fazlasını bulabilirsiniz. Bu tür çakışmaları yönetmek için **conflicted** paketini kullanabilirsiniz.
-* **pacman** ve maskeleme hakkında daha fazla bilgi için paketlerle ilgili [R temelleri] bölümüne bakınız.
+* Yüklenen birden çok paket aynı adda fonksiyonlara sahipse, en son yüklenen paketten gelen fonksiyonun önceliklendirildiği *masking*  ortaya çıkabilmektedir. [R temelleri](basics.tr.qmd) sayfasında daha fazlasını bulabilirsiniz. Bu tür çakışmaları yönetmek için **conflicted** paketini kullanabilirsiniz.
+* **pacman** ve maskeleme hakkında daha fazla bilgi için paketlerle ilgili [R temelleri](basics.tr.qmd) bölümüne bakınız.
 
-Bu el kitabının hazırlanması sırasında kullanılan R, RStudio ve R paketlerinin sürümlerini görmek için [Yazı ve teknik notlar] sayfasına bakınız.
+Bu el kitabının hazırlanması sırasında kullanılan R, RStudio ve R paketlerinin sürümlerini görmek için [Yazı ve teknik notlar](editorial_style.tr.qmd) sayfasına bakınız.
 
 ## Packages from CRAN  
 

@@ -676,7 +676,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h2 data-number="11.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">11.1</span> Preparation</h2>
 <section id="load-packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="load-packages">Load packages</h3>
-<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load installed packages with <code>library()</code> from <strong>base</strong> R. See the page on [R basics] for more information on R packages.</p>
+<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load installed packages with <code>library()</code> from <strong>base</strong> R. See the page on <a href="../new_pages/basics.html">R basics</a> for more information on R packages.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  rio,           <span class="co"># import/export</span></span>
@@ -691,7 +691,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="import-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="import-data">Import data</h3>
-<p>We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">click to download the “clean” linelist</a> (as .rds file). Import your data with the <code>import()</code> function from the <strong>rio</strong> package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).</p>
+<p>We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">click to download the “clean” linelist</a> (as .rds file). Import your data with the <code>import()</code> function from the <strong>rio</strong> package (it accepts many file types like .xlsx, .rds, .csv - see the <a href="../new_pages/importing.html">Import and export</a> page for details).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import your dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -703,7 +703,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Note that if you convert a numeric column to class factor, you will not be able to calculate numeric statistics on it.</p>
 <section id="create-column" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="create-column">Create column</h4>
-<p>We use the existing column <code>days_onset_hosp</code> (days from symptom onset to hospital admission) and create a new column <code>delay_cat</code> by classifying each row into one of several categories. We do this with the <strong>dplyr</strong> function <code>case_when()</code>, which sequentially applies logical criteria (right-side) to each row and returns the corresponding left-side value for the new column <code>delay_cat</code>. Read more about <code>case_when()</code> in [Cleaning data and core functions].</p>
+<p>We use the existing column <code>days_onset_hosp</code> (days from symptom onset to hospital admission) and create a new column <code>delay_cat</code> by classifying each row into one of several categories. We do this with the <strong>dplyr</strong> function <code>case_when()</code>, which sequentially applies logical criteria (right-side) to each row and returns the corresponding left-side value for the new column <code>delay_cat</code>. Read more about <code>case_when()</code> in <a href="../new_pages/cleaning.html">Cleaning data and core functions</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">case_when</span>(</span>
@@ -726,7 +726,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
     2990      602     2040      256 </code></pre>
 </div>
 </div>
-<p>Likewise, if we make a bar plot, the values also appear in this order on the x-axis (see the [ggplot basics] page for more on <strong>ggplot2</strong> - the most common visualization package in R).</p>
+<p>Likewise, if we make a bar plot, the values also appear in this order on the x-axis (see the <a href="../new_pages/ggplot_basics.html">ggplot basics</a> page for more on <strong>ggplot2</strong> - the most common visualization package in R).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> delay_cat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -855,7 +855,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="within-a-plot" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="within-a-plot">Within a plot</h3>
 <p>The <strong>forcats</strong> commands can be used to set the level order in the data frame, or only within a plot. By using the command to “wrap around” the column name <em>within</em> the <code>ggplot()</code> plotting command, you can reverse/relevel/etc. the transformation will only apply within that plot.</p>
-<p>Below, two plots are created with <code>ggplot()</code> (see the [ggplot basics] page). In the first, the <code>delay_cat</code> column is mapped to the x-axis of the plot, with it’s default level order as in the data <code>linelist</code>. In the second example it is wrapped within <code>fct_relevel()</code> and the order is changed in the plot.</p>
+<p>Below, two plots are created with <code>ggplot()</code> (see the <a href="../new_pages/ggplot_basics.html">ggplot basics</a> page). In the first, the <code>delay_cat</code> column is mapped to the x-axis of the plot, with it’s default level order as in the data <code>linelist</code>. In the second example it is wrapped within <code>fct_relevel()</code> and the order is changed in the plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alpha-numeric default order - no adjustment within ggplot</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
@@ -884,7 +884,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="reverse" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="reverse">Reverse</h3>
 <p>It is rather common that you want to reverse the level order. Simply wrap the factor with <code>fct_rev()</code>.</p>
-<p>Note that if you want to reverse <em>only</em> a plot legend but not the actual factor levels, you can do that with <code>guides()</code> (see [ggplot tips]).</p>
+<p>Note that if you want to reverse <em>only</em> a plot legend but not the actual factor levels, you can do that with <code>guides()</code> (see <a href="../new_pages/ggplot_tips.html">ggplot tips</a>).</p>
 </section>
 <section id="by-frequency" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="by-frequency">By frequency</h3>
@@ -1026,7 +1026,7 @@ Caused by warning:
 <h2 data-number="11.6" class="anchored" data-anchor-id="combine-levels"><span class="header-section-number">11.6</span> Combine levels</h2>
 <section id="manually-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="manually-1">Manually</h3>
-<p>You can adjust the level displays manually manually with <code>fct_recode()</code>. This is like the <strong>dplyr</strong> function <code>recode()</code> (see [Cleaning data and core functions]), but it allows the creation of new factor levels. If you use the simple <code>recode()</code> on a factor, new re-coded values will be rejected unless they have already been set as permissible levels.</p>
+<p>You can adjust the level displays manually manually with <code>fct_recode()</code>. This is like the <strong>dplyr</strong> function <code>recode()</code> (see <a href="../new_pages/cleaning.html">Cleaning data and core functions</a>), but it allows the creation of new factor levels. If you use the simple <code>recode()</code> on a factor, new re-coded values will be rejected unless they have already been set as permissible levels.</p>
 <p>This tool can also be used to “combine” levels, by assigning multiple levels the same re-coded value. Just be careful to not lose information! Consider doing these combining steps in a new column (not over-writing the existing column).</p>
 <p><code>fct_recode()</code> has a different syntax than <code>recode()</code>. <code>recode()</code> uses <code>OLD = NEW</code>, whereas <code>fct_recode()</code> uses <code>NEW = OLD</code>.</p>
 <p>The current levels of <code>delay_cat</code> are:</p>
@@ -1141,17 +1141,17 @@ Caused by warning:
 <h3 class="unnumbered anchored" data-anchor-id="in-tables">In tables</h3>
 <p>Both the <strong>base</strong> R <code>table()</code> and <code>tabyl()</code> from <strong>janitor</strong> will show all factor levels (even unused levels).</p>
 <p>If you use <code>count()</code> or <code>summarise()</code> from <strong>dplyr</strong> to make a table, add the argument <code>.drop = FALSE</code> to include counts for all factor levels even those unused.</p>
-<p>Read more in the [Descriptive tables] page, or at the <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, or the <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. You can see another example in the [Contact tracing] page.</p>
+<p>Read more in the <a href="../new_pages/tables_descriptive.html">Descriptive tables</a> page, or at the <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, or the <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. You can see another example in the <a href="../new_pages/contact_tracing.html">Contact tracing</a> page.</p>
 </section>
 </section>
 <section id="epiweeks" class="level2" data-number="11.8">
 <h2 data-number="11.8" class="anchored" data-anchor-id="epiweeks"><span class="header-section-number">11.8</span> Epiweeks</h2>
-<p>Please see the extensive discussion of how to create epidemiological weeks in the [Grouping data] page.<br>
-Please also see the [Working with dates] page for tips on how to create and format epidemiological weeks.</p>
+<p>Please see the extensive discussion of how to create epidemiological weeks in the <a href="../new_pages/grouping.html">Grouping data</a> page.<br>
+Please also see the <a href="../new_pages/dates.html">Working with dates</a> page for tips on how to create and format epidemiological weeks.</p>
 <section id="epiweeks-in-a-plot" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="epiweeks-in-a-plot">Epiweeks in a plot</h3>
-<p>If your goal is to create epiweeks to display in a plot, you can do this simply with <strong>lubridate</strong>’s <code>floor_date()</code>, as explained in the [Grouping data] page. The values returned will be of class Date with format YYYY-MM-DD. If you use this column in a plot, the dates will naturally order correctly, and you do not need to worry about levels or converting to class Factor. See the <code>ggplot()</code> histogram of onset dates below.</p>
-<p>In this approach, you can adjust the <em>display</em> of the dates on an axis with <code>scale_x_date()</code>. See the page on [Epidemic curves] for more information. You can specify a “strptime” display format to the <code>date_labels =</code> argument of <code>scale_x_date()</code>. These formats use “%” placeholders and are covered in the [Working with dates] page. Use “%Y” to represent a 4-digit year, and either “%W” or “%U” to represent the week number (Monday or Sunday weeks respectively).</p>
+<p>If your goal is to create epiweeks to display in a plot, you can do this simply with <strong>lubridate</strong>’s <code>floor_date()</code>, as explained in the <a href="../new_pages/grouping.html">Grouping data</a> page. The values returned will be of class Date with format YYYY-MM-DD. If you use this column in a plot, the dates will naturally order correctly, and you do not need to worry about levels or converting to class Factor. See the <code>ggplot()</code> histogram of onset dates below.</p>
+<p>In this approach, you can adjust the <em>display</em> of the dates on an axis with <code>scale_x_date()</code>. See the page on <a href="../new_pages/epicurves.html">Epidemic curves</a> for more information. You can specify a “strptime” display format to the <code>date_labels =</code> argument of <code>scale_x_date()</code>. These formats use “%” placeholders and are covered in the <a href="../new_pages/dates.html">Working with dates</a> page. Use “%Y” to represent a 4-digit year, and either “%W” or “%U” to represent the week number (Monday or Sunday weeks respectively).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">"week"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># create week column</span></span>
@@ -1173,7 +1173,7 @@ Please also see the [Working with dates] page for tips on how to create and form
 <ol type="1">
 <li><em>For fine control over the display</em>, convert the <strong>lubridate</strong> epiweek column (YYYY-MM-DD) to the desired display format (YYYY-WWw) <em>within the data frame itself</em>, and then convert it to class Factor.</li>
 </ol>
-<p>First, use <code>format()</code> from <strong>base</strong> R to convert the date display from YYYY-MM-DD to YYYY-Www display (see the [Working with dates] page). In this process the class will be converted to character. Then, convert from character to class Factor with <code>factor()</code>.</p>
+<p>First, use <code>format()</code> from <strong>base</strong> R to convert the date display from YYYY-MM-DD to YYYY-Www display (see the <a href="../new_pages/dates.html">Working with dates</a> page). In this process the class will be converted to character. Then, convert from character to class Factor with <code>factor()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">"week"</span>),       <span class="co"># create epiweeks (YYYY-MM-DD)</span></span>
@@ -1205,7 +1205,7 @@ Please also see the [Working with dates] page for tips on how to create and form
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(df<span class="sc">$</span>epiweek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>See the [Working with dates] page for more information about <strong>aweek</strong>. It also offers the reverse function <code>week2date()</code>.</p>
+<p>See the <a href="../new_pages/dates.html">Working with dates</a> page for more information about <strong>aweek</strong>. It also offers the reverse function <code>week2date()</code>.</p>
 <!-- ======================================================= -->
 </section>
 </section>
@@ -1762,7 +1762,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -19,7 +19,7 @@ Bu sayfa, **forcats** ("**for** ve **kat**egorik değişkenler" için kısa bir 
 
 ### Paketlerin yüklenmesi {.unnumbered}  
 
-Aşağıdaki kod parçası, analizler için gereken paketlerin yüklenmesini göstermektedir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` vurgulamaktayız. R tabanından `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R temelleri] sayfasına bakın.
+Aşağıdaki kod parçası, analizler için gereken paketlerin yüklenmesini göstermektedir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` vurgulamaktayız. R tabanından `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R temelleri](basics.tr.qmd) sayfasına bakın.
 
 ```{r}
 pacman::p_load(
@@ -37,7 +37,7 @@ pacman::p_load(
 
 ### Veriyi içe aktarma {.unnumbered}  
 
-Simüle edilmiş bir Ebola salgınına ait vakaların veri setini içe aktarıyoruz. Takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"temiz satır listesi" dosyasını indirmek için tıklayın.</a> (.rds dosyası olarak). Verilerinizi **rio** paketinden `import()` işleviyle içe aktarın (.xlsx, .rds, .csv gibi birçok dosya türünü kabul eder - ayrıntılar için [İçe ve dışa aktarma] sayfasına bakın).
+Simüle edilmiş bir Ebola salgınına ait vakaların veri setini içe aktarıyoruz. Takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"temiz satır listesi" dosyasını indirmek için tıklayın.</a> (.rds dosyası olarak). Verilerinizi **rio** paketinden `import()` işleviyle içe aktarın (.xlsx, .rds, .csv gibi birçok dosya türünü kabul eder - ayrıntılar için [İçe ve dışa aktarma](importing.tr.qmd) sayfasına bakın).
 
 ```{r, echo=F}
 # satır listesini R'a aktar
@@ -59,7 +59,7 @@ Sayısal bir sütunu sınıf faktörüne dönüştürürseniz, bunun üzerinde s
 
 #### Sütun oluşturma {.unnumbered}  
 
-Biz, mevcut `days_onset_hosp` sütununu (semptom başlangıcından hastaneye kabule kadar geçen gün) kullanarak her satırı birkaç kategoriden birine sınıflandırıp yeni bir `delay_cat` sütunu oluşturuyoruz. Bunu, her satıra sırayla mantıksal ölçütleri (sağ taraf) uygulayan ve yeni `delay_cat` sütununa karşılık gelen sol taraf değerini döndüren, **dplyr** paktenin fonksiyonu `case_when()` ile yapıyoruz. [Temizleme verileri ve temel işlevler] bölümünde `case_when()` hakkında daha fazla bilgi edinebilirsiniz.
+Biz, mevcut `days_onset_hosp` sütununu (semptom başlangıcından hastaneye kabule kadar geçen gün) kullanarak her satırı birkaç kategoriden birine sınıflandırıp yeni bir `delay_cat` sütunu oluşturuyoruz. Bunu, her satıra sırayla mantıksal ölçütleri (sağ taraf) uygulayan ve yeni `delay_cat` sütununa karşılık gelen sol taraf değerini döndüren, **dplyr** paktenin fonksiyonu `case_when()` ile yapıyoruz. [Temizleme verileri ve temel işlevler](cleaning.tr.qmd) bölümünde `case_when()` hakkında daha fazla bilgi edinebilirsiniz.
 
 
 ```{r}

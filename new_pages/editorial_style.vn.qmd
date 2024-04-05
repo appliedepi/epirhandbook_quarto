@@ -32,7 +32,7 @@ Trong các hướng dẫn về R thường rất khó chịu khi một hàm đư
 
 Trong các đoạn văn bản trần thuật, tên các package được viết in đậm (ví dụ: **dplyr**) và các hàm được viết như sau: `mutate()`. Chúng tôi cố gắng nói rõ ràng về một hàm đến từ package nào, bằng cách tham chiếu package đó trong đoạn văn bản gần đó hoặc nhấn mạnh package đó một cách rõ ràng trong đoạn code như sau: `dplyr::mutate()`. Điều này nhìn có vẻ thừa thãi, nhưng chúng tôi làm điều đó là có mục đích.
 
-Tham khảo thêm chương [R cơ bản] để hiểu thêm về package và hàm.
+Tham khảo thêm chương [R cơ bản](basics.vn.qmd) để hiểu thêm về package và hàm.
 
 ### Phong cách viết code {.unnumbered}
 

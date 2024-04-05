@@ -26,7 +26,7 @@ Mỗi package được đề cập bên trên đều có một số ưu điểm 
 
 ### Gọi các packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` trong package **pacman**, cài đặt gói lệnh nếu cần thiết *và* gọi chúng ra để sử dụng. Các package đã cài đặt cũng có thể được gọi ra bằng `library()` từ **base** R. Xem thêm thông tin các package của R trong chương [R cơ bản].  
+Đoạn code này hiển thị việc gọi các package cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` trong package **pacman**, cài đặt gói lệnh nếu cần thiết *và* gọi chúng ra để sử dụng. Các package đã cài đặt cũng có thể được gọi ra bằng `library()` từ **base** R. Xem thêm thông tin các package của R trong chương [R cơ bản](basics.vn.qmd).  
 
 
 ```{r}
@@ -45,7 +45,7 @@ pacman::p_load(
 
 ### Nhập số liệu {.unnumbered}
 
-Chúng ta nhập bộ số liệu của các ca bệnh về một vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ số liệu linelist "đã được làm sạch"</a> (as .rds file). Nhập số liệu bằng hàm `import()` từ package **rio** package (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).  
+Chúng ta nhập bộ số liệu của các ca bệnh về một vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ số liệu linelist "đã được làm sạch"</a> (as .rds file). Nhập số liệu bằng hàm `import()` từ package **rio** package (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).  
 
 
 ```{r, echo=F}
@@ -225,7 +225,7 @@ linelist %>%
 
 ### Kiểm định Chi bình phương {.unnumbered}  
 
-Hàm kiểm định Chi bình phương chấp nhận một bảng, vì vậy đầu tiên là tạo một bảng chéo. Có nhiều cách để tạo một bảng chéo (xem chương [Bảng mô tả]) nhưng ở đây chúng ta sử dụng hàm `tabyl()` từ **janitor** avà bỏ cột ngoài cùng bên trái của nhãn giá trị trước khi đưa vào hàm `chisq_test()`.  
+Hàm kiểm định Chi bình phương chấp nhận một bảng, vì vậy đầu tiên là tạo một bảng chéo. Có nhiều cách để tạo một bảng chéo (xem chương [Bảng mô tả](tables_descriptive.vn.qmd)) nhưng ở đây chúng ta sử dụng hàm `tabyl()` từ **janitor** avà bỏ cột ngoài cùng bên trái của nhãn giá trị trước khi đưa vào hàm `chisq_test()`.  
 
 ```{r}
 linelist %>% 
@@ -243,7 +243,7 @@ Có rất nhiều hàm và kiểm định thống kê có thể được thực 
 
 ## `gtsummary` package {#stats_gt}
 
-Sử dụng package **gtsummary** nếu bạn đang muốn thêm kết quả của một kiểm định thống kê vào một bảng đẹp được tạo ra bằng package này (như đã được mô tả trong phần **gtsummary** của chương [Bảng mô tả](#tbl_gt)).  
+Sử dụng package **gtsummary** nếu bạn đang muốn thêm kết quả của một kiểm định thống kê vào một bảng đẹp được tạo ra bằng package này (như đã được mô tả trong phần **gtsummary** của chương [Bảng mô tả](tables_descriptive.vn.qmd#tbl_gt)).  
 
 Khi thực hiện các kiểm định so sánh bằng hàm `tbl_summary`, dùng thêm hàm `add_p` để đưa cột giá trị p và kiểm định được sử dụng vào bảng. Có thể xuất nhiều giá trị p mà được hiệu chỉnh cho nhiều kiểm định bằng cách dùng thêm hàm `add_q`. Gõ lệnh `?tbl_summary` để biết thêm chi tiết.  
 

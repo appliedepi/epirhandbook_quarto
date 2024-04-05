@@ -33,7 +33,7 @@ fs::dir_tree(path = here("data"), recurse = TRUE)
 
 ## List files in a directory  
 
-To list just the file names in a directory you can use `dir()` from **base** R. For example, this command lists the file names of the files in the "population" subfolder of the "data" folder in an R project. The relative filepath is provided using `here()` (which you can read about more in the [Import and export] page).  
+To list just the file names in a directory you can use `dir()` from **base** R. For example, this command lists the file names of the files in the "population" subfolder of the "data" folder in an R project. The relative filepath is provided using `here()` (which you can read about more in the [Import and export](importing.qmd) page).  
 
 ```{r}
 # file names
@@ -49,7 +49,7 @@ dir_ls(here("data", "gis", "population"))
 
 To get all the metadata information about each file in a directory, (e.g. path, modification date, etc.) you can use `dir_info()` from **fs**.  
 
-This can be particularly useful if you want to extract the last modification time of the file, for example if you want to import the most recent version of a file. For an example of this, see the [Import and export] page.     
+This can be particularly useful if you want to extract the last modification time of the file, for example if you want to import the most recent version of a file. For an example of this, see the [Import and export](importing.qmd) page.     
 
 ```{r, eval=F}
 # file info
@@ -193,7 +193,7 @@ knitr::include_graphics(here::here("images", "source_button.png"))
 
 `render()` is a variation on `source()` most often used for R markdown scripts. You provide the `input = ` which is the R markdown file, and also the `output_format = ` (typically either "html_document", "pdf_document", "word_document", "") 
 
-See the page on [Reports with R Markdown] for more details. Also see the documentation for `render()` [here](https://rmarkdown.rstudio.com/docs/reference/render.html) or by entering `?render`.  
+See the page on [Reports with R Markdown](rmarkdown.qmd) for more details. Also see the documentation for `render()` [here](https://rmarkdown.rstudio.com/docs/reference/render.html) or by entering `?render`.  
 
 
 
@@ -231,7 +231,7 @@ Here is a [comparison](https://cran.r-project.org/web/packages/fs/vignettes/func
 
 See the page on [Import and export] for importing and exporting individual files.  
 
-Also see the [Import and export] page for methods to automatically import the most recent file, based on a date in the file name *or* by looking at the file meta-data.  
+Also see the [Import and export](importing.qmd) page for methods to automatically import the most recent file, based on a date in the file name *or* by looking at the file meta-data.  
 
 See the page on [Iteration, loops, and lists] for an example with the package **purrr** demonstrating:  
 

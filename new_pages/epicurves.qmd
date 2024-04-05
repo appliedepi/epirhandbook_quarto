@@ -29,7 +29,7 @@ The **incidence2** package offers alternative approach with easier commands, but
 
 ### Packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r message=F, warning=F}
 pacman::p_load(
@@ -54,7 +54,7 @@ Two example datasets are used in this section:
 * Linelist of individual cases from a simulated epidemic  
 * Aggregated counts by hospital from the same simulated epidemic  
 
-The datasets are imported using the `import()` function from the **rio** package. See the page on [Import and export] for various ways to import data.  
+The datasets are imported using the `import()` function from the **rio** package. See the page on [Import and export](importing.qmd) for various ways to import data.  
 
 
 ```{r, echo=F, message=F}
@@ -72,7 +72,7 @@ count_data <- linelist %>%
 
 **Case linelist**
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow step-by-step, see instruction in the [Download handbook and data] page. We assume the file is in the working directory so no sub-folders are specified in this file path.  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow step-by-step, see instruction in the [Download handbook and data](#data-used) page. We assume the file is in the working directory so no sub-folders are specified in this file path.  
 
 ```{r, eval=F}
 linelist <- import("linelist_cleaned.xlsx")
@@ -172,7 +172,7 @@ Here we show how to specify how cases will be aggregated into histogram bins ("b
 
 Below is perhaps the most simple code to produce daily and weekly epicurves.  
 
-In the over-arching `ggplot()` command the dataset is provided to `data = `. Onto this foundation, the geometry of a histogram is added with a `+`. Within the `geom_histogram()`, we map the aesthetics such that the column `date_onset` is mapped to the x-axis. Also within the `geom_histogram()` but *not* within `aes()` we set the `binwidth =` of the histogram bins, in days. If this **ggplot2** syntax is confusing, review the page on [ggplot basics].  
+In the over-arching `ggplot()` command the dataset is provided to `data = `. Onto this foundation, the geometry of a histogram is added with a `+`. Within the `geom_histogram()`, we map the aesthetics such that the column `date_onset` is mapped to the x-axis. Also within the `geom_histogram()` but *not* within `aes()` we set the `binwidth =` of the histogram bins, in days. If this **ggplot2** syntax is confusing, review the page on [ggplot basics](ggplot_basics.qmd).  
 
 <span style="color: orange;">**_CAUTION:_** Plotting weekly cases by using `binwidth = 7` starts the first 7-day bin at the first case, which could be any day of the week! To create specific weeks, see section below .</span>
 
@@ -367,7 +367,7 @@ scale_x_date(
 
 ### Group/color by value {.unnumbered}
 
-The histogram bars can be colored by group and "stacked". To designate the grouping column, make the following changes. See the [ggplot basics] page for details.  
+The histogram bars can be colored by group and "stacked". To designate the grouping column, make the following changes. See the [ggplot basics](ggplot_basics.qmd) page for details.  
 
 * Within the histogram aesthetic mapping `aes()`, map the column name to the `group = ` and `fill = ` arguments  
 * Remove any `fill = ` argument *outside* of `aes()`, as it will override the one inside  
@@ -408,7 +408,7 @@ ggplot(data = linelist) +     # begin with linelist (many hospitals)
   * Use `na.value = ` to specify a color for `NA` values.  
   * Use the `labels = ` argument to change the text of legend items. To be safe, provide as a named vector like `c("old" = "new", "old" = "new")` or adjust the values in the data itself.  
   * Use `name = ` to give a proper title to the legend  
-* For more tips on color scales and palettes, see the page on [ggplot basics].  
+* For more tips on color scales and palettes, see the page on [ggplot basics](ggplot_basics.qmd).  
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist)+           # begin with linelist (many hospitals)
@@ -439,9 +439,9 @@ ggplot(data = linelist)+           # begin with linelist (many hospitals)
 
 ### Adjust level order {.unnumbered}  
 
-The order in which grouped bars are stacked is best adjusted by classifying the grouping column as class Factor. You can then designate the factor level order (and their display labels). See the page on [Factors] or [ggplot tips] for details.  
+The order in which grouped bars are stacked is best adjusted by classifying the grouping column as class Factor. You can then designate the factor level order (and their display labels). See the page on [Factors](factors.qmd) or [ggplot tips](ggplot_tips.qmd) for details.  
 
-Before making the plot, use the `fct_relevel()` function from **forcats** package to convert the grouping column to class factor and manually adjust the level order, as detailed in the page on [Factors].  
+Before making the plot, use the `fct_relevel()` function from **forcats** package to convert the grouping column to class factor and manually adjust the level order, as detailed in the page on [Factors](factors.qmd).  
 
 ```{r}
 # load forcats package for working with factors
@@ -512,7 +512,7 @@ ggplot(plot_data) +                     # Use NEW dataset with hospital as re-or
 
 ### Adjust legend {.unnumbered}
 
-Read more about legends and scales in the [ggplot tips] page. Here are a few highlights:  
+Read more about legends and scales in the [ggplot tips](ggplot_tips.qmd) page. Here are a few highlights:  
 
 * Edit legend title either in the scale function or with `labs(fill = "Legend title")` (if your are using `color = ` aesthetic, then use `labs(color = "")`)  
 * `theme(legend.title = element_blank())` to have no legend title  
@@ -619,7 +619,7 @@ To **modify the date labels and grid lines**, use `scale_x_date()` in one of the
 Some notes:  
 
 * See the opening ggplot section for instructions on how to create a sequence of dates using `seq.Date()`.  
-* See [this page](https://rdrr.io/r/base/strptime.html) or the [Working with dates] page for tips on creating date labels.  
+* See [this page](https://rdrr.io/r/base/strptime.html) or the [Working with dates](dates.qmd) page for tips on creating date labels.  
 
 
 
@@ -865,9 +865,9 @@ ggplot(data = count_data_weekly)+
 
 ### Moving averages {.unnumbered}
 
-See the page on [Moving averages] for a detailed description and several options. Below is one option for calculating moving averages with the package **slider**. In this approach, *the moving average is calculated in the dataset prior to plotting*:  
+See the page on [Moving averages](moving_average.qmd) for a detailed description and several options. Below is one option for calculating moving averages with the package **slider**. In this approach, *the moving average is calculated in the dataset prior to plotting*:  
 
-1) Aggregate the data into counts as necessary (daily, weekly, etc.) (see [Grouping data] page)  
+1) Aggregate the data into counts as necessary (daily, weekly, etc.) (see [Grouping data](grouping.qmd) page)  
 2) Create a new column to hold the moving average, created with `slide_index()` from **slider** package  
 3) Plot the moving average as a `geom_line()` on top of (after) the epicurve histogram  
 
@@ -935,7 +935,7 @@ ggplot(data = ll_counts_7day) +  # begin with new dataset defined above
 
 ### Faceting/small-multiples {.unnumbered}
 
-As with other ggplots, you can create facetted plots ("small multiples"). As explained in the [ggplot tips] page of this handbook, you can use either `facet_wrap()` or `facet_grid()`. Here we demonstrate with `facet_wrap()`. For epicurves, `facet_wrap()` is typically easier as it is likely that you only need to facet on one column.  
+As with other ggplots, you can create facetted plots ("small multiples"). As explained in the [ggplot tips](ggplot_tips.qmd) page of this handbook, you can use either `facet_wrap()` or `facet_grid()`. Here we demonstrate with `facet_wrap()`. For epicurves, `facet_wrap()` is typically easier as it is likely that you only need to facet on one column.  
 
 The general syntax is `facet_wrap(rows ~ cols)`, where to the left of the tilde (~) is the name of a column to be spread across the "rows" of the facetted plot, and to the right of the tilde is the name of a column to be spread across the "columns" of the facetted plot. Most simply, just use one column name, to the right of the tilde: `facet_wrap(~age_cat)`.  
 
@@ -1041,7 +1041,7 @@ See this [link](https://ggplot2.tidyverse.org/reference/labellers.html) for more
 
 #### Total epidemic in facet background {.unnumbered}
 
-To show the total epidemic in the background of each facet, add the function `gghighlight()` with empty parentheses to the ggplot. This is from the package **gghighlight**. Note that the y-axis maximum in all facets is now based on the peak of the entire epidemic. There are more examples of this package in the [ggplot tips] page.  
+To show the total epidemic in the background of each facet, add the function `gghighlight()` with empty parentheses to the ggplot. This is from the package **gghighlight**. Note that the y-axis maximum in all facets is now based on the peak of the entire epidemic. There are more examples of this package in the [ggplot tips](ggplot_tips.qmd) page.  
 
 ```{r, warning=F, message=F}
 ggplot(central_data) + 
@@ -1141,7 +1141,7 @@ Notable changes to the `ggplot()` command are:
 
 * The data used is now central_data2 (double the rows, with new column "facet")
 * Labeller will need to be updated, if used  
-* Optional: to achieve vertically stacked facets: the facet column is moved to rows side of equation and on right is replaced by "." (`facet_wrap(facet~.)`), and `ncol = 1`. You may also need to adjust the width and height of the saved png plot image (see `ggsave()` in [ggplot tips]).  
+* Optional: to achieve vertically stacked facets: the facet column is moved to rows side of equation and on right is replaced by "." (`facet_wrap(facet~.)`), and `ncol = 1`. You may also need to adjust the width and height of the saved png plot image (see `ggsave()` in [ggplot tips](ggplot_tips.qmd)).  
 
 ```{r, fig.height=12, fig.width=5, warning=F, message=F}
 ggplot(central_data2) + 
@@ -1428,7 +1428,7 @@ The above technique for faceting was adapted from [this](https://stackoverflow.c
 <!-- ======================================================= -->
 ## Dual-axis { }  
 
-Although there are fierce discussions about the validity of dual axes within the data visualization community, many epi supervisors still want to see an epicurve or similar chart with a percent overlaid with a second axis. This is discussed more extensively in the [ggplot tips] page, but one example using the **cowplot** method is shown below:  
+Although there are fierce discussions about the validity of dual axes within the data visualization community, many epi supervisors still want to see an epicurve or similar chart with a percent overlaid with a second axis. This is discussed more extensively in the [ggplot tips](ggplot_tips.qmd) page, but one example using the **cowplot** method is shown below:  
 
 * Two distinct plots are made, and then combined with **cowplot** package.  
 * The plots must have the exact same x-axis (set limits) or else the data and labels will not align  
@@ -1548,7 +1548,7 @@ plot_cumulative
 ```
 
 
-It can also be overlaid onto the epicurve, with dual-axis using the **cowplot** method described above and in the [ggplot tips] page:
+It can also be overlaid onto the epicurve, with dual-axis using the **cowplot** method described above and in the [ggplot tips](ggplot_tips.qmd) page:
 
 ```{r, warning=F, message=F}
 #load package

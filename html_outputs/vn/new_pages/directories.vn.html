@@ -309,7 +309,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -451,7 +451,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -682,7 +682,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(<span class="at">path =</span> <span class="fu">here</span>(<span class="st">"data"</span>), <span class="at">recurse =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data
 ├── africa_countries.geo.json
 ├── cache
 │   └── epidemic_models
@@ -834,7 +834,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="liệt-kê-các-tập-tin-trong-một-thư-mục" class="level2" data-number="45.2">
 <h2 data-number="45.2" class="anchored" data-anchor-id="liệt-kê-các-tập-tin-trong-một-thư-mục"><span class="header-section-number">45.2</span> Liệt kê các tập tin trong một thư mục</h2>
-<p>Để chỉ liệt kê các tên tập tin trong một thư mục, chúng ta có thể sử dụng hàm <code>dir()</code> từ <strong>base</strong> Ví dụ, lệnh này liệt kê tên các tập tin của các tập tin trong thư mục con có tên “population” trong thư mục “data” của một dự án R. Đường dẫn tập tin tương đối được cung cấp bằng cách sử dụng hàm <code>here()</code> (đọc thêm trong chương [Nhập xuất dữ liệu]).</p>
+<p>Để chỉ liệt kê các tên tập tin trong một thư mục, chúng ta có thể sử dụng hàm <code>dir()</code> từ <strong>base</strong> Ví dụ, lệnh này liệt kê tên các tập tin của các tập tin trong thư mục con có tên “population” trong thư mục “data” của một dự án R. Đường dẫn tập tin tương đối được cung cấp bằng cách sử dụng hàm <code>here()</code> (đọc thêm trong chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file names</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"gis"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,12 +848,12 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file paths</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_ls</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"gis"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/population/sle_admpop_adm3_2020.csv
-C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx</code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_admpop_adm3_2020.csv
+C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx</code></pre>
 </div>
 </div>
 <p>Để lấy tất cả thông tin chi tiết của mỗi tập tin trong một thư mục (ví dụ: đường dẫn, ngày sửa đổi, .v.v.), chúng ta có thể sử dụng hàm <code>dir_info()</code> của package <strong>fs</strong>.</p>
-<p>Điều này có thể đặc biệt hữu ích nếu chúng ta muốn trích xuất thời gian sửa đổi sau cùng của tập tin, ví dụ như nếu chúng ta muốn nhập phiên bản mới nhất của tập tin. Ví dụ cho việc này, xem trong chương [Nhập xuất dữ liệu].</p>
+<p>Điều này có thể đặc biệt hữu ích nếu chúng ta muốn trích xuất thời gian sửa đổi sau cùng của tập tin, ví dụ như nếu chúng ta muốn nhập phiên bản mới nhất của tập tin. Ví dụ cho việc này, xem trong chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file info</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_info</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"gis"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -861,8 +861,8 @@ C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/populat
 <p>Sau đây là data frame được trả về. Cuộn qua phải để xem tất cả các cột.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4c1b9ecab4dfbb40306d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4c1b9ecab4dfbb40306d">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/population/sle_admpop_adm3_2020.csv","C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx"],["file","file"],[26939,57850],[33206,33206],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],[null,null],[null,null],[1552595156,1552595156],[1,1],[0,0],[281474977913268,281474977913269],[4096,4096],[56,120],[0,0],[0,0],["2024-02-21T12:11:10Z","2024-02-21T12:03:36Z"],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],["2024-02-21T12:03:36Z","2024-02-21T12:03:36Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-fd7f19980d0e11fd40a4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fd7f19980d0e11fd40a4">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_admpop_adm3_2020.csv","C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx"],["file","file"],[26939,57850],[33206,33206],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],[null,null],[null,null],[1552595156,1552595156],[1,1],[0,0],[844424931729373,844424931729374],[4096,4096],[56,120],[0,0],[0,0],["2024-02-29T10:37:34Z","2024-02-29T10:27:57Z"],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],["2024-02-29T10:27:57Z","2024-02-29T10:27:57Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -874,8 +874,8 @@ C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/populat
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-49b468a30d54c4535b3e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-49b468a30d54c4535b3e">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/case_linelists/linelist_cleaned.rds"],["file"],[290215],[33206],["2024-02-18T13:56:16Z"],[null],[null],[1552595156],[1],[0],[281474977913225],[4096],[568],[0],[0],["2024-02-21T12:16:32Z"],["2024-02-18T13:56:16Z"],["2024-02-21T12:03:36Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0f0d9960752225f600c5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0f0d9960752225f600c5">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/case_linelists/linelist_cleaned.rds"],["file"],[290215],[33206],["2024-02-18T13:56:16Z"],[null],[null],[1552595156],[1],[0],[844424931729330],[4096],[568],[0],[0],["2024-02-29T10:43:25Z"],["2024-02-18T13:56:16Z"],["2024-02-29T10:27:57Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Ở đây, chúng ta sử dụng ký hiệu <code>$</code> để chỉ rõ kết quả và xuất chỉ mỗi giá trị về thời gian sửa đổi <code>modification_time</code>.</p>
@@ -916,8 +916,8 @@ C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/populat
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_dir</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data 
-                                                                TRUE </code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data 
+                                                                 TRUE </code></pre>
 </div>
 </div>
 <p>Một cách làm khác là dùng hàm <code>file.exists()</code> từ <strong>base</strong> R.</p>
@@ -928,8 +928,8 @@ C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/populat
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_file</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"case_linelists"</span>, <span class="st">"linelist_cleaned.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/case_linelists/linelist_cleaned.rds 
-                                                                                                    TRUE </code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/case_linelists/linelist_cleaned.rds 
+                                                                                                     TRUE </code></pre>
 </div>
 </div>
 <p>Một cách làm khác là dùng hàm <code>file.exists()</code> từ <strong>base</strong> R.</p>
@@ -995,7 +995,7 @@ C:/Users/ngulu864/AppData/Local/Temp/RtmpCIdkbN/file4e444be5993/data/gis/populat
 <section id="render" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="render"><code>render()</code></h3>
 <p>Hàm <code>render()</code> là một biến thể của hàm <code>source()</code> mà thường được sử dụng nhất cho các tập lệnh của R markdown. Chúng ta cung cấp <code>input =</code> tập tin R markdown, và cũng vậy <code>output_format =</code> (thường là “html_document”, “pdf_document”, “word_document”, ““)</p>
-<p>Xem chương [Báo cáo với R Markdown] để biết thêm chi tiết. Ngoài ra, bạn có thể xem thêm tài liệu về <code>render()</code> <a href="https://rmarkdown.rstudio.com/docs/reference/render.html">tại đây</a> hoặc bằng cách gõ <code>?render</code>.</p>
+<p>Xem chương <a href="../new_pages/rmarkdown.vn.html">Báo cáo với R Markdown</a> để biết thêm chi tiết. Ngoài ra, bạn có thể xem thêm tài liệu về <code>render()</code> <a href="https://rmarkdown.rstudio.com/docs/reference/render.html">tại đây</a> hoặc bằng cách gõ <code>?render</code>.</p>
 </section>
 <section id="chạy-các-tệp-trong-một-thư-mục" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="chạy-các-tệp-trong-một-thư-mục">Chạy các tệp trong một thư mục</h3>
@@ -1601,7 +1601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -36,7 +36,7 @@ Geralmente é frustrante quando, nos tutoriais de R, uma função é mostrada em
 
 No texto narrativo, os nomes dos pacotes são escritos a negrito (por exemplo **dplyr**) e as funções são escritas desta forma: `mutate()`. Esforçamo-nos por ser explícitos sobre de que pacote vem uma função, seja referenciando o pacote em texto próximo ou especificando o pacote explicitamente no código: `dplyr::mutate()`. Pode parecer redundante, mas estamos fazendo isso de propósito.
 
-Veja a página em [Introdução ao R](#basics) para saber mais sobre pacotes e funções.   
+Veja a página em [Introdução ao R](basics.pt.qmd) para saber mais sobre pacotes e funções.   
 
 
 ### Estilo do código {.unnumbered}
@@ -79,7 +79,7 @@ Neste manual, referimos geralmente "colunas" e "linhas" em vez de "variáveis" e
 
 *As variáveis* contêm os valores que medem o mesmo atributo subjacente (como grupo etário, resultado, ou data de início). *Observações* contêm todos os valores medidos na mesma unidade (por exemplo, uma pessoa, local, ou amostra de laboratório). Portanto, estes aspectos podem ser mais difíceis de definir de forma tangível.    
 
-Em conjuntos de dados "arrumados" (*tidy*), cada coluna é uma variável, cada linha é uma observação, e cada célula é um valor único. No entanto, alguns conjuntos de dados que encontrarem podem não seguir esse modelo - um conjunto de dados de formato "largo" pode ter uma variável dividida em várias colunas (ver um exemplo na página [Pivoteando Dados ](#pivoting)). Da mesma forma, uma única observação pode estar divididas em várias linhas.  
+Em conjuntos de dados "arrumados" (*tidy*), cada coluna é uma variável, cada linha é uma observação, e cada célula é um valor único. No entanto, alguns conjuntos de dados que encontrarem podem não seguir esse modelo - um conjunto de dados de formato "largo" pode ter uma variável dividida em várias colunas (ver um exemplo na página [Pivoteando Dados ](pivoting.pt.qmd)). Da mesma forma, uma única observação pode estar divididas em várias linhas.  
 
 A maior parte deste manual trata da gestão e transformação de dados, e por isso, se referir às estruturas concretas de dados (linhas e colunas) é mais relevante do que se referir às observações e às variáveis de forma mais abstractas. As exceções ocorrem principalmente em páginas sobre análise de dados, onde se verá mais referências a variáveis e observações.  
 

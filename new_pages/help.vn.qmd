@@ -9,7 +9,7 @@ Chương này hướng dẫn cách nhận trợ giúp bằng cách đăng vấn 
 
 Nhiều packages và dự án trong R được lưu trữ mã code của chúng trên trang web Github.com. Bạn có thể trao đổi trực tiếp với các tác giả của các package hoặc dự án này bằng cách đăng một "Issue" qua trang web Github.com..
 
-Tìm hiểu thêm về cách lưu trữ các tệp của bạn trên Github trong chương [Version control với Git và Github].
+Tìm hiểu thêm về cách lưu trữ các tệp của bạn trên Github trong chương [Version control với Git và Github](collaboration.vn.qmd).
 
 Trên Github, mỗi dự án được chứa trong một *kho lưu trữ*. Mỗi kho chứa code, dữ liệu, kết quả đầu ra, tài liệu trợ giúp, v.v. Ngoài ra còn có một cách để trao đổi với các tác giả được gọi là "Issues". 
 

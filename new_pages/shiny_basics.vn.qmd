@@ -10,7 +10,7 @@ Dashboards thường là một cách tuyệt vời để chia sẻ kết quả t
 Chúng tôi khuyến nghị rằng ai đó đang học dashboards với **shiny** phải có kiến thức tốt về biến đổi và trực quan hóa dữ liệu, đồng thời có thể tự tin gỡ lỗi code và viết hàm. Làm việc với dashboards không dễ khi bạn mới bắt đầu và đôi khi khó hiểu, nhưng là một kỹ năng tuyệt vời để học và trở nên dễ dàng hơn nhiều khi thực hành!  
 
 Chương này sẽ cung cấp tổng quan ngắn gọn về cách tạo dashboards với **shiny** và các tiện ích mở rộng của nó.  
-Để biết một phương pháp thay thế tạo dashboards nhanh hơn, dễ dàng hơn nhưng có thể ít tùy chỉnh hơn, hãy xem thêm về **flextable** trong chương ([Dashboards với R Markdown]).  
+Để biết một phương pháp thay thế tạo dashboards nhanh hơn, dễ dàng hơn nhưng có thể ít tùy chỉnh hơn, hãy xem thêm về **flextable** trong chương ([Dashboards với R Markdown](flexdashboard.vn.qmd)).  
 
 
 
@@ -19,7 +19,7 @@ Chương này sẽ cung cấp tổng quan ngắn gọn về cách tạo dashboar
 
 ### Gọi packages {.unnumbered}  
 
-Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R. 
+Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R. 
 
 Chúng ta bắt đầu bằng cách cài đặt package **shiny**:  
 
@@ -30,7 +30,7 @@ pacman::p_load("shiny")
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Nếu bạn muốn theo dõi chương này, hãy xem phần này trong chương [Tải sách và dữ liệu](#data_shiny). Có các liên kết để tải xuống scripts R và các tệp dữ liệu tạo ra ứng dụng Shiny cuối cùng.  
+Nếu bạn muốn theo dõi chương này, hãy xem phần này trong chương [Tải sách và dữ liệu](data_used.vn.qmd#data_shiny). Có các liên kết để tải xuống scripts R và các tệp dữ liệu tạo ra ứng dụng Shiny cuối cùng.  
 
 Nếu bạn cố gắng xây dựng lại app bằng các tệp này, hãy lưu ý về cấu trúc thư mục dự án R được tạo trong quá trình thực hiện (ví dụ: thư mục cho "data" và "funcs").  
 
@@ -260,7 +260,7 @@ print(malaria_data)
 ```
 
 
-Sẽ dễ dàng hơn để làm việc với dữ liệu này nếu chúng ta sử dụng các tiêu chuẩn dữ liệu tidy, vì vậy chúng ta cũng nên chuyển đổi dữ liệu sang định dạng dài hơn, trong đó nhóm tuổi là một cột và các trường hợp là một cột khác. Chúng ta có thể thực hiện việc này một cách dễ dàng bằng cách sử dụng những gì chúng ta đã học được trong chương [Xoay trục dữ liệu].  
+Sẽ dễ dàng hơn để làm việc với dữ liệu này nếu chúng ta sử dụng các tiêu chuẩn dữ liệu tidy, vì vậy chúng ta cũng nên chuyển đổi dữ liệu sang định dạng dài hơn, trong đó nhóm tuổi là một cột và các trường hợp là một cột khác. Chúng ta có thể thực hiện việc này một cách dễ dàng bằng cách sử dụng những gì chúng ta đã học được trong chương [Xoay trục dữ liệu](pivoting.vn.qmd).  
 
 
 ```{r, echo = TRUE}
@@ -273,7 +273,7 @@ print(malaria_data)
 
 ```
 
-Và cùng với đó, chúng ta đã chuẩn bị xong dữ liệu của mình! Chúng ta đã hoàn thành các mục 1, 2 và 3 trong danh sách những thứ cần phát triển cho một "script R thử nghiệm". Nhiệm vụ cuối cùng và khó khăn nhất sẽ là xây dựng một hàm để tạo ra một đường cong dịch bệnh dựa trên các thông số do người dùng xác định. Như đã đề cập trước đây, chúng tôi *rất khuyến khích* bất kỳ ai học shiny trước tiên hãy xem phần về lập trình hướng chức năng ([Viết hàm]) để hiểu cách thức hoạt động của nó!    
+Và cùng với đó, chúng ta đã chuẩn bị xong dữ liệu của mình! Chúng ta đã hoàn thành các mục 1, 2 và 3 trong danh sách những thứ cần phát triển cho một "script R thử nghiệm". Nhiệm vụ cuối cùng và khó khăn nhất sẽ là xây dựng một hàm để tạo ra một đường cong dịch bệnh dựa trên các thông số do người dùng xác định. Như đã đề cập trước đây, chúng tôi *rất khuyến khích* bất kỳ ai học shiny trước tiên hãy xem phần về lập trình hướng chức năng ([Viết hàm](writing_functions.vn.qmd)) để hiểu cách thức hoạt động của nó!    
 
 Khi định nghĩa một hàm, có thể khó khăn khi nghĩ về những tham số chúng ta muốn đưa vào. Đối với lập trình hướng chức năng với shiny, mọi tham số liên quan thường sẽ có một widget liên kết với nó, vì vậy việc suy nghĩ về điều này thường khá dễ dàng! Ví dụ: trong ứng dụng hiện tại, chúng ta muốn có thể lọc theo quận và có một widget cho việc này, vì vậy chúng ta có thể thêm thông số quận để phản ánh điều này. Chúng ta (hiện tại) *không* có bất kỳ chức năng ứng dụng nào để lọc theo cơ sở, vì vậy chúng ta không cần thêm thông số này làm tham số. Hãy bắt đầu bằng cách tạo một hàm với ba tham số:  
 

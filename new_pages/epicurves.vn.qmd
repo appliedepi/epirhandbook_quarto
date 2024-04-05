@@ -27,7 +27,7 @@ Chúng tôi cũng sẽ giải quyết các trường hợp cụ thể như:
 
 ### Packages {.unnumbered}
 
-Đoạn code này hiển thị cách gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt package nếu cần *và* gọi package để sử dụng. Bạn cũng có thể cài đặt package với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đoạn code này hiển thị cách gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt package nếu cần *và* gọi package để sử dụng. Bạn cũng có thể cài đặt package với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r message=F, warning=F}
 pacman::p_load(
@@ -51,7 +51,7 @@ Hai bộ dữ liệu mẫu được sử dụng trong chương này:
 -   Bộ số liệu `linelist` về các ca bệnh từ một vụ dịch mô phỏng\
 -   Số lượng tổng hợp theo bệnh viện từ cùng một dịch bệnh mô phỏng bên trên
 
-Các bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu] để biết các cách nhập dữ liệu khác nhau.
+Các bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết các cách nhập dữ liệu khác nhau.
 
 ```{r, echo=F, message=F}
 # import the linelist into R
@@ -158,7 +158,7 @@ library(tidyverse)
 
 Dưới đây có lẽ là đoạn code đơn giản nhất để tạo ra các đường cong dịch bệnh hàng ngày và hàng tuần.
 
-Trong lệnh `ggplot()` tổng quát, bộ dữ liệu được đưa vào `data =`. Trên nền tảng này, dạng hình học của histogram được thêm bằng một dấu `+`. Trong `geom_histogram()`, chúng ta ánh xạ các yếu tố thẩm mỹ sao cho cột `date_onset` được ánh xạ tới trục x. Cũng trong hàm `geom_histogram()` nhưng *không* phải trong đối số `aes()`, chúng ta đặt `binwidth =` bằng số bins của histogram, tính bằng ngày. Nếu cú pháp **ggplot2** này khó hiểu, hãy xem lại chương [ggplot cơ bản].
+Trong lệnh `ggplot()` tổng quát, bộ dữ liệu được đưa vào `data =`. Trên nền tảng này, dạng hình học của histogram được thêm bằng một dấu `+`. Trong `geom_histogram()`, chúng ta ánh xạ các yếu tố thẩm mỹ sao cho cột `date_onset` được ánh xạ tới trục x. Cũng trong hàm `geom_histogram()` nhưng *không* phải trong đối số `aes()`, chúng ta đặt `binwidth =` bằng số bins của histogram, tính bằng ngày. Nếu cú pháp **ggplot2** này khó hiểu, hãy xem lại chương [ggplot cơ bản](ggplot_basics.vn.qmd).
 
 [***THẬN TRỌNG***: Lập biểu đồ các trường hợp hàng tuần bằng cách sử dụng `binwidth = 7` bắt đầu cột 7 ngày đầu tiên ở ca bệnh đầu tiên, mà có thể là bất kỳ ngày nào trong tuần! Để tạo các tuần cụ thể, hãy xem phần bên dưới.]{style="color: orange;"}
 
@@ -341,7 +341,7 @@ scale_x_date(
 
 ### Nhóm/tô màu theo giá trị {.unnumbered}
 
-Các cột histogram có thể được tô màu theo nhóm và "xếp chồng lên nhau". Để chỉ định cột nhóm, hãy thực hiện các thay đổi sau. Xem chương [ggplot cơ bản] để biết thêm chi tiết.
+Các cột histogram có thể được tô màu theo nhóm và "xếp chồng lên nhau". Để chỉ định cột nhóm, hãy thực hiện các thay đổi sau. Xem chương [ggplot cơ bản](ggplot_basics.vn.qmd) để biết thêm chi tiết.
 
 -   Bên trong đối số `aes()` của hàm vẽ histogram, ánh xạ tên cột tới đối số `group =` và `fill =`\
 -   Loại bỏ bất kỳ tham số `fill =` nào bên ngoài đối số `aes()`, vì nó sẽ ghi đè giá trị bên trong\
@@ -381,7 +381,7 @@ ggplot(data = linelist) +     # begin with linelist (many hospitals)
     -   Sử dụng đối số `labels =` để thay đổi văn bản trong mục chú thích. Để cho an toàn, sử dụng một vectơ được đặt tên kiểu như `c("old" = "new", "old" = "new")` hoặc điều chỉnh giá trị trong bộ dữ liệu\
     -   Sử dụng `name =` để đặt một tiêu đề thích hợp cho mục chú thích\
 
--   Để biết thêm mẹo về thang màu và bảng màu, hãy xem chương [ggplot cơ bản].
+-   Để biết thêm mẹo về thang màu và bảng màu, hãy xem chương [ggplot cơ bản](ggplot_basics.vn.qmd).
 
 ```{r, warning=F, message=F}
 ggplot(data = linelist)+           # begin with linelist (many hospitals)
@@ -407,9 +407,9 @@ ggplot(data = linelist)+           # begin with linelist (many hospitals)
 
 ### Hiệu chỉnh thứ bậc {.unnumbered}
 
-Thứ tự mà các cột được nhóm xếp chồng lên nhau được điều chỉnh tốt nhất bằng cách phân loại cột nhóm dưới dạng Factor. Sau đó, bạn có thể chỉ định thứ tự cấp độ phân loại (và nhãn hiển thị của chúng). Xem chương về [Factors] hoặc [Các tips với ggplot] để biết thêm chi tiết.
+Thứ tự mà các cột được nhóm xếp chồng lên nhau được điều chỉnh tốt nhất bằng cách phân loại cột nhóm dưới dạng Factor. Sau đó, bạn có thể chỉ định thứ tự cấp độ phân loại (và nhãn hiển thị của chúng). Xem chương về [Factors](factors.vn.qmd) hoặc [Các mẹo với ggplot](ggplot_tips.vn.qmd) để biết thêm chi tiết.
 
-Trước khi tạo biểu đồ, hãy sử dụng hàm `fct_relevel()` từ package **forcats** để chuyển đổi cột phân nhóm thành kiểu Factor và điều chỉnh thứ tự cấp độ theo cách thủ công, như được trình bày chi tiết trong chương về [Factors].
+Trước khi tạo biểu đồ, hãy sử dụng hàm `fct_relevel()` từ package **forcats** để chuyển đổi cột phân nhóm thành kiểu Factor và điều chỉnh thứ tự cấp độ theo cách thủ công, như được trình bày chi tiết trong chương về [Factors](factors.vn.qmd).
 
 ```{r}
 # load forcats package for working with factors
@@ -474,7 +474,7 @@ ggplot(plot_data) +                     # Use NEW dataset with hospital as re-or
 
 ### Hiệu chỉnh chú thích {.unnumbered}
 
-Đọc thêm về chú thích và scale trong chương [Các tips với ggplot]. Dưới đây là một vài điểm nổi bật:
+Đọc thêm về chú thích và scale trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd). Dưới đây là một vài điểm nổi bật:
 
 -   Chỉnh sửa tiêu đề chú thích trong hàm scale hoặc với `labs(fill = "Legend title")` (nếu bạn đang sử dụng `color =`, thì hãy sử dụng `labs(color = "")`)\
 
@@ -575,7 +575,7 @@ scale_x_date(limits = c(NA, Sys.Date()) # ensures date axis will extend until cu
 Một số ghi chú:
 
 -   Xem phần mở đầu của mục ggplot về hướng dẫn cách tạo chuỗi ngày bằng `seq.Date()`.\
--   Xem [trang này](https://rdrr.io/r/base/strptime.html) hoặc chương [Làm việc với ngày tháng] để biết thêm mẹo tạo nhãn ngày.
+-   Xem [trang này](https://rdrr.io/r/base/strptime.html) hoặc chương [Làm việc với ngày tháng](dates.vn.qmd) để biết thêm mẹo tạo nhãn ngày.
 
 #### Minh họa {.unnumbered}
 
@@ -805,9 +805,9 @@ ggplot(data = count_data_weekly)+
 
 ### Đường trung bình động {.unnumbered}
 
-Xem chương về [Đường trung bình động](#moving-average) để có mô tả chi tiết và một số tùy chọn. Dưới đây là một tùy chọn để tính toán đường trung bình động với package **slider**. Theo cách tiếp cận này, *trung bình động được tính toán trong bộ dữ liệu trước khi vẽ biểu đồ*:
+Xem chương về [Đường trung bình động](moving_average.vn.qmd) để có mô tả chi tiết và một số tùy chọn. Dưới đây là một tùy chọn để tính toán đường trung bình động với package **slider**. Theo cách tiếp cận này, *trung bình động được tính toán trong bộ dữ liệu trước khi vẽ biểu đồ*:
 
-1)  Tổng hợp dữ liệu thành số lượng nếu cần thiết (hàng ngày, hàng tuần, v.v.) (xem chương [Nhóm dữ liệu])\
+1)  Tổng hợp dữ liệu thành số lượng nếu cần thiết (hàng ngày, hàng tuần, v.v.) (xem chương [Nhóm dữ liệu](grouping.vn.qmd))\
 2)  Tạo một cột mới để giữ đường trung bình động, được tạo bằng hàm `slide_index()` từ package **slider**\
 3)  Vẽ đường trung bình động dưới dạng một `geom_line()` ở trên đỉnh (phía sau) histogram đường cong dịch bệnh
 
@@ -871,7 +871,7 @@ ggplot(data = ll_counts_7day) +  # begin with new dataset defined above
 
 ### Faceting/chia nhỏ biểu đồ {.unnumbered}
 
-Như với các ggplots khác, bạn có thể tạo các biểu đồ được chia nhỏ ("nhiều biểu đồ con"). Như đã giải thích trong chương [Các tips với ggplot] trong cuốn sách này, bạn có thể sử dụng `facet_wrap()` hoặc `facet_grid()`. Ở đây chúng tôi sẽ minh họa bằng hàm `facet_wrap()`. Đối với đường cong dịch bệnh, sử dụng `facet_wrap()` thường dễ dàng hơn vì khả năng bạn thường chỉ cần chia nhỏ biểu đồ theo một biến.
+Như với các ggplots khác, bạn có thể tạo các biểu đồ được chia nhỏ ("nhiều biểu đồ con"). Như đã giải thích trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd) trong cuốn sách này, bạn có thể sử dụng `facet_wrap()` hoặc `facet_grid()`. Ở đây chúng tôi sẽ minh họa bằng hàm `facet_wrap()`. Đối với đường cong dịch bệnh, sử dụng `facet_wrap()` thường dễ dàng hơn vì khả năng bạn thường chỉ cần chia nhỏ biểu đồ theo một biến.
 
 Cú pháp chung là `facet_wrap(rows ~ cols)`, trong đó bên trái dấu ngã (\~) là tên của biến sẽ được trải trên các "hàng" của biểu đồ chia nhỏ và ở bên phải dấu ngã là tên của biến sẽ được trải trên các "cột" của biểu đồ chia nhỏ. Đơn giản nhất, chỉ cần sử dụng một tên cột, ở bên phải dấu ngã: `facet_wrap(~age_cat)`.
 
@@ -968,7 +968,7 @@ Xem [link](https://ggplot2.tidyverse.org/reference/labellers.html) để biết 
 
 #### Tổng vụ dịch trong nền của biểu đồ con {.unnumbered}
 
-Để hiển thị tổng vụ dịch trong nền của mỗi biểu đồ con, hãy thêm hàm `gghighlight()` với dấu ngoặc đơn trống vào ggplot. Hàm này thuộc package **gghighlight**. Lưu ý rằng trục y tối đa trong tất cả các biểu đồ con hiện dựa vào đỉnh của toàn bộ vụ dịch. Có nhiều ví dụ hơn về package này trong chương [Các tips với ggplot].
+Để hiển thị tổng vụ dịch trong nền của mỗi biểu đồ con, hãy thêm hàm `gghighlight()` với dấu ngoặc đơn trống vào ggplot. Hàm này thuộc package **gghighlight**. Lưu ý rằng trục y tối đa trong tất cả các biểu đồ con hiện dựa vào đỉnh của toàn bộ vụ dịch. Có nhiều ví dụ hơn về package này trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd).
 
 ```{r, warning=F, message=F}
 ggplot(central_data) + 
@@ -1066,7 +1066,7 @@ Những thay đổi đáng chú ý đối với lệnh `ggplot()` là:
 
 -   Labeller sẽ cần được cập nhật, nếu được sử dụng\
 
--   Tùy chọn: để có các biểu đồ con xếp chồng lên nhau theo chiều dọc: cột chia được chuyển sang các hàng bên cạnh của phương trình và ở bên phải được thay thế bằng "." (`facet_wrap(facet~.)`), và `ncol = 1`. Bạn cũng có thể cần điều chỉnh chiều rộng và chiều cao của ảnh biểu đồ đã lưu dưới dạng png (xem `ggsave()` trong chương [Các tips với ggplot]).
+-   Tùy chọn: để có các biểu đồ con xếp chồng lên nhau theo chiều dọc: cột chia được chuyển sang các hàng bên cạnh của phương trình và ở bên phải được thay thế bằng "." (`facet_wrap(facet~.)`), và `ncol = 1`. Bạn cũng có thể cần điều chỉnh chiều rộng và chiều cao của ảnh biểu đồ đã lưu dưới dạng png (xem `ggsave()` trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd)).
 
 ```{r, fig.height=12, fig.width=5, warning=F, message=F}
 ggplot(central_data2) + 
@@ -1321,7 +1321,7 @@ Các kỹ thuật trên được điều chỉnh từ [đây](https://stackoverf
 
 ## Trục kép
 
-Mặc dù có những cuộc thảo luận gay gắt về tính hợp lệ của trục kép trong cộng đồng về trực quan hóa dữ liệu, nhiều chuyên gia dịch tễ vẫn muốn nhìn nhận biểu đồ đường cong dịch bệnh hoặc biểu đồ tương tự với phần trăm trên trục thứ hai. Điều này được thảo luận nhiều hơn trong chương [Các tips với ggplot], nhưng một ví dụ sử dụng phương pháp **cowplot** được trình bày bên dưới:
+Mặc dù có những cuộc thảo luận gay gắt về tính hợp lệ của trục kép trong cộng đồng về trực quan hóa dữ liệu, nhiều chuyên gia dịch tễ vẫn muốn nhìn nhận biểu đồ đường cong dịch bệnh hoặc biểu đồ tương tự với phần trăm trên trục thứ hai. Điều này được thảo luận nhiều hơn trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd), nhưng một ví dụ sử dụng phương pháp **cowplot** được trình bày bên dưới:
 
 -   Hai biểu đồ riêng biệt được tạo, và sau đó được kết hợp với package **cowplot**.\
 -   Các biểu đồ phải có chính xác cùng trục x (đã đặt giới hạn), nếu không dữ liệu và nhãn sẽ không được căn chỉnh phù hợp\
@@ -1437,7 +1437,7 @@ plot_cumulative <- ggplot()+
 plot_cumulative
 ```
 
-Nó cũng có thể được phủ đè lên đường cong dịch bệnh, với trục kép bằng cách sử dụng phương pháp **cowplot** được mô tả ở trên và trong chương [Các tips với ggplot]:
+Nó cũng có thể được phủ đè lên đường cong dịch bệnh, với trục kép bằng cách sử dụng phương pháp **cowplot** được mô tả ở trên và trong chương [Các mẹo với ggplot](ggplot_tips.vn.qmd):
 
 ```{r, warning=F, message=F}
 #load package

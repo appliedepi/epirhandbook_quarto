@@ -10,7 +10,7 @@ This page covers how to get help by posting a Github issue or by posting a repro
 
 Many R packages and projects have their code hosted on the website Github.com. You can communicate directly with authors via this website by posting an "Issue".  
 
-Read more about how to store your work on Github in the page [Collaboration and Github]. 
+Read more about how to store your work on Github in the page [Collaboration and Github](collaboration.qmd). 
 
 On Github, each project is contained within a *repository*. Each repository contains code, data, outputs, help documentation, etc. There is also a vehicle to communicate with the authors called "Issues".  
 

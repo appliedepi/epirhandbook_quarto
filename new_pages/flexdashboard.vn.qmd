@@ -25,7 +25,7 @@ Bạn có thể tìm thấy các hướng dẫn toàn diện về cách sử d�
 
 ### Gọi các packages {.unnumbered}  
 
-Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi nó để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các R packages.  
+Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi nó để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các R packages.  
 
 ```{r}
 pacman::p_load(
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'> nhấp để tải xuống linelist "sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem chương [Nhập xuất dữ liệu] để biết chi tiết).  
+Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, hãy <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'> nhấp để tải xuống linelist "sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết chi tiết).  
 
 ```{r, echo=F}
 # nhập linelist vào R
@@ -81,7 +81,7 @@ knitr::include_graphics(here::here("images", "flexdashboard_new2.png"))
 
 ## Script  
 
-Script là một script R Markdown và do đó có các thành phần và tổ chức tương tự như được mô tả trong chương [Báo cáo với R Markdown]. Chúng ta sẽ xem lại một cách ngắn gọn định dạng này và nêu rõ sự khác biệt so với các định dạng đầu ra R Markdown khác.  
+Script là một script R Markdown và do đó có các thành phần và tổ chức tương tự như được mô tả trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd). Chúng ta sẽ xem lại một cách ngắn gọn định dạng này và nêu rõ sự khác biệt so với các định dạng đầu ra R Markdown khác.  
 
 ### YAML {.unnumbered}  
 
@@ -123,15 +123,15 @@ Các đoạn code được tạo bằng ba dấu nháy đơn ngược và dấu 
 
 ### Văn bản tường thuật {.unnumbered}  
 
-Bên ngoài "đoạn" code R, bạn có thể viết văn bản tường thuật. Như được mô tả trong chương [Báo cáo với R Markdown], bạn có thể in nghiêng văn bản bằng cách bao quanh nó bằng một dấu hoa thị (*) hoặc in đậm bằng cách bao quanh nó bằng hai dấu hoa thị (**). Nhớ lại rằng dấu đầu dòng và lược đồ đánh số nhạy cảm với dòng mới, thụt đầu dòng và kết thúc một dòng có hai dấu cách.  
+Bên ngoài "đoạn" code R, bạn có thể viết văn bản tường thuật. Như được mô tả trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd), bạn có thể in nghiêng văn bản bằng cách bao quanh nó bằng một dấu hoa thị (*) hoặc in đậm bằng cách bao quanh nó bằng hai dấu hoa thị (**). Nhớ lại rằng dấu đầu dòng và lược đồ đánh số nhạy cảm với dòng mới, thụt đầu dòng và kết thúc một dòng có hai dấu cách.  
 
-Bạn cũng có thể chèn code R nội dòng vào văn bản như được mô tả trong chương [Báo cáo với R Markdown], bằng cách bao quanh code bằng dấu nháy đơn ngược và bắt đầu lệnh bằng "r": `` ` 1+1` `` (xem ví dụ với ngày ở trên).  
+Bạn cũng có thể chèn code R nội dòng vào văn bản như được mô tả trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd), bằng cách bao quanh code bằng dấu nháy đơn ngược và bắt đầu lệnh bằng "r": `` ` 1+1` `` (xem ví dụ với ngày ở trên).  
 
 
 
 ### Đầu mục {.unnumbered}  
 
-Các cấp đầu mục khác nhau được thiết lập với số lượng ký hiệu thăng khác nhau, như được mô tả trong chương [Báo cáo với R Markdown].  
+Các cấp đầu mục khác nhau được thiết lập với số lượng ký hiệu thăng khác nhau, như được mô tả trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd).  
 
 Trong **flexdashboard**, đầu mục chính (#) tạo một "trang" của dashboard. Đầu mục cấp hai (##) tạo một cột hoặc một hàng tùy thuộc vào thông số `orientation:` của bạn (xem chi tiết bên dưới). Đầu mục cấp ba (###) tạo bảng điều khiển cho các đồ thị, biểu đồ, bảng, văn bản, v.v.
 
@@ -272,14 +272,14 @@ knitr::include_graphics(here::here("images", "flexdashboard_tabs_view.png"))
 
 Hãy bắt đầu xây dựng một dashboard. Dashboard đơn giản của chúng tôi sẽ có 1 trang, 2 cột và 4 ô điều khiển. Chúng tôi sẽ xây dựng từng ô điều khiển một để minh họa.  
 
-Bạn có thể dễ dàng bao gồm các đầu ra R tiêu chuẩn như văn bản, ggplots và bảng (xem chương [Trình bày bảng]). Đơn giản chỉ cần code chúng trong một đoạn code R như bạn làm đối với bất kỳ script R Markdown nào khác.
+Bạn có thể dễ dàng bao gồm các đầu ra R tiêu chuẩn như văn bản, ggplots và bảng (xem chương [Trình bày bảng](tables_presentation.vn.qmd)). Đơn giản chỉ cần code chúng trong một đoạn code R như bạn làm đối với bất kỳ script R Markdown nào khác.
 
-Lưu ý: bạn có thể tải xuống script Rmd hoàn chỉnh và đầu ra dashboard HTML - xem chương [Tải sách và dữ liệu].  
+Lưu ý: bạn có thể tải xuống script Rmd hoàn chỉnh và đầu ra dashboard HTML - xem chương [Tải sách và dữ liệu]((data_used.vn.qmd)).  
 
 
 ### Chữ {.unnumbered}  
 
-Bạn có thể nhập văn bản Markdown và bao gồm code *nội dòng* như đối với bất kỳ đầu ra R Markdown nào khác. Xem chương [Báo cáo với R Markdown] để biết chi tiết.  
+Bạn có thể nhập văn bản Markdown và bao gồm code *nội dòng* như đối với bất kỳ đầu ra R Markdown nào khác. Xem chương [Báo cáo với R Markdown](rmarkdown.vn.qmd) để biết chi tiết.  
 
 Trong dashboard này, chúng tôi bao gồm một ô điều khiển văn bản tóm tắt bao gồm văn bản động cho thấy ngày nhập viện mới nhất và số trường hợp được báo cáo trong các ổ dịch.  
 
@@ -313,7 +313,7 @@ DT::datatable(linelist,
 
 ### Đồ thị {.unnumbered}  
 
-Bạn có thể in các đồ thị vào cửa sổ dashboard như bạn làm trong script R. Trong ví dụ của chúng tôi, chúng tôi sử dụng package **incidence2** để tạo một "epicurve" theo nhóm tuổi bằng hai lệnh đơn giản (xem trang [Đường cong dịch bệnh]). Tuy nhiên, bạn có thể sử dụng `ggplot()` và in một đồ thị theo cách tương tự.  
+Bạn có thể in các đồ thị vào cửa sổ dashboard như bạn làm trong script R. Trong ví dụ của chúng tôi, chúng tôi sử dụng package **incidence2** để tạo một "epicurve" theo nhóm tuổi bằng hai lệnh đơn giản (xem trang [Đường cong dịch bệnh](epicurves.vn.qmd)). Tuy nhiên, bạn có thể sử dụng `ggplot()` và in một đồ thị theo cách tương tự.  
 
 ```{r, out.width = c('100%'), out.height = c('100%'), echo=F}
 knitr::include_graphics(here::here("images", "flexdashboard_plots_script.png"))
@@ -328,7 +328,7 @@ knitr::include_graphics(here::here("images", "flexdashboard_plots_view.png"))
 
 ### Đồ thị tương tác {.unnumbered}  
 
-Bạn cũng có thể chuyển một ggplot tiêu chuẩn hoặc đối tượng đồ thị khác vào `ggplotly()` từ package **plotly** (xem chương [Đồ thị tương tác]). Điều này sẽ làm cho đồ thị của bạn có tính tương tác, cho phép người đọc "phóng to" và hiển thị khi di chuột qua giá trị của mọi điểm dữ liệu (trong trường hợp này là số trường hợp mỗi tuần và nhóm tuổi trong đường cong).  
+Bạn cũng có thể chuyển một ggplot tiêu chuẩn hoặc đối tượng đồ thị khác vào `ggplotly()` từ package **plotly** (xem chương [Đồ thị tương tác](interactive_plots.vn.qmd)). Điều này sẽ làm cho đồ thị của bạn có tính tương tác, cho phép người đọc "phóng to" và hiển thị khi di chuột qua giá trị của mọi điểm dữ liệu (trong trường hợp này là số trường hợp mỗi tuần và nhóm tuổi trong đường cong).  
 
 
 ```{r, eval=F}
@@ -349,13 +349,13 @@ knitr::include_graphics(here::here("images", "flexdashboard_ggplotly.gif"))
 
 Một số ví dụ phổ biến về các tiện ích này bao gồm:  
 
-* Plotly (được sử dụng trong chương sổ tay này và trong chương [Đồ thị tương tác])
-* visNetwork (được sử dụng trong chương [Chuỗi lây nhiễm] của sổ tay này)
-* Leaflet (được sử dụng trong chương [GIS cơ bản] của sổ tay này)
+* Plotly (được sử dụng trong chương sổ tay này và trong chương [Đồ thị tương tác](interactive_plots.vn.qmd))
+* visNetwork (được sử dụng trong chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd) của sổ tay này)
+* Leaflet (được sử dụng trong chương [GIS cơ bản](gis.vn.qmd) của sổ tay này)
 * dygraph (hữu ích để hiển thị dữ liệu chuỗi thời gian một cách tương tác)
 * DT (`datatable()`) (được sử dụng để hiển thị các bảng động với bộ lọc, sắp xếp, v.v.)  
 
-Dưới đây, chúng tôi biểu diễn thêm một chuỗi lây nhiễm dịch sử dụng visNetwork vào dashboard. Script chỉ hiển thị code mới được thêm vào phần "Cột 2" của script R Markdown. Bạn có thể tìm thấy code trong chương [Chuỗi lây nhiễm] của sổ tay này.  
+Dưới đây, chúng tôi biểu diễn thêm một chuỗi lây nhiễm dịch sử dụng visNetwork vào dashboard. Script chỉ hiển thị code mới được thêm vào phần "Cột 2" của script R Markdown. Bạn có thể tìm thấy code trong chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd)  của sổ tay này.  
 
 ```{r, out.width = c('100%'), out.height = c('100%'), echo=F}
 knitr::include_graphics(here::here("images", "flexdashboard_chain_script.png"))
@@ -371,14 +371,14 @@ knitr::include_graphics(here::here("images", "flexdashboard_chain.gif"))
 
 ## Tổ chức Code 
 
-Bạn có thể chọn có tất cả code trong script R Markdown **flexdashboard**. Ngoài ra, để có một script dashboard rõ ràng và ngắn gọn hơn, bạn có thể chọn gọi code/biểu đồ được lưu trữ hoặc tạo trong các scripts R bên ngoài. Điều này được mô tả chi tiết hơn trong chương [Báo cáo với R Markdown].
+Bạn có thể chọn có tất cả code trong script R Markdown **flexdashboard**. Ngoài ra, để có một script dashboard rõ ràng và ngắn gọn hơn, bạn có thể chọn gọi code/biểu đồ được lưu trữ hoặc tạo trong các scripts R bên ngoài. Điều này được mô tả chi tiết hơn trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd).
 
 
 ## Shiny  
 
 Việc tích hợp package R **shiny** có thể giúp dashboards của bạn phản ứng mạnh hơn với thông tin nhập của người dùng. Ví dụ: bạn có thể yêu cầu người dùng chọn một khu vực pháp lý hoặc một phạm vi ngày và để các bảng phản ứng với lựa chọn của họ (ví dụ: lọc dữ liệu được hiển thị). Để nhúng phản ứng **shiny** vào **flexdashboard**, bạn chỉ cần thực hiện một số thay đổi đối với R Markdown script **flexdashboard** của mình.  
 
-Bạn có thể sử dụng **shiny** để tạo ứng dụng/dashboards *mà không cần đến* flexdashboard (bảng điều khiển linh hoạt). Chương [Dashboards với Shiny] trong sổ tay cung cấp thông tin tổng quan về cách tiếp cận này, bao gồm phần bổ sung về cú pháp **shiny**, cấu trúc tệp ứng dụng và các tùy chọn chia sẻ/xuất bản (bao gồm cả tùy chọn máy chủ miễn phí). Cú pháp và các mẹo chung này cũng chuyển sang ngữ cảnh **flexdashboard**.  
+Bạn có thể sử dụng **shiny** để tạo ứng dụng/dashboards *mà không cần đến* flexdashboard (bảng điều khiển linh hoạt). Chương [Dashboards với Shiny](shiny_basics.vn.qmd) trong sổ tay cung cấp thông tin tổng quan về cách tiếp cận này, bao gồm phần bổ sung về cú pháp **shiny**, cấu trúc tệp ứng dụng và các tùy chọn chia sẻ/xuất bản (bao gồm cả tùy chọn máy chủ miễn phí). Cú pháp và các mẹo chung này cũng chuyển sang ngữ cảnh **flexdashboard**.  
 
 Tuy nhiên, nhúng **shiny** vào **flexdashboard** là một thay đổi cơ bản đối với flexdashboard của bạn. Nó sẽ không còn tạo ra một đầu ra HTML mà bạn có thể gửi qua email và bất kỳ ai cũng có thể mở và xem. Thay vào đó, nó sẽ là một "ứng dụng". Nút "Knit" ở đầu script sẽ được thay thế bằng biểu tượng "Run document", biểu tượng này sẽ mở ra một phiên bản của dashboard tương tác cục bộ trên máy tính của bạn.
 

@@ -22,7 +22,7 @@ Trong chương này chúng ta trình bày code nhằm:
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị những package cần gọi cho các phân tích. Trong sổ tay này, chúng ta nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để có thêm thông tin về các R package.
+Đoạn code này hiển thị những package cần gọi cho các phân tích. Trong sổ tay này, chúng ta nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các R package.
 
 ```{r}
 pacman::p_load(
@@ -36,7 +36,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Để bắt đầu, chúng ta nhập các trường hợp trong linelist đã được làm sạch từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, [bấm để tải xuống linelist "đã được làm sạch"](https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds) (tệp .rds). Nhập dữ liệu với hàm `import()` từ package **rio** (hàm này xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Để bắt đầu, chúng ta nhập các trường hợp trong linelist đã được làm sạch từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, [bấm để tải xuống linelist "đã được làm sạch"](https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds) (tệp .rds). Nhập dữ liệu với hàm `import()` từ package **rio** (hàm này xử lý nhiều loại tệp như .xlsx, .csv, .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -126,7 +126,7 @@ Bạn có thể thấy rằng mặc dù một số bệnh viện tồn tại tro
 
 **Căn chỉnh giá trị**
 
-Chúng ta bắt đầu bằng cách làm sạch các giá trị trong data frame `hosp_info`. Như đã được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng], chúng ta có thể code lại các giá trị với tiêu chí logic bằng cách sử dụng hàm `case_when()` của **dplyr**. Đối với bốn bệnh viện tồn tại trong cả hai data frame, chúng ta thay đổi các giá trị để phù hợp với các giá trị trong `linelist_mini`. Các bệnh viện khác chúng ta để nguyên giá trị (`TRUE ~ hosp_name`).
+Chúng ta bắt đầu bằng cách làm sạch các giá trị trong data frame `hosp_info`. Như đã được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd), chúng ta có thể code lại các giá trị với tiêu chí logic bằng cách sử dụng hàm `case_when()` của **dplyr**. Đối với bốn bệnh viện tồn tại trong cả hai data frame, chúng ta thay đổi các giá trị để phù hợp với các giá trị trong `linelist_mini`. Các bệnh viện khác chúng ta để nguyên giá trị (`TRUE ~ hosp_name`).
 
 [***CẨN TRỌNG:*** Thông thường khi làm sạch, chúng ta nên tạo một cột mới (ví dụ: `hosp_name_clean`), nhưng để dễ dàng giải thích, chúng ta hiển thị các thay đổi trên cột cũ]{style="color: orange;"}
 
@@ -150,7 +150,7 @@ Tên bệnh viện xuất hiện trong cả hai data frame đều được căn 
 unique(hosp_info$hosp_name)
 ```
 
-Trước một phép nối, việc chuyển đổi một cột thành tất cả chữ thường hoặc tất cả chữ hoa thường dễ dàng nhất. Nếu bạn cần chuyển đổi tất cả các giá trị trong một cột thành CHỮ HOA hoặc chữ thường, hãy sử dụng `mutate()` và đặt cột bên trong một trong những hàm từ package **stringr**, như ã được trình bày trong chương [Ký tự và chuỗi].
+Trước một phép nối, việc chuyển đổi một cột thành tất cả chữ thường hoặc tất cả chữ hoa thường dễ dàng nhất. Nếu bạn cần chuyển đổi tất cả các giá trị trong một cột thành CHỮ HOA hoặc chữ thường, hãy sử dụng `mutate()` và đặt cột bên trong một trong những hàm từ package **stringr**, như ã được trình bày trong chương [Ký tự và chuỗi](characters_strings.vn.qmd).
 
 `str_to_upper()`\
 `str_to_upper()`\
@@ -714,13 +714,13 @@ Phần này cũng sẽ thảo luận về cách "căn chỉnh" thứ tự các h
 
 -   Không giống như `row.bind()` của phiên bản **base** R, `bind_rows()` của **dplyr** không yêu cầu thứ tự của các cột phải giống nhau trong cả hai data frame. Miễn là các tên cột được viết giống nhau, nó sẽ căn chỉnh chúng một cách chính xác. \
 -   Bạn có thể tùy chọn xác định đối số `.id =`. Cung cấp một tên cột ký tự. Điều này sẽ tạo ra một cột mới dùng để xác định mỗi hàng ban đầu đến từ data frame nào.\
--   Bạn có thể sử dụng`bind_rows()` trên một `list` các data frame có cấu trúc tương tự để kết hợp chúng thành một. Xem ví dụ trong chương [Lặp, vòng lặp và danh sách] về việc nhập nhiều linelist với **purrr**.
+-   Bạn có thể sử dụng`bind_rows()` trên một `list` các data frame có cấu trúc tương tự để kết hợp chúng thành một. Xem ví dụ trong chương [Lặp, vòng lặp và danh sách](iteration.vn.qmd) về việc nhập nhiều linelist với **purrr**.
 
 Một ví dụ phổ biến về row binding là gắn một hàng "tổng (total)" vào một bảng mô tả được tạo bằng hàm `summarise()` của **dplyr**. Dưới đây, chúng ta tạo một bảng đếm số trường hợp và giá trị CT trung bình theo bệnh viện với một hàng tổng.
 
 Hàm `summarise()` được sử dụng trên dữ liệu đã nhóm theo bệnh viện để trả về một data frame tóm tắt theo bệnh viện. Nhưng hàm `summarise()` không tự động tạo ra hàng "tổng", vì vậy chúng ta tạo ra nó bằng cách tổng hợp *lại* dữ liệu, nhưng với dữ liệu không bị nhóm theo bệnh viện. Điều này tạo ra một data frame thứ hai chỉ gồm một hàng. Sau đó, chúng ta có thể liên kết các data frame này với nhau để có được bảng cuối cùng.
 
-Xem các ví dụ hoạt động khác tương tự như thế này trong chương [Bảng mô tả] và [Trình bày bảng].
+Xem các ví dụ hoạt động khác tương tự như thế này trong chương [Bảng mô tả](tables_descriptive.vn.qmd) và [Trình bày bảng](tables_presentation.vn.qmd).
 
 ```{r}
 # Create core table
@@ -762,7 +762,7 @@ Bây giờ chúng ta có thể gắn các hàng với nhau bằng `bind_rows()`.
 combined <- bind_rows(hosp_summary, totals)
 ```
 
-Bây giờ chúng ta có thể xem kết quả. Xem cách mà trong hàng cuối cùng, giá trị `NA` trống được điền vào cột trong `hospital` mà không có trong `hosp_summary`. Như đã giải thích trong chương [Trình bày bảng], bạn có thể "điền" vào ô này với "Tổng" bằng cách sử dụng `replace_na()`.
+Bây giờ chúng ta có thể xem kết quả. Xem cách mà trong hàng cuối cùng, giá trị `NA` trống được điền vào cột trong `hospital` mà không có trong `hosp_summary`. Như đã giải thích trong chương [Trình bày bảng](tables_presentation.vn.qmd), bạn có thể "điền" vào ô này với "Tổng" bằng cách sử dụng `replace_na()`.
 
 ```{r message=FALSE, echo=F}
 DT::datatable(combined, rownames = FALSE, options = list(pageLength = nrow(10)))
@@ -816,7 +816,7 @@ Khi chúng ta sử dụng `match()`, với cú pháp là `match(TARGET ORDER VEC
 match(case_info$hospital, contact_fu$hospital)
 ```
 
-Bạn có thể sử dụng vectơ số này để sắp xếp lại thứ tự data frame - đặt nó trong tập con của dấu ngoặc `[ ]` *trước dấu phẩy*. Đọc thêm về cú pháp tập con của dấu ngoặc **base** R trong chương [R cơ bản]. Lệnh bên dưới tạo ra một data frame mới, được định nghĩa là data frame cũ mà trong đó các hàng được sắp xếp theo thứ tự trong vectơ số ở trên.
+Bạn có thể sử dụng vectơ số này để sắp xếp lại thứ tự data frame - đặt nó trong tập con của dấu ngoặc `[ ]` *trước dấu phẩy*. Đọc thêm về cú pháp tập con của dấu ngoặc **base** R trong chương [R cơ bản](basics.vn.qmd). Lệnh bên dưới tạo ra một data frame mới, được định nghĩa là data frame cũ mà trong đó các hàng được sắp xếp theo thứ tự trong vectơ số ở trên.
 
 ```{r}
 contact_fu_aligned <- contact_fu[match(case_info$hospital, contact_fu$hospital),]

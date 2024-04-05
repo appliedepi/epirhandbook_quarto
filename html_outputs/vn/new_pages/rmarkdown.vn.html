@@ -300,7 +300,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -442,7 +442,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -680,9 +680,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Những tài liệu như vậy có thể được cập nhật thường xuyên (ví dụ: báo cáo giám sát hàng ngày) và/hoặc chạy một tập dữ liệu (ví dụ: báo cáo cho mỗi <em>jurisdiction</em>-quyền xét xử).</p>
 <p>Những chương khác trong cuốn sách này mở rộng các chủ đề khác:</p>
 <ul>
-<li>Chương [Tổ chức báo cáo định kỳ] trình bày cách tự động hóa các báo cáo sản phẩm với các tập tin tự tạo kèm theo thời gian.<br>
+<li>Chương <a href="../new_pages/reportfactory.vn.html">Tổ chức báo cáo định kỳ</a> trình bày cách tự động hóa các báo cáo sản phẩm với các tập tin tự tạo kèm theo thời gian.<br>
 </li>
-<li>Chương [Dashboards với R Markdown] giải thích cách định dạng một báo cáo R Markdown dưới dạng một dashboard.</li>
+<li>Chương <a href="../new_pages/flexdashboard.vn.html">Dashboards với R Markdown</a> giải thích cách định dạng một báo cáo R Markdown dưới dạng một dashboard.</li>
 </ul>
 <p>Một lưu ý là dự án <a href="https://r4epis.netlify.app/">R4Epis</a> đã tạo ra các mẫu R Markdown script cho những đợt dịch và trường hợp khảo sát phổ biến ở vị trí dự án MSF.</p>
 <!-- ======================================================= -->
@@ -730,7 +730,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h2 data-number="40.2" class="anchored" data-anchor-id="bắt-đầu"><span class="header-section-number">40.2</span> Bắt đầu</h2>
 <section id="cài-đặt-package-rmarkdown" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cài-đặt-package-rmarkdown">Cài đặt package rmarkdown</h3>
-<p>Cài đặt R package <strong>rmarkdown</strong>. Trong quyển sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt package nếu cần <em>và</em> gọi ra để sử dụng. Bạn cũng có thể cài đặt package với <code>library()</code> từ <strong>base</strong> R. Xem thêm ở chương [R cơ bản] để biết thêm thông tin về R packages.</p>
+<p>Cài đặt R package <strong>rmarkdown</strong>. Trong quyển sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt package nếu cần <em>và</em> gọi ra để sử dụng. Bạn cũng có thể cài đặt package với <code>library()</code> từ <strong>base</strong> R. Xem thêm ở chương <a href="../new_pages/basics.vn.html">R cơ bản</a> để biết thêm thông tin về R packages.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rmarkdown)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -763,10 +763,10 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h3 class="unnumbered anchored" data-anchor-id="điều-quan-trọng-cần-phải-biết">Điều quan trọng cần phải biết</h3>
 <p><strong>Thư mục làm việc</strong></p>
 <p>Thư mục làm việc của một tệp markdown là ở bất kỳ vị trí nào tệp được lưu. Ví dụ, nếu R project nằm trong <code>~/Documents/projectX</code> và tệp Rmd được lưu ở thư mục con <code>~/Documents/projectX/markdownfiles/markdown.Rmd</code>, thì lệnh <code>read.csv(“data.csv”)</code> trong markdown sẽ tìm tệp csv trong thư mục <code>markdownfiles</code>, mà không phải là ở thư mục gốc nơi mà scripts trong projects sẽ thường tự động tìm kiếm.</p>
-<p>Để tìm kiếm các tệp này ở chỗ khác, bạn sẽ vừa cần sử dụng cả đường dẫn tệp đầy đủ và sử dụng package <strong>here</strong>. Package <strong>here</strong> cài đặt thư mục làm việc tới thư mục gốc của R project và sẽ được giải thích chi tiết trong các chương [Dự án R] và [Nhập xuất dữ liệu] của sổ tay này. Ví dụ, để nhập một tệp tên “data.csv” từ trong thư mục <code>projectX</code>, code sẽ là <code>import(here(“data.csv”))</code>.</p>
+<p>Để tìm kiếm các tệp này ở chỗ khác, bạn sẽ vừa cần sử dụng cả đường dẫn tệp đầy đủ và sử dụng package <strong>here</strong>. Package <strong>here</strong> cài đặt thư mục làm việc tới thư mục gốc của R project và sẽ được giải thích chi tiết trong các chương <a href="../new_pages/r_projects.vn.html">Dự án R</a> và <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a> của sổ tay này. Ví dụ, để nhập một tệp tên “data.csv” từ trong thư mục <code>projectX</code>, code sẽ là <code>import(here(“data.csv”))</code>.</p>
 <p>Lưu ý rằng không nên sử dụng <code>setwd()</code> trong R Markdown scripts - nó chỉ dùng cho các đoạn code được viết trong đó.</p>
 <p><strong>Làm việc với ổ cứng mạng so với trên máy tính của bạn</strong></p>
-<p>Vì R Markdown có thể gặp các vấn đề với pandoc khi chạy trên một ổ cứng mạng được chia sẻ, thư mục của bạn nên nằm ở ở cứng vật lý, ví dụ trong dự án thuộc ‘My Documents’. Nếu bạn dùng Git (rất khuyến khích!), nó sẽ thân thuộc hơn. Để biết thêm chi tiết, xem thêm chương [R trên ổ cứng mạng] và [Các lỗi thường gặp].</p>
+<p>Vì R Markdown có thể gặp các vấn đề với pandoc khi chạy trên một ổ cứng mạng được chia sẻ, thư mục của bạn nên nằm ở ở cứng vật lý, ví dụ trong dự án thuộc ‘My Documents’. Nếu bạn dùng Git (rất khuyến khích!), nó sẽ thân thuộc hơn. Để biết thêm chi tiết, xem thêm chương <a href="../new_pages/network_drives.vn.html">R trên ổ cứng mạng</a> và <a href="../new_pages/errors.vn.html">Các lỗi thường gặp</a>.</p>
 <!-- ======================================================= -->
 </section>
 </section>
@@ -801,7 +801,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>YAML nên bắt đầu với metadata cho tài liệu. Thứ tự của những tham số YAML chính (không thụt lề) không quan trọng. Ví dụ:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My document"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Me"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-02-21"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-02-29"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bạn có thể sử dụng code R trong giá trị YAML bằng cách viết nó như code tại dòng (mở đầu bằng <code>r</code> trong dấu back-ticks/nháy đơn ngược) nhưng nằm trong trích dẫn (xem tại ví dụ phía trên với <code>date:</code>).</p>
 <p>Trong hình ảnh phía trên, vì chúng ta ấn vào kết quả đầu ra mặc định là tệp html, chúng ta có thể thấy rằng YAML hiện <code>output: html_document</code>. Tuy nhiên, chúng ta cũng có thể thay đổi thành <code>powerpoint_presentation</code> hoặc <code>word_document</code> hoặc cả <code>pdf_document</code>.</p>
 </section>
@@ -1070,7 +1070,7 @@ Những ‘đoạn’ này sẽ có màu nền hơi khác so với phần diễn
 </section>
 <section id="cấu-trúc-thư-mục" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cấu-trúc-thư-mục">Cấu trúc thư mục</h3>
-<p>Quy trình làm việc cũng liên quan đến cấu trúc thư mục tổng thể, chẳng hạn như có thư mục ‘đầu ra’ cho các tài liệu và số liệu đã tạo và thư mục ‘dữ liệu’ hoặc ‘đầu vào’ cho dữ liệu đã được làm sạch. Chúng tôi không đi sâu vào chi tiết ở đây, nhưng hãy xem chương [Tổ chức báo cáo định kỳ].</p>
+<p>Quy trình làm việc cũng liên quan đến cấu trúc thư mục tổng thể, chẳng hạn như có thư mục ‘đầu ra’ cho các tài liệu và số liệu đã tạo và thư mục ‘dữ liệu’ hoặc ‘đầu vào’ cho dữ liệu đã được làm sạch. Chúng tôi không đi sâu vào chi tiết ở đây, nhưng hãy xem chương <a href="../new_pages/reportfactory.vn.html">Tổ chức báo cáo định kỳ</a>.</p>
 </section>
 </section>
 <section id="tạo-tài-liệu" class="level2" data-number="40.5">
@@ -1118,7 +1118,7 @@ Những ‘đoạn’ này sẽ có màu nền hơi khác so với phần diễn
 </li>
 <li>Xem danh sách đầy đủ <a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html">tại đây</a></li>
 </ul>
-<p>Ví dụ, để cải thiện kiểm soát phiên bản, lệnh sau sẽ lưu tệp đầu ra trong thư mục con ‘đầu ra’, với ngày hiện tại trong tên tệp. Để tạo tên tệp, hàm <code>str_glue ()</code> từ package <strong>stringr</strong> được sử dụng để ‘dán’ các chuỗi tĩnh lại với nhau (được viết đơn giản) với code R động (được viết trong dấu ngoặc nhọn). Ví dụ: nếu đó là ngày 10 tháng 4 năm 2021, tên tệp từ bên dưới sẽ là “Report_2021-04-10.docx”. Xem chương [Ký tự và chuỗi] để biết thêm chi tiết về <code>str_glue ()</code>.</p>
+<p>Ví dụ, để cải thiện kiểm soát phiên bản, lệnh sau sẽ lưu tệp đầu ra trong thư mục con ‘đầu ra’, với ngày hiện tại trong tên tệp. Để tạo tên tệp, hàm <code>str_glue ()</code> từ package <strong>stringr</strong> được sử dụng để ‘dán’ các chuỗi tĩnh lại với nhau (được viết đơn giản) với code R động (được viết trong dấu ngoặc nhọn). Ví dụ: nếu đó là ngày 10 tháng 4 năm 2021, tên tệp từ bên dưới sẽ là “Report_2021-04-10.docx”. Xem chương <a href="../new_pages/characters_strings.vn.html">Ký tự và chuỗi</a> để biết thêm chi tiết về <code>str_glue ()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">input =</span> <span class="st">"create_output.Rmd"</span>,</span>
@@ -1129,7 +1129,7 @@ Những ‘đoạn’ này sẽ có màu nền hơi khác so với phần diễn
 <section id="cách-3-reportfactory-package" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cách-3-reportfactory-package">Cách 3: <strong>reportfactory</strong> package</h3>
 <p>R package <strong>reportfactory</strong> cung cấp một phương pháp thay thế để tổ chức và soạn báo cáo R Markdown <em>phù hợp với các tình huống mà bạn chạy báo cáo thường xuyên (ví dụ hàng ngày, hàng tuần …).</em> Nó giúp giảm bớt việc soạn nhiều tệp R Markdown và tổ chức đầu ra của chúng. Về bản chất, nó cung cấp một “nhà máy” mà từ đó bạn có thể chạy báo cáo R Markdown, nhận các thư mục được đánh dấu ngày tháng và thời gian tự động cho kết quả đầu ra và có cách kiểm soát phiên bản “nhẹ nhàng”.</p>
-<p>Đọc thêm về quy trình công việc này trong chương về [Tổ chức báo cáo định kỳ].</p>
+<p>Đọc thêm về quy trình công việc này trong chương về <a href="../new_pages/reportfactory.vn.html">Tổ chức báo cáo định kỳ</a>.</p>
 <!-- ======================================================= -->
 </section>
 </section>
@@ -1265,7 +1265,7 @@ Những ‘đoạn’ này sẽ có màu nền hơi khác so với phần diễn
 </section>
 <section id="tạo-vòng-lặp-nhiều-báo-cáo" class="level2" data-number="40.7">
 <h2 data-number="40.7" class="anchored" data-anchor-id="tạo-vòng-lặp-nhiều-báo-cáo"><span class="header-section-number">40.7</span> Tạo vòng lặp nhiều báo cáo</h2>
-<p>Chúng ta có thể muốn chạy một báo cáo nhiều lần, thay đổi các thông số đầu vào, để tạo ra một báo cáo cho từng khu vực pháp lý/đơn vị. Điều này có thể được thực hiện bằng cách sử dụng các công cụ cho việc <em>lặp lại</em>, được giải thích chi tiết trong chương về [Lặp, vòng lặp và danh sách]. Các tùy chọn bao gồm package <strong>purrr</strong> hoặc sử dụng <em>vòng lặp for</em> như được giải thích bên dưới.</p>
+<p>Chúng ta có thể muốn chạy một báo cáo nhiều lần, thay đổi các thông số đầu vào, để tạo ra một báo cáo cho từng khu vực pháp lý/đơn vị. Điều này có thể được thực hiện bằng cách sử dụng các công cụ cho việc <em>lặp lại</em>, được giải thích chi tiết trong chương về <a href="../new_pages/iteration.vn.html">Lặp, vòng lặp và danh sách</a>. Các tùy chọn bao gồm package <strong>purrr</strong> hoặc sử dụng <em>vòng lặp for</em> như được giải thích bên dưới.</p>
 <p>Dưới đây, chúng tôi sử dụng <em>vòng lặp for</em> đơn giản để tạo báo cáo giám sát cho tất cả các bệnh viện được chọn. Điều này được thực hiện bằng một lệnh (thay vì thay đổi từng thông số bệnh viện theo cách thủ công). Lệnh kết xuất báo cáo phải tồn tại trong một script riêng biệt <em>bên ngoài</em> báo cáo Rmd. Script này cũng sẽ chứa các đối tượng được xác định để “lặp qua” - ngày hôm nay và một vectơ tên bệnh viện để lặp qua.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>hospitals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Central Hospital"</span>,</span>
@@ -1405,16 +1405,16 @@ Những ‘đoạn’ này sẽ có màu nền hơi khác so với phần diễn
 <p><a href="http://www.htmlwidgets.org/">Tiện ích HTML cho R</a> là một lớp packages R đặc biệt cho phép tăng tính tương tác bằng cách sử dụng các thư viện JavaScript. Bạn có thể nhúng chúng vào các đầu ra HTML R Markdown.</p>
 <p>Một số ví dụ phổ biến về các tiện ích này bao gồm:</p>
 <ul>
-<li>Plotly (được sử dụng trong chương sổ tay này và trong chương [Biểu đồ tương tác])</li>
-<li>visNetwork (được sử dụng trong chương [Chuỗi lây nhiễm] của sổ tay này)<br>
+<li>Plotly (được sử dụng trong chương sổ tay này và trong chương <a href="../new_pages/interactive_plots.vn.html">Biểu đồ tương tác</a>)</li>
+<li>visNetwork (được sử dụng trong chương <a href="../new_pages/transmission_chains.vn.html">Chuỗi lây nhiễm</a> của sổ tay này)<br>
 </li>
-<li>Leaflet (được sử dụng trong chương [GIS Cơ bản] của sổ tay này)<br>
+<li>Leaflet (được sử dụng trong chương <a href="../new_pages/gis.vn.html">GIS Cơ bản</a> của sổ tay này)<br>
 </li>
 <li>dygraphs ( hữu ích để hiển thị dữ liệu chuỗi thời gian tương tác)<br>
 </li>
 <li>DT (<code>datatable()</code>) (được sử dụng để hiển thị các bảng động với bộ lọc, sắp xếp, v.v.)</li>
 </ul>
-<p>Hàm <code>ggplotly()</code> từ <strong>plotly</strong> đặc biệt dễ sử dụng. Xem chương [Biểu đồ tương tác].</p>
+<p>Hàm <code>ggplotly()</code> từ <strong>plotly</strong> đặc biệt dễ sử dụng. Xem chương <a href="../new_pages/interactive_plots.vn.html">Biểu đồ tương tác</a>.</p>
 </section>
 </section>
 <section id="tài-nguyên" class="level2" data-number="40.10">
@@ -1974,7 +1974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

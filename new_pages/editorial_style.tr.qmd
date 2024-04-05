@@ -1,4 +1,4 @@
-# Önyazı ve teknik notlar { }
+# Önyazı ve teknik notlar {#editorial-style}
 
 Bu sayfada, el kitabının hazırlanması sırasında belirlediğimiz felsefi yaklaşıma, stile ve belirli editoryal kararlara değineceğiz.
 
@@ -36,7 +36,7 @@ R eğitim ve rehberlerinde bir fonksiyona ilişkin kodun anlatılıp, kullanıla
 
 Açıklama metinlerinde paket adları kalın harflerle (örn. **dplyr**) ve fonksiyonları `mutate()` şeklinde yazılır. Bir fonksiyonun hangi paketten geldiğini, ya en yakındaki metinde referanslayarak ya da kodu `dplyr::mutate()` şeklinde yazarak size açıklamaya çalıştık. Başta gereksiz görünebilir ancak bunu yukarıda bahsettiğimiz amaç doğrultusunda, bilerek yapıyoruz.
 
-Paketler ve fonksiyonları hakkında daha fazla bilgi edinmek için [R basics] sayfasına bakabilirsiniz.
+Paketler ve fonksiyonları hakkında daha fazla bilgi edinmek için [R basics](basics.tr.qmd) sayfasına bakabilirsiniz.
 
 
 
@@ -80,7 +80,7 @@ Bu el kitabında, genellikle "değişkenler" ve "gözlemler" yerine "sütunlar" 
 
 *Değişkenler* aynı temel özelliği ölçen değerleri içerir (yaş grubu, çıktı veya başlangıç tarihi gibi). *Gözlemler* aynı birimde ölçülen tüm değerleri içerir (örneğin bir kişi, alan veya laboratuvar numunesi vb.). Dolayısıyla bu yönleri somut olarak tanımlamak daha zor olabilmektedir.
 
-"Tidy" veri kümelerinde her sütun bir değişken, her satır bir gözlem ve her hücre de tek bir değeri ifade etmektedir. Ancak karşılaştığınız bazı veri kümeleri bu kalıba sığmaz - "geniş" biçimli bir veri kümesinin birkaç sütuna bölünebilen değişkenleri olabilir ([Pivoting data] sayfasındaki bir örneğe bakın). Benzer şekilde, gözlemler de birkaç satıra bölünebilir.
+"Tidy" veri kümelerinde her sütun bir değişken, her satır bir gözlem ve her hücre de tek bir değeri ifade etmektedir. Ancak karşılaştığınız bazı veri kümeleri bu kalıba sığmaz - "geniş" biçimli bir veri kümesinin birkaç sütuna bölünebilen değişkenleri olabilir ([Pivoting data](pivoting.tr.qmd) sayfasındaki bir örneğe bakın). Benzer şekilde, gözlemler de birkaç satıra bölünebilir.
 
 Bu el kitabı çoğunlukla, verileri yönetmek ve işlemek üzerine odaklanmıştır. O nedenle satır ve sütunlarda somut verilere atıfta bulunmayı, daha soyut olan "gözlem" ve "değişkenler"e tercih ettik. Bu yaklaşımımızın istisnası, daha fazla değişken ve gözlem referansıyla karşılaşacağınız veri analizi sayfalarıdır.
 

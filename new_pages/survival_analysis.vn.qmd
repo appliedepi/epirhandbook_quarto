@@ -40,7 +40,7 @@ Nó thường được diễn đạt qua **_survival probability (xác suất s�
 
 **Survival** là gói lệnh được sử dụng rộng rãi nhất để phân tích sống còn bằng R. Đầu tiên, chúng ta cài đặt và sau đó tải gói lệnh này cũng như các gói lệnh khác sẽ được sử dụng trong phần này:
 
-Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm `library()` trong **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.  
+Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm `library()` trong **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.  
 
 ```{r, echo=F, message=FALSE, warning=FALSE}
 
@@ -67,7 +67,7 @@ Chương này sẽ tìm hiểu phân tích sống còn bằng cách dùng bộ s
 
 ### Nhập bộ số liệu {.unnumbered}  
 
-Chúng ta nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập số liệu này bằng hàm `import()` từ package **rio** (hàm này chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv – xem chi tiết trong chương [Nhập xuất số liệu].  
+Chúng ta nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập số liệu này bằng hàm `import()` từ package **rio** (hàm này chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv – xem chi tiết trong chương [Nhập xuất số liệu](importing.vn.qmd).  
 
 ```{r echo=F}
 # import linelist
@@ -161,7 +161,7 @@ linelist_surv %>%
   head(10)
 ```
 
-Chúng ta cũng có thể tạo bảng chéo giữa cột biến `age_cat_small` và `gender` để biết thêm chi tiết về sự phân bố của biến số mới này theo giới tính. Chúng ta sử dụng hàm `tabyl()` và hàm *adorn* từ package **janitor** như được mô tả trong chương [Bảng mô tả]. 
+Chúng ta cũng có thể tạo bảng chéo giữa cột biến `age_cat_small` và `gender` để biết thêm chi tiết về sự phân bố của biến số mới này theo giới tính. Chúng ta sử dụng hàm `tabyl()` và hàm *adorn* từ package **janitor** như được mô tả trong chương [Bảng mô tả](tables_descriptive.vn.qmd). 
 
 <!-- For this we use the `stat.table()` function of the **Epi** package. -->
 

@@ -15,7 +15,7 @@ Chương này bao gồm hai phương pháp tính toán và biểu diễn đườ
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với `library()` từ **base** R. Xem chương [R cơ bản] để có thêm thông tin về các R package.
+Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các R package.
 
 ```{r}
 pacman::p_load(
@@ -27,7 +27,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}
 
-Chúng ta nhập các trường hợp trong linelist đã được làm sạch từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, [bấm để tải xuống linelist "đã được làm sạch"](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds) (tệp .rds). Nhập dữ liệu với hàm `import()` từ package **rio** (hàm này xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Chúng ta nhập các trường hợp trong linelist đã được làm sạch từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn theo dõi, [bấm để tải xuống linelist "đã được làm sạch"](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds) (tệp .rds). Nhập dữ liệu với hàm `import()` từ package **rio** (hàm này xử lý nhiều loại tệp như .xlsx, .csv, .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -101,7 +101,7 @@ Theo mặc định, `.complete =` sẽ nhận giá trị FALSE nên nếu cửa 
 
 Trường hợp sử dụng có khả năng xảy ra nhất của tính toán biến động trong dịch tễ học ứng dụng là kiểm tra một số liệu *theo thời gian*. Ví dụ: đo lường động các ca mới mắc, dựa trên số lượng trường hợp hàng ngày.
 
-Nếu bạn có dữ liệu chuỗi thời gian đã được làm sạch với đủ giá trị cho tất cả các ngày, bạn có thể sử dụng hàm `slide_dbl()`, như đã được trình bày trong chương [Chuỗi thời gian và phát hiện ổ dịch](#timeseries_moving).
+Nếu bạn có dữ liệu chuỗi thời gian đã được làm sạch với đủ giá trị cho tất cả các ngày, bạn có thể sử dụng hàm `slide_dbl()`, như đã được trình bày trong chương [Chuỗi thời gian và phát hiện ổ dịch](time_series.vn.qmd).
 
 Tuy nhiên, trong nhiều trường hợp dịch tễ học ứng dụng, bạn có thể gặp những ngày trống trong dữ liệu của mình, những ngày mà không có sự kiện nào được ghi lại. Trong những trường hợp này, tốt nhất là sử dụng các phiên bản "chỉ mục" của các hàm **slider**.
 
@@ -195,7 +195,7 @@ Nếu bạn nhóm dữ liệu của mình trước khi sử dụng hàm **slider
 
 Mỗi khi một nhóm mới được tạo, cửa sổ trượt sẽ bắt đầu lại. Do đó, một điều cần lưu ý là nếu dữ liệu của bạn được nhóm lại và bạn đã thiết lập `.complete = TRUE`, bạn sẽ có các giá trị trống ở mỗi lần dịch chuyển giữa các nhóm. Khi hàm di chuyển xuống dưới qua các hàng, mọi dịch chuyển trong cột được nhóm sẽ bắt đầu lại việc cộng dồn kích thước cửa sổ tối thiểu để cho phép tính toán.
 
-Xem chương [Nhóm dữ liệu] trong sổ tay này để biết thêm chi tiết về nhóm dữ liệu.
+Xem chương [Nhóm dữ liệu](grouping.vn.qmd) trong sổ tay này để biết thêm chi tiết về nhóm dữ liệu.
 
 Dưới đây, chúng tôi đếm các ca mắc trong linelist theo ngày *và* theo bệnh viện. Sau đó, chúng tôi sắp xếp các hàng theo thứ tự tăng dần, thứ tự đầu tiên theo bệnh viện và sau đó là theo ngày. Tiếp theo, chúng tôi đặt `group_by()`. Cuối cùng, chúng tôi có thể tạo trung bình động mới của mình.
 

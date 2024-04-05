@@ -26,7 +26,7 @@ Each of the above packages bring certain advantages and disadvantages:
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 
 ```{r}
@@ -45,7 +45,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export](importing.qmd) page for details).  
 
 
 ```{r, echo=F}
@@ -225,7 +225,7 @@ linelist %>%
 
 ### Chi-squared test {.unnumbered}  
 
-The chi-square test function accepts a table, so first we create a cross-tabulation. There are many ways to create a cross-tabulation (see [Descriptive tables]) but here we use `tabyl()` from **janitor** and remove the left-most column of value labels before passing to `chisq_test()`.  
+The chi-square test function accepts a table, so first we create a cross-tabulation. There are many ways to create a cross-tabulation (see [Descriptive tables](tables_descriptive.qmd)) but here we use `tabyl()` from **janitor** and remove the left-most column of value labels before passing to `chisq_test()`.  
 
 ```{r}
 linelist %>% 
@@ -243,7 +243,7 @@ Many many more functions and statistical tests can be run with **rstatix** funct
 
 ## `gtsummary` package {#stats_gt}
 
-Use **gtsummary** if you are looking to add the results of a statistical test to a pretty table that was created with this package (as described in the **gtsummary** section of the [Descriptive tables](#tbl_gt) page).  
+Use **gtsummary** if you are looking to add the results of a statistical test to a pretty table that was created with this package (as described in the **gtsummary** section of the [Descriptive tables](tables_descriptive.qmd#tbl_gt) page).  
 
 Performing statistical tests of comparison with `tbl_summary` is done by adding the 
 `add_p` function to a table and specifying which test to use. It is possible to get p-values corrected for multiple testing by using the

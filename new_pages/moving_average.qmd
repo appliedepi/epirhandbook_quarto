@@ -18,7 +18,7 @@ This page will cover two methods to calculate and visualize moving averages:
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages. 
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages. 
 
 
 ```{r}
@@ -32,7 +32,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 
 ```{r, echo=F}
@@ -107,7 +107,7 @@ To achieve *cumulative* operations, set the `.before = ` argument to `Inf`. This
 
 The most likely use-case of a rolling calculation in applied epidemiology is to examine a metric *over time*. For example, a rolling measurement of case incidence, based on daily case counts. 
 
-If you have clean time series data with values for every date, you may be OK to use `slide_dbl()`, as demonstrated here in the [Time series and outbreak detection](#timeseries_moving) page.  
+If you have clean time series data with values for every date, you may be OK to use `slide_dbl()`, as demonstrated here in the [Time series and outbreak detection](time_series.qmd) page.  
 
 However, in many applied epidemiology circumstances you may have dates absent from your data, where there are no events recorded. In these cases, it is best to use the "index" versions of the **slider** functions.  
 
@@ -217,7 +217,7 @@ If you group your data prior to using a **slider** function, the sliding windows
 
 Each time a new group begins, the sliding window will re-start. Therefore, one nuance to be aware of is that if your data are grouped *and* you have set `.complete = TRUE`, you will have empty values at each transition between groups. As the function moved downward through the rows, every transition in the grouping column will re-start the accrual of the minimum window size to allow a calculation.  
 
-See handbook page on [Grouping data] for details on grouping data.
+See handbook page on [Grouping data](grouping.qmd) for details on grouping data.
 
 Below, we count linelist cases by date *and* by hospital. Then we arrange the rows in ascending order, first ordering by hospital and then within that by date. Next we set `group_by()`. Then we can create our new rolling average. 
 

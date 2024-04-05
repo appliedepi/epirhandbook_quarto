@@ -554,7 +554,7 @@ Aşağıdan gördüğümüz gibi modelle tüm varyansı açıklamamaktayız. Dah
 
 ## artıkların hesabı 
 estimate_res <- estimate_res %>% 
-  mutate(resid = residuals(fitted_model$fitted_model, type = "response"))
+  mutate(resid = fitted_model$result[[1]]$residuals)
 
 ## artıklar zaman içinde oldukça sabit mi (değilse: salgın? uygulamada değişiklik?)
 estimate_res %>%
@@ -731,7 +731,7 @@ Tek tek terimleri araştırmak için, get_model() fonksiyonunu kullanarak orijin
 
 fitted_model %>% 
   ## orijinal negatif binom regresyonunu elde edin 
-  get__fitted_model() #%>% 
+  get_fitted_model() #%>% 
   ## sonuçların tidy veri çerçevesini elde edin
   # tidy(exponentiate = TRUE, 
   #      conf.int = TRUE)

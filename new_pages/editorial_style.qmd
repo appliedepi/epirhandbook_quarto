@@ -1,4 +1,4 @@
-# Editorial and technical notes { }
+# Editorial and technical notes {#editorial-style}
 
 In this page we describe the philosophical approach, style, and specific editorial decisions made during the creation of this handbook.  
 
@@ -36,7 +36,7 @@ It is often frustrating in R tutorials when a function is shown in code, but you
 
 In the narrative text, package names are written in bold (e.g. **dplyr**) and functions are written like this: `mutate()`. We strive to be explicit about which package a function comes from, either by referencing the package in nearby text or by specifying the package explicitly in the code like this: `dplyr::mutate()`. It may look redundant, but we are doing it on purpose.  
 
-See the page on [R basics] to learn more about packages and functions.  
+See the page on [R basics](basics.qmd) to learn more about packages and functions.  
 
 
 ### Code style {.unnumbered}
@@ -79,7 +79,7 @@ In this handbook, we generally reference "columns" and "rows" instead of "variab
 
 *Variables* contain the values that measure the same underlying attribute (like age group, outcome, or date of onset). *Observations* contain all values measured on the same unit (e.g. a person, site, or lab sample). So these aspects can be more difficult to tangibly define.  
 
-In "tidy" datasets, each column is a variable, each row is an observation, and each cell is a single value. However some datasets you encounter will not fit this mold - a "wide" format dataset may have a variable split across several columns (see an example in the [Pivoting data] page). Likewise, observations could be split across several rows.  
+In "tidy" datasets, each column is a variable, each row is an observation, and each cell is a single value. However some datasets you encounter will not fit this mold - a "wide" format dataset may have a variable split across several columns (see an example in the [Pivoting data](#pivoting) page). Likewise, observations could be split across several rows.  
 
 Most of this handbook is about managing and transforming data, so referring to the concrete data structures of rows and columns is more relevant than the more abstract observations and variables. Exceptions occur primarily in pages on data analysis, where you will see more references to variables and observations.  
 

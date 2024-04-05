@@ -21,7 +21,7 @@ This page will cover how to:
 
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -35,7 +35,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -80,7 +80,7 @@ In your data cleaning, you may also want to convert the other way - changing all
 ### Versions of `NA` {.unnumbered}  
 
 Most of the time, `NA` represents a missing value and everything works fine. However, in some circumstances you may encounter the need for *variations* of `NA` specific to an object class (character, numeric, etc). This will be rare, but you should be aware.    
-The typical scenario for this is when creating a new column with the **dplyr** function `case_when()`. As described in the [Cleaning data and core functions](#clean_case_when) page, this function evaluates every row in the data frame, assess whether the rows meets specified logical criteria (right side of the code), and assigns the correct new value (left side of the code). *Importantly: all values on the right side must be the same class*.  
+The typical scenario for this is when creating a new column with the **dplyr** function `case_when()`. As described in the [Cleaning data and core functions](cleaning.qmd#clean_case_when) page, this function evaluates every row in the data frame, assess whether the rows meets specified logical criteria (right side of the code), and assigns the correct new value (left side of the code). *Importantly: all values on the right side must be the same class*.  
 
 ```{r, eval=F}
 linelist <- linelist %>% 
@@ -107,7 +107,7 @@ Again, it is not likely you will encounter these variations *unless* you are usi
 
 ### `NULL` {.unnumbered}  
 
-`NULL` is another reserved value in R. It is the logical representation of a statement that is neither true nor false. It is returned by expressions or functions whose values are undefined. Generally do not assign NULL as a value, unless writing functions or perhaps writing a [**shiny** app][Dashboards with Shiny] to return `NULL` in specific scenarios.  
+`NULL` is another reserved value in R. It is the logical representation of a statement that is neither true nor false. It is returned by expressions or functions whose values are undefined. Generally do not assign NULL as a value, unless writing functions or perhaps writing a [**shiny** app](shiny_basics.qmd) to return `NULL` in specific scenarios.  
 
 Null-ness can be assessed using `is.null()` and conversion can made with `as.null()`.  
 
@@ -203,7 +203,7 @@ na.omit(my_vector)
 
 ### `drop_na()` {.unnumbered}  
 
-This is a **tidyr** function that is useful in a [data cleaning pipeline][Cleaning data and core functions]. If run with the parentheses empty, it removes rows with *any* missing values. If column names are specified in the parentheses, rows with missing values in those columns will be dropped. You can also use "tidyselect" syntax to specify the columns.  
+This is a **tidyr** function that is useful in a [data cleaning pipeline](cleaning.qmd). If run with the parentheses empty, it removes rows with *any* missing values. If column names are specified in the parentheses, rows with missing values in those columns will be dropped. You can also use "tidyselect" syntax to specify the columns.  
 
 ```{r, eval=F}
 linelist %>% 
@@ -388,7 +388,7 @@ outcome_missing <- linelist %>%
   filter(stringr::str_detect(statistic, "_p_"))                  # keep only the proportion values
 ```
 
-Then we plot the proportion missing as a line, by week. The [ggplot basics] page if you are unfamiliar with the **ggplot2** plotting package.  
+Then we plot the proportion missing as a line, by week. The [ggplot basics](ggplot_basics.qmd) page if you are unfamiliar with the **ggplot2** plotting package.  
 
 ```{r, message=F, warning=F}
 ggplot(data = outcome_missing)+
@@ -471,7 +471,7 @@ Sometimes, it can be easier to save the string as an object in commands prior to
 <!-- ======================================================= -->
 ### `NA` in factors {.unnumbered}
 
-If your column of interest is a factor, use `fct_explicit_na()` from the **forcats** package to convert `NA` values to a character value. See more detail in the [Factors] page. By default, the new value is "(Missing)" but this can be adjusted via the `na_level =` argument.   
+If your column of interest is a factor, use `fct_explicit_na()` from the **forcats** package to convert `NA` values to a character value. See more detail in the [Factors](factors.qmd) page. By default, the new value is "(Missing)" but this can be adjusted via the `na_level =` argument.   
 
 ```{r}
 pacman::p_load(forcats)   # load package
@@ -569,7 +569,7 @@ This is the same type of approach by some more advanced methods like using the m
 
 Last observation carried forward (LOCF) and baseline observation carried forward (BOCF) are imputation methods for time series/longitudinal data. The idea is to take the previous observed value as a replacement for the missing data. When multiple values are missing in succession, the method searches for the last observed value.
 
-The `fill()` function from the **tidyr** package can be used for both LOCF and BOCF imputation (however, other packages such as **HMISC**, **zoo**, and **data.table** also include methods for doing this). To show the `fill()` syntax we'll make up a simple time series dataset containing the number of cases of a disease for each quarter of the years 2000 and 2001. However, the year value for subsequent quarters after Q1 are missing so we'll need to impute them. The `fill()` junction is also demonstrated in the [Pivoting data] page.  
+The `fill()` function from the **tidyr** package can be used for both LOCF and BOCF imputation (however, other packages such as **HMISC**, **zoo**, and **data.table** also include methods for doing this). To show the `fill()` syntax we'll make up a simple time series dataset containing the number of cases of a disease for each quarter of the years 2000 and 2001. However, the year value for subsequent quarters after Q1 are missing so we'll need to impute them. The `fill()` junction is also demonstrated in the [Pivoting data](pivoting.qmd) page.  
 
 ```{r}
 #creating our simple dataset

@@ -285,7 +285,7 @@ age_by_outcome <- linelist %>%
 chisq.test(age_by_outcome)
 ```
 
-Daha fazla kod ve istatistiklerle ilgili ipuçları için [Temel istatistik testleri] sayfasına bakın. 
+Daha fazla kod ve istatistiklerle ilgili ipuçları için [Temel istatistik testleri](stat_tests.tr.qmd) sayfasına bakın. 
 
 ### Diğer ipuçları {.unnumbered}  
 

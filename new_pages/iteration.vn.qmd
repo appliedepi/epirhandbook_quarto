@@ -23,7 +23,7 @@ Trong [phần](#iter_purrr) **purrr**, chúng tôi cũng sẽ cung cấp một s
      
 ### Gọi packages {.unnumbered}  
 
-Đoạn code này hiển thị cách gọi các packages cần thiết cho phần phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về packages R.    
+Đoạn code này hiển thị cách gọi các packages cần thiết cho phần phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về packages R.    
 
 ```{r}
 pacman::p_load(
@@ -38,7 +38,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Chúng tôi nhập dataset về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn làm theo, hãy <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>nhấp để tải xuống linelist "sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem chương [Nhập xuất dữ liệu] để biết chi tiết).  
+Chúng tôi nhập dataset về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn làm theo, hãy <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>nhấp để tải xuống linelist "sạch"</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết chi tiết).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -127,7 +127,7 @@ for (hosp in hospital_names){       # sequence
 
 Dưới đây, chuỗi là `names()` (tên cột) của dataframe `linelist`. Tên "item" của chúng ta là `col`, sẽ đại diện cho từng tên cột khi các vòng lặp diễn ra.  
 
-Với ví dụ này, chúng tôi bao gồm code thao tác bên trong *vòng lặp for*, được chạy cho mọi giá trị trong chuỗi. Trong code này, các giá trị trình tự (tên cột) được sử dụng để *chỉ mục* (tập hợp con) từng phần tử một trong `linelist`. Như đã dạy trong chương [R cơ bản], dấu ngoặc vuông kép `[[]]` được sử dụng cho tập hợp con. Cột kết quả được chuyển đến `is.na()`, sau đó đến `sum()` để tạo ra số giá trị trong cột bị thiếu. Kết quả được in ra console - một số cho mỗi cột.  
+Với ví dụ này, chúng tôi bao gồm code thao tác bên trong *vòng lặp for*, được chạy cho mọi giá trị trong chuỗi. Trong code này, các giá trị trình tự (tên cột) được sử dụng để *chỉ mục* (tập hợp con) từng phần tử một trong `linelist`. Như đã dạy trong chương [R cơ bản](basics.vn.qmd), dấu ngoặc vuông kép `[[]]` được sử dụng cho tập hợp con. Cột kết quả được chuyển đến `is.na()`, sau đó đến `sum()` để tạo ra số giá trị trong cột bị thiếu. Kết quả được in ra console - một số cho mỗi cột.  
 
 Một lưu ý về lập chỉ mục với tên cột - bất cứ khi nào tham chiếu đến chính cột đó, *đừng chỉ viết "col"!* `col` chỉ đại diện cho tên cột ký tự! Để tham chiếu đến toàn bộ cột, bạn phải sử dụng tên cột dưới dạng *chỉ mục* trên `linelist` thông qua `linelist[[col]]`.  
 
@@ -261,7 +261,7 @@ for (hosp in hospital_names){
 
 ### Lặp lại biểu đồ {.unnumbered}
 
-Để đặt tất cả ba thành phần lại với nhau (vùng chứa, trình tự và thao tác), chúng ta hãy cố gắng vẽ biểu đồ đường cong dịch bệnh cho mỗi bệnh viện (xem chương [Đường cong dịch bệnh]).  
+Để đặt tất cả ba thành phần lại với nhau (vùng chứa, trình tự và thao tác), chúng ta hãy cố gắng vẽ biểu đồ đường cong dịch bệnh cho mỗi bệnh viện (xem chương [Đường cong dịch bệnh](epicurves.vn.qmd)).  
 
 Chúng tôi có thể tạo ra một đường cong dịch bệnh đẹp về *tất cả* các trường hợp theo giới tính bằng cách sử dụng package **incidence2** như bên dưới:  
 
@@ -380,7 +380,7 @@ Nếu bạn phải thực hiện cùng một tác vụ nhiều lần, có lẽ b
 
 Ngoài ra còn có một số lợi thế khác đối với **purrr** - bạn có thể sử dụng nó với các pipes `%>%`, nó xử lý lỗi tốt hơn *vòng lặp for* bình thường, và có cú pháp khá rõ ràng và đơn giản! Nếu bạn đang sử dụng *vòng lặp for*, bạn có thể tạo vòng lặp rõ ràng và ngắn gọn hơn với **purrr**!  
    
-Hãy nhớ rằng **purrr** là một *công cụ lập trình theo hàm*. Có nghĩa là, các thao tác lặp đi lặp lại được gói gọn trong *các hàm*. Xem chương [Viết hàm] để tìm hiểu cách viết hàm của riêng bạn.  
+Hãy nhớ rằng **purrr** là một *công cụ lập trình theo hàm*. Có nghĩa là, các thao tác lặp đi lặp lại được gói gọn trong *các hàm*. Xem chương [Viết hàm](writing_functions.vn.qmd) để tìm hiểu cách viết hàm của riêng bạn.  
 
 **purrr** cũng gần như hoàn toàn dựa trên *danh sách* và *vectors* - vì vậy hãy nghĩ về nó như là áp dụng một hàm cho mỗi phần tử của danh sách/vector đó!  
      
@@ -451,7 +451,7 @@ sheet_names
 
 Bây giờ chúng ta có tên của vector này, `map()` có thể cung cấp từng cái một cho hàm `import()`. Trong ví dụ này, `sheet_names` là `.x` và `import()` là hàm `.f`.  
 
-Nhớ lại từ chương [Nhập và xuất dữ liệu], khi sử dụng trên Excel workbooks, `import()` có thể chấp nhận đối số `which = ` để chỉ định trang tính để nhập. Trong hàm `import()` của `.f`, chúng tôi cung cấp `which = .x`, giá trị của nó sẽ thay đổi theo mỗi lần lặp thông qua vector `sheet_names` - đầu tiên là "Central Hospital", sau đó là "Military Hospital", v.v.  
+Nhớ lại từ chương [Nhập và xuất dữ liệu](importing.vn.qmd), khi sử dụng trên Excel workbooks, `import()` có thể chấp nhận đối số `which = ` để chỉ định trang tính để nhập. Trong hàm `import()` của `.f`, chúng tôi cung cấp `which = .x`, giá trị của nó sẽ thay đổi theo mỗi lần lặp thông qua vector `sheet_names` - đầu tiên là "Central Hospital", sau đó là "Military Hospital", v.v.  
 
 Lưu ý - bởi vì chúng tôi đã sử dụng `map()`, dữ liệu trong mỗi trang tính Excel sẽ được lưu thành một data frame riêng biệt trong danh sách. Chúng tôi muốn mỗi phần tử danh sách này (data frames) có một *tên*, vì vậy trước khi chuyển `sheet_names` đến `map()`, chúng tôi chuyển nó qua `set_names()` từ **purrr**, điều này đảm bảo rằng mỗi phần tử danh sách nhận được tên thích hợp.  
 
@@ -630,13 +630,13 @@ knitr::include_graphics(here::here("images", "purrr_export_sheets.png"))
 
 Đây là lệnh phức tạp hơn một chút, nhưng bạn cũng có thể xuất từng linelist dành riêng cho bệnh viện dưới dạng tệp CSV riêng biệt, với tên tệp dành riêng cho bệnh viện.  
 
-Một lần nữa, chúng tôi sử dụng `map()`: chúng tôi lấy vector của tên phần tử danh sách (được hiển thị ở trên) và sử dụng `map()` để lặp lại chúng, áp dụng `export()` (từ package **rio**, xem chương [Nhập và xuất dữ liệu]) trên data frame với danh sách `linelist_split` có tên đó. Chúng tôi cũng sử dụng tên để tạo một tên tệp duy nhất. Đây là các bước thực hiện:  
+Một lần nữa, chúng tôi sử dụng `map()`: chúng tôi lấy vector của tên phần tử danh sách (được hiển thị ở trên) và sử dụng `map()` để lặp lại chúng, áp dụng `export()` (từ package **rio**, xem chương [Nhập và xuất dữ liệu](importing.vn.qmd)) trên data frame với danh sách `linelist_split` có tên đó. Chúng tôi cũng sử dụng tên để tạo một tên tệp duy nhất. Đây là các bước thực hiện:  
      
 * Chúng ta bắt đầu với vector tên kí tự, được chuyển tới `map()` dưới dạng `.x`  
 * Hàm `.f` là `export()`, hàm này yêu cầu một data frame và một đường dẫn tệp để ghi vào  
 * Đầu vào `.x` (tên bệnh viện) được sử dụng *trong* `.f` để trích xuất/lập chỉ mục phần tử cụ thể đó của danh sách `linelist_split`. Điều này làm cho mỗi lần chỉ một data frame được cung cấp cho `export()`.    
 * Ví dụ: khi `map()` lặp lại cho "Military Hospital", thì `linelist_split[[.x]]` sẽ là `linelist_split[["Military Hospital"]]`, do đó trả về phần tử thứ hai của `linelist_split` - đó là tất cả các trường hợp từ Military Hospital.  
-* Đường dẫn tệp được cung cấp cho `export()` là động thông qua việc sử dụng `str_glue()` (xem chương [Ký tự và chuỗi]):  
+* Đường dẫn tệp được cung cấp cho `export()` là động thông qua việc sử dụng `str_glue()` (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)):  
      * `here()` được sử dụng để lấy cơ sở của đường dẫn tệp và chỉ định thư mục "data" (lưu ý dấu nháy đơn để không làm gián đoạn dấu ngoặc kép `str_glue()`)  
 * Sau đó là dấu gạch chéo `/`, rồi lại `.x` in tên bệnh viện hiện tại để làm cho tệp có thể nhận dạng được  
 * Cuối cùng là phần mở rộng ".csv" mà `export()` sử dụng để tạo tệp CSV  
@@ -682,7 +682,7 @@ my_plots <- map(
 ggarrange(plotlist = my_plots, ncol = 2, nrow = 3)
 ```
 
-Nếu code `map()` này trông quá lộn xộn, bạn có thể đạt được kết quả tương tự bằng cách lưu lệnh `ggplot()` cụ thể của mình dưới dạng một hàm tùy chỉnh do người dùng xác định, ví dụ, chúng ta có thể đặt tên nó là `make_epicurve()`. Hàm này sau đó được sử dụng trong `map()`. `.x` sẽ được thay thế lặp lại bằng tên bệnh viện và được sử dụng làm `hosp_name` trong hàm `make_epicurve()`. Xem chương về [Viết hàm].  
+Nếu code `map()` này trông quá lộn xộn, bạn có thể đạt được kết quả tương tự bằng cách lưu lệnh `ggplot()` cụ thể của mình dưới dạng một hàm tùy chỉnh do người dùng xác định, ví dụ, chúng ta có thể đặt tên nó là `make_epicurve()`. Hàm này sau đó được sử dụng trong `map()`. `.x` sẽ được thay thế lặp lại bằng tên bệnh viện và được sử dụng làm `hosp_name` trong hàm `make_epicurve()`. Xem chương về [Viết hàm](writing_functions.vn.qmd).  
 
 ```{r, eval=F}
 # Create function
@@ -711,7 +711,7 @@ ggarrange(plotlist = my_plots, ncol = 2, nrow = 3)
 
 Một trường hợp sử dụng phổ biến khác là áp dụng một hàm trên nhiều cột. Dưới đây, chúng tôi `map()` hàm `t.test()` qua các cột số trong data frame `linelist`, so sánh các giá trị số theo giới tính.  
 
-Nhớ lại từ chương về [Các kiểm định thống kê cơ bản] rằng `t.test()` có thể nhận đầu vào ở định dạng công thức, chẳng hạn như `t.test(numeric column ~ binary column)`. Trong ví dụ này, chúng tôi làm như sau:  
+Nhớ lại từ chương về [Các kiểm định thống kê cơ bản](stat_tests.vn.qmd) rằng `t.test()` có thể nhận đầu vào ở định dạng công thức, chẳng hạn như `t.test(numeric column ~ binary column)`. Trong ví dụ này, chúng tôi làm như sau:  
      
 * Các cột số được chọn từ `linelist` - những cột này trở thành đầu vào `.x` cho `map()`  
 * Hàm `t.test()` được cung cấp dưới dạng hàm `.f`, được áp dụng cho mỗi cột số  
@@ -740,7 +740,7 @@ knitr::include_graphics(here::here("images", "purrr_ttest.png"))
 ```
 
 
-Lưu ý: Hãy nhớ rằng nếu bạn chỉ muốn áp dụng một hàm cho một số cột nhất định trong data frame, bạn cũng có thể chỉ cần sử dụng `mutate()` và `across()`, như được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng]. Dưới đây là một ví dụ về việc áp dụng `as.character()` cho chỉ các cột "age". Lưu ý vị trí của dấu ngoặc đơn và dấu phẩy.  
+Lưu ý: Hãy nhớ rằng nếu bạn chỉ muốn áp dụng một hàm cho một số cột nhất định trong data frame, bạn cũng có thể chỉ cần sử dụng `mutate()` và `across()`, như được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd). Dưới đây là một ví dụ về việc áp dụng `as.character()` cho chỉ các cột "age". Lưu ý vị trí của dấu ngoặc đơn và dấu phẩy.  
 
 ```{r, eval=F}
 # convert columns with column name containing "age" to class Character
@@ -763,7 +763,7 @@ names(t.test_results)
 
 #### Các phần tử theo tên hoặc vị trí {.unnumbered}  
 
-Để trích xuất các phần tử danh sách theo tên hoặc theo vị trí, bạn có thể sử dụng dấu ngoặc `[[ ]]` như được mô tả trong chương [R cơ bản]. Dưới đây chúng tôi sử dụng dấu ngoặc kép để lập chỉ mục danh sách `t.tests_results` và hiển thị phần tử đầu tiên là kết quả của t-test trên `age`.  
+Để trích xuất các phần tử danh sách theo tên hoặc theo vị trí, bạn có thể sử dụng dấu ngoặc `[[ ]]` như được mô tả trong chương [R cơ bản](basics.vn.qmd). Dưới đây chúng tôi sử dụng dấu ngoặc kép để lập chỉ mục danh sách `t.tests_results` và hiển thị phần tử đầu tiên là kết quả của t-test trên `age`.  
 
 ```{r}
 t.test_results[[1]] # first element by position

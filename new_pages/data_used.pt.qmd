@@ -12,7 +12,7 @@ Você pode baixar a versão offline deste livro como um arquivo HTML para que vo
 
 * Quando você abre o arquivo, pode levar um ou dois minutos para as imagens e o índice serem carregados  
 * O livro off-line tem um layout ligeiramente diferente - uma página muito longa com Índice à esquerda. Para pesquisar termos específicos, use Ctrl+f (Cmd+f)  
-* Consulte a página [Pacotes sugeridos](#packages-suggested) para ajudá-lo a instalar os pacotes R apropriados antes que você perca a conectividade com a Internet  
+* Consulte a página [Pacotes sugeridos](packages_suggested.pt.qmd) para ajudá-lo a instalar os pacotes R apropriados antes que você perca a conectividade com a Internet  
 * Instale nosso pacote R **epirhandbook** que contém todos os dados de exemplo (processo de instalação descrito abaixo)  
 
 **Existem duas maneiras de baixar o livro:**  
@@ -103,7 +103,7 @@ get_data(file = "linelist_cleaned.rds")
 get_data("linelist_cleaned.rds")
 ```
 
-Depois de usar `get_data()` para salvar um arquivo em seu computador, você ainda precisará importá-lo para R. Consulte a página [Importar e exportar](#importing) para obter detalhes.  
+Depois de usar `get_data()` para salvar um arquivo em seu computador, você ainda precisará importá-lo para R. Consulte a página [Importar e exportar](importing.pt.qmd) para obter detalhes.  
 
 Se desejar, você pode revisar todos os dados usados neste livro na **[pasta "data"](https://github.com/appliedepi/epirhandbook_eng/tree/master/data)** de nosso repositório Github.  
 
@@ -118,7 +118,7 @@ Esta opção envolve o download dos dados arquivo por arquivo de nosso repositó
 
 Este é um surto fictício de Ebola, expandido pela equipe do livro a partir do conjunto de dados de prática `ebola_sim` no pacote **outbreaks**.  
 
-* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'> Clique para baixar a *linelist* "bruta" (.xlsx) </span> </a>. A linelist do caso "bruta" é uma planilha do Excel com dados confusos. Use-o para acompanhar a página [Limpeza de dados e funções principais](#cleaning).  
+* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'> Clique para baixar a *linelist* "bruta" (.xlsx) </span> </a>. A linelist do caso "bruta" é uma planilha do Excel com dados confusos. Use-o para acompanhar a página [Limpeza de dados e funções principais](cleaning.pt.qmd).  
 
 Se você quiser acompanhar, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'> clique para baixar o linelist "limpo" (clean) </a> (as .rds file). Use este arquivo para todas as outras páginas deste livro que usam a lista de linha. Um arquivo .rds é um tipo de arquivo específico de R que preserva classes de coluna. Isso garante que você terá apenas uma limpeza mínima para fazer após importar os dados para R.  
 
@@ -148,7 +148,7 @@ Esses dados são contagens fictícias de casos de malária por faixa etária, se
 
 #### Dados em escala Likert {.unnumbered}  
 
-Estes são dados fictícios de uma pesquisa no estilo Likert, usados na página [Pirâmides demográficas e escalas Likert](#age-pyramid). Você pode carregar esses dados diretamente no R executando os seguintes comandos:    
+Estes são dados fictícios de uma pesquisa no estilo Likert, usados na página [Pirâmides demográficas e escalas Likert](age_pyramid.pt.qmd). Você pode carregar esses dados diretamente no R executando os seguintes comandos:    
 
 ```{r, eval=F}
 pacman::p_load(rio) # instalar / carregar o pacote rio
@@ -160,14 +160,14 @@ likert_data <- import("https://raw.githubusercontent.com/appliedepi/epirhandbook
 
 #### Painéis com flexdashboard {.unnumbered}  
 
-Abaixo estão os links para o arquivo associado à página em [Painéis (Dashboards) com R Markdown](#flexdashboard):  
+Abaixo estão os links para o arquivo associado à página em [Painéis (Dashboards) com R Markdown](flexdashboard.pt.qmd):  
 
 * Para baixar o R Markdown para o painel de surto, clique com o botão direito neste [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard.Rmd) (Cmd + clique para Mac) e selecione "Salvar link como".  
 * Para baixar o painel HTML, clique com o botão direito neste [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard_test.html) (Cmd + clique para Mac) e selecione "Salvar link como".  
 
 #### Rastreamento de contato {.unnumbered} 
 
-A página [Rastreamento de contato](#contact-tracing) demonstra a análise dos dados de rastreamento de contato, usando dados de exemplo de [Go.Data] (https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Os dados usados na página podem ser baixados como arquivos .rds clicando nos seguintes links:  
+A página [Rastreamento de contato](contact_tracing.pt.qmd) demonstra a análise dos dados de rastreamento de contato, usando dados de exemplo de [Go.Data] (https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Os dados usados na página podem ser baixados como arquivos .rds clicando nos seguintes links:  
 
 <a href='https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/cases_clean.rds?raw=true' class='download-button'>
 	Clique para fazer o download
@@ -195,9 +195,9 @@ A página [Rastreamento de contato](#contact-tracing) demonstra a análise dos d
 
 Os shapefiles têm muitos arquivos de subcomponentes, cada um com uma extensão de arquivo diferente. Um arquivo terá a extensão ".shp", mas outros podem ter ".dbf", ".prj", etc.  
 
-A página [GIS básico](#gis) fornece links para o site *Humanitarian Data Exchange* onde você pode baixar os shapefiles diretamente como arquivos compactados.  
+A página [GIS básico](gis.pt.qmd) fornece links para o site *Humanitarian Data Exchange* onde você pode baixar os shapefiles diretamente como arquivos compactados.  
 
-Por exemplo, os dados dos pontos das unidades de saúde podem ser baixados [aqui](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Download "hotosm_sierra_leone_health_facilities_points_shp.zip". Depois de salvar em seu computador, "descompacte" a pasta. Você verá vários arquivos com extensões diferentes (por exemplo, ".shp", ".prj", ".shx") - todos eles devem ser salvos na mesma pasta em seu computador. Então, para importar para o R, forneça o caminho do arquivo e o nome do arquivo ".shp" para `st_read()` do pacote **sf** (conforme descrito na página [Introdução ao GIS](#gis)).  
+Por exemplo, os dados dos pontos das unidades de saúde podem ser baixados [aqui](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Download "hotosm_sierra_leone_health_facilities_points_shp.zip". Depois de salvar em seu computador, "descompacte" a pasta. Você verá vários arquivos com extensões diferentes (por exemplo, ".shp", ".prj", ".shx") - todos eles devem ser salvos na mesma pasta em seu computador. Então, para importar para o R, forneça o caminho do arquivo e o nome do arquivo ".shp" para `st_read()` do pacote **sf** (conforme descrito na página [Introdução ao GIS](gis.pt.qmd)).  
 
 Se você seguir a Opção 1 para baixar todos os dados de exemplo (por meio de nosso pacote R **epirhandbook**), todos os shapefiles serão incluídos.  
 
@@ -211,7 +211,7 @@ knitr::include_graphics(here::here("images", "download_shp.png"))
 
 #### Árvores filogenéticas {.numeradas}  
 
-Veja a página sobre [Árvores filogenéticas](#phylogenetic-trees). Arquivo Newick da árvore filogenética construída a partir do sequenciamento do genoma completo de 299 amostras de Shigella sonnei e dados de amostra correspondentes (convertidos em um arquivo de texto). As amostras belgas e os dados resultantes são gentilmente fornecidos pelo NRC belga para Salmonella e Shigella no âmbito de um projeto conduzido por um bolsista ECDC EUPHEM, e também serão publicados em um manuscrito. Os dados internacionais estão disponíveis abertamente em bases de dados públicas (NCBI) e foram publicados previamente.  
+Veja a página sobre [Árvores filogenéticas](phylogenetic_trees.pt.qmd). Arquivo Newick da árvore filogenética construída a partir do sequenciamento do genoma completo de 299 amostras de Shigella sonnei e dados de amostra correspondentes (convertidos em um arquivo de texto). As amostras belgas e os dados resultantes são gentilmente fornecidos pelo NRC belga para Salmonella e Shigella no âmbito de um projeto conduzido por um bolsista ECDC EUPHEM, e também serão publicados em um manuscrito. Os dados internacionais estão disponíveis abertamente em bases de dados públicas (NCBI) e foram publicados previamente.  
 
 * Para baixar o arquivo da árvore filogenética "Shigella_tree.txt", clique com o botão direito neste [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/Shigella_tree.txt) (Cmd + clique para Mac) e selecione "Salvar link como".  
 * Para baixar o "sample_data_Shigella_tree.csv" com informações adicionais sobre cada amostra, clique com o botão direito neste [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/sample_data_Shigella_tree.csv) (Cmd + clique para Mac) e selecione "Salvar link como".  
@@ -227,7 +227,7 @@ ape::read.tree("Shigella_tree.txt")
 
 #### Padronização {.unnumbered}  
 
-Consulte a página sobre [Taxas padronizadas](#standardization). Você pode carregar os dados diretamente de nosso repositório Github na Internet em sua sessão R com os seguintes comandos:  
+Consulte a página sobre [Taxas padronizadas](standardization.pt.qmd). Você pode carregar os dados diretamente de nosso repositório Github na Internet em sua sessão R com os seguintes comandos:  
 
 
 ```{r, eval=F}
@@ -264,7 +264,7 @@ standard_pop_data <- import("https://github.com/appliedepi/epirhandbook_eng/raw/
 
 #### Séries temporais e detecção de surto {#data_outbreak .unnumbered}  
 
-Consulte a página em [Séries temporais e detecção de surto](#time-series). Usamos casos de Campylobacter relatados na Alemanha 2002-2011, conforme disponível no pacote **surveillance** R. (*nb.* este conjunto de dados foi adaptado do original, em que 3 meses de dados foram excluídos do final de 2011 para fins de demonstração).
+Consulte a página em [Séries temporais e detecção de surto](epidemic_models.pt.qmd). Usamos casos de Campylobacter relatados na Alemanha 2002-2011, conforme disponível no pacote **surveillance** R. (*nb.* este conjunto de dados foi adaptado do original, em que 3 meses de dados foram excluídos do final de 2011 para fins de demonstração).
 
 <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/campylobacter_germany.xlsx' class='download-button'>
 	Clique para fazer o download
@@ -349,7 +349,7 @@ Para a página [análise da pesquisa](https://epirhandbook.com/survey-analysis.h
 
 #### Shiny {#data_shiny .unnumbered}  
 
-A página em [Painéis com Shiny](#shiny-basics) demonstra a construção de um aplicativo simples para exibir dados da malária.  
+A página em [Painéis com Shiny](shiny_basics.pt.qmd) demonstra a construção de um aplicativo simples para exibir dados da malária.  
 
 Para baixar os arquivos R que produzem o aplicativo Shiny:  
 

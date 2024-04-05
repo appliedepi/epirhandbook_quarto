@@ -12,7 +12,7 @@ You can download the offline version of this handbook as an HTML file so that yo
 
 * When you open the file it may take a minute or two for the images and the Table of Contents to load  
 * The offline handbook has a slightly different layout - one very long page with Table of Contents on the left. To search for specific terms use Ctrl+f (Cmd-f)  
-* See the [Suggested packages] page to assist you with installing appropriate R packages before you lose internet connectivity  
+* See the [Suggested packages](packages_suggested.qmd) page to assist you with installing appropriate R packages before you lose internet connectivity  
 * Install our R package **epirhandbook** that contains all the example data (install process described below)  
 
 **There are two ways you can download the handbook:**  
@@ -103,7 +103,7 @@ get_data(file = "linelist_cleaned.rds")
 get_data("linelist_cleaned.rds")
 ```
 
-Once you have used `get_data()` to save a file to your computer, you will still need to import it into R. See the [Import and export] page for details.  
+Once you have used `get_data()` to save a file to your computer, you will still need to import it into R. see the [Import and export](importing.qmd) page for details.  
 
 If you wish, you can review all the data used in this handbook in the **["data" folder](https://github.com/appliedepi/epirhandbook_eng/tree/master/data)** of our Github repository.  
 
@@ -118,7 +118,7 @@ This option involves downloading the data file-by-file from our Github repositor
 
 This is a fictional Ebola outbreak, expanded by the handbook team from the `ebola_sim` practice dataset in the **outbreaks** package.  
 
-* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>Click to download the "raw" linelist (.xlsx)</span></a>. The "raw" case linelist is an Excel spreadsheet with messy data. Use this to follow-along with the [Cleaning data and core functions] page.  
+* <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>Click to download the "raw" linelist (.xlsx)</span></a>. The "raw" case linelist is an Excel spreadsheet with messy data. Use this to follow-along with the [Cleaning data and core functions](cleaning.qmd) page.  
 
 * <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>Click to download the "clean" linelist (.rds)</a>. Use this file for all other pages of this handbook that use the linelist. A .rds file is an R-specific file type that preserves column classes. This ensures you will have only minimal cleaning to do after importing the data into R.  
 
@@ -148,7 +148,7 @@ These data are fictional counts of malaria cases by age group, facility, and day
 
 #### Likert-scale data {.unnumbered}  
 
-These are fictional data from a Likert-style survey, used in the page on [Demographic pyramids and Likert-scales]. You can load these data directly into R by running the following commands:    
+These are fictional data from a Likert-style survey, used in the page on [Demographic pyramids and Likert-scales](age_pyramid.qmd). You can load these data directly into R by running the following commands:    
 
 ```{r, eval=F}
 pacman::p_load(rio) # install/load the rio package
@@ -160,14 +160,14 @@ likert_data <- import("https://raw.githubusercontent.com/appliedepi/epirhandbook
 
 #### Flexdashboard {.unnumbered}  
 
-Below are links to the file associated with the page on [Dashboards with R Markdown]:  
+Below are links to the file associated with the page on [Dashboards with R Markdown](flexdashboard.qmd):  
 
 * To download the R Markdown for the outbreak dashboard, right-click this [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard.Rmd) (Cmd+click for Mac) and select "Save link as".  
 * To download the HTML dashboard, right-click this [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard_test.html) (Cmd+click for Mac) and select "Save link as".  
 
 #### Contact Tracing {.unnumbered} 
 
-The [Contact Tracing] page demonstrated analysis of contact tracing data, using example data from [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). The data used in the page can be downloaded as .rds files by clicking the following links:  
+The [Contact Tracing](contact_tracing.qmd) page demonstrated analysis of contact tracing data, using example data from [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). The data used in the page can be downloaded as .rds files by clicking the following links:  
 
 <a href='https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/cases_clean.rds?raw=true' class='download-button'>
 	Click to download
@@ -195,9 +195,9 @@ The [Contact Tracing] page demonstrated analysis of contact tracing data, using 
 
 Shapefiles have many sub-component files, each with a different file extention. One file will have the ".shp" extension, but others may have ".dbf", ".prj", etc.  
 
-The [GIS basics] page provides links to the *Humanitarian Data Exchange* website where you can download the shapefiles directly as zipped files.  
+The [GIS basics](gis.qmd) page provides links to the *Humanitarian Data Exchange* website where you can download the shapefiles directly as zipped files.  
 
-For example, the health facility points data can be downloaded [here](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Download "hotosm_sierra_leone_health_facilities_points_shp.zip". Once saved to your computer, "unzip" the folder. You will see several files with different extensions (e.g. ".shp", ".prj", ".shx") - all these must be saved to the same folder on your computer. Then to import into R, provide the file path and name of the ".shp" file to `st_read()` from the **sf** package (as described in the [GIS basics] page).  
+For example, the health facility points data can be downloaded [here](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Download "hotosm_sierra_leone_health_facilities_points_shp.zip". Once saved to your computer, "unzip" the folder. You will see several files with different extensions (e.g. ".shp", ".prj", ".shx") - all these must be saved to the same folder on your computer. Then to import into R, provide the file path and name of the ".shp" file to `st_read()` from the **sf** package (as described in the [GIS basics](gis.qmd) page).  
 
 If you follow Option 1 to download all the example data (via our R package **epirhandbook**), all the shapefiles are included.  
 
@@ -211,7 +211,7 @@ knitr::include_graphics(here::here("images", "download_shp.png"))
 
 #### Phylogenetic trees {.unnumbered}  
 
-See the page on [Phylogenetic trees]. Newick file of phylogenetic tree constructed from whole genome sequencing of 299 Shigella sonnei samples and corresponding sample data (converted to a text file). The Belgian samples and resulting data are kindly provided by the Belgian NRC for Salmonella and Shigella in the scope of a project conducted by an ECDC EUPHEM Fellow, and will also be published in a manuscript. The international data are openly available on public databases (ncbi) and have been previously published.  
+See the page on [Phylogenetic trees](phylogenetic_trees.qmd). Newick file of phylogenetic tree constructed from whole genome sequencing of 299 Shigella sonnei samples and corresponding sample data (converted to a text file). The Belgian samples and resulting data are kindly provided by the Belgian NRC for Salmonella and Shigella in the scope of a project conducted by an ECDC EUPHEM Fellow, and will also be published in a manuscript. The international data are openly available on public databases (ncbi) and have been previously published.  
 
 * To download the "Shigella_tree.txt" phylogenetic tree file, right-click this [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/Shigella_tree.txt) (Cmd+click for Mac) and select "Save link as".  
 * To download the "sample_data_Shigella_tree.csv" with additional information on each sample, right-click this [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/sample_data_Shigella_tree.csv) (Cmd+click for Mac) and select "Save link as".  
@@ -227,7 +227,7 @@ ape::read.tree("Shigella_tree.txt")
 
 #### Standardization {.unnumbered}  
 
-See the page on [Standardised rates]. You can load the data directly from our Github repository on the internet into your R session with the following commands:  
+See the page on [Standardised rates](standardization.qmd). You can load the data directly from our Github repository on the internet into your R session with the following commands:  
 
 
 ```{r, eval=F}
@@ -264,7 +264,7 @@ standard_pop_data <- import("https://github.com/appliedepi/epirhandbook_eng/raw/
 
 #### Time series and outbreak detection {#data_outbreak .unnumbered}  
 
-See the page on [Time series and outbreak detection]. We use campylobacter cases reported in Germany 2002-2011, as available from the **surveillance** R package. (*nb.* this dataset has been adapted from the original, in that 3 months of data have been deleted from the end of 2011 for demonstration purposes)
+See the page on [Time series and outbreak detection](epidemic_models.qmd). We use campylobacter cases reported in Germany 2002-2011, as available from the **surveillance** R package. (*nb.* this dataset has been adapted from the original, in that 3 months of data have been deleted from the end of 2011 for demonstration purposes)
 
 <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/campylobacter_germany.xlsx' class='download-button'>
 	Click to download
@@ -349,7 +349,7 @@ For the [survey analysis](https://epirhandbook.com/survey-analysis.html) page we
 
 #### Shiny {#data_shiny .unnumbered}  
 
-The page on [Dashboards with Shiny] demonstrates the construction of a simple app to display malaria data.  
+The page on [Dashboards with Shiny](shiny_basics.qmd) demonstrates the construction of a simple app to display malaria data.  
 
 To download the R files that produce the Shiny app:  
 

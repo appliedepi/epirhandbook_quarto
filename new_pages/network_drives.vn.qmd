@@ -73,7 +73,7 @@ find.package("rmarkdown", lib.loc = NULL, quiet = FALSE, verbose = getOption("ve
 
 **"Failed to compile…tex in rmarkdown"**  
 
-* Kiểm tra cài đặt TinyTex hoặc cài đặt TinyTex vào ổ C:. Xem thêm chương [R cơ bản] để biết về cách cài đặt TinyTex 
+* Kiểm tra cài đặt TinyTex hoặc cài đặt TinyTex vào ổ C:. Xem thêm chương [R cơ bản](basics.vn.qmd) để biết về cách cài đặt TinyTex 
 
 ```{r, eval=F}
 # check/install tinytex, to C: location

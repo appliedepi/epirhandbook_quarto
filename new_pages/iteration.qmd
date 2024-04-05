@@ -23,7 +23,7 @@ In the **purrr** [section](#iter_purrr) we will also provide several examples of
      
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -38,7 +38,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}  
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -128,7 +128,7 @@ This is a variation on the character sequence above, in which the names of an ex
 
 Below, the sequence is the `names()` (column names) of the `linelist` data frame. Our "item" name is `col`, which will represent each column name as the loops proceeds.  
 
-For purposes of example, we include operations code inside the *for loop*, which is run for every value in the sequence. In this code, the sequence values (column names) are used to *index* (subset) `linelist`, one-at-a-time. As taught in the [R basics] page, double branckets `[[ ]]` are used to subset. The resulting column is passed to `is.na()`, then to `sum()` to produce the number of values in the column that are missing. The result is printed to the console - one number for each column.  
+For purposes of example, we include operations code inside the *for loop*, which is run for every value in the sequence. In this code, the sequence values (column names) are used to *index* (subset) `linelist`, one-at-a-time. As taught in the [R basics](basics.qmd) page, double branckets `[[ ]]` are used to subset. The resulting column is passed to `is.na()`, then to `sum()` to produce the number of values in the column that are missing. The result is printed to the console - one number for each column.  
 
 A note on indexing with column names - whenever referencing the column itself *do not just write "col"!* `col` represents just the character column name! To refer to the entire column you must use the column name as an *index* on `linelist` via `linelist[[col]]`.  
 
@@ -262,7 +262,7 @@ To test your loop, you can run a command to make a temporary assignment of the "
 
 ### Looping plots {.unnumbered}
 
-To put all three components together (container, sequence, and operations) let's try to plot an epicurve for each hospital (see page on [Epidemic curves]).  
+To put all three components together (container, sequence, and operations) let's try to plot an epicurve for each hospital (see page on [Epidemic curves](epicurves.qmd)).  
 
 We can make a nice epicurve of *all* the cases by gender using the **incidence2** package as below:  
 
@@ -381,7 +381,7 @@ If you are faced with performing the same task several times, it is probably wor
 
 There are also a few other advantages to **purrr** - you can use it with pipes `%>%`, it handles errors better than normal *for loops*, and the syntax is quite clean and simple! If you are using a *for loop*, you can probably do it more clearly and succinctly with **purrr**! 
    
-Keep in mind that **purrr** is a *functional programming tool*. That is, the operations that are to be iteratively applied are wrapped up into *functions*. See the [Writing functions] page to learn how to write your own functions.  
+Keep in mind that **purrr** is a *functional programming tool*. That is, the operations that are to be iteratively applied are wrapped up into *functions*. See the [Writing functions](writing_functions.qmd) page to learn how to write your own functions.  
 
 **purrr** is also almost entirely based around *lists* and *vectors* - so think about it as applying a function to each element of that list/vector!
      
@@ -453,7 +453,7 @@ sheet_names
 
 Now that we have this vector of names, `map()` can provide them one-by-one to the function `import()`. In this example, the `sheet_names` are `.x` and `import()` is the function `.f`.  
 
-Recall from the [Import and export] page that when used on Excel workbooks, `import()` can accept the argument `which = ` specifying the sheet to import. Within the `.f` function `import()`, we provide `which = .x`, whose value will change with each iteration through the vector `sheet_names` - first "Central Hospital", then "Military Hospital", etc.  
+Recall from the [Import and export](importing.qmd) page that when used on Excel workbooks, `import()` can accept the argument `which = ` specifying the sheet to import. Within the `.f` function `import()`, we provide `which = .x`, whose value will change with each iteration through the vector `sheet_names` - first "Central Hospital", then "Military Hospital", etc.  
 
 Of note - because we have used `map()`, the data in each Excel sheet will be saved as a separate data frame within a list. We want each of these list elements (data frames) to have a *name*, so before we pass `sheet_names` to `map()` we pass it through `set_names()` from **purrr**, which ensures that each list element gets the appropriate name.  
 
@@ -633,13 +633,13 @@ knitr::include_graphics(here::here("images", "purrr_export_sheets.png"))
 
 It is a bit more complex command, but you can also export each hospital-specific linelist as a separate CSV file, with a file name specific to the hospital.  
 
-Again we use `map()`: we take the vector of list element names (shown above) and use `map()` to iterate through them, applying `export()` (from the **rio** package, see [Import and export] page) on the data frame in the list `linelist_split` that has that name. We also use the name to create a unique file name. Here is how it works:  
+Again we use `map()`: we take the vector of list element names (shown above) and use `map()` to iterate through them, applying `export()` (from the **rio** package, see [Import and export](importing.qmd) page) on the data frame in the list `linelist_split` that has that name. We also use the name to create a unique file name. Here is how it works:  
      
 * We begin with the vector of character names, passed to `map()` as `.x`  
 * The `.f` function is `export()` , which requires a data frame and a file path to write to  
 * The input `.x` (the hospital name) is used *within* `.f` to extract/index that specific element of `linelist_split` list. This results in only one data frame at a time being provided to `export()`.  
 * For example, when `map()` iterates for "Military Hospital", then `linelist_split[[.x]]` is actually `linelist_split[["Military Hospital"]]`, thus returning the second element of `linelist_split` - which is all the cases from Military Hospital.  
-* The file path provided to `export()` is dynamic via use of `str_glue()` (see [Characters and strings] page):  
+* The file path provided to `export()` is dynamic via use of `str_glue()` (see [Characters and strings](characters_strings.qmd) page):  
      * `here()` is used to get the base of the file path and specify the "data" folder (note single quotes to not interrupt the `str_glue()` double quotes)  
 * Then a slash `/`, and then again the `.x` which prints the current hospital name to make the file identifiable  
 * Finally the extension ".csv" which `export()` uses to create a CSV file  
@@ -685,7 +685,7 @@ my_plots <- map(
 ggarrange(plotlist = my_plots, ncol = 2, nrow = 3)
 ```
 
-If this `map()` code looks too messy, you can achieve the same result by saving your specific `ggplot()` command as a custom user-defined function, for example we can name it `make_epicurve())`. This function is then used within the `map()`. `.x` will be iteratively replaced by the hospital name, and used as `hosp_name` in the `make_epicurve()` function. See the page on [Writing functions].
+If this `map()` code looks too messy, you can achieve the same result by saving your specific `ggplot()` command as a custom user-defined function, for example we can name it `make_epicurve())`. This function is then used within the `map()`. `.x` will be iteratively replaced by the hospital name, and used as `hosp_name` in the `make_epicurve()` function. See the page on [Writing functions](writing_functions.qmd).
 
 ```{r, eval=F}
 # Create function
@@ -714,7 +714,7 @@ ggarrange(plotlist = my_plots, ncol = 2, nrow = 3)
 
 Another common use-case is to map a function across many columns. Below, we `map()` the function `t.test()` across numeric columns in the data frame `linelist`, comparing the numeric values by gender.  
 
-Recall from the page on [Simple statistical tests] that `t.test()` can take inputs in a formula format, such as `t.test(numeric column ~ binary column)`. In this example, we do the following:    
+Recall from the page on [Simple statistical tests](stat_tests.qmd) that `t.test()` can take inputs in a formula format, such as `t.test(numeric column ~ binary column)`. In this example, we do the following:    
      
 * The numeric columns of interest are selected from `linelist` - these become the `.x` inputs to `map()`  
 * The function `t.test()` is supplied as the `.f` function, which is applied to each numeric column  
@@ -743,7 +743,7 @@ knitr::include_graphics(here::here("images", "purrr_ttest.png"))
 ```
 
 
-Note: Remember that if you want to apply a function to only certain columns in a data frame, you can also simply use `mutate()` and `across()`, as explained in the [Cleaning data and core functions] page. Below is an example of applying `as.character()` to only the "age" columns. Note the placement of the parentheses and commas.  
+Note: Remember that if you want to apply a function to only certain columns in a data frame, you can also simply use `mutate()` and `across()`, as explained in the [Cleaning data and core functions](cleaning.qmd) page. Below is an example of applying `as.character()` to only the "age" columns. Note the placement of the parentheses and commas.  
 
 ```{r, eval=F}
 # convert columns with column name containing "age" to class Character
@@ -766,7 +766,7 @@ names(t.test_results)
 
 #### Elements by name or position {.unnumbered}  
 
-To extract list elements by name or by position you can use brackets `[[ ]]` as described in the [R basics] page. Below we use double brackets to index the list `t.tests_results` and display the first element which is the results of the t-test on `age`.  
+To extract list elements by name or by position you can use brackets `[[ ]]` as described in the [R basics](basics.qmd) page. Below we use double brackets to index the list `t.tests_results` and display the first element which is the results of the t-test on `age`.  
 
 ```{r}
 t.test_results[[1]] # first element by position

@@ -12,7 +12,7 @@ Bạn có thể đọc thêm về dự án Go.Data trên [Trang tài liệu Gith
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị những package cần cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để có thêm thông tin về các R package.
+Đoạn code này hiển thị những package cần cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các R package.
 
 ```{r, message = F}
 pacman::p_load(
@@ -33,7 +33,7 @@ pacman::p_load(
 
 Chúng ta sẽ nhập bộ dữ liệu mẫu về những người tiếp xúc và thông tin "theo dõi" của họ. Những dữ liệu này đã được truy xuất và không được lồng ghép với Go.Data API, đồng thời được lưu trữ dưới dạng tệp ".rds".
 
-Bạn có thể tải xuống tất cả dữ liệu mẫu cho sổ tay này từ chương [Tải sách và dữ liệu].
+Bạn có thể tải xuống tất cả dữ liệu mẫu cho sổ tay này từ chương [Tải sách và dữ liệu](data_used.vn.qmd).
 
 Nếu bạn muốn tải xuống dữ liệu truy vết tiếp xúc mẫu cụ thể cho chương này, hãy sử dụng ba liên kết tải xuống dưới đây:
 
@@ -49,7 +49,7 @@ knitr::include_graphics(here::here("images", "godata_api_github.png"))
 
 Ở dạng gốc các các tệp có thể tải xuống được, dữ liệu thể hiện dữ liệu gốc được cung cấp bởi Go.Data API (tìm hiểu thêm về [APIs ở đây](#import_api)). Đối với mục đích ví dụ ở đây, chúng ta sẽ làm sạch dữ liệu để giúp bạn đọc chương này dễ dàng hơn. Nếu bạn đang sử dụng một phiên bản Go.Data, bạn có thể xem hướng dẫn đầy đủ về cách truy xuất dữ liệu của mình [tại đây](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting).
 
-Dưới đây, các bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương về [Nhập xuất dữ liệu] để biết những cách nhập dữ liệu khác nhau. Chúng tôi sử dụng hàm `here()` để xác định đường dẫn tệp - bạn nên cung cấp đường dẫn tệp cụ thể cho máy tính của mình. Sau đó, chúng tôi sử dụng hàm `select()` để chỉ chọn một số cột nhất định của dữ liệu, nhằm đơn giản hóa cho mục đích diễn giải.
+Dưới đây, các bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương về [Nhập xuất dữ liệu](importing.vn.qmd) để biết những cách nhập dữ liệu khác nhau. Chúng tôi sử dụng hàm `here()` để xác định đường dẫn tệp - bạn nên cung cấp đường dẫn tệp cụ thể cho máy tính của mình. Sau đó, chúng tôi sử dụng hàm `select()` để chỉ chọn một số cột nhất định của dữ liệu, nhằm đơn giản hóa cho mục đích diễn giải.
 
 #### Dữ liệu ca mắc {.unnumbered}
 
@@ -133,7 +133,7 @@ Bạn có thể sử dụng các kỹ thuật được đề cập đến trong 
 
 ### Nhân khẩu học {.unnumbered}
 
-Như được trình bày trong chương [Tháp dân số và thang đo Likert], bạn có thể trực quan hóa phân bố theo độ tuổi và giới tính (ở đây chúng tôi sử dụng package **apyramid**).
+Như được trình bày trong chương [Tháp dân số và thang đo Likert](age_pyramid.vn.qmd), bạn có thể trực quan hóa phân bố theo độ tuổi và giới tính (ở đây chúng tôi sử dụng package **apyramid**).
 
 #### Tuổi và Giới tính của người tiếp xúc {.unnumbered}
 
@@ -150,7 +150,7 @@ apyramid::age_pyramid(
   theme_minimal()                                    # simple background
 ```
 
-Với cấu trúc dữ liệu Go.Data, bộ dữ liệu `relationships` bao gồm độ tuổi của cả các ca mắc và những người tiếp xúc, vì vậy bạn có thể sử dụng bộ dữ liệu đó và tạo tháp tuổi cho thấy sự khác biệt giữa hai nhóm người này. Data frame `relationships` sẽ được biến đổi để chuyển các cột tuổi ở dạng số số thành các nhóm định danh (xem chương [Làm sạch số liệu và các hàm quan trọng]). Chúng ta cũng sẽ xoay trục dataframe sang định dạng dọc nhằm vẽ biểu đồ dễ dàng hơn với **ggplot2** (xem chương [Xoay trục dữ liệu]).
+Với cấu trúc dữ liệu Go.Data, bộ dữ liệu `relationships` bao gồm độ tuổi của cả các ca mắc và những người tiếp xúc, vì vậy bạn có thể sử dụng bộ dữ liệu đó và tạo tháp tuổi cho thấy sự khác biệt giữa hai nhóm người này. Data frame `relationships` sẽ được biến đổi để chuyển các cột tuổi ở dạng số số thành các nhóm định danh (xem chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd)). Chúng ta cũng sẽ xoay trục dataframe sang định dạng dọc nhằm vẽ biểu đồ dễ dàng hơn với **ggplot2** (xem chương [Xoay trục dữ liệu](pivoting.vn.qmd)).
 
 ```{r}
 relation_age <- relationships %>% 
@@ -242,7 +242,7 @@ Dữ liệu truy vết tiếp xúc thường chứa dữ liệu "theo dõi", d�
 
 ### Làm sạch dữ liệu {.unnumbered}
 
-Những dữ liệu này có thể tồn tại ở nhiều định dạng khác nhau. Chúng có thể tồn tại dưới dạng trang tính Excel định dạng "ngang" với một hàng cho mỗi người tiếp xúc và một cột cho mỗi "ngày" theo dõi. Xem chương [Xoay trục dữ liệu] để hiểu về mô tả dữ liệu "dọc" và "ngang", và cả cách xoay trục dữ liệu sang định dạng ngang hoặc dọc.
+Những dữ liệu này có thể tồn tại ở nhiều định dạng khác nhau. Chúng có thể tồn tại dưới dạng trang tính Excel định dạng "ngang" với một hàng cho mỗi người tiếp xúc và một cột cho mỗi "ngày" theo dõi. Xem chương [Xoay trục dữ liệu](pivoting.vn.qmd) để hiểu về mô tả dữ liệu "dọc" và "ngang", và cả cách xoay trục dữ liệu sang định dạng ngang hoặc dọc.
 
 Trong ví dụ Go.Data của chúng tôi, những dữ liệu này được lưu trữ trong data frame `followups`, data frame này có định dạng "dọc" với một hàng cho mỗi tương tác theo dõi. 50 hàng đầu tiên như sau:
 
@@ -261,7 +261,7 @@ followups %>%
   filter(n > 1)                             # view records where count is more than 1  
 ```
 
-Trong dữ liệu ví dụ của chúng ta, các bản ghi duy nhất áp dụng điều này là những bản ghi missing ID! Chúng ta có thể loại bỏ chúng. Tuy nhiên, với mục đích diễn giải, chúng ta sẽ trình bày các bước nhằm loại bỏ trùng lặp để mỗi người tiếp xúc chỉ có một lần theo dõi truy vết mỗi ngày. Xem chương [Loại bỏ trùng lặp] để biết thêm chi tiết. Chúng ta sẽ giả định rằng bản ghi cuộc gọi truy vết mới nhất là bản ghi chính xác. Chúng ta cũng tận dụng cơ hội để làm sạch cột `followup_number` ("ngày" theo dõi sẽ nằm trong khoảng 1 - 14).
+Trong dữ liệu ví dụ của chúng ta, các bản ghi duy nhất áp dụng điều này là những bản ghi missing ID! Chúng ta có thể loại bỏ chúng. Tuy nhiên, với mục đích diễn giải, chúng ta sẽ trình bày các bước nhằm loại bỏ trùng lặp để mỗi người tiếp xúc chỉ có một lần theo dõi truy vết mỗi ngày. Xem chương [Loại bỏ trùng lặp](deduplication.vn.qmd) để biết thêm chi tiết. Chúng ta sẽ giả định rằng bản ghi cuộc gọi truy vết mới nhất là bản ghi chính xác. Chúng ta cũng tận dụng cơ hội để làm sạch cột `followup_number` ("ngày" theo dõi sẽ nằm trong khoảng 1 - 14).
 
 ```{r, warning=F, message=F}
 followups_clean <- followups %>%
@@ -277,7 +277,7 @@ followups_clean <- followups %>%
   drop_na(contact_id)                               # remove rows with missing contact_id
 ```
 
-Đối với mỗi cuộc gọi truy vết tiếp theo, chúng ta có một trạng thái theo dõi (chẳng hạn như cuộc gọi truy vết có xảy ra hay không và nếu có, người tiếp xúc có triệu chứng hay không). Để xem tất cả các giá trị, chúng ta có thể chạy nhanh lệnh `tabyl()` (từ **janitor**) hoặc `table()` (từ **base** R) (xem chương [Bảng mô tả]) bằng `followup_status` để xem tần suất của từng kết quả.
+Đối với mỗi cuộc gọi truy vết tiếp theo, chúng ta có một trạng thái theo dõi (chẳng hạn như cuộc gọi truy vết có xảy ra hay không và nếu có, người tiếp xúc có triệu chứng hay không). Để xem tất cả các giá trị, chúng ta có thể chạy nhanh lệnh `tabyl()` (từ **janitor**) hoặc `table()` (từ **base** R) (xem chương [Bảng mô tả](tables_descriptive.vn.qmd)) bằng `followup_status` để xem tần suất của từng kết quả.
 
 Trong bộ dữ liệu này, "seen_not_ok" có nghĩa là "được thấy có triệu chứng" và "seen_ok" có nghĩa là "được thấy không có triệu chứng".
 
@@ -312,7 +312,7 @@ ggplot(data = followups_clean)+
 
 Nếu sự bùng phát dịch của bạn đủ nhỏ, bạn có thể muốn xem xét từng người tiếp xúc và xem trạng thái của họ trong suốt quá trình theo dõi. May mắn rằng, bộ dữ liệu `followups` này đã chứa sẵn một cột với "số" ngày theo dõi (1-14). Nếu cột này không tồn tại trong dữ liệu của bạn, bạn có thể tạo ra nó bằng cách tính toán sự khác biệt giữa ngày truy vết và ngày dự định bắt đầu theo dõi người tiếp xúc.
 
-Một cơ chế trực quan hóa thuận tiện (nếu số lượng ca mắc không quá lớn) có thể là một biểu đồ nhiệt, được tạo bằng `geom_tile()`. Xem thêm chi tiết trong chương [Biểu đồ nhiệt].
+Một cơ chế trực quan hóa thuận tiện (nếu số lượng ca mắc không quá lớn) có thể là một biểu đồ nhiệt, được tạo bằng `geom_tile()`. Xem thêm chi tiết trong chương [Biểu đồ nhiệt](heatmaps.vn.qmd).
 
 ```{r, warning=F, message=F}
 ggplot(data = followups_clean)+
@@ -386,9 +386,9 @@ Có nhiều nguồn KPI truy vết tiếp xúc, chẳng hạn như nguồn này 
 | Chỉ Số Kết quả - Tổng Kết                            | \% các ca mắc mới trong danh sách liên hệ hiện có                                                              | ĐẾM `case_id` MÀ `was_contact` == "TRUE"                                                                                            | ĐẾM `case_id`    |
 +------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
-Sau đây chúng tôi sẽ giới thiệu một bài tập mẫu về cách tạo bảng đẹp mắt để hiển thị thông tin theo dõi người tiếp xúc trên các khu vực hành chính. Cho tới bước cuối cùng, chúng tôi sẽ tạo bảng phù hợp để trình bày với package **formattable** (nhưng bạn có thể sử dụng các package khác như **flextable** - xem chương [Trình bày bảng]).
+Sau đây chúng tôi sẽ giới thiệu một bài tập mẫu về cách tạo bảng đẹp mắt để hiển thị thông tin theo dõi người tiếp xúc trên các khu vực hành chính. Cho tới bước cuối cùng, chúng tôi sẽ tạo bảng phù hợp để trình bày với package **formattable** (nhưng bạn có thể sử dụng các package khác như **flextable** - xem chương [Trình bày bảng](tables_presentation.vn.qmd)).
 
-Cách bạn tạo một bảng như thế nào sẽ phụ thuộc vào cấu trúc của dữ liệu truy vết tiếp xúc của bạn. Sử dụng chương [Bảng mô tả] để tìm hiểu cách tóm tắt dữ liệu bằng các hàm **dplyr**.
+Cách bạn tạo một bảng như thế nào sẽ phụ thuộc vào cấu trúc của dữ liệu truy vết tiếp xúc của bạn. Sử dụng chương [Bảng mô tả](tables_descriptive.vn.qmd) để tìm hiểu cách tóm tắt dữ liệu bằng các hàm **dplyr**.
 
 Chúng tôi sẽ tạo một bảng động và thay đổi khi dữ liệu thay đổi. Để làm cho kết quả thú vị, chúng tôi sẽ thiết lập `report_date` nhằm cho phép chúng tôi mô phỏng việc chạy bảng vào một ngày nhất định (chúng tôi chọn ngày 10 tháng 6 năm 2020). Dữ liệu được lọc cho ngày đó.
 
@@ -504,7 +504,7 @@ contacts_table %>%
 
 ## Ma trận lây truyền
 
-Như đã thảo luận trong chương [Biểu đồ nhiệt], bạn có thể tạo ma trận "ai đã lây nhiễm cho ai" bằng cách sử dụng hàm `geom_tile()`.
+Như đã thảo luận trong chương [Biểu đồ nhiệt](heatmaps.vn.qmd), bạn có thể tạo ma trận "ai đã lây nhiễm cho ai" bằng cách sử dụng hàm `geom_tile()`.
 
 Khi những ca tiếp xúc mới được tạo, Go.Data lưu trữ thông tin về mối quan hệ này tại điểm cuối API `relationships`; chúng ta có thể thấy 50 hàng đầu tiên của bộ dữ liệu này bên dưới. Điều này có nghĩa là chúng ta có thể tạo một biểu đồ nhiệt với một vài bước với mỗi tiếp điểm được nối với ca mắc nguồn của nó.
 

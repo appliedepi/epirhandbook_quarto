@@ -69,7 +69,7 @@ The first method we show uses the package **ggupset**, and the second uses the p
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, warning=F, message=F}
 pacman::p_load(
@@ -82,7 +82,7 @@ pacman::p_load(
 ### Import data {.unnumbered}  
 
 
-To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 
 
@@ -130,7 +130,7 @@ Now we make two final columns:
 1. Concatenating (gluing together) all the symptoms of the patient (a character column)  
 2. Convert the above column to class *list*, so it can be accepted by **ggupset** to make the plot  
 
-See the page on [Characters and strings] to learn more about the `unite()` function from **stringr**
+See the page on [Characters and strings](characters_strings.qmd) to learn more about the `unite()` function from **stringr**
 
 ```{r, warning=F, message=F}
 linelist_sym_1 <- linelist_sym_1 %>% 
@@ -212,7 +212,7 @@ linelist_sym_2 <- linelist_sym %>%
             
 ```
 
-If you are interested in a more efficient command, you can take advantage of the `+()` function, which converts to 1s and 0s based on a logical statement. This command utilizes the `across()` function to change multiple columns at once (read more in [Cleaning data and core functions](#clean_across)).  
+If you are interested in a more efficient command, you can take advantage of the `+()` function, which converts to 1s and 0s based on a logical statement. This command utilizes the `across()` function to change multiple columns at once (read more in [Cleaning data and core functions](cleaning.qmd#clean_across)).  
 
 ```{r, eval=F, echo=T}
 # Efficiently convert "yes" to 1 and 0

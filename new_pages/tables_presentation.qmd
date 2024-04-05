@@ -100,10 +100,10 @@ table
 
 This page demonstrates how to convert summary data frames into presentation-ready tables with the **flextable** package. These tables can be inserted into powerpoint slides, HTML pages, PDF or Word documents, etc.  
 
-Understand that *before* using **flextable**, you must create the summary table as a data frame. Use methods from the [Descriptive tables] and [Pivoting data] pages such as tabulations, cross-tabulations, pivoting, and calculating descriptive statistics. The resulting data frame can then be passed to **flextable** for display formatting.  
+Understand that *before* using **flextable**, you must create the summary table as a data frame. Use methods from the [Descriptive tables](tables_descriptive.qmd) and [Pivoting data](pivoting.qmd) pages such as tabulations, cross-tabulations, pivoting, and calculating descriptive statistics. The resulting data frame can then be passed to **flextable** for display formatting.  
 
 
-There are many other R packages that can be used to craft tables for presentation - we chose to highlight **flextable** in this page. An example using the **knitr** package and its `kable()` function can be found in the [Contact Tracing] page. Likewise, the **DT** package is highlighted in the page [Dashboards with Shiny]. Others such as **GT** and **huxtable** are mentione in the [Suggested packages] page.  
+There are many other R packages that can be used to craft tables for presentation - we chose to highlight **flextable** in this page. An example using the **knitr** package and its `kable()` function can be found in the [Contact Tracing](contact_tracing.qmd) page. Likewise, the **DT** package is highlighted in the page [Dashboards with Shiny](shiny_basics.qmd). Others such as **GT** and **huxtable** are mentione in the [Suggested packages](packages_suggested.qmd) page.  
 
 
 
@@ -112,7 +112,7 @@ There are many other R packages that can be used to craft tables for presentatio
 
 ### Load packages {.unnumbered} 
 
-Install and load **flextable**. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load packages with `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+Install and load **flextable**. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load packages with `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -126,7 +126,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}  
 
-To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details). 
+To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details). 
 
 
 ```{r, echo=F}
@@ -148,9 +148,9 @@ DT::datatable(head(linelist, 50), rownames = FALSE, filter="top", options = list
 
 ### Prepare table {.unnumbered}  
 
-*Before* beginning to use **flextable** you will need to *create* your table as a data frame. See the page on [Descriptive tables] and [Pivoting data] to learn how to create a data frame using packages such as **janitor** and **dplyr**. You must arrange the content in rows and columns as you want it displayed. Then, the data frame will be passed to **flextable** to display it with colors, headers, fonts, etc. 
+*Before* beginning to use **flextable** you will need to *create* your table as a data frame. See the page on [Descriptive tables](tables_descriptive.qmd) and [Pivoting data](pivoting.qmd) to learn how to create a data frame using packages such as **janitor** and **dplyr**. You must arrange the content in rows and columns as you want it displayed. Then, the data frame will be passed to **flextable** to display it with colors, headers, fonts, etc. 
   
-Below is an example from the [Descriptive tables] page of converting the case `linelist` into a data frame that summarises patient outcomes and CT values by hospital, with a Totals row at the bottom. The output is saved as `table`.  
+Below is an example from the [Descriptive tables](tables_descriptive.qmd) page of converting the case `linelist` into a data frame that summarises patient outcomes and CT values by hospital, with a Totals row at the bottom. The output is saved as `table`.  
 
 ```{r message=FALSE, warning=FALSE}
 table <- linelist %>% 
@@ -531,7 +531,7 @@ print(my_table, preview = "pptx") # Powerpoint example
 
 This table can be integrated into your an automated document, an R markdown output, if the table object is called within the R markdown chunk. This means the table can be updated as part of a report where the data might change, so the numbers can be refreshed.
 
-See detail in the [Reports with R Markdown] page of this handbook. 
+See detail in the [Reports with R Markdown](rmarkdown.qmd) page of this handbook. 
 
 <!-- ======================================================= -->
 ## Resources {  }

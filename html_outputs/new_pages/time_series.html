@@ -701,7 +701,7 @@ window.Quarto = {
 <section id="overview" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">23.1</span> Overview</h2>
 <p>This tab demonstrates the use of several packages for time series analysis. It primarily relies on packages from the <a href="https://tidyverts.org/"><strong>tidyverts</strong></a> family, but will also use the RECON <a href="https://github.com/reconhub/trending"><strong>trending</strong></a> package to fit models that are more appropriate for infectious disease epidemiology.</p>
-<p>Note in the below example we use a dataset from the <strong>surveillance</strong> package on Campylobacter in Germany (see the <a href="https://epirhandbook.com/download-handbook-and-data.html">data chapter</a>, of the handbook for details). However, if you wanted to run the same code on a dataset with multiple countries or other strata, then there is an example code template for this in the <a href="https://github.com/R4EPI/epitsa">r4epis github repo</a>.</p>
+<p>Note in the below example we use a dataset from the <strong>surveillance</strong> package on Campylobacter in Germany (see the <a href="../new_pages/data_used.html">data chapter</a>, of the handbook for details). However, if you wanted to run the same code on a dataset with multiple countries or other strata, then there is an example code template for this in the <a href="https://github.com/R4EPI/epitsa">r4epis github repo</a>.</p>
 <p>Topics covered include:</p>
 <ol type="1">
 <li>Time series data</li>
@@ -717,32 +717,32 @@ window.Quarto = {
 <h2 data-number="23.2" class="anchored" data-anchor-id="preparation"><span class="header-section-number">23.2</span> Preparation</h2>
 <section id="packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="packages">Packages</h3>
-<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load packages with <code>library()</code> from <strong>base</strong> R. See the page on <a href="https://epirhandbook.com/r-basics.html">R basics</a> for more information on R packages.</p>
+<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load packages with <code>library()</code> from <strong>base</strong> R. See the page on <a href="../new_pages/basics.html">R basics</a> for more information on R packages.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio,          <span class="co"># File import</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               here,         <span class="co"># File locator</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               tidyverse,    <span class="co"># data management + ggplot2 graphics</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               tsibble,      <span class="co"># handle time series datasets</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               slider,       <span class="co"># for calculating moving averages</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               imputeTS,     <span class="co"># for filling in missing values</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               feasts,       <span class="co"># for time series decomposition and autocorrelation</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               forecast,     <span class="co"># fit sin and cosin terms to data (note: must load after feasts)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               trending,     <span class="co"># fit and assess models </span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               tmaptools,    <span class="co"># for getting geocoordinates (lon/lat) based on place names</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               ecmwfr,       <span class="co"># for interacting with copernicus sateliate CDS API</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               stars,        <span class="co"># for reading in .nc (climate data) files</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>               units,        <span class="co"># for defining units of measurement (climate data)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               yardstick,    <span class="co"># for looking at model accuracy</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>               surveillance  <span class="co"># for aberration detection</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               tsibble,      <span class="co"># handle time series datasets</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               slider,       <span class="co"># for calculating moving averages</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               imputeTS,     <span class="co"># for filling in missing values</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               feasts,       <span class="co"># for time series decomposition and autocorrelation</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               forecast,     <span class="co"># fit sin and cosin terms to data (note: must load after feasts)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               trending,     <span class="co"># fit and assess models </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               tmaptools,    <span class="co"># for getting geocoordinates (lon/lat) based on place names</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               ecmwfr,       <span class="co"># for interacting with copernicus sateliate CDS API</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               stars,        <span class="co"># for reading in .nc (climate data) files</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               units,        <span class="co"># for defining units of measurement (climate data)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>               yardstick,    <span class="co"># for looking at model accuracy</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               surveillance,  <span class="co"># for aberration detection</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>               tidyverse     <span class="co"># data management + ggplot2 graphics</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>               )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="load-data">Load data</h3>
-<p>You can download all the data used in this handbook via the instructions in the [Download handbook and data] page.</p>
+<p>You can download all the data used in this handbook via the instructions in the <a href="../new_pages/data_used.html">Download handbook and data</a> page.</p>
 <p>The example dataset used in this section is weekly counts of campylobacter cases reported in Germany between 2001 and 2011. <a href="https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/time_series/campylobacter_germany.xlsx" class="download-button"> You can click here to download<span> this data file (.xlsx).</span></a></p>
 <p>This dataset is a reduced version of the dataset available in the <a href="https://cran.r-project.org/web/packages/surveillance/"><strong>surveillance</strong></a> package. (for details load the surveillance package and see <code>?campyDE</code>)</p>
-<p>Import these data with the <code>import()</code> function from the <strong>rio</strong> package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).</p>
+<p>Import these data with the <code>import()</code> function from the <strong>rio</strong> package (it handles many file types like .xlsx, .csv, .rds - see the <a href="../new_pages/importing.html">Import and export</a> page for details).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the counts into R</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"campylobacter_germany.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,14 +750,14 @@ window.Quarto = {
 <p>The first 10 rows of the counts are displayed below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-9c169a15e972502c821c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9c169a15e972502c821c">{"x":{"filter":"none","vertical":false,"data":[["2001-12-31T00:00:00Z","2002-01-07T00:00:00Z","2002-01-14T00:00:00Z","2002-01-21T00:00:00Z","2002-01-28T00:00:00Z","2002-02-04T00:00:00Z","2002-02-11T00:00:00Z","2002-02-18T00:00:00Z","2002-02-25T00:00:00Z","2002-03-04T00:00:00Z"],[514,913,1023,887,815,792,803,807,692,705]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>case<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"date","targets":0},{"name":"case","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-43a046cddb98a68efdc1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-43a046cddb98a68efdc1">{"x":{"filter":"none","vertical":false,"data":[["2001-12-31T00:00:00Z","2002-01-07T00:00:00Z","2002-01-14T00:00:00Z","2002-01-21T00:00:00Z","2002-01-28T00:00:00Z","2002-02-04T00:00:00Z","2002-02-11T00:00:00Z","2002-02-18T00:00:00Z","2002-02-25T00:00:00Z","2002-03-04T00:00:00Z"],[514,913,1023,887,815,792,803,807,692,705]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>case<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"date","targets":0},{"name":"case","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="clean-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="clean-data">Clean data</h3>
-<p>The code below makes sure that the date column is in the appropriate format. For this tab we will be using the <strong>tsibble</strong> package and so the <code>yearweek</code> function will be used to create a calendar week variable. There are several other ways of doing this (see the <a href="https://epirhandbook.com/working-with-dates.html">Working with dates</a> page for details), however for time series its best to keep within one framework (<strong>tsibble</strong>).</p>
+<p>The code below makes sure that the date column is in the appropriate format. For this tab we will be using the <strong>tsibble</strong> package and so the <code>yearweek</code> function will be used to create a calendar week variable. There are several other ways of doing this (see the <a href="../new_pages/dates.html">Working with dates</a> page for details), however for time series its best to keep within one framework (<strong>tsibble</strong>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ensure the date column is in the appropriate format</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>counts<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(counts<span class="sc">$</span>date)</span>
@@ -772,7 +772,7 @@ window.Quarto = {
 <h3 class="unnumbered anchored" data-anchor-id="download-climate-data">Download climate data</h3>
 <p>In the <em>relation of two time series</em> section of this page, we will be comparing campylobacter case counts to climate data.</p>
 <p>Climate data for anywhere in the world can be downloaded from the EU’s Copernicus Satellite. These are not exact measurements, but based on a model (similar to interpolation), however the benefit is global hourly coverage as well as forecasts.</p>
-<p>You can download each of these climate data files from the [Download handbook and data] page.</p>
+<p>You can download each of these climate data files from the <a href="../new_pages/data_used.html">Download handbook and data</a> page.</p>
 <p>For purposes of demonstration here, we will show R code to use the <strong>ecmwfr</strong> package to pull these data from the Copernicus climate data store. You will need to create a free account in order for this to work. The package website has a useful <a href="https://github.com/bluegreen-labs/ecmwfr#use-copernicus-climate-data-store-cds">walkthrough</a> of how to do this. Below is example code of how to go about doing this, once you have the appropriate API keys. You have to replace the X’s below with your account IDs. You will need to download one year of data at a time otherwise the server times-out.</p>
 <p>If you are not sure of the coordinates for a location you want to download data for, you can use the <strong>tmaptools</strong> package to pull the coordinates off open street maps. An alternative option is the <a href="https://github.com/rCarto/photon"><strong>photon</strong></a> package, however this has not been released on to CRAN yet; the nice thing about <strong>photon</strong> is that it provides more contextual data for when there are several matches for your search.</p>
 <div class="cell">
@@ -908,7 +908,7 @@ t2m, tp, </code></pre>
 <section id="duplicates" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="duplicates">Duplicates</h3>
 <p><strong>tsibble</strong> does not allow duplicate observations. So each row will need to be unique, or unique within the group (<code>key</code> variable). The package has a few functions that help to identify duplicates. These include <code>are_duplicated()</code> which gives you a TRUE/FALSE vector of whether the row is a duplicate, and <code>duplicates()</code> which gives you a data frame of the duplicated rows.</p>
-<p>See the page on <a href="https://epirhandbook.com/de-duplication.html">De-duplication</a> for more details on how to select rows you want.</p>
+<p>See the page on <a href="../new_pages/deduplication.html">De-duplication</a> for more details on how to select rows you want.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get a vector of TRUE/FALSE whether rows are duplicates</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">are_duplicated</span>(counts, <span class="at">index =</span> epiweek) </span>
@@ -921,8 +921,8 @@ t2m, tp, </code></pre>
 <section id="missings" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="missings">Missings</h3>
 <p>We saw from our brief inspection above that there are no missings, but we also saw there seems to be a problem with reporting delay around new year. One way to address this problem could be to set these values to missing and then to impute values. The simplest form of time series imputation is to draw a straight line between the last non-missing and the next non-missing value. To do this we will use the <strong>imputeTS</strong> package function <code>na_interpolation()</code>.</p>
-<p>See the <a href="https://epirhandbook.com/missing-data.html">Missing data</a> page for other options for imputation.</p>
-<p>Another alternative would be to calculate a moving average, to try and smooth over these apparent reporting issues (see next section, and the page on <a href="https://epirhandbook.com/moving-averages.html">Moving averages</a>).</p>
+<p>See the <a href="../new_pages/missing_data.html">Missing data</a> page for other options for imputation.</p>
+<p>Another alternative would be to calculate a moving average, to try and smooth over these apparent reporting issues (see next section, and the page on <a href="../new_pages/moving_average.html">Moving averages</a>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a variable with missings instead of weeks with reporting issues</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
@@ -961,7 +961,7 @@ t2m, tp, </code></pre>
 <!-- ======================================================= -->
 <section id="timeseries_moving" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="timeseries_moving">Moving averages</h3>
-<p>If data is very noisy (counts jumping up and down) then it can be helpful to calculate a moving average. In the example below, for each week we calculate the average number of cases from the four previous weeks. This smooths the data, to make it more interpretable. In our case this does not really add much, so we will stick to the interpolated data for further analysis. See the <a href="https://epirhandbook.com/moving-averages.html">Moving averages</a> page for more detail.</p>
+<p>If data is very noisy (counts jumping up and down) then it can be helpful to calculate a moving average. In the example below, for each week we calculate the average number of cases from the four previous weeks. This smooths the data, to make it more interpretable. In our case this does not really add much, so we willstick to the interpolated data for further analysis. See the <a href="../new_pages/moving_average.html">Moving averages</a> page for more detail.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a moving average variable (deals with missings)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
@@ -989,7 +989,7 @@ t2m, tp, </code></pre>
 </section>
 <section id="periodicity" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="periodicity">Periodicity</h3>
-<p>Below we define a custom function to create a periodogram. See the [Writing functions] page for information about how to write functions in R.</p>
+<p>Below we define a custom function to create a periodogram. See the <a href="../new_pages/writing_functions.html">Writing functions</a> page for information about how to write functions in R.</p>
 <p>First, the function is defined. Its arguments include a dataset with a column <code>counts</code>, <code>start_week =</code> which is the first week of the dataset, a number to indicate how many periods per year (e.g.&nbsp;52, 12), and lastly the output style (see details in the code below).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Function arguments</span></span>
@@ -1604,7 +1604,7 @@ X-squared = 339.52, df = 1, p-value &lt; 2.2e-16</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="split-data-and-fit-regression">Split data and fit regression</h4>
 <p>We now have to split our dataset in to the baseline period and the prediction period. This is done using the <strong>dplyr</strong> <code>group_split()</code> function after <code>group_by()</code>, and will create a list with two data frames, one for before your cut-off and one for after.</p>
 <p>We then use the <strong>purrr</strong> package <code>pluck()</code> function to pull the datasets out of the list (equivalent of using square brackets, e.g.&nbsp;<code>dat[[1]]</code>), and can then fit our model to the baseline data, and then use the <code>predict()</code> function for our data of interest after the cut-off.</p>
-<p>See the page on [Iteration, loops, and lists] to learn more about <strong>purrr</strong>.</p>
+<p>See the page on <a href="../new_pages/iteration.html">Iteration, loops, and lists</a> to learn more about <strong>purrr</strong>.</p>
 <p><span style="color: orange;"><strong><em>CAUTION:</em></strong> Note the use of <code>simulate_pi = FALSE</code> within the <code>predict()</code> argument. This is because the default behaviour of <strong>trending</strong> is to use the <strong>ciTools</strong> package to estimate a prediction interval. This does not work if there are <code>NA</code> counts, and also produces more granular intervals. See <code>?trending::predict.trending_model_fit</code> for details. </span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split data for fitting and prediction</span></span>
@@ -2683,7 +2683,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

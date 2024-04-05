@@ -77,7 +77,7 @@ Phương pháp đầu tiên chúng tôi sẽ trình bày sử dụng package **g
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các gói cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.  
+Đoạn code này hiển thị việc gọi các gói cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R.  
 
 ```{r, warning=F, message=F}
 pacman::p_load(
@@ -90,7 +90,7 @@ pacman::p_load(
 ### Nhập dữ liệu {.unnumbered}  
 
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết.  
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu]((importing.vn.qmd)) để biết thêm chi tiết.  
 
 
 
@@ -153,7 +153,7 @@ Bây giờ chúng ta tạo hai cột cuối cùng:
 1. Kết hợp (ghép lại với nhau) tất cả các triệu chứng của bệnh nhân (thành một cột ký tự)  
 2. Chuyển đổi định dạng cột bên trên thành kiểu *danh sách* để được chấp nhận bởi package **ggupset** khi vẽ biểu đồ  
 
-Xem thêm chương [Ký tự và chuỗi] để biết thêm về hàm `unite()` trong package **stringr**
+Xem thêm chương [Ký tự và chuỗi](characters_strings.vn.qmd) để biết thêm về hàm `unite()` trong package **stringr**
 
 ```{r, warning=F, message=F}
 linelist_sym_1 <- linelist_sym_1 %>% 
@@ -252,6 +252,18 @@ linelist_sym_2 <- linelist_sym %>%
       TRUE           ~ 0)
     )
 ```
+
+
+Bạn có thể tham khảo hàm `+()` được dùng kết hợp với hàm `across()` để thực hiện thay đổi trên nhiều cột cùng lúc (đọc thêm tại chương [Các hàm làm sạch dữ liệu](cleaning.vn.qmd#clean_across)).  
+
+```{r, eval=F, echo=T}
+# Efficiently convert "yes" to 1 and 0
+linelist_sym_2 <- linelist_sym %>% 
+  
+  # convert the "yes" and "no" values into 1s and 0s
+  mutate(across(c(fever, chills, cough, aches, vomit), .fns = ~+(.x == "yes")))
+```
+
 
 Bây giờ chúng ta hãy vẽ biểu đồ bằng hàm tùy chỉnh `upset()` - chỉ sử dụng các cột triệu chứng. Bạn phải chỉ định “bộ” nào để so sánh (tên của các cột triệu chứng). Một cách khác, sử dụng `nsets = ` và `order.by = "freq"` để chỉ hiện thị X các sự kết hợp nhiều nhất.  
 

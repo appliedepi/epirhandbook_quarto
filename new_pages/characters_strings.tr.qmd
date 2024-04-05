@@ -45,7 +45,7 @@ pacman::p_load(
 ### Verileri yükleme {.unnumbered}  
 
 
-Bu sayfada, simüle edilmiş bir Ebola salgını vakalarının temizlenmiş "satır listesine" ara sıra atıfta bulunulacaktır. Daha fazla bilgi için, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"temiz satır listesi" dosyasını indirmek için tıklayın.</a> (.rds dosyası olarak). **rio** paketinden `import()` işleviyle veriler içe aktarırılır (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için [İçe ve dışa aktarma] sayfasına bakın).
+Bu sayfada, simüle edilmiş bir Ebola salgını vakalarının temizlenmiş "satır listesine" ara sıra atıfta bulunulacaktır. Daha fazla bilgi için, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>"temiz satır listesi" dosyasını indirmek için tıklayın.</a> (.rds dosyası olarak). **rio** paketinden `import()` işleviyle veriler içe aktarırılır (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için [İçe ve dışa aktarma](importing.tr.qmd) sayfasına bakın).
 
 ```{r, echo=F}
 # satır listesini R'a yükle
@@ -171,7 +171,7 @@ case_table %>%
 
 **Dizeleri satırlarda birleştirme**  
 
-Bir veri çerçevesi sütunundaki değerleri "birleştirmeye" çalışıyorsanız; örneğin, birden çok satırdaki değerleri bir ayırıcıyla birbirine yapıştırarak tek bir satırda birleştirme, [Tekilleştirme] sayfasının ["toplama" değerleri](#str_rollup) bölümüne bakabilirsiniz.
+Bir veri çerçevesi sütunundaki değerleri "birleştirmeye" çalışıyorsanız; örneğin, birden çok satırdaki değerleri bir ayırıcıyla birbirine yapıştırarak tek bir satırda birleştirme, [Tekilleştirme](deduplication.tr.qmd) sayfasının ["toplama" değerleri](deduplication.tr.qmd#str_rollup) bölümüne bakabilirsiniz.
 
 **Veri çerçevesini bir satıra çevirme**  
 

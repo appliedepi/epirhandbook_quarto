@@ -28,7 +28,7 @@ Kim tự tháp nhân khẩu học rất hữu ích khi bạn muốn hiển thị
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.  
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R.  
 
 ```{r}
 pacman::p_load(rio,       # to import data
@@ -44,7 +44,7 @@ pacman::p_load(rio,       # to import data
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết.    
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết.    
 
 ```{r, echo=F}
 # import the linelist into R
@@ -176,7 +176,7 @@ apyramid::age_pyramid(
 
 Ví dụ bên trên giả định rằng dữ liệu của bạn có định dạng mỗi hàng cho một quan sát. Nếu dữ liệu của bạn đã được tổng hợp thành số lượng theo nhóm tuổi, bạn vẫn có thể sử dụng package **apyramid**, như được trình bày dưới đây.  
 
-Để minh họa, chúng ta sẽ tổng hợp dữ liệu linelist theo số lượng đối với nhóm tuổi và giới, dưới định dạng "ngang". Việc này sẽ mô phỏng như thể dữ liệu ban đầu của bạn đang được trình bày dưới dạng số lượng. Tìm hiểu thêm về [Nhóm dữ liệu] và [Xoay trục dữ liệu] ở các chương tương ứng.  
+Để minh họa, chúng ta sẽ tổng hợp dữ liệu linelist theo số lượng đối với nhóm tuổi và giới, dưới định dạng "ngang". Việc này sẽ mô phỏng như thể dữ liệu ban đầu của bạn đang được trình bày dưới dạng số lượng. Tìm hiểu thêm về [Nhóm dữ liệu](grouping.vn.qmd) và [Xoay trục dữ liệu](pivoting.vn.qmd) ở các chương tương ứng.  
 
 ```{r, warning=F, message=F}
 demo_agg <- linelist %>% 
@@ -222,7 +222,7 @@ apyramid::age_pyramid(data = demo_agg_long,
                       count = "counts")      # column name for case counts
 ```
 
-Lưu ý rằng ở trên, thứ tự của "m" và "f" là khác nhau (tháp bị đảo ngược). Để điều chỉnh thự tự, bạn phải định nghĩa lại cột giới trong dữ liệu được tổng hợp thành kiểu Factor và sắp xếp thứ tự như mong muốn. Xem chương [Factors].  
+Lưu ý rằng ở trên, thứ tự của "m" và "f" là khác nhau (tháp bị đảo ngược). Để điều chỉnh thự tự, bạn phải định nghĩa lại cột giới trong dữ liệu được tổng hợp thành kiểu Factor và sắp xếp thứ tự như mong muốn. Xem chương [Factors](factors.vn.qmd).  
 
 
 

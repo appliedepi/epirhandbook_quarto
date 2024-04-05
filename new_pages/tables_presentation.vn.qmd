@@ -100,10 +100,10 @@ table
 
 Chương này sẽ trình bày cách chuyển đổi một bảng tóm tắt dữ liệu thành các bảng sẵn sàng cho mục đích trình bày với package **flextable**. Các bảng này có thể được chèn vào slide powerpoint, trang HTML, tài liệu PDF hoặc Word, v.v.  
 
-Hãy hiểu rằng *trước khi* sử dụng **flextable**, bạn phải tạo bảng tóm tắt dữ liệu dưới dạng một data frame. Sử dụng các phương pháp trong các chương [Bảng mô tả] và [Xoay trục dữ liệu] như tạo bảng đơn, tạo bảng chéo, xoay trục, và tính toán các thống kê mô tả. Kết quả là một data frame sau đó có thể được chuyển đến **flextable** để định dạng hiển thị.  
+Hãy hiểu rằng *trước khi* sử dụng **flextable**, bạn phải tạo bảng tóm tắt dữ liệu dưới dạng một data frame. Sử dụng các phương pháp trong các chương [Bảng mô tả](tables_descriptive.vn.qmd) và [Xoay trục dữ liệu](pivoting.vn.qmd) như tạo bảng đơn, tạo bảng chéo, xoay trục, và tính toán các thống kê mô tả. Kết quả là một data frame sau đó có thể được chuyển đến **flextable** để định dạng hiển thị.  
 
 
-Có nhiều các R packages khác có thể được sử dụng để tạo bảng cho mục đích trình bày - trong chương này chúng tôi nhấm mạnh vào package **flextable**. Một ví dụ sử dụng **knitr** package và hàm của nó `kable()` có thể được tìm thấy trong chương [Truy vết tiếp xúc]. Tương tự như vậy, package **DT** cũng được nhấn mạnh trong chương [Dashboards với Shiny]. Các package khác như **GT** và **huxtable** được đề cập trong chương [Package đề xuất].  
+Có nhiều các R packages khác có thể được sử dụng để tạo bảng cho mục đích trình bày - trong chương này chúng tôi nhấm mạnh vào package **flextable**. Một ví dụ sử dụng **knitr** package và hàm của nó `kable()` có thể được tìm thấy trong chương [Truy vết tiếp xúc](contact_tracing.vn.qmd). Tương tự như vậy, package **DT** cũng được nhấn mạnh trong chương [Dashboards với Shiny](shiny_basics.vn.qmd). Các package khác như **GT** và **huxtable** được đề cập trong chương [Package đề xuất](packages_suggested.vn.qmd).  
 
 
 
@@ -112,7 +112,7 @@ Có nhiều các R packages khác có thể được sử dụng để tạo b�
 
 ### Gọi packages {.unnumbered} 
 
-Hãy cài đặt và gọi package **flextable**. Trong sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi package bằng lệnh `library()` từ **base** R. Xem thêm chương [R cơ bản] để biết thêm các thông tin về các package trong R.  
+Hãy cài đặt và gọi package **flextable**. Trong sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi package bằng lệnh `library()` từ **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để biết thêm các thông tin về các package trong R.  
 
 ```{r}
 pacman::p_load(
@@ -126,7 +126,7 @@ pacman::p_load(
 
 ### Nhập dữ liệu {.unnumbered}  
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu linelist đã được làm sạch về các ca bệnh Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu bằng hàm `import()` từ package **rio** (chấp nhận nhiều loại tập tin như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết). 
+Để bắt đầu, chúng ta nhập bộ dữ liệu linelist đã được làm sạch về các ca bệnh Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã làm sạch"</a> (as .rds file). Nhập dữ liệu bằng hàm `import()` từ package **rio** (chấp nhận nhiều loại tập tin như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết). 
 
 
 ```{r, echo=F}
@@ -148,9 +148,9 @@ DT::datatable(head(linelist, 50), rownames = FALSE, filter="top", options = list
 
 ### Chuẩn bị bảng {.unnumbered}  
 
-*Trước khi* bắt đầu sử dụng **flextable** bạn cần phải *tạo* bảng của bạn dưới một data frame. Xem chương [Bảng mô tả] và [Xoay trục dữ liệu] để biết cách tạo một data frame sử dụng các packages như **janitor** và **dplyr**. Đầu tiên, bạn phải sắp xếp nội dung theo hàng và cột như cách bạn muốn nội dung hiển thị. Sau đó, data frame sẽ được chuyển đến **flextable** để hiển thị nó với màu sắc, tiêu đề, phông chữ, v.v. 
+*Trước khi* bắt đầu sử dụng **flextable** bạn cần phải *tạo* bảng của bạn dưới một data frame. Xem chương [Bảng mô tả](tables_descriptive.vn.qmd) và [Xoay trục dữ liệu](pivoting.vn.qmd) để biết cách tạo một data frame sử dụng các packages như **janitor** và **dplyr**. Đầu tiên, bạn phải sắp xếp nội dung theo hàng và cột như cách bạn muốn nội dung hiển thị. Sau đó, data frame sẽ được chuyển đến **flextable** để hiển thị nó với màu sắc, tiêu đề, phông chữ, v.v. 
   
-Dưới đây là một ví dụ trong chương [Bảng mô tả] về cách biến đổi các trường hợp bệnh trong `linelist` thành một data frame để tóm tắt các outcomes của bệnh nhân và giá trị CT theo bệnh viện, với hàng Tổng ở cuối bảng. Đầu ra được lưu dưới dạng `table`.  
+Dưới đây là một ví dụ trong chương [Bảng mô tả](tables_descriptive.vn.qmd) về cách biến đổi các trường hợp bệnh trong `linelist` thành một data frame để tóm tắt các outcomes của bệnh nhân và giá trị CT theo bệnh viện, với hàng Tổng ở cuối bảng. Đầu ra được lưu dưới dạng `table`.  
 
 ```{r message=FALSE, warning=FALSE}
 table <- linelist %>% 
@@ -531,7 +531,7 @@ print(my_table, preview = "pptx") # Powerpoint example
 
 Bảng này có thể được tích hợp vào R markdown, một dạng báo cáo tự động của bạn, nếu đối tượng bảng được gọi trong phần code chunk của R markdown. Điều này có nghĩa là bảng có thể được cập nhật như một phần của báo cáo trong đó dữ liệu có thể thay đổi, do đó, các con số có thể được làm mới.
 
-Xem thêm chi tiết trong chương [Báo cáo với R Markdown] của cuốn sổ tay này. 
+Xem thêm chi tiết trong chương [Báo cáo với R Markdown](rmarkdown.vn.qmd) của cuốn sổ tay này. 
 
 <!-- ======================================================= -->
 ## Nguồn {  }

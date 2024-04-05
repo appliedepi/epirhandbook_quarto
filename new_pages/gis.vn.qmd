@@ -70,15 +70,15 @@ Hãy nhớ rằng bạn có thể tóm tắt dữ liệu không gian mà không 
 
 Có một số thứ quan trọng bạn sẽ cần phải có và suy nghĩ tới khi tạo bản đồ. Bao gồm:
 
--   Một **tập dữ liệu** -- tập dữ liệu này có thể ở định dạng dữ liệu không gian (chẳng hạn như shapefiles, như đã lưu ý ở trên) hoặc nó có thể không ở định dạng không gian (chẳng hạn như csv).
+  *   Một **tập dữ liệu** -- tập dữ liệu này có thể ở định dạng dữ liệu không gian (chẳng hạn như shapefiles, như đã lưu ý ở trên) hoặc nó có thể không ở định dạng không gian (chẳng hạn như csv).
+  
+  *   Nếu tập dữ liệu của bạn không ở định dạng không gian, bạn cũng sẽ cần một **tập dữ liệu tham chiếu**. Dữ liệu tham chiếu bao gồm biểu diễn không gian của dữ liệu và **các thuộc tính** liên quan, sẽ bao gồm tài liệu chứa thông tin vị trí và địa chỉ của các đối tượng địa lý cụ thể.
 
--   Nếu tập dữ liệu của bạn không ở định dạng không gian, bạn cũng sẽ cần một **tập dữ liệu tham chiếu**. Dữ liệu tham chiếu bao gồm biểu diễn không gian của dữ liệu và **các thuộc tính** liên quan, sẽ bao gồm tài liệu chứa thông tin vị trí và địa chỉ của các đối tượng địa lý cụ thể.
+    +   Nếu bạn đang làm việc với các ranh giới địa lý được xác định trước (ví dụ: khu vực hành chính), các shapefiles tham chiếu thường có sẵn miễn phí để tải xuống từ cơ quan chính phủ hoặc tổ chức chia sẻ dữ liệu. Khi nghi ngờ, bạn có thể tìm kiếm trên Google cụm từ "[tên vùng] shapefile"
 
-    -   Nếu bạn đang làm việc với các ranh giới địa lý được xác định trước (ví dụ: khu vực hành chính), các shapefiles tham chiếu thường có sẵn miễn phí để tải xuống từ cơ quan chính phủ hoặc tổ chức chia sẻ dữ liệu. Khi nghi ngờ, bạn có thể tìm kiếm trên Google cụm từ "[tên vùng] shapefile"
-
-    -   Nếu bạn có thông tin địa chỉ, nhưng không có vĩ độ và kinh độ, bạn có thể cần sử dụng một **công cụ mã hóa địa lý** để lấy dữ liệu không gian tham chiếu cho bản ghi của mình.
-
--   Ý tưởng về **cách bạn muốn trình bày** thông tin trong bộ dữ liệu của mình cho đối tượng mục tiêu. Có nhiều loại bản đồ khác nhau, và điều quan trọng là phải suy nghĩ xem loại bản đồ nào phù hợp nhất với nhu cầu của bạn.
+    +   Nếu bạn có thông tin địa chỉ, nhưng không có vĩ độ và kinh độ, bạn có thể cần sử dụng một **công cụ mã hóa địa lý** để lấy dữ liệu không gian tham chiếu cho bản ghi của mình.
+  
+  *   Ý tưởng về **cách bạn muốn trình bày** thông tin trong bộ dữ liệu của mình cho đối tượng mục tiêu. Có nhiều loại bản đồ khác nhau, và điều quan trọng là phải suy nghĩ xem loại bản đồ nào phù hợp nhất với nhu cầu của bạn.
 
 ### Các loại bản đồ để trực quan hóa dữ liệu {.unnumbered}
 
@@ -120,7 +120,7 @@ Lưu ý: Trọng tâm chính trong chương GIS này được dựa trên tình 
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R.
 
 ```{r}
 pacman::p_load(
@@ -144,7 +144,7 @@ Với mục đích minh họa, chúng ta sẽ làm việc với một mẫu ng�
 
 Vì chúng ta đang lấy một mẫu ngẫu nhiên của các trường hợp, nên kết quả của bạn có thể hơi khác so với những gì được minh họa ở đây khi bạn tự chạy code của mình.
 
-Nhập dữ liệu vào bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Nhập dữ liệu vào bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 # import clean case linelist
@@ -186,7 +186,7 @@ DT::datatable(head(linelist_sf, 10), rownames = FALSE, options = list(pageLength
 
 **Sierra Leone: shapefiles phân cấp hành chính**
 
-Trước đó, chúng tôi đã tải xuống tất cả các phân cấp hành chính của Sierra Leone từ [website của Humanitarian Data Exchange (HDX) ](https://data.humdata.org/dataset/sierra-leone-all-ad-min-level-boundaries). Ngoài ra, bạn có thể tải xuống các dữ liệu này và tất cả các dữ liệu mẫu khác cho sổ tay này qua gói R của chúng tôi, như được giải thích trong trang [Tải sách và dữ liệu].
+Trước đó, chúng tôi đã tải xuống tất cả các phân cấp hành chính của Sierra Leone từ [website của Humanitarian Data Exchange (HDX) ](https://data.humdata.org/dataset/sierra-leone-all-ad-min-level-boundaries). Ngoài ra, bạn có thể tải xuống các dữ liệu này và tất cả các dữ liệu mẫu khác cho sổ tay này qua gói R của chúng tôi, như được giải thích trong trang [Tải sách và dữ liệu](data_used.vn.qmd).
 
 Bây giờ chúng ta sẽ thực hiện những bước sau để lưu shapefile hành chính cấp 3 vào R:
 
@@ -194,7 +194,7 @@ Bây giờ chúng ta sẽ thực hiện những bước sau để lưu shapefile
 2)  Làm sạch tên cột\
 3)  Lọc các hàng để chỉ giữ lại các khu vực quan tâm
 
-Để nhập một shapefile, chúng ta sử dụng hàm `read_sf()` từ package **sf**. Nó được cung cấp đường dẫn tệp thông qua hàm `here()`. - trong trường hợp này tệp nằm bên trong Dự án R của bạn tại thư mục "data", rồi tới "gis", và thư mục con "shp", với tệp có tên "sle_adm3.shp" (xem chương [Nhập xuất dữ liệu] và [Dự án R] để biết thêm chi tiết). Bạn sẽ cần cung cấp đường dẫn tệp của riêng mình.
+Để nhập một shapefile, chúng ta sử dụng hàm `read_sf()` từ package **sf**. Nó được cung cấp đường dẫn tệp thông qua hàm `here()`. - trong trường hợp này tệp nằm bên trong Dự án R của bạn tại thư mục "data", rồi tới "gis", và thư mục con "shp", với tệp có tên "sle_adm3.shp" (xem chương [Nhập xuất dữ liệu](importing.vn.qmd) và [Dự án R](r_projects.vn.qmd) để biết thêm chi tiết). Bạn sẽ cần cung cấp đường dẫn tệp của riêng mình.
 
 ```{r, echo=F}
 sle_adm3_raw <- sf::read_sf(here("data", "gis", "shp", "sle_adm3.shp"))
@@ -220,7 +220,7 @@ DT::datatable(head(sle_adm3, 50), rownames = FALSE, options = list(pageLength = 
 
 **Sierra Leone: Dân số theo ADM3**
 
-Những dữ liệu này có thể tải xuống từ HDX (link [tại đây](https://data.humdata.org/dataset/sierra-leone-population)) hoặc thông qua R package **epirhandbook** như đã được giải thích [trong chương này][Tải sách và dữ liệu]. Chúng ta cũng sử dụng hàm `import()` để nạp tệp .csv. Chúng tôi cũng chuyển file được nhập tới hàm `clean_names()` để chuẩn hóa cú pháp tên cột.
+Những dữ liệu này có thể tải xuống từ HDX (link [tại đây](https://data.humdata.org/dataset/sierra-leone-population)) hoặc thông qua R package **epirhandbook** như đã được giải thích [trong chương này](data_used.vn.qmd). Chúng ta cũng sử dụng hàm `import()` để nạp tệp .csv. Chúng tôi cũng chuyển file được nhập tới hàm `clean_names()` để chuẩn hóa cú pháp tên cột.
 
 ```{r}
 # Population by ADM3
@@ -239,7 +239,7 @@ DT::datatable(head(sle_adm3_pop, 50), rownames = FALSE, options = list(pageLengt
 
 **Sierra Leone: Dữ liệu cơ sở y tế từ OpenStreetMap**
 
-Một lần nữa, bạn có thể tải xuống thông tin vị trí của các cơ sở y tế từ HDX [tại đây](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) hoặc thông qua hướng dẫn trong chương [Tải sách và dữ liệu].
+Một lần nữa, bạn có thể tải xuống thông tin vị trí của các cơ sở y tế từ HDX [tại đây](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) hoặc thông qua hướng dẫn trong chương [Tải sách và dữ liệu](data_used.vn.qmd).
 
 Chúng ta nhập shapefile tọa độ điểm các cơ sở với hàm `read_sf()`, làm sạch lại tên cột, sau đó lọc để chỉ giữ lại các điểm được gắn thẻ là "hospital", "clinic", hoặc "doctors".
 
@@ -323,7 +323,7 @@ tm_shape(linelist_sf) +
 
 ## Phép nối theo không gian
 
-Bạn có thể đã quen với việc *nối* dữ liệu từ một tập dữ liệu này sang một tập dữ liệu khác. Một số phương pháp được thảo luận trong chương [Nối dữ liệu] của cuốn sổ tay này. Một phép nối theo không gian phục vụ một mục đích tương tự nhưng tận dụng các mối quan hệ không gian. Thay vì dựa vào các giá trị chung trong các cột để khớp chính xác các quan sát, bạn có thể sử dụng các mối quan hệ không gian của chúng, chẳng hạn như một đối tượng địa lý *nằm trong* đối tượng khác, hoặc *hàng xóm gần nhất* với đối tượng khác, hoặc ở trong *vùng đệm* của một bán kính nhất định từ đối tượng khác, v.v.
+Bạn có thể đã quen với việc *nối* dữ liệu từ một tập dữ liệu này sang một tập dữ liệu khác. Một số phương pháp được thảo luận trong chương [Nối dữ liệu](joining_matching.vn.qmd) của cuốn sổ tay này. Một phép nối theo không gian phục vụ một mục đích tương tự nhưng tận dụng các mối quan hệ không gian. Thay vì dựa vào các giá trị chung trong các cột để khớp chính xác các quan sát, bạn có thể sử dụng các mối quan hệ không gian của chúng, chẳng hạn như một đối tượng địa lý *nằm trong* đối tượng khác, hoặc *hàng xóm gần nhất* với đối tượng khác, hoặc ở trong *vùng đệm* của một bán kính nhất định từ đối tượng khác, v.v.
 
 Package **sf** cung cấp nhiều phương thức khác nhau để nối theo không gian. Xem thêm tài liệu về phương pháp st_join và các kiểu nối theo không gian trong [tài liệu tham khảo này](https://r-spatial.github.io/sf/reference/geos_binary_pred.html).
 
@@ -380,7 +380,7 @@ case_adm3
 
 Chúng ta cũng có thể tạo một biểu đồ cột về số lượng trường hợp theo đơn vị hành chính.
 
-Trong ví dụ này, chúng ta bắt đầu hàm `ggplot()` với bộ dữ liệu `linelist_adm`, trong đó chúng ta có thể áp dụng các hàm làm việc với factor như `fct_infreq()` để sắp xếp các cột theo tần suất (xem chương [Factors] để biết thêm các mẹo).
+Trong ví dụ này, chúng ta bắt đầu hàm `ggplot()` với bộ dữ liệu `linelist_adm`, trong đó chúng ta có thể áp dụng các hàm làm việc với factor như `fct_infreq()` để sắp xếp các cột theo tần suất (xem chương [Factors](factors.vn.qmd) để biết thêm các mẹo).
 
 ```{r, warning=F, message=F}
 ggplot(
@@ -556,7 +556,7 @@ Vì chúng ta cũng có dữ liệu dân số theo cấp hành chính cấp 3 (A
 
 Chúng ta bắt đầu với dataframe `case_adm3` được tạo trong bước trước đó, là bảng tóm tắt của từng đơn vị hành chính và số lượng các trường hợp của nó.
 
-1)  Dữ liệu dân số `sle_adm3_pop` được nối sử dụng hàm `left_join()` từ **dplyr** trên cơ sở các giá trị chung trên cột `admin3pcod` trong bộ dữ liệu `case_adm3`, và cột `adm_pcode` trong bộ dữ liệu `sle_adm3_pop`. Xem chương [Nối dữ liệu]).\
+1)  Dữ liệu dân số `sle_adm3_pop` được nối sử dụng hàm `left_join()` từ **dplyr** trên cơ sở các giá trị chung trên cột `admin3pcod` trong bộ dữ liệu `case_adm3`, và cột `adm_pcode` trong bộ dữ liệu `sle_adm3_pop`. Xem chương [Nối dữ liệu](joining_matching.vn.qmd)).\
 2)  `select()` được áp dụng trên dataframe mới, để chỉ giữ những cột cần thiệt - `total` nghĩa là tổng dân số\
 3)  Các trường hợp trên 10,000 dân được tính toán bằng cách tạo cột mới với hàm `mutate()`
 

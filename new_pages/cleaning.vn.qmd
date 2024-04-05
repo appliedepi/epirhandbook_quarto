@@ -4,15 +4,15 @@
 knitr::include_graphics(here::here("images", "cleaning.png"))
 ```
 
-Chương này trình bày các bước phổ biến được sử dụng trong quá trình "làm sạch" bộ dữ liệu và cũng giải thích việc sử dụng các hàm quản lý dữ liệu thiết yếu trong R.
+Chương này trình bày các bước phổ biến được sử dụng trong quá trình "làm sạch" bộ dữ liệu cũng như giới thiệu một số hàm quan trọng sử dụng trong quản lý dữ liệu bằng ngôn ngữ R.
 
-Để giải thích rõ hơn quá trình làm sạch dữ liệu, chương này bắt đầu từ cách nhập bộ dữ liệu thô có tên linelist và tiến hành từng bước trong quá trình làm sạch. Trong code R, quy trình này được biểu thị dưới dạng một chuỗi "pipe", tham chiếu đến toán tử "pipe" `%>%` để chuyển tiếp từ thao tác này sang thao tác tiếp theo trong cùng một bộ dữ liệu.
+Để minh họa rõ hơn quá trình làm sạch dữ liệu, chương này sẽ bắt đầu từ cách nhập bộ dữ liệu gốc có tên "linelist" vào R và tiến hành từng bước trong quá trình làm sạch. Trong code R, quy trình này được biểu thị dưới dạng một chuỗi các hành động liên tiếp được nối với nhau bằng toán tử "pipe" `%>%`.
 
 ### Các hàm quan trọng {.unnumbered}
 
-Cuốn sách này nhấn mạnh việc sử dụng các hàm từ hệ sinh thái của package [**tidyverse**](https://www.tidyverse.org/). Các hàm thiết yếu trong R trình bày trong chương này được liệt kê dưới đây.
+Chương sách này nhấn mạnh việc sử dụng các hàm từ hệ sinh thái của package [**tidyverse**](https://www.tidyverse.org/). Các hàm thiết yếu trong package này được liệt kê dưới đây.
 
-Nhiều hàm thuộc về package [**dplyr**](https://dplyr.tidyverse.org/), mà cung cấp các hàm dạng "verb" để giải quyết các thách thức trong thao tác xử lý dữ liệu (tên package được viết đầy đủ là "data frame-[plier](https://www.thefreedictionary.com/plier#:~:text=also%20ply%C2%B7er%20(pl%C4%AB%E2%80%B2,holding%2C%20bending%2C%20or%20cutting.)%22). **dplyr** là một phần trong hệ sinh thái của package **tidyverse** (mà bao gồm các package khác như **ggplot2**, **tidyr**, **stringr**, **tibble**, **purrr**, **magrittr**, và **forcats**).
+Phần lớn các hàm được liệt kê bên dưới thuộc về package [**dplyr**](https://dplyr.tidyverse.org/) (tên package được viết đầy đủ là "data frame-[plier](https://www.thefreedictionary.com/plier#:~:text=also%20ply%C2%B7er%20(pl%C4%AB%E2%80%B2,holding%2C%20bending%2C%20or%20cutting.)%22), cung cấp các hàm quan trọng để giải quyết các thách thức trong thao tác xử lý dữ liệu . **dplyr** là một phần trong hệ sinh thái của package **tidyverse** (bao gồm các package khác như **ggplot2**, **tidyr**, **stringr**, **tibble**, **purrr**, **magrittr**, và **forcats**).
 
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
 | Hàm                                                 | Chức năng                                                  | Package                  |
@@ -56,9 +56,9 @@ Nhiều hàm thuộc về package [**dplyr**](https://dplyr.tidyverse.org/), mà
 | `which()`                                           | áp dụng các điều kiện logic; trả về các chỉ số             | **base** R               |
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
 
-Nếu bạn muốn xem các hàm này so sánh với các câu lệnh trong Stata hoặc SAS, hãy xem chương [Chuyển đổi sang R].
+Nếu bạn muốn so sánh các hàm này với các câu lệnh trong Stata hoặc SAS, hãy xem chương [Chuyển đổi sang R](transition_to_R.vn.qmd).
 
-Bạn cũng có thể gặp một framework quản lý dữ liệu khác từ package **data.table** trong R với các toán tử như `:=` và thường xuyên sử dụng dấu ngoặc `[ ]`. Cách tiếp cận và cú pháp này được giải thích ngắn gọn trong chương [Data Table].
+Bạn cũng có thể bắt gặp một giải pháp quản lý dữ liệu khác được cung cấp bởi package **data.table** trong R với các toán tử như `:=` và toán tử dấu ngoặc vuông `[ ]`. Cách tiếp cận và cú pháp này được giải thích ngắn gọn trong chương [Data Table](data_table.vn.qmd).
 
 ### Thuật ngữ {.unnumbered}
 
@@ -66,7 +66,7 @@ Trong cuốn sách này, chúng tôi quy ước chung "cột" và "hàng" thay c
 
 *Variables (biến)* chứa các giá trị đo lường cùng một thuộc tính cơ bản (như nhóm tuổi, kết quả hoặc ngày bắt đầu). *Observations (quan sát)* chứa tất cả các giá trị được đo trên cùng một đơn vị (ví dụ: một người, địa điểm hoặc mẫu phòng thí nghiệm). Vì vậy, những khía cạnh này có thể khó xác định một cách hữu hình hơn.
 
-Trong bộ dữ liệu "tidy", mỗi cột là một biến, mỗi hàng là một quan sát và mỗi ô là một giá trị duy nhất. Tuy nhiên, một số bộ dữ liệu bạn gặp phải sẽ không giống với mô tả này - bộ dữ liệu định dạng "wide (ngang)" có thể có một biến số được chia thành nhiều cột (xem ví dụ trong chương [Xoay trục dữ liệu]). Tương tự như vậy, các quan sát có thể được chia thành nhiều hàng.
+Một bộ dữ liệu được xem là "tidy" khi mỗi cột là một biến, mỗi hàng là một quan sát và mỗi ô là một giá trị duy nhất. Tuy nhiên, một số bộ dữ liệu bạn gặp phải sẽ không giống với mô tả này - bộ dữ liệu định dạng "wide (ngang)" có thể có một biến số được chia thành nhiều cột (xem ví dụ trong chương [Xoay trục dữ liệu](pivoting.vn.qmd)). Tương tự như vậy, các quan sát có thể được chia thành nhiều hàng.
 
 Cuốn sách này tập trung về quản lý và biến đổi dữ liệu, do đó, việc đề cập đến cấu trúc dữ liệu cụ thể của các hàng và cột sẽ thích hợp hơn là các quan sát và biến vốn khá trừu tượng. Các trường hợp ngoại lệ chủ yếu xảy ra trong các chương về phân tích dữ liệu, nơi bạn sẽ thấy nhiều tham chiếu hơn đến các biến và quan sát.
 
@@ -78,11 +78,11 @@ Cuốn sách này tập trung về quản lý và biến đổi dữ liệu, do 
 
 ## Quy trình làm sạch
 
-**Chương này tiến hành các bước làm sạch điển hình, bằng cách thêm chúng tuần tự vào một chuỗi pipe.**
+**Chương này tiến hành các bước làm sạch điển hình, bằng cách thêm các hàm xử lý dữ liệu theo trình tự vào một chuỗi các câu lệnh (được gọi là cleaning pipeline).**
 
-Trong phân tích dịch tễ học và xử lý dữ liệu, các bước làm sạch thường được thực hiện tuần tự, liên kết với nhau. Trong R, việc này thường được thực hiện dưới dạng một "pipeline - đường ống" làm sạch, trong đó *bộ dữ liệu thô được chuyển tiếp hoặc "dẫn" từ bước làm sạch này sang bước làm sạch khác*.
+Trong phân tích dịch tễ học và xử lý dữ liệu, các bước làm sạch thường được thực hiện tuần tự, liên kết với nhau. Trong R, việc này thường được thực hiện dưới dạng một "pipeline - đường ống" làm sạch, trong đó *bộ dữ liệu gốc được chuyển tiếp hoặc "dẫn" từ bước làm sạch này sang bước làm sạch khác*.
 
-Các chuỗi như vậy sử dụng các hàm dạng "verb" trong package **dplyr** và toán tử pipe `%>%` trong package **magrittr**. Chuỗi pipe bắt đầu từ dữ liệu "thô" ("linelist_raw.xlsx") và kết thúc bằng bộ dữ liệu "sạch" trên R (`linelist`) có thể được sử dụng, lưu, xuất, v.v.
+Các chuỗi như vậy sử dụng các hàm dạng "verb" trong package **dplyr** và toán tử pipe `%>%` trong package **magrittr**. Chuỗi làm sạch bắt đầu từ dữ liệu "gốc ("linelist_raw.xlsx") và kết thúc bằng bộ dữ liệu "sạch" trên R (`linelist`) có thể được sử dụng, lưu, xuất, v.v.
 
 Trong quy trình làm sạch dữ liệu, thứ tự của các bước là quan trọng. Các bước làm sạch có thể bao gồm:
 
@@ -100,7 +100,7 @@ Trong quy trình làm sạch dữ liệu, thứ tự của các bước là quan
 
 ## Gọi package
 
-Đoạn code này trình bày cách gọi các package cần thiết cho phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi package ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` sẵn có trong **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đoạn code này trình bày cách gọi các package cần thiết cho phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, cài đặt package nếu cần *và* gọi package ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` sẵn có trong **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r, message = F}
 pacman::p_load(
@@ -123,11 +123,11 @@ pacman::p_load(
 
 ### Nhập {.unnumbered}
 
-Ở đây, chúng ta sẽ nhập tệp tin Excel "thô" bằng cách sử dụng hàm `import()` từ package **rio**. Package **rio** có thể xử lý linh hoạt nhiều loại tệp tin (ví dụ: .xlsx, .csv, .tsv, .rds. Xem chương về [Nhập xuất dữ liệu] để biết thêm thông tin và mẹo về các tình huống bất thường (ví dụ: loại bỏ hàng, thiết lập giá trị trống, nạp trang tính Google, v.v.).
+Ở đây, chúng ta sẽ nhập dữ liệu gốc từ file Excel bằng cách sử dụng hàm `import()` từ package **rio**. Package **rio** có thể xử lý linh hoạt nhiều loại tệp tin (ví dụ: .xlsx, .csv, .tsv, .rds). Xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm thông tin và mẹo về các tình huống bất thường (ví dụ: loại bỏ hàng, thiết lập giá trị trống, nạp trang tính Google, v.v.).
 
-Nếu bạn muốn hiểu rõ hơn, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>hãy tải xuống tệp dữ liệu linelist "thô"</a> (với file dạng .xlsx).
+Nếu bạn muốn hiểu rõ hơn, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>hãy tải xuống tệp dữ liệu linelist "gốc</a> (với file dạng .xlsx).
 
-Nếu bộ dữ liệu của bạn quá lớn và mất nhiều thời gian để nhập, sẽ hữu ích khi bạn đặt lệnh nhập dữ liệu riêng biệt với chuỗi pipe và dữ liệu "thô" sẽ được lưu thành một tệp riêng biệt. Điều này cũng cho phép dễ dàng so sánh giữa phiên bản gốc và phiên bản đã làm sạch.
+Nếu bộ dữ liệu của bạn quá lớn và mất nhiều thời gian để nhập, sẽ hữu ích khi bạn đặt lệnh nhập dữ liệu riêng biệt với chuỗi làm sạch và dữ liệu "gốc sẽ được lưu thành một tệp riêng biệt. Việc này cũng cho phép dễ dàng so sánh giữa phiên bản gốc và phiên bản đã làm sạch.
 
 Dưới đây, chúng ta nạp một tệp Excel thô và lưu nó dưới dạng dataframe `linelist_raw`. Chúng tôi giả định rằng tệp này nằm trong thư mục làm việc của bạn hoặc thư mục gốc của dự án R và vì vậy không có thư mục con nào được chỉ định trong đường dẫn tệp.
 
@@ -150,7 +150,7 @@ DT::datatable(head(linelist_raw,50), rownames = FALSE, options = list(pageLength
 
 ### Đánh giá {.unnumbered}
 
-Bạn có thể sử dụng hàm `skim()` từ package **skimr** để có cái nhìn tổng quan về toàn bộ bộ dữ liệu (xem chương [Bảng mô tả] để biết thêm thông tin). Các cột được tóm tắt theo phân lớp/định dạng như ký tự và số. Lưu ý: "POSIXct" là một loại phân lớp ngày thô (xem chương [Làm việc với ngày tháng].
+Bạn có thể sử dụng hàm `skim()` từ package **skimr** để có cái nhìn tổng quan về toàn bộ bộ dữ liệu (xem chương [Bảng mô tả](tables_descriptive.vn.qmd) để biết thêm thông tin). Các cột được tóm tắt theo phân lớp/định dạng như ký tự và số. Lưu ý: "POSIXct" là một loại phân lớp ngày thô (xem chương [Làm việc với ngày tháng](dates.vn.qmd).
 
 ```{r, eval=F}
 skimr::skim(linelist_raw)
@@ -170,7 +170,7 @@ skimr::skim_without_charts(linelist_raw)
 
 Trong R, *tên* cột là "tiêu đề" hoặc giá trị "trên đỉnh" của một cột. Chúng được sử dụng để tham chiếu đến các cột trong đoạn code và đóng vai trò như một nhãn mặc định trong các bảng biểu.
 
-Các phần mềm thống kê khác như SAS và STATA sử dụng *"nhãn"* là tên cột phiên bản dài hơn khi in, cùng tồn tại song song với tên cột. Mặc dù R cung cấp tính năng thêm nhãn của cột vào dữ liệu, nhưng điều này hầu hết không được nhấn mạnh trong thực tế. Để đặt tên cột "dễ nhìn" cho các bảng biểu, người ta thường điều chỉnh hiển thị của chúng trong các lệnh vẽ biểu đồ để tạo ra kết quả (ví dụ: tiêu đề trục hoặc chú giải của một biểu đồ hoặc tiêu đề cột trong bảng - xem thêm [mục scales trong chương Các tips với ggplot](#%20ggplot_tips_scales) và chương [Trình bày bảng]). Nếu bạn muốn gán nhãn cột trong dữ liệu, hãy đọc thêm tài liệu trực tuyến [tại đây](https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) và [tại đây](https//cran.r-project.org/web/packages/labelt/vignettes/intro_labelling.html).
+Các phần mềm thống kê khác như SAS và STATA sử dụng *"nhãn"* là tên cột phiên bản dài hơn khi in, cùng tồn tại song song với tên cột. Mặc dù R cung cấp tính năng thêm nhãn của cột vào dữ liệu, nhưng điều này hầu hết không được nhấn mạnh trong thực tế. Để đặt tên cột "dễ nhìn" cho các bảng biểu, người ta thường điều chỉnh hiển thị của chúng trong các lệnh vẽ biểu đồ để tạo ra kết quả (ví dụ: tiêu đề trục hoặc chú giải của một biểu đồ hoặc tiêu đề cột trong bảng - xem thêm [mục scales trong chương Các mẹo với ggplot](ggplot_tips.vn.qmd#ggplot_tips_scales) và chương [Trình bày bảng](tables_presentation.vn.qmd)). Nếu bạn muốn gán nhãn cột trong dữ liệu, hãy đọc thêm tài liệu trực tuyến [tại đây](https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) và [tại đây](https//cran.r-project.org/web/packages/labelt/vignettes/intro_labelling.html).
 
 Vì tên cột trong R được sử dụng rất thường xuyên, vì vậy chúng phải có cú pháp "sạch". Chúng tôi đề xuất những tiêu chí sau:
 
@@ -252,7 +252,7 @@ rename(newNameForFirstColumn  = 1,
 
 #### Đổi tên bằng hàm `select()` và `summarise()` {.unnumbered}
 
-Như một lối tắt, bạn cũng có thể đổi tên các cột bằng hàm `select()` và `summarise()` thuộc package **dplyr**. Hàm `select()` được sử dụng để chỉ giữ một số cột nhất định (sẽ được đề cập sau trong chương này). Hàm `summarise()` được đề cập trong các chương [Nhóm dữ liệu] và [Bảng mô tả]. Các hàm này cũng sử dụng định dạng `new_name = old_name`. Đây là một ví dụ:
+Như một lối tắt, bạn cũng có thể đổi tên các cột bằng hàm `select()` và `summarise()` thuộc package **dplyr**. Hàm `select()` được sử dụng để chỉ giữ một số cột nhất định (sẽ được đề cập sau trong chương này). Hàm `summarise()` được đề cập trong các chương [Nhóm dữ liệu](grouping.vn.qmd) và [Bảng mô tả](tables_descriptive.vn.qmd). Các hàm này cũng sử dụng định dạng `new_name = old_name`. Đây là một ví dụ:
 
 ```{r, eval=F}
 linelist_raw %>% 
@@ -271,7 +271,7 @@ Bạn có thể làm sạch các tên cột này theo cách thủ công bằng c
 
 #### Hợp nhất tên cột và ô Excel {.unnumbered}
 
-Các ô được hợp nhất trong file Excel là một sự cố thường xảy ra khi nhận dữ liệu. Như đã giải thích trong chương [Chuyển đổi sang R], các ô được hợp nhất có thể dễ nhìn cho con người đọc dữ liệu, nhưng không phải là "cấu trúc dữ liệu cơ bản" và gây ra nhiều vấn đề cho máy khi nhận diện dữ liệu. R không thể chứa các ô đã hợp nhất.
+Các ô được hợp nhất trong file Excel là một sự cố thường xảy ra khi nhận dữ liệu. Như đã giải thích trong chương [Chuyển đổi sang R](transition_to_R.vn.qmd), các ô được hợp nhất có thể dễ nhìn cho con người đọc dữ liệu, nhưng không phải là "cấu trúc dữ liệu cơ bản" và gây ra nhiều vấn đề cho máy khi nhận diện dữ liệu. R không thể chứa các ô đã hợp nhất.
 
 Nhắc nhở người nhập liệu rằng **dữ liệu có thể đọc được bởi con người không giống với dữ liệu mà máy có thể đọc được**. Hãy cố gắng đào tạo người dùng về các nguyên tắc về [**dữ liệu tidy** ](https://r4ds.had.co.nz/tidy-data.html). Nếu có thể, hãy cố gắng thay đổi quy trình để dữ liệu có định dạng gọn gàng hơn mà không hợp nhất các ô.
 
@@ -383,7 +383,7 @@ linelist %>%
   names()
 ```
 
-Hàm `matches()` hoạt động tương tự như hàm `contains()` nhưng có thể được cung cấp một biểu thức chính quy (xem chương [Ký tự và chuỗi]), chẳng hạn như nhiều chuỗi được phân tách bằng toán tự OR trong dấu ngoặc đơn:
+Hàm `matches()` hoạt động tương tự như hàm `contains()` nhưng có thể được cung cấp một biểu thức chính quy (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)), chẳng hạn như nhiều chuỗi được phân tách bằng toán tự OR trong dấu ngoặc đơn:
 
 ```{r}
 # searched for multiple character matches
@@ -466,7 +466,7 @@ linelist <- linelist_raw %>%
 
 ## Loại bỏ trùng lặp
 
-Xem chương [Loại bỏ trùng lặp] để biết các tùy chọn mở rộng về cách loại bỏ dữ liệu trùng lặp. Chỉ một ví dụ rất đơn giản về cách loại bỏ hàng trùng lặp được trình bày ở chương này.
+Xem chương [Loại bỏ trùng lặp](deduplication.vn.qmd) để biết các tùy chọn mở rộng về cách loại bỏ dữ liệu trùng lặp. Chỉ một ví dụ rất đơn giản về cách loại bỏ hàng trùng lặp được trình bày ở chương này.
 
 Package **dplyr** cung cấp hàm `distinct()`. Hàm này kiểm tra tất cả các hàng và rút gọn bộ dữ liệu cho chỉ còn các hàng là duy nhất. Nghĩa là, nó loại bỏ 100% các hàng trùng lặp.
 
@@ -542,7 +542,7 @@ linelist <- linelist %>%
   mutate(bmi = wt_kg / (ht_cm/100)^2)
 ```
 
-Nếu tạo nhiều cột mới, hãy tách riêng từng cột bằng dấu phẩy và dòng mới. Dưới đây là các ví dụ về tạo các cột mới, bao gồm một cột mà chứa các giá trị từ các cột khác được kết hợp bằng hàm `str_glue()` từ package **stringr** (xem chương [Ký tự và chuỗi]).
+Nếu tạo nhiều cột mới, hãy tách riêng từng cột bằng dấu phẩy và dòng mới. Dưới đây là các ví dụ về tạo các cột mới, bao gồm một cột mà chứa các giá trị từ các cột khác được kết hợp bằng hàm `str_glue()` từ package **stringr** (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)).
 
 ```{r}
 new_col_demo <- linelist %>%                       
@@ -571,40 +571,40 @@ DT::datatable(head(new_col_demo,50), rownames = FALSE, options = list(pageLength
 #   select(-contains("new_var"))
 ```
 
-### Chuyển đổi kiểu dữ liệu của cột {.unnumbered}
+### Định dạng lại kiểu dữ liệu của cột {.unnumbered}
 
-Các cột chứa giá trị là ngày tháng, số hoặc giá trị logic (TRUE/FALSE) sẽ chỉ hoạt động như mong đợi nếu chúng được phân loại chính xác. Có sự khác biệt giữa "2" của phân lớp ký tự và 2 của phân lớp số!
+Một số hàm sẽ không chạy được trên các cột chứa giá trị là ngày tháng, số hoặc giá trị logic (TRUE/FALSE) nếu chúng không được định nghĩa chính xác. Có sự khác biệt giữa giá trị "2" của kiểu dữ liệu dạng ký tự và giá trị 2 của kiểu dữ liệu dạng số!
 
-Có nhiều cách để thiết lập kiểu dữ liệu cho cột trong các lệnh nhập, nhưng chúng thường phức tạp. Xem chương [R cơ bản] về các lớp đối tượng để tìm hiểu thêm về cách chuyển đổi phân lớp đối tượng và cột.
+Có nhiều cách để thiết lập kiểu dữ liệu cho cột khi nhập dữ liệu, nhưng chúng thường phức tạp. Xem chương [R cơ bản](basics.vn.qmd) về kiểu dữ liệu để tìm hiểu thêm về cách chuyển đổi kiểu dữ liệu đối tượng và cột.
 
-Đầu tiên, hãy kiểm tra các cột quan trọng để xem chúng đã đúng định dạng chính xác chưa. Chúng ta có thể phát hiện điều này ngay từ khi chúng ta chạy lệnh `skim()`.
+Đầu tiên, hãy kiểm tra các cột quan trọng để xem chúng đã đúng định dạng chính xác chưa. Chúng ta có thể thực hiện điều này bằng hàm `skim()`.
 
-Hiện tại, kiểu của cột `age` là dạng ký tự. Để thực hiện các phân tích định lượng, chúng ta cần những giá trị số này được nhận biết là dạng số!
+Ví dụ, ở đây kiểu dữ liệu của cột `age` là dạng ký tự. Để thực hiện các phân tích định lượng, chúng ta cần những giá trị số này được định dạng là dạng số!
 
 ```{r}
 class(linelist$age)
 ```
 
-Phân lớp của cột `date_onset` cũng là ký tự! Để thực hiện phân tích, những cột ngày này phải được nhận biết là dạng ngày tháng!
+Tương tự kiểu dữ liệu của cột `date_onset` cũng là ký tự! Để thực hiện phân tích, những cột ngày này phải được định dạng là dạng ngày tháng!
 
 ```{r}
 class(linelist$date_onset)
 ```
 
-Để giải quyết vấn đề này, hãy sử dụng hàm `mutate()` để định dạng và chuyển đổi lại một cột. Chúng ta giữ nguyên cột đó và định dạng lại sang một phân lớp khác. Sau đây là một ví dụ cơ bản, chuyển đổi hoặc đảm bảo rằng cột `age` là phân lớp dạng số:
+Để giải quyết vấn đề này, hãy sử dụng hàm `mutate()` để định dạng và chuyển đổi lại kiểu dữ liệu cho một cột. Chúng ta giữ nguyên cột đó và định dạng lại sang một kiểu khác. Dưới đây là một ví dụ cơ bản, thực hiện định dạng lại cột `age` dưới dạng số:
 
 ```{r, eval=F}
 linelist <- linelist %>% 
   mutate(age = as.numeric(age))
 ```
 
-Theo cách tương tự, bạn có thể sử dụng hàm `as.character()` và hàm `as.logical()`. Để chuyển đổi sang kiểu Factor, bạn có thể sử dụng hàm `factor()` từ **base** R hoặc hàm `as_factor()` từ package **forcats**. Đọc thêm ở chương [Factors].
+Theo cách tương tự, bạn có thể sử dụng hàm `as.character()` và hàm `as.logical()`. Để chuyển đổi sang kiểu danh mục, bạn có thể sử dụng hàm `factor()` từ **base** R hoặc hàm `as_factor()` từ package **forcats**. Đọc thêm ở chương [Factors](factors.vn.qmd).
 
-Bạn phải cẩn thận khi chuyển đổi sang phân lớp Ngày. Một số phương pháp được giải thích rõ hơn ở chương [Làm việc với ngày tháng]. Thông thường, tất cả các giá trị ngày ban đầu phải ở cùng một định dạng cần chuyển đổi để có thể sử dụng (ví dụ: "MM/DD/YYYY" hoặc "DD MM YYYY"). Sau khi chuyển đổi thành thành phân lớp Ngày, hãy kiểm tra dữ liệu của bạn để xác nhận rằng mỗi giá trị đã được chuyển đổi chính xác.
+Bạn phải cẩn thận khi định dạng lại cột sang kiểu Ngày, các giải thích chi tiết hơn được đề cập ở chương [Làm việc với ngày tháng](dates.vn.qmd). Thông thường, tất cả các giá trị ngày ban đầu phải ở cùng một định dạng cần chuyển đổi để có thể sử dụng (ví dụ: "MM/DD/YYYY" hoặc "DD MM YYYY"). Sau khi chuyển đổi thành thành kiểu Ngày, hãy kiểm tra dữ liệu của bạn để xác nhận rằng mỗi giá trị đã được chuyển đổi chính xác.
 
 ### Dữ liệu được nhóm {.unnumbered}
 
-Nếu bộ dữ liệu của bạn đã được *nhóm* (xem chương [Nhóm dữ liệu]), hàm `mutate()` có thể hoạt động khác so với khi bộ dữ liệu không được nhóm. Bất kỳ hàm tổng hợp nào, như `mean()`, `median()`, `max()`, v.v. sẽ tính theo nhóm, không phải theo tất cả các hàng.
+Nếu bộ dữ liệu của bạn đã được *nhóm* (xem chương [Nhóm dữ liệu](grouping.vn.qmd)), hàm `mutate()` có thể hoạt động khác so với khi bộ dữ liệu không được nhóm. Bất kỳ hàm tổng hợp nào, như `mean()`, `median()`, `max()`, v.v. sẽ tính theo nhóm, không phải theo tất cả các hàng.
 
 ```{r, eval=F}
 # age normalized to mean of ALL rows
@@ -621,7 +621,7 @@ linelist %>%
 
 ### Biến đổi nhiều cột {#clean_across .unnumbered}
 
-Thông thường, để viết mã ngắn gọn, bạn muốn áp dụng cùng một biến đổi trên nhiều cột cùng một lúc. Một cách biến đổi có thể được áp dụng trên nhiều cột cùng một lúc bằng cách sử dụng hàm `across()` từ package **dplyr** (cũng trong package **tidyverse**). Hàm `across()` có thể được sử dụng với bất kỳ hàm nào trong packe **dplyr**, nhưng thường được sử dụng với hàm `select()`, `mutate()`, `filter()`, hoặc `summarise()`. Xem cách sử dụng hàm `summarise()` trong chương [Bảng mô tả].
+Thông thường, để viết mã ngắn gọn, bạn muốn áp dụng cùng một biến đổi trên nhiều cột cùng một lúc. Một cách biến đổi có thể được áp dụng trên nhiều cột cùng một lúc bằng cách sử dụng hàm `across()` từ package **dplyr** (cũng trong package **tidyverse**). Hàm `across()` có thể được sử dụng với bất kỳ hàm nào trong packe **dplyr**, nhưng thường được sử dụng với hàm `select()`, `mutate()`, `filter()`, hoặc `summarise()`. Xem cách sử dụng hàm `summarise()` trong chương [Bảng mô tả](tables_descriptive.vn.qmd).
 
 Chỉ định các cột bằng đối số `.cols =` và các hàm được sử dụng bằng `.fns =`. Bất kỳ đối số bổ sung nào để cung cấp cho hàm `.fns` đều có thể được bao gồm sau dấu phẩy, vẫn nằm trong hàm `across()`.
 
@@ -670,11 +670,11 @@ Bạn có thể đọc tài liệu với hàm `?across` để biết chi tiết 
 
 -   Bạn có thể cung cấp tên hàm đứng một mình (ví dụ: `mean` hoặc `as.character`)\
 
--   Bạn có thể cung cấp hàm theo phong cách **purrr** (ví dụ: `~ mean(.x, na.rm = TRUE)`) (xem chương [Lặp, vòng lặp, và danh sách])\
+-   Bạn có thể cung cấp hàm theo phong cách **purrr** (ví dụ: `~ mean(.x, na.rm = TRUE)`) (xem chương [Lặp, vòng lặp, và danh sách](iteration.vn.qmd))\
 
 -   Bạn có thể chỉ định nhiều hàm bằng cách cung cấp danh sách (ví dụ: `list(mean = mean, n_miss = ~ sum(is.na(.x))`).
 
-    -   Nếu bạn cung cấp nhiều hàm, nhiều cột được chuyển đổi sẽ được trả về dựa trên mỗi cột ban đầu, với các tên duy nhất theo định dạng `col_fn`. Bạn có thể điều chỉnh cách đặt tên các cột mới với đối số `.names =` bằng cách sử dụng cú pháp **glue** (xem chương [Ký tự và chuỗi]) trong đó `{.col}` và `{.fn}` được viết tắt cho cột và hàm đầu vào.
+-   Nếu bạn cung cấp nhiều hàm, nhiều cột được chuyển đổi sẽ được trả về dựa trên mỗi cột ban đầu, với các tên duy nhất theo định dạng `col_fn`. Bạn có thể điều chỉnh cách đặt tên các cột mới với đối số `.names =` bằng cách sử dụng cú pháp **glue** (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)) trong đó `{.col}` và `{.fn}` được viết tắt cho cột và hàm đầu vào.
 
 Dưới đây là một số tài nguyên trực tuyến về cách sử dụng hàm `across()`: [creator Hadley Wickham's thoughts/rationale](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/)
 
@@ -726,7 +726,7 @@ Dưới đây là 10 hàng đầu tiên:
 head(cumulative_case_counts, 10)
 ```
 
-Xem chương [Đường cong dịch bệnh] để biết cách lập biểu đồ các trường hợp mới mắc tích lũy với epicurve.
+Xem chương [Đường cong dịch bệnh](epicurves.vn.qmd) để biết cách lập biểu đồ các trường hợp mới mắc tích lũy với epicurve.
 
 Xem thêm:\
 `cumsum()`, `cummean()`, `cummin()`, `cummax()`, `cumany()`, `cumall()`
@@ -739,9 +739,9 @@ Xem thêm:\
 linelist$bmi = linelist$wt_kg / (linelist$ht_cm / 100) ^ 2)
 ```
 
-### Thêm vào chuỗi pipe {.unnumbered}
+### Thêm vào chuỗi làm sạch {.unnumbered}
 
-**Dưới đây, một cột mới được thêm vào chuỗi pipe và một số phân lớp được chuyển đổi.**
+**Code dưới đây minh hoạt cách thêm một cột mới vào chuỗi làm sạch và định dạng lại kiểu dữ liệu của biến.**
 
 ```{r }
 # CLEANING 'PIPE' CHAIN (starts with raw data and pipes it through cleaning steps)
@@ -790,7 +790,7 @@ Dưới đây là một số tình huống mà bạn cần mã hóa lại (thay 
 
 Để thay đổi các giá trị theo cách thủ công, bạn có thể sử dụng hàm `recode()` bên trong hàm `mutate()`.
 
-Hãy tưởng tượng có một ngày không bình thường trong dữ liệu (ví dụ: "2014-14-15"): bạn có thể sửa ngày theo cách thủ công trong dữ liệu thô hoặc, bạn có thể ghi thay đổi trong chuỗi các bước làm sạch thông qua `mutate()` và `recode()`. Cách thứ hai sẽ rõ ràng hơn và có thể được tái lập lại cho bất kỳ ai khác muốn hiểu hoặc lặp lại phân tích của bạn.
+Hãy tưởng tượng có một ngày không bình thường trong dữ liệu (ví dụ: "2014-14-15"): bạn có thể sửa ngày theo cách thủ công trong dữ liệu gốc hoặc, bạn có thể ghi thay đổi trong chuỗi các bước làm sạch thông qua `mutate()` và `recode()`. Cách thứ hai sẽ rõ ràng hơn và có thể được tái lập lại cho bất kỳ ai khác muốn hiểu hoặc lặp lại phân tích của bạn.
 
 ```{r, eval=F}
 # fix incorrect values                   # old value       # new value
@@ -932,13 +932,13 @@ linelist <- linelist %>%
           TRUE                            ~ "To investigate"))
 ```
 
-[***NGUY HIỂM***: Các giá trị ở phía bên phải đều phải cùng một phần lớp - số, ký tự, ngày tháng, lôgic, v.v. Để gán giá trị thiếu (NA), bạn có thể cần sử dụng các biến thể đặc biệt của `NA` như `NA_character_`, `NA_real_` (cho số hoặc POSIX) và `as.Date(NA)`. Đọc thêm trong chương [Làm việc với ngày tháng].]{style="color: red;"}
+<span style="color: red;">***NGUY HIỂM***: Các giá trị ở phía bên phải đều phải cùng một phần lớp - số, ký tự, ngày tháng, lôgic, v.v. Để gán giá trị thiếu (NA), bạn có thể cần sử dụng các biến thể đặc biệt của `NA` như `NA_character_`, `NA_real_` (cho số hoặc POSIX) và `as.Date(NA)`. Đọc thêm trong chương [Làm việc với ngày tháng](dates.vn.qmd).</span>
 
 ### Giá trị missing {.unnumbered}
 
 Dưới đây là các hàm đặc biệt để xử lý các giá trị bị thiếu trong khi làm sạch dữ liệu.
 
-Xem chương về [Dữ liệu Missing] để biết thêm các mẹo chi tiết về xác định và xử lý các giá trị bị thiếu. Ví dụ, hàm `is.na()` kiểm tra một cách logic sự thiếu giá trị.
+Xem chương về [Dữ liệu Missing](missing_data.vn.qmd) để biết thêm các mẹo chi tiết về xác định và xử lý các giá trị bị thiếu. Ví dụ, hàm `is.na()` kiểm tra một cách logic sự thiếu giá trị.
 
 **`replace_na()`**
 
@@ -951,7 +951,7 @@ linelist <- linelist %>%
 
 **fct_explicit_na()**
 
-Đây là một hàm từ package **forcats**. Package **forcats** xử lý các cột dạng Factor. Factor là cách của R để xử lý các giá trị có thứ tự như `c("First", "Second", "Third")` hoặc để thiết lập thứ tự cho các giá trị (ví dụ: bệnh viện) xuất hiện trong bảng và biểu đồ. Xem chương [Factors].
+Đây là một hàm từ package **forcats**. Package **forcats** xử lý các cột dạng Factor. Factor là cách của R để xử lý các giá trị có thứ tự như `c("First", "Second", "Third")` hoặc để thiết lập thứ tự cho các giá trị (ví dụ: bệnh viện) xuất hiện trong bảng và biểu đồ. Xem chương [Factors](factors.vn.qmd).
 
 Nếu dữ liệu của bạn là kiểu Factor và bạn đang cố gắng chuyển giá trị `NA` thành "Missing" bằng cách sử dụng hàm `replace_na()`, bạn sẽ gặp lỗi này: `invalid factor level, NA generated`. Bạn đã cố gắng thêm "Missing" làm giá trị, trong khi nó đã không được xác định là một thứ bậc trong cột Factor, và câu lệnh bị từ chối.
 
@@ -1001,7 +1001,7 @@ Lưu ý: các mục từ điển .global sẽ bị ghi đè bởi các mục t�
 knitr::include_graphics(here::here("images", "cleaning_dict.png"))
 ```
 
-2)  Nạp tệp từ điển vào R. Ví dụ này có thể được tải xuống theo hướng dẫn trong chương [Tải sách và dữ liệu].
+2)  Nạp tệp từ điển vào R. Ví dụ này có thể được tải xuống theo hướng dẫn trong chương [Tải sách và dữ liệu](data_used.vn.qmd).
 
 ```{r, echo=F}
 cleaning_dict <- rio::import(here("data", "case_linelists", "cleaning_dict.csv"))
@@ -1122,7 +1122,7 @@ Trong ví dụ này, chúng tôi sẽ tạo một cột `age_cat` bằng cách s
 class(linelist$age_years)
 ```
 
-Trước tiên, hãy kiểm tra phân phối dữ liệu của bạn để đưa ra các điểm cắt thích hợp. Xem chương [ggplot cơ bản].
+Trước tiên, hãy kiểm tra phân phối dữ liệu của bạn để đưa ra các điểm cắt thích hợp. Xem chương [ggplot cơ bản](ggplot_basics.vn.qmd).
 
 ```{r, out.height='50%'}
 # examine the distribution
@@ -1266,7 +1266,7 @@ table("Numeric Values" = linelist$age_years,   # names specified in table for cl
 
 **Gán nhãn giá trị `NA`**
 
-Bạn có thể muốn gán nhãn cho các giá trị `NA` chẳng hạn như "Missing". Bởi vì cột mới có kiểu Factor (số giá trị bị hạn chế), bạn không thể chỉ đơn giản thay đổi nó bằng `replace_na()`, vì giá trị này sẽ không được chấp nhận. Thay vào đó, hãy sử dụng hàm `fct_explicit_na()` từ package **forcats** như được giải thích trong chương [Factors].
+Bạn có thể muốn gán nhãn cho các giá trị `NA` chẳng hạn như "Missing". Bởi vì cột mới có kiểu Factor (số giá trị bị hạn chế), bạn không thể chỉ đơn giản thay đổi nó bằng `replace_na()`, vì giá trị này sẽ không được chấp nhận. Thay vào đó, hãy sử dụng hàm `fct_explicit_na()` từ package **forcats** như được giải thích trong chương [Factors](factors.vn.qmd).
 
 ```{r}
 linelist <- linelist %>% 
@@ -1291,7 +1291,7 @@ table(linelist$age_cat, useNA = "always")
 
 **Tạo nhanh điểm cắt và dán nhãn**
 
-Để nhanh chóng tạo điểm cắt và gắn nhãn vectơ, hãy thực hành như bên dưới. Xem chương [R cơ bản] về hàm `seq()` và `rep()`.
+Để nhanh chóng tạo điểm cắt và gắn nhãn vectơ, hãy thực hành như bên dưới. Xem chương [R cơ bản](basics.vn.qmd) về hàm `seq()` và `rep()`.
 
 ```{r, eval=F}
 # Make break points from 0 to 90 by 5
@@ -1325,7 +1325,7 @@ quantile(linelist$age_years,               # specify numeric vector to work on
   na.rm = TRUE)                            # ignore missing values 
 ```
 
-Bạn có thể sử dụng kết quả của `quantile()` làm điểm cắt trong `age_categories()` hoặc `cut()`. Dưới đây, chúng ta tạo một cột `deciles` mới bằng cách sử dụng hàm `cut()` trong đó các dấu ngắt được xác định bằng cách sử dụng hàm `quantiles()` trên cột `age_years`. Sau đó, chúng ta hiển thị kết quả bằng hàm `tabyl()` từ package **janitor** để bạn có thể xem tỷ lệ phần trăm (xem chương [Bảng mô tả]). Lưu ý rằng chúng không chính xác là 10% trong mỗi nhóm.
+Bạn có thể sử dụng kết quả của `quantile()` làm điểm cắt trong `age_categories()` hoặc `cut()`. Dưới đây, chúng ta tạo một cột `deciles` mới bằng cách sử dụng hàm `cut()` trong đó các dấu ngắt được xác định bằng cách sử dụng hàm `quantiles()` trên cột `age_years`. Sau đó, chúng ta hiển thị kết quả bằng hàm `tabyl()` từ package **janitor** để bạn có thể xem tỷ lệ phần trăm (xem chương [Bảng mô tả](tables_descriptive.vn.qmd)). Lưu ý rằng chúng không chính xác là 10% trong mỗi nhóm.
 
 ```{r}
 linelist %>%                                # begin with linelist
@@ -1468,7 +1468,7 @@ Nếu một phân lớp bạn cung cấp không hoạt động, bạn sẽ thấ
 
 ### Nối các hàng {.unnumbered}
 
-Để kết hợp các bộ dữ liệu với nhau bằng cách liên kết các hàng của một bộ dữ liệu này với phần cuối bộ dữ liệu khác, bạn có thể sử dụng hàm `bind_rows()` từ **dplyr**. Điều này được giải thích chi tiết hơn trong chương [Nối dữ liệu].
+Để kết hợp các bộ dữ liệu với nhau bằng cách liên kết các hàng của một bộ dữ liệu này với phần cuối bộ dữ liệu khác, bạn có thể sử dụng hàm `bind_rows()` từ **dplyr**. Điều này được giải thích chi tiết hơn trong chương [Nối dữ liệu](joining_matching.vn.qmd).
 
 <!-- ======================================================= -->
 
@@ -1508,7 +1508,7 @@ linelist %>%
   drop_na(case_id, age_years)  # drop rows with missing values for case_id or age_years
 ```
 
-Xem chương về [Dữ liệu Missing] để biết nhiều kỹ thuật phân tích và quản lý dữ liệu missing.
+Xem chương về [Dữ liệu Missing](missing_data.vn.qmd) để biết nhiều kỹ thuật phân tích và quản lý dữ liệu missing.
 
 ### Lọc bằng số thứ tự của hàng {.unnumbered}
 
@@ -1539,7 +1539,7 @@ Lưu ý: Bạn có thể sử dụng `!` trước một mệnh đề logic để
 
 #### Kiểm tra dữ liệu {.unnumbered}
 
-Dưới đây là một dòng lệnh đơn giản để tạo biểu đồ các ngày bắt đầu. Chúng ta thấy rằng có một đợt bùng phát nhỏ thứ hai từ năm 2012-2013 cũng được bao gồm trong tập bộ liệu thô này. **Trong các phân tích, chúng ta muốn xóa các bản ghi từ đợt bùng phát sớm.**
+Dưới đây là một dòng lệnh đơn giản để tạo biểu đồ các ngày bắt đầu. Chúng ta thấy rằng có một đợt bùng phát nhỏ thứ hai từ năm 2012-2013 cũng được bao gồm trong tập bộ dữ liệu gốc này. **Trong các phân tích, chúng ta muốn xóa các bản ghi từ đợt bùng phát sớm.**
 
 ```{r, out.width = "50%"}
 hist(linelist$date_onset, breaks = 50)
@@ -1551,7 +1551,7 @@ Chúng ta có thể chỉ lọc theo `date_onset` đến những hàng sau thán
 
 [***NGUY HIỂM***: Việc lọc với điều kiện lớn hơn (\>) hoặc nhỏ hơn (\<) một ngày hoặc số có thể loại bỏ bất kỳ hàng nào có giá trị bị thiếu (`NA`)! Điều này là do `NA` được coi là giá trị lớn hoặc nhỏ vô hạn.]{style="color: red;"}
 
-*(Xem chương [Làm việc với ngày tháng] để biết thêm thông tin về cách xử lý với ngày tháng và package **lubridate**)*
+*(Xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết thêm thông tin về cách xử lý với ngày tháng và package **lubridate**)*
 
 #### Thiết kế bộ lọc {.unnumbered}
 
@@ -1726,7 +1726,7 @@ linelist <- linelist_raw %>%
 ## Tính toán theo hàng
 
 Nếu bạn muốn thực hiện một phép tính trong một hàng, bạn có thể sử dụng hàm `rowwise()` từ **dplyr**. Xem chi tiết tại [row-wise calculations](https://cran.r-project.org/web/packages/dplyr/vignettes/rowwise.html).\
-Ví dụ: code này sử dụng hàm `rowwise()` và sau đó tạo một cột mới là tổng số cột triệu chứng được chứa giá trị "có", cho mỗi hàng trong `linelist`. Các cột được cụ thể trong hàm `sum()` theo tên trong vectơ `c()`. Hàm `rowwise()` về cơ bản là một hình thức `group_by()` đặc biệt, vì vậy tốt nhất bạn nên sử dụng `ungroup()` khi bạn hoàn tất (trong chương [Nhóm dữ liệu]).
+Ví dụ: code này sử dụng hàm `rowwise()` và sau đó tạo một cột mới là tổng số cột triệu chứng được chứa giá trị "có", cho mỗi hàng trong `linelist`. Các cột được cụ thể trong hàm `sum()` theo tên trong vectơ `c()`. Hàm `rowwise()` về cơ bản là một hình thức `group_by()` đặc biệt, vì vậy tốt nhất bạn nên sử dụng `ungroup()` khi bạn hoàn tất (trong chương [Nhóm dữ liệu](grouping.vn.qmd)).
 
 ```{r,}
 linelist %>%
@@ -1766,11 +1766,11 @@ linelist %>%
 
 Sử dụng hàm **dplyr** `arrange()` để sắp xếp thứ tự các hàng theo giá trị cột.
 
-Đơn giản hãy liệt kê các cột theo thứ tự mà chúng cần được sắp xếp. Thêm `.by_group = TRUE` nếu bạn muốn việc sắp xếp xảy ra trước bất kỳ *hành động nhóm dữ liệu* nào được áp dụng trong dữ liệu (xem chương [Nhóm dữ liệu]).
+Đơn giản hãy liệt kê các cột theo thứ tự mà chúng cần được sắp xếp. Thêm `.by_group = TRUE` nếu bạn muốn việc sắp xếp xảy ra trước bất kỳ *hành động nhóm dữ liệu* nào được áp dụng trong dữ liệu (xem chương [Nhóm dữ liệu](grouping.vn.qmd)).
 
 Mặc định, cột sẽ được sắp xếp theo thứ tự "tăng dần" (áp dụng cho cột số và cả cột ký tự). Bạn có thể sắp xếp một biến theo thứ tự "giảm dần" bằng cách đặt tên biến trong hàm `desc()`.
 
-Việc sắp xếp dữ liệu với hàm `arrange()` đặc biệt hữu ích khi [Trình bày bảng], sử dụng hàm `slice()` để lấy các hàng "trên cùng" trên mỗi nhóm hoặc thiết lập thứ tự danh mục theo thứ tự xuất hiện.
+Việc sắp xếp dữ liệu với hàm `arrange()` đặc biệt hữu ích khi [Trình bày bảng](tables_descriptive.vn.qmd), sử dụng hàm `slice()` để lấy các hàng "trên cùng" trên mỗi nhóm hoặc thiết lập thứ tự danh mục theo thứ tự xuất hiện.
 
 Ví dụ: để sắp xếp các hàng trong `linelist` theo `hospital`, sau đó theo `date_onset` thứ tự giảm dần, chúng ta sẽ thực hiện như sau:
 

@@ -13,8 +13,8 @@ Such documents can be produced to update on a routine basis (e.g. daily surveill
 
 Other pages in this handbook expand on this topic:  
 
-* The page [Organizing routine reports] demonstrates how to routinize your report production with auto-generated time-stamped folders.  
-* The page [Dashboards with R Markdown] explains how to format a R Markdown report as a dashboard.  
+* The page [Organizing routine reports](reportfactory.qmd) demonstrates how to routinize your report production with auto-generated time-stamped folders.  
+* The page [Dashboards with R Markdown](flexdashboard.qmd) explains how to format a R Markdown report as a dashboard.  
 
 
 Of note, the [R4Epis](https://r4epis.netlify.app/) project has developed template R Markdown scripts for common outbreaks and surveys scenarios encountered at MSF project locations.  
@@ -59,7 +59,7 @@ tinytex::install_tinytex()  # R command to install TinyTeX software
 
 ### Install rmarkdown R package {.unnumbered}
 
-Install the **rmarkdown** R package. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+Install the **rmarkdown** R package. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, eval=F}
 pacman::p_load(rmarkdown)
@@ -87,13 +87,13 @@ This will open up a new .Rmd script.
 
 The working directory of a markdown file is wherever the Rmd file itself is saved. For instance, if the R project is within `~/Documents/projectX ` and the Rmd file itself is in a subfolder `~/Documents/projectX/markdownfiles/markdown.Rmd`, the code `read.csv(“data.csv”)` within the markdown will look for a csv file in the `markdownfiles` folder, and not the root project folder where scripts within projects would normally automatically look.
 
-To refer to files elsewhere, you will either need to use the full file path or use the **here** package. The **here** package sets the working directory to the root folder of the R project and is explained in detail in the [R projects] and [Import and export] pages of this handbook. For instance, to import a file called "data.csv" from within the `projectX` folder, the code would be `import(here(“data.csv”))`. 
+To refer to files elsewhere, you will either need to use the full file path or use the **here** package. The **here** package sets the working directory to the root folder of the R project and is explained in detail in the [R projects](r_projects.qmd) and [Import and export](importing.qmd) pages of this handbook. For instance, to import a file called "data.csv" from within the `projectX` folder, the code would be `import(here(“data.csv”))`. 
 
 Note that use of `setwd()` in R Markdown scripts is not recommended – it only applies to the code chunk that it is written in. 
 
 **Working on a drive vs your computer**
 
-Because R Markdown can run into pandoc issues when running on a shared network drive, it is recommended that your folder is on your local machine, e.g. in a project within ‘My Documents’. If you use Git (much recommended!), this will be familiar. For more details, see the handbook pages on [R on network drives] and [Errors and help].  
+Because R Markdown can run into pandoc issues when running on a shared network drive, it is recommended that your folder is on your local machine, e.g. in a project within ‘My Documents’. If you use Git (much recommended!), this will be familiar. For more details, see the handbook pages on [R on network drives](network_drives.qmd) and [Errors and help](errors.qmd).  
 
 
 <!-- ======================================================= -->
@@ -409,7 +409,7 @@ rmarkdown::render(input = "create_output.Rmd")   # Create Rmd file
 
 ### Folder strucutre {.unnumbered}  
 
-Workflow also concerns the overall folder structure, such as having an 'output' folder for created documents and figures, and 'data' or 'inputs' folders for cleaned data. We do not go into further detail here, but check out the [Organizing routine reports] page.  
+Workflow also concerns the overall folder structure, such as having an 'output' folder for created documents and figures, and 'data' or 'inputs' folders for cleaned data. We do not go into further detail here, but check out the [Organizing routine reports](reportfactory.qmd) page.  
 
 
 
@@ -459,7 +459,7 @@ As with "knit", the default settings will save the Rmd output to the same folder
 * `params = ` See the section on parameters below  
 * See the complete list [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html)  
 
-As one example, to improve version control, the following command will save the output file within an ‘outputs’ sub-folder, with the current date in the file name. To create the file name, the function `str_glue()` from the **stringr** package is use to 'glue' together static strings (written plainly) with dynamic R code (written in curly brackets). For instance if it is April 10th 2021, the file name from below will be “Report_2021-04-10.docx”. See the page on [Characters and strings] for more details on `str_glue()`.  
+As one example, to improve version control, the following command will save the output file within an ‘outputs’ sub-folder, with the current date in the file name. To create the file name, the function `str_glue()` from the **stringr** package is use to 'glue' together static strings (written plainly) with dynamic R code (written in curly brackets). For instance if it is April 10th 2021, the file name from below will be “Report_2021-04-10.docx”. See the page on [Characters and strings](characters_strings.qmd) for more details on `str_glue()`.  
 
 ```{r, eval=F}
 rmarkdown::render(
@@ -475,7 +475,7 @@ As the file renders, the RStudio Console will show you the rendering progress up
 
 The R package **reportfactory** offers an alternative method of organising and compiling R Markdown reports *catered to scenarios where you run reports routinely (e.g. daily, weekly...).* It eases the compilation of multiple R Markdown files and the organization of their outputs. In essence, it provides a "factory" from which you can run the R Markdown reports, get automatically date- and time-stamped folders for the outputs, and have "light" version control.  
 
-Read more about this work flow in the page on [Organizing routine reports].  
+Read more about this work flow in the page on [Organizing routine reports](reportfactory.qmd).  
 
 
 
@@ -627,7 +627,7 @@ Following this approach means means you can not “knit with parameters”, use 
 
 ## Looping reports  {  }
 
-We may want to run a report multiple times, varying the input parameters, to produce a report for each jurisdictions/unit. This can be done using tools for *iteration*, which are explained in detail in the page on [Iteration, loops, and lists]. Options include the **purrr** package, or use of a *for loop* as explained below.  
+We may want to run a report multiple times, varying the input parameters, to produce a report for each jurisdictions/unit. This can be done using tools for *iteration*, which are explained in detail in the page on [Iteration, loops, and lists](iteration.qmd). Options include the **purrr** package, or use of a *for loop* as explained below.  
 
 Below, we use a simple *for loop* to generate a surveillance report for all hospitals of interest. This is done with one command (instead of manually changing the hospital parameter one-at-a-time). The command to render the reports must exist in a separate script *outside* the report Rmd. This script will also contain defined objects to "loop through" - today’s date, and a vector of hospital names to loop through.  
 
@@ -781,13 +781,13 @@ If your dataset is very large, consider only showing the top X rows by wrapping 
 
 Some common examples of these widgets include:  
 
-* Plotly (used in this handbook page and in the [Interative plots] page)
-* visNetwork (used in the [Transmission Chains] page of this handbook)  
-* Leaflet (used in the [GIS Basics] page of this handbook)  
+* Plotly (used in this handbook page and in the [Interative plots](interactive_plots.qmd) page)
+* visNetwork (used in the [Transmission Chains](transmission_chains.qmd) page of this handbook)  
+* Leaflet (used in the [GIS Basics](gis.qmd) page of this handbook)  
 * dygraphs (useful for interactively showing time series data)  
 * DT (`datatable()`) (used to show dynamic tables with filter, sort, etc.)  
 
-The `ggplotly()` function from **plotly** is particularly easy to use. See the [Interactive plots] page. 
+The `ggplotly()` function from **plotly** is particularly easy to use. See the [Interactive plots](interactive_plots.qmd) page. 
 
 
 ## Resources {  }

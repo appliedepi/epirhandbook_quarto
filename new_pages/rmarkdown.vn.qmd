@@ -13,8 +13,8 @@ Những tài liệu như vậy có thể được cập nhật thường xuyên 
 
 Những chương khác trong cuốn sách này mở rộng các chủ đề khác:  
 
-* Chương [Tổ chức báo cáo định kỳ] trình bày cách tự động hóa các báo cáo sản phẩm với các tập tin tự tạo kèm theo thời gian.  
-* Chương [Dashboards với R Markdown] giải thích cách định dạng một báo cáo R Markdown dưới dạng một dashboard.  
+* Chương [Tổ chức báo cáo định kỳ](reportfactory.vn.qmd) trình bày cách tự động hóa các báo cáo sản phẩm với các tập tin tự tạo kèm theo thời gian.  
+* Chương [Dashboards với R Markdown](flexdashboard.vn.qmd) giải thích cách định dạng một báo cáo R Markdown dưới dạng một dashboard.  
 
 
 Một lưu ý là dự án [R4Epis](https://r4epis.netlify.app/) đã tạo ra các mẫu R Markdown script cho những đợt dịch và trường hợp khảo sát phổ biến ở vị trí dự án MSF.  
@@ -59,7 +59,7 @@ tinytex::install_tinytex()  # R command to install TinyTeX software
 
 ### Cài đặt package rmarkdown  {.unnumbered}
 
-Cài đặt R package **rmarkdown**. Trong quyển sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần *và* gọi ra để sử dụng. Bạn cũng có thể cài đặt package với `library()` từ **base** R. Xem thêm ở chương [R cơ bản] để biết thêm thông tin về R packages.  
+Cài đặt R package **rmarkdown**. Trong quyển sổ tay này chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt package nếu cần *và* gọi ra để sử dụng. Bạn cũng có thể cài đặt package với `library()` từ **base** R. Xem thêm ở chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về R packages.  
 
 ```{r, eval=F}
 pacman::p_load(rmarkdown)
@@ -87,13 +87,13 @@ Như vậy sẽ mở ra một script .Rmd mới.
 
 Thư mục làm việc của một tệp markdown là ở bất kỳ vị trí nào tệp được lưu. Ví dụ, nếu R project nằm trong `~/Documents/projectX ` và tệp Rmd được lưu ở thư mục con `~/Documents/projectX/markdownfiles/markdown.Rmd`, thì lệnh `read.csv(“data.csv”)` trong markdown sẽ tìm tệp csv trong thư mục `markdownfiles`, mà không phải là ở thư mục gốc nơi mà scripts trong projects sẽ thường tự động tìm kiếm.  
 
-Để tìm kiếm các tệp này ở chỗ khác, bạn sẽ vừa cần sử dụng cả đường dẫn tệp đầy đủ và sử dụng package **here**. Package **here** cài đặt thư mục làm việc tới thư mục gốc của R project và sẽ được giải thích chi tiết trong các chương [Dự án R] và [Nhập xuất dữ liệu] của sổ tay này. Ví dụ, để nhập một tệp tên "data.csv" từ trong thư mục `projectX`, code sẽ là `import(here(“data.csv”))`.  
+Để tìm kiếm các tệp này ở chỗ khác, bạn sẽ vừa cần sử dụng cả đường dẫn tệp đầy đủ và sử dụng package **here**. Package **here** cài đặt thư mục làm việc tới thư mục gốc của R project và sẽ được giải thích chi tiết trong các chương [Dự án R](r_projects.vn.qmd) và [Nhập xuất dữ liệu](importing.vn.qmd) của sổ tay này. Ví dụ, để nhập một tệp tên "data.csv" từ trong thư mục `projectX`, code sẽ là `import(here(“data.csv”))`.  
 
 Lưu ý rằng không nên sử dụng `setwd()` trong R Markdown scripts - nó chỉ dùng cho các đoạn code được viết trong đó. 
 
 **Làm việc với ổ cứng mạng so với trên máy tính của bạn**
 
-Vì R Markdown có thể gặp các vấn đề với pandoc khi chạy trên một ổ cứng mạng được chia sẻ, thư mục của bạn nên nằm ở ở cứng vật lý, ví dụ trong dự án thuộc 'My Documents'. Nếu bạn dùng Git (rất khuyến khích!), nó sẽ thân thuộc hơn. Để biết thêm chi tiết, xem thêm chương [R trên ổ cứng mạng] và [Các lỗi thường gặp].  
+Vì R Markdown có thể gặp các vấn đề với pandoc khi chạy trên một ổ cứng mạng được chia sẻ, thư mục của bạn nên nằm ở ở cứng vật lý, ví dụ trong dự án thuộc 'My Documents'. Nếu bạn dùng Git (rất khuyến khích!), nó sẽ thân thuộc hơn. Để biết thêm chi tiết, xem thêm chương [R trên ổ cứng mạng](network_drives.vn.qmd) và [Các lỗi thường gặp](errors.vn.qmd).  
 
 
 <!-- ======================================================= -->
@@ -414,7 +414,7 @@ rmarkdown::render(input = "create_output.Rmd")   # Create Rmd file
 
 ### Cấu trúc thư mục {.unnumbered}  
 
-Quy trình làm việc cũng liên quan đến cấu trúc thư mục tổng thể, chẳng hạn như có thư mục 'đầu ra' cho các tài liệu và số liệu đã tạo và thư mục 'dữ liệu' hoặc 'đầu vào' cho dữ liệu đã được làm sạch. Chúng tôi không đi sâu vào chi tiết ở đây, nhưng hãy xem chương [Tổ chức báo cáo định kỳ].  
+Quy trình làm việc cũng liên quan đến cấu trúc thư mục tổng thể, chẳng hạn như có thư mục 'đầu ra' cho các tài liệu và số liệu đã tạo và thư mục 'dữ liệu' hoặc 'đầu vào' cho dữ liệu đã được làm sạch. Chúng tôi không đi sâu vào chi tiết ở đây, nhưng hãy xem chương [Tổ chức báo cáo định kỳ](reportfactory.vn.qmd).  
 
 
 
@@ -463,7 +463,7 @@ Như với "knit", cài đặt mặc định sẽ lưu đầu ra Rmd vào cùng 
 * `params = ` Xem phần thông số bên dưới  
 * Xem danh sách đầy đủ [tại đây](https://pkgs.rstudio.com/rmarkdown/reference/render.html)  
 
-Ví dụ, để cải thiện kiểm soát phiên bản, lệnh sau sẽ lưu tệp đầu ra trong thư mục con 'đầu ra', với ngày hiện tại trong tên tệp. Để tạo tên tệp, hàm `str_glue ()` từ package **stringr** được sử dụng để 'dán' các chuỗi tĩnh lại với nhau (được viết đơn giản) với code R động (được viết trong dấu ngoặc nhọn). Ví dụ: nếu đó là ngày 10 tháng 4 năm 2021, tên tệp từ bên dưới sẽ là “Report_2021-04-10.docx”. Xem chương [Ký tự và chuỗi] để biết thêm chi tiết về `str_glue ()`.  
+Ví dụ, để cải thiện kiểm soát phiên bản, lệnh sau sẽ lưu tệp đầu ra trong thư mục con 'đầu ra', với ngày hiện tại trong tên tệp. Để tạo tên tệp, hàm `str_glue ()` từ package **stringr** được sử dụng để 'dán' các chuỗi tĩnh lại với nhau (được viết đơn giản) với code R động (được viết trong dấu ngoặc nhọn). Ví dụ: nếu đó là ngày 10 tháng 4 năm 2021, tên tệp từ bên dưới sẽ là “Report_2021-04-10.docx”. Xem chương [Ký tự và chuỗi](characters_strings.vn.qmd) để biết thêm chi tiết về `str_glue ()`.  
 
 
 ```{r, eval=F}
@@ -480,7 +480,7 @@ Khi file đang kết xuất, RStudio Console sẽ cho bạn thấy quá trình k
 
 R package **reportfactory** cung cấp một phương pháp thay thế để tổ chức và soạn báo cáo R Markdown *phù hợp với các tình huống mà bạn chạy báo cáo thường xuyên (ví dụ hàng ngày, hàng tuần ...).* Nó giúp giảm bớt việc soạn nhiều tệp R Markdown và tổ chức đầu ra của chúng. Về bản chất, nó cung cấp một "nhà máy" mà từ đó bạn có thể chạy báo cáo R Markdown, nhận các thư mục được đánh dấu ngày tháng và thời gian tự động cho kết quả đầu ra và có cách kiểm soát phiên bản "nhẹ nhàng".  
 
-Đọc thêm về quy trình công việc này trong chương về [Tổ chức báo cáo định kỳ].  
+Đọc thêm về quy trình công việc này trong chương về [Tổ chức báo cáo định kỳ](reportfactory.vn.qmd).  
 
 
 
@@ -633,7 +633,7 @@ Làm theo cách này có nghĩa là bạn không thể “knit với các tham s
 
 ## Tạo vòng lặp nhiều báo cáo   {  }
 
-Chúng ta có thể muốn chạy một báo cáo nhiều lần, thay đổi các thông số đầu vào, để tạo ra một báo cáo cho từng khu vực pháp lý/đơn vị. Điều này có thể được thực hiện bằng cách sử dụng các công cụ cho việc *lặp lại*, được giải thích chi tiết trong chương về [Lặp, vòng lặp và danh sách]. Các tùy chọn bao gồm package **purrr** hoặc sử dụng *vòng lặp for* như được giải thích bên dưới.  
+Chúng ta có thể muốn chạy một báo cáo nhiều lần, thay đổi các thông số đầu vào, để tạo ra một báo cáo cho từng khu vực pháp lý/đơn vị. Điều này có thể được thực hiện bằng cách sử dụng các công cụ cho việc *lặp lại*, được giải thích chi tiết trong chương về [Lặp, vòng lặp và danh sách](iteration.vn.qmd). Các tùy chọn bao gồm package **purrr** hoặc sử dụng *vòng lặp for* như được giải thích bên dưới.  
 
 Dưới đây, chúng tôi sử dụng  *vòng lặp for* đơn giản để tạo báo cáo giám sát cho tất cả các bệnh viện được chọn. Điều này được thực hiện bằng một lệnh (thay vì thay đổi từng thông số bệnh viện theo cách thủ công). Lệnh kết xuất báo cáo phải tồn tại trong một script riêng biệt *bên ngoài* báo cáo Rmd. Script này cũng sẽ chứa các đối tượng được xác định để "lặp qua" - ngày hôm nay và một vectơ tên bệnh viện để lặp qua.
 
@@ -786,13 +786,13 @@ Nếu tập dữ liệu của bạn rất lớn, hãy xem xét chỉ hiển th�
 
 Một số ví dụ phổ biến về các tiện ích này bao gồm:  
 
-* Plotly (được sử dụng trong chương sổ tay này và trong chương [Biểu đồ tương tác])
-* visNetwork (được sử dụng trong chương [Chuỗi lây nhiễm] của sổ tay này)  
-* Leaflet (được sử dụng trong chương [GIS Cơ bản] của sổ tay này)  
+* Plotly (được sử dụng trong chương sổ tay này và trong chương [Biểu đồ tương tác](interactive_plots.vn.qmd))
+* visNetwork (được sử dụng trong chương [Chuỗi lây nhiễm](transmission_chains.vn.qmd) của sổ tay này)  
+* Leaflet (được sử dụng trong chương [GIS Cơ bản](gis.vn.qmd) của sổ tay này)  
 * dygraphs ( hữu ích để hiển thị dữ liệu chuỗi thời gian tương tác)  
 * DT (`datatable()`) (được sử dụng để hiển thị các bảng động với bộ lọc, sắp xếp, v.v.)  
 
-Hàm `ggplotly()` từ **plotly** đặc biệt dễ sử dụng. Xem chương [Biểu đồ tương tác].  
+Hàm `ggplotly()` từ **plotly** đặc biệt dễ sử dụng. Xem chương [Biểu đồ tương tác](interactive_plots.vn.qmd).  
 
 ## Tài nguyên {  }
 

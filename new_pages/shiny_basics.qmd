@@ -10,7 +10,7 @@ Dashboards are often a great way to share results from analyses with others. Pro
 It is recommended that someone learning dashboards with **shiny** has good knowledge of data transformation and visualisation, and is comfortable debugging code, and writing functions. Working with dashboards is not intuitive when you're starting, and is difficult to understand at times, but is a great skill to learn and gets much easier with practice!
 
 This page will give a short overview of how to make dashboards with **shiny** and its extensions. 
-For an alternative method of making dashboards that is faster, easier, but perhaps less customizeable, see the page on **flextable** ([Dashboards with R Markdown]).  
+For an alternative method of making dashboards that is faster, easier, but perhaps less customizeable, see the page on **flextable** ([Dashboards with R Markdown](flexdashboard.qmd)).  
 
 
 
@@ -19,7 +19,7 @@ For an alternative method of making dashboards that is faster, easier, but perha
 
 ### Load packages {.unnumbered}  
 
-In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 We begin by installing the **shiny** R package:  
 
@@ -30,7 +30,7 @@ pacman::p_load(shiny)
 
 ### Import data {.unnumbered}  
 
-If you would like to follow-along with this page, see this section of the [Download handbook and data](#data_shiny). There are links to download the R scripts and data files that produce the final Shiny app.  
+If you would like to follow-along with this page, see this section of the [Download handbook and data](data_used.qmd#data_shiny). There are links to download the R scripts and data files that produce the final Shiny app.  
 
 If you try to re-construct the app using these files, please be aware of the R project folder structure that is created over the course of the demonstration (e.g. folders for "data" and for "funcs").  
 
@@ -260,7 +260,7 @@ print(malaria_data)
 ```
 
 
-It will be easier to work with this data if we use tidy data standards, so we should also transform into a longer data format, where age group is a column, and cases is another column. We can do this easily using what we've learned in the [Pivoting data] page.  
+It will be easier to work with this data if we use tidy data standards, so we should also transform into a longer data format, where age group is a column, and cases is another column. We can do this easily using what we've learned in the [Pivoting data](pivoting.qmd) page.  
 
 
 ```{r, echo = TRUE}
@@ -273,7 +273,7 @@ print(malaria_data)
 
 ```
 
-And with that we've finished preparing our data! This crosses items 1, 2, and 3 off our list of things to develop for our "testing R script". The last, and most difficult task will be building a function to produce an epicurve based on user defined parameters. As mentioned previously, it's *highly recommended* that anyone learning shiny first look at the section on functional programming ([Writing functions]) to understand how this works!
+And with that we've finished preparing our data! This crosses items 1, 2, and 3 off our list of things to develop for our "testing R script". The last, and most difficult task will be building a function to produce an epicurve based on user defined parameters. As mentioned previously, it's *highly recommended* that anyone learning shiny first look at the section on functional programming ([Writing functions](writing_functions.qmd)) to understand how this works!
 
 When defining our function, it might be hard to think about what parameters we want to include. For functional programming with shiny, every relevent parameter will generally have a widget associated with it, so thinking about this is usually quite easy! For example in our current app, we want to be able to filter by district, and have a widget for this, so we can add a district parameter to reflect this. We *don't* have any app functionality to filter by facility (for now), so we don't need to add this as a parameter. Lets start by making a function with three parameters:
 

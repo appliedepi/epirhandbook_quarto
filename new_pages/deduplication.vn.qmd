@@ -16,7 +16,7 @@ Chương này đề cập đến các kỹ thuật loại bỏ trùng lặp sau:
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với `library()` từ **base** R. Xem chương [R cơ bản] để có thêm thông tin về các R package.
+Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, hàm sẽ cài đặt package nếu cần *và* gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các R package.
 
 ```{r}
 pacman::p_load(
@@ -140,7 +140,7 @@ Xem `?get_dupes` để biết thêm chi tiết hoặc xem tài liệu [tham kh�
 
 ### Chỉ giữ lại các hàng duy nhất {.unnumbered}
 
-Để chỉ giữ lại các hàng duy nhất của một data frame, hãy sử dụng `distinct()` từ **dplyr** (đã được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng]). Các hàng trùng lặp sẽ bị loại bỏ sao cho chỉ giữ lại hàng đầu tiên trong số các hàng đó. Theo mặc định, hàng "đầu tiên" có nghĩa là hàng có `rownumber` cao nhất (thứ tự của các hàng từ trên-xuống-dưới). Chỉ các hàng duy nhất được giữ lại.
+Để chỉ giữ lại các hàng duy nhất của một data frame, hãy sử dụng `distinct()` từ **dplyr** (đã được giải thích trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd)). Các hàng trùng lặp sẽ bị loại bỏ sao cho chỉ giữ lại hàng đầu tiên trong số các hàng đó. Theo mặc định, hàng "đầu tiên" có nghĩa là hàng có `rownumber` cao nhất (thứ tự của các hàng từ trên-xuống-dưới). Chỉ các hàng duy nhất được giữ lại.
 
 Trong ví dụ dưới đây, chúng tôi chạy lệnh `distinct()` sao cho cột `recordID` bị loại trừ khỏi việc xem xét - do đó **hai hàng trùng lặp sẽ bị loại bỏ**. Hàng đầu tiên (đối với "adam") bị trùng lặp 100% và đã bị loại bỏ. Bên cạnh đó, hàng 3 (cho "amrish") là một bản bị trùng lặp trong tất cả các cột *ngoại trừ* `recordID` (đang không được xét) và do đó cũng bị loại bỏ. Bộ dữ liệu `obs` bây giờ có số dòng là `nrow(obs)-2`, không phải là `nrow(obs)`).
 
@@ -568,7 +568,7 @@ Xem [dữ liệu gốc](#dedup_data).
 
 Đôi khi, bạn có thể muốn xác định các bản trùng lặp "có khả năng xảy ra" dựa trên sự tương đồng (ví dụ: chuỗi "distance (khoảng cách)") trên một số cột như name (tên), age (tuổi), sex (giới tính), date of birth (ngày sinh), v.v. Bạn có thể áp dụng thuật toán so khớp theo xác suất để xác định các bản trùng lặp có khả năng xảy ra.
 
-Xem chương [Nối dữ liệu] để được giải thích về phương pháp này. Mục So sánh theo xác suất chứa một ví dụ về việc áp dụng các thuật toán này để so sánh một data frame với *chính nó*, do đó thực hiện loại bỏ trùng lặp theo xác suất.
+Xem chương [Nối dữ liệu](joining_matching.vn.qmd) để được giải thích về phương pháp này. Mục So sánh theo xác suất chứa một ví dụ về việc áp dụng các thuật toán này để so sánh một data frame với *chính nó*, do đó thực hiện loại bỏ trùng lặp theo xác suất.
 
 <!-- ======================================================= -->
 

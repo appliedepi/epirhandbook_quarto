@@ -33,7 +33,7 @@ fs::dir_tree(path = here("data"), recurse = TRUE)
 
 ## Liệt kê các tập tin trong một thư mục 
 
-Để chỉ liệt kê các tên tập tin trong một thư mục, chúng ta có thể sử dụng hàm `dir()` từ **base** Ví dụ, lệnh này liệt kê tên các tập tin của các tập tin trong thư mục con có tên "population" trong thư mục "data" của một dự án R. Đường dẫn tập tin tương đối được cung cấp bằng cách sử dụng hàm `here()` (đọc thêm trong chương [Nhập xuất dữ liệu]).  
+Để chỉ liệt kê các tên tập tin trong một thư mục, chúng ta có thể sử dụng hàm `dir()` từ **base** Ví dụ, lệnh này liệt kê tên các tập tin của các tập tin trong thư mục con có tên "population" trong thư mục "data" của một dự án R. Đường dẫn tập tin tương đối được cung cấp bằng cách sử dụng hàm `here()` (đọc thêm trong chương [Nhập xuất dữ liệu](importing.vn.qmd)).  
 
 ```{r}
 # file names
@@ -49,7 +49,7 @@ dir_ls(here("data", "gis", "population"))
 
 Để lấy tất cả thông tin chi tiết của mỗi tập tin trong một thư mục (ví dụ: đường dẫn, ngày sửa đổi, .v.v.), chúng ta có thể sử dụng hàm `dir_info()` của package **fs**.  
 
-Điều này có thể đặc biệt hữu ích nếu chúng ta muốn trích xuất thời gian sửa đổi sau cùng của tập tin, ví dụ như nếu chúng ta muốn nhập phiên bản mới nhất của tập tin. Ví dụ cho việc này, xem trong chương [Nhập xuất dữ liệu].     
+Điều này có thể đặc biệt hữu ích nếu chúng ta muốn trích xuất thời gian sửa đổi sau cùng của tập tin, ví dụ như nếu chúng ta muốn nhập phiên bản mới nhất của tập tin. Ví dụ cho việc này, xem trong chương [Nhập xuất dữ liệu](importing.vn.qmd).     
 
 ```{r, eval=F}
 # file info
@@ -193,7 +193,7 @@ knitr::include_graphics(here::here("images", "source_button.png"))
 
 Hàm `render()` là một biến thể của hàm `source()` mà thường được sử dụng nhất cho các tập lệnh của R markdown. Chúng ta cung cấp `input = ` tập tin R markdown, và cũng vậy  `output_format = ` (thường là “html_document”, “pdf_document”, “word_document”, "") 
 
-Xem chương [Báo cáo với R Markdown] để biết thêm chi tiết. Ngoài ra, bạn có thể xem thêm tài liệu về `render()` [tại đây](https://rmarkdown.rstudio.com/docs/reference/render.html) hoặc bằng cách gõ `?render`.  
+Xem chương [Báo cáo với R Markdown](rmarkdown.vn.qmd) để biết thêm chi tiết. Ngoài ra, bạn có thể xem thêm tài liệu về `render()` [tại đây](https://rmarkdown.rstudio.com/docs/reference/render.html) hoặc bằng cách gõ `?render`.  
 
 
 

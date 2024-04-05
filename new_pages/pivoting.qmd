@@ -2,7 +2,7 @@
 <!-- ======================================================= -->
 <!-- ======================================================= -->
 <!-- ======================================================= -->
-# Pivoting data {}
+# Pivoting data {#pivoting}
 
 ```{r, warning=F, message=F, out.height = c('50%'), fig.align="center", fig.show='hold', echo=F}
 knitr::include_graphics(here::here("images", "pivoting", "Pivoting_500x500.png"))
@@ -19,7 +19,7 @@ When managing data, *pivoting* can be understood to refer to one of two processe
 1. The creation of *pivot tables*, which are tables of statistics that summarise the data of a more extensive table  
 2. The conversion of a table from **long** to **wide** format, or vice versa. 
 
-**In this page, we will focus on the latter definition.** The former is a crucial step in data analysis, and is covered elsewhere in the [Grouping data] and [Descriptive tables] pages. 
+**In this page, we will focus on the latter definition.** The former is a crucial step in data analysis, and is covered elsewhere in the [Grouping data](grouping.qmd) and [Descriptive tables](tables_descriptive.qmd) pages. 
 
 This page discusses the formats of data. It is useful to be aware of the idea of "tidy data", in which each variable has it's own column, each observation has it's own row, and each value has it's own cell. More about this topic can be found [at this online chapter in R for Data Science](https://r4ds.had.co.nz/tidy-data.html). 
 
@@ -31,7 +31,7 @@ This page discusses the formats of data. It is useful to be aware of the idea of
 
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -48,7 +48,7 @@ pacman::p_load(
 
 ### Malaria count data {-}  
 
-In this page, we will use a fictional dataset of daily malaria cases, by facility and age group. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>click here to download (as .rds file)<span></a>. Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+In this page, we will use a fictional dataset of daily malaria cases, by facility and age group. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>click here to download (as .rds file)<span></a>. Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 count_data <- rio::import(here::here("data", "malaria_facility_count_data.rds")) %>% 
@@ -70,7 +70,7 @@ DT::datatable(head(count_data, 50), rownames = FALSE, options = list(pageLength 
 
 ### Linelist case data {-}  
 
-In the later part of this page, we will also use the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).  
+In the later part of this page, we will also use the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -158,7 +158,7 @@ Notice that the newly created data frame (`df_long`) has more rows (12,152 vs 3,
 
 In addition to becoming longer, the new dataset has fewer columns (8 vs 10), as the data previously stored in four columns (those beginning with the prefix `malaria_`) is now stored in two. 
 
-Since the names of these four columns all begin with the prefix `malaria_`, we could have made use of the handy "tidyselect" function `starts_with()` to achieve the same result (see the page [Cleaning data and core functions] for more of these helper functions).  
+Since the names of these four columns all begin with the prefix `malaria_`, we could have made use of the handy "tidyselect" function `starts_with()` to achieve the same result (see the page [Cleaning data and core functions](cleaning.qmd) for more of these helper functions).  
 
 ```{r}
 # provide column with a tidyselect helper function
@@ -312,9 +312,9 @@ df_long
 
 __Finishing touches__:
 
-Note that the `date` column is currently in *character* class - we can easily convert this into it's proper date class using the `mutate()` and `as_date()` functions described in the [Working with dates] page.  
+Note that the `date` column is currently in *character* class - we can easily convert this into it's proper date class using the `mutate()` and `as_date()` functions described in the [Working with dates](dates.qmd) page.  
 
-We may also want to convert the `observation` column to a `numeric` format by dropping the "obs" prefix and converting to numeric. We cando this with `str_remove_all()` from the **stringr** package (see the [Characters and strings] page).  
+We may also want to convert the `observation` column to a `numeric` format by dropping the "obs" prefix and converting to numeric. We cando this with `str_remove_all()` from the **stringr** package (see the [Characters and strings](characters_strings.qmd) page).  
 
 ```{r}
 
@@ -409,7 +409,7 @@ table_wide <-
 table_wide
 ```
 
-This table is much more reader-friendly, and therefore better for inclusion in our reports. You can convert into a pretty table with several packages including **flextable** and **knitr**. This process is elaborated in the page [Tables for presentation].  
+This table is much more reader-friendly, and therefore better for inclusion in our reports. You can convert into a pretty table with several packages including **flextable** and **knitr**. This process is elaborated in the page [Tables for presentation](tables_descriptive.qmd).  
 
 ```{r}
 table_wide %>% 

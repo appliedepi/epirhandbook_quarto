@@ -19,7 +19,7 @@ Verileri yönetirken, *pivotlama* aşağıdaki iki süreçten birini tarif eder:
 1. Daha kapsamlı bir tablonun verilerini özetleyen istatistik tabloları olan *pivot tabloların* oluşturulması 
 2. Bir tablonun **uzun** formattan **geniş** formata dönüştürülmesi veya tam tersi. 
 
-**Bu sayfada, ikinci tanıma odaklanacağız.** İlk tanım, veri analizinde çok önemli bir adımdır ancak [Verileri gruplandırma] ve [Tanımlayıcı tablolar] sayfalarında ele alınmıştır.
+**Bu sayfada, ikinci tanıma odaklanacağız.** İlk tanım, veri analizinde çok önemli bir adımdır ancak [Verileri gruplandırma](grouping.tr.qmd) ve [Tanımlayıcı tablolar](tables_descriptive.tr.qmd) sayfalarında ele alınmıştır.
 
 Bu sayfada veri biçimleri tartışılmaktadır. Her değişkenin kendi sütununa, her gözlemin kendi satırına ve her değerin kendi hücresine sahip olduğu “düzenli-tidy veri” felsefesi akılda tutulmalıdır. Bu konu hakkında daha fazla bilgiyi [Veri Bilimi için R çevrimiçi](https://r4ds.had.co.nz/tidy-data.html) bölümünde bulabilirsiniz.
 
@@ -30,7 +30,7 @@ Bu sayfada veri biçimleri tartışılmaktadır. Her değişkenin kendi sütunun
 
 ### Paketlerin yüklenmesi {.unnumbered}  
 
-Bu kod bloğu, analizler için gerekli olan paketlerin yüklenmesini gösterir. Bu el kitabında, gereken durumlarda paketi kuran *ve* kullanım için yükleyen **pacman**'ın `p_load()` fonksiyonunun kullanımı vurgulanmıştır. Ayrıca, R tabanından `library()` ile kurulu paketleri yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R temelleri] sayfasına bakın.
+Bu kod bloğu, analizler için gerekli olan paketlerin yüklenmesini gösterir. Bu el kitabında, gereken durumlarda paketi kuran *ve* kullanım için yükleyen **pacman**'ın `p_load()` fonksiyonunun kullanımı vurgulanmıştır. Ayrıca, R tabanından `library()` ile kurulu paketleri yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R temelleri](basics.tr.qmd) sayfasına bakın.
 
 ```{r}
 pacman::p_load(
@@ -47,7 +47,7 @@ pacman::p_load(
 
 ### Sıtma hastalığı için sayım verisi {-}  
 
-Bu sayfada, kuruluş ve yaş grubuna göre günlük sıtma vakalarını içeren kurgusal bir veri setini inceleyeceğiz. Adımları takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>veri setini indirmek için buraya tıklayın (.rds dosyası formatında)</a>. Verileri **rio** paketinden `import()` fonksiyonuyla içe aktarın (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için İçe Aktarma ve Dışa Aktarma sayfasına bakın).
+Bu sayfada, kuruluş ve yaş grubuna göre günlük sıtma vakalarını içeren kurgusal bir veri setini inceleyeceğiz. Adımları takip etmek isterseniz, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>veri setini indirmek için buraya tıklayın (.rds dosyası formatında)</a>. Verileri **rio** paketinden `import()` fonksiyonuyla içe aktarın (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için [İçe Aktarma ve Dışa Aktarma](importing.tr.qmd) sayfasına bakın).
 
 ```{r, echo=F}
 count_data <- rio::import(here::here("data", "malaria_facility_count_data.rds")) %>% 

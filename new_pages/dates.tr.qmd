@@ -23,7 +23,7 @@ R'daki tarihler özgün nesne sınıflarıdır - 'Date' sınıfı. Bu sınıf ay
 
 ### Paketleri yüklemek {.unnumbered}  
 
-Aşağıdaki kod parçası, bu sayfa için gerekli olan paketlerin yüklenmesini göstermektedir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` fonksiyonuna vurgulamaktayız. **base** R'dan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics] sayfasına bakınız. 
+Aşağıdaki kod parçası, bu sayfa için gerekli olan paketlerin yüklenmesini göstermektedir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan `p_load()` fonksiyonuna vurgulamaktayız. **base** R'dan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics](basics.tr.qmd) sayfasına bakınız. 
 
 ```{r dates_packages, warning=F, message=F}
 # Paketin kurulu olup olmadığını kontrol eder, gerekirse kurar ve mevcut oturum için paketi yükler
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Verileri içe aktarma {.unnumbered}  
 
-Simüle edilmiş bir Ebola salgını ile ilişkili vakaların veri setini içe aktarıyoruz. Adım adım izlenecek verileri indirmek istiyorsanız, [El kitabını ve verileri indir] sayfasındaki talimatlara bakınız. İlgili dosyaların çalışma dizininde olduğunu varsayıyoruz, bu nedenle bu dosya yolunda hiçbir alt klasör belirtilmemiştir.
+Simüle edilmiş bir Ebola salgını ile ilişkili vakaların veri setini içe aktarıyoruz. Adım adım izlenecek verileri indirmek istiyorsanız, [El kitabını ve verileri indir](data_used.tr.qmd) sayfasındaki talimatlara bakınız. İlgili dosyaların çalışma dizininde olduğunu varsayıyoruz, bu nedenle bu dosya yolunda hiçbir alt klasör belirtilmemiştir.
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -199,7 +199,7 @@ Değerler Date sınıfında olduğunda, R varsayılan olarak bunları YYYY-AA-GG
 
 Yukarıdaki fonksiyonların 4 basamaklı yıllarda en verimli şekilde çalıştığını unutmayın. **lubridate** yüzyılı tahmin etmeye çalıştığı için 2 basamaklı yıllar beklenmedik sonuçlar üretebilmektedir.
 
-2 basamaklı bir yılı 4 basamaklı bir yıla dönüştürmek için (tümü aynı yüzyılda) sınıf karakterine dönüştürebilir ve ardından **stringr** paketinden (bkz. [Karakterler ve dizeler]) `str_glue()` fonksiyonu kullanarak mevcut rakamları bir ön ek ile birleştirebilirsiniz. Ardından tarihe dönüştürebilirsiniz.
+2 basamaklı bir yılı 4 basamaklı bir yıla dönüştürmek için (tümü aynı yüzyılda) sınıf karakterine dönüştürebilir ve ardından **stringr** paketinden (bkz. [Karakterler ve dizeler](characters_strings.tr.qmd)) `str_glue()` fonksiyonu kullanarak mevcut rakamları bir ön ek ile birleştirebilirsiniz. Ardından tarihe dönüştürebilirsiniz.
 
 ```{r}
 two_digit_years <- c("15", "15", "16", "17")
@@ -302,7 +302,7 @@ mdy_hms("01 January 2020, 16:20:40 PST")
 
 ```
 
-Bir veri çerçevesiyle çalışırken, **stringr** paketinden `str_glue()` fonksiyonu ve uygun bir **lubridate** fonksiyonu kullanılarak saat ve tarih sütunları birleştirilebilir. **stringr** ile ilgili ayrıntılar için [Karakterler ve dizeler] hakkındaki sayfaya bakınız.
+Bir veri çerçevesiyle çalışırken, **stringr** paketinden `str_glue()` fonksiyonu ve uygun bir **lubridate** fonksiyonu kullanılarak saat ve tarih sütunları birleştirilebilir. **stringr** ile ilgili ayrıntılar için [Karakterler ve dizeler]((characters_strings.tr.qmd)) hakkındaki sayfaya bakınız.
 
 Bu örnekte, "linelist" veri çerçevesi "saat:dakika" biçiminde bir sütuna sahiptir. Bunu bir datetime formatına dönüştürmek için aşağıdaki adımları izleyebiliriz:
 
@@ -371,7 +371,7 @@ linelist <- linelist %>%
     hour_admit >=21 | hour_admit <= 6 ~ "Night"))
 ```
 
-`case_while()` hakkında daha fazla bilgi edinmek için [Temizleme verileri ve temel işlevler] hakkındaki sayfaya bakınız.
+`case_while()` hakkında daha fazla bilgi edinmek için [Temizleme verileri ve temel işlevler](cleaning.tr.qmd) hakkındaki sayfaya bakınız.
 
 <!-- ======================================================= -->
 ## Tarihlerle çalışma   
@@ -552,7 +552,7 @@ Not: Bir `ggplot()` içinde çalışıyor ve sadece tarihlerin nasıl *görünt�
 
 ### **lubridate** {.unnumbered}  
 
-Verileri tarihlerine göre gruplandırmaya ilişkin daha kapsamlı örnekler için [Gruplama verileri] hakkındaki sayfaya bakınız. Aşağıda, verileri haftalara göre gruplandırmayı kısaca açıklamaktayız.
+Verileri tarihlerine göre gruplandırmaya ilişkin daha kapsamlı örnekler için [Gruplama verileri]((grouping.tr.qmd)) hakkındaki sayfaya bakınız. Aşağıda, verileri haftalara göre gruplandırmayı kısaca açıklamaktayız.
 
 Genellikle, **lubridate** paketindeki `floor_date()` fonksiyonunu,  `unit = "week"` bağımsız değişkeniyle kullanmanızı önermekteyiz. Bu, `week_start = ` bağımsız değişkeniyle tanımlandığı gibi tarihi haftanın "başlangıcına" yuvarlar. Varsayılan hafta başlangıcı 1'dir (Pazartesiler için), ancak haftanın herhangi bir gününü başlangıç olarak belirtebilirsiniz (ör. Pazar günleri için 7). "floor_date()" çok yönlü bir fonksiyondur; `unit = ` öğesini "saniye (second)", "dakika (minute)", "saat (hour)", "gün (day)", "ay (month)" veya "yıl (year)" olarak ayarlayarak diğer zaman birimlerine yuvarlamak için kullanılabilir.
 
@@ -562,7 +562,7 @@ Tarihleri bir grafikte yalnızca haftasına göre *görüntülemek* ile ilgileni
 
 ### Haftalık sayımlar {.unnumbered}  
 
-Verileri `count()`, `group_by()` ve `summarise()` ile gruplandırmanın kapsamlı açıklamaları için [Verileri Gruplama] ile ilgili sayfaya bakınız. Aşğıda Kısa bir örnek verilmiştir.
+Verileri `count()`, `group_by()` ve `summarise()` ile gruplandırmanın kapsamlı açıklamaları için [Verileri Gruplama](grouping.tr.qmd) ile ilgili sayfaya bakınız. Aşğıda Kısa bir örnek verilmiştir.
 
 1) `unit = "week"` argümanıyla `floor_date()` ve `mutate()` fonksiyonlarıyla yeni bir "hafta" sütunu oluşturun
 2) `count()` ile haftalık satır (vaka) sayısını alın; tarihi eksik olan vakaları filtreleyin

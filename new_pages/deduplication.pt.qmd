@@ -60,7 +60,7 @@ obs <- data.frame(
 Use as caixas de filtro na parte superior para revisar os encontros de cada pessoa.  
 
 ```{r, message=FALSE, echo=F}
-DT::datatable(head (linelist, 10), rownames = FALSE, filter = "top", options = list(pageLength = 5, scrollX = T), class = 'white-space: nowrap')
+DT::datatable(obs, rownames = FALSE, filter = "top", options = list(pageLength = nrow(obs), scrollX=T), class = 'white-space: nowrap' )
 ```
 
 

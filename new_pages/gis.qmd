@@ -122,7 +122,7 @@ Note: The primary focus of this GIS page is based on the context of field outbre
 
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -146,7 +146,7 @@ For demonstration purposes, we will work with a random sample of 1000 cases from
 
 Since we are taking a random sample of the cases, your results may look slightly different from what is demonstrated here when you run the codes on your own.
 
-Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import clean case linelist
@@ -188,7 +188,7 @@ DT::datatable(head(linelist_sf, 10), rownames = FALSE, options = list(pageLength
 
 **Sierra Leone: Admin boundary shapefiles**  
 
-In advance, we have downloaded all administrative boundaries for Sierra Leone from the Humanitarian Data Exchange (HDX) [website here](https://data.humdata.org/dataset/sierra-leone-all-ad-min-level-boundaries). Alternatively, you can download these and all other example data for this handbook via our R package, as explained in the [Download handbook and data] page.  
+In advance, we have downloaded all administrative boundaries for Sierra Leone from the Humanitarian Data Exchange (HDX) [website here](https://data.humdata.org/dataset/sierra-leone-all-ad-min-level-boundaries). Alternatively, you can download these and all other example data for this handbook via our R package, as explained in the [Download handbook and data](data_used.qmd) page.  
 
 Now we are going to do the following to save the Admin Level 3 shapefile in R:  
 
@@ -196,7 +196,7 @@ Now we are going to do the following to save the Admin Level 3 shapefile in R:
 2) Clean the column names  
 3) Filter rows to keep only areas of interest  
 
-To import a shapefile we use the `read_sf()` function from **sf**. It is provided the filepath via `here()`. - in our case the file is within our R project in the "data", "gis", and "shp" subfolders, with filename "sle_adm3.shp" (see pages on [Import and export] and [R projects] for more information). You will need to provide your own file path.  
+To import a shapefile we use the `read_sf()` function from **sf**. It is provided the filepath via `here()`. - in our case the file is within our R project in the "data", "gis", and "shp" subfolders, with filename "sle_adm3.shp" (see pages on [Import and export](importing.qmd) and [R projects](r_projects.qmd) for more information). You will need to provide your own file path.  
 
 ```{r, echo=F}
 sle_adm3_raw <- sf::read_sf(here("data", "gis", "shp", "sle_adm3.shp"))
@@ -225,7 +225,7 @@ DT::datatable(head(sle_adm3, 50), rownames = FALSE, options = list(pageLength = 
 
 **Sierra Leone: Population by ADM3**  
 
-These data can again be downloaded from HDX (link [here](https://data.humdata.org/dataset/sierra-leone-population)) or via our **epirhandbook** R package as explained [in this page][Download handbook and data]. We use `import()` to load the .csv file. We also pass the imported file to `clean_names()` to standardize the column name syntax.   
+These data can again be downloaded from HDX (link [here](https://data.humdata.org/dataset/sierra-leone-population)) or via our **epirhandbook** R package as explained [in this page](data_used.qmd). We use `import()` to load the .csv file. We also pass the imported file to `clean_names()` to standardize the column name syntax.   
 
 ```{r}
 # Population by ADM3
@@ -245,7 +245,7 @@ DT::datatable(head(sle_adm3_pop, 50), rownames = FALSE, options = list(pageLengt
 
 **Sierra Leone: Health facility data from OpenStreetMap**  
 
-Again we have downloaded the locations of health facilities from HDX [here](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) or via instructions in the [Download handbook and data] page.   
+Again we have downloaded the locations of health facilities from HDX [here](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities) or via instructions in the [Download handbook and data](#data-used) page.   
 
 We import the facility points shapefile with `read_sf()`, again clean the column names, and then filter to keep only the points tagged as either "hospital", "clinic", or "doctors".  
 
@@ -339,7 +339,7 @@ To read a good comparison of mapping options in R, see this [blog post](https://
 <!-- ======================================================= -->
 ## Spatial joins {}
 
-You may be familiar with *joining* data from one dataset to another one. Several methods are discussed in the [Joining data] page of this handbook. A spatial join serves a similar purpose but leverages spatial relationships. Instead of relying on common values in columns to correctly match observations, you can utilize their spatial relationships, such as one feature being *within* another, or *the nearest neighbor* to another, or within a *buffer* of a certain radius from another, etc.  
+You may be familiar with *joining* data from one dataset to another one. Several methods are discussed in the [Joining data](joining_matching.qmd) page of this handbook. A spatial join serves a similar purpose but leverages spatial relationships. Instead of relying on common values in columns to correctly match observations, you can utilize their spatial relationships, such as one feature being *within* another, or *the nearest neighbor* to another, or within a *buffer* of a certain radius from another, etc.  
 
 
 The **sf** package offers various methods for spatial joins. See more documentation about the st_join method and spatial join types in this [reference](https://r-spatial.github.io/sf/reference/geos_binary_pred.html).  
@@ -397,7 +397,7 @@ case_adm3
 
 We can also create a bar plot of case counts by administrative unit.  
 
-In this example, we begin the `ggplot()` with the `linelist_adm`, so that we can apply factor functions like `fct_infreq()` which orders the bars by frequency (see page on [Factors] for tips).  
+In this example, we begin the `ggplot()` with the `linelist_adm`, so that we can apply factor functions like `fct_infreq()` which orders the bars by frequency (see page on [Factors](factors.qmd) for tips).  
 
 ```{r, warning=F, message=F}
 ggplot(
@@ -583,7 +583,7 @@ Since we also have population data by ADM3, we can add this information to the *
 
 We begin with the dataframe created in the previous step `case_adm3`, which is a summary table of each administrative unit and its number of cases.  
 
-1) The population data `sle_adm3_pop` are joined using a `left_join()` from **dplyr** on the basis of common values across column `admin3pcod` in the `case_adm3` dataframe, and column `adm_pcode` in the `sle_adm3_pop` dataframe. See page on [Joining data]).  
+1) The population data `sle_adm3_pop` are joined using a `left_join()` from **dplyr** on the basis of common values across column `admin3pcod` in the `case_adm3` dataframe, and column `adm_pcode` in the `sle_adm3_pop` dataframe. See page on [Joining data](joining_matching.qmd)).  
 2) `select()` is applied to the new dataframe, to keep only the useful columns - `total` is total population  
 3) Cases per 10,000 populaton is calculated as a new column with `mutate()`  
 

@@ -8,10 +8,10 @@ Chú ý:
 
 * Đầu tiên, cần cài đặt package **pacman** trước khi chạy đoạn code dưới đây. Bạn có thể thực hiện việc này với lệnh `install.packages("pacman")`. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ có thể vừa cài đặt package nếu cần *và* gọi chúng ra để sử dụng trong phiên làm việc. Bạn cũng có thể gọi package đã được cài đặt với lệnh `library()` từ **base** R.  
 * Trong đoạn code dưới đây, các packages được bao gồm khi cài đặt/gọi thông qua một package khác được trình bày bằng cách thụt lề và dấu thăng. Ví dụ: **ggplot2** được liệt kê bên dưới **tidyverse**.  
-* Nếu nhiều package có các hàm cùng tên, việc *đè lên nhau* đè lên nhau có thể xảy ra khi hàm từ package được gọi ra sau sẽ được ưu tiên hơn. Đọc thêm trong chương [R cơ bản]. Cân nhắc sử dụng package **conflicted** để quản lý các xung đột tương tự.  
-* Xem chương [R cơ bản] mục packages để biết thêm về **pacman** và ghi đè.  
+* Nếu nhiều package có các hàm cùng tên, việc *đè lên nhau* đè lên nhau có thể xảy ra khi hàm từ package được gọi ra sau sẽ được ưu tiên hơn. Đọc thêm trong chương [R cơ bản](basics.vn.qmd). Cân nhắc sử dụng package **conflicted** để quản lý các xung đột tương tự.  
+* Xem chương [R cơ bản](basics.vn.qmd) mục packages để biết thêm về **pacman** và ghi đè.  
 
-Để xem các phiên bản của R, RStudio và R packages được sử dụng trong quá trình viết cuốn sổ tay này, xem chương [Biên tập và ghi chú kỹ thuật].  
+Để xem các phiên bản của R, RStudio và R packages được sử dụng trong quá trình viết cuốn sổ tay này, xem chương [Biên tập và ghi chú kỹ thuật](editorial_style.vn.qmd).  
 
 ## Packages từ CRAN  
 

@@ -6,7 +6,7 @@
 
 Chương này minh họa cách sử dụng của một số packages cho phân tích chuỗi thời gian. Các packages chủ yếu đến từ hệ sinh thái [**tidyverts**](https://tidyverts.org/), ngoài ra cũng sử dụng RECON [**trending**](https://github.com/reconhub/trending) package để fit các mô hình dịch tễ học bệnh truyền nhiễm. 
 
-VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package **surveillance** (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
+VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package **surveillance** (xem chương [Tải sách và dữ liệu](data_used.vn.qmd) để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
 
 Các chủ đề được đề cập bao gồm:  
 
@@ -23,7 +23,7 @@ Các chủ đề được đề cập bao gồm:
 
 ### Packages {.unnumbered}
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R. 
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R. 
 
 ```{r load_packages}
 pacman::p_load(rio,          # File import
@@ -46,13 +46,13 @@ pacman::p_load(rio,          # File import
 
 ### Nhập dữ liệu {.unnumbered}
 
-Bạn có thể tải xuống tất cả dữ liệu được sử dụng trong sổ tay này thông qua các hướng dẫn trong chương [Tải sách và dữ liệu].  
+Bạn có thể tải xuống tất cả dữ liệu được sử dụng trong sổ tay này thông qua các hướng dẫn trong chương [Tải sách và dữ liệu](data_used.vn.qmd).  
 
 Bộ dữ liệu minh họa được sử dụng trong phần này là số lượng các trường hợp campylobacter hàng tuần được báo cáo ở Đức từ năm 2001 đến 2011. <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/time_series/campylobacter_germany.xlsx' class='download-button'>Bạn có thể bấm vào đây để tải xuống<span> bộ dữ liệu này (.xlsx).</span></a> 
 
 Bộ dữ liệu này là một phiên bản rút gọn của bộ dữ liệu có sẵn trong package [**surveillance**](https://cran.r-project.org/web/packages/surveillance/). (để biết chi tiết, hãy gọi surveillance package ra sau đó nhập `?campyDE`)
 
-Nhập dữ liệu này với hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Nhập dữ liệu này với hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r read_data_hide, echo=F}
 # import the counts into R
@@ -73,7 +73,7 @@ DT::datatable(head(counts, 10), rownames = FALSE, options = list(pageLength = 5,
 
 ### Làm sạch dữ liệu {.unnumbered}
 
-Code dưới đây đảm bảo rằng cột ngày thág đã ở đúng định dạng. Trong chương này chúng ta sẽ sử dụng package **tsibble** và hàm `yearweek` sẽ được sử dụng để tạp biến lịch theo tuần. Có một số cách để thực hiện việc này (Xem chương [Làm việc với ngày tháng] để biết thêm chi tiết), tuy nhiên đối với dữ liệu chuỗi thời gian thì tốt nhất nên sử dụng thống nhất một framework (**tsibble**). 
+Code dưới đây đảm bảo rằng cột ngày thág đã ở đúng định dạng. Trong chương này chúng ta sẽ sử dụng package **tsibble** và hàm `yearweek` sẽ được sử dụng để tạp biến lịch theo tuần. Có một số cách để thực hiện việc này (Xem chương [Làm việc với ngày tháng](dates.vn.qmd) để biết thêm chi tiết), tuy nhiên đối với dữ liệu chuỗi thời gian thì tốt nhất nên sử dụng thống nhất một framework (**tsibble**). 
 
 ```{r clean_data}
 
@@ -92,7 +92,7 @@ counts <- counts %>%
 Trong mục *mối tương quan của hai chuỗi thời gian* trong chương này, chúng ta sẽ so sánh số lượng trường hợp campylobacter với dữ liệu khí hậu. 
 Dữ liệu khí hậu tại bất kỳ đâu trên thế giới đều có thể được tải xuống từ EU's Copernicus Satellite. Đây không phải là các phép đo chính xác, mà dựa trên một mô hình (tương tự như phép nội suy), tuy nhiên lợi ích là mức độ bao phủ toàn cầu hàng giờ cũng như các dự báo.
 
-Bạn có thể tải xuống từng tệp dữ liệu khí hậu này từ chương [Tải sách và dữ liệu].  
+Bạn có thể tải xuống từng tệp dữ liệu khí hậu này từ chương [Tải sách và dữ liệu](data_used.vn.qmd).  
 
 Với mục đích minh họa ở đây, chúng tôi sẽ trình bày code để sử dụng package **ecmwfr** để lấy những dữ liệu này từ kho dữ liệu khí hậu Copernicus. Bạn sẽ cần tạo một tài khoản miễn phí để thực hiện. Trang web của package có một [hướng dẫn](https://github.com/bluegreen-labs/ecmwfr#use-copernicus-climate-data-store-cds) hữu ích về cách thực hiện việc này. Dưới đây là code minh họa về cách thực hiện việc này, khi bạn có các khóa API thích hợp. Bạn phải thay thế X bên dưới bằng ID tài khoản của mình. Bạn sẽ cần tải xuống một năm dữ liệu cùng một lúc nếu không máy chủ sẽ hết thời gian chờ. 
 
@@ -233,7 +233,7 @@ ggplot(counts, aes(x = epiweek, y = case)) +
 
 **tsibble** không cho phép các quan sát trùng lặp. Vì vậy, mỗi hàng sẽ cần phải là duy nhất, hoặc duy nhất trong nhóm (biến `key`). Package này có một số hàm để xác định các bản ghi trùng lặp. Chúng bao gồm các hàm: `are_duplicated()` trả về một vectơ có giá trị TRUE/FALSE vector, truy vấn xem hàng có là duy nhất không; và hàm `duplicates()` sẽ cung cấp cho bạn một data frame chứa các hàng trùng lặp. 
 
-Xem chương [Loại bỏ trùng lặp] để biết thêm chi tiết về cách lựa chọn các hàng bạn muốn. 
+Xem chương [Loại bỏ trùng lặp](deduplication.vn.qmd) để biết thêm chi tiết về cách lựa chọn các hàng bạn muốn. 
 
 ```{r duplicates, eval = FALSE}
 
@@ -250,9 +250,9 @@ duplicates(counts, index = epiweek)
 
 Chúng ta đã thấy từ cuộc khảo sát tóm tắt bên trên, không có bất kỳ giá trị missing nào được phát hiện, nhưng chúng ta cũng đã thấy rằng dường như có vấn đề với việc báo cáo chậm trễ vào khoảng năm mới. Một cách để giải quyết vấn đề này có thể là đặt các giá trị này thành missing và sau đó impute các giá trị. Dạng đơn giản nhất của khi impute chuỗi thời gian là vẽ một đường thẳng giữa giá trị không bị thiếu cuối cùng và giá trị không bị thiếu tiếp theo. Để làm điều này, chúng ta sẽ sử dụng hàm `na_interpolation()` từ package **imputeTS** . 
 
-Xem chương [Dữ liệu Missing] để biết các tùy chọn khác của imputation.  
+Xem chương [Dữ liệu Missing](missing_data.vn.qmd) để biết các tùy chọn khác của imputation.  
 
-Một giải pháp thay thế khác sẽ là tính toán đường trung bình động, để thử và giải quyết các vấn đề báo cáo rõ ràng này (xem phần tiếp theo và chương [Đường trung bình động]. 
+Một giải pháp thay thế khác sẽ là tính toán đường trung bình động, để thử và giải quyết các vấn đề báo cáo rõ ràng này (xem phần tiếp theo và chương [Đường trung bình động](moving_average.vn.qmd). 
 
 ```{r missings}
 
@@ -291,7 +291,7 @@ ggplot_na_imputations(counts$case_miss, counts$case_int) +
 <!-- ======================================================= -->
 ### Đường trung bình động {#timeseries_moving .unnumbered}
 
-Nếu dữ liệu rất nhiễu (dao động lên và xuống), việc tính toán đường trung bình động có thể sẽ hữu ích. Trong ví dụ dưới đây, với mỗi tuần chúng ta sẽ tính toán số trường hợp trung bình từ bốn tuần trước đó. Việc này sẽ giúp dữ liệu dễ diễn giải hơn. Trong trường hợp của chúng ta, điều này không thực sự bổ sung nhiều, vì vậy chúng ta sẽ bám vào dữ liệu nội suy để phân tích thêm. Xem chương [Đường trung bình động] để biết thêm chi tiết. 
+Nếu dữ liệu rất nhiễu (dao động lên và xuống), việc tính toán đường trung bình động có thể sẽ hữu ích. Trong ví dụ dưới đây, với mỗi tuần chúng ta sẽ tính toán số trường hợp trung bình từ bốn tuần trước đó. Việc này sẽ giúp dữ liệu dễ diễn giải hơn. Trong trường hợp của chúng ta, điều này không thực sự bổ sung nhiều, vì vậy chúng ta sẽ bám vào dữ liệu nội suy để phân tích thêm. Xem chương [Đường trung bình động](moving_average.vn.qmd) để biết thêm chi tiết. 
 
 ```{r moving_averages}
 
@@ -316,7 +316,7 @@ ggplot(counts, aes(x = epiweek)) +
 <!-- ======================================================= -->
 ### Tính chu kỳ {.unnumbered}
 
-Sau đây chúng ta sẽ định nghĩa một hàm để tạo một biểu đồ chu kỳ. Xem chương [Viết hàm] để biết cách tạo một hàm trong R.  
+Sau đây chúng ta sẽ định nghĩa một hàm để tạo một biểu đồ chu kỳ. Xem chương [Viết hàm](writing_functions.vn.qmd) để biết cách tạo một hàm trong R.  
 
 Đầu tiên, hàm được định nghĩa. Các đối số của nó bao gồm một bộ dữ liệu với cột `counts`, `start_week = ` là tuần đầu tiên của bộ dữ liệu, một con số để cho biết có bao nhiêu chu kỳ mỗi năm (ví dụ: 52, 12), và cuối cùng là kiểu đầu ra (xem chi tiết trong đoạn mã bên dưới). 
 
@@ -575,7 +575,7 @@ Box.test(estimate_res$resid, type = "Ljung-Box")
 <!-- ======================================================= -->
 ### Nối hai bộ dữ liệu {.unnumbered}
 
-Bạn có thể nối các tập dữ liệu của mình sử dụng biến tuần. Để biết thêm về nối dữ liệu, xem chương [Nối dữ liệu].
+Bạn có thể nối các tập dữ liệu của mình sử dụng biến tuần. Để biết thêm về nối dữ liệu, xem chương [Nối dữ liệu](joining_matching.vn.qmd).
 
 ```{r join}
 
@@ -590,7 +590,7 @@ counts <- left_join(counts,
 <!-- ======================================================= -->
 ### Phân tích mô tả {.unnumbered}
 
-Đầu tiên hãy trực quan hóa dữ liệu của bạn để kiểm tra xem có bất kỳ mối tương quan rõ ràng nào không. Biểu đồ dưới đây cho thấy một mối quan hệ rõ ràng về tính mùa vụ của các biến, và nhiệt độ có thể đạt đỉnh vài tuần trước khi các trường hợp xảy ra. Để biết thêm về xoay trục dữ liệu, xem chương [Xoay trục dữ liệu]. 
+Đầu tiên hãy trực quan hóa dữ liệu của bạn để kiểm tra xem có bất kỳ mối tương quan rõ ràng nào không. Biểu đồ dưới đây cho thấy một mối quan hệ rõ ràng về tính mùa vụ của các biến, và nhiệt độ có thể đạt đỉnh vài tuần trước khi các trường hợp xảy ra. Để biết thêm về xoay trục dữ liệu, xem chương [Xoay trục dữ liệu](pivoting.vn.qmd). 
 
 ```{r basic_plot_bivar}
 
@@ -871,7 +871,7 @@ Chúng ta bây giờ cần phải chia dữ liệu của mình thành 2 giai đo
 
 Chúng ta sau đó sử dụng hàm `pluck()` từ package **purrr** để kéo tập dữ liệu ra khỏi danh sách (tương đương với việc sử dụng ngoặc vuông, vd: `dat[[1]]`), và sau đó có thể fit mô hình của chúng ta tới dữ liệu nền,và sau đó sử dụng hàm `predict()` cho dữ liệu mà chúng ta quan tâm sau cut-off.  
 
-Xem chương [Lặp, vòng lặp, và danh sách] để biết thêm về **purrr**.  
+Xem chương [Lặp, vòng lặp, và danh sách](iteration.vn.qmd) để biết thêm về **purrr**.  
 
 <span style="color: orange;">**_CẨN TRỌNG:_** Lưu ý cách sử dụng của đối số `simulate_pi = FALSE` bên trong hàm `predict()`. Điều này là bởi hành vi mặc định của **trending** là sử dụng package **ciTools** để ước tính khoảng tiên lượng. Nó sẽ không hoạt động nếu có giá trị `NA`, cũng như tạo ra nhiều khoảng chi tiết hơn. Xem `?trending::predict.trending_model_fit` để biết thêm chi tiết. </span>  
 

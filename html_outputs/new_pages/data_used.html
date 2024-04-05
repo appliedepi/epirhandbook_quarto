@@ -637,7 +637,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </li>
 <li>The offline handbook has a slightly different layout - one very long page with Table of Contents on the left. To search for specific terms use Ctrl+f (Cmd-f)<br>
 </li>
-<li>See the [Suggested packages] page to assist you with installing appropriate R packages before you lose internet connectivity<br>
+<li>See the <a href="../new_pages/packages_suggested.html">Suggested packages</a> page to assist you with installing appropriate R packages before you lose internet connectivity<br>
 </li>
 <li>Install our R package <strong>epirhandbook</strong> that contains all the example data (install process described below)</li>
 </ul>
@@ -697,7 +697,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download a specific file into a folder on your computer</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_data</span>(<span class="st">"linelist_cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once you have used <code>get_data()</code> to save a file to your computer, you will still need to import it into R. See the [Import and export] page for details.</p>
+<p>Once you have used <code>get_data()</code> to save a file to your computer, you will still need to import it into R. see the <a href="../new_pages/importing.html">Import and export</a> page for details.</p>
 <p>If you wish, you can review all the data used in this handbook in the <strong><a href="https://github.com/appliedepi/epirhandbook_eng/tree/master/data">“data” folder</a></strong> of our Github repository.</p>
 </section>
 <section id="download-one-by-one" class="level3 unnumbered">
@@ -707,7 +707,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h4 class="unnumbered anchored" data-anchor-id="case-linelist">Case linelist</h4>
 <p>This is a fictional Ebola outbreak, expanded by the handbook team from the <code>ebola_sim</code> practice dataset in the <strong>outbreaks</strong> package.</p>
 <ul>
-<li><p><a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx" class="download-button">Click to download the “raw” linelist (.xlsx)</a>. The “raw” case linelist is an Excel spreadsheet with messy data. Use this to follow-along with the [Cleaning data and core functions] page.</p></li>
+<li><p><a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx" class="download-button">Click to download the “raw” linelist (.xlsx)</a>. The “raw” case linelist is an Excel spreadsheet with messy data. Use this to follow-along with the <a href="../new_pages/cleaning.html">Cleaning data and core functions</a> page.</p></li>
 <li><p><a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">Click to download the “clean” linelist (.rds)</a>. Use this file for all other pages of this handbook that use the linelist. A .rds file is an R-specific file type that preserves column classes. This ensures you will have only minimal cleaning to do after importing the data into R.</p></li>
 </ul>
 <p><em>Other related files:</em></p>
@@ -729,7 +729,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="likert-scale-data" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="likert-scale-data">Likert-scale data</h4>
-<p>These are fictional data from a Likert-style survey, used in the page on [Demographic pyramids and Likert-scales]. You can load these data directly into R by running the following commands:</p>
+<p>These are fictional data from a Likert-style survey, used in the page on <a href="../new_pages/age_pyramid.html">Demographic pyramids and Likert-scales</a>. You can load these data directly into R by running the following commands:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio) <span class="co"># install/load the rio package</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -739,7 +739,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="flexdashboard" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="flexdashboard">Flexdashboard</h4>
-<p>Below are links to the file associated with the page on [Dashboards with R Markdown]:</p>
+<p>Below are links to the file associated with the page on <a href="../new_pages/flexdashboard.html">Dashboards with R Markdown</a>:</p>
 <ul>
 <li>To download the R Markdown for the outbreak dashboard, right-click this <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard.Rmd">link</a> (Cmd+click for Mac) and select “Save link as”.<br>
 </li>
@@ -748,7 +748,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="contact-tracing" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="contact-tracing">Contact Tracing</h4>
-<p>The <a href="#contact-tracing">Contact Tracing</a> page demonstrated analysis of contact tracing data, using example data from <a href="https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting">Go.Data</a>. The data used in the page can be downloaded as .rds files by clicking the following links:</p>
+<p>The <a href="../new_pages/contact_tracing.html">Contact Tracing</a> page demonstrated analysis of contact tracing data, using example data from <a href="https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting">Go.Data</a>. The data used in the page can be downloaded as .rds files by clicking the following links:</p>
 <p><a href="https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/cases_clean.rds?raw=true" class="download-button"> Click to download <span>the case investigation data (.rds file)</span> </a></p>
 <p><a href="https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/contacts_clean.rds?raw=true" class="download-button"> Click to download <span>the contact registration data (.rds file)</span> </a></p>
 <p><a href="https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/followups_clean.rds?raw=true" class="download-button"> Click to download <span>the contact follow-up data (.rds file)</span> </a></p>
@@ -758,8 +758,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="gis" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="gis">GIS</h4>
 <p>Shapefiles have many sub-component files, each with a different file extention. One file will have the “.shp” extension, but others may have “.dbf”, “.prj”, etc.</p>
-<p>The [GIS basics] page provides links to the <em>Humanitarian Data Exchange</em> website where you can download the shapefiles directly as zipped files.</p>
-<p>For example, the health facility points data can be downloaded <a href="https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities">here</a>. Download “hotosm_sierra_leone_health_facilities_points_shp.zip”. Once saved to your computer, “unzip” the folder. You will see several files with different extensions (e.g.&nbsp;“.shp”, “.prj”, “.shx”) - all these must be saved to the same folder on your computer. Then to import into R, provide the file path and name of the “.shp” file to <code>st_read()</code> from the <strong>sf</strong> package (as described in the [GIS basics] page).</p>
+<p>The <a href="../new_pages/gis.html">GIS basics</a> page provides links to the <em>Humanitarian Data Exchange</em> website where you can download the shapefiles directly as zipped files.</p>
+<p>For example, the health facility points data can be downloaded <a href="https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities">here</a>. Download “hotosm_sierra_leone_health_facilities_points_shp.zip”. Once saved to your computer, “unzip” the folder. You will see several files with different extensions (e.g.&nbsp;“.shp”, “.prj”, “.shx”) - all these must be saved to the same folder on your computer. Then to import into R, provide the file path and name of the “.shp” file to <code>st_read()</code> from the <strong>sf</strong> package (as described in the <a href="../new_pages/gis.html">GIS basics</a> page).</p>
 <p>If you follow Option 1 to download all the example data (via our R package <strong>epirhandbook</strong>), all the shapefiles are included.</p>
 <p>Alternatively, you can download the shapefiles from the R Handbook Github “data” folder (see the “gis” sub-folder). However, be aware that you will need to download <em>each</em> sub-file individually to your computer. In Github, click on each file individually and download them by clicking on the “Download” button. Below, you can see how the shapefile “sle_adm3” consists of many files - each of which would need to be downloaded from Github.</p>
 <div class="cell" data-layout-align="center">
@@ -774,7 +774,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="phylogenetic-trees" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="phylogenetic-trees">Phylogenetic trees</h4>
-<p>See the page on <a href="#phylogenetic-trees">Phylogenetic trees</a>. Newick file of phylogenetic tree constructed from whole genome sequencing of 299 Shigella sonnei samples and corresponding sample data (converted to a text file). The Belgian samples and resulting data are kindly provided by the Belgian NRC for Salmonella and Shigella in the scope of a project conducted by an ECDC EUPHEM Fellow, and will also be published in a manuscript. The international data are openly available on public databases (ncbi) and have been previously published.</p>
+<p>See the page on <a href="../new_pages/phylogenetic_trees.html">Phylogenetic trees</a>. Newick file of phylogenetic tree constructed from whole genome sequencing of 299 Shigella sonnei samples and corresponding sample data (converted to a text file). The Belgian samples and resulting data are kindly provided by the Belgian NRC for Salmonella and Shigella in the scope of a project conducted by an ECDC EUPHEM Fellow, and will also be published in a manuscript. The international data are openly available on public databases (ncbi) and have been previously published.</p>
 <ul>
 <li>To download the “Shigella_tree.txt” phylogenetic tree file, right-click this <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/Shigella_tree.txt">link</a> (Cmd+click for Mac) and select “Save link as”.<br>
 </li>
@@ -789,7 +789,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="standardization" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="standardization">Standardization</h4>
-<p>See the page on [Standardised rates]. You can load the data directly from our Github repository on the internet into your R session with the following commands:</p>
+<p>See the page on <a href="../new_pages/standardization.html">Standardised rates</a>. You can load the data directly from our Github repository on the internet into your R session with the following commands:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install/load the rio package</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio) </span>
@@ -822,7 +822,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="data_outbreak" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="data_outbreak">Time series and outbreak detection</h4>
-<p>See the page on <a href="#data_outbreak">Time series and outbreak detection</a>. We use campylobacter cases reported in Germany 2002-2011, as available from the <strong>surveillance</strong> R package. (<em>nb.</em> this dataset has been adapted from the original, in that 3 months of data have been deleted from the end of 2011 for demonstration purposes)</p>
+<p>See the page on <a href="../new_pages/epidemic_models.html">Time series and outbreak detection</a>. We use campylobacter cases reported in Germany 2002-2011, as available from the <strong>surveillance</strong> R package. (<em>nb.</em> this dataset has been adapted from the original, in that 3 months of data have been deleted from the end of 2011 for demonstration purposes)</p>
 <p><a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/campylobacter_germany.xlsx" class="download-button"> Click to download <span> Campylobacter in Germany (.xlsx)</span> </a></p>
 <p>We also use climate data from Germany 2002-2011 (temperature in degrees celsius and rain fail in millimetres) . These were downloaded from the EU Copernicus satellite reanalysis dataset using the <strong>ecmwfr</strong> package. You will need to download all of these and import them with <code>stars::read_stars()</code> as explained in the time series page.</p>
 <p><a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/weather/germany_weather2002.nc" class="download-button"> Click to download <span> Germany weather 2002 (.nc file)</span> </a></p>
@@ -845,7 +845,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </section>
 <section id="data_shiny" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="data_shiny">Shiny</h4>
-<p>The page on [Dashboards with Shiny] demonstrates the construction of a simple app to display malaria data.</p>
+<p>The page on <a href="../new_pages/shiny_basics.html">Dashboards with Shiny</a> demonstrates the construction of a simple app to display malaria data.</p>
 <p>To download the R files that produce the Shiny app:</p>
 <p>You can <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_app/app.R" class="download-button"> click here to download the app.R file<span> that contains both the UI and Server code for the Shiny app.</span></a></p>
 <p>You can <a href="https://github.com/appliedepi/epirhandbook_eng/blob/master/data/malaria_app/data/facility_count_data.rds" class="download-button"> click here to download the facility_count_data.rds file<span></span></a> that contains malaria data for the Shiny app. Note that you may need to store it within a “data” folder for the here() file paths to work correctly.</p>
@@ -1402,7 +1402,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

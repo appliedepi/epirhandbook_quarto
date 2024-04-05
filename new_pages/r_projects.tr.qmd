@@ -12,7 +12,7 @@ R'ı kullanmanın yaygın, verimli ve sorunsuz bir yolu bu 3 unsuru birleştirme
 1) Bir **R projesi**  
      - Veriler, komut dosyaları, çıktılar vb. için ilgili klasörlerden oluşan bağımsız bir çalışma ortamı. 
 2) Alternatif dosya yolakları için **here** paketi 
-     - Dosya yolakları, R projesinin ana klasörüne göre yazılır - daha fazla bilgi için [İçe ve dışa aktar] bölümüne bakınız.  
+     - Dosya yolakları, R projesinin ana klasörüne göre yazılır - daha fazla bilgi için [İçe ve dışa aktar](importing.tr.qmd) bölümüne bakınız.  
 3) İçe/dışa aktarma için **rio** paketi  
      - `import()` ve `export()`, herhangi bir dosya türünü uzantısına göre işler (ör. .csv, .xlsx, .png)
      
@@ -26,7 +26,7 @@ Bir R projesi oluşturmak için Dosya menüsünden "Yeni Proje" seçeneğini se�
 
 * Proje için yeni bir klasör oluşturmak istiyorsanız, "Yeni dizin"i seçin ve projenizin nerede oluşturulmasını istediğinizi belirtiniz.  
 * Projeyi mevcut bir klasör içinde oluşturmak istiyorsanız, "Mevcut dizin" seçeneğine tıklayıp ve klasörü belirtiniz.  
-* Bir Github deposunu klonlamak istiyorsanız, üçüncü seçenek olan "Versiyon Kontrolü"nü seçip ve ardından "Git"i seçiniz. Daha fazla ayrıntı için [Versiyon kontrolü, Git ve Github ile işbirliği] hakkındaki sayfaya bakınız.  
+* Bir Github deposunu klonlamak istiyorsanız, üçüncü seçenek olan "Versiyon Kontrolü"nü seçip ve ardından "Git"i seçiniz. Daha fazla ayrıntı için [Versiyon kontrolü, Git ve Github ile işbirliği](collaboration.tr.qmd) hakkındaki sayfaya bakınız.  
 
 
 ```{r out.width = "75%", fig.align = "center", echo=F}
@@ -60,14 +60,14 @@ RStudio'yu her açılışta "temiz bir sayfaya" sahip olacak şekilde ayarlamak 
 
 ### Organizasyon {.unnumbered}  
 
-Projenizde alt klasörlerin olması yaygın bir durumdur. "Veri", "komut dosyaları", "şekiller", "sunular" gibi klasörleri oluşturabilirsiniz. Bilgisayarınız için yeni bir klasör eklediğiniz gibi proje alt klasörlerini ekleyebilirsiniz. Alternatif olarak, R komutlarıyla yeni klasörlerin nasıl oluşturulacağını öğrenmek için [Dizin etkileşimleri] hakkındaki sayfaya bakınız. 
+Projenizde alt klasörlerin olması yaygın bir durumdur. "Veri", "komut dosyaları", "şekiller", "sunular" gibi klasörleri oluşturabilirsiniz. Bilgisayarınız için yeni bir klasör eklediğiniz gibi proje alt klasörlerini ekleyebilirsiniz. Alternatif olarak, R komutlarıyla yeni klasörlerin nasıl oluşturulacağını öğrenmek için [Dizin etkileşimleri](directories.tr.qmd) hakkındaki sayfaya bakınız. 
 
 
 ### Versiyon kontrolü {.unnumbered}  
 
 Projelerinizde her zaman bir versiyon kontrol sistemi düşünmelisiniz. Komut dosyalarının adlarında (örneğin, "transmission_analysis_2020-10-03.R") ve bir "arşiv" klasöründe tarihlerin eklenmesi gibi basit bir yöntemi kullanabilirsiniz. Ayrıca açıklama, etiketler, yazarlar ve değişiklik günlüğü ile her komut dosyasının üst kısmında yorumlar da ekleyebilirsiniz.
 
-Daha karmaşık bir yöntem, sürüm kontrolü için Github veya benzer bir platform kullanmayı içermektedir. [Versiyon kontrolü, Git ve Github ile işbirliği] hakkındaki sayfaya bakınız.
+Daha karmaşık bir yöntem, sürüm kontrolü için Github veya benzer bir platform kullanmayı içermektedir. [Versiyon kontrolü, Git ve Github ile işbirliği](collaboration.tr.qmd) hakkındaki sayfaya bakınız.
 
 Bir ipucu olarak, "Dosyalarda Bul" aracını (Düzenle menüsü) kullanarak tüm projede veya klasörde arama yapabilmenizdir. Birden çok dosyada istediğiniz kelime/dizeleri arayabilir ve hatta değiştirebilirsiniz.  
 
@@ -78,7 +78,7 @@ Bir ipucu olarak, "Dosyalarda Bul" aracını (Düzenle menüsü) kullanarak tüm
 
 ## Örnekler
 
-Aşağıda, bir R projesi içinden `here()` fonksiyonunu kullanarak bazı içe/dışa aktarma/kaydetme örnekleri verilmiştir. [İçe ve dışa aktar] sayfasında **here** paketinin kullanımı hakkında daha fazla bilgi edinebilirsiniz.
+Aşağıda, bir R projesi içinden `here()` fonksiyonunu kullanarak bazı içe/dışa aktarma/kaydetme örnekleri verilmiştir. [İçe ve dışa aktar](importing.tr.qmd) sayfasında **here** paketinin kullanımı hakkında daha fazla bilgi edinebilirsiniz.
 
 
 *R projenizdeki "data" klasöründen `linelist_raw.xlsx` dosyasını içe aktarın*  

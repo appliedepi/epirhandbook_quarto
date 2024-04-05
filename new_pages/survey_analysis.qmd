@@ -27,7 +27,7 @@ Some of the **survey** package based code is based off early versions of
 
 At current this page does not address sample size calculations or sampling. 
 For a simple to use sample size calculator see [OpenEpi](https://www.openepi.com/Menu/OE_Menu.htm). 
-The [GIS basics](https://epirhandbook.com/gis-basics.html) page of the handbook 
+The [GIS basics](gis.qmd) page of the handbook 
 will eventually have a section on spatial random sampling, and this page will 
 eventually have a section on sampling frames as well as sample size calculations. 
 
@@ -47,7 +47,7 @@ eventually have a section on sampling frames as well as sample size calculations
 
 ### Packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load packages with `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load packages with `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 Here we also demonstrate using the `p_load_gh()` function from **pacman** to install a load a package from github which has not yet been published on CRAN. 
 
 ```{r}
@@ -103,7 +103,7 @@ as an export (as in Kobo you export different questionnaire levels individually)
 - see the survey data section below to merge the different levels.</span>
 
 
-The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export](https://epirhandbook.com/import-and-export.html) for various ways to import data.
+The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export](importing.qmd) for various ways to import data.
 
 ```{r echo = FALSE}
 # import the survey into R
@@ -170,11 +170,11 @@ cluster_counts <- tibble(cluster = c("village_1", "village_2", "village_3", "vil
 ### Clean data {.unnumbered}
 
 The below makes sure that the date column is in the appropriate format. 
-There are several other ways of doing this (see the [Working with dates](https://epirhandbook.com/working-with-dates.html)
+There are several other ways of doing this (see the [Working with dates](dates.qmd)
 page for details), however using the dictionary to define dates is quick and easy. 
 
 We also create an age group variable using the `age_categories()` function from 
-**epikit** - see [cleaning data](https://epirhandbook.com/cleaning-data-and-core-functions.html#num_cats)
+**epikit** - see [cleaning data](cleaning.qmd#num_cats)
 handbook section for details. 
 In addition, we create a character variable defining which district the various clusters
 are in. 
@@ -385,7 +385,7 @@ For example if you have observations with negative observation time, you will ne
 to check those (you can do this with the `assert_positive_timespan()` function 
 from **sitrep**. 
 Another thing is if you want to drop empty rows (e.g. with `drop_na(uid)`)
-or remove duplicates (see handbook section on [De-duplication] 
+or remove duplicates (see handbook section on [De-duplication](deduplication.qmd) 
 for details). 
 Those without consent need to be dropped too. 
 
@@ -560,11 +560,11 @@ survey_design <- survey_data %>%
 
 Basic descriptive analysis and visualisation is covered extensively in other 
 chapters of the handbook, so we will not dwell on it here. 
-For details see the chapters on [descriptive tables](https://epirhandbook.com/descriptive-tables.html), 
-[statistical tests](https://epirhandbook.com/simple-statistical-tests.html), 
-[tables for presentation](https://epirhandbook.com/tables-for-presentation.html), 
-[ggplot basics](https://epirhandbook.com/ggplot-basics.html) and 
-[R markdown reports](https://epirhandbook.com/r-markdown-reports.html). 
+For details see the chapters on [descriptive tables](tables_descriptive.qmd), 
+[statistical tests](stat_tests.qmd), 
+[tables for presentation](tables_presentation.qmd), 
+[ggplot basics](ggplot_basics.qmd) and 
+[R markdown reports](rmarkdown.qmd). 
 
 In this section we will focus on how to investigate bias in your sample and visualise this. 
 We will also look at visualising population flow in a survey setting using 
@@ -660,7 +660,7 @@ section, we are interested here in visualising whether our sampled population
 is substantially different from the source population and whether weighting corrects
 this difference. To do this we will use the **patchwork** package to show our 
 **ggplot** visualisations side-by-side; for details see the section on 
-combining plots in [ggplot tips](https://epirhandbook.com/ggplot-tips.html?q=patch#combine-plots)
+combining plots in [ggplot tips](ggplot_tips.qmd)
 chapter of the handbook. 
 We will visualise our source population, our un-weighted survey population and 
 our weighted survey population.
@@ -784,7 +784,7 @@ get an overview. There is quite an obvious application for mobile populations,
 however there are numerous other applications such as cohorts or any other situation
 where there are transitions in states for individuals. These diagrams have several
 different names including alluvial, sankey and parallel sets - the details are 
-in the handbook chapter on [diagrams and charts](https://epirhandbook.com/diagrams-and-charts.html#alluvialsankey-diagrams). 
+in the handbook chapter on [diagrams and charts](diagrams.qmd). 
 
 
 ```{r visualise_population_flow}
@@ -859,7 +859,7 @@ svymean(~died, base_survey_design, na.rm = T, deff = T) %>%
 We can combine the functions from **survey** shown above in to a function which 
 we define ourselves below, called `svy_prop`; and we can then use that function 
 together with `map()` from the purrr package to iterate over several variables 
-and create a table. See the handbook [iteration](https://epirhandbook.com/iteration-loops-and-lists.html) 
+and create a table. See the handbook [iteration](iteration.qmd) 
 chapter for details on **purrr**. 
 
 ```{r survey_prop_fun}
@@ -948,7 +948,7 @@ survey_design %>%
 
 Here too we could write a function to then iterate over multiple variables using
 the **purrr** package. 
-See the handbook [iteration](https://epirhandbook.com/iteration-loops-and-lists.html) 
+See the handbook [iteration](iteration.qmd) 
 chapter for details on **purrr**. 
 
 ```{r srvyr_prop_fun}

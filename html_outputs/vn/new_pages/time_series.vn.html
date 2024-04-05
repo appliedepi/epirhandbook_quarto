@@ -338,7 +338,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -480,7 +480,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -701,7 +701,7 @@ window.Quarto = {
 <section id="tổng-quan" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="tổng-quan"><span class="header-section-number">23.1</span> Tổng quan</h2>
 <p>Chương này minh họa cách sử dụng của một số packages cho phân tích chuỗi thời gian. Các packages chủ yếu đến từ hệ sinh thái <a href="https://tidyverts.org/"><strong>tidyverts</strong></a>, ngoài ra cũng sử dụng RECON <a href="https://github.com/reconhub/trending"><strong>trending</strong></a> package để fit các mô hình dịch tễ học bệnh truyền nhiễm.</p>
-<p>VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package <strong>surveillance</strong> (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại <a href="https://github.com/R4EPI/epitsa">repo github của r4epis</a>.</p>
+<p>VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package <strong>surveillance</strong> (xem chương <a href="../new_pages/data_used.vn.html">Tải sách và dữ liệu</a> để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại <a href="https://github.com/R4EPI/epitsa">repo github của r4epis</a>.</p>
 <p>Các chủ đề được đề cập bao gồm:</p>
 <ol type="1">
 <li>Dữ liệu chuỗi thời gian</li>
@@ -717,7 +717,7 @@ window.Quarto = {
 <h2 data-number="23.2" class="anchored" data-anchor-id="chuẩn-bị"><span class="header-section-number">23.2</span> Chuẩn bị</h2>
 <section id="packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="packages">Packages</h3>
-<p>Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code>library()</code> của <strong>base</strong> R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.</p>
+<p>Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code>library()</code> của <strong>base</strong> R. Xem thêm chương <a href="../new_pages/basics.vn.html">R cơ bản</a> để có thêm thông tin về các packages trong R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio,          <span class="co"># File import</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               here,         <span class="co"># File locator</span></span>
@@ -739,10 +739,10 @@ window.Quarto = {
 </section>
 <section id="nhập-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="nhập-dữ-liệu">Nhập dữ liệu</h3>
-<p>Bạn có thể tải xuống tất cả dữ liệu được sử dụng trong sổ tay này thông qua các hướng dẫn trong chương [Tải sách và dữ liệu].</p>
+<p>Bạn có thể tải xuống tất cả dữ liệu được sử dụng trong sổ tay này thông qua các hướng dẫn trong chương <a href="../new_pages/data_used.vn.html">Tải sách và dữ liệu</a>.</p>
 <p>Bộ dữ liệu minh họa được sử dụng trong phần này là số lượng các trường hợp campylobacter hàng tuần được báo cáo ở Đức từ năm 2001 đến 2011. <a href="https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/time_series/campylobacter_germany.xlsx" class="download-button">Bạn có thể bấm vào đây để tải xuống<span> bộ dữ liệu này (.xlsx).</span></a></p>
 <p>Bộ dữ liệu này là một phiên bản rút gọn của bộ dữ liệu có sẵn trong package <a href="https://cran.r-project.org/web/packages/surveillance/"><strong>surveillance</strong></a>. (để biết chi tiết, hãy gọi surveillance package ra sau đó nhập <code>?campyDE</code>)</p>
-<p>Nhập dữ liệu này với hàm <code>import()</code> từ package <strong>rio</strong> (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).</p>
+<p>Nhập dữ liệu này với hàm <code>import()</code> từ package <strong>rio</strong> (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a> để biết thêm chi tiết).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the counts into R</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"campylobacter_germany.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,14 +750,14 @@ window.Quarto = {
 <p>10 hàng đầu tiên được hiển thị như bên dưới.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-15a55f663ea6aeed27d9" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-15a55f663ea6aeed27d9">{"x":{"filter":"none","vertical":false,"data":[["2001-12-31T00:00:00Z","2002-01-07T00:00:00Z","2002-01-14T00:00:00Z","2002-01-21T00:00:00Z","2002-01-28T00:00:00Z","2002-02-04T00:00:00Z","2002-02-11T00:00:00Z","2002-02-18T00:00:00Z","2002-02-25T00:00:00Z","2002-03-04T00:00:00Z"],[514,913,1023,887,815,792,803,807,692,705]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>case<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"date","targets":0},{"name":"case","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-3b6a48bc60b4fa286f80" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3b6a48bc60b4fa286f80">{"x":{"filter":"none","vertical":false,"data":[["2001-12-31T00:00:00Z","2002-01-07T00:00:00Z","2002-01-14T00:00:00Z","2002-01-21T00:00:00Z","2002-01-28T00:00:00Z","2002-02-04T00:00:00Z","2002-02-11T00:00:00Z","2002-02-18T00:00:00Z","2002-02-25T00:00:00Z","2002-03-04T00:00:00Z"],[514,913,1023,887,815,792,803,807,692,705]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>case<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":1},{"name":"date","targets":0},{"name":"case","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="làm-sạch-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="làm-sạch-dữ-liệu">Làm sạch dữ liệu</h3>
-<p>Code dưới đây đảm bảo rằng cột ngày thág đã ở đúng định dạng. Trong chương này chúng ta sẽ sử dụng package <strong>tsibble</strong> và hàm <code>yearweek</code> sẽ được sử dụng để tạp biến lịch theo tuần. Có một số cách để thực hiện việc này (Xem chương [Làm việc với ngày tháng] để biết thêm chi tiết), tuy nhiên đối với dữ liệu chuỗi thời gian thì tốt nhất nên sử dụng thống nhất một framework (<strong>tsibble</strong>).</p>
+<p>Code dưới đây đảm bảo rằng cột ngày thág đã ở đúng định dạng. Trong chương này chúng ta sẽ sử dụng package <strong>tsibble</strong> và hàm <code>yearweek</code> sẽ được sử dụng để tạp biến lịch theo tuần. Có một số cách để thực hiện việc này (Xem chương <a href="../new_pages/dates.vn.html">Làm việc với ngày tháng</a> để biết thêm chi tiết), tuy nhiên đối với dữ liệu chuỗi thời gian thì tốt nhất nên sử dụng thống nhất một framework (<strong>tsibble</strong>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ensure the date column is in the appropriate format</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>counts<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(counts<span class="sc">$</span>date)</span>
@@ -771,7 +771,7 @@ window.Quarto = {
 <section id="tải-xuống-dữ-liệu-khí-hậu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tải-xuống-dữ-liệu-khí-hậu">Tải xuống dữ liệu khí hậu</h3>
 <p>Trong mục <em>mối tương quan của hai chuỗi thời gian</em> trong chương này, chúng ta sẽ so sánh số lượng trường hợp campylobacter với dữ liệu khí hậu. Dữ liệu khí hậu tại bất kỳ đâu trên thế giới đều có thể được tải xuống từ EU’s Copernicus Satellite. Đây không phải là các phép đo chính xác, mà dựa trên một mô hình (tương tự như phép nội suy), tuy nhiên lợi ích là mức độ bao phủ toàn cầu hàng giờ cũng như các dự báo.</p>
-<p>Bạn có thể tải xuống từng tệp dữ liệu khí hậu này từ chương [Tải sách và dữ liệu].</p>
+<p>Bạn có thể tải xuống từng tệp dữ liệu khí hậu này từ chương <a href="../new_pages/data_used.vn.html">Tải sách và dữ liệu</a>.</p>
 <p>Với mục đích minh họa ở đây, chúng tôi sẽ trình bày code để sử dụng package <strong>ecmwfr</strong> để lấy những dữ liệu này từ kho dữ liệu khí hậu Copernicus. Bạn sẽ cần tạo một tài khoản miễn phí để thực hiện. Trang web của package có một <a href="https://github.com/bluegreen-labs/ecmwfr#use-copernicus-climate-data-store-cds">hướng dẫn</a> hữu ích về cách thực hiện việc này. Dưới đây là code minh họa về cách thực hiện việc này, khi bạn có các khóa API thích hợp. Bạn phải thay thế X bên dưới bằng ID tài khoản của mình. Bạn sẽ cần tải xuống một năm dữ liệu cùng một lúc nếu không máy chủ sẽ hết thời gian chờ.</p>
 <p>Nếu bạn không chắc chắn về tọa độ cho vị trí mà bạn muốn tải dữ liệu xuống, bạn có thể sử dụng gói <strong>tmaptools</strong> để lấy tọa độ ra từ open street maps. Một cách khác là dùng package <a href="https://github.com/rCarto/photon"><strong>photon</strong></a>, tuy nhiên nó chưa được chính thức xuất bản lên trên CRAN; cái hay của <strong>photon</strong> là nó cung cấp nhiều dữ liệu ngữ cảnh hơn khi có một số kết quả phù hợp cho tìm kiếm của bạn.</p>
 <div class="cell">
@@ -907,7 +907,7 @@ t2m, tp, </code></pre>
 <section id="trùng-lặp" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="trùng-lặp">Trùng lặp</h3>
 <p><strong>tsibble</strong> không cho phép các quan sát trùng lặp. Vì vậy, mỗi hàng sẽ cần phải là duy nhất, hoặc duy nhất trong nhóm (biến <code>key</code>). Package này có một số hàm để xác định các bản ghi trùng lặp. Chúng bao gồm các hàm: <code>are_duplicated()</code> trả về một vectơ có giá trị TRUE/FALSE vector, truy vấn xem hàng có là duy nhất không; và hàm <code>duplicates()</code> sẽ cung cấp cho bạn một data frame chứa các hàng trùng lặp.</p>
-<p>Xem chương [Loại bỏ trùng lặp] để biết thêm chi tiết về cách lựa chọn các hàng bạn muốn.</p>
+<p>Xem chương <a href="../new_pages/deduplication.vn.html">Loại bỏ trùng lặp</a> để biết thêm chi tiết về cách lựa chọn các hàng bạn muốn.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get a vector of TRUE/FALSE whether rows are duplicates</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">are_duplicated</span>(counts, <span class="at">index =</span> epiweek) </span>
@@ -920,8 +920,8 @@ t2m, tp, </code></pre>
 <section id="bản-ghi-bị-thiếu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="bản-ghi-bị-thiếu">Bản ghi bị thiếu</h3>
 <p>Chúng ta đã thấy từ cuộc khảo sát tóm tắt bên trên, không có bất kỳ giá trị missing nào được phát hiện, nhưng chúng ta cũng đã thấy rằng dường như có vấn đề với việc báo cáo chậm trễ vào khoảng năm mới. Một cách để giải quyết vấn đề này có thể là đặt các giá trị này thành missing và sau đó impute các giá trị. Dạng đơn giản nhất của khi impute chuỗi thời gian là vẽ một đường thẳng giữa giá trị không bị thiếu cuối cùng và giá trị không bị thiếu tiếp theo. Để làm điều này, chúng ta sẽ sử dụng hàm <code>na_interpolation()</code> từ package <strong>imputeTS</strong> .</p>
-<p>Xem chương [Dữ liệu Missing] để biết các tùy chọn khác của imputation.</p>
-<p>Một giải pháp thay thế khác sẽ là tính toán đường trung bình động, để thử và giải quyết các vấn đề báo cáo rõ ràng này (xem phần tiếp theo và chương <a href="#timeseries_moving">Đường trung bình động</a>.</p>
+<p>Xem chương <a href="../new_pages/missing_data.vn.html">Dữ liệu Missing</a> để biết các tùy chọn khác của imputation.</p>
+<p>Một giải pháp thay thế khác sẽ là tính toán đường trung bình động, để thử và giải quyết các vấn đề báo cáo rõ ràng này (xem phần tiếp theo và chương <a href="../new_pages/moving_average.vn.html">Đường trung bình động</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a variable with missings instead of weeks with reporting issues</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
@@ -960,7 +960,7 @@ t2m, tp, </code></pre>
 <!-- ======================================================= -->
 <section id="timeseries_moving" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="timeseries_moving">Đường trung bình động</h3>
-<p>Nếu dữ liệu rất nhiễu (dao động lên và xuống), việc tính toán đường trung bình động có thể sẽ hữu ích. Trong ví dụ dưới đây, với mỗi tuần chúng ta sẽ tính toán số trường hợp trung bình từ bốn tuần trước đó. Việc này sẽ giúp dữ liệu dễ diễn giải hơn. Trong trường hợp của chúng ta, điều này không thực sự bổ sung nhiều, vì vậy chúng ta sẽ bám vào dữ liệu nội suy để phân tích thêm. Xem chương <a href="#timeseries_moving">Đường trung bình động</a> để biết thêm chi tiết.</p>
+<p>Nếu dữ liệu rất nhiễu (dao động lên và xuống), việc tính toán đường trung bình động có thể sẽ hữu ích. Trong ví dụ dưới đây, với mỗi tuần chúng ta sẽ tính toán số trường hợp trung bình từ bốn tuần trước đó. Việc này sẽ giúp dữ liệu dễ diễn giải hơn. Trong trường hợp của chúng ta, điều này không thực sự bổ sung nhiều, vì vậy chúng ta sẽ bám vào dữ liệu nội suy để phân tích thêm. Xem chương <a href="../new_pages/moving_average.vn.html">Đường trung bình động</a> để biết thêm chi tiết.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a moving average variable (deals with missings)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span> </span>
@@ -988,7 +988,7 @@ t2m, tp, </code></pre>
 </section>
 <section id="tính-chu-kỳ" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tính-chu-kỳ">Tính chu kỳ</h3>
-<p>Sau đây chúng ta sẽ định nghĩa một hàm để tạo một biểu đồ chu kỳ. Xem chương [Viết hàm] để biết cách tạo một hàm trong R.</p>
+<p>Sau đây chúng ta sẽ định nghĩa một hàm để tạo một biểu đồ chu kỳ. Xem chương <a href="../new_pages/writing_functions.vn.html">Viết hàm</a> để biết cách tạo một hàm trong R.</p>
 <p>Đầu tiên, hàm được định nghĩa. Các đối số của nó bao gồm một bộ dữ liệu với cột <code>counts</code>, <code>start_week =</code> là tuần đầu tiên của bộ dữ liệu, một con số để cho biết có bao nhiêu chu kỳ mỗi năm (ví dụ: 52, 12), và cuối cùng là kiểu đầu ra (xem chi tiết trong đoạn mã bên dưới).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Function arguments</span></span>
@@ -1286,7 +1286,7 @@ X-squared = 336.25, df = 1, p-value &lt; 2.2e-16</code></pre>
 <!-- ======================================================= -->
 <section id="nối-hai-bộ-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="nối-hai-bộ-dữ-liệu">Nối hai bộ dữ liệu</h3>
-<p>Bạn có thể nối các tập dữ liệu của mình sử dụng biến tuần. Để biết thêm về nối dữ liệu, xem chương [Nối dữ liệu].</p>
+<p>Bạn có thể nối các tập dữ liệu của mình sử dụng biến tuần. Để biết thêm về nối dữ liệu, xem chương <a href="../new_pages/joining_matching.vn.html">Nối dữ liệu</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## left join so that we only have the rows already existing in counts</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## drop the date variable from temp_data (otherwise is duplicated)</span></span>
@@ -1298,7 +1298,7 @@ X-squared = 336.25, df = 1, p-value &lt; 2.2e-16</code></pre>
 </section>
 <section id="phân-tích-mô-tả-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="phân-tích-mô-tả-1">Phân tích mô tả</h3>
-<p>Đầu tiên hãy trực quan hóa dữ liệu của bạn để kiểm tra xem có bất kỳ mối tương quan rõ ràng nào không. Biểu đồ dưới đây cho thấy một mối quan hệ rõ ràng về tính mùa vụ của các biến, và nhiệt độ có thể đạt đỉnh vài tuần trước khi các trường hợp xảy ra. Để biết thêm về xoay trục dữ liệu, xem chương [Xoay trục dữ liệu].</p>
+<p>Đầu tiên hãy trực quan hóa dữ liệu của bạn để kiểm tra xem có bất kỳ mối tương quan rõ ràng nào không. Biểu đồ dưới đây cho thấy một mối quan hệ rõ ràng về tính mùa vụ của các biến, và nhiệt độ có thể đạt đỉnh vài tuần trước khi các trường hợp xảy ra. Để biết thêm về xoay trục dữ liệu, xem chương <a href="../new_pages/pivoting.vn.html">Xoay trục dữ liệu</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>counts <span class="sc">%&gt;%</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## keep the variables we are interested </span></span>
@@ -1603,7 +1603,7 @@ X-squared = 339.52, df = 1, p-value &lt; 2.2e-16</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="chia-dữ-liệu-và-fit-mô-hình-hồi-quy">Chia dữ liệu và fit mô hình hồi quy</h4>
 <p>Chúng ta bây giờ cần phải chia dữ liệu của mình thành 2 giai đoạn: giai đoạn baseline và giai đoạn dự báo. Nó có thể thực hiện được với hàm <strong>dplyr</strong> <code>group_split()</code> sau khi nhóm bởi <code>group_by()</code>, và sẽ tạo ra một danh sách gồm hai data frame, một trước thời điểm cut-off và một cái ở thời điểm sau cut-off.</p>
 <p>Chúng ta sau đó sử dụng hàm <code>pluck()</code> từ package <strong>purrr</strong> để kéo tập dữ liệu ra khỏi danh sách (tương đương với việc sử dụng ngoặc vuông, vd: <code>dat[[1]]</code>), và sau đó có thể fit mô hình của chúng ta tới dữ liệu nền,và sau đó sử dụng hàm <code>predict()</code> cho dữ liệu mà chúng ta quan tâm sau cut-off.</p>
-<p>Xem chương [Lặp, vòng lặp, và danh sách] để biết thêm về <strong>purrr</strong>.</p>
+<p>Xem chương <a href="../new_pages/iteration.vn.html">Lặp, vòng lặp, và danh sách</a> để biết thêm về <strong>purrr</strong>.</p>
 <p><span style="color: orange;"><strong><em>CẨN TRỌNG:</em></strong> Lưu ý cách sử dụng của đối số <code>simulate_pi = FALSE</code> bên trong hàm <code>predict()</code>. Điều này là bởi hành vi mặc định của <strong>trending</strong> là sử dụng package <strong>ciTools</strong> để ước tính khoảng tiên lượng. Nó sẽ không hoạt động nếu có giá trị <code>NA</code>, cũng như tạo ra nhiều khoảng chi tiết hơn. Xem <code>?trending::predict.trending_model_fit</code> để biết thêm chi tiết. </span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split data for fitting and prediction</span></span>
@@ -2685,7 +2685,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

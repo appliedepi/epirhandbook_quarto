@@ -667,7 +667,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>This page demonstrates the use of several packages for survey analysis.</p>
 <p>Most survey R packages rely on the <a href="https://cran.r-project.org/web/packages/survey/index.html"><strong>survey</strong> package</a> for doing weighted analysis. We will use <strong>survey</strong> as well as <a href="https://cran.r-project.org/web/packages/srvyr/index.html"><strong>srvyr</strong></a> (a wrapper for <strong>survey</strong> allowing for tidyverse-style coding) and <a href="https://cran.r-project.org/web/packages/gtsummary/index.html"><strong>gtsummary</strong></a> (a wrapper for <strong>survey</strong> allowing for publication ready tables). While the original <strong>survey</strong> package does not allow for tidyverse-style coding, it does have the added benefit of allowing for survey-weighted generalised linear models (which will be added to this page at a later date). We will also demonstrate using a function from the <a href="https://github.com/R4EPI/sitrep"><strong>sitrep</strong></a> package to create sampling weights (<em>n.b</em> this package is currently not yet on CRAN, but can be installed from github).</p>
 <p>Most of this page is based off work done for the <a href="https://r4epis.netlify.app/">“R4Epis” project</a>; for detailed code and R-markdown templates see the <a href="https://github.com/R4EPI/sitrep">“R4Epis” github page</a>. Some of the <strong>survey</strong> package based code is based off early versions of <a href="https://github.com/EPIET/RapidAssessmentSurveys">EPIET case studies</a>.</p>
-<p>At current this page does not address sample size calculations or sampling. For a simple to use sample size calculator see <a href="https://www.openepi.com/Menu/OE_Menu.htm">OpenEpi</a>. The <a href="https://epirhandbook.com/gis-basics.html">GIS basics</a> page of the handbook will eventually have a section on spatial random sampling, and this page will eventually have a section on sampling frames as well as sample size calculations.</p>
+<p>At current this page does not address sample size calculations or sampling. For a simple to use sample size calculator see <a href="https://www.openepi.com/Menu/OE_Menu.htm">OpenEpi</a>. The <a href="../new_pages/gis.html">GIS basics</a> page of the handbook will eventually have a section on spatial random sampling, and this page will eventually have a section on sampling frames as well as sample size calculations.</p>
 <ol type="1">
 <li>Survey data</li>
 <li>Observation time</li>
@@ -683,7 +683,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <h2 data-number="26.2" class="anchored" data-anchor-id="preparation"><span class="header-section-number">26.2</span> Preparation</h2>
 <section id="packages" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="packages">Packages</h3>
-<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load packages with <code>library()</code> from <strong>base</strong> R. See the page on [R basics] for more information on R packages.<br>
+<p>This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize <code>p_load()</code> from <strong>pacman</strong>, which installs the package if necessary <em>and</em> loads it for use. You can also load packages with <code>library()</code> from <strong>base</strong> R. See the page on <a href="../new_pages/basics.html">R basics</a> for more information on R packages.<br>
 Here we also demonstrate using the <code>p_load_gh()</code> function from <strong>pacman</strong> to install a load a package from github which has not yet been published on CRAN.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load packages from CRAN</span></span>
@@ -717,7 +717,7 @@ Here we also demonstrate using the <code>p_load_gh()</code> function from <stron
 <p>Kobo allows you to export both the collected data, as well as the data dictionary for that dataset. We strongly recommend doing this as it simplifies data cleaning and is useful for looking up variables/questions.</p>
 <p><span style="color: darkgreen;"><strong><em>TIP:</em></strong> The Kobo data dictionary has variable names in the “name” column of the survey sheet. Possible values for each variable are specified in choices sheet. In the choices tab, “name” has the shortened value and the “label::english” and “label::french” columns have the appropriate long versions. Using the <strong>epidict</strong> package <code>msf_dict_survey()</code> function to import a Kobo dictionary excel file will re-format this for you so it can be used easily to recode. </span></p>
 <p><span style="color: orange;"><strong><em>CAUTION:</em></strong> The example dataset is not the same as an export (as in Kobo you export different questionnaire levels individually) - see the survey data section below to merge the different levels.</span></p>
-<p>The dataset is imported using the <code>import()</code> function from the <strong>rio</strong> package. See the page on <a href="https://epirhandbook.com/import-and-export.html">Import and export</a> for various ways to import data.</p>
+<p>The dataset is imported using the <code>import()</code> function from the <strong>rio</strong> package. See the page on <a href="../new_pages/importing.html">Import and export</a> for various ways to import data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the survey data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>survey_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"survey_data.xlsx"</span>)</span>
@@ -728,8 +728,8 @@ Here we also demonstrate using the <code>p_load_gh()</code> function from <stron
 <p>The first 10 rows of the survey are displayed below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1c8bcc641d485ccdbeb6" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1c8bcc641d485ccdbeb6">{"x":{"filter":"none","vertical":false,"data":[[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["2018-04-15T00:00:00Z","2018-03-04T00:00:00Z","2018-04-16T00:00:00Z","2018-01-23T00:00:00Z","2018-01-09T00:00:00Z","2018-03-07T00:00:00Z","2018-02-18T00:00:00Z","2018-04-12T00:00:00Z","2018-04-17T00:00:00Z","2018-01-05T00:00:00Z"],[null,null,null,null,null,null,null,null,null,null],["village_1","village_1","village_10","village_5","village_3","village_8","other","village_7","village_4","village_2"],[null,null,null,null,null,null,null,null,null,null],[1,1,10,5,3,8,11,7,4,2],[9,1,15,6,18,14,17,16,13,14],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["yes","no","no","yes","no","yes","no","yes","yes","yes"],[null,"no_benefit","neg_experience",null,"other",null,"no_benefit",null,null,null],[null,null,null,null,null,null,null,null,null,null],[6,null,null,8,null,5,null,6,5,5],["female",null,null,"female",null,"male",null,"male","male","female"],[26,null,null,3,null,22,null,33,96,18],[null,null,null,36,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["no",null,null,"no",null,"yes",null,"yes","yes","yes"],["yes",null,null,null,null,"yes",null,"no","no","no"],["secondary",null,null,null,null,"secondary",null,null,null,null],["no",null,null,"no",null,"yes",null,"no","yes","yes"],[null,null,null,null,null,"yes",null,null,"no","no"],["yes",null,null,null,null,null,null,null,null,"yes"],["no",null,null,"no",null,"yes",null,"yes","no","yes"],["yes",null,null,"no",null,"no",null,"no","yes","yes"],["no",null,null,null,null,null,null,null,"no","no"],[null,null,null,null,null,null,null,null,null,null],["yes",null,null,"no",null,"no",null,"yes","no","no"],["no",null,null,null,null,null,null,"no",null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["no","no","no","no","no","no","no","no","yes","no"],[null,null,null,null,null,null,null,null,"no",null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"dont_know",null],[null,null,null,null,null,null,null,null,null,null],["yes",null,null,"yes",null,"no",null,"yes","no","no"],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["sexual",null,null,"sexual",null,null,null,"shot",null,null],["0",null,null,"0",null,null,null,"0",null,null],["1",null,null,"1",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"1",null,null],["0",null,null,"0",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"0",null,null],[9,1,183,83,58,146,205,130,72,33],[1,1,1,1,1,1,1,1,1,1],["9_1","1_1","183_1","83_1","58_1","146_1","205_1","130_1","72_1","33_1"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>today<\/th>\n      <th>deviceid<\/th>\n      <th>date<\/th>\n      <th>team_number<\/th>\n      <th>village_name<\/th>\n      <th>village_other<\/th>\n      <th>cluster_number<\/th>\n      <th>household_number<\/th>\n      <th>households_building<\/th>\n      <th>random_hh<\/th>\n      <th>random_hh_note<\/th>\n      <th>consent<\/th>\n      <th>no_consent_reason<\/th>\n      <th>no_consent_other<\/th>\n      <th>member_number<\/th>\n      <th>sex<\/th>\n      <th>age_years<\/th>\n      <th>age_months_calc<\/th>\n      <th>age_months<\/th>\n      <th>bednet<\/th>\n      <th>read_write<\/th>\n      <th>education_level<\/th>\n      <th>measles_vaccination<\/th>\n      <th>vaccination_card<\/th>\n      <th>pregnant<\/th>\n      <th>malaria_treatment<\/th>\n      <th>arrived<\/th>\n      <th>remember_arrival<\/th>\n      <th>arrived_date<\/th>\n      <th>left<\/th>\n      <th>remember_departure<\/th>\n      <th>left_date<\/th>\n      <th>born<\/th>\n      <th>remember_dob<\/th>\n      <th>birthday_date<\/th>\n      <th>died<\/th>\n      <th>remember_death<\/th>\n      <th>death_date<\/th>\n      <th>cause<\/th>\n      <th>cause_other<\/th>\n      <th>violent_episode<\/th>\n      <th>violent_episodes_number<\/th>\n      <th>violence_nature_other<\/th>\n      <th>violence_nature<\/th>\n      <th>violence_nature/beaten<\/th>\n      <th>violence_nature/sexual<\/th>\n      <th>violence_nature/shot<\/th>\n      <th>violence_nature/detained_kidnapped<\/th>\n      <th>violence_nature/other<\/th>\n      <th>violence_nature/no_response<\/th>\n      <th>index<\/th>\n      <th>index_y<\/th>\n      <th>uid<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[8,9,16,18,19,20,52,53]},{"name":"start","targets":0},{"name":"end","targets":1},{"name":"today","targets":2},{"name":"deviceid","targets":3},{"name":"date","targets":4},{"name":"team_number","targets":5},{"name":"village_name","targets":6},{"name":"village_other","targets":7},{"name":"cluster_number","targets":8},{"name":"household_number","targets":9},{"name":"households_building","targets":10},{"name":"random_hh","targets":11},{"name":"random_hh_note","targets":12},{"name":"consent","targets":13},{"name":"no_consent_reason","targets":14},{"name":"no_consent_other","targets":15},{"name":"member_number","targets":16},{"name":"sex","targets":17},{"name":"age_years","targets":18},{"name":"age_months_calc","targets":19},{"name":"age_months","targets":20},{"name":"bednet","targets":21},{"name":"read_write","targets":22},{"name":"education_level","targets":23},{"name":"measles_vaccination","targets":24},{"name":"vaccination_card","targets":25},{"name":"pregnant","targets":26},{"name":"malaria_treatment","targets":27},{"name":"arrived","targets":28},{"name":"remember_arrival","targets":29},{"name":"arrived_date","targets":30},{"name":"left","targets":31},{"name":"remember_departure","targets":32},{"name":"left_date","targets":33},{"name":"born","targets":34},{"name":"remember_dob","targets":35},{"name":"birthday_date","targets":36},{"name":"died","targets":37},{"name":"remember_death","targets":38},{"name":"death_date","targets":39},{"name":"cause","targets":40},{"name":"cause_other","targets":41},{"name":"violent_episode","targets":42},{"name":"violent_episodes_number","targets":43},{"name":"violence_nature_other","targets":44},{"name":"violence_nature","targets":45},{"name":"violence_nature/beaten","targets":46},{"name":"violence_nature/sexual","targets":47},{"name":"violence_nature/shot","targets":48},{"name":"violence_nature/detained_kidnapped","targets":49},{"name":"violence_nature/other","targets":50},{"name":"violence_nature/no_response","targets":51},{"name":"index","targets":52},{"name":"index_y","targets":53},{"name":"uid","targets":54}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8e45ee2f503c7f1df0f3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8e45ee2f503c7f1df0f3">{"x":{"filter":"none","vertical":false,"data":[[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["2018-04-15T00:00:00Z","2018-03-04T00:00:00Z","2018-04-16T00:00:00Z","2018-01-23T00:00:00Z","2018-01-09T00:00:00Z","2018-03-07T00:00:00Z","2018-02-18T00:00:00Z","2018-04-12T00:00:00Z","2018-04-17T00:00:00Z","2018-01-05T00:00:00Z"],[null,null,null,null,null,null,null,null,null,null],["village_1","village_1","village_10","village_5","village_3","village_8","other","village_7","village_4","village_2"],[null,null,null,null,null,null,null,null,null,null],[1,1,10,5,3,8,11,7,4,2],[9,1,15,6,18,14,17,16,13,14],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["yes","no","no","yes","no","yes","no","yes","yes","yes"],[null,"no_benefit","neg_experience",null,"other",null,"no_benefit",null,null,null],[null,null,null,null,null,null,null,null,null,null],[6,null,null,8,null,5,null,6,5,5],["female",null,null,"female",null,"male",null,"male","male","female"],[26,null,null,3,null,22,null,33,96,18],[null,null,null,36,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["no",null,null,"no",null,"yes",null,"yes","yes","yes"],["yes",null,null,null,null,"yes",null,"no","no","no"],["secondary",null,null,null,null,"secondary",null,null,null,null],["no",null,null,"no",null,"yes",null,"no","yes","yes"],[null,null,null,null,null,"yes",null,null,"no","no"],["yes",null,null,null,null,null,null,null,null,"yes"],["no",null,null,"no",null,"yes",null,"yes","no","yes"],["yes",null,null,"no",null,"no",null,"no","yes","yes"],["no",null,null,null,null,null,null,null,"no","no"],[null,null,null,null,null,null,null,null,null,null],["yes",null,null,"no",null,"no",null,"yes","no","no"],["no",null,null,null,null,null,null,"no",null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["no","no","no","no","no","no","no","no","yes","no"],[null,null,null,null,null,null,null,null,"no",null],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"dont_know",null],[null,null,null,null,null,null,null,null,null,null],["yes",null,null,"yes",null,"no",null,"yes","no","no"],[null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],["sexual",null,null,"sexual",null,null,null,"shot",null,null],["0",null,null,"0",null,null,null,"0",null,null],["1",null,null,"1",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"1",null,null],["0",null,null,"0",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"0",null,null],["0",null,null,"0",null,null,null,"0",null,null],[9,1,183,83,58,146,205,130,72,33],[1,1,1,1,1,1,1,1,1,1],["9_1","1_1","183_1","83_1","58_1","146_1","205_1","130_1","72_1","33_1"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>today<\/th>\n      <th>deviceid<\/th>\n      <th>date<\/th>\n      <th>team_number<\/th>\n      <th>village_name<\/th>\n      <th>village_other<\/th>\n      <th>cluster_number<\/th>\n      <th>household_number<\/th>\n      <th>households_building<\/th>\n      <th>random_hh<\/th>\n      <th>random_hh_note<\/th>\n      <th>consent<\/th>\n      <th>no_consent_reason<\/th>\n      <th>no_consent_other<\/th>\n      <th>member_number<\/th>\n      <th>sex<\/th>\n      <th>age_years<\/th>\n      <th>age_months_calc<\/th>\n      <th>age_months<\/th>\n      <th>bednet<\/th>\n      <th>read_write<\/th>\n      <th>education_level<\/th>\n      <th>measles_vaccination<\/th>\n      <th>vaccination_card<\/th>\n      <th>pregnant<\/th>\n      <th>malaria_treatment<\/th>\n      <th>arrived<\/th>\n      <th>remember_arrival<\/th>\n      <th>arrived_date<\/th>\n      <th>left<\/th>\n      <th>remember_departure<\/th>\n      <th>left_date<\/th>\n      <th>born<\/th>\n      <th>remember_dob<\/th>\n      <th>birthday_date<\/th>\n      <th>died<\/th>\n      <th>remember_death<\/th>\n      <th>death_date<\/th>\n      <th>cause<\/th>\n      <th>cause_other<\/th>\n      <th>violent_episode<\/th>\n      <th>violent_episodes_number<\/th>\n      <th>violence_nature_other<\/th>\n      <th>violence_nature<\/th>\n      <th>violence_nature/beaten<\/th>\n      <th>violence_nature/sexual<\/th>\n      <th>violence_nature/shot<\/th>\n      <th>violence_nature/detained_kidnapped<\/th>\n      <th>violence_nature/other<\/th>\n      <th>violence_nature/no_response<\/th>\n      <th>index<\/th>\n      <th>index_y<\/th>\n      <th>uid<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[8,9,16,18,19,20,52,53]},{"name":"start","targets":0},{"name":"end","targets":1},{"name":"today","targets":2},{"name":"deviceid","targets":3},{"name":"date","targets":4},{"name":"team_number","targets":5},{"name":"village_name","targets":6},{"name":"village_other","targets":7},{"name":"cluster_number","targets":8},{"name":"household_number","targets":9},{"name":"households_building","targets":10},{"name":"random_hh","targets":11},{"name":"random_hh_note","targets":12},{"name":"consent","targets":13},{"name":"no_consent_reason","targets":14},{"name":"no_consent_other","targets":15},{"name":"member_number","targets":16},{"name":"sex","targets":17},{"name":"age_years","targets":18},{"name":"age_months_calc","targets":19},{"name":"age_months","targets":20},{"name":"bednet","targets":21},{"name":"read_write","targets":22},{"name":"education_level","targets":23},{"name":"measles_vaccination","targets":24},{"name":"vaccination_card","targets":25},{"name":"pregnant","targets":26},{"name":"malaria_treatment","targets":27},{"name":"arrived","targets":28},{"name":"remember_arrival","targets":29},{"name":"arrived_date","targets":30},{"name":"left","targets":31},{"name":"remember_departure","targets":32},{"name":"left_date","targets":33},{"name":"born","targets":34},{"name":"remember_dob","targets":35},{"name":"birthday_date","targets":36},{"name":"died","targets":37},{"name":"remember_death","targets":38},{"name":"death_date","targets":39},{"name":"cause","targets":40},{"name":"cause_other","targets":41},{"name":"violent_episode","targets":42},{"name":"violent_episodes_number","targets":43},{"name":"violence_nature_other","targets":44},{"name":"violence_nature","targets":45},{"name":"violence_nature/beaten","targets":46},{"name":"violence_nature/sexual","targets":47},{"name":"violence_nature/shot","targets":48},{"name":"violence_nature/detained_kidnapped","targets":49},{"name":"violence_nature/other","targets":50},{"name":"violence_nature/no_response","targets":51},{"name":"index","targets":52},{"name":"index_y","targets":53},{"name":"uid","targets":54}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>We also want to import the data on sampling population so that we can produce appropriate weights. This data can be in different formats, however we would suggest to have it as seen below (this can just be typed in to an excel).</p>
@@ -740,8 +740,8 @@ Here we also demonstrate using the <code>p_load_gh()</code> function from <stron
 <p>The first 10 rows of the survey are displayed below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-83468a79f6dc963a35c3" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-83468a79f6dc963a35c3">{"x":{"filter":"none","vertical":false,"data":[["0-2","3-14","15-29","30-44","45+","0-2","3-14","15-29","30-44","45+"],["male","male","male","male","male","female","female","female","female","female"],[0.034,0.1811,0.138,0.0808,0.06610000000000001,0.034,0.1811,0.138,0.0808,0.06610000000000001],[340,1811,1380,808,661,340,1811,1380,808,661],["district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>age_group<\/th>\n      <th>sex<\/th>\n      <th>proportions<\/th>\n      <th>population<\/th>\n      <th>health_district<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"age_group","targets":0},{"name":"sex","targets":1},{"name":"proportions","targets":2},{"name":"population","targets":3},{"name":"health_district","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e25aeed07591c087ce57" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e25aeed07591c087ce57">{"x":{"filter":"none","vertical":false,"data":[["0-2","3-14","15-29","30-44","45+","0-2","3-14","15-29","30-44","45+"],["male","male","male","male","male","female","female","female","female","female"],[0.034,0.1811,0.138,0.0808,0.06610000000000001,0.034,0.1811,0.138,0.0808,0.06610000000000001],[340,1811,1380,808,661,340,1811,1380,808,661],["district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a","district_a"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>age_group<\/th>\n      <th>sex<\/th>\n      <th>proportions<\/th>\n      <th>population<\/th>\n      <th>health_district<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"age_group","targets":0},{"name":"sex","targets":1},{"name":"proportions","targets":2},{"name":"population","targets":3},{"name":"health_district","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>For cluster surveys you may want to add survey weights at the cluster level. You could read this data in as above. Alternatively if there are only a few counts, these could be entered as below in to a tibble. In any case you will need to have one column with a cluster identifier which matches your survey data, and another column with the number of households in each cluster.</p>
@@ -756,8 +756,8 @@ Here we also demonstrate using the <code>p_load_gh()</code> function from <stron
 </section>
 <section id="clean-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="clean-data">Clean data</h3>
-<p>The below makes sure that the date column is in the appropriate format. There are several other ways of doing this (see the <a href="https://epirhandbook.com/working-with-dates.html">Working with dates</a> page for details), however using the dictionary to define dates is quick and easy.</p>
-<p>We also create an age group variable using the <code>age_categories()</code> function from <strong>epikit</strong> - see <a href="https://epirhandbook.com/cleaning-data-and-core-functions.html#num_cats">cleaning data</a> handbook section for details. In addition, we create a character variable defining which district the various clusters are in.</p>
+<p>The below makes sure that the date column is in the appropriate format. There are several other ways of doing this (see the <a href="../new_pages/dates.html">Working with dates</a> page for details), however using the dictionary to define dates is quick and easy.</p>
+<p>We also create an age group variable using the <code>age_categories()</code> function from <strong>epikit</strong> - see <a href="../new_pages/cleaning.html#num_cats">cleaning data</a> handbook section for details. In addition, we create a character variable defining which district the various clusters are in.</p>
 <p>Finally, we recode all of the yes/no variables to TRUE/FALSE variables - otherwise these cant be used by the <strong>survey</strong> proportion functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## select the date variable names from the dictionary </span></span>
@@ -923,7 +923,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </section>
 <section id="weighting" class="level2" data-number="26.5">
 <h2 data-number="26.5" class="anchored" data-anchor-id="weighting"><span class="header-section-number">26.5</span> Weighting</h2>
-<p>It is important that you drop erroneous observations before adding survey weights. For example if you have observations with negative observation time, you will need to check those (you can do this with the <code>assert_positive_timespan()</code> function from <strong>sitrep</strong>. Another thing is if you want to drop empty rows (e.g.&nbsp;with <code>drop_na(uid)</code>) or remove duplicates (see handbook section on [De-duplication] for details). Those without consent need to be dropped too.</p>
+<p>It is important that you drop erroneous observations before adding survey weights. For example if you have observations with negative observation time, you will need to check those (you can do this with the <code>assert_positive_timespan()</code> function from <strong>sitrep</strong>. Another thing is if you want to drop empty rows (e.g.&nbsp;with <code>drop_na(uid)</code>) or remove duplicates (see handbook section on <a href="../new_pages/deduplication.html">De-duplication</a> for details). Those without consent need to be dropped too.</p>
 <p>In this example we filter for the cases we want to drop and store them in a separate data frame - this way we can describe those that were excluded from the survey. We then use the <code>anti_join()</code> function from <strong>dplyr</strong> to remove these dropped cases from our survey data.</p>
 <p><span style="color: red;"><strong><em>DANGER:</em></strong> You cant have missing values in your weight variable, or any of the variables relevant to your survey design (e.g.&nbsp;age, sex, strata or cluster variables).</span></p>
 <div class="cell">
@@ -1051,7 +1051,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </section>
 <section id="descriptive-analysis" class="level2" data-number="26.7">
 <h2 data-number="26.7" class="anchored" data-anchor-id="descriptive-analysis"><span class="header-section-number">26.7</span> Descriptive analysis</h2>
-<p>Basic descriptive analysis and visualisation is covered extensively in other chapters of the handbook, so we will not dwell on it here. For details see the chapters on <a href="https://epirhandbook.com/descriptive-tables.html">descriptive tables</a>, <a href="https://epirhandbook.com/simple-statistical-tests.html">statistical tests</a>, <a href="https://epirhandbook.com/tables-for-presentation.html">tables for presentation</a>, <a href="https://epirhandbook.com/ggplot-basics.html">ggplot basics</a> and <a href="https://epirhandbook.com/r-markdown-reports.html">R markdown reports</a>.</p>
+<p>Basic descriptive analysis and visualisation is covered extensively in other chapters of the handbook, so we will not dwell on it here. For details see the chapters on <a href="../new_pages/tables_descriptive.html">descriptive tables</a>, <a href="../new_pages/stat_tests.html">statistical tests</a>, <a href="../new_pages/tables_presentation.html">tables for presentation</a>, <a href="../new_pages/ggplot_basics.html">ggplot basics</a> and <a href="../new_pages/rmarkdown.html">R markdown reports</a>.</p>
 <p>In this section we will focus on how to investigate bias in your sample and visualise this. We will also look at visualising population flow in a survey setting using alluvial/sankey diagrams.</p>
 <p>In general, you should consider including the following descriptive analyses:</p>
 <ul>
@@ -1129,7 +1129,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <section id="demographic-pyramids" class="level3" data-number="26.7.2">
 <h3 data-number="26.7.2" class="anchored" data-anchor-id="demographic-pyramids"><span class="header-section-number">26.7.2</span> Demographic pyramids</h3>
 <p>Demographic (or age-sex) pyramids are an easy way of visualising the distribution in your survey population. It is also worth considering creating <a href="https://epirhandbook.com/descriptive-tables.html">descriptive tables</a> of age and sex by survey strata. We will demonstrate using the <strong>apyramid</strong> package as it allows for weighted proportions using our survey design object created above. Other options for creating <a href="https://epirhandbook.com/demographic-pyramids-and-likert-scales.html">demographic pyramids</a> are covered extensively in that chapter of the handbook. We will also use a wrapper function from <strong>apyramid</strong> called <code>age_pyramid()</code> which saves a few lines of coding for producing a plot with proportions.</p>
-<p>As with the formal binomial test of difference, seen above in the sampling bias section, we are interested here in visualising whether our sampled population is substantially different from the source population and whether weighting corrects this difference. To do this we will use the <strong>patchwork</strong> package to show our <strong>ggplot</strong> visualisations side-by-side; for details see the section on combining plots in <a href="https://epirhandbook.com/ggplot-tips.html?q=patch#combine-plots">ggplot tips</a> chapter of the handbook. We will visualise our source population, our un-weighted survey population and our weighted survey population. You may also consider visualising by each strata of your survey - in our example here that would be by using the argument <code>stack_by  = "health_district"</code> (see <code>?plot_age_pyramid</code> for details).</p>
+<p>As with the formal binomial test of difference, seen above in the sampling bias section, we are interested here in visualising whether our sampled population is substantially different from the source population and whether weighting corrects this difference. To do this we will use the <strong>patchwork</strong> package to show our <strong>ggplot</strong> visualisations side-by-side; for details see the section on combining plots in <a href="../new_pages/ggplot_tips.html">ggplot tips</a> chapter of the handbook. We will visualise our source population, our un-weighted survey population and our weighted survey population. You may also consider visualising by each strata of your survey - in our example here that would be by using the argument <code>stack_by  = "health_district"</code> (see <code>?plot_age_pyramid</code> for details).</p>
 <p><span style="color: black;"><strong><em>NOTE:</em></strong> The x and y axes are flipped in pyramids </span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## define x-axis limits and labels ---------------------------------------------</span></span>
@@ -1245,7 +1245,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </section>
 <section id="alluvialsankey-diagram" class="level3" data-number="26.7.3">
 <h3 data-number="26.7.3" class="anchored" data-anchor-id="alluvialsankey-diagram"><span class="header-section-number">26.7.3</span> Alluvial/sankey diagram</h3>
-<p>Visualising starting points and outcomes for individuals can be very helpful to get an overview. There is quite an obvious application for mobile populations, however there are numerous other applications such as cohorts or any other situation where there are transitions in states for individuals. These diagrams have several different names including alluvial, sankey and parallel sets - the details are in the handbook chapter on <a href="https://epirhandbook.com/diagrams-and-charts.html#alluvialsankey-diagrams">diagrams and charts</a>.</p>
+<p>Visualising starting points and outcomes for individuals can be very helpful to get an overview. There is quite an obvious application for mobile populations, however there are numerous other applications such as cohorts or any other situation where there are transitions in states for individuals. These diagrams have several different names including alluvial, sankey and parallel sets - the details are in the handbook chapter on <a href="../new_pages/diagrams.html">diagrams and charts</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## summarize data</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>flow_table <span class="ot">&lt;-</span> survey_data <span class="sc">%&gt;%</span></span>
@@ -1309,7 +1309,7 @@ died 0.0514 0.0208  0.12</code></pre>
  3.755508  3.755508 </code></pre>
 </div>
 </div>
-<p>We can combine the functions from <strong>survey</strong> shown above in to a function which we define ourselves below, called <code>svy_prop</code>; and we can then use that function together with <code>map()</code> from the purrr package to iterate over several variables and create a table. See the handbook <a href="https://epirhandbook.com/iteration-loops-and-lists.html">iteration</a> chapter for details on <strong>purrr</strong>.</p>
+<p>We can combine the functions from <strong>survey</strong> shown above in to a function which we define ourselves below, called <code>svy_prop</code>; and we can then use that function together with <code>map()</code> from the purrr package to iterate over several variables and create a table. See the handbook <a href="../new_pages/iteration.html">iteration</a> chapter for details on <strong>purrr</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to calculate weighted counts, proportions, CI and design effect</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># x is the variable in quotation marks </span></span>
@@ -1394,7 +1394,7 @@ died 0.0514 0.0208  0.12</code></pre>
 1 76213.  5.14      2.08      12.1      3.76</code></pre>
 </div>
 </div>
-<p>Here too we could write a function to then iterate over multiple variables using the <strong>purrr</strong> package. See the handbook <a href="https://epirhandbook.com/iteration-loops-and-lists.html">iteration</a> chapter for details on <strong>purrr</strong>.</p>
+<p>Here too we could write a function to then iterate over multiple variables using the <strong>purrr</strong> package. See the handbook <a href="../new_pages/iteration.html">iteration</a> chapter for details on <strong>purrr</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to calculate weighted counts, proportions, CI and design effect</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># design is your survey design object</span></span>
@@ -1505,23 +1505,23 @@ died 0.0514 0.0208  0.12</code></pre>
 <span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="lmeinwdgkz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lmeinwdgkz table {
+<div id="ofopqqtcoq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ofopqqtcoq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lmeinwdgkz thead, #lmeinwdgkz tbody, #lmeinwdgkz tfoot, #lmeinwdgkz tr, #lmeinwdgkz td, #lmeinwdgkz th {
+#ofopqqtcoq thead, #ofopqqtcoq tbody, #ofopqqtcoq tfoot, #ofopqqtcoq tr, #ofopqqtcoq td, #ofopqqtcoq th {
   border-style: none;
 }
 
-#lmeinwdgkz p {
+#ofopqqtcoq p {
   margin: 0;
   padding: 0;
 }
 
-#lmeinwdgkz .gt_table {
+#ofopqqtcoq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1547,12 +1547,12 @@ died 0.0514 0.0208  0.12</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_caption {
+#ofopqqtcoq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lmeinwdgkz .gt_title {
+#ofopqqtcoq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1564,7 +1564,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-bottom-width: 0;
 }
 
-#lmeinwdgkz .gt_subtitle {
+#ofopqqtcoq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1576,7 +1576,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-top-width: 0;
 }
 
-#lmeinwdgkz .gt_heading {
+#ofopqqtcoq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1588,13 +1588,13 @@ died 0.0514 0.0208  0.12</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_bottom_border {
+#ofopqqtcoq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_col_headings {
+#ofopqqtcoq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1609,7 +1609,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_col_heading {
+#ofopqqtcoq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1629,7 +1629,7 @@ died 0.0514 0.0208  0.12</code></pre>
   overflow-x: hidden;
 }
 
-#lmeinwdgkz .gt_column_spanner_outer {
+#ofopqqtcoq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1641,15 +1641,15 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 4px;
 }
 
-#lmeinwdgkz .gt_column_spanner_outer:first-child {
+#ofopqqtcoq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lmeinwdgkz .gt_column_spanner_outer:last-child {
+#ofopqqtcoq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lmeinwdgkz .gt_column_spanner {
+#ofopqqtcoq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1661,11 +1661,11 @@ died 0.0514 0.0208  0.12</code></pre>
   width: 100%;
 }
 
-#lmeinwdgkz .gt_spanner_row {
+#ofopqqtcoq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lmeinwdgkz .gt_group_heading {
+#ofopqqtcoq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1691,7 +1691,7 @@ died 0.0514 0.0208  0.12</code></pre>
   text-align: left;
 }
 
-#lmeinwdgkz .gt_empty_group_heading {
+#ofopqqtcoq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1706,15 +1706,15 @@ died 0.0514 0.0208  0.12</code></pre>
   vertical-align: middle;
 }
 
-#lmeinwdgkz .gt_from_md > :first-child {
+#ofopqqtcoq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lmeinwdgkz .gt_from_md > :last-child {
+#ofopqqtcoq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lmeinwdgkz .gt_row {
+#ofopqqtcoq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1733,7 +1733,7 @@ died 0.0514 0.0208  0.12</code></pre>
   overflow-x: hidden;
 }
 
-#lmeinwdgkz .gt_stub {
+#ofopqqtcoq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1746,7 +1746,7 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 5px;
 }
 
-#lmeinwdgkz .gt_stub_row_group {
+#ofopqqtcoq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1760,15 +1760,15 @@ died 0.0514 0.0208  0.12</code></pre>
   vertical-align: top;
 }
 
-#lmeinwdgkz .gt_row_group_first td {
+#ofopqqtcoq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lmeinwdgkz .gt_row_group_first th {
+#ofopqqtcoq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lmeinwdgkz .gt_summary_row {
+#ofopqqtcoq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1778,16 +1778,16 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 5px;
 }
 
-#lmeinwdgkz .gt_first_summary_row {
+#ofopqqtcoq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_first_summary_row.thick {
+#ofopqqtcoq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lmeinwdgkz .gt_last_summary_row {
+#ofopqqtcoq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1797,7 +1797,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_grand_summary_row {
+#ofopqqtcoq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1807,7 +1807,7 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 5px;
 }
 
-#lmeinwdgkz .gt_first_grand_summary_row {
+#ofopqqtcoq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1817,7 +1817,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_last_grand_summary_row_top {
+#ofopqqtcoq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1827,11 +1827,11 @@ died 0.0514 0.0208  0.12</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_striped {
+#ofopqqtcoq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lmeinwdgkz .gt_table_body {
+#ofopqqtcoq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1840,7 +1840,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_footnotes {
+#ofopqqtcoq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1854,7 +1854,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_footnote {
+#ofopqqtcoq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1863,7 +1863,7 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 5px;
 }
 
-#lmeinwdgkz .gt_sourcenotes {
+#ofopqqtcoq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1877,7 +1877,7 @@ died 0.0514 0.0208  0.12</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lmeinwdgkz .gt_sourcenote {
+#ofopqqtcoq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1885,63 +1885,63 @@ died 0.0514 0.0208  0.12</code></pre>
   padding-right: 5px;
 }
 
-#lmeinwdgkz .gt_left {
+#ofopqqtcoq .gt_left {
   text-align: left;
 }
 
-#lmeinwdgkz .gt_center {
+#ofopqqtcoq .gt_center {
   text-align: center;
 }
 
-#lmeinwdgkz .gt_right {
+#ofopqqtcoq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lmeinwdgkz .gt_font_normal {
+#ofopqqtcoq .gt_font_normal {
   font-weight: normal;
 }
 
-#lmeinwdgkz .gt_font_bold {
+#ofopqqtcoq .gt_font_bold {
   font-weight: bold;
 }
 
-#lmeinwdgkz .gt_font_italic {
+#ofopqqtcoq .gt_font_italic {
   font-style: italic;
 }
 
-#lmeinwdgkz .gt_super {
+#ofopqqtcoq .gt_super {
   font-size: 65%;
 }
 
-#lmeinwdgkz .gt_footnote_marks {
+#ofopqqtcoq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lmeinwdgkz .gt_asterisk {
+#ofopqqtcoq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lmeinwdgkz .gt_indent_1 {
+#ofopqqtcoq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lmeinwdgkz .gt_indent_2 {
+#ofopqqtcoq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lmeinwdgkz .gt_indent_3 {
+#ofopqqtcoq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lmeinwdgkz .gt_indent_4 {
+#ofopqqtcoq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lmeinwdgkz .gt_indent_5 {
+#ofopqqtcoq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2588,7 +2588,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

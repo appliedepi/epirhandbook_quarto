@@ -9,7 +9,7 @@ Trong chương này, chúng tôi trình bày cách sử dụng các hàm hồi q
 3.  Phân tích đa biến: lựa chọn biến số, lựa chọn mô hình, mô hình cuối cùng
 4.  Biểu đồ Forest plot
 
-Đối với hồi quy Cox, xem chương [Phân tích sống còn].
+Đối với hồi quy Cox, xem chương [Phân tích sống còn](survival_analysis.vn.qmd).
 
 [***CHÚ Ý:*** Chúng tôi sử dụng thuật ngữ *đa biến (multivariable)* để nói đến một hồi quy có nhiều biến giải thích. Thuật ngữ này khác với mô hình *đa biến* (multivariate model), là một mô hình đa biến có nhiều biến kết cục -- xem chi tiết trong [bài xã luận](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3518362/) này ]{style="color: black;"}
 
@@ -19,7 +19,7 @@ Trong chương này, chúng tôi trình bày cách sử dụng các hàm hồi q
 
 ### Gọi packages {.unnumbered}
 
-Đoạn mã này hiển thị cách tải các gói lệnh cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh hàm `p_load()` thuộc package **pacman**, giúp cài đặt package khi cần thiết *và* gọi nó ra để sử dụng. Có thể gọi các package đã cài đặt bằng hàm `library()` trong **base** R. Xem thêm thông tin về các package của R trong chương [R cơ bản].
+Đoạn mã này hiển thị cách tải các gói lệnh cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh hàm `p_load()` thuộc package **pacman**, giúp cài đặt package khi cần thiết *và* gọi nó ra để sử dụng. Có thể gọi các package đã cài đặt bằng hàm `library()` trong **base** R. Xem thêm thông tin về các package của R trong chương [R cơ bản](basics.vn.qmd).
 
 ```{r}
 pacman::p_load(
@@ -38,7 +38,7 @@ pacman::p_load(
 
 ### Nhập số liệu {.unnumbered}
 
-Chúng tôi nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist "đã được làm sạch"</a> (dưới dạng tệp .rds ). Nhập số liệu này bằng hàm `import()` trong package **rio** (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv -- xem chi tiết trong chương [Nhập xuất dữ liệu]).
+Chúng tôi nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist "đã được làm sạch"</a> (dưới dạng tệp .rds ). Nhập số liệu này bằng hàm `import()` trong package **rio** (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv -- xem chi tiết trong chương [Nhập xuất dữ liệu](importing.vn.qmd)).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -70,7 +70,7 @@ explanatory_vars <- c("gender", "fever", "chills", "cough", "aches", "vomit")
 
 #### Chuyển đổi sang số 1 và số 0 {.unnumbered}
 
-Sau đây, giá trị của các biến giải thích được chuyển đổi từ "có"/"không", "nam"/"nữ" và "chết"/"sống" thành 1 / 0, để hợp với các đặc tính của mô hình hồi quy logistic. TĐể thực hiện việc này một cách hiệu quả, sử dụng hàm `across()` từ **dplyr** để chuyển đổi nhiều biến cùng một lúc. Để áp dụng cho mỗi biến, dùng hàm `case_when()` (cũng trong package **dplyr**) để chuyển đổi các giá trị cụ thể thành 1 và 0. Xem các mục về `across()` và `case_when()` trong chương [Làm sạch số liệu và các hàm quan trọng](#clean_across)).
+Sau đây, giá trị của các biến giải thích được chuyển đổi từ "có"/"không", "nam"/"nữ" và "chết"/"sống" thành 1 / 0, để hợp với các đặc tính của mô hình hồi quy logistic. TĐể thực hiện việc này một cách hiệu quả, sử dụng hàm `across()` từ **dplyr** để chuyển đổi nhiều biến cùng một lúc. Để áp dụng cho mỗi biến, dùng hàm `case_when()` (cũng trong package **dplyr**) để chuyển đổi các giá trị cụ thể thành 1 và 0. Xem các mục về `across()` và `case_when()` trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd#clean_across)).
 
 Chú ý: dấu "." bên dưới đại diện cho cột\`\`\`\`\``đang được xử lý trong hàm`across()\` tại thời điểm đó.
 
@@ -114,7 +114,7 @@ Kiểm tra số hàng còn lại của `linelist` bằng hàm `nrow(linelist)`.
 
 ## Phân tích đơn biến
 
-Cũng giống như chương [Bảng mô tả](#tables-descriptive), chúng ta cần xác định packahe nào trong R mà chúng ta muốn sử dụng. Chúng tôi trình bày hai chọn lựa để thực hiện các phân tích đơn biến:
+Cũng giống như chương [Bảng mô tả](tables_descriptive.vn.qmd), chúng ta cần xác định packahe nào trong R mà chúng ta muốn sử dụng. Chúng tôi trình bày hai chọn lựa để thực hiện các phân tích đơn biến:
 
 -   Dùng hàm có sẵn trong **base** để in nhanh kết quả ra console. Sử dụng package **broom** để làm gọn kết quả.\
 -   Dùng package **gtsummary** để lập mô hình và nhận các kết quả đầu ra sẵn sàng để công bố
@@ -216,7 +216,7 @@ model <- glm(outcome ~ age_cat, family = "binomial", data = linelist)
 summary(model)
 ```
 
-Để thay đổi giá trị tham chiếu của một biến Factor và chuyển giá trị mong muốn lên vị trí đầu tiên, dùng hàm `fct_relevel()` (xem chương [Factors]). Ở ví dụ bên dưới, chúng tôi lấy biến `age_cat` và đặt nhóm tuổi "20-29" làm giá trị tham chiếu trước khi chuyển số liệu đã sửa đổi vào hàm `glm()`.
+Để thay đổi giá trị tham chiếu của một biến Factor và chuyển giá trị mong muốn lên vị trí đầu tiên, dùng hàm `fct_relevel()` (xem chương [Factors](factors.vn.qmd)). Ở ví dụ bên dưới, chúng tôi lấy biến `age_cat` và đặt nhóm tuổi "20-29" làm giá trị tham chiếu trước khi chuyển số liệu đã sửa đổi vào hàm `glm()`.
 
 ```{r}
 linelist %>% 
@@ -247,7 +247,7 @@ Bên dưới là bảng kết quả đầu ra của `model`:
 DT::datatable(model, rownames = FALSE, options = list(pageLength = nrow(model), scrollX=T), class = 'white-space: nowrap' )
 ```
 
-2)  Kết hợp các kết quả của mô hình vào trong một bảng đếm. Dưới đây, chúng tôi tạo một bảng đếm bằng hàm `tabyl()` từ package **janitor**, như được đề cập trong chương [Bảng mô tả].
+2)  Kết hợp các kết quả của mô hình vào trong một bảng đếm. Dưới đây, chúng tôi tạo một bảng đếm bằng hàm `tabyl()` từ package **janitor**, như được đề cập trong chương [Bảng mô tả](tables_descriptive.vn.qmd).
 
 ```{r}
 counts_table <- linelist %>% 
@@ -291,7 +291,7 @@ combined <- counts_table %>%           # begin with table of counts
   mutate(across(where(is.numeric), round, digits = 2)) ## round to 2 decimal places
 ```
 
-Đây là hiển thị của cấu trúc đã được kết hợp, nó được xuất gọn gẽ dưới dạng một hình bằng thông qua một hàm trong package **flextable**. Chương [Trình bày bảng] giải thích cách tùy chỉnh các bảng như vậy bằng **flextable**, hoặc có thể sử dụng các gói lệnh khác như **knitr** hoặc **GT**.
+Đây là hiển thị của cấu trúc đã được kết hợp, nó được xuất gọn gẽ dưới dạng một hình bằng thông qua một hàm trong package **flextable**. Chương [Trình bày bảng](tables_presentation.vn.qmd) giải thích cách tùy chỉnh các bảng như vậy bằng **flextable**, hoặc có thể sử dụng các gói lệnh khác như **knitr** hoặc **GT**.
 
 ```{r}
 combined <- combined %>% 
@@ -302,7 +302,7 @@ combined <- combined %>%
 
 Sau đây chúng tôi trình bày một phương pháp sử dụng `glm()` và `tidy()` để có một cách tiếp cận đơn giản hơn, xem thêm ở phần **gtsummary**.
 
-Để thực hiện các mô hình cho một số biến giải thích và cho ra các tỷ số chênh trong phân tích đơn biến (nghĩa là không có kiểm soát lẫn nhau), chúng ta có thể sử dụng các cách tiếp cận dưới đây. Sử dụng hàm `str_c()` từ package **stringr** để tạo ra các công thức cho phân tích đơn biến (xem chương [Ký tự và chuỗi]), thực hiện hàm `glm()` cho mỗi công thức, chuyển mỗi kết quả đầu ra của `glm()` đến hàm `tidy()` và cuối cùng thu gọn lại tất các kết quả đầu ra của mô hình bằng hàm nối dòng `bind_rows()` từ **tidyr**. Phương pháp này sử dụng hàm `map()` từ package **purrr** để lặp - xem chương [Lặp, vòng lặp và danh sách] để biết thêm thông tin về công cụ này.
+Để thực hiện các mô hình cho một số biến giải thích và cho ra các tỷ số chênh trong phân tích đơn biến (nghĩa là không có kiểm soát lẫn nhau), chúng ta có thể sử dụng các cách tiếp cận dưới đây. Sử dụng hàm `str_c()` từ package **stringr** để tạo ra các công thức cho phân tích đơn biến (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)), thực hiện hàm `glm()` cho mỗi công thức, chuyển mỗi kết quả đầu ra của `glm()` đến hàm `tidy()` và cuối cùng thu gọn lại tất các kết quả đầu ra của mô hình bằng hàm nối dòng `bind_rows()` từ **tidyr**. Phương pháp này sử dụng hàm `map()` từ package **purrr** để lặp - xem chương [Lặp, vòng lặp và danh sách](iteration.vn.qmd) để biết thêm thông tin về công cụ này.
 
 1)  Tạo một véctơ tên các cột của biến giải thích. Chúng ta đã tạo biến này `explanatory_vars` trong phần chuẩn bị của chương này.
 
@@ -383,7 +383,7 @@ univ_tab_base <- explanatory_vars %>%
 
 ```
 
-Bên dưới là cấu trúc số liệu kết nối được tạo ra. Xem chương [Trình bày bảng] để có thêm ý tưởng về cách chuyển đổi bảng số liệu này thành một bảng đẹp trên HTML (ví dụ như với package **flextable**).
+Bên dưới là cấu trúc số liệu kết nối được tạo ra. Xem chương [Trình bày bảng](tables_descriptive.vn.qmd) để có thêm ý tưởng về cách chuyển đổi bảng số liệu này thành một bảng đẹp trên HTML (ví dụ như với package **flextable**).
 
 ```{r, message=FALSE, echo=F}
 # display the linelist data as a table
@@ -571,7 +571,7 @@ left_join(univ_tab_base, mv_tab_base, by = "term") %>%
 
 Phần này hướng dẫn cách tạo ra một biểu đồ của các kết quả hồi quy. Có hai lựa chọn để tạo biểu đồ, chúng ta có thể tự tạo một biểu đồ bằng cách sử dụng package **ggplot2** hoặc sử dụng một meta-package có tên **easystats** (một package gồm nhiều package).
 
-Nếu chưa quen thuộc với gói lệnh tạo biểu đồ **ggplot2**, xem thêm chương [ggplot cơ bản].
+Nếu chưa quen thuộc với gói lệnh tạo biểu đồ **ggplot2**, xem thêm chương [ggplot cơ bản](ggplot_basics.vn.qmd).
 
 <!-- ======================================================= -->
 
@@ -583,7 +583,7 @@ Bạn có thể xây dựng một forest plot với hàm `ggplot()` bằng cách
 -   Khoảng tin cậy bằng hàm `geom_errorbar()`\
 -   Đường thẳng đứng ở vị trí OR = 1 bằng hàm `geom_vline()`
 
-Trước khi tạo biểu đồ, chúng ta sử dụng hàm `fct_relevel()` từ package **forcats** để đặt thứ tự các biến trên trục y. Hàm `ggplot()` cho phép hiển thị theo thứ tự chữ-số mà có thể không hiển thị tốt cho các giá trị của biến tuổi (“30” có thể hiển thị trước “5”). Xem chương [Factors] để biết thêm chi tiết.
+Trước khi tạo biểu đồ, chúng ta sử dụng hàm `fct_relevel()` từ package **forcats** để đặt thứ tự các biến trên trục y. Hàm `ggplot()` cho phép hiển thị theo thứ tự chữ-số mà có thể không hiển thị tốt cho các giá trị của biến tuổi (“30” có thể hiển thị trước “5”). Xem chương [Factors](factors.vn.qmd) để biết thêm chi tiết.
 
 ```{r ggplot_forest}
 

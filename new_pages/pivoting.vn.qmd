@@ -19,7 +19,7 @@ Khi quản lý dữ liệu, *xoay trục* có thể được hiểu là đề c�
 1.  Tạo *bảng dữ liệu tổng hợp (pivot tables)*, là bảng thống kê tóm tắt dữ liệu từ một bảng dữ liệu lớn hơn.\
 2.  Chuyển đổi một bảng từ định dạng **dọc** sang định dạng **ngang** hoặc ngược lại.
 
-**Trong chương này, chúng ta sẽ tập trung vào định nghĩa thứ hai**. Định nghĩa thứ nhất là một bước quan trọng trong phân tích dữ liệu và được đề cập ở những chương khác như trong chương [Nhóm dữ liệu] và [Bảng mô tả].
+**Trong chương này, chúng ta sẽ tập trung vào định nghĩa thứ hai**. Định nghĩa thứ nhất là một bước quan trọng trong phân tích dữ liệu và được đề cập ở những chương khác như trong chương [Nhóm dữ liệu](grouping.vn.qmd) và [Bảng mô tả](tables_descriptive.vn.qmd).
 
 Chương này thảo luận về các định dạng của dữ liệu. Sẽ rất hữu ích khi biết ý tưởng về "dữ liệu gọn gàng", trong đó mỗi biến có cột riêng, mỗi quan sát có hàng riêng và mỗi giá trị có ô riêng. Bạn có thể tìm thêm thông tin về chủ đề này tại [bản trực tuyến của sách R for Data Science](https://r4ds.had.co.nz/tidy-data.html).
 
@@ -27,7 +27,7 @@ Chương này thảo luận về các định dạng của dữ liệu. Sẽ r�
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, cài đặt package nếu cần và gọi ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ **pacman**, cài đặt package nếu cần và gọi ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r}
 pacman::p_load(
@@ -41,7 +41,7 @@ pacman::p_load(
 
 ### Dữ liệu số trường hợp sốt rét {.unnumbered}
 
-Trong chương này, chúng ta sẽ sử dụng một bộ dữ liệu giả định về các trường hợp ghi nhận sốt rét hàng ngày, theo cơ sở y tế và nhóm tuổi. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>bấm vào đây để tải tệp tin (tệp .rds)<span></a>. Nhập dữ liệu bằng hàm `import()` từ package **rio** (xử lý nhiều loại tệp tin như .xlsx; .csv; .rds - xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Trong chương này, chúng ta sẽ sử dụng một bộ dữ liệu giả định về các trường hợp ghi nhận sốt rét hàng ngày, theo cơ sở y tế và nhóm tuổi. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/malaria_facility_count_data.rds' class='download-button'>bấm vào đây để tải tệp tin (tệp .rds)<span></a>. Nhập dữ liệu bằng hàm `import()` từ package **rio** (xử lý nhiều loại tệp tin như .xlsx; .csv; .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 count_data <- rio::import(here::here("data", "malaria_facility_count_data.rds")) %>% 
@@ -62,7 +62,7 @@ DT::datatable(head(count_data, 50), rownames = FALSE, options = list(pageLength 
 
 ### Bộ dữ liệu các trường hợp `linelist` {.unnumbered}
 
-Trong phần cuối của chương này, chúng ta cũng sẽ sử dụng tập dữ liệu mô phỏng về các trường hợp từ một vụ dịch Ebola. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm vào đây để tải bộ dữ liệu `linelist` "đã làm sạch"</a> (tệp .rds). Nạp dữ liệu bằng hàm `import()` từ package **rio** (package này chấp nhận nhiều loại tệp tin dạng .xlsx; .csv; .rds - xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết).
+Trong phần cuối của chương này, chúng ta cũng sẽ sử dụng tập dữ liệu mô phỏng về các trường hợp từ một vụ dịch Ebola. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm vào đây để tải bộ dữ liệu `linelist` "đã làm sạch"</a> (tệp .rds). Nạp dữ liệu bằng hàm `import()` từ package **rio** (package này chấp nhận nhiều loại tệp tin dạng .xlsx; .csv; .rds - Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -138,7 +138,7 @@ Lưu ý rằng bộ dữ liệu mới được tạo (`df_long`) có nhiều hà
 
 Ngoài việc dài hơn, bộ dữ liệu mới có ít cột hơn (8 so với 10), vì dữ liệu trước đây được lưu trữ trong bốn cột (những cột bắt đầu bằng tiền tố `malaria_`), hiện được lưu trữ chỉ trong hai cột.
 
-Vì tên của bốn cột này đều bắt đầu bằng tiền tố `malaria_`, chúng ta có thể sử dụng hàm "tidyselect" `starts_with()` để đạt được kết quả tương tự (xem chương [Làm sạch số liệu và các hàm quan trọng] để biết thêm về các hàm trợ giúp này).
+Vì tên của bốn cột này đều bắt đầu bằng tiền tố `malaria_`, chúng ta có thể sử dụng hàm "tidyselect" `starts_with()` để đạt được kết quả tương tự (xem chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd) để biết thêm về các hàm trợ giúp này).
 
 ```{r}
 # provide column with a tidyselect helper function
@@ -285,9 +285,9 @@ df_long
 
 **Hoàn thiện:**
 
-Lưu ý rằng cột `date` hiện đang ở dạng *ký tự* - chúng ta có thể dễ dàng chuyển đổi cột này thành dạng ngày thích hợp bằng cách sử dụng hàm `mutate()` và `as_date()` được mô tả trong chương [Làm việc với ngày tháng].
+Lưu ý rằng cột `date` hiện đang ở dạng *ký tự* - chúng ta có thể dễ dàng chuyển đổi cột này thành dạng ngày thích hợp bằng cách sử dụng hàm `mutate()` và `as_date()` được mô tả trong chương [Làm việc với ngày tháng](dates.vn.qmd).
 
-Chúng ta cũng có thể muốn chuyển đổi cột `observation` sang định dạng `numeric` bằng cách bỏ tiền tố "obs" và chuyển đổi thành số. Chúng ta có thể thực hiện với hàm `str_remove_all()` từ package **stringr** (xem chương [Ký tự và chuỗi]).
+Chúng ta cũng có thể muốn chuyển đổi cột `observation` sang định dạng `numeric` bằng cách bỏ tiền tố "obs" và chuyển đổi thành số. Chúng ta có thể thực hiện với hàm `str_remove_all()` từ package **stringr** (xem chương [Ký tự và chuỗi](characters_strings.vn.qmd)).
 
 ```{r}
 
@@ -377,7 +377,7 @@ table_wide <-
 table_wide
 ```
 
-Bảng này thân thiện với người đọc hơn nhiều và có thể thêm vào báo cáo của chúng ta. Bạn có thể chuyển đổi thành một bảng tuyệt vời với một số package bao gồm **flextable** và **knitr**. Quá trình này được trình bày chi tiết trong chương [Trình bày bảng].
+Bảng này thân thiện với người đọc hơn nhiều và có thể thêm vào báo cáo của chúng ta. Bạn có thể chuyển đổi thành một bảng tuyệt vời với một số package bao gồm **flextable** và **knitr**. Quá trình này được trình bày chi tiết trong chương [Trình bày bảng](tables_descriptive.vn.qmd).
 
 ```{r}
 table_wide %>% 

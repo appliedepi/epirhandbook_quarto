@@ -80,7 +80,7 @@ knitr::include_graphics(here::here("images", "Excel_nonTidy_2.png"))
 
 *Sorunlar:* Yukarıdaki tabloda, veri kümesi içinde çok sayıda fazladan boş satır ve sütun vardır - bu, R'de temizlik sorunlarına neden olur. Ayrıca, belirli bir tedavi merkezi için GPS koordinatları iki satıra yayılmaktadır. Bir yan not olarak - GPS koordinatları iki farklı biçimdedir!
 
-"Düzenli" veri kümeleri insan gözüyle rahatça okunabilir olmayabilir, fakat veri temizleme ve analiz süreçlerini çok daha kolay hale getirirler! Düzenli veriler çeşitli biçimlerde saklanabilir, örneğin "uzun" veya "geniş""(bkz.[Pivot verileri]). Ancak yukarıdaki ilkeler hala gözetilmektedir.
+"Düzenli" veri kümeleri insan gözüyle rahatça okunabilir olmayabilir, fakat veri temizleme ve analiz süreçlerini çok daha kolay hale getirirler! Düzenli veriler çeşitli biçimlerde saklanabilir, örneğin "uzun" veya "geniş""(bkz.[Pivot verileri](pivoting.tr.qmd)). Ancak yukarıdaki ilkeler hala gözetilmektedir.
 
 
 ### Fonksiyonlar {.unnumbered}  
@@ -94,7 +94,7 @@ R terimi olan "fonksiyon" size yeni gelebilir, fakat bu kavram Excel'de *formül
 Düğmelere tıklayıp hücreleri sürüklemek yerine *her* adımı ve prosedürü bir "komut dosyasına" yazacaksınız.
 Excel kullanıcıları, aynı zamanda bir komut dosyası oluşturma yaklaşımı kullanan "VBA makrolarına" aşina olabilir.
 
-*R komut dosyası adım adım talimatlardan oluşur.* Bu, herhangi bir iş arkadaşınızın komut dosyasını okumasını ve attığınız adımları kolayca görmesini sağlar. Bu aynı zamanda hataların veya hatalı hesaplamaların giderilmesine de yardımcı olur. Örnekler için komut dosyalarıyla ilgili [R temelleri] bölümüne bakabilirsiniz. 
+*R komut dosyası adım adım talimatlardan oluşur.* Bu, herhangi bir iş arkadaşınızın komut dosyasını okumasını ve attığınız adımları kolayca görmesini sağlar. Bu aynı zamanda hataların veya hatalı hesaplamaların giderilmesine de yardımcı olur. Örnekler için komut dosyalarıyla ilgili [R temelleri](basics.tr.qmd) bölümüne bakabilirsiniz. 
 
 İşte bir R kodu örneği:  
 
@@ -147,7 +147,7 @@ Bir seferde yalnızca bir veri kümesi görüntülenip değiştirebilir. | Aynı
 Seçenek olarak seç ve tıkla işlevi mevcut. | Minimal düzeyde seç ve tıkla işlevi mevcut.
 `help [command]` koduyla komutlar hakkında yardımcı bilgilere ulaşabilir. | `[function]?` kodu veya Yardım sekmesi ile komutlar hakkında yardımcı bilgilere ulaşabilir.
 `*` veya `///` veya `/* METİN */` seçeneklerini kullanarak kod yoruma çevirebilir. | `#` kullanarak kod yoruma çevirebilir.
-Hemen hemen tüm komutlar Stata'da yerleşiktir. Yeni/kullanıcı tarafından yazılan işlevler, **ssc install** [paket] kullanılarak **ado** dosyaları olarak kurulabilir. | R, **base** fonksiyonlarla kurulur, ancak tipik kullanım, CRAN'dan diğer paketlerin kurulmasını içerir ([R temelleri]'ndeki sayfasına bakınız.)
+Hemen hemen tüm komutlar Stata'da yerleşiktir. Yeni/kullanıcı tarafından yazılan işlevler, **ssc install** [paket] kullanılarak **ado** dosyaları olarak kurulabilir. | R, **base** fonksiyonlarla kurulur, ancak tipik kullanım, CRAN'dan diğer paketlerin kurulmasını içerir ([R temelleri](basics.tr.qmd)'ndeki sayfasına bakınız.)
 Analizler genellikle bir **do** dosyasına yazılır | Analizler RStudio'daki kaynak bölmesine R dili ile yazılır. R markdown dili de alternatif olarak kullanılmaktadır.
 
 
@@ -155,7 +155,7 @@ Analizler genellikle bir **do** dosyasına yazılır | Analizler RStudio'daki ka
 
 **STATA**                        | **R**  
 -------------------------------- | ---------------------------------------------
-Çalışma dizinleri mutlak dosya yollarını içerir (örneğin, "C:/username/documents/projects/data/"). | Çalışma dizinleri, **here** paketi kullanılarak proje ana klasörüne veya başka alanlara aktarılabilir (bkz. [İçe aktarma ve dışa aktarma]).
+Çalışma dizinleri mutlak dosya yollarını içerir (örneğin, "C:/username/documents/projects/data/"). | Çalışma dizinleri, **here** paketi kullanılarak proje ana klasörüne veya başka alanlara aktarılabilir (bkz. [İçe aktarma ve dışa aktarma](importing.tr.qmd)).
 **pwd** ile mevcut çalışma dizini görülebilir. | Boş parantezlerle "getwd()" veya "here()" (**here** paketi kullanılıyorsa) kullanılır.
 Çalışma dizinini **cd** “klasör konumu” ile ayarlanabilir. | `setwd(“klasör konumu”)` veya `set_here("klasör konumu)` (**here** paketi kullanılıyorsa) kullanabilir.
 
@@ -164,7 +164,7 @@ Analizler genellikle bir **do** dosyasına yazılır | Analizler RStudio'daki ka
 
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
-Dosya türüne göre belirli komutlar mevcuttur. | Hemen hemen tüm dosya türleri için **rio** paketinden `import()` fonksiyonu kullanabilir. Alternatif olarak belirli fonksiyonlar da mevcuttur (bkz. [İçe aktarma ve dışa aktarma]).
+Dosya türüne göre belirli komutlar mevcuttur. | Hemen hemen tüm dosya türleri için **rio** paketinden `import()` fonksiyonu kullanabilir. Alternatif olarak belirli fonksiyonlar da mevcuttur (bkz. [İçe aktarma ve dışa aktarma](importing.tr.qmd)).
 csv dosyalarını okuma, **import delimitied** “dosyaadı.csv” komutuyla sağlanır. | `import("filename.csv")` kullanılır.
 xlsx dosyalarını okuma, **import excel** “dosyaadı.xlsx” komutuyla sağlanır. | `import("filename.xlsx")` kullanılır.
 **browse** komutunu kullanarak veriler yeni bir pencerede incelenebilir. | `View(dataset)` kullanarak RStudio kaynak bölmesinde veri seti görüntülenebilir. *Aynı anda birden fazla veri seti tutulabileceğinden, R'daki fonksiyona veri seti adının belirtilmesi gerekir. Bu fonksiyondaki büyük "V" harfine dikkat edilmeli.*
@@ -176,18 +176,18 @@ Değişken adlarını ve temel bilgileri veren **summarize** kullanılarak veri 
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
 Veri kümesi sütunlarına genellikle "değişkenler" denir. | Daha sıklıkla "sütunlar" veya bazen "vektörler" veya "değişkenler" olarak anılır.
-Veri kümesini özellikle belirtmenize gerek yoktur. | Aşağıdaki komutların her birinde veri kümesinin belirtilmesi gerekir. Örnekler için [Verileri temizleme ve temel fonksiyonlar] sayfasına bakınız.
-**generate** *varname* = komutu kullanılarak yeni değişkenler oluşturulabilir. | `mutate(varname = )` fonksiyonu kullanılarak yeni değişkenler oluşturabilir. Bütün **dplyr** fonksiyonlarıyla ilgili ayrıntılar için [Verileri temizleme ve temel fonksiyonlar] sayfasına bakınız.
+Veri kümesini özellikle belirtmenize gerek yoktur. | Aşağıdaki komutların her birinde veri kümesinin belirtilmesi gerekir. Örnekler için [Verileri temizleme ve temel fonksiyonlar](cleaning.tr.qmd) sayfasına bakınız.
+**generate** *varname* = komutu kullanılarak yeni değişkenler oluşturulabilir. | `mutate(varname = )` fonksiyonu kullanılarak yeni değişkenler oluşturabilir. Bütün **dplyr** fonksiyonlarıyla ilgili ayrıntılar için [Verileri temizleme ve temel fonksiyonlar](cleaning.tr.qmd) sayfasına bakınız.
 Değişkenler **rename** *eski_adı yeni_adı* komutuyla yeniden adlandırılabilir. | Sütunlar, `rename(new_name = old_name)` fonksiyonu kullanılarak yeniden adlandırılabilir.
 Değişkenler **drop** *varname* kullanılarak kaldırılabilir. | Sütunlar, bir eksi işaretinin ardından parantez içinde sütun adı ile `select()` işlevi kullanılarak kaldırılabilir.
-Faktör değişkenleri, **label define** gibi bir dizi komut kullanılarak etiketlenebilir. | Değerleri etiketleme, sütunu Faktör sınıfına dönüştürerek ve seviyeler belirleyerek yapılabilir.([Faktörler] ile ilgili sayfaya bakınız.) Sütun adları genellikle Stata'da olduğu gibi etiketlenmez.
+Faktör değişkenleri, **label define** gibi bir dizi komut kullanılarak etiketlenebilir. | Değerleri etiketleme, sütunu Faktör sınıfına dönüştürerek ve seviyeler belirleyerek yapılabilir.([Faktörler](factor.tr.qmd) ile ilgili sayfaya bakınız.) Sütun adları genellikle Stata'da olduğu gibi etiketlenmez.
 
 
 **Tanımlayıcı analiz**  
 
 **STATA**                    | **R**  
 -------------------------------- | ---------------------------------------------
-**tab** *varname* kullanarak bir değişkenin sayılarını tablo haline getirilebilir. | `table()` fonksiyonu için `table(dataset$colname)` koduyla veri kümesi ve sütunun adının sağlanması gerekmektedir. Alternatif olarak, [Verileri gruplama] bölümünde açıklandığı gibi **dplyr** paketindeki `count(varname)` fonksiyonu kullanabilir.
+**tab** *varname* kullanarak bir değişkenin sayılarını tablo haline getirilebilir. | `table()` fonksiyonu için `table(dataset$colname)` koduyla veri kümesi ve sütunun adının sağlanması gerekmektedir. Alternatif olarak, [Verileri gruplama](grouping.tr.qmd) bölümünde açıklandığı gibi **dplyr** paketindeki `count(varname)` fonksiyonu kullanabilir.
 2x2'lik bir tabloda iki değişkenin çapraz tablosu **tab** *varname1 varname2* kodlarıyla oluşturulur. | `table(dataset$varname1, dataset$varname2)` veya `count(varname1, varname2)` fonksiyonları kullanabilir.
 
 
@@ -219,7 +219,7 @@ Aşağıda, SAS ve R arasındaki veri yönetimi ve tanımlayıcı analizdeki tem
 Çevrimiçi topluluklara [SAS Müşteri Hizmetleri](https://support.sas.com/en/support-home.html)sitesinden ulaşabilir. | RStudio, StackOverFlow ve R-blogları aracılığıyla çevrimiçi topluluklara ulaşabilir.
 `help [command]` koduyla komutlar hakkında yardımcı bilgilere ulaşabilir. | `[function]?` kodu veya Yardım sekmesi ile komutlar hakkında yardımcı bilgilere ulaşabilir.
 `* METİN`; `/*` veya `/* METİN */` seçeneklerini kullanarak kodu yoruma çevirebilir. | `#` kullanarak kodu yoruma çevirebilir.
-Hemen hemen tüm komutlar yerleşiktir. Yeni/kullanıcı tarafından yazılan işlevler, SAS macro, SAS/IML, SAS Component Language (SCL); `Proc Fcmp` ve `Proc Proto` prosedürleri kullanılarak kurulabilir. | R, **base** fonksiyonlarla kurulur, ancak tipik kullanım, CRAN'dan diğer paketlerin kurulmasını içerir ([R temelleri]'ndeki sayfasına bakınız.).
+Hemen hemen tüm komutlar yerleşiktir. Yeni/kullanıcı tarafından yazılan işlevler, SAS macro, SAS/IML, SAS Component Language (SCL); `Proc Fcmp` ve `Proc Proto` prosedürleri kullanılarak kurulabilir. | R, **base** fonksiyonlarla kurulur, ancak tipik kullanım, CRAN'dan diğer paketlerin kurulmasını içerir ([R temelleri](basics.tr.qmd)'ndeki sayfasına bakınız.).
 Analiz genellikle Editör penceresinde bir SAS programı yazılarak yapılır. | Analizler RStudio'daki kaynak bölmesine R dili ile yazılır. R markdown dili de alternatif olarak kullanılmaktadır.
 
 
@@ -227,7 +227,7 @@ Analiz genellikle Editör penceresinde bir SAS programı yazılarak yapılır. |
 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
-Çalışma dizinleri mutlak dosya yollarını içerir. Bunun dışında `%let rootdir=/root path; %include “&rootdir/subfoldername/filename”` kodu kullanarak başka alanlara kaydedilebilir. | Çalışma dizinleri, **here** paketi kullanılarak proje ana klasörüne veya başka alanlara aktarılabilir (bkz. [İçe aktarma ve dışa aktarma]).
+Çalışma dizinleri mutlak dosya yollarını içerir. Bunun dışında `%let rootdir=/root path; %include “&rootdir/subfoldername/filename”` kodu kullanarak başka alanlara kaydedilebilir. | Çalışma dizinleri, **here** paketi kullanılarak proje ana klasörüne veya başka alanlara aktarılabilir (bkz. [İçe aktarma ve dışa aktarma](importing.tr.qmd)).
 `%put %sysfunc(getoption(work));` ile mevcut çalışma dizinini görebilir. | Boş parantezlerle "getwd()" veya "here()" (**here** paketi kullanılıyorsa) kullanılır.
 Çalışma dizinini `libname “folder location”` “klasör konumu” ile ayarlanabilir. | `setwd(“klasör konumu”)` veya `set_here("klasör konumu)` (**here** paketi kullanılıyorsa) kullanabilir.
 
@@ -236,7 +236,7 @@ Analiz genellikle Editör penceresinde bir SAS programı yazılarak yapılır. |
 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
-`Proc Import` prosedürünü veya `Data Step Infile` ifadesini kullanılır. | Hemen hemen tüm dosya türleri için **rio** paketinden `import()` fonksiyonu kullanabilir. Alternatif olarak belirli fonksiyonlar da mevcuttur (bkz. [İçe aktarma ve dışa aktarma]).
+`Proc Import` prosedürünü veya `Data Step Infile` ifadesini kullanılır. | Hemen hemen tüm dosya türleri için **rio** paketinden `import()` fonksiyonu kullanabilir. Alternatif olarak belirli fonksiyonlar da mevcuttur (bkz. [İçe aktarma ve dışa aktarma](importing.tr.qmd)).
 csv dosyalarını okuma, `Proc Import datafile=”filename.csv” out=work.filename dbms=CSV kullanılarak yapılır; run;` VEYA [Data Step Infile Açıklaması](http://support.sas.com/techsup/technote/ts673.pdf) kullanılabilir. | `import("filename.csv")` kullanılır.
 xlsx dosyalarını okuma, `Proc Import datafile=”filename.xlsx” out=work.filename dbms=xlsx kullanılarak yapılır; run;` VEYA [Data Step Infile Açıklaması](http://support.sas.com/techsup/technote/ts673.pdf) kullanılabilir. | `import("filename.xlsx")` kullanılır.
 Gezgin penceresi açılarak veriler yeni bir pencerede incelenebilir; istenilen kitaplık ve veri kümesi seçilebilir. | `View(dataset)` kullanarak RStudio kaynak bölmesinde veri seti görüntülenebilir. *Aynı anda birden fazla veri seti tutulabileceğinden, R'daki fonksiyona veri seti adının belirtilmesi gerekir. Bu fonksiyondaki büyük "V" harfine dikkat edilmeli.*
@@ -247,13 +247,13 @@ Gezgin penceresi açılarak veriler yeni bir pencerede incelenebilir; istenilen 
 **SAS**                          | **R**  
 -------------------------------- | ---------------------------------------------
 Veri kümesi sütunlarına genellikle "değişkenler" denir. | Daha sıklıkla "sütunlar" veya bazen "vektörler" veya "değişkenler" olarak anılır.
-Veri kümesini özellikle belirtmenize gerek yoktur. Yeni değişkenler, yalnızca yeni değişken adı, ardından eşittir işareti ve ardından değer için bir ifade yazılarak oluşturulur. | `mutate()` fonksiyonu kullanılarak yeni değişkenler oluşturabilir. Bütün **dplyr** fonksiyonlarıyla ilgili ayrıntılar için [Verileri temizleme ve temel fonksiyonlar] sayfasına bakınız.
+Veri kümesini özellikle belirtmenize gerek yoktur. Yeni değişkenler, yalnızca yeni değişken adı, ardından eşittir işareti ve ardından değer için bir ifade yazılarak oluşturulur. | `mutate()` fonksiyonu kullanılarak yeni değişkenler oluşturabilir. Bütün **dplyr** fonksiyonlarıyla ilgili ayrıntılar için [Verileri temizleme ve temel fonksiyonlar](cleaning.tr.qmd) sayfasına bakınız.
 Değişkenler `rename *old_name=new_name*` komutuyla yeniden adlandırılabilir. | Sütunlar, `rename(new_name = old_name)` fonksiyonu kullanılarak yeniden adlandırılabilir.
 Değişkenler `**keep**=varname` kullanılarak kullanılabilir. | Sütunlar, parantez içinde sütun adı ile `select()` işlevi kullanılarak seçilebilir.
 Değişkenler `**drop**=varname` kullanılarak kaldırılabilir. | Sütunlar, bir eksi işaretinin ardından parantez içinde sütun adı ile `select()` işlevi kullanılarak kaldırılabilir.
-Faktör değişkenleri, `Label` ifadesi kullanılarak Veri Adımında etiketlenebilir. | Değerleri etiketleme, sütunu Faktör sınıfına dönüştürerek ve seviyeler belirleyerek yapılabilir.([Faktörler] ile ilgili sayfaya bakınız.) Sütun adları genellikle etiketlenmez.
+Faktör değişkenleri, `Label` ifadesi kullanılarak Veri Adımında etiketlenebilir. | Değerleri etiketleme, sütunu Faktör sınıfına dönüştürerek ve seviyeler belirleyerek yapılabilir.([Faktörler](factors.tr.qmd) ile ilgili sayfaya bakınız.) Sütun adları genellikle etiketlenmez.
 Kayıtlar, Veri Adımında `Where` veya `If` ifadesi kullanılarak seçilir. Çoklu seçim koşulları “and” komutu kullanılarak ayrılır. | Kayıtlar, VE operatörü (&) veya virgülle ayrılmış çoklu seçim koşullarıyla `filter()` fonksiyonu kullanılarak seçilir.
-Veri kümeleri, Veri Adımında `Merge` ifadesi kullanılarak birleştirilir. Birleştirilecek veri kümelerinin önce `Proc Sort` prosedürü kullanılarak sıralanması gerekmektedir. | **dplyr** paketi, veri kümelerini birleştirmek için birkaç işlev sunar. Ayrıntılar için [Verileri birleştirme] sayfasına bakınız.
+Veri kümeleri, Veri Adımında `Merge` ifadesi kullanılarak birleştirilir. Birleştirilecek veri kümelerinin önce `Proc Sort` prosedürü kullanılarak sıralanması gerekmektedir. | **dplyr** paketi, veri kümelerini birleştirmek için birkaç işlev sunar. Ayrıntılar için [Verileri birleştirme](joining_matching.tr.qmd) sayfasına bakınız.
 
 
 **Tanımlayıcı analiz**  
@@ -262,8 +262,8 @@ Veri kümeleri, Veri Adımında `Merge` ifadesi kullanılarak birleştirilir. Bi
 -------------------------------- | ---------------------------------------------
 Değişken adları ve açıklayıcı istatistikler sağlayan "Proc Summary" prosedürü kullanılarak veri kümesi hakkında üst düzey bir genel bakış elde edilebilir. | **skimr** paketinden "summary(dataset)" veya "skim(dataset)" kullanılarak veri kümesine ilişkin üst düzey bir genel bakış elde edilebilir.
 `proc freq data=Dataset; Tables varname; Run;` komutu kullanılarak değişken sayıları tablo halinde özetlenebilir. |
-[Tanımlayıcı tablolar] ile ilgili sayfaya bakınız. Seçenekler arasında **base** R'den 'table()' ve **janitor** paketinden 'tabyl()' bulunmaktadır. R birden fazla veri kümesi içerdiği için veri kümesi ve sütun adının belirtilmesi gerekmektedir.
-2x2'lik bir tabloda iki değişkenin çapraz tablosu `proc freq data=Dataset; Tables rowvar*colvar; Run;` komutuyla oluşturulabilir. | `table()`, `tabyl()` veya [Tanımlayıcı tablolar] sayfasında açıklandığı gibi diğer seçenekler kullanabilir.
+[Tanımlayıcı tablolar](tables_descriptive.tr.qmd) ile ilgili sayfaya bakınız. Seçenekler arasında **base** R'den 'table()' ve **janitor** paketinden 'tabyl()' bulunmaktadır. R birden fazla veri kümesi içerdiği için veri kümesi ve sütun adının belirtilmesi gerekmektedir.
+2x2'lik bir tabloda iki değişkenin çapraz tablosu `proc freq data=Dataset; Tables rowvar*colvar; Run;` komutuyla oluşturulabilir. | `table()`, `tabyl()` veya [Tanımlayıcı tablolar](tables_descriptive.tr.qmd) sayfasında açıklandığı gibi diğer seçenekler kullanabilir.
 
 
 **Birkaç değerli kaynak:**  

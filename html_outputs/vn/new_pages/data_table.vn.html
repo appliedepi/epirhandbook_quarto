@@ -296,7 +296,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kiểu dữ liệu danh mục - Factors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -438,7 +438,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.vn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các tips với ggplot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Các mẹo với ggplot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -666,7 +666,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <section id="nhập-dữ-liệu" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="nhập-dữ-liệu">Nhập dữ liệu</h3>
 <p>Chương này sẽ khám phá một số hàm cốt lõi của <strong>data.table</strong> thông qua bộ số liệu linelist đã được nhắc đền nhiều lần trong sổ tay này.</p>
-<p>Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương [Tải sách và dữ liệu]. Bộ dữ liệu được nhập bằng hàm <code>import()</code> từ package <strong>rio</strong>. Xem chương về [Nhập xuất dữ liệu] để biết các cách nhập dữ liệu khác nhau. Từ đây chúng tôi sử dụng <code>data.table()</code> để chuyển data frame thành data table.</p>
+<p>Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương <a href="../new_pages/data_used.vn.html">Tải sách và dữ liệu</a>. Bộ dữ liệu được nhập bằng hàm <code>import()</code> từ package <strong>rio</strong>. Xem chương về <a href="../new_pages/importing.vn.html">Nhập xuất dữ liệu</a> để biết các cách nhập dữ liệu khác nhau. Từ đây chúng tôi sử dụng <code>data.table()</code> để chuyển data frame thành data table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"linelist_cleaned.xlsx"</span>)) <span class="sc">%&gt;%</span> <span class="fu">data.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

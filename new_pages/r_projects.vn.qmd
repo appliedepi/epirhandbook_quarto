@@ -12,7 +12,7 @@ Một cách phổ biến, hiệu quả và ít rắc rối để sử dụng R l
 1) Một **Dự án R**  
      - Một môi trường làm việc khép kín với các thư mục bao gồm dữ liệu, tập lệnh, các kết quả đầu ra, v.v.  
 2) Package **here** dành cho các đường dẫn tương đối  
-     - Đường dẫn tệp được ghi một cách tương đối dẫn đến thư mục gốc của dự án R - xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết  
+     - Đường dẫn tệp được ghi một cách tương đối dẫn đến thư mục gốc của dự án R - xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết  
 3) Package **rio** để nhập/xuất  
      - `import()` và `export()` giúp giải quyết tất cả các tệp với phần mở rộng khác nhau (ví dụ: .csv, .xlsx, .png)  
      
@@ -26,7 +26,7 @@ Một cách phổ biến, hiệu quả và ít rắc rối để sử dụng R l
 
 * Nếu bạn muốn tạo một thư mục mới cho dự án, hãy chọn "New directory" và cho biết nơi bạn muốn nó được tạo.  
 * Nếu bạn muốn tạo dự án trong một thư mục có sẵn, hãy chọn “Existing directory” và trỏ tới đường dẫn thư mục đó.  
-* Nếu bạn muốn tạo một bản sao từ kho lưu trữ Github, hãy chọn tùy chọn thứ ba “Version Control” và sau đó chọn “Git”. Xem chương [Version control với Git và Github] để biết thêm chi tiết.  
+* Nếu bạn muốn tạo một bản sao từ kho lưu trữ Github, hãy chọn tùy chọn thứ ba “Version Control” và sau đó chọn “Git”. Xem chương [Version control với Git và Github](collaboration.vn.qmd) để biết thêm chi tiết.  
 
 
 ```{r out.width = "75%", fig.align = "center", echo=F}
@@ -61,14 +61,14 @@ Thông thường, mỗi khi bạn khởi động RStudio nên là một “clean
 
 ### Tổ chức {.unnumbered}  
 
-Thông thường sẽ có các thư mục con trong dự án của bạn. Hãy cân nhắc đặt tên các thư mục như “data”, “scripts”, “figures”, “presentations”. Bạn có thể thêm các thư mục theo cách thông thường mà bạn sẽ thêm một thư mục mới cho máy tính của mình. Ngoài ra, hãy xem chương [Tương tác với thư mục làm việc] để tìm hiểu cách tạo thư mục mới bằng lệnh R.  
+Thông thường sẽ có các thư mục con trong dự án của bạn. Hãy cân nhắc đặt tên các thư mục như “data”, “scripts”, “figures”, “presentations”. Bạn có thể thêm các thư mục theo cách thông thường mà bạn sẽ thêm một thư mục mới cho máy tính của mình. Ngoài ra, hãy xem chương [Tương tác với thư mục làm việc](directories.vn.qmd) để tìm hiểu cách tạo thư mục mới bằng lệnh R.  
 
 
 ### Kiểm soát phiên bản {.unnumbered}  
 
 Hãy cân nhắc sử dụng một hệ thống kiểm soát phiên bản. Nó có thể là một cái gì đó đơn giản như có ngày tháng trên tên của các scripts (ví dụ: “transmission_analysis_2020-10-03.R”) và một thư mục “lưu trữ”. Bạn cũng có thể thêm các đoạn văn bản tiêu đề nhận xét ở đầu mỗi scripts bao gồm các thông tin như mô tả, thẻ, tác giả và nhật ký thay đổi.  
 
-Một phương pháp phức tạp hơn đó là việc sử dụng Github hoặc một nền tảng tương tự để kiểm soát phiên bản. Xem chương [Version control với Git và Github].  
+Một phương pháp phức tạp hơn đó là việc sử dụng Github hoặc một nền tảng tương tự để kiểm soát phiên bản. Xem chương [Version control với Git và Github](collaboration.vn.qmd).  
 
 Một mẹo là bạn có thể tìm kiếm trong toàn bộ dự án hoặc thư mục bằng cách sử dụng công cụ “Find in Files” (Edit menu)). Công cụ này có thể tìm kiếm và thậm chí thay thế các chuỗi trên nhiều tệp.  
 
@@ -79,7 +79,7 @@ Một mẹo là bạn có thể tìm kiếm trong toàn bộ dự án hoặc th�
 
 ## Các ví dụ  
 
-Dưới đây là một vài ví dụ về cách nhập/xuất/lưu trữ sử dụng lệnh `here()` from within an R projct. bên trong một dự án R. Đọc thêm về package **here** trong chương [Nhập xuất dữ liệu].  
+Dưới đây là một vài ví dụ về cách nhập/xuất/lưu trữ sử dụng lệnh `here()` from within an R projct. bên trong một dự án R. Đọc thêm về package **here** trong chương [Nhập xuất dữ liệu](importing.vn.qmd).  
 
 
 *Nhập `linelist_raw.xlsx` từ thư mục “data” trong dự án R của bạn*  

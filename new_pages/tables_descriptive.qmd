@@ -1,4 +1,4 @@
-# Descriptive tables { }
+# Descriptive tables {#tables_descriptive}
 
 ```{r out.width = c('75%'), fig.align='center', fig.show='hold', echo=F}
 knitr::include_graphics(here::here("images", "descriptive_tables.png"))
@@ -6,7 +6,7 @@ knitr::include_graphics(here::here("images", "descriptive_tables.png"))
 
 This page demonstrates the use of **janitor**, **dplyr**, **gtsummary**, **rstatix**, and **base** R to summarise data and create tables with descriptive statistics. 
 
-*This page covers how to *create* the underlying tables, whereas the [Tables for presentation] page covers how to nicely format and print them.*  
+*This page covers how to *create* the underlying tables, whereas the [Tables for presentation](tables_presentation.qmd) page covers how to nicely format and print them.*  
 
 Each of these packages has advantages and disadvantages in the areas of code simplicity, accessibility of outputs, quality of printed outputs. Use this page to decide which approach works for your scenario.  
 
@@ -26,7 +26,7 @@ You have several choices when producing tabulation and cross-tabulation summary 
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 
 ```{r, warning=F, message=F}
@@ -45,7 +45,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export] page for details).  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import your data with the `import()` function from the **rio** package (it accepts many file types like .xlsx, .rds, .csv - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -113,12 +113,12 @@ summary(linelist$age_years)[[2]]            # return only the 2nd element
 # summary(linelist$age_years)[["1st Qu."]]  
 ```
 
-You can return individual statistics with **base** R functions like `max()`, `min()`, `median()`, `mean()`, `quantile()`, `sd()`, and `range()`. See the [R basics] page for a complete list.  
+You can return individual statistics with **base** R functions like `max()`, `min()`, `median()`, `mean()`, `quantile()`, `sd()`, and `range()`. See the [R basics](basics.qmd) page for a complete list.  
 
 <span style="color: orange;">**_CAUTION:_** If your data contain missing values, R wants you to know this and so will return `NA` unless you specify to the above mathematical functions that you want R to ignore missing values, via the argument `na.rm = TRUE`.</span>
 
 
-You can use the `get_summary_stats()` function from **rstatix** to return summary statistics *in a data frame format*. This can be helpful for performing subsequent operations or plotting on the numbers. See the [Simple statistical tests] page for more details on the **rstatix** package and its functions.  
+You can use the `get_summary_stats()` function from **rstatix** to return summary statistics *in a data frame format*. This can be helpful for performing subsequent operations or plotting on the numbers. See the [Simple statistical tests](stat_tests.qmd) page for more details on the **rstatix** package and its functions.  
 
 ```{r}
 linelist %>% 
@@ -147,7 +147,7 @@ linelist %>% tabyl(age_cat)
 ```
 As you can see above, if there are missing values they display in a row labeled `<NA>`. You can suppress them with `show_na = FALSE`. If there are no missing values, this row will not appear. If there are missing values, all proportions are given as both raw (denominator inclusive of `NA` counts) and "valid" (denominator excludes `NA` counts).  
 
-If the column is class Factor and only certain levels are present in your data, all levels will still appear in the table. You can suppress this feature by specifying `show_missing_levels = FALSE`. Read more on the [Factors] page.  
+If the column is class Factor and only certain levels are present in your data, all levels will still appear in the table. You can suppress this feature by specifying `show_missing_levels = FALSE`. Read more on the [Factors](factors.qmd) page.  
 
 ### Cross-tabulation {.unnumbered}  
 
@@ -211,7 +211,7 @@ linelist %>%                                  # case linelist
 
 By default, the tabyl will print raw to your R console.  
 
-Alternatively, you can pass the tabyl to **flextable**  or similar package to print as a "pretty" image in the RStudio Viewer, which could be exported as .png, .jpeg, .html, etc. This is discussed in the page [Tables for presentation]. Note that if printing in this manner and using `adorn_titles()`, you must specify `placement = "combined"`.
+Alternatively, you can pass the tabyl to **flextable**  or similar package to print as a "pretty" image in the RStudio Viewer, which could be exported as .png, .jpeg, .html, etc. This is discussed in the page [Tables for presentation](tables_presentation.qmd). Note that if printing in this manner and using `adorn_titles()`, you must specify `placement = "combined"`.
 
 ```{r}
 linelist %>%
@@ -243,7 +243,7 @@ linelist %>%
 
 ### Saving the tabyl {.unnumbered}  
 
-If you convert the table to a "pretty" image with a package like **flextable**, you can save it with functions from that package - like `save_as_html()`, `save_as_word()`, `save_as_ppt()`, and `save_as_image()` from **flextable** (as discussed more extensively in the [Tables for presentation] page). Below, the table is saved as a Word document, in which it can be further hand-edited.  
+If you convert the table to a "pretty" image with a package like **flextable**, you can save it with functions from that package - like `save_as_html()`, `save_as_word()`, `save_as_ppt()`, and `save_as_image()` from **flextable** (as discussed more extensively in the [Tables for presentation](tables_presentation.qmd) page). Below, the table is saved as a Word document, in which it can be further hand-edited.  
 
 ```{r, eval=F}
 linelist %>%
@@ -276,7 +276,7 @@ age_by_outcome <- linelist %>%
 chisq.test(age_by_outcome)
 ```
 
-See the page on [Simple statistical tests] for more code and tips about statistics.  
+See the page on [Simple statistical tests](stat_tests.qmd) for more code and tips about statistics.  
 
 ### Other tips {.unnumbered}  
 
@@ -291,7 +291,7 @@ See the page on [Simple statistical tests] for more code and tips about statisti
 
 **dplyr** is part of the **tidyverse** packages and is an very common data management tool. Creating tables with **dplyr** functions `summarise()` and `count()` is a useful approach to calculating summary statistics, summarize *by group*, or pass tables to `ggplot()`. 
 
-`summarise()` creates a *new, summary data frame*. If the data are *ungrouped*, it will return a one-row dataframe with the specified summary statistics of the entire data frame. If the data are *grouped*, the new data frame will have one row per *group* (see [Grouping data] page).  
+`summarise()` creates a *new, summary data frame*. If the data are *ungrouped*, it will return a one-row dataframe with the specified summary statistics of the entire data frame. If the data are *grouped*, the new data frame will have one row per *group* (see [Grouping data](grouping.qmd) page).  
 
 Within the `summarise()` parentheses, you provide the names of each new summary column followed by an equals sign and a statistical function to apply.  
 
@@ -327,7 +327,7 @@ linelist %>%
 
 You can change the name of the counts column from the default `n` to something else by specifying it to `name = `.  
 
-Tabulating counts of two or more grouping columns are still returned in “long” format, with the counts in the `n` column. See the page on [Pivoting data] to learn about "long" and "wide" data formats.  
+Tabulating counts of two or more grouping columns are still returned in “long” format, with the counts in the `n` column. See the page on [Pivoting data](pivoting.qmd) to learn about "long" and "wide" data formats.  
 
 ```{r}
 linelist %>% 
@@ -341,7 +341,7 @@ If you are tabling a column of class *factor* you can ensure that *all* levels a
 
 This technique is useful to standardise your tables/plots. For example if you are creating figures for multiple sub-groups, or repeatedly creating the figure for routine reports. In each of these circumstances, the presence of values in the data may fluctuate, but you can define levels that remain constant.  
 
-See the page on [Factors] for more information.  
+See the page on [Factors](factors.qmd) for more information.  
 
 
 
@@ -350,7 +350,7 @@ See the page on [Factors] for more information.
 
 Proportions can be added by piping the table to `mutate()` to create a new column. Define the new column as the counts column (`n` by default) divided by the `sum()` of the counts column (this will return a proportion).  
 
-Note that in this case, `sum()` in the `mutate()` command will return the sum of the whole column `n` for use as the proportion denominator. As explained [in the Grouping data page](#group_summarise), *if* `sum()` is used in *grouped* data (e.g. if the `mutate()` immediately followed a `group_by()` command), it will return sums *by group*. As stated just above, `count()` finishes its actions by *ungrouping*. Thus, in this scenario we get full column proportions. 
+Note that in this case, `sum()` in the `mutate()` command will return the sum of the whole column `n` for use as the proportion denominator. As explained [in the Grouping data page](grouping.qmd#group_summarise), *if* `sum()` is used in *grouped* data (e.g. if the `mutate()` immediately followed a `group_by()` command), it will return sums *by group*. As stated just above, `count()` finishes its actions by *ungrouping*. Thus, in this scenario we get full column proportions. 
 
 To easily display percents, you can wrap the proportion in the function `percent()` from the package **scales** (note this convert to class character).  
 
@@ -382,7 +382,7 @@ DT::datatable(age_by_outcome, rownames = FALSE, options = list(pageLength = 12, 
 
 ### Plotting {.unnumbered}  
 
-To display a "long" table output like the above with `ggplot()` is relatively straight-forward. The data are naturally in "long" format, which is naturally accepted by `ggplot()`. See further examples in the pages [ggplot basics] and [ggplot tips].  
+To display a "long" table output like the above with `ggplot()` is relatively straight-forward. The data are naturally in "long" format, which is naturally accepted by `ggplot()`. See further examples in the pages [ggplot basics](ggplot_basics.qmd) and [ggplot tips](ggplot_tips.qmd).  
 
 ```{r, warning=F, message=F}
 linelist %>%                      # begin with linelist
@@ -457,13 +457,13 @@ linelist %>%
 
 The function `str_glue()` from **stringr** is useful to combine values from several columns into one new column. In this context this is typically used *after* the `summarise()` command.  
 
-In the [Characters and strings] page, various options for combining columns are discussed, including `unite()`, and `paste0()`. In this use case, we advocate for `str_glue()` because it is more flexible than `unite()` and has more simple syntax than `paste0()`.  
+In the [Characters and strings](characters_strings.qmd) page, various options for combining columns are discussed, including `unite()`, and `paste0()`. In this use case, we advocate for `str_glue()` because it is more flexible than `unite()` and has more simple syntax than `paste0()`.  
 
 Below, the `summary_table` data frame (created above) is mutated such that columns `delay_mean` and `delay_sd` are combined, parentheses formating is added to the new column, and their respective old columns are removed.  
 
 Then, to make the table more presentable, a total row is added with `adorn_totals()` from **janitor** (which ignores non-numeric columns). Lastly, we use `select()` from **dplyr** to both re-order and rename to nicer column names.  
 
-Now you could pass to **flextable** and print the table to Word, .png, .jpeg, .html, Powerpoint, RMarkdown, etc.! (see the [Tables for presentation] page).  
+Now you could pass to **flextable** and print the table to Word, .png, .jpeg, .html, Powerpoint, RMarkdown, etc.! (see the [Tables for presentation](tables_presentation.qmd) page).  
 
 ```{r}
 summary_table %>% 
@@ -615,7 +615,7 @@ linelist %>%
 
 ### Pivot wider {#tbls_pivot_wider .unnumbered}
 
-If you prefer your table in "wide" format you can transform it using the **tidyr** `pivot_wider()` function. You will likely need to re-name the columns with `rename()`. For more information see the page on [Pivoting data].  
+If you prefer your table in "wide" format you can transform it using the **tidyr** `pivot_wider()` function. You will likely need to re-name the columns with `rename()`. For more information see the page on [Pivoting data](pivoting.qmd).  
 
 The example below begins with the "long" table `age_by_outcome` from the [proportions section](#tbl_dplyr_prop). We create it again and print, for clarity:  
 
@@ -665,7 +665,7 @@ linelist %>%
 
 #### `summarise()` on "total" data and then `bind_rows()` {.unnumbered}  
 
-If your table consists of summary statistics such as `median()`, `mean()`, etc, the `adorn_totals()` approach shown above will *not* be sufficient. Instead, to get summary statistics for the entire dataset you must calculate them with a separate `summarise()` command and then bind the results to the original grouped summary table. To do the binding you can use `bind_rows()` from **dplyr** s described in the [Joining data] page. Below is an example:  
+If your table consists of summary statistics such as `median()`, `mean()`, etc, the `adorn_totals()` approach shown above will *not* be sufficient. Instead, to get summary statistics for the entire dataset you must calculate them with a separate `summarise()` command and then bind the results to the original grouped summary table. To do the binding you can use `bind_rows()` from **dplyr** s described in the [Joining data](joining_matching.qmd) page. Below is an example:  
 
 You can make a summary table of outcome *by hospital* with `group_by()` and `summarise()` like this:  
 
@@ -693,7 +693,7 @@ totals <- linelist %>%
 totals # print table
 ```
 
-We can bind these two data frames together. Note that `by_hospital` has 4 columns whereas `totals` has 3 columns. By using `bind_rows()`, the columns are combined by name, and any extra space is filled in with `NA` (e.g the column `hospital` values for the two new `totals` rows). After binding the rows, we convert these empty spaces to "Total"  using `replace_na()` (see [Cleaning data and core functions] page).  
+We can bind these two data frames together. Note that `by_hospital` has 4 columns whereas `totals` has 3 columns. By using `bind_rows()`, the columns are combined by name, and any extra space is filled in with `NA` (e.g the column `hospital` values for the two new `totals` rows). After binding the rows, we convert these empty spaces to "Total"  using `replace_na()` (see [Cleaning data and core functions](cleaning.qmd) page).  
 
 ```{r}
 table_long <- bind_rows(by_hospital, totals) %>% 
@@ -706,7 +706,7 @@ Here is the new table with "Total" rows at the bottom.
 DT::datatable(table_long, rownames = FALSE, options = list(pageLength = 12, scrollX=T), class = 'white-space: nowrap' )
 ```
 
-This table is in a "long" format, which may be what you want. *Optionally*, you can *pivot* this table *wider* to make it more readable. See the section on pivoting wider above, and the [Pivoting data] page. You can also add more columns, and arrange it nicely. This code is below.  
+This table is in a "long" format, which may be what you want. *Optionally*, you can *pivot* this table *wider* to make it more readable. See the section on pivoting wider above, and the [Pivoting data](pivoting.qmd) page. You can also add more columns, and arrange it nicely. This code is below.  
 
 ```{r}
 table_long %>% 
@@ -729,7 +729,7 @@ table_long %>%
 
 ```
 
-And then you can print this nicely as an image - below is the output printed with **flextable**. You can read more in depth about this example and how to achieve this "pretty" table in the [Tables for presentation] page.  
+And then you can print this nicely as an image - below is the output printed with **flextable**. You can read more in depth about this example and how to achieve this "pretty" table in the [Tables for presentation](tables_presentation.qmd) page.  
 
 ```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%')}
 
@@ -858,7 +858,7 @@ You can stratify your table by a column (e.g. by `outcome`), creating a 2-way ta
 **`statistic = `**  
 Use an equations to specify which statistics to show and how to display them. There are two sides to the equation, separated by a tilde `~`. On the right side, in quotes, is the statistical display desired, and on the left are the columns to which that display will apply.  
 
-* The right side of the equation uses the syntax of `str_glue()` from **stringr** (see [Characters and Strings]), with the desired display string in quotes and the statistics themselves within curly brackets. You can include statistics like "n" (for counts), "N" (for denominator), "mean", "median", "sd", "max", "min", percentiles as "p##" like "p25", or percent of total as "p". See `?tbl_summary` for details.  
+* The right side of the equation uses the syntax of `str_glue()` from **stringr** (see [Characters and Strings])(characters_strings.qmd), with the desired display string in quotes and the statistics themselves within curly brackets. You can include statistics like "n" (for counts), "N" (for denominator), "mean", "median", "sd", "max", "min", percentiles as "p##" like "p25", or percent of total as "p". See `?tbl_summary` for details.  
 * For the left side of the equation, you can specify columns by name (e.g. `age` or `c(age, gender)`) or using helpers such as `all_continuous()`, `all_categorical()`, `contains()`, `starts_with()`, etc.  
 
 A simple example of a `statistic = ` equation might look like below, to only print the mean of column `age_years`:  
@@ -986,7 +986,7 @@ Converting a `table()` object directly to a data frame is not straight-forward. 
 2) Add totals (optional) by piping to `addmargins()`  
 3) Pipe to the **base** R function `as.data.frame.matrix()`  
 4) Pipe the table to the **tibble** function `rownames_to_column()`, specifying the name for the first column  
-5) Print, View, or export as desired. In this example we use `flextable()` from package **flextable** as described in the [Tables for presentation] page. This will print to the RStudio viewer pane as a pretty HTML image.  
+5) Print, View, or export as desired. In this example we use `flextable()` from package **flextable** as described in the [Tables for presentation](tables_presentation.qmd) page. This will print to the RStudio viewer pane as a pretty HTML image.  
 
 ```{r, warning=F, message=F}
 table(fct_explicit_na(linelist$age_cat), fct_explicit_na(linelist$outcome)) %>% 

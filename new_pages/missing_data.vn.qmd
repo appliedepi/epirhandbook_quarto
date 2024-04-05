@@ -19,7 +19,7 @@ Chương này sẽ bao gồm cách để:
 
 ### Gọi package {.unnumbered}
 
-Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, mà hàm này sẽ cài đặt package khi cần thiết và gọi nó ra để sử dụng. Bạn cũng có thể gọi các gói lệnh đã cài đặt bằng hàm `library()` trong **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các R packages.
+Đoạn code này hiển thị cách gọi các package cần thiết cho phân tích. Trong cuốn sổ tay này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, mà hàm này sẽ cài đặt package khi cần thiết và gọi nó ra để sử dụng. Bạn cũng có thể gọi các gói lệnh đã cài đặt bằng hàm `library()` trong **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các R packages.
 
 ```{r}
 pacman::p_load(
@@ -32,7 +32,7 @@ pacman::p_load(
 
 ### Nhập số liệu {.unnumbered}
 
-Chúng ta nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist "đã làm sạch"</a> (as .rds file). Nhập số liệu này bằng hàm `import()` trong package **rio** (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv -- xem chi tiết trong chương [Nhập xuất dữ liệu]).
+Chúng ta nhập bộ số liệu của các ca bệnh được mô phỏng từ một vụ dịch Ebola. Để tiện làm theo, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải số liệu linelist "đã làm sạch"</a> (as .rds file). Nhập số liệu này bằng hàm `import()` trong package **rio** (nó chấp nhận nhiều loại tập tin như .xlsx, .rds, .csv -- xem chi tiết trong chương [Nhập xuất dữ liệu](importing.vn.qmd)).
 
 ```{r, echo=F}
 # import the linelist into R
@@ -73,7 +73,7 @@ Trong lúc làm sạch số liệu, chúng ta cũng có thể muốn chuyển đ
 ### Các phiên bản của `NA` {.unnumbered}
 
 Trong hầu hết trường hợp, `NA` đại diện cho giá trị bị thiếu và mọi thứ đều vận hành tốt. Tuy nhiên, trong một số trường hợp, chúng ta có thể gặp phải những tình huống khó khăn đối với *các biến thể* của `NA` mà đặc trưng cho một lớp đối tượng (ký tự, số, .v.v.). Điều này rất hiếm, nhưng chúng ta cần phải lưu ý.\
-Tình huống điển hình cho trường hợp này là khi tạo một cột mới bằng hàm `case_when()` trong package **dplyr**. Như được mô tả trong chương [Làm sạch số liệu và các hàm quan trọng](#clean_case_when), hàm này lượng giá mọi hàng trong data frame, đánh giá xem các hàng có đáp ứng với các tiêu chí logic cụ thể hay không (phía bên phải của code), và gán giá trị chính xác mới (phía bên trái của code). *Quan trọng: tất cả các giá trị bên phải phải cùng một lớp biến số*.
+Tình huống điển hình cho trường hợp này là khi tạo một cột mới bằng hàm `case_when()` trong package **dplyr**. Như được mô tả trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd#clean_case_when), hàm này lượng giá mọi hàng trong data frame, đánh giá xem các hàng có đáp ứng với các tiêu chí logic cụ thể hay không (phía bên phải của code), và gán giá trị chính xác mới (phía bên trái của code). *Quan trọng: tất cả các giá trị bên phải phải cùng một lớp biến số*.
 
 ```{r, eval=F}
 linelist <- linelist %>% 
@@ -96,7 +96,7 @@ Một lần nữa, chúng ta sẽ không gặp các loại biến thể này *tr
 
 ### `NULL` {.unnumbered}
 
-`NULL` là một giá trị dành riêng khác nữa trong R. Nó đại điện cho một mệnh đề không đúng cũng không sai. Nó là kết quả của các biểu thức hoặc hàm có giá trị không xác định. Nói chung, không gán NULL như một giá trị, trừ khi viết hàm hoặc khi viết mộ [Ứng dụng **shiny**][Dashboards with Shiny] để trả về `NULL` trong các tình huống cụ thể.
+`NULL` là một giá trị dành riêng khác nữa trong R. Nó đại điện cho một mệnh đề không đúng cũng không sai. Nó là kết quả của các biểu thức hoặc hàm có giá trị không xác định. Nói chung, không gán NULL như một giá trị, trừ khi viết hàm hoặc khi viết một [Ứng dụng **shiny**](shiny_basics.vn.qmd) để trả về `NULL` trong các tình huống cụ thể.
 
 Null có thể được đánh giá bằng cách sử dụng hàm `is.null()` và có thể chuyển đổi thành bằng hàm `as.null()`.
 
@@ -182,7 +182,7 @@ na.omit(my_vector)
 
 ### `drop_na()` {.unnumbered}
 
-Đây là một hàm của package **tidyr** mà rất hữu dụng trong một [pipeline làm sạch số liệu][Cleaning data and core functions]. Nếu thực hiện hàm với dấu ngoặc trống, nó sẽ loại bỏ các hàng có *bất kỳ* giá trị nào bị thiếu. Nếu cụ thể tên cột trong dấu ngoặc, các hàng nào có giá trị bị thiếu trong những cột này sẽ bị loại bỏ. Chúng ta có thể sử dụng cú pháp “tidyselect” để chỉ định các cột này.
+Đây là một hàm của package **tidyr** mà rất hữu dụng trong một [pipeline làm sạch số liệu](cleaning.vn.qmd). Nếu thực hiện hàm với dấu ngoặc trống, nó sẽ loại bỏ các hàng có *bất kỳ* giá trị nào bị thiếu. Nếu cụ thể tên cột trong dấu ngoặc, các hàng nào có giá trị bị thiếu trong những cột này sẽ bị loại bỏ. Chúng ta có thể sử dụng cú pháp “tidyselect” để chỉ định các cột này.
 
 ```{r, eval=F}
 linelist %>% 
@@ -350,7 +350,7 @@ outcome_missing <- linelist %>%
   filter(stringr::str_detect(statistic, "_p_"))                  # keep only the proportion values
 ```
 
-Sau đó, chúng ta vẽ biểu đồ tỷ lệ các giá trị bị thiếu dưới dạng một dòng theo tuần. Xem thêm chương [ggplot cơ bản] nếu bạn chưa quen với package vẽ biểu đồ **ggplot2**.
+Sau đó, chúng ta vẽ biểu đồ tỷ lệ các giá trị bị thiếu dưới dạng một dòng theo tuần. Xem thêm chương [ggplot cơ bản](ggplot_basics.vn.qmd) nếu bạn chưa quen với package vẽ biểu đồ **ggplot2**.
 
 ```{r, message=F, warning=F}
 ggplot(data = outcome_missing)+
@@ -428,7 +428,7 @@ Thỉnh thoảng, có thể dễ dàng hơn để lưu chuỗi này dưới dạ
 
 ### `NA` trong các factors {.unnumbered}
 
-Nếu cột đang quan tâm là một factor, sử dụng hàm `fct_explicit_na()` thuộc package **forcats**  để chuyển đổi các giá trị `NA` thành giá trị ký tự. Xem thêm chi tiết trong chương [Factors]. Theo mặc định, giá trị mới là "(Missing)" nhưng nó có thể được điều chỉnh thông qua đối số `na_level =`.
+Nếu cột đang quan tâm là một factor, sử dụng hàm `fct_explicit_na()` thuộc package **forcats**  để chuyển đổi các giá trị `NA` thành giá trị ký tự. Xem thêm chi tiết trong chương [Factors](factors.vn.qmd). Theo mặc định, giá trị mới là "(Missing)" nhưng nó có thể được điều chỉnh thông qua đối số `na_level =`.
 
 ```{r}
 pacman::p_load(forcats)   # load package
@@ -523,7 +523,7 @@ Cách trên có cùng cách tiếp cận với một số phương pháp nâng c
 
 LOCF (viết tắt của Last observation carried forward) và BOCF (viết tắt của baseline observation carried forward) là các phương pháp gán số liệu bị thiếu đối với số liệu chuỗi thời gian/số liệu dọc. Ý tưởng là lấy giá trị được quan sát trước đó để thay thế cho số liệu bị thiếu. Khi có nhiều giá trị bị thiếu liên tiếp, phương pháp này sẽ tìm kiếm giá trị được quan sát cuối cùng.
 
-Hàm `fill()` từ package **tidyr** có thể được sử dụng cho cả phương pháp gán LOCF và BOCF (tuy nhiên, các package khác như **HMISC**, **zoo**, và **data.table** cũng có các phương pháp để làm điều này). Để hiển thị cú pháp của hàm`fill()`,  chúng ta sẽ tạo một bộ số liệu chuỗi thời gian đơn giản mà bao gồm một số ca của một bệnh trong các quý của năm 2000 và 2001. Tuy nhiên, giá trị năm cho các quý tiếp theo sau Q1 bị thiếu, vì thế chúng ta cần gán các số liệu bị thiếu này. Hàm `fill()` cũng được trình bày chi tiết trong chương [Xoay trục dữ liệu].
+Hàm `fill()` từ package **tidyr** có thể được sử dụng cho cả phương pháp gán LOCF và BOCF (tuy nhiên, các package khác như **HMISC**, **zoo**, và **data.table** cũng có các phương pháp để làm điều này). Để hiển thị cú pháp của hàm`fill()`,  chúng ta sẽ tạo một bộ số liệu chuỗi thời gian đơn giản mà bao gồm một số ca của một bệnh trong các quý của năm 2000 và 2001. Tuy nhiên, giá trị năm cho các quý tiếp theo sau Q1 bị thiếu, vì thế chúng ta cần gán các số liệu bị thiếu này. Hàm `fill()` cũng được trình bày chi tiết trong chương [Xoay trục dữ liệu](pivoting.vn.qmd).
 
 ```{r}
 #creating our simple dataset

@@ -8,7 +8,7 @@ Bạn có thể tải xuống phiên bản ngoại tuyến của sổ tay này d
 
 -   Khi bạn mở tệp, có thể mất một đến hai phút để tải các hình ảnh và mục lục\
 -   Phiên bản ngoại tuyến có bố cục hơi khác so với phiên bản trực tuyến - là một trang rất dài với Mục lục ở phía bên trái. Để tìm kiếm các cụm từ cụ thể, hãy sử dụng Ctrl + F (Cmd-f)\
--   Xem chương [Package đề xuất] để hỗ trợ bạn cài đặt các R package thích hợp trước khi bạn mất kết nối internet\
+-   Xem chương [Package đề xuất](packages_suggested.vn.qmd) để hỗ trợ bạn cài đặt các R package thích hợp trước khi bạn mất kết nối internet\
 -   Cài đặt package **epirhandbook** của chúng tôi trong đó chứa tất cả các dữ liệu minh họa (quy trình cài đặt được mô tả bên dưới)
 
 **Có hai cách bạn có thể tải xuống sổ tay:**
@@ -86,7 +86,7 @@ get_data(file = "linelist_cleaned.rds")
 get_data("linelist_cleaned.rds")
 ```
 
-Khi bạn dùng hàm `get_data()` để lưu tệp dữ liệu vào máy tính của mình, bạn sẽ vẫn cần nhập dữ liệu vào R. Xem chương [Nhập xuất dữ liệu] để biết thêm chi tiết.
+Khi bạn dùng hàm `get_data()` để lưu tệp dữ liệu vào máy tính của mình, bạn sẽ vẫn cần nhập dữ liệu vào R. Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết.
 
 Nếu bạn muốn, bạn có thể xem toàn bộ dữ liệu sử dụng trong cuốn sách này ở [**thư mục "dữ liệu"**](https://github.com/appliedepi/epirhandbook_eng/tree/master/data) trong kho Github của chúng tôi.
 
@@ -98,7 +98,7 @@ Tùy chọn này liên quan đến việc tải xuống từng tệp dữ liệu
 
 Đây là số liệu bùng phát Ebola giả định, được nhóm tác giả cẩm nang mở rộng từ bộ dữ liệu thực hành `ebola_sim` trong package **outbreaks**.
 
--   <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>Bấm để tải xuống dữ liệu "thô" linelist (.xlsx)</span></a>. Bộ dữ liệu "thô" là một trang tính Excel với dữ liệu lộn xộn. Sử dụng số liệu này trong chương [Làm sạch số liệu và các hàm quan trọng].
+-   <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>Bấm để tải xuống dữ liệu "thô" linelist (.xlsx)</span></a>. Bộ dữ liệu "thô" là một trang tính Excel với dữ liệu lộn xộn. Sử dụng số liệu này trong chương [Làm sạch số liệu và các hàm quan trọng](cleaning.vn.qmd).
 
 -   <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>Bấm để tải xuống dữ liệu "đã làm sạch" linelist (.rds)</a>. Sử dụng tệp này cho tất cả các chương khác trong sổ tay có sử dụng bộ dữ liệu linelist. Tệp mở rộng .rds là một kiểu file của R có khả năng lưu trữ các thông tin cột. Điều này đảm bảo bạn sẽ có ít việc phải làm khi làm sạch số liệu sau khi nhập số liệu vào R.
 
@@ -123,7 +123,7 @@ cleaning_dict <- import("https://github.com/appliedepi/epirhandbook_eng/raw/mast
 
 #### Dữ liệu thang đo Likert {.unnumbered}
 
-Đây là dữ liệu giả định từ một cuộc khảo sát sử dụng thang đo Likert, được sử dụng trong chương [Tháp dân số và thang đo Likert]. Bạn có thể tải những dữ liệu này trực tiếp vào R bằng cách chạy các lệnh sau:
+Đây là dữ liệu giả định từ một cuộc khảo sát sử dụng thang đo Likert, được sử dụng trong chương [Tháp dân số và thang đo Likert](age_pyramid.vn.qmd). Bạn có thể tải những dữ liệu này trực tiếp vào R bằng cách chạy các lệnh sau:
 
 ```{r, eval=F}
 pacman::p_load(rio) # install/load the rio package
@@ -134,14 +134,14 @@ likert_data <- import("https://raw.githubusercontent.com/nsbatra/Epi_R_handbook/
 
 #### Flexdashboard {.unnumbered}
 
-Dưới đây là các liên kết đến tệp được dùng trong chương [Dashboards với R Markdown]:
+Dưới đây là các liên kết đến tệp được dùng trong chương [Dashboards với R Markdown](flexdashboard.vn.qmd):
 
 -   Để tải xuống R Markdown dashboard về một đợt bùng phát dịch, bấm phải chuột vào [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard.Rmd) này (Cmd+click đối với Mac) và chọn "Save link as".\
 -   Để tải xuống HTML dashboard, bấm phải chuột vào [link](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/flexdashboard/outbreak_dashboard_test.html) này (Cmd+click đối với Mac) và chọn "Save link as".
 
 #### Truy vết tiếp xúc {.unnumbered}
 
-Chương [Truy vết tiếp xúc] trình bày phân tích dữ liệu truy vết tiếp xúc, sử dụng dữ liệu minh họa từ [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Dữ liệu được sử dụng trong chương này có thể được tải xuống dưới dạng tệp .rds bằng cách bấm vào các liên kết sau:
+Chương [Truy vết tiếp xúc](contact_tracing.vn.qmd) trình bày phân tích dữ liệu truy vết tiếp xúc, sử dụng dữ liệu minh họa từ [Go.Data](https://github.com/WorldHealthOrganization/godata/tree/master/analytics/r-reporting). Dữ liệu được sử dụng trong chương này có thể được tải xuống dưới dạng tệp .rds bằng cách bấm vào các liên kết sau:
 
 <a href='https://github.com/WorldHealthOrganization/godata/blob/master/analytics/r-reporting/data/cases_clean.rds?raw=true' class='download-button'> Bấm để tải xuống dữ liệu điều tra trường hợp (.rds file) </a>
 
@@ -157,9 +157,9 @@ Chương [Truy vết tiếp xúc] trình bày phân tích dữ liệu truy vết
 
 Shapefiles có nhiều tệp thành phần phụ, mỗi tệp có một phần mở rộng tệp khác nhau. Một tệp sẽ có phần mở rộng ".shp", nhưng những tệp khác có thể là ".dbf", ".prj", v.v.
 
-Chương [GIS cơ bản] cung cấp các liên kết đến trang web *Humanitarian Data Exchange*, nơi bạn có thể tải xuống trực tiếp các shapefiles dưới dạng tệp nén.
+Chương [GIS cơ bản](gis.vn.qmd) cung cấp các liên kết đến trang web *Humanitarian Data Exchange*, nơi bạn có thể tải xuống trực tiếp các shapefiles dưới dạng tệp nén.
 
-Ví dụ, dữ liệu phân bố của các cơ sở y tế có thể được tải xuống [tại đây](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Bạn tải tệp "hotosm_sierra_leone_health_facilities_points_shp.zip". Sau khi được lưu vào máy tính của bạn, hãy “giải nén” thư mục. Bạn sẽ thấy một số tệp có các phần mở rộng khác nhau (ví dụ: “.shp”, “.prj”, “.shx”) - tất cả những tệp này phải được lưu vào cùng một thư mục trên máy tính của bạn. Sau đó, để nhập vào R, hãy cung cấp đường dẫn đến tệp và tên của tệp “.shp” bằng hàm `st_read()` từ package **sf** (đã được mô tả trong chương [GIS cơ bản]).
+Ví dụ, dữ liệu phân bố của các cơ sở y tế có thể được tải xuống [tại đây](https://data.humdata.org/dataset/hotosm_sierra_leone_health_facilities). Bạn tải tệp "hotosm_sierra_leone_health_facilities_points_shp.zip". Sau khi được lưu vào máy tính của bạn, hãy “giải nén” thư mục. Bạn sẽ thấy một số tệp có các phần mở rộng khác nhau (ví dụ: “.shp”, “.prj”, “.shx”) - tất cả những tệp này phải được lưu vào cùng một thư mục trên máy tính của bạn. Sau đó, để nhập vào R, hãy cung cấp đường dẫn đến tệp và tên của tệp “.shp” bằng hàm `st_read()` từ package **sf** (đã được mô tả trong chương [GIS cơ bản](gis.vn.qmd)).
 
 Nếu bạn làm theo Cách 1 để tải xuống tất cả dữ liệu minh họa (thông qua package **epirhandbook** của chúng tôi), tất cả các shapefiles đã được bao gồm.
 
@@ -171,7 +171,7 @@ knitr::include_graphics(here::here("images", "download_shp.png"))
 
 #### Cây phả hệ {.unnumbered}
 
-Xem chương [Cây phả hệ]. Tệp có tên Newick về cây phả hệ được xây dựng từ việc giải trình tự toàn bộ bộ gen của 299 mẫu Shigella sonnei và dữ liệu mẫu tương ứng (được chuyển đổi thành tệp văn bản). Các mẫu và kết quả từ nước Bỉ được cung cấp thông qua Trung tâm tham khảo quốc gia về Salmonella và Shigella (NRC Bỉ) trong phạm vi dự án do EUPHEM Fellow của ECDC thực hiện, và cũng sẽ được xuất bản dưới dạng bản thảo. Dữ liệu quốc tế được cung cấp công khai trên cơ sở dữ liệu công cộng (ncbi) và đã được xuất bản trước đó.
+Xem chương [Cây phả hệ](phylogenetic_trees.vn.qmd). Tệp có tên Newick về cây phả hệ được xây dựng từ việc giải trình tự toàn bộ bộ gen của 299 mẫu Shigella sonnei và dữ liệu mẫu tương ứng (được chuyển đổi thành tệp văn bản). Các mẫu và kết quả từ nước Bỉ được cung cấp thông qua Trung tâm tham khảo quốc gia về Salmonella và Shigella (NRC Bỉ) trong phạm vi dự án do EUPHEM Fellow của ECDC thực hiện, và cũng sẽ được xuất bản dưới dạng bản thảo. Dữ liệu quốc tế được cung cấp công khai trên cơ sở dữ liệu công cộng (ncbi) và đã được xuất bản trước đó.
 
 -   Để tải xuống file cây phả hệ “Shigella_tree.txt”, nhấn chuột phải vào [link này](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/Shigella_tree.txt) (Cmd+click đối với Mac) và chọn "Save link as".\
 -   Để tải xuống file "sample_data_Shigella_tree.csv" với thông tin bổ sung cho từng mẫu, nhấn chuột phải vào [link này](https://github.com/appliedepi/epirhandbook_eng/raw/master/data/phylo/sample_data_Shigella_tree.csv) (Cmd+click đối với Mac) và chọn "Save link as".\
@@ -185,7 +185,7 @@ ape::read.tree("Shigella_tree.txt")
 
 #### Chuẩn hóa {.unnumbered}
 
-Xem trong chương [Tỷ lệ chuẩn hóa]. Bạn có thể tải dữ liệu trực tiếp từ kho lưu trữ Github của chúng tôi trên internet vào phiên làm việc R của bạn bằng các lệnh sau :
+Xem trong chương [Tỷ lệ chuẩn hóa](standardization.vn.qmd). Bạn có thể tải dữ liệu trực tiếp từ kho lưu trữ Github của chúng tôi trên internet vào phiên làm việc R của bạn bằng các lệnh sau :
 
 ```{r, eval=F}
 # install/load the rio package
@@ -219,7 +219,7 @@ standard_pop_data <- import("https://github.com/appliedepi/epirhandbook_eng/raw/
 
 #### Chuỗi thời gian và phát hiện ổ dịch {#data_outbreak .unnumbered}
 
-Xem trong chương [Chuỗi thời gian và phát hiện ổ dịch](#data_outbreak). Chúng tôi sử dụng các trường hợp campylobacter được báo cáo ở Đức từ 2002-2011, có sẵn từ package **surveillance** của R. (*lưu ý.* tập dữ liệu này đã được điều chỉnh từ bản gốc, trong đó 3 tháng dữ liệu cuối năm 2011 đã bị xóa để dùng với mục đích minh họa)
+Xem trong chương [Chuỗi thời gian và phát hiện ổ dịch](epidemic_models.vn.qmd). Chúng tôi sử dụng các trường hợp campylobacter được báo cáo ở Đức từ 2002-2011, có sẵn từ package **surveillance** của R. (*lưu ý.* tập dữ liệu này đã được điều chỉnh từ bản gốc, trong đó 3 tháng dữ liệu cuối năm 2011 đã bị xóa để dùng với mục đích minh họa)
 
 <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/time_series/campylobacter_germany.xlsx' class='download-button'> Bấm để tải xuống dữ liệu Campylobacter ở Đức (.xlsx) </a>
 
@@ -257,7 +257,7 @@ Chúng tôi cũng sử dụng dữ liệu khí hậu ở Đức từ 2002-2011 (
 
 #### Shiny {#data_shiny .unnumbered}
 
-Chương [Dashboards với Shiny] trình diễn việc xây dựng một ứng dụng đơn giản để hiển thị dữ liệu bệnh sốt rét.
+Chương [Dashboards với Shiny](shiny_basics.vn.qmd) trình diễn việc xây dựng một ứng dụng đơn giản để hiển thị dữ liệu bệnh sốt rét.
 
 Để tải xuống các tệp R dùng để tạo thành ứng dụng Shiny:
 

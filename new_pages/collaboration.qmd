@@ -168,7 +168,7 @@ sub-folders and files for your project (data, code, images, etc.) and
 their revision histories. When you begin tracking changes in the
 repository with it, Git will create a hidden folder that contains
 all tracking information. A typical Git repository is
-your *R Project* folder (see handbook page on [R projects]).
+your *R Project* folder (see handbook page on [R projects](r_projects.qmd)).
 
 We will show how to create (_initialize_) a Git repository 
 from Github, Github Desktop or Rstudio in the next

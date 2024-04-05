@@ -1,5 +1,5 @@
 
-# R на сетевых дисках { }  
+# R на сетевых дисках {#network-drives}  
 
  
 
@@ -73,7 +73,7 @@ find.package("rmarkdown", lib.loc = NULL, quiet = FALSE, verbose = getOption("ve
 
 **"Failed to compile...tex in rmarkdown"** (Не получилось компилировать...tex в rmarkdown)  
 
-* Проверьте установку TinyTex, либо установите TinyTex в C:. См. страницу [Основы R] для информации о том, как установить TinyTex.  
+* Проверьте установку TinyTex, либо установите TinyTex в C:. См. страницу [Основы R](basics.ru.qmd) для информации о том, как установить TinyTex.  
 
 ```{r, eval=F}
 # проверка/установка tinytex в C:

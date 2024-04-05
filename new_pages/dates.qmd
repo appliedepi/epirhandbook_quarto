@@ -23,7 +23,7 @@ Dates in R are their own class of object - the `Date` class. It should be noted 
 
 ### Load packages {.unnumbered}  
 
-This code chunk shows the loading of packages required for this page. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for this page. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r dates_packages, warning=F, message=F}
 # Checks if package is installed, installs if necessary, and loads package for current session
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}  
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow along step-by-step, see instruction in the [Download handbook and data] page. We assume the file is in the working directory so no sub-folders are specified in this file path.  
+We import the dataset of cases from a simulated Ebola epidemic. If you want to download the data to follow along step-by-step, see instruction in the [Download handbook and data](data_used.qmd) page. We assume the file is in the working directory so no sub-folders are specified in this file path.  
 
 ```{r,  echo=F}
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -199,7 +199,7 @@ Once the values are in class Date, R will by default display them in the standar
 
 Note that the above functions work best with 4-digit years. 2-digit years can produce unexpected results, as lubridate attempts to guess the century.  
 
-To convert a 2-digit year into a 4-digit year (all in the same century) you can convert to class character and then combine the existing digits with a pre-fix using `str_glue()` from the **stringr** package (see [Characters and strings]). Then convert to date.  
+To convert a 2-digit year into a 4-digit year (all in the same century) you can convert to class character and then combine the existing digits with a pre-fix using `str_glue()` from the **stringr** package (see [Characters and strings](characters_strings.qmd)). Then convert to date.  
 
 ```{r}
 two_digit_years <- c("15", "15", "16", "17")
@@ -302,7 +302,7 @@ mdy_hms("01 January 2020, 16:20:40 PST")
 
 ```
 
-When working with a data frame, time and date columns can be combined to create a datetime column using `str_glue()` from **stringr** package and an appropriate **lubridate** function. See the page on [Characters and strings] for details on **stringr**.  
+When working with a data frame, time and date columns can be combined to create a datetime column using `str_glue()` from **stringr** package and an appropriate **lubridate** function. See the page on [Characters and strings](characters_strings.qmd) for details on **stringr**.  
 
 In this example, the `linelist` data frame has a column in format "hours:minutes". To convert this to a datetime we follow a few steps:  
 
@@ -371,7 +371,7 @@ linelist <- linelist %>%
     hour_admit >=21 | hour_admit <= 6 ~ "Night"))
 ```
 
-To learn more about `case_when()` see the page on [Cleaning data and core functions].  
+To learn more about `case_when()` see the page on [Cleaning data and core functions](cleaning.qmd).  
 
 <!-- ======================================================= -->
 ## Working with dates   
@@ -544,7 +544,7 @@ test_format <- linelist %>%
 table(test_format$yearmon)
 ```
 
-Note: if you are working within a `ggplot()` and want to adjust how dates are *displayed* only, it may be sufficient to provide a strptime format to the `date_labels = ` argument in `scale_x_date()` - you can use `"%b %Y"` or `"%Y %b"`. See the [ggplot tips] page.  
+Note: if you are working within a `ggplot()` and want to adjust how dates are *displayed* only, it may be sufficient to provide a strptime format to the `date_labels = ` argument in `scale_x_date()` - you can use `"%b %Y"` or `"%Y %b"`. See the [ggplot tips](ggplot_tips.qmd) page.  
 
 
 **zoo** also offers the function `as.yearqtr()`, and you can use `scale_x_yearmon()` when using `ggplot()`.  
@@ -556,7 +556,7 @@ Note: if you are working within a `ggplot()` and want to adjust how dates are *d
 
 ### **lubridate** {.unnumbered}  
 
-See the page on [Grouping data] for more extensive examples of grouping data by date. Below we briefly describe grouping data by weeks.  
+See the page on [Grouping data](grouping.qmd) for more extensive examples of grouping data by date. Below we briefly describe grouping data by weeks.  
 
 We generally recommend using the `floor_date()` function from **lubridate**, with the argument `unit = "week"`. This rounds the date down to the "start" of the week, as defined by the argument `week_start = `. The default week start is 1 (for Mondays) but you can specify any day of the week as the start (e.g. 7 for Sundays). `floor_date()` is versitile and can be used to round down to other time units by setting `unit = ` to "second", "minute", "hour", "day", "month", or "year".  
 
@@ -566,7 +566,7 @@ If you are only interested in adjusting dates to *display* by week in a plot, se
 
 ### Weekly counts {.unnumbered}  
 
-See the page on [Grouping data] for a thorough explanation of grouping data with `count()`, `group_by()`, and `summarise()`. A brief example is below.  
+See the page on [Grouping data](grouping.qmd) for a thorough explanation of grouping data with `count()`, `group_by()`, and `summarise()`. A brief example is below.  
 
 1) Create a new 'week' column with `mutate()`, using `floor_date()` with `unit = "week"`  
 2) Get counts of rows (cases) per week with `count()`; filter out any cases with missing date  
@@ -603,7 +603,7 @@ Note that **lubridate** also has functions `week()`, `epiweek()`, and `isoweek()
 You might consider using the package **aweek** to set epidemiological weeks. You can read more about it [on the RECON website](https://www.repidemicsconsortium.org/aweek/). It has the functions `date2week()` and `week2date()` in which you can set the week start day with `week_start = "Monday"`. This package is easiest if you want "week"-style outputs (e.g. "2020-W12"). Another advantage of **aweek** is that when `date2week()` is applied to a date column, the returned column (week format) is automatically of class Factor and includes levels for all weeks in the time span (this avoids the extra step of `complete()` described above). However, **aweek** does not have the functionality to round dates to other time units such as months, years, etc.  
 
 
-Another alternative for time series which also works well to show a a "week" format ("2020 W12") is `yearweek()` from the package **tsibble**, as demonstrated in the page on [Time series and outbreak detection].  
+Another alternative for time series which also works well to show a a "week" format ("2020 W12") is `yearweek()` from the package **tsibble**, as demonstrated in the page on [Time series and outbreak detection](time_series.qmd).  
 
 
 <!-- ======================================================= -->

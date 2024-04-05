@@ -1,5 +1,5 @@
 
-# Grouping data { }  
+# Grouping data {#grouping}  
 
 
 ```{r, out.width=c('100%'), echo=F, message=F}
@@ -32,7 +32,7 @@ This page will address the following topics:
      
 ### Load packages {.unnumbered}  
      
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 
 ```{r}
@@ -48,7 +48,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export] for various ways to import data.
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). The dataset is imported using the `import()` function from the **rio** package. See the page on [Import and export](importing.qmd) for various ways to import data.
 
 ```{r, echo=F}
 linelist <- rio::import(here("data", "case_linelists", "linelist_cleaned.rds"))
@@ -171,7 +171,7 @@ linelist %>%
 
 ## Summarise {#group_summarise} 
 
-See the **dplyr** section of the [Descriptive tables] page for a detailed description of how to produce summary tables with `summarise()`. Here we briefly address how its behavior changes when applied to grouped data.  
+See the **dplyr** section of the [Descriptive tables](tables_descriptive.qmd) page for a detailed description of how to produce summary tables with `summarise()`. Here we briefly address how its behavior changes when applied to grouped data.  
 
 The **dplyr** function `summarise()` (or `summarize()`) takes a data frame and converts it into a *new* summary data frame, with columns containing summary statistics that you define. On an ungrouped data frame, the summary statistics will be calculated from all rows. Applying `summarise()` to grouped data produces those summary statistics *for each group*.  
 
@@ -301,11 +301,11 @@ To add more complex totals rows that involve summary statistics other than *sums
 
 ## Grouping by date  
 
-When grouping data by date, you must have (or create) a column for the date unit of interest - for example "day", "epiweek", "month", etc. You can make this column using `floor_date()` from **lubridate**, as explained in the [Epidemiological weeks section](#dates_epi_wks) of the [Working with dates] page. Once you have this column, you can use `count()` from **dplyr** to group the rows by those unique date values and achieve aggregate counts. 
+When grouping data by date, you must have (or create) a column for the date unit of interest - for example "day", "epiweek", "month", etc. You can make this column using `floor_date()` from **lubridate**, as explained in the [Epidemiological weeks section](dates.qmd#dates_epi_wks) of the [Working with dates](dates.qmd) page. Once you have this column, you can use `count()` from **dplyr** to group the rows by those unique date values and achieve aggregate counts. 
 
 One additional step common for date situations, is to "fill-in" any dates in the sequence that are not present in the data. Use `complete()` from **tidyr** so that the aggregated date series is *complete* including *all possible date units* within the range. Without this step, a week with no cases reported might not appear in your data!  
 
-Within `complete()` you *re-define* your date column as a *sequence* of dates `seq.Date()` from the minimum to the maximum  - thus the dates are expanded. By default, the case count values in any new "expanded" rows will be `NA`. You can set them to 0 using the `fill = ` argument of `complete()`, which expects a named list (if your counts column is named `n`, provide `fill = list(n = 0)`. See `?complete` for details and the [Working with dates](#dates_epi_wks) page for an example.  
+Within `complete()` you *re-define* your date column as a *sequence* of dates `seq.Date()` from the minimum to the maximum  - thus the dates are expanded. By default, the case count values in any new "expanded" rows will be `NA`. You can set them to 0 using the `fill = ` argument of `complete()`, which expects a named list (if your counts column is named `n`, provide `fill = list(n = 0)`. See `?complete` for details and the [Working with dates](dates.qmd#dates_epi_wks) page for an example.  
 
 
 
@@ -443,7 +443,7 @@ linelist %>%
 `slice_min()` - selects n rows with highest values in `order_by = ` column, use `with_ties = TRUE` to keep ties  
 `slice_max()` - selects n rows with lowest values in `order_by = ` column, use `with_ties = TRUE` to keep ties  
 
-See the [De-duplication] page for more examples and detail on `slice()`.  
+See the [De-duplication](deduplication.qmd) page for more examples and detail on `slice()`.  
 
 
 

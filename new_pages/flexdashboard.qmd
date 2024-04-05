@@ -25,7 +25,7 @@ Very comprehensive tutorials on using **flexdashboard** that informed this page 
 
 ### Load packages {.unnumbered}  
 
-In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}  
 
-We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details). 
+We import the dataset of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details). 
 
 ```{r, echo=F}
 # import the linelist into R
@@ -81,7 +81,7 @@ knitr::include_graphics(here::here("images", "flexdashboard_new2.png"))
 
 ## The script  
 
-The script is an R Markdown script, and so has the same components and organization as described in the page on [Reports with R Markdown]. We briefly re-visit these and highlight differences from other R Markdown output formats.  
+The script is an R Markdown script, and so has the same components and organization as described in the page on [Reports with R Markdown](rmarkdown.qmd). We briefly re-visit these and highlight differences from other R Markdown output formats.  
 
 ### YAML {.unnumbered}  
 
@@ -124,15 +124,15 @@ Code chunks are created with three back-ticks and curly brackets with a lowercas
 
 ### Narrative text {.unnumbered}  
 
-Outside of an R code "chunk", you can write narrative text. As described in the page on [Reports with R Markdown], you can italicize text by surrounding it with one asterisk (*), or bold by surrounding it with two asterisks (**). Recall that bullets and numbering schemes are sensitive to newlines, indentation, and finishing a line with two spaces.  
+Outside of an R code "chunk", you can write narrative text. As described in the page on [Reports with R Markdown](rmarkdown.qmd), you can italicize text by surrounding it with one asterisk (*), or bold by surrounding it with two asterisks (**). Recall that bullets and numbering schemes are sensitive to newlines, indentation, and finishing a line with two spaces.  
 
-You can also insert in-line R code into text as described in the [Reports with R Markdown] page, by surrounding the code with backticks and starting the command with "r": `` ` 1+1` ``(see example with date above).  
+You can also insert in-line R code into text as described in the [Reports with R Markdown](rmarkdown.qmd) page, by surrounding the code with backticks and starting the command with "r": `` ` 1+1` ``(see example with date above).  
 
 
 
 ### Headings {.unnumbered}  
 
-Different heading levels are established with different numbers of hash symbols, as described in the [Reports with R Markdown] page.  
+Different heading levels are established with different numbers of hash symbols, as described in the [Reports with R Markdown](rmarkdown.qmd) page.  
 
 In **flexdashboard**, a primary heading (#) creates a "page" of the dashboard. Second-level headings (##) create a column or a row depending on your `orientation:` parameter (see details below). Third-level headings (###) create panels for plots, charts, tables, text, etc.   
 
@@ -273,14 +273,14 @@ knitr::include_graphics(here::here("images", "flexdashboard_tabs_view.png"))
 
 Let's begin to build a dashboard. Our simple dashboard will have 1 page, 2 columns, and 4 panels. We will build the panels piece-by-piece for demonstration.  
 
-You can easily include standard R outputs such as text, ggplots, and tables (see [Tables for presentation] page). Simply code them within an R code chunk as you would for any other R Markdown script.  
+You can easily include standard R outputs such as text, ggplots, and tables (see [Tables for presentation](tables_presentation.qmd) page). Simply code them within an R code chunk as you would for any other R Markdown script.  
 
-Note: you can download the finished Rmd script and HTML dashboard output - see the [Download handbook and data] page.  
+Note: you can download the finished Rmd script and HTML dashboard output - see the [Download handbook and data](data_used.qmd) page.  
 
 
 ### Text {.unnumbered}  
 
-You can type in Markdown text and include *in-line* code as for any other R Markdown output. See the [Reports with R Markdown] page for details. 
+You can type in Markdown text and include *in-line* code as for any other R Markdown output. See the [Reports with R Markdown](rmarkdown.qmd) page for details. 
 
 In this dashboard we include a summary text panel that includes dynamic text showing the latest hospitalisation date and number of cases reported in the outbreak. 
 
@@ -314,7 +314,7 @@ DT::datatable(linelist,
 
 ### Plots {.unnumbered}  
 
-You can print plots to a dashboard pane as you would in an R script. In our example, we use the **incidence2** package to create an "epicurve" by age group with two simple commands (see [Epidemic curves] page). However, you could use `ggplot()` and print a plot in the same manner.  
+You can print plots to a dashboard pane as you would in an R script. In our example, we use the **incidence2** package to create an "epicurve" by age group with two simple commands (see [Epidemic curves](epicurves.qmd) page). However, you could use `ggplot()` and print a plot in the same manner.  
 
 ```{r, out.width = c('100%'), out.height = c('100%'), echo=F}
 knitr::include_graphics(here::here("images", "flexdashboard_plots_script.png"))
@@ -329,7 +329,7 @@ knitr::include_graphics(here::here("images", "flexdashboard_plots_view.png"))
 
 ### Interactive plots {.unnumbered}  
 
-You can also pass a standard ggplot or other plot object to `ggplotly()` from the **plotly** package (see the [Interactive plots] page). This will make your plot interactive, allow the reader to "zoom in", and show-on-hover the value of every data point (in this scenario the number of cases per week and age group in the curve).  
+You can also pass a standard ggplot or other plot object to `ggplotly()` from the **plotly** package (see the [Interactive plots](interactive_plots.qmd) page). This will make your plot interactive, allow the reader to "zoom in", and show-on-hover the value of every data point (in this scenario the number of cases per week and age group in the curve).  
 
 ```{r, eval=F}
 age_outbreak <- incidence(linelist, date_onset, "week", groups = age_cat)
@@ -349,13 +349,13 @@ knitr::include_graphics(here::here("images", "flexdashboard_ggplotly.gif"))
 
 Some common examples of these widgets include:  
 
-* Plotly (used in this handbook page and in the [Interative plots] page)
-* visNetwork (used in the [Transmission Chains] page of this handbook)  
-* Leaflet (used in the [GIS Basics] page of this handbook)  
+* Plotly (used in this handbook page and in the [Interative plots](interactive_plots.qmd) page)
+* visNetwork (used in the [Transmission Chains](transmission_chains.qmd) page of this handbook)  
+* Leaflet (used in the [GIS Basics](gis.qmd) page of this handbook)  
 * dygraphs (useful for interactively showing time series data)  
 * DT (`datatable()`) (used to show dynamic tables with filter, sort, etc.)  
 
-Below we demonstrate adding an epidemic transmission chain which uses visNetwork to the dashboard. The script shows only the new code added to the "Column 2" section of the R Markdown script. You can find the code in the [Transmission chains] page of this handbook.  
+Below we demonstrate adding an epidemic transmission chain which uses visNetwork to the dashboard. The script shows only the new code added to the "Column 2" section of the R Markdown script. You can find the code in the [Transmission chains](transmission_chains.qmd)  page of this handbook.  
 
 ```{r, out.width = c('100%'), out.height = c('100%'), echo=F}
 knitr::include_graphics(here::here("images", "flexdashboard_chain_script.png"))
@@ -371,14 +371,14 @@ knitr::include_graphics(here::here("images", "flexdashboard_chain.gif"))
 
 ## Code organization
 
-You may elect to have all code within the R Markdown **flexdashboard** script. Alternatively, to have a more clean and concise dashboard script you may choose to call upon code/figures that are hosted or created in external R scripts. This is described in greater detail in the [Reports with R Markdown] page. 
+You may elect to have all code within the R Markdown **flexdashboard** script. Alternatively, to have a more clean and concise dashboard script you may choose to call upon code/figures that are hosted or created in external R scripts. This is described in greater detail in the [Reports with R Markdown](rmarkdown.qmd) page. 
 
 
 ## Shiny  
 
 Integrating the R package **shiny** can make your dashboards even more reactive to user input. For example, you could have the user select a jurisdiction, or a date range, and have panels react to their choice (e.g. filter the data displayed). To embed **shiny** reactivity into **flexdashboard**, you need only make a few changes to your **flexdashboard** R Markdown script.  
 
-You can use **shiny** to produce apps/dashboards *without* flexdashboard too. The handbook page on [Dashboards with Shiny] gives an overview of this approach, including primers on **shiny** syntax, app file structure, and options for sharing/publishing (including free server options). These syntax and general tips translate into the **flexdashboard** context as well.  
+You can use **shiny** to produce apps/dashboards *without* flexdashboard too. The handbook page on [Dashboards with Shiny](shiny_basics.qmd) gives an overview of this approach, including primers on **shiny** syntax, app file structure, and options for sharing/publishing (including free server options). These syntax and general tips translate into the **flexdashboard** context as well.  
 
 Embedding **shiny** in **flexdashboard** is however, a fundamental change to your flexdashboard. It will no longer produce an HTML output that you can send by email and anyone could open and view. Instead, it will be an "app". The "Knit" button at the top of the script will be replaced by a "Run document" icon, which will open an instance of the interactive the dashboard locally on your computer.  
 

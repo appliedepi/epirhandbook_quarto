@@ -47,8 +47,8 @@ knitr::include_graphics(here::here("images", "factory_new2.png"))
 * The *outputs* folder will hold the report outputs (e.g. HTML, Word, PDF, etc.)  
 * The *scripts* folder can be used to store other R scripts (e.g. that are sourced by your Rmd scripts)  
 * The *data* folder can be used to hold your data ("raw" and "clean" subfolders are included)  
-* A *.here* file, so you can use the **here** package to call files in sub-folders by their relation to this root folder (see [R projects] page for details)  
-* A *gitignore* file was created in case you link this R project to a Github repository (see [Version control and collaboration with Github])  
+* A *.here* file, so you can use the **here** package to call files in sub-folders by their relation to this root folder (see [R projects](r_projects.qmd) page for details)  
+* A *gitignore* file was created in case you link this R project to a Github repository (see [Version control and collaboration with Github](collaboration.qmd))  
 * An empty README file, for if you use a Github repository  
 
 
@@ -85,7 +85,7 @@ knitr::include_graphics(here::here("images", "factory_overview.png"))
 
 ## Create a report  
 
-From within the factory R project, create a R Markdown report just as you would normally, and save it into the "report_sources" folder. See the [R Markdown][Reports with R Markdown] page for instructions. For purposes of example, we have added the following to the factory:  
+From within the factory R project, create a R Markdown report just as you would normally, and save it into the "report_sources" folder. See the [R Markdown](rmarkdown.qmd) page for instructions. For purposes of example, we have added the following to the factory:  
 
 * A new R markdown script entitled "daily_sitrep.Rmd", saved within the "report_sources" folder  
 * Data for the report ("linelist_cleaned.rds"), saved to the "clean" sub-folder within the "data" folder  
@@ -105,7 +105,7 @@ knitr::include_graphics(here::here("images", "factory_new_rmd.png"))
 In this simple script, there are commands to:  
 
 * Load necessary packages  
-* Import the linelist data using a filepath from the **here** package (read more in the page on [Import and export])  
+* Import the linelist data using a filepath from the **here** package (read more in the page on [Import and export](importing.qmd))  
 
 ```{r, eval=F}
 linelist <- import(here("data", "clean", "linelist_cleaned.rds"))
@@ -187,7 +187,7 @@ compile_reports(reports = "for_partners/")
 
 ### Parameterization {.unnumbered}
 
-As noted in the page on [Reports with R Markdown], you can run reports with specified parameters. You can pass these parameters as a list to `compile_reports()` via the `params = ` argument. For example, in this fictional report there are three parameters provided to the R Markdown reports.  
+As noted in the page on [Reports with R Markdown](rmarkdown.qmd), you can run reports with specified parameters. You can pass these parameters as a list to `compile_reports()` via the `params = ` argument. For example, in this fictional report there are three parameters provided to the R Markdown reports.  
 
 ```{r, eval=F}
 compile_reports(
@@ -249,7 +249,7 @@ You can still "knit" one of your R Markdown reports by pressing the "Knit" butto
 
 ### Scripts {.unnumbered}  
 
-We encourage you to utilize the "scripts" folder to store "runfiles" or .R scripts that are sourced by your .Rmd scripts. See the page on [R Markdown][Reports with R Markdown] for tips on how to structure your code across several files.  
+We encourage you to utilize the "scripts" folder to store "runfiles" or .R scripts that are sourced by your .Rmd scripts. See the page on [R Markdown](rmarkdown.qmd) for tips on how to structure your code across several files.  
 
 
 ### Extras {.unnumbered} 

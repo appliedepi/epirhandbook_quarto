@@ -24,7 +24,7 @@ Bu sayfada aşağıdakilere yönelik kodu gösteriyoruz:
 
 ### Paketleri yükleme {.unnumbered}
 
-Bu kod parçası, analizler için gerekli olan paketlerin yüklenmesini gösterir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan 'p_load()' vurgusunu yapıyoruz. **base** R'dan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics] sayfasına bakın.
+Bu kod parçası, analizler için gerekli olan paketlerin yüklenmesini gösterir. Bu el kitabında, gerekirse paketi kuran *ve* kullanım için yükleyen **pacman**'dan 'p_load()' vurgusunu yapıyoruz. **base** R'dan `library()` ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics](basics.tr.qmd) sayfasına bakın.
 
 ```{r}
 pacman::p_load(
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Verileri içe aktarma {.unnumbered}
 
-Başlamak için, simüle edilmiş bir Ebola salgınından temizlenmiş vaka listesini içe aktarıyoruz. Takip etmek isterseniz <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (.rds dosyası olarak). **rio** paketinden `import()` fonksiyonuyla verileri içe aktarın (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için [İçe aktarma ve dışa aktarma] sayfasına bakın).  
+Başlamak için, simüle edilmiş bir Ebola salgınından temizlenmiş vaka listesini içe aktarıyoruz. Takip etmek isterseniz <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (.rds dosyası olarak). **rio** paketinden `import()` fonksiyonuyla verileri içe aktarın (.xlsx, .csv, .rds gibi birçok dosya türünü işler - ayrıntılar için [İçe aktarma ve dışa aktarma]((importing.tr.qmd)) sayfasına bakın).  
 
 ```{r, echo=F}
 # satır listesini R'a içe aktarma
@@ -142,7 +142,7 @@ Her iki veri çerçevesinde de bazı hastaneler varken, yazımda birçok farklı
 
 **Değerleri hizala**
 
-`hosp_info` veri çerçevesindeki değerleri temizleyerek başlıyoruz. [Temizleme verileri ve temel fonksiyonlar] sayfasında açıklandığı gibi, **dplyr**'in `case_while()` fonksiyonunu kullanarak değerleri mantıksal kriterlerle yeniden kodlayabiliriz. Her iki veri çerçevesinde de bulunan dört hastane için değerleri, 'linelist_mini' içindeki değerlerle uyumlu olacak şekilde değiştiriyoruz. Diğer hastanelerde değerleri olduğu gibi bırakıyoruz (`TRUE ~ hosp_name`).
+`hosp_info` veri çerçevesindeki değerleri temizleyerek başlıyoruz. [Temizleme verileri ve temel fonksiyonlar](cleaning.tr.qmd) sayfasında açıklandığı gibi, **dplyr**'in `case_while()` fonksiyonunu kullanarak değerleri mantıksal kriterlerle yeniden kodlayabiliriz. Her iki veri çerçevesinde de bulunan dört hastane için değerleri, 'linelist_mini' içindeki değerlerle uyumlu olacak şekilde değiştiriyoruz. Diğer hastanelerde değerleri olduğu gibi bırakıyoruz (`TRUE ~ hosp_name`).
 
 <span style="color: orange;">**_UYARI:_** Genellikle temizlik yapılırken yeni bir sütun oluşturulmalıdır (ör. `hosp_name_clean`),
 ancak gösterim kolaylığı için eski sütunun modifikasyonunu gösteriyoruz</span>

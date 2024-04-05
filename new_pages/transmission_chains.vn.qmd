@@ -74,7 +74,7 @@ plot(
 
 ### Gọi packages {.unnumbered}
 
-Đầu tiên hãy tải các package tiêu chuẩn cần thiết để nhập và xử lý dữ liệu. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt package nếu cần *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các package bằng hàm `library()` từ **base** R. Xem chương [R cơ bản] để biết thêm thông tin về các package trong R.
+Đầu tiên hãy tải các package tiêu chuẩn cần thiết để nhập và xử lý dữ liệu. Trong cuốn sách này, chúng tôi nhấn mạnh đến hàm `p_load()` từ package **pacman**, sẽ cài đặt package nếu cần *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các package bằng hàm `library()` từ **base** R. Xem chương [R cơ bản](basics.vn.qmd) để biết thêm thông tin về các package trong R.
 
 ```{r transmission_chains_packages, eval = FALSE}
 pacman::p_load(
@@ -93,7 +93,7 @@ pacman::p_install_gh("reconhub/epicontacts@timeline")
 
 ### Nhập dữ liệu {.unnumbered}
 
-Chúng ta nhập bộ dữ liệu về các trường hợp bệnh từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải xuống dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương [Tải sách và dữ liệu]. Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu] để biết các cách nhập dữ liệu khác nhau.
+Chúng ta nhập bộ dữ liệu về các trường hợp bệnh từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải xuống dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương [Tải sách và dữ liệu](data_used.vn.qmd). Bộ dữ liệu được nhập bằng hàm `import()` từ package **rio**. Xem chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết các cách nhập dữ liệu khác nhau.
 
 ```{r, echo=F}
 # import the linelist into R

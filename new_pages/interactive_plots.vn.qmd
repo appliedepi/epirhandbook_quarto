@@ -3,7 +3,7 @@
 
 Trực quan hóa dữ liệu ngày càng đòi hỏi có khả năng truy vấn được bởi người đọc. Hệ quả là, các biểu đồ tương tác ngày càng được tạo ra nhiều hơn. Có nhiều cách để tạo biểu đồ tương tác, nhưng hai cách phổ biến nhất là sử dụng package **plotly** và **shiny**. 
 
-Trong chương này chúng ta sẽ tập trung vào việc chuyển đổi một biểu đồ có sẵn được tạo bởi `ggplot()` thành một biểu đồ tương tác với **plotly**. Bạn có thể đọc thêm về **shiny** trong chương [Dashboards với Shiny]. Cũng cần nhấn mạnh là biểu đồ tương tác chỉ sử dụng được ở định dạng HTML trong tệp R markdown và không dùng được với tệp PDF hoặc Word.
+Trong chương này chúng ta sẽ tập trung vào việc chuyển đổi một biểu đồ có sẵn được tạo bởi `ggplot()` thành một biểu đồ tương tác với **plotly**. Bạn có thể đọc thêm về **shiny** trong chương [Dashboards với Shiny](shiny_basics.vn.qmd). Cũng cần nhấn mạnh là biểu đồ tương tác chỉ sử dụng được ở định dạng HTML trong tệp R markdown và không dùng được với tệp PDF hoặc Word.
 
 Dưới đây là một đường cong dịch bệnh đơn giản đã được biến đổi thành thành biểu đồ tương tác với sự kết hợp của **ggplot2** và **plotly** (hover trỏ chuột phía trên biểu đồ, phóng to, hoặc nhấp vào một item trong chú thích). 
 
@@ -38,7 +38,7 @@ p %>%
 
 ### Gọi packages {.unnumbered}  
 
-Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản] để có thêm thông tin về các packages trong R.
+Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm `p_load()` từ package **pacman**, giúp cài đặt các package cần thiết *và* gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm `library()` của **base** R. Xem thêm chương [R cơ bản](basics.vn.qmd) để có thêm thông tin về các packages trong R.
 
 
 ```{r}
@@ -59,7 +59,7 @@ Trong chương này chúng ta giả định rằng bạn đang bắt đầu vớ
 
 ### Nhập dữ liệu {.unnumbered}
 
-Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu] để biết thêm chi tiết).  
+Để bắt đầu, chúng ta nhập bộ dữ liệu có tên linelist đã làm sạch bao gồm các trường hợp từ vụ dịch Ebola mô phỏng. Để tiện theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải dữ liệu linelist "đã được làm sạch" </a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm `import()` từ package **rio** (nó xử lý nhiều loại tệp như .xlsx, .csv, .rds - xem thêm chương [Nhập xuất dữ liệu](importing.vn.qmd) để biết thêm chi tiết).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -188,7 +188,7 @@ p <- p %>%          # re-define interactive plot without these buttons
 <!-- ======================================================= -->
 ## Biểu đồ nhiệt {  }
 
-Bạn có thể khiến bất kỳ loại biểu đồ nào tạo bởi `ggplot()` có khả năng tương tác, bao gồm biểu đồ nhiệt. Trong chương [Biểu đò nhiệt], bạn có thể đọc thêm về cách tạo biểu đồ dưới đây để hiển thị tỷ lệ số ngày trong tuần mà các cơ sở y tế báo cáo dữ liệu lên tuyến tỉnh.  
+Bạn có thể khiến bất kỳ loại biểu đồ nào tạo bởi `ggplot()` có khả năng tương tác, bao gồm biểu đồ nhiệt. Trong chương [Biểu đồ nhiệt](heatmaps.vn.qmd), bạn có thể đọc thêm về cách tạo biểu đồ dưới đây để hiển thị tỷ lệ số ngày trong tuần mà các cơ sở y tế báo cáo dữ liệu lên tuyến tỉnh.  
 
 Sau đây là code, mặc dù chúng tôi sẽ không giải thích chi tiết tại đây.  
 

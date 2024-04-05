@@ -1,4 +1,4 @@
-# Cleaning data and core functions {}
+# Cleaning data and core functions {#cleaning}
 
 
 ```{r, out.height = "10%", fig.align = "center", echo=F}
@@ -40,9 +40,9 @@ Function       | Utility                               | Package
 `match_df()`|re-code/clean values using a data dictionary|**matchmaker**
 `which()`|apply logical criteria; return indices|**base** R
 
-If you want to see how these functions compare to Stata or SAS commands, see the page on [Transition to R].  
+If you want to see how these functions compare to Stata or SAS commands, see the page on [Transition to R](transition_to_R.qmd).  
 
-You may encounter an alternative data management framework from the **data.table** R package with operators like `:=` and frequent use of brackets `[ ]`. This approach and syntax is briefly explained in the [Data Table] page.  
+You may encounter an alternative data management framework from the **data.table** R package with operators like `:=` and frequent use of brackets `[ ]`. This approach and syntax is briefly explained in the [Data Table](data_table.qmd) page.  
 
 ### Nomenclature {.unnumbered}  
 
@@ -50,7 +50,7 @@ In this handbook, we generally reference "columns" and "rows" instead of "variab
 
 *Variables* contain the values that measure the same underlying attribute (like age group, outcome, or date of onset). *Observations* contain all values measured on the same unit (e.g. a person, site, or lab sample). So these aspects can be more difficult to tangibly define.  
 
-In "tidy" datasets, each column is a variable, each row is an observation, and each cell is a single value. However some datasets you encounter will not fit this mold - a "wide" format dataset may have a variable split across several columns (see an example in the [Pivoting data] page). Likewise, observations could be split across several rows.  
+In "tidy" datasets, each column is a variable, each row is an observation, and each cell is a single value. However some datasets you encounter will not fit this mold - a "wide" format dataset may have a variable split across several columns (see an example in the [Pivoting data](pivoting.qmd) page). Likewise, observations could be split across several rows.  
 
 Most of this handbook is about managing and transforming data, so referring to the concrete data structures of rows and columns is more relevant than the more abstract observations and variables. Exceptions occur primarily in pages on data analysis, where you will see more references to variables and observations.  
 
@@ -82,7 +82,7 @@ In a cleaning pipeline the order of the steps is important. Cleaning steps might
 <!-- ======================================================= -->
 ## Load packages  
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r, message = F}
 pacman::p_load(
@@ -106,7 +106,7 @@ pacman::p_load(
 
 ### Import {.unnumbered}  
 
-Here we import the "raw" case linelist Excel file using the `import()` function from the package **rio**. The **rio** package flexibly handles many types of files (e.g. .xlsx, .csv, .tsv, .rds. See the page on [Import and export] for more information and tips on unusual situations (e.g. skipping rows, setting missing values, importing Google sheets, etc).  
+Here we import the "raw" case linelist Excel file using the `import()` function from the package **rio**. The **rio** package flexibly handles many types of files (e.g. .xlsx, .csv, .tsv, .rds. See the page on [Import and export](importing.qmd) for more information and tips on unusual situations (e.g. skipping rows, setting missing values, importing Google sheets, etc).  
 
 If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_raw.xlsx' class='download-button'>click to download the "raw" linelist</a> (as .xlsx file).  
 
@@ -132,7 +132,7 @@ DT::datatable(head(linelist_raw,50), rownames = FALSE, options = list(pageLength
 ```
 ### Review {.unnumbered}  
 
-You can use the function `skim()` from the package **skimr** to get an overview of the entire dataframe (see page on [Descriptive tables] for more info). Columns are summarised by class/type such as character, numeric. Note: "POSIXct" is a type of raw date class (see [Working with dates].  
+You can use the function `skim()` from the package **skimr** to get an overview of the entire dataframe (see page on [Descriptive tables](tables_descriptive.qmd) for more info). Columns are summarised by class/type such as character, numeric. Note: "POSIXct" is a type of raw date class (see [Working with dates](dates.qmd).  
 
 
 ```{r, eval=F}
@@ -160,7 +160,7 @@ skimr::skim_without_charts(linelist_raw)
 In R, column *names* are the "header" or "top" value of a column. They are used to refer to columns in the code, and serve as a default label in figures.  
 
 
-Other statistical software such as SAS and STATA use *"labels"* that co-exist as longer printed versions of the shorter column names. While R does offer the possibility of adding column labels to the data, this is not emphasized in most practice. To make column names "printer-friendly" for figures, one typically adjusts their display within the plotting commands that create the outputs (e.g. axis or legend titles of a plot, or column headers in a printed table - see the [scales section of the ggplot tips page](#ggplot_tips_scales) and [Tables for presentation] pages). If you want to assign column labels in the data, read more online [here](https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) and [here](https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html).  
+Other statistical software such as SAS and STATA use *"labels"* that co-exist as longer printed versions of the shorter column names. While R does offer the possibility of adding column labels to the data, this is not emphasized in most practice. To make column names "printer-friendly" for figures, one typically adjusts their display within the plotting commands that create the outputs (e.g. axis or legend titles of a plot, or column headers in a printed table - see the [scales section of the ggplot tips page](ggplot_tips.qmd#ggplot_tips_scales) and [Tables for presentation](tables_presentation.qmd) pages). If you want to assign column labels in the data, read more online [here](https://cran.r-project.org/web/packages/expss/vignettes/labels-support.html) and [here](https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html).  
 
 
 As R column names are used very often, so they must have "clean" syntax. We suggest the following:  
@@ -249,7 +249,7 @@ rename(newNameForFirstColumn  = 1,
 
 #### Rename via `select()` and `summarise()` {.unnumbered}  
 
-As a shortcut, you can also rename columns within the **dplyr** `select()` and `summarise()` functions. `select()` is used to keep only certain columns (and is covered later in this page). `summarise()` is covered in the [Grouping data] and [Descriptive tables] pages. These functions also uses the format `new_name = old_name`. Here is an example:  
+As a shortcut, you can also rename columns within the **dplyr** `select()` and `summarise()` functions. `select()` is used to keep only certain columns (and is covered later in this page). `summarise()` is covered in the [Grouping data](grouping.qmd) and [Descriptive tables](tables_descriptive.qmd) pages. These functions also uses the format `new_name = old_name`. Here is an example:  
 
 ```{r, eval=F}
 linelist_raw %>% 
@@ -275,7 +275,7 @@ You can clean these names manually by referencing their position number (see exa
 
 #### Merged Excel column names and cells {.unnumbered}  
 
-Merged cells in an Excel file are a common occurrence when receiving data. As explained in [Transition to R], merged cells can be nice for human reading of data, but are not "tidy data" and cause many problems for machine reading of data. R cannot accommodate merged cells.  
+Merged cells in an Excel file are a common occurrence when receiving data. As explained in [Transition to R](transition_to_R.qmd), merged cells can be nice for human reading of data, but are not "tidy data" and cause many problems for machine reading of data. R cannot accommodate merged cells.  
 
 Remind people doing data entry that **human-readable data is not the same as machine-readable data**. Strive to train users about the principles of [**tidy data**](https://r4ds.had.co.nz/tidy-data.html). If at all possible, try to change procedures so that data arrive in a tidy format without merged cells.  
 
@@ -380,7 +380,7 @@ linelist %>%
   names()
 ```
 
-The function `matches()` works similarly to `contains()` but can be provided a regular expression (see page on [Characters and strings]), such as multiple strings separated by OR bars within the parentheses:  
+The function `matches()` works similarly to `contains()` but can be provided a regular expression (see page on [Characters and strings](characters_strings.qmd)), such as multiple strings separated by OR bars within the parentheses:  
 
 ```{r}
 # searched for multiple character matches
@@ -470,7 +470,7 @@ linelist <- linelist_raw %>%
 ## Deduplication
 
 
-See the handbook page on [De-duplication] for extensive options on how to de-duplicate data. Only a very simple row de-duplication example is presented here.  
+See the handbook page on [De-duplication](deduplication.qmd) for extensive options on how to de-duplicate data. Only a very simple row de-duplication example is presented here.  
 
 The package **dplyr** offers the `distinct()` function. This function examines every row and reduce the data frame to only the unique rows. That is, it removes rows that are 100% duplicates.  
 
@@ -549,7 +549,7 @@ linelist <- linelist %>%
   mutate(bmi = wt_kg / (ht_cm/100)^2)
 ```
 
-If creating multiple new columns, separate each with a comma and new line. Below are examples of new columns, including ones that consist of values from other columns combined using `str_glue()` from the **stringr** package (see page on [Characters and strings].  
+If creating multiple new columns, separate each with a comma and new line. Below are examples of new columns, including ones that consist of values from other columns combined using `str_glue()` from the **stringr** package (see page on [Characters and strings](characters_strings.qmd).  
 
 ```{r}
 new_col_demo <- linelist %>%                       
@@ -587,7 +587,7 @@ DT::datatable(head(new_col_demo,50), rownames = FALSE, options = list(pageLength
   
 Columns containing values that are dates, numbers, or logical values (TRUE/FALSE) will only behave as expected if they are correctly classified. There is a difference between "2" of class character and 2 of class numeric!  
 
-There are ways to set column class during the import commands, but this is often cumbersome. See the [R Basics] section on object classes to learn more about converting the class of objects and columns.  
+There are ways to set column class during the import commands, but this is often cumbersome. See the [R Basics](basics.qmd) section on object classes to learn more about converting the class of objects and columns.  
 
 First, let's run some checks on important columns to see if they are the correct class. We also saw this in the beginning when we ran `skim()`.  
 
@@ -611,16 +611,16 @@ linelist <- linelist %>%
   mutate(age = as.numeric(age))
 ```
 
-In a similar way, you can use `as.character()` and `as.logical()`. To convert to class Factor, you can use `factor()` from **base** R or `as_factor()` from **forcats**. Read more about this in the [Factors] page.  
+In a similar way, you can use `as.character()` and `as.logical()`. To convert to class Factor, you can use `factor()` from **base** R or `as_factor()` from **forcats**. Read more about this in the [Factors](factors.qmd) page.  
 
-You must be careful when converting to class Date. Several methods are explained on the page [Working with dates]. Typically, the raw date values must all be in the same format for conversion to work correctly (e.g "MM/DD/YYYY", or "DD MM YYYY"). After converting to class Date, check your data to confirm that each value was converted correctly.  
+You must be careful when converting to class Date. Several methods are explained on the page [Working with dates](dates.qmd). Typically, the raw date values must all be in the same format for conversion to work correctly (e.g "MM/DD/YYYY", or "DD MM YYYY"). After converting to class Date, check your data to confirm that each value was converted correctly.  
 
 
 
 
 ### Grouped data {.unnumbered}  
 
-If your data frame is already *grouped* (see page on [Grouping data]), `mutate()` may behave differently than if the data frame is not grouped. Any summarizing functions, like `mean()`, `median()`, `max()`, etc. will calculate by group, not by all the rows.     
+If your data frame is already *grouped* (see page on [Grouping data](grouping.qmd)), `mutate()` may behave differently than if the data frame is not grouped. Any summarizing functions, like `mean()`, `median()`, `max()`, etc. will calculate by group, not by all the rows.     
 
 ```{r, eval=F}
 # age normalized to mean of ALL rows
@@ -640,7 +640,7 @@ Read more about using `mutate ()` on grouped dataframes in this [tidyverse mutat
 ### Transform multiple columns {#clean_across .unnumbered}
 
 
-Often to write concise code you want to apply the same transformation to multiple columns at once. A transformation can be applied to multiple columns at once using the `across()` function from the package **dplyr** (also contained within **tidyverse** package). `across()` can be used with any **dplyr** function, but is commonly used within `select()`, `mutate()`, `filter()`, or `summarise()`. See how it is applied to `summarise()` in the page on [Descriptive tables].  
+Often to write concise code you want to apply the same transformation to multiple columns at once. A transformation can be applied to multiple columns at once using the `across()` function from the package **dplyr** (also contained within **tidyverse** package). `across()` can be used with any **dplyr** function, but is commonly used within `select()`, `mutate()`, `filter()`, or `summarise()`. See how it is applied to `summarise()` in the page on [Descriptive tables](tables_descriptive.qmd).  
 
 Specify the columns to the argument `.cols = ` and the function(s) to apply to `.fns = `. Any additional arguments to provide to the `.fns` function can be included after a comma, still within `across()`.   
 
@@ -688,9 +688,9 @@ linelist <- linelist %>%
 You can read the documentation with `?across` for details on how to provide functions to `across()`. A few summary points: there are several ways to specify the function(s) to perform on a column and you can even define your own functions:  
 
 * You can provide the function name alone (e.g. `mean` or `as.character`)  
-* You can provide the function in **purrr**-style (e.g. `~ mean(.x, na.rm = TRUE)`) (see [this page][Iteration, loops, and lists])  
+* You can provide the function in **purrr**-style (e.g. `~ mean(.x, na.rm = TRUE)`) (see [this page](iteration.qmd))  
 * You can specify multiple functions by providing a list (e.g. `list(mean = mean, n_miss = ~ sum(is.na(.x))`).  
-  * If you provide multiple functions, multiple transformed columns will be returned per input column, with unique names in the format `col_fn`. You can adjust how the new columns are named with the `.names =` argument using **glue** syntax (see page on [Characters and strings]) where `{.col}` and `{.fn}` are shorthand for the input column and function.  
+  * If you provide multiple functions, multiple transformed columns will be returned per input column, with unique names in the format `col_fn`. You can adjust how the new columns are named with the `.names =` argument using **glue** syntax (see page on [Characters and strings](characters_strings.qmd)) where `{.col}` and `{.fn}` are shorthand for the input column and function.  
   
   
 Here are a few online resources on using `across()`: [creator Hadley Wickham's thoughts/rationale](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/)
@@ -748,7 +748,7 @@ Below are the first 10 rows:
 head(cumulative_case_counts, 10)
 ```
 
-See the page on [Epidemic curves] for how to plot cumulative incidence with the epicurve.  
+See the page on [Epidemic curves](epicurves.qmd) for how to plot cumulative incidence with the epicurve.  
 
 See also:  
 `cumsum()`, `cummean()`, `cummin()`, `cummax()`, `cumany()`, `cumall()`  
@@ -983,7 +983,7 @@ linelist <- linelist %>%
 
 
 
-<span style="color: red;">**_DANGER:_** **Values on the right-side must all be the same class** - either numeric, character, date, logical, etc. To assign missing (`NA`), you may need to use special variations of `NA` such as `NA_character_`, `NA_real_` (for numeric or POSIX), and `as.Date(NA)`. Read more in [Working with dates].</span>  
+<span style="color: red;">**_DANGER:_** **Values on the right-side must all be the same class** - either numeric, character, date, logical, etc. To assign missing (`NA`), you may need to use special variations of `NA` such as `NA_character_`, `NA_real_` (for numeric or POSIX), and `as.Date(NA)`. Read more in [Working with dates](dates.qmd).</span>  
 
 
 
@@ -991,7 +991,7 @@ linelist <- linelist %>%
 
 Below are special functions for handling missing values in the context of data cleaning.  
 
-See the page on [Missing data] for more detailed tips on identifying and handling missing values. For example, the `is.na()` function which logically tests for missingness.  
+See the page on [Missing data](missing_data.qmd) for more detailed tips on identifying and handling missing values. For example, the `is.na()` function which logically tests for missingness.  
 
 
 **`replace_na()`**  
@@ -1006,7 +1006,7 @@ linelist <- linelist %>%
 
 **fct_explicit_na()**  
 
-This is a function from the **forcats** package. The **forcats** package handles columns of class Factor. Factors are R's way to handle *ordered* values such as `c("First", "Second", "Third")` or to set the order that values (e.g. hospitals) appear in tables and plots. See the page on [Factors].  
+This is a function from the **forcats** package. The **forcats** package handles columns of class Factor. Factors are R's way to handle *ordered* values such as `c("First", "Second", "Third")` or to set the order that values (e.g. hospitals) appear in tables and plots. See the page on [Factors](factors.qmd).  
 
 If your data are class Factor and you try to convert `NA` to "Missing" by using `replace_na()`, you will get this error: `invalid factor level, NA generated`. You have tried to add "Missing" as a value, when it was not defined as a possible level of the factor, and it was rejected.  
 
@@ -1059,7 +1059,7 @@ knitr::include_graphics(here::here("images", "cleaning_dict.png"))
 ```
 
 
-2) Import the dictionary file into R. This example can be downloaded via instructions on the [Download handbook and data] page.  
+2) Import the dictionary file into R. This example can be downloaded via instructions on the [Download handbook and data](data_used.qmd) page.  
 
 ```{r, echo=F}
 cleaning_dict <- rio::import(here("data", "case_linelists", "cleaning_dict.csv"))
@@ -1188,7 +1188,7 @@ For this example we will create an `age_cat` column using the `age_years` column
 class(linelist$age_years)
 ```
 
-First, examine the distribution of your data, to make appropriate cut-points. See the page on [ggplot basics].  
+First, examine the distribution of your data, to make appropriate cut-points. See the page on [ggplot basics](ggplot_basics.qmd).  
 
 ```{r, out.height='50%'}
 # examine the distribution
@@ -1339,7 +1339,7 @@ table("Numeric Values" = linelist$age_years,   # names specified in table for cl
 
 **Re-labeling `NA` values**
 
-You may want to assign `NA` values a label such as "Missing". Because the new column is class Factor (restricted values), you cannot simply mutate it with `replace_na()`, as this value will be rejected. Instead, use `fct_explicit_na()` from **forcats** as explained in the [Factors] page.   
+You may want to assign `NA` values a label such as "Missing". Because the new column is class Factor (restricted values), you cannot simply mutate it with `replace_na()`, as this value will be rejected. Instead, use `fct_explicit_na()` from **forcats** as explained in the [Factors](factors.qmd) page.   
 
 ```{r}
 linelist <- linelist %>% 
@@ -1364,7 +1364,7 @@ table(linelist$age_cat, useNA = "always")
 
 **Quickly make breaks and labels**  
 
-For a fast way to make breaks and label vectors, use something like below. See the [R basics] page for references on `seq()` and `rep()`.  
+For a fast way to make breaks and label vectors, use something like below. See the [R basics](basics.qmd) page for references on `seq()` and `rep()`.  
 
 ```{r, eval=F}
 # Make break points from 0 to 90 by 5
@@ -1402,7 +1402,7 @@ quantile(linelist$age_years,               # specify numeric vector to work on
   na.rm = TRUE)                            # ignore missing values 
 ```
 
-You can use the results of `quantile()` as break points in `age_categories()` or `cut()`. Below we create a new column `deciles` using `cut()` where the breaks are defined using `quantiles()` on `age_years`. Below, we display the results using `tabyl()` from **janitor** so you can see the percentages (see the [Descriptive tables] page). Note how they are not exactly 10% in each group.  
+You can use the results of `quantile()` as break points in `age_categories()` or `cut()`. Below we create a new column `deciles` using `cut()` where the breaks are defined using `quantiles()` on `age_years`. Below, we display the results using `tabyl()` from **janitor** so you can see the percentages (see the [Descriptive tables](tables_descriptive.qmd) page). Note how they are not exactly 10% in each group.  
 
 ```{r}
 linelist %>%                                # begin with linelist
@@ -1555,7 +1555,7 @@ Error: Can't combine ..1$infection date <date> and ..2$infection date <character
 
 ### Bind rows {.unnumbered}  
 
-To combine datasets together by binding the rows of one dataframe to the bottom of another data frame, you can use `bind_rows()` from **dplyr**. This is explained in more detail in the page [Joining data].  
+To combine datasets together by binding the rows of one dataframe to the bottom of another data frame, you can use `bind_rows()` from **dplyr**. This is explained in more detail in the page [Joining data](joining_matching.qmd).  
 
 
 
@@ -1598,7 +1598,7 @@ linelist %>%
   drop_na(case_id, age_years)  # drop rows with missing values for case_id or age_years
 ```
 
-See the page on [Missing data] for many techniques to analyse and manage missingness in your data. 
+See the page on [Missing data](missing_data.qmd) for many techniques to analyse and manage missingness in your data. 
 
 
 
@@ -1647,7 +1647,7 @@ Can we just filter by `date_onset` to rows after June 2013? **Caution! Applying 
 
 <span style="color: red;">**_DANGER:_** Filtering to greater than (>) or less than (<) a date or number can remove any rows with missing values (`NA`)! This is because `NA` is treated as infinitely large and small.</span>
 
-*(See the page on [Working with dates] for more information on working with dates and the package **lubridate**)*
+*(See the page on [Working with dates](dates.qmd) for more information on working with dates and the package **lubridate**)*
 
 #### Design the filter {.unnumbered}  
 
@@ -1839,8 +1839,8 @@ linelist <- linelist_raw %>%
 <!-- ======================================================= -->
 ## Row-wise calculations  
 
-If you want to perform a calculation within a row, you can use `rowwise()` from **dplyr**. See this online vignette on [row-wise calculations](https://cran.r-project.org/web/packages/dplyr/vignettes/rowwise.html).  
-For example, this code applies `rowwise()` and then creates a new column that sums the number of the specified symptom columns that have value "yes", for each row in the linelist. The columns are specified within `sum()` by name within a vector `c()`. `rowwise()` is essentially a special kind of `group_by()`, so it is best to use `ungroup()` when you are done (page on [Grouping data]).  
+If you want to perform a calculation within a row, you can use `rowwise()` from **dplyr**. See this online vignette on [row-wise calculations](https://cran.r-project.org/web/packages/dplyr/vignettes/rowwise.html). 
+For example, this code applies `rowwise()` and then creates a new column that sums the number of the specified symptom columns that have value "yes", for each row in the linelist. The columns are specified within `sum()` by name within a vector `c()`. `rowwise()` is essentially a special kind of `group_by()`, so it is best to use `ungroup()` when you are done (page on [Grouping data](grouping.qmd)).  
 
 ```{r,}
 linelist %>%
@@ -1882,11 +1882,11 @@ linelist %>%
 
 Use the **dplyr** function `arrange()` to sort or order the rows by column values.  
 
-Simple list the columns in the order they should be sorted on. Specify `.by_group = TRUE` if you want the sorting to to first occur by any *groupings* applied to the data (see page on [Grouping data]).  
+Simple list the columns in the order they should be sorted on. Specify `.by_group = TRUE` if you want the sorting to to first occur by any *groupings* applied to the data (see page on [Grouping data](grouping.qmd)).  
 
 By default, column will be sorted in "ascending" order (which applies to numeric and also to character columns). You can sort a variable in "descending" order by wrapping it with `desc()`.  
 
-Sorting data with `arrange()` is particularly useful when making [Tables for presentation], using `slice()` to take the "top" rows per group, or setting factor level order by order of appearance.  
+Sorting data with `arrange()` is particularly useful when making [Tables for presentation](tables_descriptive.qmd), using `slice()` to take the "top" rows per group, or setting factor level order by order of appearance.  
 
 For example, to sort the our linelist rows by `hospital`, then by `date_onset` in descending order, we would use:  
 

@@ -24,7 +24,7 @@ In this page we demonstrate code to:
 
 ### Load packages {.unnumbered}
 
-This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
+This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics](basics.qmd) for more information on R packages.  
 
 ```{r}
 pacman::p_load(
@@ -40,7 +40,7 @@ pacman::p_load(
 
 ### Import data {.unnumbered}
 
-To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export] page for details).  
+To begin, we import the cleaned linelist of cases from a simulated Ebola epidemic. If you want to follow along, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>click to download the "clean" linelist</a> (as .rds file). Import data with the `import()` function from the **rio** package (it handles many file types like .xlsx, .csv, .rds - see the [Import and export](importing.qmd) page for details).  
 
 ```{r, echo=F}
 # import the linelist into R
@@ -143,7 +143,7 @@ You can see that while some of the hospitals exist in both data frames, there ar
 
 **Align values**  
 
-We begin by cleaning the values in the `hosp_info` data frame. As explained in the [Cleaning data and core functions] page, we can re-code values with logical criteria using **dplyr**'s `case_when()` function. For the four hospitals that exist in both data frames we change the values to align with the values in `linelist_mini`. The other hospitals we leave the values as they are (`TRUE ~ hosp_name`).   
+We begin by cleaning the values in the `hosp_info` data frame. As explained in the [Cleaning data and core functions](cleaning.qmd) page, we can re-code values with logical criteria using **dplyr**'s `case_when()` function. For the four hospitals that exist in both data frames we change the values to align with the values in `linelist_mini`. The other hospitals we leave the values as they are (`TRUE ~ hosp_name`).   
 
 <span style="color: orange;">**_CAUTION:_** Typically when cleaning one should create a new column (e.g. `hosp_name_clean`), but for ease of demonstration we show modification of the old column</span>
 
@@ -167,7 +167,7 @@ The hospital names that appear in both data frames are aligned. There are two ho
 unique(hosp_info$hosp_name)
 ```
 
-Prior to a join, it is often easiest to convert a column to all lowercase or all uppercase. If you need to convert all values in a column to UPPER or lower case, use `mutate()` and wrap the column with one of these functions from **stringr**, as shown in the page on [Characters and strings].  
+Prior to a join, it is often easiest to convert a column to all lowercase or all uppercase. If you need to convert all values in a column to UPPER or lower case, use `mutate()` and wrap the column with one of these functions from **stringr**, as shown in the page on [Characters and strings](characters_strings.qmd).  
 
 `str_to_upper()`  
 `str_to_upper()`  
@@ -779,13 +779,13 @@ To bind rows of one data frame to the bottom of another data frame, use `bind_ro
 
 * Unlike the **base** R version `row.bind()`, **dplyr**'s `bind_rows()` does not require that the order of columns be the same in both data frames. As long as the column names are spelled identically, it will align them correctly.  
 * You can optionally specify the argument `.id = `. Provide a character column name. This will produce a new column that serves to identify which data frame each row originally came from.  
-* You can use `bind_rows()` on a `list` of similarly-structured data frames to combine them into one data frame. See an example in the [Iteration, loops, and lists] page involving the import of multiple linelists with **purrr**.  
+* You can use `bind_rows()` on a `list` of similarly-structured data frames to combine them into one data frame. See an example in the [Iteration, loops, and lists](iteration.qmd) page involving the import of multiple linelists with **purrr**.  
 
 One common example of row binding is to bind a "total" row onto a descriptive table made with **dplyr**'s `summarise()` function. Below we create a table of case counts and median CT values by hospital with a total row.  
 
 The function `summarise()` is used on data grouped by hospital to return a summary data frame by hospital. But the function `summarise()` does not automatically produce a "totals" row, so we create it by summarising the data *again*, but with the data not grouped by hospital. This produces a second data frame of just one row. We can then bind these data frames together to achieve the final table.  
 
-See other worked examples like this in the [Descriptive tables] and [Tables for presentation] pages.  
+See other worked examples like this in the [Descriptive tables](tables_descriptive.qmd) and [Tables for presentation](tables_presentation.qmd) pages.  
 
 
 ```{r}
@@ -828,7 +828,7 @@ Now we can bind the rows together with `bind_rows()`.
 combined <- bind_rows(hosp_summary, totals)
 ```
 
-Now we can view the result. See how in the final row, an empty `NA` value fills in for the column `hospital` that was not in `hosp_summary`. As explained in the [Tables for presentation] page, you could "fill-in" this cell with "Total" using `replace_na()`.  
+Now we can view the result. See how in the final row, an empty `NA` value fills in for the column `hospital` that was not in `hosp_summary`. As explained in the [Tables for presentation](tables_presentation.qmd) page, you could "fill-in" this cell with "Total" using `replace_na()`.  
 
 ```{r message=FALSE, echo=F}
 DT::datatable(combined, rownames = FALSE, options = list(pageLength = nrow(10)))
@@ -884,7 +884,7 @@ When we use `match()`, the syntax is `match(TARGET ORDER VECTOR, DATA FRAME COLU
 match(case_info$hospital, contact_fu$hospital)
 ```
 
-You can use this numeric vector to re-order the data frame - place it within subset brackets `[ ]` *before the comma*. Read more about **base** R bracket subset syntax in the [R basics] page. The command below creates a new data frame, defined as the old one in which the rows are ordered in the numeric vector above.  
+You can use this numeric vector to re-order the data frame - place it within subset brackets `[ ]` *before the comma*. Read more about **base** R bracket subset syntax in the [R basics](basics.qmd) page. The command below creates a new data frame, defined as the old one in which the rows are ordered in the numeric vector above.  
 
 ```{r}
 contact_fu_aligned <- contact_fu[match(case_info$hospital, contact_fu$hospital),]
