@@ -23,7 +23,7 @@ sample_data <- read.csv(here::here("data","phylo", "sample_data_Shigella_tree.cs
 
 
 ggtree(tree, layout="circular", branch.length='none') %<+% sample_data + # o operador %<+% é usado para unir o seu dataframe com os dados amostrados para a árvore
-  aes(color=I(Belgium))+ # colore os ramos de acordo com a variável no seu data frame       
+  aes(color=Belgium)+ # colore os ramos de acordo com a variável no seu data frame       
   scale_color_manual(name = "Sample Origin", # nome do seu esquema de cores (como aparecerá na leganda)          
                     breaks = c("Yes", "No"), # as diferentes opções na sua variável
                    labels = c("NRCSS Belgium", "Other"), # como você quer que as diferentes opções sejam nomeadas na sua leganda, permite formatação
@@ -174,7 +174,7 @@ Aqui está um exemplo de uma árvore circular:
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% unifica o datarframe com os dados de amostras à arvore
-  aes(color = (Belgium))+                       # colore os ramos de acordo com a variável no seu dataframe c
+  aes(color = Belgium)+                       # colore os ramos de acordo com a variável no seu dataframe c
   scale_color_manual(
     name = "Sample Origin",                      # nome do seu esquema de cotes (irá aparecer assim na legenda) 
     breaks = c("Yes", "No"),                     # as diferentes opções na sua variável

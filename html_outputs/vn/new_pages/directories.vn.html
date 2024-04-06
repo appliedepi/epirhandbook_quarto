@@ -127,9 +127,53 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </script> -->
 
 </head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+  <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
+    class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
+    class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/"
+    class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org"
+    class="alert-link">R Help Desk service</a>. -->
 </div>
+
+<script>
+
+  // Function to extract the last two characters from the URL path to determine the language
+  function getLanguageFromURL() {
+    const path = window.location.pathname;
+    const lang = path.substr(-2);
+    return lang;
+  }
+
+  const language = getLanguageFromURL();
+  const supportedLanguages = ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru'];
+  const defaultLanguage = 'en';
+  const isSupportedLanguage = supportedLanguages.includes(language);
+
+  // Translations for the content
+  const translations = {
+    en: '<strong>Need help learning R?</strong> Enroll in Applied Epi\'s <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.',
+    fr: '<strong>Besoin d\'aide pour apprendre R ?</strong> Inscrivez-vous au <a href="https://www.appliedepi.org/live/" class="alert-link">cours d\'introduction à R</a> d\'Applied Epi, essayez nos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriels R gratuits</a>, postez dans notre forum de <a href="https://community.appliedepi.org/" class="alert-link">questions-réponses communautaires</a>, ou demandez-nous des informations sur <a href="mailto:contact@appliedepi.org" class="alert-link"> notre service d\'assistance R</a>.',
+    es: '<strong>¿Necesitas ayuda para aprender R?</strong> Inscríbete en el <a href="https://www.appliedepi.org/live/" class="alert-link">Curso de introducción a R</a> de Applied Epi, prueba nuestros <a href="https://www.appliedepi.org/tutorial/" class="alert-link">Tutoriales gratuitos de R</a>, escribe en nuestro <a href="https://community.appliedepi.org/" class="alert-link">Foro de preguntas y respuestas,</a> o pregunta por nuestra <a href="mailto:contact@appliedepi.org" class="alert-link">Asistencia técnica para R</a>.',
+    vn: '<strong>Cần giúp đỡ trong việc học R?</strong> Đăng ký khóa học R cơ bản của Applied Epi tại <a href="https://www.appliedepi.org/live/" class="alert-link">đây</a>, hoặc thử các <a href="https://www.appliedepi.org/tutorial/" class="alert-link">hướng dẫn R miễn phí</a> của chúng tôi, đăng bài trong <a href="https://community.appliedepi.org/" class="alert-link">diễn đàn cộng đồng</a> của chúng tôi, hoặc gửi câu hỏi tới <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ Trợ giúp R</a> của chúng tôi.',
+    jp: '<strong>Rの学習について助けが必要ですか？</strong>Applied Epiの<a href="https://www.appliedepi.org/live/" class="alert-link">R入門コース</a>に登録するか、<a href="https://www.appliedepi.org/tutorial/" class="alert-link">無料Rチュートリアル</a>を試すか、<a href="https://community.appliedepi.org/" class="alert-link">コミュニティQ＆Aフォーラム</a>に投稿するか、<a href="mailto:contact@appliedepi.org" class="alert-link">Rヘルプデスクサービス</a>についてお問い合わせください。',
+    pt: '<strong>Você precisa de ajuda para aprender R??</strong> Inscreva-se no curso de <a href="https://www.appliedepi.org/live/" class="alert-link">introdução ao R da Applied Epi</a>, experimente nossos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriais gratuitos sobre o R</a>, publique em nosso <a href="https://community.appliedepi.org/" class="alert-link">fórum de perguntas e respostas</a>, ou solicite nosso <a href="mailto:contact@appliedepi.org" class="alert-link">suporte ao R</a>.',
+    tr: '<strong>R öğrenmekte yardıma mı ihtiyacınız var?</strong> Applied Epi\'\nin <a href="https://www.appliedepi.org/live/" class="alert-link">R\'ye giriş kursuna</a> kaydolun, <a href="https://www.appliedepi.org/tutorial/" class="alert-link">ücretsiz R derslerimizi</a> deneyin, <a href="https://community.appliedepi.org/" class="alert-link">Topluluk Q&A forumunda</a> soru paylaşın, ya da <a href="mailto:contact@appliedepi.org" class="alert-link">R Yardım Masası hizmetimiz</a> hakkında sorun.',
+    ru: '<strong>Нужна помощь в изучении R?</strong> Запишитесь на <a href="https://www.appliedepi.org/live/" class="alert-link">вводный курс по R</a> от Applied Epi, попробуйте наши <a href="https://www.appliedepi.org/tutorial/" class="alert-link">бесплатные учебные материалы по R</a>, задайте вопрос в нашем <a href="https://community.appliedepi.org/" class="alert-link">форуме вопросов и ответов сообщества</a>, или спросите о нашей услуге <a href="mailto:contact@appliedepi.org" class="alert-link">Службы поддержки по R</a>.'
+  };
+
+  // Default to English if the detected language is not supported
+  const contentToDisplay = translations[isSupportedLanguage ? language : defaultLanguage];
+
+
+  // Select the element where the content should be displayed
+  const alertElement = document.querySelector('.alert');
+  if (alertElement) {
+    alertElement.innerHTML = contentToDisplay;
+    alertElement.style.display = 'block'; // Make sure to display the element
+  }
+
+</script>
+<link href="../site_libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
@@ -682,7 +726,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(<span class="at">path =</span> <span class="fu">here</span>(<span class="st">"data"</span>), <span class="at">recurse =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data
 ├── africa_countries.geo.json
 ├── cache
 │   └── epidemic_models
@@ -848,8 +892,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file paths</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_ls</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"gis"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_admpop_adm3_2020.csv
-C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx</code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/gis/population/sle_admpop_adm3_2020.csv
+C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx</code></pre>
 </div>
 </div>
 <p>Để lấy tất cả thông tin chi tiết của mỗi tập tin trong một thư mục (ví dụ: đường dẫn, ngày sửa đổi, .v.v.), chúng ta có thể sử dụng hàm <code>dir_info()</code> của package <strong>fs</strong>.</p>
@@ -861,8 +905,8 @@ C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/popula
 <p>Sau đây là data frame được trả về. Cuộn qua phải để xem tất cả các cột.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-fd7f19980d0e11fd40a4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fd7f19980d0e11fd40a4">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_admpop_adm3_2020.csv","C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx"],["file","file"],[26939,57850],[33206,33206],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],[null,null],[null,null],[1552595156,1552595156],[1,1],[0,0],[844424931729373,844424931729374],[4096,4096],[56,120],[0,0],[0,0],["2024-02-29T10:37:34Z","2024-02-29T10:27:57Z"],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],["2024-02-29T10:27:57Z","2024-02-29T10:27:57Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e99569184b4f25e33d1a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e99569184b4f25e33d1a">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/gis/population/sle_admpop_adm3_2020.csv","C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/gis/population/sle_population_statistics_sierraleone_2020.xlsx"],["file","file"],[26939,57850],[33206,33206],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],[null,null],[null,null],[1552595156,1552595156],[1,1],[0,0],[281474978490827,281474978490828],[4096,4096],[56,120],[0,0],[0,0],["2024-04-06T15:43:13Z","2024-04-06T15:35:15Z"],["2024-02-18T13:56:17Z","2024-02-18T13:56:17Z"],["2024-04-06T15:35:15Z","2024-04-06T15:35:15Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -874,8 +918,8 @@ C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/popula
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-0f0d9960752225f600c5" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-0f0d9960752225f600c5">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/case_linelists/linelist_cleaned.rds"],["file"],[290215],[33206],["2024-02-18T13:56:16Z"],[null],[null],[1552595156],[1],[0],[844424931729330],[4096],[568],[0],[0],["2024-02-29T10:43:25Z"],["2024-02-18T13:56:16Z"],["2024-02-29T10:27:57Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-27fc72565f7ad905c397" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-27fc72565f7ad905c397">{"x":{"filter":"none","vertical":false,"data":[["C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/case_linelists/linelist_cleaned.rds"],["file"],[290215],[33206],["2024-02-18T13:56:16Z"],[null],[null],[1552595156],[1],[0],[281474978490784],[4096],[568],[0],[0],["2024-04-06T15:48:07Z"],["2024-02-18T13:56:16Z"],["2024-04-06T15:35:15Z"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>path<\/th>\n      <th>type<\/th>\n      <th>size<\/th>\n      <th>permissions<\/th>\n      <th>modification_time<\/th>\n      <th>user<\/th>\n      <th>group<\/th>\n      <th>device_id<\/th>\n      <th>hard_links<\/th>\n      <th>special_device_id<\/th>\n      <th>inode<\/th>\n      <th>block_size<\/th>\n      <th>blocks<\/th>\n      <th>flags<\/th>\n      <th>generation<\/th>\n      <th>access_time<\/th>\n      <th>change_time<\/th>\n      <th>birth_time<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7,8,9,10,11,12,13,14]},{"name":"path","targets":0},{"name":"type","targets":1},{"name":"size","targets":2},{"name":"permissions","targets":3},{"name":"modification_time","targets":4},{"name":"user","targets":5},{"name":"group","targets":6},{"name":"device_id","targets":7},{"name":"hard_links","targets":8},{"name":"special_device_id","targets":9},{"name":"inode","targets":10},{"name":"block_size","targets":11},{"name":"blocks","targets":12},{"name":"flags","targets":13},{"name":"generation","targets":14},{"name":"access_time","targets":15},{"name":"change_time","targets":16},{"name":"birth_time","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Ở đây, chúng ta sử dụng ký hiệu <code>$</code> để chỉ rõ kết quả và xuất chỉ mỗi giá trị về thời gian sửa đổi <code>modification_time</code>.</p>
@@ -916,8 +960,8 @@ C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/popula
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_dir</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data 
-                                                                 TRUE </code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data 
+                                                                TRUE </code></pre>
 </div>
 </div>
 <p>Một cách làm khác là dùng hàm <code>file.exists()</code> từ <strong>base</strong> R.</p>
@@ -928,8 +972,8 @@ C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/gis/popula
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_file</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"case_linelists"</span>, <span class="st">"linelist_cleaned.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C:/Users/ngulu864/AppData/Local/Temp/Rtmpsdga8y/file9ba43f2578d3/data/case_linelists/linelist_cleaned.rds 
-                                                                                                     TRUE </code></pre>
+<pre><code>C:/Users/ngulu864/AppData/Local/Temp/RtmpIfNoYq/filed64433a2824/data/case_linelists/linelist_cleaned.rds 
+                                                                                                    TRUE </code></pre>
 </div>
 </div>
 <p>Một cách làm khác là dùng hàm <code>file.exists()</code> từ <strong>base</strong> R.</p>
@@ -1601,7 +1645,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

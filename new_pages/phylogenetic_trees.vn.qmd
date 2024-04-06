@@ -23,7 +23,7 @@ sample_data <- read.csv(here::here("data","phylo", "sample_data_Shigella_tree.cs
 
 
 ggtree(tree, layout="circular", branch.length='none') %<+% sample_data + # the %<+% is used to add your dataframe with sample data to the tree
-  aes(color=I(Belgium))+ # color the branches according to a variable in your dataframe
+  aes(color=Belgium)+ # color the branches according to a variable in your dataframe
   scale_color_manual(name = "Sample Origin", # name of your color scheme (will show up in the legend like this)
                     breaks = c("Yes", "No"), # the different options in your variable
                    labels = c("NRCSS Belgium", "Other"), # how you want the different options named in your legend, allows for formatting
@@ -172,7 +172,7 @@ Dưới đây là một ví dụ về cây phả hệ dạng tròn:
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% adds dataframe with sample data to tree
-  aes(color = I(Belgium))+                       # color the branches according to a variable in your dataframe
+  aes(color = Belgium)+                       # color the branches according to a variable in your dataframe
   scale_color_manual(
     name = "Sample Origin",                      # name of your color scheme (will show up in the legend like this)
     breaks = c("Yes", "No"),                     # the different options in your variable

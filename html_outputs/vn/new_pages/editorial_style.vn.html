@@ -124,9 +124,52 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </script> -->
 
 </head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+  <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
+    class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
+    class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/"
+    class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org"
+    class="alert-link">R Help Desk service</a>. -->
 </div>
+
+<script>
+
+  // Function to extract the last two characters from the URL path to determine the language
+  function getLanguageFromURL() {
+    const path = window.location.pathname;
+    const lang = path.substr(-2);
+    return lang;
+  }
+
+  const language = getLanguageFromURL();
+  const supportedLanguages = ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru'];
+  const defaultLanguage = 'en';
+  const isSupportedLanguage = supportedLanguages.includes(language);
+
+  // Translations for the content
+  const translations = {
+    en: '<strong>Need help learning R?</strong> Enroll in Applied Epi\'s <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.',
+    fr: '<strong>Besoin d\'aide pour apprendre R ?</strong> Inscrivez-vous au <a href="https://www.appliedepi.org/live/" class="alert-link">cours d\'introduction à R</a> d\'Applied Epi, essayez nos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriels R gratuits</a>, postez dans notre forum de <a href="https://community.appliedepi.org/" class="alert-link">questions-réponses communautaires</a>, ou demandez-nous des informations sur <a href="mailto:contact@appliedepi.org" class="alert-link"> notre service d\'assistance R</a>.',
+    es: '<strong>¿Necesitas ayuda para aprender R?</strong> Inscríbete en el <a href="https://www.appliedepi.org/live/" class="alert-link">Curso de introducción a R</a> de Applied Epi, prueba nuestros <a href="https://www.appliedepi.org/tutorial/" class="alert-link">Tutoriales gratuitos de R</a>, escribe en nuestro <a href="https://community.appliedepi.org/" class="alert-link">Foro de preguntas y respuestas,</a> o pregunta por nuestra <a href="mailto:contact@appliedepi.org" class="alert-link">Asistencia técnica para R</a>.',
+    vn: '<strong>Cần giúp đỡ trong việc học R?</strong> Đăng ký khóa học R cơ bản của Applied Epi tại <a href="https://www.appliedepi.org/live/" class="alert-link">đây</a>, hoặc thử các <a href="https://www.appliedepi.org/tutorial/" class="alert-link">hướng dẫn R miễn phí</a> của chúng tôi, đăng bài trong <a href="https://community.appliedepi.org/" class="alert-link">diễn đàn cộng đồng</a> của chúng tôi, hoặc gửi câu hỏi tới <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ Trợ giúp R</a> của chúng tôi.',
+    jp: '<strong>Rの学習について助けが必要ですか？</strong>Applied Epiの<a href="https://www.appliedepi.org/live/" class="alert-link">R入門コース</a>に登録するか、<a href="https://www.appliedepi.org/tutorial/" class="alert-link">無料Rチュートリアル</a>を試すか、<a href="https://community.appliedepi.org/" class="alert-link">コミュニティQ＆Aフォーラム</a>に投稿するか、<a href="mailto:contact@appliedepi.org" class="alert-link">Rヘルプデスクサービス</a>についてお問い合わせください。',
+    pt: '<strong>Você precisa de ajuda para aprender R??</strong> Inscreva-se no curso de <a href="https://www.appliedepi.org/live/" class="alert-link">introdução ao R da Applied Epi</a>, experimente nossos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriais gratuitos sobre o R</a>, publique em nosso <a href="https://community.appliedepi.org/" class="alert-link">fórum de perguntas e respostas</a>, ou solicite nosso <a href="mailto:contact@appliedepi.org" class="alert-link">suporte ao R</a>.',
+    tr: '<strong>R öğrenmekte yardıma mı ihtiyacınız var?</strong> Applied Epi\'\nin <a href="https://www.appliedepi.org/live/" class="alert-link">R\'ye giriş kursuna</a> kaydolun, <a href="https://www.appliedepi.org/tutorial/" class="alert-link">ücretsiz R derslerimizi</a> deneyin, <a href="https://community.appliedepi.org/" class="alert-link">Topluluk Q&A forumunda</a> soru paylaşın, ya da <a href="mailto:contact@appliedepi.org" class="alert-link">R Yardım Masası hizmetimiz</a> hakkında sorun.',
+    ru: '<strong>Нужна помощь в изучении R?</strong> Запишитесь на <a href="https://www.appliedepi.org/live/" class="alert-link">вводный курс по R</a> от Applied Epi, попробуйте наши <a href="https://www.appliedepi.org/tutorial/" class="alert-link">бесплатные учебные материалы по R</a>, задайте вопрос в нашем <a href="https://community.appliedepi.org/" class="alert-link">форуме вопросов и ответов сообщества</a>, или спросите о нашей услуге <a href="mailto:contact@appliedepi.org" class="alert-link">Службы поддержки по R</a>.'
+  };
+
+  // Default to English if the detected language is not supported
+  const contentToDisplay = translations[isSupportedLanguage ? language : defaultLanguage];
+
+
+  // Select the element where the content should be displayed
+  const alertElement = document.querySelector('.alert');
+  if (alertElement) {
+    alertElement.innerHTML = contentToDisplay;
+    alertElement.style.display = 'block'; // Make sure to display the element
+  }
+
+</script>
 
 
 
@@ -827,24 +870,24 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
  collate  English_United States.utf8
  ctype    English_United States.utf8
  tz       Europe/Stockholm
- date     2024-02-29
+ date     2024-04-06
  pandoc   3.1.11 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
  cli           3.6.2   2023-12-11 [2] CRAN (R 4.3.2)
- digest        0.6.34  2024-01-11 [2] CRAN (R 4.3.2)
+ digest        0.6.35  2024-03-11 [1] CRAN (R 4.3.3)
  evaluate      0.23    2023-11-01 [2] CRAN (R 4.3.2)
  fastmap       1.1.1   2023-02-24 [2] CRAN (R 4.3.2)
- htmltools     0.5.7   2023-11-03 [2] CRAN (R 4.3.2)
+ htmltools     0.5.8   2024-03-25 [1] CRAN (R 4.3.3)
  htmlwidgets   1.6.4   2023-12-06 [2] CRAN (R 4.3.2)
  jsonlite      1.8.8   2023-12-04 [2] CRAN (R 4.3.2)
  knitr         1.45    2023-10-30 [2] CRAN (R 4.3.2)
  rlang         1.1.3   2024-01-10 [2] CRAN (R 4.3.2)
- rmarkdown     2.25    2023-09-18 [2] CRAN (R 4.3.2)
+ rmarkdown     2.26    2024-03-05 [1] CRAN (R 4.3.3)
  rstudioapi    0.15.0  2023-07-07 [2] CRAN (R 4.3.2)
  sessioninfo   1.2.2   2021-12-06 [2] CRAN (R 4.3.2)
- xfun          0.42    2024-02-08 [2] CRAN (R 4.3.2)
+ xfun          0.43    2024-03-25 [1] CRAN (R 4.3.3)
 
  [1] C:/Users/ngulu864/AppData/Local/R/win-library/4.3
  [2] C:/Program Files/R/R-4.3.2/library

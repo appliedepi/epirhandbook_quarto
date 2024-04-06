@@ -127,9 +127,53 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </script> -->
 
 </head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+  <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
+    class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
+    class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/"
+    class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org"
+    class="alert-link">R Help Desk service</a>. -->
 </div>
+
+<script>
+
+  // Function to extract the last two characters from the URL path to determine the language
+  function getLanguageFromURL() {
+    const path = window.location.pathname;
+    const lang = path.substr(-2);
+    return lang;
+  }
+
+  const language = getLanguageFromURL();
+  const supportedLanguages = ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru'];
+  const defaultLanguage = 'en';
+  const isSupportedLanguage = supportedLanguages.includes(language);
+
+  // Translations for the content
+  const translations = {
+    en: '<strong>Need help learning R?</strong> Enroll in Applied Epi\'s <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.',
+    fr: '<strong>Besoin d\'aide pour apprendre R ?</strong> Inscrivez-vous au <a href="https://www.appliedepi.org/live/" class="alert-link">cours d\'introduction à R</a> d\'Applied Epi, essayez nos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriels R gratuits</a>, postez dans notre forum de <a href="https://community.appliedepi.org/" class="alert-link">questions-réponses communautaires</a>, ou demandez-nous des informations sur <a href="mailto:contact@appliedepi.org" class="alert-link"> notre service d\'assistance R</a>.',
+    es: '<strong>¿Necesitas ayuda para aprender R?</strong> Inscríbete en el <a href="https://www.appliedepi.org/live/" class="alert-link">Curso de introducción a R</a> de Applied Epi, prueba nuestros <a href="https://www.appliedepi.org/tutorial/" class="alert-link">Tutoriales gratuitos de R</a>, escribe en nuestro <a href="https://community.appliedepi.org/" class="alert-link">Foro de preguntas y respuestas,</a> o pregunta por nuestra <a href="mailto:contact@appliedepi.org" class="alert-link">Asistencia técnica para R</a>.',
+    vn: '<strong>Cần giúp đỡ trong việc học R?</strong> Đăng ký khóa học R cơ bản của Applied Epi tại <a href="https://www.appliedepi.org/live/" class="alert-link">đây</a>, hoặc thử các <a href="https://www.appliedepi.org/tutorial/" class="alert-link">hướng dẫn R miễn phí</a> của chúng tôi, đăng bài trong <a href="https://community.appliedepi.org/" class="alert-link">diễn đàn cộng đồng</a> của chúng tôi, hoặc gửi câu hỏi tới <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ Trợ giúp R</a> của chúng tôi.',
+    jp: '<strong>Rの学習について助けが必要ですか？</strong>Applied Epiの<a href="https://www.appliedepi.org/live/" class="alert-link">R入門コース</a>に登録するか、<a href="https://www.appliedepi.org/tutorial/" class="alert-link">無料Rチュートリアル</a>を試すか、<a href="https://community.appliedepi.org/" class="alert-link">コミュニティQ＆Aフォーラム</a>に投稿するか、<a href="mailto:contact@appliedepi.org" class="alert-link">Rヘルプデスクサービス</a>についてお問い合わせください。',
+    pt: '<strong>Você precisa de ajuda para aprender R??</strong> Inscreva-se no curso de <a href="https://www.appliedepi.org/live/" class="alert-link">introdução ao R da Applied Epi</a>, experimente nossos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriais gratuitos sobre o R</a>, publique em nosso <a href="https://community.appliedepi.org/" class="alert-link">fórum de perguntas e respostas</a>, ou solicite nosso <a href="mailto:contact@appliedepi.org" class="alert-link">suporte ao R</a>.',
+    tr: '<strong>R öğrenmekte yardıma mı ihtiyacınız var?</strong> Applied Epi\'\nin <a href="https://www.appliedepi.org/live/" class="alert-link">R\'ye giriş kursuna</a> kaydolun, <a href="https://www.appliedepi.org/tutorial/" class="alert-link">ücretsiz R derslerimizi</a> deneyin, <a href="https://community.appliedepi.org/" class="alert-link">Topluluk Q&A forumunda</a> soru paylaşın, ya da <a href="mailto:contact@appliedepi.org" class="alert-link">R Yardım Masası hizmetimiz</a> hakkında sorun.',
+    ru: '<strong>Нужна помощь в изучении R?</strong> Запишитесь на <a href="https://www.appliedepi.org/live/" class="alert-link">вводный курс по R</a> от Applied Epi, попробуйте наши <a href="https://www.appliedepi.org/tutorial/" class="alert-link">бесплатные учебные материалы по R</a>, задайте вопрос в нашем <a href="https://community.appliedepi.org/" class="alert-link">форуме вопросов и ответов сообщества</a>, или спросите о нашей услуге <a href="mailto:contact@appliedepi.org" class="alert-link">Службы поддержки по R</a>.'
+  };
+
+  // Default to English if the detected language is not supported
+  const contentToDisplay = translations[isSupportedLanguage ? language : defaultLanguage];
+
+
+  // Select the element where the content should be displayed
+  const alertElement = document.querySelector('.alert');
+  if (alertElement) {
+    alertElement.innerHTML = contentToDisplay;
+    alertElement.style.display = 'block'; // Make sure to display the element
+  }
+
+</script>
+<link href="../site_libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
@@ -705,8 +749,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Vaka listesinin ilk 50 satırı aşağıda görüntülenmektedir.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-aff29e4fd8f081ede24c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-aff29e4fd8f081ede24c">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-257205f68f4b665b9960" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-257205f68f4b665b9960">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><strong>base (temel)</strong> R {}</p>
@@ -957,23 +1001,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="pspyqbncmg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pspyqbncmg table {
+<div id="fsfwplgzac" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fsfwplgzac table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pspyqbncmg thead, #pspyqbncmg tbody, #pspyqbncmg tfoot, #pspyqbncmg tr, #pspyqbncmg td, #pspyqbncmg th {
+#fsfwplgzac thead, #fsfwplgzac tbody, #fsfwplgzac tfoot, #fsfwplgzac tr, #fsfwplgzac td, #fsfwplgzac th {
   border-style: none;
 }
 
-#pspyqbncmg p {
+#fsfwplgzac p {
   margin: 0;
   padding: 0;
 }
 
-#pspyqbncmg .gt_table {
+#fsfwplgzac .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -999,12 +1043,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_caption {
+#fsfwplgzac .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pspyqbncmg .gt_title {
+#fsfwplgzac .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1016,7 +1060,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#pspyqbncmg .gt_subtitle {
+#fsfwplgzac .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1028,7 +1072,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#pspyqbncmg .gt_heading {
+#fsfwplgzac .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1040,13 +1084,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_bottom_border {
+#fsfwplgzac .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_col_headings {
+#fsfwplgzac .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1061,7 +1105,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_col_heading {
+#fsfwplgzac .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1081,7 +1125,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#pspyqbncmg .gt_column_spanner_outer {
+#fsfwplgzac .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1093,15 +1137,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#pspyqbncmg .gt_column_spanner_outer:first-child {
+#fsfwplgzac .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pspyqbncmg .gt_column_spanner_outer:last-child {
+#fsfwplgzac .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pspyqbncmg .gt_column_spanner {
+#fsfwplgzac .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1113,11 +1157,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#pspyqbncmg .gt_spanner_row {
+#fsfwplgzac .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pspyqbncmg .gt_group_heading {
+#fsfwplgzac .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1143,7 +1187,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#pspyqbncmg .gt_empty_group_heading {
+#fsfwplgzac .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1158,15 +1202,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#pspyqbncmg .gt_from_md > :first-child {
+#fsfwplgzac .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pspyqbncmg .gt_from_md > :last-child {
+#fsfwplgzac .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pspyqbncmg .gt_row {
+#fsfwplgzac .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1185,7 +1229,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#pspyqbncmg .gt_stub {
+#fsfwplgzac .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1198,7 +1242,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#pspyqbncmg .gt_stub_row_group {
+#fsfwplgzac .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1212,15 +1256,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#pspyqbncmg .gt_row_group_first td {
+#fsfwplgzac .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pspyqbncmg .gt_row_group_first th {
+#fsfwplgzac .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pspyqbncmg .gt_summary_row {
+#fsfwplgzac .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1230,16 +1274,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#pspyqbncmg .gt_first_summary_row {
+#fsfwplgzac .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_first_summary_row.thick {
+#fsfwplgzac .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pspyqbncmg .gt_last_summary_row {
+#fsfwplgzac .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1249,7 +1293,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_grand_summary_row {
+#fsfwplgzac .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1259,7 +1303,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#pspyqbncmg .gt_first_grand_summary_row {
+#fsfwplgzac .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1269,7 +1313,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_last_grand_summary_row_top {
+#fsfwplgzac .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1279,11 +1323,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_striped {
+#fsfwplgzac .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pspyqbncmg .gt_table_body {
+#fsfwplgzac .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1292,7 +1336,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_footnotes {
+#fsfwplgzac .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1306,7 +1350,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_footnote {
+#fsfwplgzac .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1315,7 +1359,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#pspyqbncmg .gt_sourcenotes {
+#fsfwplgzac .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1329,7 +1373,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#pspyqbncmg .gt_sourcenote {
+#fsfwplgzac .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1337,63 +1381,63 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#pspyqbncmg .gt_left {
+#fsfwplgzac .gt_left {
   text-align: left;
 }
 
-#pspyqbncmg .gt_center {
+#fsfwplgzac .gt_center {
   text-align: center;
 }
 
-#pspyqbncmg .gt_right {
+#fsfwplgzac .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pspyqbncmg .gt_font_normal {
+#fsfwplgzac .gt_font_normal {
   font-weight: normal;
 }
 
-#pspyqbncmg .gt_font_bold {
+#fsfwplgzac .gt_font_bold {
   font-weight: bold;
 }
 
-#pspyqbncmg .gt_font_italic {
+#fsfwplgzac .gt_font_italic {
   font-style: italic;
 }
 
-#pspyqbncmg .gt_super {
+#fsfwplgzac .gt_super {
   font-size: 65%;
 }
 
-#pspyqbncmg .gt_footnote_marks {
+#fsfwplgzac .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pspyqbncmg .gt_asterisk {
+#fsfwplgzac .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pspyqbncmg .gt_indent_1 {
+#fsfwplgzac .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pspyqbncmg .gt_indent_2 {
+#fsfwplgzac .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pspyqbncmg .gt_indent_3 {
+#fsfwplgzac .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pspyqbncmg .gt_indent_4 {
+#fsfwplgzac .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pspyqbncmg .gt_indent_5 {
+#fsfwplgzac .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1474,23 +1518,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="jxolgtdlue" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jxolgtdlue table {
+<div id="ymnftnaesh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ymnftnaesh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jxolgtdlue thead, #jxolgtdlue tbody, #jxolgtdlue tfoot, #jxolgtdlue tr, #jxolgtdlue td, #jxolgtdlue th {
+#ymnftnaesh thead, #ymnftnaesh tbody, #ymnftnaesh tfoot, #ymnftnaesh tr, #ymnftnaesh td, #ymnftnaesh th {
   border-style: none;
 }
 
-#jxolgtdlue p {
+#ymnftnaesh p {
   margin: 0;
   padding: 0;
 }
 
-#jxolgtdlue .gt_table {
+#ymnftnaesh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1516,12 +1560,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_caption {
+#ymnftnaesh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jxolgtdlue .gt_title {
+#ymnftnaesh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1533,7 +1577,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#jxolgtdlue .gt_subtitle {
+#ymnftnaesh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1545,7 +1589,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#jxolgtdlue .gt_heading {
+#ymnftnaesh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1557,13 +1601,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_bottom_border {
+#ymnftnaesh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_col_headings {
+#ymnftnaesh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1578,7 +1622,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_col_heading {
+#ymnftnaesh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1598,7 +1642,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#jxolgtdlue .gt_column_spanner_outer {
+#ymnftnaesh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1610,15 +1654,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#jxolgtdlue .gt_column_spanner_outer:first-child {
+#ymnftnaesh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jxolgtdlue .gt_column_spanner_outer:last-child {
+#ymnftnaesh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jxolgtdlue .gt_column_spanner {
+#ymnftnaesh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1630,11 +1674,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#jxolgtdlue .gt_spanner_row {
+#ymnftnaesh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jxolgtdlue .gt_group_heading {
+#ymnftnaesh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1660,7 +1704,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#jxolgtdlue .gt_empty_group_heading {
+#ymnftnaesh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1675,15 +1719,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#jxolgtdlue .gt_from_md > :first-child {
+#ymnftnaesh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jxolgtdlue .gt_from_md > :last-child {
+#ymnftnaesh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jxolgtdlue .gt_row {
+#ymnftnaesh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1702,7 +1746,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#jxolgtdlue .gt_stub {
+#ymnftnaesh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1715,7 +1759,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#jxolgtdlue .gt_stub_row_group {
+#ymnftnaesh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1729,15 +1773,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#jxolgtdlue .gt_row_group_first td {
+#ymnftnaesh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jxolgtdlue .gt_row_group_first th {
+#ymnftnaesh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jxolgtdlue .gt_summary_row {
+#ymnftnaesh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1747,16 +1791,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#jxolgtdlue .gt_first_summary_row {
+#ymnftnaesh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_first_summary_row.thick {
+#ymnftnaesh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jxolgtdlue .gt_last_summary_row {
+#ymnftnaesh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1766,7 +1810,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_grand_summary_row {
+#ymnftnaesh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1776,7 +1820,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#jxolgtdlue .gt_first_grand_summary_row {
+#ymnftnaesh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1786,7 +1830,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_last_grand_summary_row_top {
+#ymnftnaesh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1796,11 +1840,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_striped {
+#ymnftnaesh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jxolgtdlue .gt_table_body {
+#ymnftnaesh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1809,7 +1853,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_footnotes {
+#ymnftnaesh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1823,7 +1867,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_footnote {
+#ymnftnaesh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1832,7 +1876,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#jxolgtdlue .gt_sourcenotes {
+#ymnftnaesh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1846,7 +1890,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jxolgtdlue .gt_sourcenote {
+#ymnftnaesh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1854,63 +1898,63 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#jxolgtdlue .gt_left {
+#ymnftnaesh .gt_left {
   text-align: left;
 }
 
-#jxolgtdlue .gt_center {
+#ymnftnaesh .gt_center {
   text-align: center;
 }
 
-#jxolgtdlue .gt_right {
+#ymnftnaesh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jxolgtdlue .gt_font_normal {
+#ymnftnaesh .gt_font_normal {
   font-weight: normal;
 }
 
-#jxolgtdlue .gt_font_bold {
+#ymnftnaesh .gt_font_bold {
   font-weight: bold;
 }
 
-#jxolgtdlue .gt_font_italic {
+#ymnftnaesh .gt_font_italic {
   font-style: italic;
 }
 
-#jxolgtdlue .gt_super {
+#ymnftnaesh .gt_super {
   font-size: 65%;
 }
 
-#jxolgtdlue .gt_footnote_marks {
+#ymnftnaesh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jxolgtdlue .gt_asterisk {
+#ymnftnaesh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jxolgtdlue .gt_indent_1 {
+#ymnftnaesh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jxolgtdlue .gt_indent_2 {
+#ymnftnaesh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jxolgtdlue .gt_indent_3 {
+#ymnftnaesh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jxolgtdlue .gt_indent_4 {
+#ymnftnaesh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jxolgtdlue .gt_indent_5 {
+#ymnftnaesh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1975,23 +2019,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="qfqmdkoduh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qfqmdkoduh table {
+<div id="ojllkanrkj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ojllkanrkj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qfqmdkoduh thead, #qfqmdkoduh tbody, #qfqmdkoduh tfoot, #qfqmdkoduh tr, #qfqmdkoduh td, #qfqmdkoduh th {
+#ojllkanrkj thead, #ojllkanrkj tbody, #ojllkanrkj tfoot, #ojllkanrkj tr, #ojllkanrkj td, #ojllkanrkj th {
   border-style: none;
 }
 
-#qfqmdkoduh p {
+#ojllkanrkj p {
   margin: 0;
   padding: 0;
 }
 
-#qfqmdkoduh .gt_table {
+#ojllkanrkj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2017,12 +2061,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_caption {
+#ojllkanrkj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qfqmdkoduh .gt_title {
+#ojllkanrkj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2034,7 +2078,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#qfqmdkoduh .gt_subtitle {
+#ojllkanrkj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2046,7 +2090,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#qfqmdkoduh .gt_heading {
+#ojllkanrkj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2058,13 +2102,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_bottom_border {
+#ojllkanrkj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_col_headings {
+#ojllkanrkj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2079,7 +2123,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_col_heading {
+#ojllkanrkj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2099,7 +2143,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#qfqmdkoduh .gt_column_spanner_outer {
+#ojllkanrkj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2111,15 +2155,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#qfqmdkoduh .gt_column_spanner_outer:first-child {
+#ojllkanrkj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qfqmdkoduh .gt_column_spanner_outer:last-child {
+#ojllkanrkj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qfqmdkoduh .gt_column_spanner {
+#ojllkanrkj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2131,11 +2175,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#qfqmdkoduh .gt_spanner_row {
+#ojllkanrkj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qfqmdkoduh .gt_group_heading {
+#ojllkanrkj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2161,7 +2205,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#qfqmdkoduh .gt_empty_group_heading {
+#ojllkanrkj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2176,15 +2220,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#qfqmdkoduh .gt_from_md > :first-child {
+#ojllkanrkj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qfqmdkoduh .gt_from_md > :last-child {
+#ojllkanrkj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qfqmdkoduh .gt_row {
+#ojllkanrkj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2203,7 +2247,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#qfqmdkoduh .gt_stub {
+#ojllkanrkj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2216,7 +2260,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#qfqmdkoduh .gt_stub_row_group {
+#ojllkanrkj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2230,15 +2274,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#qfqmdkoduh .gt_row_group_first td {
+#ojllkanrkj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qfqmdkoduh .gt_row_group_first th {
+#ojllkanrkj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qfqmdkoduh .gt_summary_row {
+#ojllkanrkj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2248,16 +2292,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#qfqmdkoduh .gt_first_summary_row {
+#ojllkanrkj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_first_summary_row.thick {
+#ojllkanrkj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qfqmdkoduh .gt_last_summary_row {
+#ojllkanrkj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2267,7 +2311,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_grand_summary_row {
+#ojllkanrkj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2277,7 +2321,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#qfqmdkoduh .gt_first_grand_summary_row {
+#ojllkanrkj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2287,7 +2331,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_last_grand_summary_row_top {
+#ojllkanrkj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2297,11 +2341,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_striped {
+#ojllkanrkj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qfqmdkoduh .gt_table_body {
+#ojllkanrkj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2310,7 +2354,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_footnotes {
+#ojllkanrkj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2324,7 +2368,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_footnote {
+#ojllkanrkj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2333,7 +2377,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#qfqmdkoduh .gt_sourcenotes {
+#ojllkanrkj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2347,7 +2391,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#qfqmdkoduh .gt_sourcenote {
+#ojllkanrkj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2355,63 +2399,63 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#qfqmdkoduh .gt_left {
+#ojllkanrkj .gt_left {
   text-align: left;
 }
 
-#qfqmdkoduh .gt_center {
+#ojllkanrkj .gt_center {
   text-align: center;
 }
 
-#qfqmdkoduh .gt_right {
+#ojllkanrkj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qfqmdkoduh .gt_font_normal {
+#ojllkanrkj .gt_font_normal {
   font-weight: normal;
 }
 
-#qfqmdkoduh .gt_font_bold {
+#ojllkanrkj .gt_font_bold {
   font-weight: bold;
 }
 
-#qfqmdkoduh .gt_font_italic {
+#ojllkanrkj .gt_font_italic {
   font-style: italic;
 }
 
-#qfqmdkoduh .gt_super {
+#ojllkanrkj .gt_super {
   font-size: 65%;
 }
 
-#qfqmdkoduh .gt_footnote_marks {
+#ojllkanrkj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qfqmdkoduh .gt_asterisk {
+#ojllkanrkj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qfqmdkoduh .gt_indent_1 {
+#ojllkanrkj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qfqmdkoduh .gt_indent_2 {
+#ojllkanrkj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qfqmdkoduh .gt_indent_3 {
+#ojllkanrkj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qfqmdkoduh .gt_indent_4 {
+#ojllkanrkj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qfqmdkoduh .gt_indent_5 {
+#ojllkanrkj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2476,23 +2520,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="exvxpgdgwk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#exvxpgdgwk table {
+<div id="shgayoktqt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#shgayoktqt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#exvxpgdgwk thead, #exvxpgdgwk tbody, #exvxpgdgwk tfoot, #exvxpgdgwk tr, #exvxpgdgwk td, #exvxpgdgwk th {
+#shgayoktqt thead, #shgayoktqt tbody, #shgayoktqt tfoot, #shgayoktqt tr, #shgayoktqt td, #shgayoktqt th {
   border-style: none;
 }
 
-#exvxpgdgwk p {
+#shgayoktqt p {
   margin: 0;
   padding: 0;
 }
 
-#exvxpgdgwk .gt_table {
+#shgayoktqt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2518,12 +2562,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_caption {
+#shgayoktqt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#exvxpgdgwk .gt_title {
+#shgayoktqt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2535,7 +2579,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#exvxpgdgwk .gt_subtitle {
+#shgayoktqt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2547,7 +2591,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#exvxpgdgwk .gt_heading {
+#shgayoktqt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2559,13 +2603,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_bottom_border {
+#shgayoktqt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_col_headings {
+#shgayoktqt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2580,7 +2624,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_col_heading {
+#shgayoktqt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2600,7 +2644,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#exvxpgdgwk .gt_column_spanner_outer {
+#shgayoktqt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2612,15 +2656,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#exvxpgdgwk .gt_column_spanner_outer:first-child {
+#shgayoktqt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#exvxpgdgwk .gt_column_spanner_outer:last-child {
+#shgayoktqt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#exvxpgdgwk .gt_column_spanner {
+#shgayoktqt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2632,11 +2676,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#exvxpgdgwk .gt_spanner_row {
+#shgayoktqt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#exvxpgdgwk .gt_group_heading {
+#shgayoktqt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2662,7 +2706,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#exvxpgdgwk .gt_empty_group_heading {
+#shgayoktqt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2677,15 +2721,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#exvxpgdgwk .gt_from_md > :first-child {
+#shgayoktqt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#exvxpgdgwk .gt_from_md > :last-child {
+#shgayoktqt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#exvxpgdgwk .gt_row {
+#shgayoktqt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2704,7 +2748,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#exvxpgdgwk .gt_stub {
+#shgayoktqt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2717,7 +2761,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#exvxpgdgwk .gt_stub_row_group {
+#shgayoktqt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2731,15 +2775,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#exvxpgdgwk .gt_row_group_first td {
+#shgayoktqt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#exvxpgdgwk .gt_row_group_first th {
+#shgayoktqt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#exvxpgdgwk .gt_summary_row {
+#shgayoktqt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2749,16 +2793,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#exvxpgdgwk .gt_first_summary_row {
+#shgayoktqt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_first_summary_row.thick {
+#shgayoktqt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#exvxpgdgwk .gt_last_summary_row {
+#shgayoktqt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2768,7 +2812,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_grand_summary_row {
+#shgayoktqt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2778,7 +2822,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#exvxpgdgwk .gt_first_grand_summary_row {
+#shgayoktqt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2788,7 +2832,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_last_grand_summary_row_top {
+#shgayoktqt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2798,11 +2842,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_striped {
+#shgayoktqt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#exvxpgdgwk .gt_table_body {
+#shgayoktqt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2811,7 +2855,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_footnotes {
+#shgayoktqt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2825,7 +2869,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_footnote {
+#shgayoktqt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2834,7 +2878,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#exvxpgdgwk .gt_sourcenotes {
+#shgayoktqt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2848,7 +2892,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#exvxpgdgwk .gt_sourcenote {
+#shgayoktqt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2856,63 +2900,63 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#exvxpgdgwk .gt_left {
+#shgayoktqt .gt_left {
   text-align: left;
 }
 
-#exvxpgdgwk .gt_center {
+#shgayoktqt .gt_center {
   text-align: center;
 }
 
-#exvxpgdgwk .gt_right {
+#shgayoktqt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#exvxpgdgwk .gt_font_normal {
+#shgayoktqt .gt_font_normal {
   font-weight: normal;
 }
 
-#exvxpgdgwk .gt_font_bold {
+#shgayoktqt .gt_font_bold {
   font-weight: bold;
 }
 
-#exvxpgdgwk .gt_font_italic {
+#shgayoktqt .gt_font_italic {
   font-style: italic;
 }
 
-#exvxpgdgwk .gt_super {
+#shgayoktqt .gt_super {
   font-size: 65%;
 }
 
-#exvxpgdgwk .gt_footnote_marks {
+#shgayoktqt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#exvxpgdgwk .gt_asterisk {
+#shgayoktqt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#exvxpgdgwk .gt_indent_1 {
+#shgayoktqt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#exvxpgdgwk .gt_indent_2 {
+#shgayoktqt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#exvxpgdgwk .gt_indent_3 {
+#shgayoktqt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#exvxpgdgwk .gt_indent_4 {
+#shgayoktqt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#exvxpgdgwk .gt_indent_5 {
+#shgayoktqt .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3690,7 +3734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

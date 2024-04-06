@@ -127,9 +127,53 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </script> -->
 
 </head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+  <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
+    class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
+    class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/"
+    class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org"
+    class="alert-link">R Help Desk service</a>. -->
 </div>
+
+<script>
+
+  // Function to extract the last two characters from the URL path to determine the language
+  function getLanguageFromURL() {
+    const path = window.location.pathname;
+    const lang = path.substr(-2);
+    return lang;
+  }
+
+  const language = getLanguageFromURL();
+  const supportedLanguages = ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru'];
+  const defaultLanguage = 'en';
+  const isSupportedLanguage = supportedLanguages.includes(language);
+
+  // Translations for the content
+  const translations = {
+    en: '<strong>Need help learning R?</strong> Enroll in Applied Epi\'s <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.',
+    fr: '<strong>Besoin d\'aide pour apprendre R ?</strong> Inscrivez-vous au <a href="https://www.appliedepi.org/live/" class="alert-link">cours d\'introduction à R</a> d\'Applied Epi, essayez nos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriels R gratuits</a>, postez dans notre forum de <a href="https://community.appliedepi.org/" class="alert-link">questions-réponses communautaires</a>, ou demandez-nous des informations sur <a href="mailto:contact@appliedepi.org" class="alert-link"> notre service d\'assistance R</a>.',
+    es: '<strong>¿Necesitas ayuda para aprender R?</strong> Inscríbete en el <a href="https://www.appliedepi.org/live/" class="alert-link">Curso de introducción a R</a> de Applied Epi, prueba nuestros <a href="https://www.appliedepi.org/tutorial/" class="alert-link">Tutoriales gratuitos de R</a>, escribe en nuestro <a href="https://community.appliedepi.org/" class="alert-link">Foro de preguntas y respuestas,</a> o pregunta por nuestra <a href="mailto:contact@appliedepi.org" class="alert-link">Asistencia técnica para R</a>.',
+    vn: '<strong>Cần giúp đỡ trong việc học R?</strong> Đăng ký khóa học R cơ bản của Applied Epi tại <a href="https://www.appliedepi.org/live/" class="alert-link">đây</a>, hoặc thử các <a href="https://www.appliedepi.org/tutorial/" class="alert-link">hướng dẫn R miễn phí</a> của chúng tôi, đăng bài trong <a href="https://community.appliedepi.org/" class="alert-link">diễn đàn cộng đồng</a> của chúng tôi, hoặc gửi câu hỏi tới <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ Trợ giúp R</a> của chúng tôi.',
+    jp: '<strong>Rの学習について助けが必要ですか？</strong>Applied Epiの<a href="https://www.appliedepi.org/live/" class="alert-link">R入門コース</a>に登録するか、<a href="https://www.appliedepi.org/tutorial/" class="alert-link">無料Rチュートリアル</a>を試すか、<a href="https://community.appliedepi.org/" class="alert-link">コミュニティQ＆Aフォーラム</a>に投稿するか、<a href="mailto:contact@appliedepi.org" class="alert-link">Rヘルプデスクサービス</a>についてお問い合わせください。',
+    pt: '<strong>Você precisa de ajuda para aprender R??</strong> Inscreva-se no curso de <a href="https://www.appliedepi.org/live/" class="alert-link">introdução ao R da Applied Epi</a>, experimente nossos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriais gratuitos sobre o R</a>, publique em nosso <a href="https://community.appliedepi.org/" class="alert-link">fórum de perguntas e respostas</a>, ou solicite nosso <a href="mailto:contact@appliedepi.org" class="alert-link">suporte ao R</a>.',
+    tr: '<strong>R öğrenmekte yardıma mı ihtiyacınız var?</strong> Applied Epi\'\nin <a href="https://www.appliedepi.org/live/" class="alert-link">R\'ye giriş kursuna</a> kaydolun, <a href="https://www.appliedepi.org/tutorial/" class="alert-link">ücretsiz R derslerimizi</a> deneyin, <a href="https://community.appliedepi.org/" class="alert-link">Topluluk Q&A forumunda</a> soru paylaşın, ya da <a href="mailto:contact@appliedepi.org" class="alert-link">R Yardım Masası hizmetimiz</a> hakkında sorun.',
+    ru: '<strong>Нужна помощь в изучении R?</strong> Запишитесь на <a href="https://www.appliedepi.org/live/" class="alert-link">вводный курс по R</a> от Applied Epi, попробуйте наши <a href="https://www.appliedepi.org/tutorial/" class="alert-link">бесплатные учебные материалы по R</a>, задайте вопрос в нашем <a href="https://community.appliedepi.org/" class="alert-link">форуме вопросов и ответов сообщества</a>, или спросите о нашей услуге <a href="mailto:contact@appliedepi.org" class="alert-link">Службы поддержки по R</a>.'
+  };
+
+  // Default to English if the detected language is not supported
+  const contentToDisplay = translations[isSupportedLanguage ? language : defaultLanguage];
+
+
+  // Select the element where the content should be displayed
+  const alertElement = document.querySelector('.alert');
+  if (alertElement) {
+    alertElement.innerHTML = contentToDisplay;
+    alertElement.style.display = 'block'; // Make sure to display the element
+  }
+
+</script>
+<link href="../site_libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
@@ -728,8 +772,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>The first 50 rows of the linelist are displayed below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1f203971955f21f8a27b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1f203971955f21f8a27b">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d298ca8f00c511daa37c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d298ca8f00c511daa37c">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -1434,7 +1478,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">%&gt;%</span>    <span class="co"># güzel görüntüye dönüştür</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()          <span class="co"># satır başına bir satıra biçimlendir</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-b3bb83ba{}.cl-b3b02de4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b3b42dfe{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b3b44bc2{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bcc{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bd6{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bd7{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44be0{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44be1{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bea{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44beb{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bec{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bf4{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bf5{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b3b44bfe{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b3bb83ba"><thead><tr style="overflow-wrap:break-word;"><th class="cl-b3b44bc2"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">Age Category/Gender</span></p></th><th class="cl-b3b44bcc"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">f</span></p></th><th class="cl-b3b44bcc"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">m</span></p></th><th class="cl-b3b44bd6"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">NA_</span></p></th><th class="cl-b3b44bd7"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">0-4</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">640 (22.8%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">416 (14.8%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">39 (14.0%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">5-9</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">641 (22.8%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">412 (14.7%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">42 (15.1%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">10-14</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">518 (18.5%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">383 (13.7%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">40 (14.4%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">941 (16.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">15-19</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">359 (12.8%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">364 (13.0%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">20  (7.2%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">743 (12.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">20-29</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">468 (16.7%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">575 (20.5%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">30 (10.8%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">1,073 (18.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">30-49</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">179  (6.4%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">557 (19.9%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">18  (6.5%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">754 (12.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">50-69</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">2  (0.1%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">91  (3.2%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">2  (0.7%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">95  (1.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44be0"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">70+</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">0  (0.0%)</span></p></td><td class="cl-b3b44be1"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">5  (0.2%)</span></p></td><td class="cl-b3b44bea"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">1  (0.4%)</span></p></td><td class="cl-b3b44beb"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">6  (0.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b3b44bec"><p class="cl-b3b42dfe"><span class="cl-b3b02de4"></span></p></td><td class="cl-b3b44bf4"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">0  (0.0%)</span></p></td><td class="cl-b3b44bf4"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">0  (0.0%)</span></p></td><td class="cl-b3b44bf5"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">86 (30.9%)</span></p></td><td class="cl-b3b44bfe"><p class="cl-b3b42dfe"><span class="cl-b3b02de4">86  (1.5%)</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-58fda196{}.cl-58e31ed4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-58ed0a52{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-58ed9d78{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9d96{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9da0{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9daa{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9db4{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9dbe{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9dd2{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9dd3{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9ddc{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9de6{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9df0{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58ed9dfa{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-58fda196"><thead><tr style="overflow-wrap:break-word;"><th class="cl-58ed9d78"><p class="cl-58ed0a52"><span class="cl-58e31ed4">Age Category/Gender</span></p></th><th class="cl-58ed9d96"><p class="cl-58ed0a52"><span class="cl-58e31ed4">f</span></p></th><th class="cl-58ed9d96"><p class="cl-58ed0a52"><span class="cl-58e31ed4">m</span></p></th><th class="cl-58ed9da0"><p class="cl-58ed0a52"><span class="cl-58e31ed4">NA_</span></p></th><th class="cl-58ed9daa"><p class="cl-58ed0a52"><span class="cl-58e31ed4">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">0-4</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">640 (22.8%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">416 (14.8%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">39 (14.0%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">5-9</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">641 (22.8%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">412 (14.7%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">42 (15.1%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">10-14</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">518 (18.5%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">383 (13.7%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">40 (14.4%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">941 (16.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">15-19</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">359 (12.8%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">364 (13.0%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">20  (7.2%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">743 (12.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">20-29</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">468 (16.7%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">575 (20.5%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">30 (10.8%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">1,073 (18.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">30-49</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">179  (6.4%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">557 (19.9%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">18  (6.5%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">754 (12.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">50-69</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">2  (0.1%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">91  (3.2%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">2  (0.7%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">95  (1.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9db4"><p class="cl-58ed0a52"><span class="cl-58e31ed4">70+</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">0  (0.0%)</span></p></td><td class="cl-58ed9dbe"><p class="cl-58ed0a52"><span class="cl-58e31ed4">5  (0.2%)</span></p></td><td class="cl-58ed9dd2"><p class="cl-58ed0a52"><span class="cl-58e31ed4">1  (0.4%)</span></p></td><td class="cl-58ed9dd3"><p class="cl-58ed0a52"><span class="cl-58e31ed4">6  (0.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-58ed9ddc"><p class="cl-58ed0a52"><span class="cl-58e31ed4"></span></p></td><td class="cl-58ed9de6"><p class="cl-58ed0a52"><span class="cl-58e31ed4">0  (0.0%)</span></p></td><td class="cl-58ed9de6"><p class="cl-58ed0a52"><span class="cl-58e31ed4">0  (0.0%)</span></p></td><td class="cl-58ed9df0"><p class="cl-58ed0a52"><span class="cl-58e31ed4">86 (30.9%)</span></p></td><td class="cl-58ed9dfa"><p class="cl-58ed0a52"><span class="cl-58e31ed4">86  (1.5%)</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -1652,8 +1696,8 @@ X-squared = 6.4931, df = 7, p-value = 0.4835</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-22461bbcb654c168567c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-22461bbcb654c168567c">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4aeb1922ec573f17875b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4aeb1922ec573f17875b">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -2000,8 +2044,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-dcefe4f7ba400e869164" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-dcefe4f7ba400e869164">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b27324f62d5a0f522db9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b27324f62d5a0f522db9">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Daha geniş bir tablo halinde özetlemek için ScriptTo ile, mevcut age_cat sütunundaki değerlerden name_from = age_cat ayarını yaparak yeni sütunlar yaratırız. Yeni tablo değerleri mevcut n sütunundan, value_from = n ile elde edilecektir. Pivotlama komutumuzda (çıktı) belirtilmeyen sütunlar, en sol tarafta değişmeden kalacaktır.</p>
@@ -2104,8 +2148,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Altta “Toplam” satırları olan yeni tablo yer almaktadır.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4e5bff4a6d2fbc8b98e9" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4e5bff4a6d2fbc8b98e9">{"x":{"filter":"none","vertical":false,"data":[["Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[193,165,399,309,395,290,785,579,199,126,1971,1469],[22,22,21,22,22,21,22,21,22,22,22,22]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1fff21343e45de1d6b19" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1fff21343e45de1d6b19">{"x":{"filter":"none","vertical":false,"data":[["Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[193,165,399,309,395,290,785,579,199,126,1971,1469],[22,22,21,22,22,21,22,21,22,22,22,22]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Bu tablo, istediğiniz gibi “uzun” biçimdedir. İsteğe bağlı olarak, tabloyu daha okunabilir hale getirmek için bu tabloyu daha geniş forma pivotlayabilirsiniz. Yukarıdaki daha geniş pivotlama ile ilgili bölüme ve Verilerin pivotlanması sayfasına bakın. Ayrıca daha fazla sütun ekleyebilir ve düzenleyebilirsiniz. İlgili kod aşağıdadır.</p>
@@ -2144,7 +2188,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Daha sonra bu tablo daha “güzel” bir şekilde yazdırabilir. Aşağıda flextable ile elde edilen çıktı yer almaktadır. Bu “güzel” tablonun nasıl elde edileceği hakkında daha ayrıntılı bilgiyi Sunum için Tablolar sayfasından okuyabilirsiniz.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-b5fcd4f8{}.cl-b5f04b2a{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b5f04b34{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b5f588e2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b5f588f6{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b5f5a6c4{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6d8{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6d9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6e2{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6e3{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6ec{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6ed{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6ee{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6f6{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a6f7{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a700{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a701{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a702{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a70a{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a70b{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a714{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a715{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a71e{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a71f{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b5f5a720{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b5fcd4f8"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-b5f5a6c4"><p class="cl-b5f588e2"><span class="cl-b5f04b2a">Hospital</span></p></th><th rowspan="2" class="cl-b5f5a6d8"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">Total cases with known outcome</span></p></th><th colspan="3" class="cl-b5f5a6d9"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">Recovered</span></p></th><th colspan="3" class="cl-b5f5a6d9"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-b5f5a6ee"><p class="cl-b5f588f6"><span class="cl-b5f04b34">Total</span></p></th><th class="cl-b5f5a6f6"><p class="cl-b5f588f6"><span class="cl-b5f04b34">% of cases</span></p></th><th class="cl-b5f5a6f7"><p class="cl-b5f588f6"><span class="cl-b5f04b34">Median CT values</span></p></th><th class="cl-b5f5a6ee"><p class="cl-b5f588f6"><span class="cl-b5f04b34">Total</span></p></th><th class="cl-b5f5a6f6"><p class="cl-b5f588f6"><span class="cl-b5f04b34">% of cases</span></p></th><th class="cl-b5f5a6f6"><p class="cl-b5f588f6"><span class="cl-b5f04b34">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a700"><p class="cl-b5f588e2"><span class="cl-b5f04b34">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-b5f5a701"><p class="cl-b5f588f6"><span class="cl-b5f04b34">325</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">126</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">38.8%</span></p></td><td class="cl-b5f5a70b"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">199</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">61.2%</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a700"><p class="cl-b5f588e2"><span class="cl-b5f04b34">Central Hospital</span></p></td><td class="cl-b5f5a701"><p class="cl-b5f588f6"><span class="cl-b5f04b34">358</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">165</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">46.1%</span></p></td><td class="cl-b5f5a70b"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">193</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">53.9%</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a700"><p class="cl-b5f588e2"><span class="cl-b5f04b34">Other</span></p></td><td class="cl-b5f5a701"><p class="cl-b5f588f6"><span class="cl-b5f04b34">685</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">290</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">42.3%</span></p></td><td class="cl-b5f5a70b"><p class="cl-b5f588f6"><span class="cl-b5f04b34">21</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">395</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">57.7%</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a700"><p class="cl-b5f588e2"><span class="cl-b5f04b34">Military Hospital</span></p></td><td class="cl-b5f5a701"><p class="cl-b5f588f6"><span class="cl-b5f04b34">708</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">309</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">43.6%</span></p></td><td class="cl-b5f5a70b"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">399</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">56.4%</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a700"><p class="cl-b5f588e2"><span class="cl-b5f04b34">Port Hospital</span></p></td><td class="cl-b5f5a701"><p class="cl-b5f588f6"><span class="cl-b5f04b34">1,364</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">579</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">42.4%</span></p></td><td class="cl-b5f5a70b"><p class="cl-b5f588f6"><span class="cl-b5f04b34">21</span></p></td><td class="cl-b5f5a702"><p class="cl-b5f588f6"><span class="cl-b5f04b34">785</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">57.6%</span></p></td><td class="cl-b5f5a70a"><p class="cl-b5f588f6"><span class="cl-b5f04b34">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b5f5a714"><p class="cl-b5f588e2"><span class="cl-b5f04b2a">Total</span></p></td><td class="cl-b5f5a715"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">3,440</span></p></td><td class="cl-b5f5a71e"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">1,469</span></p></td><td class="cl-b5f5a71f"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">42.7%</span></p></td><td class="cl-b5f5a720"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">22</span></p></td><td class="cl-b5f5a71e"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">1,971</span></p></td><td class="cl-b5f5a71f"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">57.3%</span></p></td><td class="cl-b5f5a71f"><p class="cl-b5f588f6"><span class="cl-b5f04b2a">22</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-5cd16db6{}.cl-5cc3d35e{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5cc3d372{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5cc95cd4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5cc95cde{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5cc979c6{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979d0{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979da{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979db{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979e4{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979e5{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979ee{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979ef{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979f8{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc979f9{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a02{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a03{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a04{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a0c{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a0d{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a16{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a17{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a20{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a2a{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5cc97a2b{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-5cd16db6"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-5cc979c6"><p class="cl-5cc95cd4"><span class="cl-5cc3d35e">Hospital</span></p></th><th rowspan="2" class="cl-5cc979d0"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">Total cases with known outcome</span></p></th><th colspan="3" class="cl-5cc979da"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">Recovered</span></p></th><th colspan="3" class="cl-5cc979da"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-5cc979ef"><p class="cl-5cc95cde"><span class="cl-5cc3d372">Total</span></p></th><th class="cl-5cc979f8"><p class="cl-5cc95cde"><span class="cl-5cc3d372">% of cases</span></p></th><th class="cl-5cc979f9"><p class="cl-5cc95cde"><span class="cl-5cc3d372">Median CT values</span></p></th><th class="cl-5cc979ef"><p class="cl-5cc95cde"><span class="cl-5cc3d372">Total</span></p></th><th class="cl-5cc979f8"><p class="cl-5cc95cde"><span class="cl-5cc3d372">% of cases</span></p></th><th class="cl-5cc979f8"><p class="cl-5cc95cde"><span class="cl-5cc3d372">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a02"><p class="cl-5cc95cd4"><span class="cl-5cc3d372">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-5cc97a03"><p class="cl-5cc95cde"><span class="cl-5cc3d372">325</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">126</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">38.8%</span></p></td><td class="cl-5cc97a0d"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">199</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">61.2%</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a02"><p class="cl-5cc95cd4"><span class="cl-5cc3d372">Central Hospital</span></p></td><td class="cl-5cc97a03"><p class="cl-5cc95cde"><span class="cl-5cc3d372">358</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">165</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">46.1%</span></p></td><td class="cl-5cc97a0d"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">193</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">53.9%</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a02"><p class="cl-5cc95cd4"><span class="cl-5cc3d372">Other</span></p></td><td class="cl-5cc97a03"><p class="cl-5cc95cde"><span class="cl-5cc3d372">685</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">290</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">42.3%</span></p></td><td class="cl-5cc97a0d"><p class="cl-5cc95cde"><span class="cl-5cc3d372">21</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">395</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">57.7%</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a02"><p class="cl-5cc95cd4"><span class="cl-5cc3d372">Military Hospital</span></p></td><td class="cl-5cc97a03"><p class="cl-5cc95cde"><span class="cl-5cc3d372">708</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">309</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">43.6%</span></p></td><td class="cl-5cc97a0d"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">399</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">56.4%</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a02"><p class="cl-5cc95cd4"><span class="cl-5cc3d372">Port Hospital</span></p></td><td class="cl-5cc97a03"><p class="cl-5cc95cde"><span class="cl-5cc3d372">1,364</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">579</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">42.4%</span></p></td><td class="cl-5cc97a0d"><p class="cl-5cc95cde"><span class="cl-5cc3d372">21</span></p></td><td class="cl-5cc97a04"><p class="cl-5cc95cde"><span class="cl-5cc3d372">785</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">57.6%</span></p></td><td class="cl-5cc97a0c"><p class="cl-5cc95cde"><span class="cl-5cc3d372">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5cc97a16"><p class="cl-5cc95cd4"><span class="cl-5cc3d35e">Total</span></p></td><td class="cl-5cc97a17"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">3,440</span></p></td><td class="cl-5cc97a20"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">1,469</span></p></td><td class="cl-5cc97a2a"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">42.7%</span></p></td><td class="cl-5cc97a2b"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">22</span></p></td><td class="cl-5cc97a20"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">1,971</span></p></td><td class="cl-5cc97a2a"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">57.3%</span></p></td><td class="cl-5cc97a2a"><p class="cl-5cc95cde"><span class="cl-5cc3d35e">22</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -2164,23 +2208,23 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()                                                  <span class="co"># varsayılan</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="azrvbyccgw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#azrvbyccgw table {
+<div id="sykpafrdkl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sykpafrdkl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#azrvbyccgw thead, #azrvbyccgw tbody, #azrvbyccgw tfoot, #azrvbyccgw tr, #azrvbyccgw td, #azrvbyccgw th {
+#sykpafrdkl thead, #sykpafrdkl tbody, #sykpafrdkl tfoot, #sykpafrdkl tr, #sykpafrdkl td, #sykpafrdkl th {
   border-style: none;
 }
 
-#azrvbyccgw p {
+#sykpafrdkl p {
   margin: 0;
   padding: 0;
 }
 
-#azrvbyccgw .gt_table {
+#sykpafrdkl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2206,12 +2250,12 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-left-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_caption {
+#sykpafrdkl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#azrvbyccgw .gt_title {
+#sykpafrdkl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2223,7 +2267,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-width: 0;
 }
 
-#azrvbyccgw .gt_subtitle {
+#sykpafrdkl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2235,7 +2279,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-width: 0;
 }
 
-#azrvbyccgw .gt_heading {
+#sykpafrdkl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2247,13 +2291,13 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_bottom_border {
+#sykpafrdkl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_col_headings {
+#sykpafrdkl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2268,7 +2312,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_col_heading {
+#sykpafrdkl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2288,7 +2332,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#azrvbyccgw .gt_column_spanner_outer {
+#sykpafrdkl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2300,15 +2344,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 4px;
 }
 
-#azrvbyccgw .gt_column_spanner_outer:first-child {
+#sykpafrdkl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#azrvbyccgw .gt_column_spanner_outer:last-child {
+#sykpafrdkl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#azrvbyccgw .gt_column_spanner {
+#sykpafrdkl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2320,11 +2364,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   width: 100%;
 }
 
-#azrvbyccgw .gt_spanner_row {
+#sykpafrdkl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#azrvbyccgw .gt_group_heading {
+#sykpafrdkl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2350,7 +2394,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   text-align: left;
 }
 
-#azrvbyccgw .gt_empty_group_heading {
+#sykpafrdkl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2365,15 +2409,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: middle;
 }
 
-#azrvbyccgw .gt_from_md > :first-child {
+#sykpafrdkl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#azrvbyccgw .gt_from_md > :last-child {
+#sykpafrdkl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#azrvbyccgw .gt_row {
+#sykpafrdkl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2392,7 +2436,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#azrvbyccgw .gt_stub {
+#sykpafrdkl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2405,7 +2449,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#azrvbyccgw .gt_stub_row_group {
+#sykpafrdkl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2419,15 +2463,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: top;
 }
 
-#azrvbyccgw .gt_row_group_first td {
+#sykpafrdkl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#azrvbyccgw .gt_row_group_first th {
+#sykpafrdkl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#azrvbyccgw .gt_summary_row {
+#sykpafrdkl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2437,16 +2481,16 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#azrvbyccgw .gt_first_summary_row {
+#sykpafrdkl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_first_summary_row.thick {
+#sykpafrdkl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#azrvbyccgw .gt_last_summary_row {
+#sykpafrdkl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2456,7 +2500,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_grand_summary_row {
+#sykpafrdkl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2466,7 +2510,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#azrvbyccgw .gt_first_grand_summary_row {
+#sykpafrdkl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2476,7 +2520,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_last_grand_summary_row_top {
+#sykpafrdkl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2486,11 +2530,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_striped {
+#sykpafrdkl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#azrvbyccgw .gt_table_body {
+#sykpafrdkl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2499,7 +2543,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_footnotes {
+#sykpafrdkl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2513,7 +2557,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_footnote {
+#sykpafrdkl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2522,7 +2566,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#azrvbyccgw .gt_sourcenotes {
+#sykpafrdkl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2536,7 +2580,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#azrvbyccgw .gt_sourcenote {
+#sykpafrdkl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2544,63 +2588,63 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#azrvbyccgw .gt_left {
+#sykpafrdkl .gt_left {
   text-align: left;
 }
 
-#azrvbyccgw .gt_center {
+#sykpafrdkl .gt_center {
   text-align: center;
 }
 
-#azrvbyccgw .gt_right {
+#sykpafrdkl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#azrvbyccgw .gt_font_normal {
+#sykpafrdkl .gt_font_normal {
   font-weight: normal;
 }
 
-#azrvbyccgw .gt_font_bold {
+#sykpafrdkl .gt_font_bold {
   font-weight: bold;
 }
 
-#azrvbyccgw .gt_font_italic {
+#sykpafrdkl .gt_font_italic {
   font-style: italic;
 }
 
-#azrvbyccgw .gt_super {
+#sykpafrdkl .gt_super {
   font-size: 65%;
 }
 
-#azrvbyccgw .gt_footnote_marks {
+#sykpafrdkl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#azrvbyccgw .gt_asterisk {
+#sykpafrdkl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#azrvbyccgw .gt_indent_1 {
+#sykpafrdkl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#azrvbyccgw .gt_indent_2 {
+#sykpafrdkl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#azrvbyccgw .gt_indent_3 {
+#sykpafrdkl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#azrvbyccgw .gt_indent_4 {
+#sykpafrdkl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#azrvbyccgw .gt_indent_5 {
+#sykpafrdkl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2734,23 +2778,23 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"{mean}"</span>) <span class="co"># yaş ortalamasını yazdır</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="eppczpmeto" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eppczpmeto table {
+<div id="flzqbghobn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#flzqbghobn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eppczpmeto thead, #eppczpmeto tbody, #eppczpmeto tfoot, #eppczpmeto tr, #eppczpmeto td, #eppczpmeto th {
+#flzqbghobn thead, #flzqbghobn tbody, #flzqbghobn tfoot, #flzqbghobn tr, #flzqbghobn td, #flzqbghobn th {
   border-style: none;
 }
 
-#eppczpmeto p {
+#flzqbghobn p {
   margin: 0;
   padding: 0;
 }
 
-#eppczpmeto .gt_table {
+#flzqbghobn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2776,12 +2820,12 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-left-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_caption {
+#flzqbghobn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eppczpmeto .gt_title {
+#flzqbghobn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2793,7 +2837,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-width: 0;
 }
 
-#eppczpmeto .gt_subtitle {
+#flzqbghobn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2805,7 +2849,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-width: 0;
 }
 
-#eppczpmeto .gt_heading {
+#flzqbghobn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2817,13 +2861,13 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_bottom_border {
+#flzqbghobn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_col_headings {
+#flzqbghobn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2838,7 +2882,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_col_heading {
+#flzqbghobn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2858,7 +2902,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#eppczpmeto .gt_column_spanner_outer {
+#flzqbghobn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2870,15 +2914,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 4px;
 }
 
-#eppczpmeto .gt_column_spanner_outer:first-child {
+#flzqbghobn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eppczpmeto .gt_column_spanner_outer:last-child {
+#flzqbghobn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eppczpmeto .gt_column_spanner {
+#flzqbghobn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2890,11 +2934,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   width: 100%;
 }
 
-#eppczpmeto .gt_spanner_row {
+#flzqbghobn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eppczpmeto .gt_group_heading {
+#flzqbghobn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2920,7 +2964,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   text-align: left;
 }
 
-#eppczpmeto .gt_empty_group_heading {
+#flzqbghobn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2935,15 +2979,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: middle;
 }
 
-#eppczpmeto .gt_from_md > :first-child {
+#flzqbghobn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eppczpmeto .gt_from_md > :last-child {
+#flzqbghobn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eppczpmeto .gt_row {
+#flzqbghobn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2962,7 +3006,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#eppczpmeto .gt_stub {
+#flzqbghobn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2975,7 +3019,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#eppczpmeto .gt_stub_row_group {
+#flzqbghobn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2989,15 +3033,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: top;
 }
 
-#eppczpmeto .gt_row_group_first td {
+#flzqbghobn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eppczpmeto .gt_row_group_first th {
+#flzqbghobn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eppczpmeto .gt_summary_row {
+#flzqbghobn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3007,16 +3051,16 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#eppczpmeto .gt_first_summary_row {
+#flzqbghobn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_first_summary_row.thick {
+#flzqbghobn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eppczpmeto .gt_last_summary_row {
+#flzqbghobn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3026,7 +3070,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_grand_summary_row {
+#flzqbghobn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3036,7 +3080,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#eppczpmeto .gt_first_grand_summary_row {
+#flzqbghobn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3046,7 +3090,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_last_grand_summary_row_top {
+#flzqbghobn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3056,11 +3100,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_striped {
+#flzqbghobn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eppczpmeto .gt_table_body {
+#flzqbghobn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3069,7 +3113,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_footnotes {
+#flzqbghobn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3083,7 +3127,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_footnote {
+#flzqbghobn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3092,7 +3136,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#eppczpmeto .gt_sourcenotes {
+#flzqbghobn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3106,7 +3150,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#eppczpmeto .gt_sourcenote {
+#flzqbghobn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3114,63 +3158,63 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#eppczpmeto .gt_left {
+#flzqbghobn .gt_left {
   text-align: left;
 }
 
-#eppczpmeto .gt_center {
+#flzqbghobn .gt_center {
   text-align: center;
 }
 
-#eppczpmeto .gt_right {
+#flzqbghobn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eppczpmeto .gt_font_normal {
+#flzqbghobn .gt_font_normal {
   font-weight: normal;
 }
 
-#eppczpmeto .gt_font_bold {
+#flzqbghobn .gt_font_bold {
   font-weight: bold;
 }
 
-#eppczpmeto .gt_font_italic {
+#flzqbghobn .gt_font_italic {
   font-style: italic;
 }
 
-#eppczpmeto .gt_super {
+#flzqbghobn .gt_super {
   font-size: 65%;
 }
 
-#eppczpmeto .gt_footnote_marks {
+#flzqbghobn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eppczpmeto .gt_asterisk {
+#flzqbghobn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eppczpmeto .gt_indent_1 {
+#flzqbghobn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eppczpmeto .gt_indent_2 {
+#flzqbghobn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eppczpmeto .gt_indent_3 {
+#flzqbghobn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eppczpmeto .gt_indent_4 {
+#flzqbghobn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eppczpmeto .gt_indent_5 {
+#flzqbghobn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3211,23 +3255,23 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
 <span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"({min}, {max})"</span>) <span class="co"># yaşın en küçük ve en büyük değerlerini yazdır</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="frpfyfzpiu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#frpfyfzpiu table {
+<div id="kfivhrctsg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kfivhrctsg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#frpfyfzpiu thead, #frpfyfzpiu tbody, #frpfyfzpiu tfoot, #frpfyfzpiu tr, #frpfyfzpiu td, #frpfyfzpiu th {
+#kfivhrctsg thead, #kfivhrctsg tbody, #kfivhrctsg tfoot, #kfivhrctsg tr, #kfivhrctsg td, #kfivhrctsg th {
   border-style: none;
 }
 
-#frpfyfzpiu p {
+#kfivhrctsg p {
   margin: 0;
   padding: 0;
 }
 
-#frpfyfzpiu .gt_table {
+#kfivhrctsg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3253,12 +3297,12 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-left-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_caption {
+#kfivhrctsg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#frpfyfzpiu .gt_title {
+#kfivhrctsg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3270,7 +3314,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-width: 0;
 }
 
-#frpfyfzpiu .gt_subtitle {
+#kfivhrctsg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3282,7 +3326,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-width: 0;
 }
 
-#frpfyfzpiu .gt_heading {
+#kfivhrctsg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3294,13 +3338,13 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_bottom_border {
+#kfivhrctsg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_col_headings {
+#kfivhrctsg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3315,7 +3359,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_col_heading {
+#kfivhrctsg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3335,7 +3379,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#frpfyfzpiu .gt_column_spanner_outer {
+#kfivhrctsg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3347,15 +3391,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 4px;
 }
 
-#frpfyfzpiu .gt_column_spanner_outer:first-child {
+#kfivhrctsg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#frpfyfzpiu .gt_column_spanner_outer:last-child {
+#kfivhrctsg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#frpfyfzpiu .gt_column_spanner {
+#kfivhrctsg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3367,11 +3411,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   width: 100%;
 }
 
-#frpfyfzpiu .gt_spanner_row {
+#kfivhrctsg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#frpfyfzpiu .gt_group_heading {
+#kfivhrctsg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3397,7 +3441,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   text-align: left;
 }
 
-#frpfyfzpiu .gt_empty_group_heading {
+#kfivhrctsg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3412,15 +3456,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: middle;
 }
 
-#frpfyfzpiu .gt_from_md > :first-child {
+#kfivhrctsg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#frpfyfzpiu .gt_from_md > :last-child {
+#kfivhrctsg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#frpfyfzpiu .gt_row {
+#kfivhrctsg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3439,7 +3483,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#frpfyfzpiu .gt_stub {
+#kfivhrctsg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3452,7 +3496,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#frpfyfzpiu .gt_stub_row_group {
+#kfivhrctsg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3466,15 +3510,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: top;
 }
 
-#frpfyfzpiu .gt_row_group_first td {
+#kfivhrctsg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#frpfyfzpiu .gt_row_group_first th {
+#kfivhrctsg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#frpfyfzpiu .gt_summary_row {
+#kfivhrctsg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3484,16 +3528,16 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#frpfyfzpiu .gt_first_summary_row {
+#kfivhrctsg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_first_summary_row.thick {
+#kfivhrctsg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#frpfyfzpiu .gt_last_summary_row {
+#kfivhrctsg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3503,7 +3547,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_grand_summary_row {
+#kfivhrctsg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3513,7 +3557,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#frpfyfzpiu .gt_first_grand_summary_row {
+#kfivhrctsg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3523,7 +3567,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_last_grand_summary_row_top {
+#kfivhrctsg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3533,11 +3577,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_striped {
+#kfivhrctsg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#frpfyfzpiu .gt_table_body {
+#kfivhrctsg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3546,7 +3590,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_footnotes {
+#kfivhrctsg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3560,7 +3604,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_footnote {
+#kfivhrctsg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3569,7 +3613,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#frpfyfzpiu .gt_sourcenotes {
+#kfivhrctsg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3583,7 +3627,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#frpfyfzpiu .gt_sourcenote {
+#kfivhrctsg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3591,63 +3635,63 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#frpfyfzpiu .gt_left {
+#kfivhrctsg .gt_left {
   text-align: left;
 }
 
-#frpfyfzpiu .gt_center {
+#kfivhrctsg .gt_center {
   text-align: center;
 }
 
-#frpfyfzpiu .gt_right {
+#kfivhrctsg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#frpfyfzpiu .gt_font_normal {
+#kfivhrctsg .gt_font_normal {
   font-weight: normal;
 }
 
-#frpfyfzpiu .gt_font_bold {
+#kfivhrctsg .gt_font_bold {
   font-weight: bold;
 }
 
-#frpfyfzpiu .gt_font_italic {
+#kfivhrctsg .gt_font_italic {
   font-style: italic;
 }
 
-#frpfyfzpiu .gt_super {
+#kfivhrctsg .gt_super {
   font-size: 65%;
 }
 
-#frpfyfzpiu .gt_footnote_marks {
+#kfivhrctsg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#frpfyfzpiu .gt_asterisk {
+#kfivhrctsg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#frpfyfzpiu .gt_indent_1 {
+#kfivhrctsg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#frpfyfzpiu .gt_indent_2 {
+#kfivhrctsg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#frpfyfzpiu .gt_indent_3 {
+#kfivhrctsg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#frpfyfzpiu .gt_indent_4 {
+#kfivhrctsg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#frpfyfzpiu .gt_indent_5 {
+#kfivhrctsg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3710,23 +3754,23 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
 </div>
 <div class="cell-output-display">
 <div>
-<div id="jlapmhnvrt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jlapmhnvrt table {
+<div id="mvwwysqndr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mvwwysqndr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jlapmhnvrt thead, #jlapmhnvrt tbody, #jlapmhnvrt tfoot, #jlapmhnvrt tr, #jlapmhnvrt td, #jlapmhnvrt th {
+#mvwwysqndr thead, #mvwwysqndr tbody, #mvwwysqndr tfoot, #mvwwysqndr tr, #mvwwysqndr td, #mvwwysqndr th {
   border-style: none;
 }
 
-#jlapmhnvrt p {
+#mvwwysqndr p {
   margin: 0;
   padding: 0;
 }
 
-#jlapmhnvrt .gt_table {
+#mvwwysqndr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3752,12 +3796,12 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-left-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_caption {
+#mvwwysqndr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jlapmhnvrt .gt_title {
+#mvwwysqndr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3769,7 +3813,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-width: 0;
 }
 
-#jlapmhnvrt .gt_subtitle {
+#mvwwysqndr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3781,7 +3825,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-width: 0;
 }
 
-#jlapmhnvrt .gt_heading {
+#mvwwysqndr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3793,13 +3837,13 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_bottom_border {
+#mvwwysqndr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_col_headings {
+#mvwwysqndr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3814,7 +3858,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_col_heading {
+#mvwwysqndr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3834,7 +3878,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#jlapmhnvrt .gt_column_spanner_outer {
+#mvwwysqndr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3846,15 +3890,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 4px;
 }
 
-#jlapmhnvrt .gt_column_spanner_outer:first-child {
+#mvwwysqndr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jlapmhnvrt .gt_column_spanner_outer:last-child {
+#mvwwysqndr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jlapmhnvrt .gt_column_spanner {
+#mvwwysqndr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3866,11 +3910,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   width: 100%;
 }
 
-#jlapmhnvrt .gt_spanner_row {
+#mvwwysqndr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jlapmhnvrt .gt_group_heading {
+#mvwwysqndr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3896,7 +3940,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   text-align: left;
 }
 
-#jlapmhnvrt .gt_empty_group_heading {
+#mvwwysqndr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3911,15 +3955,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: middle;
 }
 
-#jlapmhnvrt .gt_from_md > :first-child {
+#mvwwysqndr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jlapmhnvrt .gt_from_md > :last-child {
+#mvwwysqndr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jlapmhnvrt .gt_row {
+#mvwwysqndr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3938,7 +3982,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#jlapmhnvrt .gt_stub {
+#mvwwysqndr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3951,7 +3995,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#jlapmhnvrt .gt_stub_row_group {
+#mvwwysqndr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3965,15 +4009,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: top;
 }
 
-#jlapmhnvrt .gt_row_group_first td {
+#mvwwysqndr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jlapmhnvrt .gt_row_group_first th {
+#mvwwysqndr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jlapmhnvrt .gt_summary_row {
+#mvwwysqndr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3983,16 +4027,16 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#jlapmhnvrt .gt_first_summary_row {
+#mvwwysqndr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_first_summary_row.thick {
+#mvwwysqndr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jlapmhnvrt .gt_last_summary_row {
+#mvwwysqndr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4002,7 +4046,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_grand_summary_row {
+#mvwwysqndr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4012,7 +4056,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#jlapmhnvrt .gt_first_grand_summary_row {
+#mvwwysqndr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4022,7 +4066,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_last_grand_summary_row_top {
+#mvwwysqndr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4032,11 +4076,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_striped {
+#mvwwysqndr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jlapmhnvrt .gt_table_body {
+#mvwwysqndr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4045,7 +4089,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_footnotes {
+#mvwwysqndr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4059,7 +4103,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_footnote {
+#mvwwysqndr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4068,7 +4112,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#jlapmhnvrt .gt_sourcenotes {
+#mvwwysqndr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4082,7 +4126,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#jlapmhnvrt .gt_sourcenote {
+#mvwwysqndr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4090,63 +4134,63 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#jlapmhnvrt .gt_left {
+#mvwwysqndr .gt_left {
   text-align: left;
 }
 
-#jlapmhnvrt .gt_center {
+#mvwwysqndr .gt_center {
   text-align: center;
 }
 
-#jlapmhnvrt .gt_right {
+#mvwwysqndr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jlapmhnvrt .gt_font_normal {
+#mvwwysqndr .gt_font_normal {
   font-weight: normal;
 }
 
-#jlapmhnvrt .gt_font_bold {
+#mvwwysqndr .gt_font_bold {
   font-weight: bold;
 }
 
-#jlapmhnvrt .gt_font_italic {
+#mvwwysqndr .gt_font_italic {
   font-style: italic;
 }
 
-#jlapmhnvrt .gt_super {
+#mvwwysqndr .gt_super {
   font-size: 65%;
 }
 
-#jlapmhnvrt .gt_footnote_marks {
+#mvwwysqndr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jlapmhnvrt .gt_asterisk {
+#mvwwysqndr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jlapmhnvrt .gt_indent_1 {
+#mvwwysqndr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jlapmhnvrt .gt_indent_2 {
+#mvwwysqndr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jlapmhnvrt .gt_indent_3 {
+#mvwwysqndr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jlapmhnvrt .gt_indent_4 {
+#mvwwysqndr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jlapmhnvrt .gt_indent_5 {
+#mvwwysqndr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4294,23 +4338,23 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
 <span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="qwxytsgmxm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qwxytsgmxm table {
+<div id="xudobigbxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xudobigbxc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qwxytsgmxm thead, #qwxytsgmxm tbody, #qwxytsgmxm tfoot, #qwxytsgmxm tr, #qwxytsgmxm td, #qwxytsgmxm th {
+#xudobigbxc thead, #xudobigbxc tbody, #xudobigbxc tfoot, #xudobigbxc tr, #xudobigbxc td, #xudobigbxc th {
   border-style: none;
 }
 
-#qwxytsgmxm p {
+#xudobigbxc p {
   margin: 0;
   padding: 0;
 }
 
-#qwxytsgmxm .gt_table {
+#xudobigbxc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4336,12 +4380,12 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-left-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_caption {
+#xudobigbxc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qwxytsgmxm .gt_title {
+#xudobigbxc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4353,7 +4397,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-width: 0;
 }
 
-#qwxytsgmxm .gt_subtitle {
+#xudobigbxc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4365,7 +4409,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-width: 0;
 }
 
-#qwxytsgmxm .gt_heading {
+#xudobigbxc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4377,13 +4421,13 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_bottom_border {
+#xudobigbxc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_col_headings {
+#xudobigbxc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4398,7 +4442,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_col_heading {
+#xudobigbxc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4418,7 +4462,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#qwxytsgmxm .gt_column_spanner_outer {
+#xudobigbxc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4430,15 +4474,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 4px;
 }
 
-#qwxytsgmxm .gt_column_spanner_outer:first-child {
+#xudobigbxc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qwxytsgmxm .gt_column_spanner_outer:last-child {
+#xudobigbxc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qwxytsgmxm .gt_column_spanner {
+#xudobigbxc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4450,11 +4494,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   width: 100%;
 }
 
-#qwxytsgmxm .gt_spanner_row {
+#xudobigbxc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qwxytsgmxm .gt_group_heading {
+#xudobigbxc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4480,7 +4524,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   text-align: left;
 }
 
-#qwxytsgmxm .gt_empty_group_heading {
+#xudobigbxc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4495,15 +4539,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: middle;
 }
 
-#qwxytsgmxm .gt_from_md > :first-child {
+#xudobigbxc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qwxytsgmxm .gt_from_md > :last-child {
+#xudobigbxc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qwxytsgmxm .gt_row {
+#xudobigbxc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4522,7 +4566,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   overflow-x: hidden;
 }
 
-#qwxytsgmxm .gt_stub {
+#xudobigbxc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4535,7 +4579,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#qwxytsgmxm .gt_stub_row_group {
+#xudobigbxc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4549,15 +4593,15 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   vertical-align: top;
 }
 
-#qwxytsgmxm .gt_row_group_first td {
+#xudobigbxc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qwxytsgmxm .gt_row_group_first th {
+#xudobigbxc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qwxytsgmxm .gt_summary_row {
+#xudobigbxc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4567,16 +4611,16 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#qwxytsgmxm .gt_first_summary_row {
+#xudobigbxc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_first_summary_row.thick {
+#xudobigbxc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qwxytsgmxm .gt_last_summary_row {
+#xudobigbxc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4586,7 +4630,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_grand_summary_row {
+#xudobigbxc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4596,7 +4640,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#qwxytsgmxm .gt_first_grand_summary_row {
+#xudobigbxc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4606,7 +4650,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-top-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_last_grand_summary_row_top {
+#xudobigbxc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4616,11 +4660,11 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_striped {
+#xudobigbxc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qwxytsgmxm .gt_table_body {
+#xudobigbxc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4629,7 +4673,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-bottom-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_footnotes {
+#xudobigbxc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4643,7 +4687,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_footnote {
+#xudobigbxc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4652,7 +4696,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#qwxytsgmxm .gt_sourcenotes {
+#xudobigbxc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4666,7 +4710,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   border-right-color: #D3D3D3;
 }
 
-#qwxytsgmxm .gt_sourcenote {
+#xudobigbxc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4674,63 +4718,63 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
   padding-right: 5px;
 }
 
-#qwxytsgmxm .gt_left {
+#xudobigbxc .gt_left {
   text-align: left;
 }
 
-#qwxytsgmxm .gt_center {
+#xudobigbxc .gt_center {
   text-align: center;
 }
 
-#qwxytsgmxm .gt_right {
+#xudobigbxc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qwxytsgmxm .gt_font_normal {
+#xudobigbxc .gt_font_normal {
   font-weight: normal;
 }
 
-#qwxytsgmxm .gt_font_bold {
+#xudobigbxc .gt_font_bold {
   font-weight: bold;
 }
 
-#qwxytsgmxm .gt_font_italic {
+#xudobigbxc .gt_font_italic {
   font-style: italic;
 }
 
-#qwxytsgmxm .gt_super {
+#xudobigbxc .gt_super {
   font-size: 65%;
 }
 
-#qwxytsgmxm .gt_footnote_marks {
+#xudobigbxc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qwxytsgmxm .gt_asterisk {
+#xudobigbxc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qwxytsgmxm .gt_indent_1 {
+#xudobigbxc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qwxytsgmxm .gt_indent_2 {
+#xudobigbxc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qwxytsgmxm .gt_indent_3 {
+#xudobigbxc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qwxytsgmxm .gt_indent_4 {
+#xudobigbxc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qwxytsgmxm .gt_indent_5 {
+#xudobigbxc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4889,7 +4933,7 @@ Hangi istatistiklerin gösterileceğini ve nasıl görüntüleneceğini belirtme
 <span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Age Category"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>()</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-b9071a1e{}.cl-b8f9731e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b8fe9a56{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b8fe9a6a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b8feb87e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8feb892{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8feb893{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8feb894{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8feb89c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8feb8a6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b9071a1e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-b8feb87e"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">Age Category</span></p></th><th class="cl-b8feb892"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">Death</span></p></th><th class="cl-b8feb892"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">Recover</span></p></th><th class="cl-b8feb892"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">(Missing)</span></p></th><th class="cl-b8feb892"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">0-4</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">471</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">364</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">260</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">5-9</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">476</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">391</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">228</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">10-14</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">438</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">303</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">200</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">15-19</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">323</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">251</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">169</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">20-29</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">477</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">367</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">229</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">30-49</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">329</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">238</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">187</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">50-69</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">33</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">38</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">24</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">70+</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">3</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">3</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">0</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb893"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">(Missing)</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">32</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">28</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">26</span></p></td><td class="cl-b8feb894"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b8feb89c"><p class="cl-b8fe9a56"><span class="cl-b8f9731e">Sum</span></p></td><td class="cl-b8feb8a6"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">2,582</span></p></td><td class="cl-b8feb8a6"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">1,983</span></p></td><td class="cl-b8feb8a6"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">1,323</span></p></td><td class="cl-b8feb8a6"><p class="cl-b8fe9a6a"><span class="cl-b8f9731e">5,888</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-61208d66{}.cl-610c3334{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-61150f4a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-61150f5e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-611541ae{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-611541c2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-611541c3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-611541cc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-611541d6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-611541d7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-61208d66"><thead><tr style="overflow-wrap:break-word;"><th class="cl-611541ae"><p class="cl-61150f4a"><span class="cl-610c3334">Age Category</span></p></th><th class="cl-611541c2"><p class="cl-61150f5e"><span class="cl-610c3334">Death</span></p></th><th class="cl-611541c2"><p class="cl-61150f5e"><span class="cl-610c3334">Recover</span></p></th><th class="cl-611541c2"><p class="cl-61150f5e"><span class="cl-610c3334">(Missing)</span></p></th><th class="cl-611541c2"><p class="cl-61150f5e"><span class="cl-610c3334">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">0-4</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">471</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">364</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">260</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">5-9</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">476</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">391</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">228</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">10-14</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">438</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">303</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">200</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">15-19</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">323</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">251</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">169</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">20-29</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">477</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">367</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">229</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">30-49</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">329</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">238</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">187</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">50-69</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">33</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">38</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">24</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">70+</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">3</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">3</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">0</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541c3"><p class="cl-61150f4a"><span class="cl-610c3334">(Missing)</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">32</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">28</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">26</span></p></td><td class="cl-611541cc"><p class="cl-61150f5e"><span class="cl-610c3334">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-611541d6"><p class="cl-61150f4a"><span class="cl-610c3334">Sum</span></p></td><td class="cl-611541d7"><p class="cl-61150f5e"><span class="cl-610c3334">2,582</span></p></td><td class="cl-611541d7"><p class="cl-61150f5e"><span class="cl-610c3334">1,983</span></p></td><td class="cl-611541d7"><p class="cl-61150f5e"><span class="cl-610c3334">1,323</span></p></td><td class="cl-611541d7"><p class="cl-61150f5e"><span class="cl-610c3334">5,888</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -5449,7 +5493,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

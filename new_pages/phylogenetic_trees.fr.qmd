@@ -20,7 +20,7 @@ sample_data <- read.csv(here::here("data","phylo", "sample_data_Shigella_tree.cs
 
 
 ggtree(tree, layout="circular", branch.length='none') %<+% sample_data + # l'operateur %<+% est utilisé pour ajouter à l'arbre votre tableau de données 
-  aes(color=I(Belgium))+ # colore les branches a partir d'une variable de votre tableau de données
+  aes(color=Belgium)+ # colore les branches a partir d'une variable de votre tableau de données
   scale_color_manual(name = "Sample Origin", # nom de votre palette de couleur (qui apparaîtra dans la légende comme ceci)
                     breaks = c("Yes", "No"), # les différentes options de votre variable
                    labels = c("NRCSS Belgium", "Other"), # comment vous souhaitez que les différentes options soient désignées dans votre légende, permet de les formater.
@@ -165,7 +165,7 @@ Voici un exemple d'arbre circulaire :
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% ajoute le tableau des données l'échantillon à l'arbre
-  aes(color = (Belgium))+                       # colore les branches en fonction d'une variable de votre tableau de données 
+  aes(color = Belgium)+                       # colore les branches en fonction d'une variable de votre tableau de données 
   scale_color_manual(
     name = "Sample Origin",                      # le nom de votre palette de couleurs (qui apparaîtra dans la légende comme ceci)
     breaks = c("Yes", "No"),                     # les différentes options de votre variable

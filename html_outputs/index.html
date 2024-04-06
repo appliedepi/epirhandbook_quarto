@@ -73,16 +73,52 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 </head>
 <body class="nav-sidebar floating">
 <div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&amp;A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.
+  <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
+    class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
+    class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/"
+    class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org"
+    class="alert-link">R Help Desk service</a>. -->
 </div>
 
+<script>
+
+  // Function to extract the last two characters from the URL path to determine the language
+  function getLanguageFromURL() {
+    const path = window.location.pathname;
+    const lang = path.substr(-2);
+    return lang;
+  }
+
+  const language = getLanguageFromURL();
+  const supportedLanguages = ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru'];
+  const defaultLanguage = 'en';
+  const isSupportedLanguage = supportedLanguages.includes(language);
+
+  // Translations for the content
+  const translations = {
+    en: '<strong>Need help learning R?</strong> Enroll in Applied Epi\'s <a href="https://www.appliedepi.org/live/" class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/" class="alert-link">free R tutorials</a>, post in our <a href="https://community.appliedepi.org/" class="alert-link">Community Q&A forum</a>, or ask about our <a href="mailto:contact@appliedepi.org" class="alert-link">R Help Desk service</a>.',
+    fr: '<strong>Besoin d\'aide pour apprendre R ?</strong> Inscrivez-vous au <a href="https://www.appliedepi.org/live/" class="alert-link">cours d\'introduction à R</a> d\'Applied Epi, essayez nos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriels R gratuits</a>, postez dans notre forum de <a href="https://community.appliedepi.org/" class="alert-link">questions-réponses communautaires</a>, ou demandez-nous des informations sur <a href="mailto:contact@appliedepi.org" class="alert-link"> notre service d\'assistance R</a>.',
+    es: '<strong>¿Necesitas ayuda para aprender R?</strong> Inscríbete en el <a href="https://www.appliedepi.org/live/" class="alert-link">Curso de introducción a R</a> de Applied Epi, prueba nuestros <a href="https://www.appliedepi.org/tutorial/" class="alert-link">Tutoriales gratuitos de R</a>, escribe en nuestro <a href="https://community.appliedepi.org/" class="alert-link">Foro de preguntas y respuestas,</a> o pregunta por nuestra <a href="mailto:contact@appliedepi.org" class="alert-link">Asistencia técnica para R</a>.',
+    vn: '<strong>Cần giúp đỡ trong việc học R?</strong> Đăng ký khóa học R cơ bản của Applied Epi tại <a href="https://www.appliedepi.org/live/" class="alert-link">đây</a>, hoặc thử các <a href="https://www.appliedepi.org/tutorial/" class="alert-link">hướng dẫn R miễn phí</a> của chúng tôi, đăng bài trong <a href="https://community.appliedepi.org/" class="alert-link">diễn đàn cộng đồng</a> của chúng tôi, hoặc gửi câu hỏi tới <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ Trợ giúp R</a> của chúng tôi.',
+    jp: '<strong>Rの学習について助けが必要ですか？</strong>Applied Epiの<a href="https://www.appliedepi.org/live/" class="alert-link">R入門コース</a>に登録するか、<a href="https://www.appliedepi.org/tutorial/" class="alert-link">無料Rチュートリアル</a>を試すか、<a href="https://community.appliedepi.org/" class="alert-link">コミュニティQ＆Aフォーラム</a>に投稿するか、<a href="mailto:contact@appliedepi.org" class="alert-link">Rヘルプデスクサービス</a>についてお問い合わせください。',
+    pt: '<strong>Você precisa de ajuda para aprender R??</strong> Inscreva-se no curso de <a href="https://www.appliedepi.org/live/" class="alert-link">introdução ao R da Applied Epi</a>, experimente nossos <a href="https://www.appliedepi.org/tutorial/" class="alert-link">tutoriais gratuitos sobre o R</a>, publique em nosso <a href="https://community.appliedepi.org/" class="alert-link">fórum de perguntas e respostas</a>, ou solicite nosso <a href="mailto:contact@appliedepi.org" class="alert-link">suporte ao R</a>.',
+    tr: '<strong>R öğrenmekte yardıma mı ihtiyacınız var?</strong> Applied Epi\'\nin <a href="https://www.appliedepi.org/live/" class="alert-link">R\'ye giriş kursuna</a> kaydolun, <a href="https://www.appliedepi.org/tutorial/" class="alert-link">ücretsiz R derslerimizi</a> deneyin, <a href="https://community.appliedepi.org/" class="alert-link">Topluluk Q&A forumunda</a> soru paylaşın, ya da <a href="mailto:contact@appliedepi.org" class="alert-link">R Yardım Masası hizmetimiz</a> hakkında sorun.',
+    ru: '<strong>Нужна помощь в изучении R?</strong> Запишитесь на <a href="https://www.appliedepi.org/live/" class="alert-link">вводный курс по R</a> от Applied Epi, попробуйте наши <a href="https://www.appliedepi.org/tutorial/" class="alert-link">бесплатные учебные материалы по R</a>, задайте вопрос в нашем <a href="https://community.appliedepi.org/" class="alert-link">форуме вопросов и ответов сообщества</a>, или спросите о нашей услуге <a href="mailto:contact@appliedepi.org" class="alert-link">Службы поддержки по R</a>.'
+  };
+
+  // Default to English if the detected language is not supported
+  const contentToDisplay = translations[isSupportedLanguage ? language : defaultLanguage];
 
 
+  // Select the element where the content should be displayed
+  const alertElement = document.querySelector('.alert');
+  if (alertElement) {
+    alertElement.innerHTML = contentToDisplay;
+    alertElement.style.display = 'block'; // Make sure to display the element
+  }
 
-
-
-<div id="quarto-search-results"></div>
+</script><div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
@@ -577,7 +613,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Feb 29, 2024</p>
+      <p class="date">Apr 6, 2024</p>
     </div>
   </div>
   
@@ -599,8 +635,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- <span style="color: red;">**THIS IS A DRAFT.  REVIEWERS GIVE FEEDBACK AT THIS [LINK](https://forms.gle/4RNdRRLGx67xW9yq9)**.</span> --><!-- <span style="color: darkgreen;">**DO YOU LIKE THIS HANDBOOK? SHOULD SOMETHING BE CHANGED? PLEASE TELL US!**</span> --><!-- <form target="_blank" action="https://forms.gle/A5SnRVws7tPD15Js9"> --><!--     <input type="submit" value="FEEDBACK" /> --><!-- </form> --><!-- ======================================================= --><!-- ## An R reference manual for applied epidemiology and public health {.unnumbered} --><!-- <span style="color: brown;">**The Epi R Handbook is an R reference manual for applied epidemiology and public health.**</span> --><!-- ## About this handbook   --><section id="r-for-applied-epidemiology-and-public-health" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="r-for-applied-epidemiology-and-public-health">R for applied epidemiology and public health</h2>
 <p><strong>Usage</strong>: This handbook has been used over <strong>1 million times by 450,000 people</strong> around the world.</p>
-<p><strong>Objective:</strong> Serve as a quick R code reference manual (online and <strong><a href="new_pages/data_used.html">offline</a>)</strong>) with task-centered examples that address common epidemiological problems.</p>
-<p><strong>Are you just starting with R?</strong> Try our <strong><a href="https://www.appliedepi.org/tutorial/">free interactive tutorials</a></strong> or synchronous, virtual <strong><a href="https://www.appliedepi.org/live/">intro course</a></strong> used by US CDC, WHO, and 75+ other health agencies and Field Epi Training Programs worldwide.</p>
+<p><strong>Objective:</strong> Serve as a quick R code reference manual (online and <a href="new_pages/data_used.html"><strong>offline</strong></a><strong>)</strong>) with task-centered examples that address common epidemiological problems.</p>
+<p><strong>Are you just starting with R?</strong> Try our <a href="https://www.appliedepi.org/tutorial/"><strong>free interactive tutorials</strong></a> or synchronous, virtual <a href="https://www.appliedepi.org/live/"><strong>intro course</strong></a> used by US CDC, WHO, and 75+ other health agencies and Field Epi Training Programs worldwide.</p>
 <p><strong>Languages:</strong> <a href="https://epirhandbook.com/fr">French (Français)</a>, <a href="https://epirhandbook.com/es/">Spanish (Español)</a>, <a href="https://epirhandbook.com/vn/">Vietnamese (Tiếng Việt)</a>, <a href="https://epirhandbook.com/jp/">Japanese (日本)</a>, <a href="https://epirhandbook.com/tr/">Turkish (Türkçe)</a>, <a href="https://epirhandbook.com/pt">Portuguese (Português)</a>, <a href="https://epirhandbook.com/ru">Russian (Русский)</a></p>
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
 <!-- **How is this different than other R books?**   -->
@@ -626,21 +662,21 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 a column separator --></p>
 </div>
 <div>
-<p><strong><a href="http://www.appliedepi.org">Applied Epi</a></strong> is a nonprofit organisation and grassroots movement of frontline epis from around the world. We write in our spare time to offer this resource to the community. Your encouragement and feedback is most welcome:</p>
+<p><a href="http://www.appliedepi.org"><strong>Applied Epi</strong></a> is a nonprofit organisation and grassroots movement of frontline epis from around the world. We write in our spare time to offer this resource to the community. Your encouragement and feedback is most welcome:</p>
 <ul>
-<li>Visit our <strong><a href="http://www.appliedepi.org">website</a></strong> and <strong><a href="https://forms.gle/9awNd8syypTSYUsn7">join our contact list</a></strong><br>
+<li>Visit our <a href="http://www.appliedepi.org"><strong>website</strong></a> and <a href="https://forms.gle/9awNd8syypTSYUsn7"><strong>join our contact list</strong></a><br>
 </li>
 <li>
-<strong>contact@appliedepi.org</strong>, tweet <strong><a href="https://twitter.com/appliedepi">@appliedepi</a></strong>, or <strong><a href="www.linkedin.com/company/appliedepi">LinkedIn</a></strong><br>
+<strong>contact@appliedepi.org</strong>, tweet <a href="https://twitter.com/appliedepi"><strong>@appliedepi</strong></a>, or <a href="www.linkedin.com/company/appliedepi"><strong>LinkedIn</strong></a><br>
 </li>
-<li>Submit issues to our <strong><a href="https://github.com/appliedepi/epiRhandbook_eng">Github repository</a></strong>
+<li>Submit issues to our <a href="https://github.com/appliedepi/epiRhandbook_eng"><strong>Github repository</strong></a>
 </li>
 </ul>
 <p><strong>We offer live R training</strong> from instructors with decades of applied epidemiology experience - email us to discuss.</p>
 </div>
 </div>
 <form target="_blank" action="https://www.paypal.com/donate" method="post">
-<input type="hidden" name="hosted_button_id" value="YTEZELC8VBXV6"><input type="image" src="https://github.com/appliedepi/epiRhandbook_eng/raw/master/images/donate_button_long.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif">
+<p><input type="hidden" name="hosted_button_id" value="YTEZELC8VBXV6"><input type="image" src="https://github.com/appliedepi/epiRhandbook_eng/raw/master/images/donate_button_long.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"><img src="https://www.paypal.com/en_US/i/scr/pixel.gif" border="0"></p>
 </form>
 <!-- ======================================================= -->
 </section><section id="how-to-use-this-handbook" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="how-to-use-this-handbook">How to use this handbook</h2>
@@ -679,10 +715,10 @@ a column separator --></p>
 <!-- Images in logo from US CDC Public Health Image Library) include [2013 Yemen looking for mosquito breeding sites](https://phil.cdc.gov/Details.aspx?pid=19623), [Ebola virus](https://phil.cdc.gov/Details.aspx?pid=23186), and [Survey in Rajasthan](https://phil.cdc.gov/Details.aspx?pid=19838).   -->
 </section></section><section id="terms-of-use-and-contribution" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="terms-of-use-and-contribution">Terms of Use and Contribution</h2>
 <section id="license" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="license">License</h3>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a> Applied Epi Incorporated, 2021 <br>This work is licensed by Applied Epi Incorporated under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"></a> Applied Epi Incorporated, 2021 <br>This work is licensed by Applied Epi Incorporated under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <p>Academic courses and epidemiologist training programs are welcome to contact us about use or adaptation of this material (email <strong>contact@appliedepi.org</strong>).</p>
 </section><section id="citation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="citation">Citation</h3>
-<p>Batra, Neale, et al. The Epidemiologist R Handbook. 2021. <a rel="license" href="https://zenodo.org/badge/231610102.svg"><img alt="DOI" style="border-width:0" src="https://zenodo.org/badge/231610102.svg"></a><br></p>
+<p>Batra, Neale, et al. The Epidemiologist R Handbook. 2021. <a rel="license" href="https://zenodo.org/badge/231610102.svg"><img src="https://zenodo.org/badge/231610102.svg" alt="DOI" style="border-width:0"></a><br></p>
 </section><section id="contribution" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="contribution">Contribution</h3>
 <p>If you would like to make a content contribution, please contact with us first via Github issues or by email. We are implementing a schedule for updates and are creating a contributor guide.</p>
 <p>Please note that the epiRhandbook project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
@@ -1227,7 +1263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

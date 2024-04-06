@@ -47,7 +47,7 @@ book:
     chapters:
     - new_pages/editorial_style.qmd          # editorial style
     - new_pages/data_used.qmd                # data used
-
+  
   # BASICS
   - part: "Basics"
     part-vn: "Nhập môn về R"
@@ -60,10 +60,10 @@ book:
     part-de: "Grundlagen"
     chapters:
     - new_pages/basics.qmd
-    - new_pages/transition_to_R.qmd 
-    - new_pages/packages_suggested.qmd 
-    - new_pages/r_projects.qmd 
-    - new_pages/importing.qmd 
+    - new_pages/transition_to_R.qmd
+    - new_pages/packages_suggested.qmd
+    - new_pages/r_projects.qmd
+    - new_pages/importing.qmd
 
   # DATA MANGEMENT
   - part: "Data Management"
@@ -76,17 +76,17 @@ book:
     part-ru: "Управление данными"
     part-de: "Datenmanagement"
     chapters:
-    - new_pages/cleaning.qmd           
-    - new_pages/dates.qmd    
+    - new_pages/cleaning.qmd
+    - new_pages/dates.qmd
     - new_pages/characters_strings.qmd
-    - new_pages/factors.qmd             
-    - new_pages/pivoting.qmd            
-    - new_pages/grouping.qmd            
-    - new_pages/joining_matching.qmd    
+    - new_pages/factors.qmd
+    - new_pages/pivoting.qmd
+    - new_pages/grouping.qmd
+    - new_pages/joining_matching.qmd
     - new_pages/deduplication.qmd
-    - new_pages/iteration.qmd 
-  #
-  #
+    - new_pages/iteration.qmd
+
+
   # ANALYSIS
   - part: "Analysis"
     part-vn: "Phân tích dữ liệu"
@@ -98,10 +98,10 @@ book:
     part-ru: "Анализ"
     part-de: "Analyse"
     chapters:
-    - new_pages/tables_descriptive.qmd 
+    - new_pages/tables_descriptive.qmd
     - new_pages/stat_tests.qmd
-    - new_pages/regression.qmd 
-    - new_pages/missing_data.qmd 
+    - new_pages/regression.qmd
+    - new_pages/missing_data.qmd
     - new_pages/standardization.qmd
     - new_pages/moving_average.qmd
     - new_pages/time_series.qmd #done
@@ -110,7 +110,7 @@ book:
     - new_pages/survey_analysis.qmd #done
     - new_pages/survival_analysis.qmd #done
     - new_pages/gis.qmd #done
-  #
+  
 
   # DATA VIZ
   - part: "Data Visualization"
@@ -173,7 +173,7 @@ book:
     #new_pages/relational_databases.qmd,
     - new_pages/network_drives.qmd #done
     - new_pages/data_table.qmd #done
-    #new_pages/rstudio_advanced.qmd
+    # new_pages/rstudio_advanced.qmd
 
 
 
@@ -202,7 +202,7 @@ babelquarto:
     text: "English"
 
   mainlanguage: 'en'
-  languages: ['fr','es', 'vn', 'jp', 'pt', 'tr', 'ru']  #, 'de'   
+  languages: ['fr','es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'   
 
 title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
@@ -218,8 +218,8 @@ lang: en
 
 format:
   html: 
-    include-in-header: 
-      - google_tag.html
+    include-in-header:
+      - banner.html
     theme:
       light: cosmo
       dark: [cosmo, theme-dark.scss]

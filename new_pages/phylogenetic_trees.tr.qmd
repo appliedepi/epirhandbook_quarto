@@ -22,7 +22,7 @@ sample_data <- read.csv(here::here("data","phylo", "sample_data_Shigella_tree.cs
 
 
 ggtree(tree, layout="circular", branch.length='none') %<+% sample_data + # %<+%, örnek verilerle veri çerçevenizi ağaca eklemek için kullanılır
-  aes(color=I(Belgium))+ # dalları veri çerçevenizdeki bir değişkene göre renklendirin
+  aes(color=Belgium)+ # dalları veri çerçevenizdeki bir değişkene göre renklendirin
   scale_color_manual(name = "Sample Origin", # renk düzeninizin adı (lejantta bu şekilde görünecektir)
                     breaks = c("Yes", "No"), # değişkeninizdeki farklı seçenekler
                    labels = c("NRCSS Belgium", "Other"), # lejandınızda adı geçen farklı seçenekler nasıl istediğinizi biçimlendirmenize olanak sağlar
@@ -177,7 +177,7 @@ ggtree(tree, layout="circular", branch.length = "none") # uçların hizalandığ
  
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + #%<+%, ağaca örnek verilerle veri çerçevesi ekler
-  aes(color = I(Belgium))+                       # dalları veri çerçevenizdeki bir değişkene göre renklendirin
+  aes(color = Belgium)+                       # dalları veri çerçevenizdeki bir değişkene göre renklendirin
   scale_color_manual(
     name = "Sample Origin",                      # renk düzeninizin adı (lejantta bu şekilde görünecektir)
     breaks = c("Yes", "No"),                     # değişkeninizdeki farklı seçenekler

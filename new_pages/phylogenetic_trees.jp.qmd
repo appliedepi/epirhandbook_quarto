@@ -23,7 +23,7 @@ sample_data <- read.csv(here::here("data","phylo", "sample_data_Shigella_tree.cs
 
 
 ggtree(tree, layout="circular", branch.length='none') %<+% sample_data + # %<+% の部分は、サンプルデータの入ったデータフレームをツリーに追加するためのものである
-  aes(color=I(Belgium))+ # データフレーム内の変数に応じて枝に色をつける
+  aes(color=Belgium)+ # データフレーム内の変数に応じて枝に色をつける
   scale_color_manual(name = "Sample Origin", # カラースキームの名前（凡例ではこのように表示される
                     breaks = c("Yes", "No"), # 変数内の異なるオプション
                    labels = c("NRCSS Belgium", "Other"), # 凡例の中で異なるオプションをどのように命名するか、フォーマットを可能にする
@@ -172,7 +172,7 @@ ggtree(tree, layout="circular", branch.length = "none") # 全ての先端が揃�
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% で、tree にサンプルデータを追加する
-  aes(color = I(Belgium))+                       # データフレームの変数に応じて分枝に色付ける
+  aes(color = Belgium)+                       # データフレームの変数に応じて分枝に色付ける
   scale_color_manual(
     name = "Sample Origin",                      # カラースキームの名前
     breaks = c("Yes", "No"),                     # 変数の異なるオプション
