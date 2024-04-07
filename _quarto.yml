@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: html_outputs
+  output-dir: docs
 
 book:
   title: "The Epidemiologist R Handbook"
