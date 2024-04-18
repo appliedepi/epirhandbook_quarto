@@ -4,4 +4,4 @@
 
 babelquarto::render_book()
 
-quarto::quarto_render()
+# quarto::quarto_render()
