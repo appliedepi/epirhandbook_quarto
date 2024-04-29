@@ -1,6 +1,6 @@
-# Pyramides démographiques et échelles de Likert {#age_pyramid}
+# Pyramides démographiques et échelles de Likert {#age\_pyramid}
 
-```{r, out.width = c('50%', '50%'), fig.show='hold', echo=F}
+```{r, out.width=c("50%", "50%"), fig.show="hold", echo=F}
 knitr::include_graphics(here::here("images", "pop_pyramid_baseline.png"))
 
 knitr::include_graphics(here::here("images", "likert.png"))
@@ -8,10 +8,10 @@ knitr::include_graphics(here::here("images", "likert.png"))
 
 Les pyramides démographiques sont utiles pour montrer les distributions d'âge et de sexe. Un code similaire peut être utilisé pour visualiser les résultats de questions d'enquête de type Likert (par exemple, "Tout à fait d'accord", "D'accord", "Neutre", "Pas d'accord", "Pas du tout d'accord"). Dans cette page, nous couvrons les points suivants :
 
--   Des pyramides rapides et faciles à réaliser grâce au package **apyramid**\
--   Des pyramides plus personnalisables grâce à `ggplot()`\
--   Affichage de données démographiques "de référence" à l'arrière-plan de la pyramide\
--   Utilisation de graphiques de type pyramide pour afficher d'autres types de données (par exemple, les réponses à des questions d'enquête de type **Likert**).
+- Des pyramides rapides et faciles à réaliser grâce au package **apyramid**\\
+- Des pyramides plus personnalisables grâce à `ggplot()`\\
+- Affichage de données démographiques "de référence" à l'arrière-plan de la pyramide\\
+- Utilisation de graphiques de type pyramide pour afficher d'autres types de données (par exemple, les réponses à des questions d'enquête de type **Likert**).
 
 <!-- ======================================================= -->
 
@@ -19,7 +19,7 @@ Les pyramides démographiques sont utiles pour montrer les distributions d'âge 
 
 ### Charger les packages {.unnumbered}
 
-Ce morceau de code montre le chargement des packages nécessaires aux analyses. Dans ce manuel, nous mettons l'accent sur `p_load()` de **pacman**, qui installe le package si nécessaire et le charge pour l'utiliser. Vous pouvez également charger les packages installés avec `library()` à partir de la **base** R. Voir la page sur [les bases de R](#basics) pour plus d'informations sur les packages R.
+Ce morceau de code montre le chargement des paquets nécessaires aux analyses. Dans ce manuel, nous mettons l'accent sur `p_load()` de **pacman** qui installe le paquet si nécessaire *et* le charge pour l'utiliser. Tu peux aussi charger les paquets installés avec `library()` à partir de **base** R. Voir la page sur [Les bases du R](basics.qmd) pour plus d'informations sur les paquets R.
 
 ```{r}
 pacman::p_load(rio,       # Pour importer les données
@@ -30,9 +30,20 @@ pacman::p_load(rio,       # Pour importer les données
                stringr)   # Pour travailler avec des chaînes de caractères pour les titres, les légendes, etc.
 ```
 
+Tu trouveras ci-dessous un morceau de code de test.
+
+```{r}
+a <- 2 + 2       # basic addition
+b <- a - 2 * 3   # doing something with the outcome
+
+a   # print the outcome of A
+
+b   # print object B
+```
+
 ### Importer les données {.unnumbered}
 
-Pour commencer, nous importons la liste de cas nettoyée d'une épidémie d'Ebola simulée. Si vous voulez le faire en même temps, <a href='https://github.com/epirhandbook/Epi_R_handbook/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>cliquez pour télécharger la liste des cas "nettoyée".</a> (sous le format .rds). Importez des données à l'aide de la fonction `import()` du package **rio** (elle gère de nombreux types de fichiers tels que .xlsx, .csv, .rds - voir la page [Importation et exportation](#importing) pour plus de détails).
+Importe la liste de cas nettoyée d'une épidémie d'Ebola simulée. Pour suivre l'évolution de la situation, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>clique pour télécharger la liste "propre".</a> (sous forme de fichier .rds). Importe les données à l'aide de l'outil `import()` à partir de la fonction **rio** (elle gère de nombreux types de fichiers tels que .xlsx, .csv, .rds - voir la rubrique [Importer et exporter](importing.qmd) pour plus de détails).
 
 ```{r, echo=F}
 # Importer la liste des cas dans R
@@ -55,9 +66,9 @@ DT::datatable(head(linelist, 50), rownames = FALSE, filter="top", options = list
 
 Pour réaliser une pyramide démographique traditionnelle par âge/sexe, les données doivent d'abord être nettoyées de la manière suivante :
 
--   La colonne sexe doit être nettoyée.
+- La colonne sexe doit être nettoyée.
 
--   Selon votre méthode, l'âge doit être stocké soit sous forme numérique, soit dans une colonne de catégorie d'âge.
+- Selon votre méthode, l'âge doit être stocké soit sous forme numérique, soit dans une colonne de catégorie d'âge.
 
 Si vous utilisez des catégories d'âge, les valeurs de la colonne doivent être ordonnées correctement, soit par défaut en alphanumérique, soit intentionnellement en convertissant en facteur de classe.
 
@@ -84,11 +95,11 @@ Le package **apyramid** est un produit du projet [R4Epis](https://r4epis.netlify
 
 En utilisant l'ensemble de données `linelist` nettoyées, nous pouvons créer une pyramide des âges avec une simple commande `age_pyramid()`. Dans cette commande :
 
--   Le paramètre `data =` est défini comme le tableau de données linelist.
+- Le paramètre `data =` est défini comme le tableau de données linelist.
 
--   Le paramètre `age_group =` (pour l'axe des ordonnées) est défini comme le nom de la colonne d'âge catégorique (entre guillemets).
+- Le paramètre `age_group =` (pour l'axe des ordonnées) est défini comme le nom de la colonne d'âge catégorique (entre guillemets).
 
--   Le paramètre `split_by =` (pour l'axe des abscisses) est défini comme la colonne sexe.
+- Le paramètre `split_by =` (pour l'axe des abscisses) est défini comme la colonne sexe.
 
 ```{r, warning=F, message=F}
 apyramid::age_pyramid(data = linelist,
@@ -161,7 +172,7 @@ apyramid::age_pyramid(
 
 Les exemples ci-dessus supposent que vos données sont au format de liste de cas, avec une ligne par observation. Si vos données sont déjà agrégées par catégorie d'âge, vous pouvez toujours utiliser le package **apyramid**, comme indiqué ci-dessous.
 
-Pour la démonstration, nous agrégeons les données de la liste de cas en nombre de cas par catégorie d'âge et par sexe, dans un format "large". Cela fera comme si vos données étaient aggrégées dès le départ. Pour en savoir plus sur le [Regroupement des données](#grouping_data) et le [Pivotage des données](#pivoting_data), consultez leurs pages respectives.
+Pour la démonstration, nous regroupons les données de la liste des lignes en nombres par catégorie d'âge et par sexe, dans un format "large". Cela permet de simuler comme si tes données étaient d'abord sous forme de nombres. En savoir plus sur [Regrouper les données](grouping.qmd) et [Pivoter les données](pivoting.qmd) dans leurs pages respectives.
 
 ```{r, warning=F, message=F}
 demo_agg <- linelist %>% 
@@ -207,11 +218,11 @@ apyramid::age_pyramid(data = demo_agg_long,
                       count = "counts")      # Nom de la colonne pour le nombre de cas
 ```
 
-Notez dans l'exemple ci-dessus que l'ordre des facteurs "m" et "f" est différent (pyramide inversée). Pour ajuster l'ordre, vous devez redéfinir le sexe dans les données agrégées comme un facteur et ordonner les niveaux comme vous le souhaitez. Voir la page [Facteurs](#factors).
+Note que l'ordre des facteurs "m" et "f" est différent (pyramide inversée). Pour ajuster l'ordre, tu dois redéfinir le sexe dans les données agrégées comme un facteur et ordonner les niveaux comme tu le souhaites. Voir le [Facteurs](factors.qmd) page.
 
 <!-- ======================================================= -->
 
-## `ggplot()` {#demo_pyr_gg}
+## `ggplot()` {#demo\_pyr\_gg}
 
 L'utilisation de `ggplot()` pour construire votre pyramide des âges offre plus de flexibilité, mais demande plus d'efforts et de compréhension du fonctionnement de `ggplot()`. Il est également plus facile de faire des erreurs accidentelles.
 
@@ -233,13 +244,13 @@ Vous pourriez utiliser la même logique ci-dessous pour construire une pyramide 
 
 Tout d'abord, il faut comprendre que pour réaliser une telle pyramide à l'aide de `ggplot()`, l'approche est la suivante :
 
--   Dans la fonction `ggplot()`, créez deux histogrammes en utilisant la colonne numérique de l'âge. Créez-en un pour chacune des deux valeurs de regroupement (dans ce cas, les sexes masculin et féminin). Pour ce faire, les données de chaque histogramme sont spécifiées dans leurs commandes `geom_histogram()` respectives, avec les filtres respectifs appliqués à `linelist`.
+- Dans la fonction `ggplot()`, créez deux histogrammes en utilisant la colonne numérique de l'âge. Créez-en un pour chacune des deux valeurs de regroupement (dans ce cas, les sexes masculin et féminin). Pour ce faire, les données de chaque histogramme sont spécifiées dans leurs commandes `geom_histogram()` respectives, avec les filtres respectifs appliqués à `linelist`.
 
--   Un graphique aura des valeurs de comptage positives, tandis que l'autre aura ses comptages convertis en valeurs négatives - cela crée la "pyramide" avec la valeur 0 au milieu du graphique. Les valeurs négatives sont créées en utilisant un terme spécial de **ggplot2** `..count..` et en les multipliant par -1.
+- Un graphique aura des valeurs de comptage positives, tandis que l'autre aura ses comptages convertis en valeurs négatives - cela crée la "pyramide" avec la valeur 0 au milieu du graphique. Les valeurs négatives sont créées en utilisant un terme spécial de **ggplot2** `..count..` et en les multipliant par -1.
 
--   La commande `coord_flip()` permute les axes X et Y, ce qui a pour effet de rendre les graphiques verticaux et de créer la pyramide.
+- La commande `coord_flip()` permute les axes X et Y, ce qui a pour effet de rendre les graphiques verticaux et de créer la pyramide.
 
--   Enfin, les étiquettes des valeurs de l'axe des comptes doivent être modifiées pour qu'elles apparaissent comme des comptes "positifs" des deux côtés de la pyramide (bien que les valeurs sous-jacentes d'un côté soient négatives).
+- Enfin, les étiquettes des valeurs de l'axe des comptes doivent être modifiées pour qu'elles apparaissent comme des comptes "positifs" des deux côtés de la pyramide (bien que les valeurs sous-jacentes d'un côté soient négatives).
 
 Une version **simple** de cette méthode, utilisant `geom_histogram()`, est présentée ci-dessous :
 
@@ -267,12 +278,12 @@ Une version **simple** de cette méthode, utilisant `geom_histogram()`, est pré
                      labels = abs(seq(-600, 900, 100)))
 ```
 
-[***DANGER:*** Si les **limites** de votre axe de nombre de cas sont trop basses, et qu'une barre de compte les dépasse, la barre disparaîtra entièrement ou sera artificiellement raccourcie ! Faites attention à ce phénomène si vous analysez des données qui sont régulièrement mises à jour. Pour éviter cela, les limites de votre axe de comptage doivent s'ajuster automatiquement à vos données, comme ci-dessous]{style="color: red;"}
+\[***DANGER:*** Si les **limites** de votre axe de nombre de cas sont trop basses, et qu'une barre de compte les dépasse, la barre disparaîtra entièrement ou sera artificiellement raccourcie ! Faites attention à ce phénomène si vous analysez des données qui sont régulièrement mises à jour. Pour éviter cela, les limites de votre axe de comptage doivent s'ajuster automatiquement à vos données, comme ci-dessous\]{style="color: red;"}
 
 Il y a beaucoup de choses que vous pouvez changer/ajoutez à cette version simple :
 
--   Ajuster automatiquement l'échelle de l'axe des comptes à vos données (éviter les erreurs discutées dans l'avertissement ci-dessous).\
--   Spécifier manuellement les couleurs et les étiquettes de légende
+- Ajuster automatiquement l'échelle de l'axe des comptes à vos données (éviter les erreurs discutées dans l'avertissement ci-dessous).\\
+- Spécifier manuellement les couleurs et les étiquettes de légende
 
 **Convertir les nombre de cas en pourcentages**
 
@@ -364,14 +375,14 @@ Enfin, nous effectuons le `ggplot()` sur les données en pourcentage. Nous spéc
 
 Grâce à la flexibilité de `ggplot()`, vous pouvez avoir une deuxième couche de barres en arrière-plan qui représente la pyramide des âges "réelle" ou "de référence". Cela peut fournir une visualisation agréable pour comparer les données observées avec les données de référence.
 
-Importez et visualisez les données de population (voir la page [Télécharger le manuel et les données](#download_book_data)) :
+Importe et visualise les données de la population (voir [Télécharger le manuel et les données](#data-used) page) :
 
-```{r echo=F}
+```{r, echo=F}
 #  Import des données démographiques d'une population
 pop <- rio::import(here::here("data", "standardization", "country_demographics.csv"))
 ```
 
-```{r eval=F}
+```{r, eval=F}
 # i Import des données démographiques d'une population
 pop <- rio::import("country_demographics.csv")
 ```
@@ -395,9 +406,9 @@ age_levels <- c("0-4","5-9", "10-14", "15-19", "20-24",
 
 Combinez les données de population et de cas à l'aide de la fonction du paquet **dplyr**,  `bind_rows()` :
 
--   Tout d'abord, assurez-vous qu'elles ont *exactement les mêmes* noms de colonnes, valeurs de catégories d'âge et valeurs de sexe.\
--   Faites en sorte qu'ils aient la même structure de données : colonnes de catégorie d'âge, de sexe, de nombre et de pourcentage du total.\
--   Liez-les ensemble, l'un au-dessus de l'autre (`bind_rows()`).
+- Tout d'abord, assurez-vous qu'elles ont *exactement les mêmes* noms de colonnes, valeurs de catégories d'âge et valeurs de sexe.\\
+- Faites en sorte qu'ils aient la même structure de données : colonnes de catégorie d'âge, de sexe, de nombre et de pourcentage du total.\\
+- Liez-les ensemble, l'un au-dessus de l'autre (`bind_rows()`).
 
 ```{r, warning=F, message=F}
 # Créer/transformer les données de population, avec le pourcentage du total
@@ -444,7 +455,7 @@ Examiner les données des cas modifiées
 DT::datatable(case_data, rownames = FALSE, options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap' )
 ```
 
-Les deux jeux de données sont maintenant combinés, l'un au-dessus de l'autre (ils ont les mêmes noms de colonnes). Nous pouvons "nommer" chaque jeux de données, et utiliser l'argument `.id =` pour créer une nouvelle colonne "data_source" qui indiquera de quel cadre de données chaque ligne provient. Nous pouvons utiliser cette colonne pour filtrer dans la fonction `ggplot()`.
+Les deux jeux de données sont maintenant combinés, l'un au-dessus de l'autre (ils ont les mêmes noms de colonnes). Nous pouvons "nommer" chaque jeux de données, et utiliser l'argument `.id =` pour créer une nouvelle colonne "data\_source" qui indiquera de quel cadre de données chaque ligne provient. Nous pouvons utiliser cette colonne pour filtrer dans la fonction `ggplot()`.
 
 ```{r, warning=F, message=F}
 # combiner les données de cas et de population (mêmes noms de colonnes, valeurs age_cat et valeurs de sexe)
@@ -461,8 +472,8 @@ min_per <- min(pyramid_data$percent, na.rm=T)
 
 Le graphique est maintenant réalisé avec `ggplot()` :
 
--   Un graphique en barres des données de population (barres plus larges et plus transparentes)
--   Un histogramme des données de cas (petites barres, plus solides)
+- Un graphique en barres des données de population (barres plus larges et plus transparentes)
+- Un histogramme des données de cas (petites barres, plus solides)
 
 ```{r, warning=F, message=F}
 
@@ -567,9 +578,9 @@ table(likert_data$status)
 rio::export(likert_data, here::here("data", "likert_data.csv"))
 ```
 
-Importez les données (voir la page [Télécharger le manuel et les données](#download_book_data) si vous le souhaitez).
+Importe les données (voir [Télécharger le manuel et les données](#data-used) si tu le souhaites).
 
-```{r echo=F}
+```{r, echo=F}
 # importer les données de réponse de l'enquête likert
 likert_data <- rio::import(here::here("data", "likert_data.csv"))
 ```
@@ -588,10 +599,10 @@ DT::datatable(likert_data, rownames = FALSE, filter="top", options = list(pageLe
 
 Tout d'abord, quelques étapes de gestion des données :
 
--   Pivoter les données afin qu'elles soient "longues" plutôt que "larges"
--   Créer une nouvelle colonne `direction` qui indique si une réponse était globalement "positive" ou "négative"
--   Définisser l'ordre du niveau de Facteur pour la colonne `status` et la colonne `Response`
--   Enregistrez la valeur maximale pour que les limites du graphique soient appropriées.
+- Pivoter les données afin qu'elles soient "longues" plutôt que "larges"
+- Créer une nouvelle colonne `direction` qui indique si une réponse était globalement "positive" ou "négative"
+- Définisser l'ordre du niveau de Facteur pour la colonne `status` et la colonne `Response`
+- Enregistrez la valeur maximale pour que les limites du graphique soient appropriées.
 
 ```{r, warning=F, message=F}
 melted <- likert_data %>% 
@@ -620,7 +631,7 @@ melted_max <- melted %>%
 
 Maintenant, créez le graphique. Comme dans les pyramides des âges ci-dessus, nous créons deux graphes à barres et inversons les valeurs de l'un d'entre eux en négatif.
 
-On utilise `geom_bar()` parce que nos données sont une ligne par observation, et non pas des comptes agrégés. Nous utilisons le terme spécial de **ggplot2** `..count..` dans l'un des graphiques en barres pour inverser les valeurs négatives (*-1*), et nous définissons `position = "stack"` pour que les valeurs s'empilent les unes sur les autres.
+On utilise `geom_bar()` parce que nos données sont une ligne par observation, et non pas des comptes agrégés. Nous utilisons le terme spécial de **ggplot2** `..count..` dans l'un des graphiques en barres pour inverser les valeurs négatives (*\-1*), et nous définissons `position = "stack"` pour que les valeurs s'empilent les unes sur les autres.
 
 ```{r, warning=F, message=F}
 # Créer le graphe
@@ -703,3 +714,5 @@ ggplot()+
 ## Resources
 
 [Documentation de apyramid](https://cran.r-project.org/web/packages/apyramid/vignettes/intro.html)
+
+
