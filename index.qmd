@@ -34,10 +34,6 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 
 **Objective:** Serve as a quick R code reference manual (online and [**offline**](#data-used)**)**) with task-centered examples that address common epidemiological problems.
 
-**New paragraph**: This paragraph serves as a test for the translation workflow. We hope that it works!  
-
-**Another new paragraph**: For a second test.  
-
 **Are you just starting with R?** Try our [**free interactive tutorials**](https://www.appliedepi.org/tutorial/) or synchronous, virtual [**intro course**](https://www.appliedepi.org/live/) used by US CDC, WHO, and 75+ other health agencies and Field Epi Training Programs worldwide.
 
 **Languages:** [French (Français)](https://epirhandbook.com/fr), [Spanish (Español)](https://epirhandbook.com/es/), [Vietnamese (Tiếng Việt)](https://epirhandbook.com/vn/), [Japanese (日本)](https://epirhandbook.com/jp/), [Turkish (Türkçe)](https://epirhandbook.com/tr/), [Portuguese (Português)](https://epirhandbook.com/pt), [Russian (Русский)](https://epirhandbook.com/ru)
