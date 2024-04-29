@@ -40,6 +40,18 @@ pacman::p_load(rio,       # to import data
 ```
 
 
+Below, we add a new test chunk for basic mathematics
+
+```{r}
+# A test code chunk
+a <- 2 + 2       # basic addition
+b <- a - 2 * 4   # manipulating the result
+
+a  # print the outcome of A
+
+b  # print the outcome of B
+```
+
 
 
 ### Import data {.unnumbered}  
