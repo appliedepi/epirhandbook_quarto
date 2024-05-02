@@ -3,6 +3,7 @@ Sys.setenv("DEEPL_API_URL" = "https://api.deepl.com")
 Sys.setenv(DEEPL_API_KEY = "287d5481-9d96-8500-228c-6f98cfb3c576")
 
 pacman::p_load(
+  rio,
   gert,
   stringr,
   babeldown,
@@ -62,9 +63,16 @@ pacman::p_load(
 
 # UPDATE LANGUAGE TRANSLATION PROTOCOL ------------------------------------------------------------------------
 # 1 Detect chapters changed in the book
-diffs <- gert::git_diff()
-# Filter only .qmd files
-chapters_changed <- diffs$new[str_detect(diffs$new, "\\.qmd$")]
+# Uncomment to run before you commit the change to Git
+
+# diffs <- gert::git_diff()
+# # Filter only .qmd files
+# chapters_changed <- diffs$new[str_detect(diffs$new, "\\.qmd$")]
+# 
+# # Export the list of changed chapters to a RDS file. Add your name after the filename.
+# export(chapters_changed, here("chapters_changed" ,"chapters_changed_Luong.rds"))
+
+
 
 
 # 2. Create vector of target languages
@@ -73,8 +81,23 @@ deepL_lang = c("FR", "ES", "JA", "PT-PT", "TR", "RU", "VN")
 target_lang = c("fr", "es", "jp", "pt", "tr", "ru", "vn")
 
 
+# 3. Create a vector of chapters changed
+# import all the list of changed chapters from chapters_change folder. There should be multiple files from different authors with this naming pattern "chapters_changed_AuthorName.rds" 
 
-# Create a named list where each original chapter filename maps to its new versions with language codes
+file_list <- list.files(here("chapters_changed"), full.names = TRUE, pattern = "^chapters_changed_.*\\.rds$")
+
+chapters_changed <- c()
+for (file in file_list) {
+  # Import the .rds file by each author
+  changes_by_author <- import(file)
+  # Append the data to the all_chapters vector
+  chapters_changed <- c(chapters_changed, changes_by_author)
+}
+
+# Remove duplicates
+chapters_changed <- unique(chapters_changed)
+
+# 4. Create a named list where each original chapter filename maps to its new versions with language codes
 chapters_changed_new <- setNames(
   lapply(chapters_changed, function(chapter) {
     sapply(target_lang, function(lang) {
@@ -83,7 +106,7 @@ chapters_changed_new <- setNames(
   chapters_changed)
 
 
-# 3. Write a loop to run the updated translation for each chapter based on chapter_changes_update, noted that the target_lang argument should be also adapted based on target_lang 
+# 5. Write a loop to run the updated translation for each chapter based on chapter_changes_update, noted that the target_lang argument should be also adapted based on target_lang 
 
 for (old_chapter in names(chapters_changed_new)) {
   # Get the vector of new filenames for the current original chapter
