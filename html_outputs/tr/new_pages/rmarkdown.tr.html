@@ -137,9 +137,16 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
 <script>
 
-  // Function to extract the last two characters from the URL path to determine the language
+  // Function to extract the last two characters from the URL path to determine the language, adjusting for .html extension
   function getLanguageFromURL() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+    
+    // Check if the URL ends with .html and remove it
+    if (path.endsWith('.html')) {
+      path = path.substring(0, path.length - 5);
+    }
+
+    // Extract the last two characters for the language code
     const lang = path.substr(-2);
     return lang;
   }
@@ -850,7 +857,7 @@ window.Quarto = {
 <p>YAML, belge için meta verilerle başlamalıdır. Bu birincil YAML parametrelerinin (girintisiz) sırası önemli değildir. Örneğin:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My document"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Me"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-04-06"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-05-04"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>R kodunu YAML değerleri içinde satır içi kod olarak (ters tikler içinde, r önce gelir) veya tırnak işaretleri içinde yazarak kullanabilirsiniz (tarih için yukarıdaki örneğe bakın:).</p>
 <p>Yukarıdaki resimde, varsayılan çıktımızın bir html dosyası olacağını seçtiğimiz için, YAML’nin çıktı: html_document olarak kodlandığını görebiliriz. Ancak bunu powerpoint_presentation veya word_document veya hatta pdf_document olarak değiştirebiliriz.</p>
 </section>
@@ -1926,7 +1933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

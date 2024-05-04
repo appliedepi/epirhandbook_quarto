@@ -137,9 +137,16 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
 <script>
 
-  // Function to extract the last two characters from the URL path to determine the language
+  // Function to extract the last two characters from the URL path to determine the language, adjusting for .html extension
   function getLanguageFromURL() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+    
+    // Check if the URL ends with .html and remove it
+    if (path.endsWith('.html')) {
+      path = path.substring(0, path.length - 5);
+    }
+
+    // Extract the last two characters for the language code
     const lang = path.substr(-2);
     return lang;
   }
@@ -1496,7 +1503,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

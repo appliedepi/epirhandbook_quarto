@@ -1,10 +1,16 @@
 project:
   type: book
   output-dir: html_outputs
+  
+  
+# profile:
+#   default: full
+#   group: 
+#     - [full, small]
 
 book:
   title: "The Epidemiologist R Handbook"
-  search: 
+  search:
     type: textbox
   repo-url: https://github.com/appliedepi/epihandbook_quarto
   # site-url: https://epirhandbook.com
@@ -22,11 +28,11 @@ book:
                 #           url: "https://github.com/appliedepi/epihandbook_quarto"
                 #         - text: Report a Bug
                 #           url: "https://github.com/appliedepi/epihandbook_quarto/issues/new"
-  
+
   date: today
   date-format: "MMM D, YYYY"
   favicon: "images/Applied_Epi_logo.png"
-  google-analytics: 
+  google-analytics:
     tracking-id: "G-QXDW878QLX"
     anonymize-ip: true
 
@@ -47,7 +53,7 @@ book:
     chapters:
     - new_pages/editorial_style.qmd          # editorial style
     - new_pages/data_used.qmd                # data used
-  
+
   # BASICS
   - part: "Basics"
     part-vn: "Nhập môn về R"
@@ -110,7 +116,7 @@ book:
     - new_pages/survey_analysis.qmd #done
     - new_pages/survival_analysis.qmd #done
     - new_pages/gis.qmd #done
-  
+
 
   # DATA VIZ
   - part: "Data Visualization"
@@ -223,4 +229,3 @@ format:
     theme:
       light: cosmo
       dark: [cosmo, theme-dark.scss]
-

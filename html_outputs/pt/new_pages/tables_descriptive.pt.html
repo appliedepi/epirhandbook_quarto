@@ -137,9 +137,16 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
 <script>
 
-  // Function to extract the last two characters from the URL path to determine the language
+  // Function to extract the last two characters from the URL path to determine the language, adjusting for .html extension
   function getLanguageFromURL() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+    
+    // Check if the URL ends with .html and remove it
+    if (path.endsWith('.html')) {
+      path = path.substring(0, path.length - 5);
+    }
+
+    // Extract the last two characters for the language code
     const lang = path.substr(-2);
     return lang;
   }
@@ -779,8 +786,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>As primeiras 50 linhas do banco de dados são mostradas abaixo.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-85068efc5ce8d958cc00" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-85068efc5ce8d958cc00">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Ausente","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Ausente","Ausente","Ausente","Ausente","Port Hospital","Military Hospital","Ausente","Ausente","Other","Port Hospital","Port Hospital","Port Hospital","Ausente","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Ausente","Other","Ausente","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Ausente","Military Hospital","Other","Ausente","Ausente","Port Hospital","Port Hospital","Port Hospital","Ausente","Central Hospital","Military Hospital","Other","Other","Other","Ausente","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Ausente"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d7a1caf059639710e8bf" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d7a1caf059639710e8bf">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Ausente","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Ausente","Ausente","Ausente","Ausente","Port Hospital","Military Hospital","Ausente","Ausente","Other","Port Hospital","Port Hospital","Port Hospital","Ausente","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Ausente","Other","Ausente","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Ausente","Military Hospital","Other","Ausente","Ausente","Port Hospital","Port Hospital","Port Hospital","Ausente","Central Hospital","Military Hospital","Other","Other","Other","Ausente","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Ausente"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -1496,7 +1503,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">%&gt;%</span>    <span class="co"># converte a tabela em imagem</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()          <span class="co"># formata a tabela em linha por coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-ffe884ec{}.cl-ffdbd260{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ffe167a2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ffe18372{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe1837c{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe18386{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe18390{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe18391{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe18392{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe1839a{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe1839b{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ffe183a4{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-ffe884ec"><thead><tr style="overflow-wrap:break-word;"><th class="cl-ffe18372"><p class="cl-ffe167a2"><span class="cl-ffdbd260">Age Category/Gender</span></p></th><th class="cl-ffe1837c"><p class="cl-ffe167a2"><span class="cl-ffdbd260">f</span></p></th><th class="cl-ffe1837c"><p class="cl-ffe167a2"><span class="cl-ffdbd260">m</span></p></th><th class="cl-ffe18386"><p class="cl-ffe167a2"><span class="cl-ffdbd260">NA_</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">0-4</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">640  (22.8%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">416  (14.8%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">39  (14.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">5-9</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">641  (22.8%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">412  (14.7%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">42  (15.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">10-14</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">518  (18.5%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">383  (13.7%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">40  (14.4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">15-19</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">359  (12.8%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">364  (13.0%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">20   (7.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">20-29</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">468  (16.7%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">575  (20.5%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">30  (10.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">30-49</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">179   (6.4%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">557  (19.9%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">18   (6.5%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">50-69</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">2   (0.1%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">91   (3.2%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">2   (0.7%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260">70+</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">0   (0.0%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">5   (0.2%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">1   (0.4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe18390"><p class="cl-ffe167a2"><span class="cl-ffdbd260"></span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">0   (0.0%)</span></p></td><td class="cl-ffe18391"><p class="cl-ffe167a2"><span class="cl-ffdbd260">0   (0.0%)</span></p></td><td class="cl-ffe18392"><p class="cl-ffe167a2"><span class="cl-ffdbd260">86  (30.9%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ffe1839a"><p class="cl-ffe167a2"><span class="cl-ffdbd260">Total</span></p></td><td class="cl-ffe1839b"><p class="cl-ffe167a2"><span class="cl-ffdbd260">2,807 (100.0%)</span></p></td><td class="cl-ffe1839b"><p class="cl-ffe167a2"><span class="cl-ffdbd260">2,803 (100.0%)</span></p></td><td class="cl-ffe183a4"><p class="cl-ffe167a2"><span class="cl-ffdbd260">278 (100.0%)</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-af5db828{}.cl-af52b6c6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-af574cea{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-af57646e{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af576478{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af576479{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af57647a{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af576482{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af576483{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af57648c{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af57648d{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af57648e{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-af5db828"><thead><tr style="overflow-wrap:break-word;"><th class="cl-af57646e"><p class="cl-af574cea"><span class="cl-af52b6c6">Age Category/Gender</span></p></th><th class="cl-af576478"><p class="cl-af574cea"><span class="cl-af52b6c6">f</span></p></th><th class="cl-af576478"><p class="cl-af574cea"><span class="cl-af52b6c6">m</span></p></th><th class="cl-af576479"><p class="cl-af574cea"><span class="cl-af52b6c6">NA_</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">0-4</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">640  (22.8%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">416  (14.8%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">39  (14.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">5-9</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">641  (22.8%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">412  (14.7%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">42  (15.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">10-14</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">518  (18.5%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">383  (13.7%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">40  (14.4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">15-19</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">359  (12.8%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">364  (13.0%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">20   (7.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">20-29</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">468  (16.7%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">575  (20.5%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">30  (10.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">30-49</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">179   (6.4%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">557  (19.9%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">18   (6.5%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">50-69</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">2   (0.1%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">91   (3.2%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">2   (0.7%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6">70+</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">0   (0.0%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">5   (0.2%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">1   (0.4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57647a"><p class="cl-af574cea"><span class="cl-af52b6c6"></span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">0   (0.0%)</span></p></td><td class="cl-af576482"><p class="cl-af574cea"><span class="cl-af52b6c6">0   (0.0%)</span></p></td><td class="cl-af576483"><p class="cl-af574cea"><span class="cl-af52b6c6">86  (30.9%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-af57648c"><p class="cl-af574cea"><span class="cl-af52b6c6">Total</span></p></td><td class="cl-af57648d"><p class="cl-af574cea"><span class="cl-af52b6c6">2,807 (100.0%)</span></p></td><td class="cl-af57648d"><p class="cl-af574cea"><span class="cl-af52b6c6">2,803 (100.0%)</span></p></td><td class="cl-af57648e"><p class="cl-af574cea"><span class="cl-af52b6c6">278 (100.0%)</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -1714,8 +1721,8 @@ X-squared = 6.4931, df = 7, p-value = 0.4835</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-a9d7018e03c28570cd70" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a9d7018e03c28570cd70">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-fe02ed1953bce262b2b2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fe02ed1953bce262b2b2">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -2095,8 +2102,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-addd3b0e94be5b5671c4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-addd3b0e94be5b5671c4">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1087a2f40e5c41a1bad2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1087a2f40e5c41a1bad2">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Para realizar o pivoteamento para a tabela criada fique no formato “largo”, nós criamos as novas colunas a partir dos <em>valores</em> na coluna existente <code>age_cat</code> (ao configurar <code>names_from = age_cat</code>). Nós também especificamos que os valores da nova tabela virão da coluna existente <code>n</code>, utilizando o atributo <code>values_from = n</code>. As colunas não mencionadas no nosso comando de pivoteamento (<code>outcome</code>) continuarão sem alterações na extremidade esquerda da tabela final.</p>
@@ -2201,8 +2208,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Aqui está a nova tabela com as linhas “Total” no final.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-86c15ee6c9c35ab23843" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-86c15ee6c9c35ab23843">{"x":{"filter":"none","vertical":false,"data":[["Ausente","Ausente","Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[611,514,193,165,399,309,395,290,785,579,199,126,2582,1983],[21,21,22,22,21,22,22,21,22,21,22,22,22,21]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7d1fdbcd387d1814b3cc" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7d1fdbcd387d1814b3cc">{"x":{"filter":"none","vertical":false,"data":[["Ausente","Ausente","Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[611,514,193,165,399,309,395,290,785,579,199,126,2582,1983],[21,21,22,22,21,22,22,21,22,21,22,22,22,21]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Esta tabela está no formato “longo/comprido”, que pode ser o desejado. <em>Opcionalmente</em>, você pode <em>mudar</em> essa tabela para o formato <em>largo</em>, de forma a torná-la mais fácil de interpretar. Veja a seção acima sobre como transformar a tabela para o formato “largo”, ou na página <a href="pivoting.pt.html">Pivoteando dados</a>. Você também pode adicionar mais colunas, e ajustá-las de forma que considere mais agradável. Segue o código:</p>
@@ -2242,7 +2249,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Após isso, você pode exportar essa tabela como uma imagem - abaixo, o resultado é exportado com o pacote <strong>flextable</strong>. Para mais detalhes sobre esse exemplo, e sobre como produzir uma imagem dessa forma, leia a página <a href="#tables-descriptive">Tabelas para apresentações</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-020d2cf0{}.cl-0200558e{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-02005598{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0204d0e6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0204d0fa{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0204f8dc{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f8e6{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f8f0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f8f1{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f904{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f905{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f90e{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f90f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f918{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f919{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f922{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f923{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f92c{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f92d{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f936{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f937{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f940{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f941{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f94a{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0204f954{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-020d2cf0"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-0204f8dc"><p class="cl-0204d0e6"><span class="cl-0200558e">Hospital</span></p></th><th rowspan="2" class="cl-0204f8e6"><p class="cl-0204d0fa"><span class="cl-0200558e">Total cases with known outcome</span></p></th><th colspan="3" class="cl-0204f8f0"><p class="cl-0204d0fa"><span class="cl-0200558e">Recovered</span></p></th><th colspan="3" class="cl-0204f8f0"><p class="cl-0204d0fa"><span class="cl-0200558e">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-0204f90f"><p class="cl-0204d0fa"><span class="cl-02005598">Total</span></p></th><th class="cl-0204f918"><p class="cl-0204d0fa"><span class="cl-02005598">% of cases</span></p></th><th class="cl-0204f919"><p class="cl-0204d0fa"><span class="cl-02005598">Median CT values</span></p></th><th class="cl-0204f90f"><p class="cl-0204d0fa"><span class="cl-02005598">Total</span></p></th><th class="cl-0204f918"><p class="cl-0204d0fa"><span class="cl-02005598">% of cases</span></p></th><th class="cl-0204f918"><p class="cl-0204d0fa"><span class="cl-02005598">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-02005598">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-02005598">325</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">126</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">38.8%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">199</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">61.2%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-02005598">Central Hospital</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-02005598">358</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">165</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">46.1%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">193</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">53.9%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-02005598">Other</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-02005598">685</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">290</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">42.3%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-02005598">21</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">395</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">57.7%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-02005598">Military Hospital</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-02005598">708</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">309</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">43.6%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">399</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">56.4%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-02005598">Ausente</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-02005598">1,125</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">514</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">45.7%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-02005598">21</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-02005598">611</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">54.3%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-02005598">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f922"><p class="cl-0204d0e6"><span class="cl-0200558e">Port Hospital</span></p></td><td class="cl-0204f923"><p class="cl-0204d0fa"><span class="cl-0200558e">1,364</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-0200558e">579</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-0200558e">42.4%</span></p></td><td class="cl-0204f936"><p class="cl-0204d0fa"><span class="cl-0200558e">21</span></p></td><td class="cl-0204f92c"><p class="cl-0204d0fa"><span class="cl-0200558e">785</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-0200558e">57.6%</span></p></td><td class="cl-0204f92d"><p class="cl-0204d0fa"><span class="cl-0200558e">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0204f937"><p class="cl-0204d0e6"><span class="cl-02005598">Total</span></p></td><td class="cl-0204f940"><p class="cl-0204d0fa"><span class="cl-02005598">4,565</span></p></td><td class="cl-0204f941"><p class="cl-0204d0fa"><span class="cl-02005598">1,983</span></p></td><td class="cl-0204f94a"><p class="cl-0204d0fa"><span class="cl-02005598">43.4%</span></p></td><td class="cl-0204f954"><p class="cl-0204d0fa"><span class="cl-02005598">21</span></p></td><td class="cl-0204f941"><p class="cl-0204d0fa"><span class="cl-02005598">2,582</span></p></td><td class="cl-0204f94a"><p class="cl-0204d0fa"><span class="cl-02005598">56.6%</span></p></td><td class="cl-0204f94a"><p class="cl-0204d0fa"><span class="cl-02005598">22</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-b1589396{}.cl-b14b7a30{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b14b7a3a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b1501644{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b150164e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b1502ec2{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ecc{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ed6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ed7{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ee0{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ee1{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502eea{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502eeb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502eec{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ef4{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502ef5{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502efe{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f08{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f09{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f12{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f13{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f14{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f15{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f1c{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b1502f1d{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b1589396"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-b1502ec2"><p class="cl-b1501644"><span class="cl-b14b7a30">Hospital</span></p></th><th rowspan="2" class="cl-b1502ecc"><p class="cl-b150164e"><span class="cl-b14b7a30">Total cases with known outcome</span></p></th><th colspan="3" class="cl-b1502ed6"><p class="cl-b150164e"><span class="cl-b14b7a30">Recovered</span></p></th><th colspan="3" class="cl-b1502ed6"><p class="cl-b150164e"><span class="cl-b14b7a30">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-b1502eeb"><p class="cl-b150164e"><span class="cl-b14b7a3a">Total</span></p></th><th class="cl-b1502eec"><p class="cl-b150164e"><span class="cl-b14b7a3a">% of cases</span></p></th><th class="cl-b1502ef4"><p class="cl-b150164e"><span class="cl-b14b7a3a">Median CT values</span></p></th><th class="cl-b1502eeb"><p class="cl-b150164e"><span class="cl-b14b7a3a">Total</span></p></th><th class="cl-b1502eec"><p class="cl-b150164e"><span class="cl-b14b7a3a">% of cases</span></p></th><th class="cl-b1502eec"><p class="cl-b150164e"><span class="cl-b14b7a3a">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a3a">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a3a">325</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">126</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">38.8%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">199</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">61.2%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a3a">Central Hospital</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a3a">358</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">165</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">46.1%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">193</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">53.9%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a3a">Other</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a3a">685</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">290</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">42.3%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a3a">21</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">395</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">57.7%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a3a">Military Hospital</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a3a">708</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">309</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">43.6%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">399</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">56.4%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a3a">Ausente</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a3a">1,125</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">514</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">45.7%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a3a">21</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a3a">611</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">54.3%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a3a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502ef5"><p class="cl-b1501644"><span class="cl-b14b7a30">Port Hospital</span></p></td><td class="cl-b1502efe"><p class="cl-b150164e"><span class="cl-b14b7a30">1,364</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a30">579</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a30">42.4%</span></p></td><td class="cl-b1502f12"><p class="cl-b150164e"><span class="cl-b14b7a30">21</span></p></td><td class="cl-b1502f08"><p class="cl-b150164e"><span class="cl-b14b7a30">785</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a30">57.6%</span></p></td><td class="cl-b1502f09"><p class="cl-b150164e"><span class="cl-b14b7a30">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b1502f13"><p class="cl-b1501644"><span class="cl-b14b7a3a">Total</span></p></td><td class="cl-b1502f14"><p class="cl-b150164e"><span class="cl-b14b7a3a">4,565</span></p></td><td class="cl-b1502f15"><p class="cl-b150164e"><span class="cl-b14b7a3a">1,983</span></p></td><td class="cl-b1502f1c"><p class="cl-b150164e"><span class="cl-b14b7a3a">43.4%</span></p></td><td class="cl-b1502f1d"><p class="cl-b150164e"><span class="cl-b14b7a3a">21</span></p></td><td class="cl-b1502f15"><p class="cl-b150164e"><span class="cl-b14b7a3a">2,582</span></p></td><td class="cl-b1502f1c"><p class="cl-b150164e"><span class="cl-b14b7a3a">56.6%</span></p></td><td class="cl-b1502f1c"><p class="cl-b150164e"><span class="cl-b14b7a3a">22</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -2266,23 +2273,23 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()                                                  <span class="co"># função no modo padrão</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="fgoizymajx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fgoizymajx table {
+<div id="xbkqzdxqic" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xbkqzdxqic table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fgoizymajx thead, #fgoizymajx tbody, #fgoizymajx tfoot, #fgoizymajx tr, #fgoizymajx td, #fgoizymajx th {
+#xbkqzdxqic thead, #xbkqzdxqic tbody, #xbkqzdxqic tfoot, #xbkqzdxqic tr, #xbkqzdxqic td, #xbkqzdxqic th {
   border-style: none;
 }
 
-#fgoizymajx p {
+#xbkqzdxqic p {
   margin: 0;
   padding: 0;
 }
 
-#fgoizymajx .gt_table {
+#xbkqzdxqic .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2308,12 +2315,12 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-left-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_caption {
+#xbkqzdxqic .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fgoizymajx .gt_title {
+#xbkqzdxqic .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2325,7 +2332,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-width: 0;
 }
 
-#fgoizymajx .gt_subtitle {
+#xbkqzdxqic .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2337,7 +2344,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-width: 0;
 }
 
-#fgoizymajx .gt_heading {
+#xbkqzdxqic .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2349,13 +2356,13 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_bottom_border {
+#xbkqzdxqic .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_col_headings {
+#xbkqzdxqic .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2370,7 +2377,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_col_heading {
+#xbkqzdxqic .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2390,7 +2397,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#fgoizymajx .gt_column_spanner_outer {
+#xbkqzdxqic .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2402,15 +2409,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 4px;
 }
 
-#fgoizymajx .gt_column_spanner_outer:first-child {
+#xbkqzdxqic .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fgoizymajx .gt_column_spanner_outer:last-child {
+#xbkqzdxqic .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fgoizymajx .gt_column_spanner {
+#xbkqzdxqic .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2422,11 +2429,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   width: 100%;
 }
 
-#fgoizymajx .gt_spanner_row {
+#xbkqzdxqic .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fgoizymajx .gt_group_heading {
+#xbkqzdxqic .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2452,7 +2459,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   text-align: left;
 }
 
-#fgoizymajx .gt_empty_group_heading {
+#xbkqzdxqic .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2467,15 +2474,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: middle;
 }
 
-#fgoizymajx .gt_from_md > :first-child {
+#xbkqzdxqic .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fgoizymajx .gt_from_md > :last-child {
+#xbkqzdxqic .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fgoizymajx .gt_row {
+#xbkqzdxqic .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2494,7 +2501,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#fgoizymajx .gt_stub {
+#xbkqzdxqic .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2507,7 +2514,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#fgoizymajx .gt_stub_row_group {
+#xbkqzdxqic .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2521,15 +2528,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: top;
 }
 
-#fgoizymajx .gt_row_group_first td {
+#xbkqzdxqic .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fgoizymajx .gt_row_group_first th {
+#xbkqzdxqic .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fgoizymajx .gt_summary_row {
+#xbkqzdxqic .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2539,16 +2546,16 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#fgoizymajx .gt_first_summary_row {
+#xbkqzdxqic .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_first_summary_row.thick {
+#xbkqzdxqic .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fgoizymajx .gt_last_summary_row {
+#xbkqzdxqic .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2558,7 +2565,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_grand_summary_row {
+#xbkqzdxqic .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2568,7 +2575,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#fgoizymajx .gt_first_grand_summary_row {
+#xbkqzdxqic .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2578,7 +2585,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_last_grand_summary_row_top {
+#xbkqzdxqic .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2588,11 +2595,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_striped {
+#xbkqzdxqic .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fgoizymajx .gt_table_body {
+#xbkqzdxqic .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2601,7 +2608,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_footnotes {
+#xbkqzdxqic .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2615,7 +2622,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_footnote {
+#xbkqzdxqic .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2624,7 +2631,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#fgoizymajx .gt_sourcenotes {
+#xbkqzdxqic .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2638,7 +2645,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#fgoizymajx .gt_sourcenote {
+#xbkqzdxqic .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2646,63 +2653,63 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#fgoizymajx .gt_left {
+#xbkqzdxqic .gt_left {
   text-align: left;
 }
 
-#fgoizymajx .gt_center {
+#xbkqzdxqic .gt_center {
   text-align: center;
 }
 
-#fgoizymajx .gt_right {
+#xbkqzdxqic .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fgoizymajx .gt_font_normal {
+#xbkqzdxqic .gt_font_normal {
   font-weight: normal;
 }
 
-#fgoizymajx .gt_font_bold {
+#xbkqzdxqic .gt_font_bold {
   font-weight: bold;
 }
 
-#fgoizymajx .gt_font_italic {
+#xbkqzdxqic .gt_font_italic {
   font-style: italic;
 }
 
-#fgoizymajx .gt_super {
+#xbkqzdxqic .gt_super {
   font-size: 65%;
 }
 
-#fgoizymajx .gt_footnote_marks {
+#xbkqzdxqic .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fgoizymajx .gt_asterisk {
+#xbkqzdxqic .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fgoizymajx .gt_indent_1 {
+#xbkqzdxqic .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fgoizymajx .gt_indent_2 {
+#xbkqzdxqic .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fgoizymajx .gt_indent_3 {
+#xbkqzdxqic .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fgoizymajx .gt_indent_4 {
+#xbkqzdxqic .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fgoizymajx .gt_indent_5 {
+#xbkqzdxqic .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2839,23 +2846,23 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"{mean}"</span>) <span class="co"># calcule a média de idades (age)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="sydiycexum" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sydiycexum table {
+<div id="utmfbrvpri" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#utmfbrvpri table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sydiycexum thead, #sydiycexum tbody, #sydiycexum tfoot, #sydiycexum tr, #sydiycexum td, #sydiycexum th {
+#utmfbrvpri thead, #utmfbrvpri tbody, #utmfbrvpri tfoot, #utmfbrvpri tr, #utmfbrvpri td, #utmfbrvpri th {
   border-style: none;
 }
 
-#sydiycexum p {
+#utmfbrvpri p {
   margin: 0;
   padding: 0;
 }
 
-#sydiycexum .gt_table {
+#utmfbrvpri .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2881,12 +2888,12 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-left-color: #D3D3D3;
 }
 
-#sydiycexum .gt_caption {
+#utmfbrvpri .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sydiycexum .gt_title {
+#utmfbrvpri .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2898,7 +2905,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-width: 0;
 }
 
-#sydiycexum .gt_subtitle {
+#utmfbrvpri .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2910,7 +2917,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-top-width: 0;
 }
 
-#sydiycexum .gt_heading {
+#utmfbrvpri .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2922,13 +2929,13 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#sydiycexum .gt_bottom_border {
+#utmfbrvpri .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sydiycexum .gt_col_headings {
+#utmfbrvpri .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2943,7 +2950,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#sydiycexum .gt_col_heading {
+#utmfbrvpri .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2963,7 +2970,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   overflow-x: hidden;
 }
 
-#sydiycexum .gt_column_spanner_outer {
+#utmfbrvpri .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2975,15 +2982,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 4px;
 }
 
-#sydiycexum .gt_column_spanner_outer:first-child {
+#utmfbrvpri .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sydiycexum .gt_column_spanner_outer:last-child {
+#utmfbrvpri .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sydiycexum .gt_column_spanner {
+#utmfbrvpri .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2995,11 +3002,11 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   width: 100%;
 }
 
-#sydiycexum .gt_spanner_row {
+#utmfbrvpri .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sydiycexum .gt_group_heading {
+#utmfbrvpri .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3025,7 +3032,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   text-align: left;
 }
 
-#sydiycexum .gt_empty_group_heading {
+#utmfbrvpri .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3040,15 +3047,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   vertical-align: middle;
 }
 
-#sydiycexum .gt_from_md > :first-child {
+#utmfbrvpri .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sydiycexum .gt_from_md > :last-child {
+#utmfbrvpri .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sydiycexum .gt_row {
+#utmfbrvpri .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3067,7 +3074,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   overflow-x: hidden;
 }
 
-#sydiycexum .gt_stub {
+#utmfbrvpri .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3080,7 +3087,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#sydiycexum .gt_stub_row_group {
+#utmfbrvpri .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3094,15 +3101,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   vertical-align: top;
 }
 
-#sydiycexum .gt_row_group_first td {
+#utmfbrvpri .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sydiycexum .gt_row_group_first th {
+#utmfbrvpri .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sydiycexum .gt_summary_row {
+#utmfbrvpri .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3112,16 +3119,16 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#sydiycexum .gt_first_summary_row {
+#utmfbrvpri .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sydiycexum .gt_first_summary_row.thick {
+#utmfbrvpri .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sydiycexum .gt_last_summary_row {
+#utmfbrvpri .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3131,7 +3138,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#sydiycexum .gt_grand_summary_row {
+#utmfbrvpri .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3141,7 +3148,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#sydiycexum .gt_first_grand_summary_row {
+#utmfbrvpri .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3151,7 +3158,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-top-color: #D3D3D3;
 }
 
-#sydiycexum .gt_last_grand_summary_row_top {
+#utmfbrvpri .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3161,11 +3168,11 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#sydiycexum .gt_striped {
+#utmfbrvpri .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sydiycexum .gt_table_body {
+#utmfbrvpri .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3174,7 +3181,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#sydiycexum .gt_footnotes {
+#utmfbrvpri .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3188,7 +3195,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#sydiycexum .gt_footnote {
+#utmfbrvpri .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3197,7 +3204,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#sydiycexum .gt_sourcenotes {
+#utmfbrvpri .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3211,7 +3218,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#sydiycexum .gt_sourcenote {
+#utmfbrvpri .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3219,63 +3226,63 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#sydiycexum .gt_left {
+#utmfbrvpri .gt_left {
   text-align: left;
 }
 
-#sydiycexum .gt_center {
+#utmfbrvpri .gt_center {
   text-align: center;
 }
 
-#sydiycexum .gt_right {
+#utmfbrvpri .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sydiycexum .gt_font_normal {
+#utmfbrvpri .gt_font_normal {
   font-weight: normal;
 }
 
-#sydiycexum .gt_font_bold {
+#utmfbrvpri .gt_font_bold {
   font-weight: bold;
 }
 
-#sydiycexum .gt_font_italic {
+#utmfbrvpri .gt_font_italic {
   font-style: italic;
 }
 
-#sydiycexum .gt_super {
+#utmfbrvpri .gt_super {
   font-size: 65%;
 }
 
-#sydiycexum .gt_footnote_marks {
+#utmfbrvpri .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sydiycexum .gt_asterisk {
+#utmfbrvpri .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sydiycexum .gt_indent_1 {
+#utmfbrvpri .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sydiycexum .gt_indent_2 {
+#utmfbrvpri .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sydiycexum .gt_indent_3 {
+#utmfbrvpri .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sydiycexum .gt_indent_4 {
+#utmfbrvpri .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sydiycexum .gt_indent_5 {
+#utmfbrvpri .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3316,23 +3323,23 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
 <span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"({min}, {max})"</span>) <span class="co"># calcule o min e max da idade (age)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="xibjcamhzs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xibjcamhzs table {
+<div id="aaexdkrooh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aaexdkrooh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xibjcamhzs thead, #xibjcamhzs tbody, #xibjcamhzs tfoot, #xibjcamhzs tr, #xibjcamhzs td, #xibjcamhzs th {
+#aaexdkrooh thead, #aaexdkrooh tbody, #aaexdkrooh tfoot, #aaexdkrooh tr, #aaexdkrooh td, #aaexdkrooh th {
   border-style: none;
 }
 
-#xibjcamhzs p {
+#aaexdkrooh p {
   margin: 0;
   padding: 0;
 }
 
-#xibjcamhzs .gt_table {
+#aaexdkrooh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3358,12 +3365,12 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-left-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_caption {
+#aaexdkrooh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xibjcamhzs .gt_title {
+#aaexdkrooh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3375,7 +3382,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-width: 0;
 }
 
-#xibjcamhzs .gt_subtitle {
+#aaexdkrooh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3387,7 +3394,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-top-width: 0;
 }
 
-#xibjcamhzs .gt_heading {
+#aaexdkrooh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3399,13 +3406,13 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_bottom_border {
+#aaexdkrooh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_col_headings {
+#aaexdkrooh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3420,7 +3427,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_col_heading {
+#aaexdkrooh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3440,7 +3447,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   overflow-x: hidden;
 }
 
-#xibjcamhzs .gt_column_spanner_outer {
+#aaexdkrooh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3452,15 +3459,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 4px;
 }
 
-#xibjcamhzs .gt_column_spanner_outer:first-child {
+#aaexdkrooh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xibjcamhzs .gt_column_spanner_outer:last-child {
+#aaexdkrooh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xibjcamhzs .gt_column_spanner {
+#aaexdkrooh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3472,11 +3479,11 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   width: 100%;
 }
 
-#xibjcamhzs .gt_spanner_row {
+#aaexdkrooh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xibjcamhzs .gt_group_heading {
+#aaexdkrooh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3502,7 +3509,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   text-align: left;
 }
 
-#xibjcamhzs .gt_empty_group_heading {
+#aaexdkrooh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3517,15 +3524,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   vertical-align: middle;
 }
 
-#xibjcamhzs .gt_from_md > :first-child {
+#aaexdkrooh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xibjcamhzs .gt_from_md > :last-child {
+#aaexdkrooh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xibjcamhzs .gt_row {
+#aaexdkrooh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3544,7 +3551,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   overflow-x: hidden;
 }
 
-#xibjcamhzs .gt_stub {
+#aaexdkrooh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3557,7 +3564,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#xibjcamhzs .gt_stub_row_group {
+#aaexdkrooh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3571,15 +3578,15 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   vertical-align: top;
 }
 
-#xibjcamhzs .gt_row_group_first td {
+#aaexdkrooh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xibjcamhzs .gt_row_group_first th {
+#aaexdkrooh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xibjcamhzs .gt_summary_row {
+#aaexdkrooh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3589,16 +3596,16 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#xibjcamhzs .gt_first_summary_row {
+#aaexdkrooh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_first_summary_row.thick {
+#aaexdkrooh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xibjcamhzs .gt_last_summary_row {
+#aaexdkrooh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3608,7 +3615,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_grand_summary_row {
+#aaexdkrooh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3618,7 +3625,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#xibjcamhzs .gt_first_grand_summary_row {
+#aaexdkrooh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3628,7 +3635,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-top-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_last_grand_summary_row_top {
+#aaexdkrooh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3638,11 +3645,11 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_striped {
+#aaexdkrooh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xibjcamhzs .gt_table_body {
+#aaexdkrooh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3651,7 +3658,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-bottom-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_footnotes {
+#aaexdkrooh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3665,7 +3672,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_footnote {
+#aaexdkrooh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3674,7 +3681,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#xibjcamhzs .gt_sourcenotes {
+#aaexdkrooh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3688,7 +3695,7 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   border-right-color: #D3D3D3;
 }
 
-#xibjcamhzs .gt_sourcenote {
+#aaexdkrooh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3696,63 +3703,63 @@ Use as equações para especificar quais estatísticas mostrar e como mostrá-la
   padding-right: 5px;
 }
 
-#xibjcamhzs .gt_left {
+#aaexdkrooh .gt_left {
   text-align: left;
 }
 
-#xibjcamhzs .gt_center {
+#aaexdkrooh .gt_center {
   text-align: center;
 }
 
-#xibjcamhzs .gt_right {
+#aaexdkrooh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xibjcamhzs .gt_font_normal {
+#aaexdkrooh .gt_font_normal {
   font-weight: normal;
 }
 
-#xibjcamhzs .gt_font_bold {
+#aaexdkrooh .gt_font_bold {
   font-weight: bold;
 }
 
-#xibjcamhzs .gt_font_italic {
+#aaexdkrooh .gt_font_italic {
   font-style: italic;
 }
 
-#xibjcamhzs .gt_super {
+#aaexdkrooh .gt_super {
   font-size: 65%;
 }
 
-#xibjcamhzs .gt_footnote_marks {
+#aaexdkrooh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xibjcamhzs .gt_asterisk {
+#aaexdkrooh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xibjcamhzs .gt_indent_1 {
+#aaexdkrooh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xibjcamhzs .gt_indent_2 {
+#aaexdkrooh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xibjcamhzs .gt_indent_3 {
+#aaexdkrooh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xibjcamhzs .gt_indent_4 {
+#aaexdkrooh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xibjcamhzs .gt_indent_5 {
+#aaexdkrooh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3822,23 +3829,23 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
 </div>
 <div class="cell-output-display">
 <div>
-<div id="qaigcoluug" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qaigcoluug table {
+<div id="xelubxwxrf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xelubxwxrf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qaigcoluug thead, #qaigcoluug tbody, #qaigcoluug tfoot, #qaigcoluug tr, #qaigcoluug td, #qaigcoluug th {
+#xelubxwxrf thead, #xelubxwxrf tbody, #xelubxwxrf tfoot, #xelubxwxrf tr, #xelubxwxrf td, #xelubxwxrf th {
   border-style: none;
 }
 
-#qaigcoluug p {
+#xelubxwxrf p {
   margin: 0;
   padding: 0;
 }
 
-#qaigcoluug .gt_table {
+#xelubxwxrf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3864,12 +3871,12 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-left-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_caption {
+#xelubxwxrf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qaigcoluug .gt_title {
+#xelubxwxrf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3881,7 +3888,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-width: 0;
 }
 
-#qaigcoluug .gt_subtitle {
+#xelubxwxrf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3893,7 +3900,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-top-width: 0;
 }
 
-#qaigcoluug .gt_heading {
+#xelubxwxrf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3905,13 +3912,13 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_bottom_border {
+#xelubxwxrf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_col_headings {
+#xelubxwxrf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3926,7 +3933,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_col_heading {
+#xelubxwxrf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3946,7 +3953,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   overflow-x: hidden;
 }
 
-#qaigcoluug .gt_column_spanner_outer {
+#xelubxwxrf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3958,15 +3965,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 4px;
 }
 
-#qaigcoluug .gt_column_spanner_outer:first-child {
+#xelubxwxrf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qaigcoluug .gt_column_spanner_outer:last-child {
+#xelubxwxrf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qaigcoluug .gt_column_spanner {
+#xelubxwxrf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3978,11 +3985,11 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   width: 100%;
 }
 
-#qaigcoluug .gt_spanner_row {
+#xelubxwxrf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qaigcoluug .gt_group_heading {
+#xelubxwxrf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4008,7 +4015,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   text-align: left;
 }
 
-#qaigcoluug .gt_empty_group_heading {
+#xelubxwxrf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4023,15 +4030,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   vertical-align: middle;
 }
 
-#qaigcoluug .gt_from_md > :first-child {
+#xelubxwxrf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qaigcoluug .gt_from_md > :last-child {
+#xelubxwxrf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qaigcoluug .gt_row {
+#xelubxwxrf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4050,7 +4057,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   overflow-x: hidden;
 }
 
-#qaigcoluug .gt_stub {
+#xelubxwxrf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4063,7 +4070,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#qaigcoluug .gt_stub_row_group {
+#xelubxwxrf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4077,15 +4084,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   vertical-align: top;
 }
 
-#qaigcoluug .gt_row_group_first td {
+#xelubxwxrf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qaigcoluug .gt_row_group_first th {
+#xelubxwxrf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qaigcoluug .gt_summary_row {
+#xelubxwxrf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4095,16 +4102,16 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#qaigcoluug .gt_first_summary_row {
+#xelubxwxrf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_first_summary_row.thick {
+#xelubxwxrf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qaigcoluug .gt_last_summary_row {
+#xelubxwxrf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4114,7 +4121,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_grand_summary_row {
+#xelubxwxrf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4124,7 +4131,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#qaigcoluug .gt_first_grand_summary_row {
+#xelubxwxrf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4134,7 +4141,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-top-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_last_grand_summary_row_top {
+#xelubxwxrf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4144,11 +4151,11 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_striped {
+#xelubxwxrf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qaigcoluug .gt_table_body {
+#xelubxwxrf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4157,7 +4164,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_footnotes {
+#xelubxwxrf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4171,7 +4178,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_footnote {
+#xelubxwxrf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4180,7 +4187,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#qaigcoluug .gt_sourcenotes {
+#xelubxwxrf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4194,7 +4201,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#qaigcoluug .gt_sourcenote {
+#xelubxwxrf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4202,63 +4209,63 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#qaigcoluug .gt_left {
+#xelubxwxrf .gt_left {
   text-align: left;
 }
 
-#qaigcoluug .gt_center {
+#xelubxwxrf .gt_center {
   text-align: center;
 }
 
-#qaigcoluug .gt_right {
+#xelubxwxrf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qaigcoluug .gt_font_normal {
+#xelubxwxrf .gt_font_normal {
   font-weight: normal;
 }
 
-#qaigcoluug .gt_font_bold {
+#xelubxwxrf .gt_font_bold {
   font-weight: bold;
 }
 
-#qaigcoluug .gt_font_italic {
+#xelubxwxrf .gt_font_italic {
   font-style: italic;
 }
 
-#qaigcoluug .gt_super {
+#xelubxwxrf .gt_super {
   font-size: 65%;
 }
 
-#qaigcoluug .gt_footnote_marks {
+#xelubxwxrf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qaigcoluug .gt_asterisk {
+#xelubxwxrf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qaigcoluug .gt_indent_1 {
+#xelubxwxrf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qaigcoluug .gt_indent_2 {
+#xelubxwxrf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qaigcoluug .gt_indent_3 {
+#xelubxwxrf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qaigcoluug .gt_indent_4 {
+#xelubxwxrf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qaigcoluug .gt_indent_5 {
+#xelubxwxrf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4406,23 +4413,23 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
 <span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="ngwqqztxon" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ngwqqztxon table {
+<div id="yswwyrhdxn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yswwyrhdxn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ngwqqztxon thead, #ngwqqztxon tbody, #ngwqqztxon tfoot, #ngwqqztxon tr, #ngwqqztxon td, #ngwqqztxon th {
+#yswwyrhdxn thead, #yswwyrhdxn tbody, #yswwyrhdxn tfoot, #yswwyrhdxn tr, #yswwyrhdxn td, #yswwyrhdxn th {
   border-style: none;
 }
 
-#ngwqqztxon p {
+#yswwyrhdxn p {
   margin: 0;
   padding: 0;
 }
 
-#ngwqqztxon .gt_table {
+#yswwyrhdxn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4448,12 +4455,12 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-left-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_caption {
+#yswwyrhdxn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ngwqqztxon .gt_title {
+#yswwyrhdxn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4465,7 +4472,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-width: 0;
 }
 
-#ngwqqztxon .gt_subtitle {
+#yswwyrhdxn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4477,7 +4484,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-top-width: 0;
 }
 
-#ngwqqztxon .gt_heading {
+#yswwyrhdxn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4489,13 +4496,13 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_bottom_border {
+#yswwyrhdxn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_col_headings {
+#yswwyrhdxn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4510,7 +4517,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_col_heading {
+#yswwyrhdxn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4530,7 +4537,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   overflow-x: hidden;
 }
 
-#ngwqqztxon .gt_column_spanner_outer {
+#yswwyrhdxn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4542,15 +4549,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 4px;
 }
 
-#ngwqqztxon .gt_column_spanner_outer:first-child {
+#yswwyrhdxn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ngwqqztxon .gt_column_spanner_outer:last-child {
+#yswwyrhdxn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ngwqqztxon .gt_column_spanner {
+#yswwyrhdxn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4562,11 +4569,11 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   width: 100%;
 }
 
-#ngwqqztxon .gt_spanner_row {
+#yswwyrhdxn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ngwqqztxon .gt_group_heading {
+#yswwyrhdxn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4592,7 +4599,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   text-align: left;
 }
 
-#ngwqqztxon .gt_empty_group_heading {
+#yswwyrhdxn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4607,15 +4614,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   vertical-align: middle;
 }
 
-#ngwqqztxon .gt_from_md > :first-child {
+#yswwyrhdxn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ngwqqztxon .gt_from_md > :last-child {
+#yswwyrhdxn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ngwqqztxon .gt_row {
+#yswwyrhdxn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4634,7 +4641,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   overflow-x: hidden;
 }
 
-#ngwqqztxon .gt_stub {
+#yswwyrhdxn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4647,7 +4654,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#ngwqqztxon .gt_stub_row_group {
+#yswwyrhdxn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4661,15 +4668,15 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   vertical-align: top;
 }
 
-#ngwqqztxon .gt_row_group_first td {
+#yswwyrhdxn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ngwqqztxon .gt_row_group_first th {
+#yswwyrhdxn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ngwqqztxon .gt_summary_row {
+#yswwyrhdxn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4679,16 +4686,16 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#ngwqqztxon .gt_first_summary_row {
+#yswwyrhdxn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_first_summary_row.thick {
+#yswwyrhdxn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ngwqqztxon .gt_last_summary_row {
+#yswwyrhdxn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4698,7 +4705,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_grand_summary_row {
+#yswwyrhdxn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4708,7 +4715,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#ngwqqztxon .gt_first_grand_summary_row {
+#yswwyrhdxn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4718,7 +4725,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-top-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_last_grand_summary_row_top {
+#yswwyrhdxn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4728,11 +4735,11 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_striped {
+#yswwyrhdxn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ngwqqztxon .gt_table_body {
+#yswwyrhdxn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4741,7 +4748,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-bottom-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_footnotes {
+#yswwyrhdxn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4755,7 +4762,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_footnote {
+#yswwyrhdxn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4764,7 +4771,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#ngwqqztxon .gt_sourcenotes {
+#yswwyrhdxn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4778,7 +4785,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   border-right-color: #D3D3D3;
 }
 
-#ngwqqztxon .gt_sourcenote {
+#yswwyrhdxn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4786,63 +4793,63 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
   padding-right: 5px;
 }
 
-#ngwqqztxon .gt_left {
+#yswwyrhdxn .gt_left {
   text-align: left;
 }
 
-#ngwqqztxon .gt_center {
+#yswwyrhdxn .gt_center {
   text-align: center;
 }
 
-#ngwqqztxon .gt_right {
+#yswwyrhdxn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ngwqqztxon .gt_font_normal {
+#yswwyrhdxn .gt_font_normal {
   font-weight: normal;
 }
 
-#ngwqqztxon .gt_font_bold {
+#yswwyrhdxn .gt_font_bold {
   font-weight: bold;
 }
 
-#ngwqqztxon .gt_font_italic {
+#yswwyrhdxn .gt_font_italic {
   font-style: italic;
 }
 
-#ngwqqztxon .gt_super {
+#yswwyrhdxn .gt_super {
   font-size: 65%;
 }
 
-#ngwqqztxon .gt_footnote_marks {
+#yswwyrhdxn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ngwqqztxon .gt_asterisk {
+#yswwyrhdxn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ngwqqztxon .gt_indent_1 {
+#yswwyrhdxn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ngwqqztxon .gt_indent_2 {
+#yswwyrhdxn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ngwqqztxon .gt_indent_3 {
+#yswwyrhdxn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ngwqqztxon .gt_indent_4 {
+#yswwyrhdxn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ngwqqztxon .gt_indent_5 {
+#yswwyrhdxn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -5005,7 +5012,7 @@ Isto é utilizado para ajustar quantos níveis das estatísticas são mostradas.
 <span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Age Category"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-05dba1d6{}.cl-05cf5ca0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-05d41f56{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-05d41f6a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-05d43ab8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-05d43ac2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-05d43acc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-05d43acd{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-05d43ad6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-05d43ad7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-05dba1d6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-05d43ab8"><p class="cl-05d41f56"><span class="cl-05cf5ca0">Age Category</span></p></th><th class="cl-05d43ac2"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">Death</span></p></th><th class="cl-05d43ac2"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">Recover</span></p></th><th class="cl-05d43ac2"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">(Missing)</span></p></th><th class="cl-05d43ac2"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">0-4</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">471</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">364</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">260</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">5-9</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">476</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">391</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">228</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">10-14</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">438</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">303</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">200</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">15-19</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">323</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">251</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">169</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">20-29</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">477</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">367</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">229</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">30-49</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">329</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">238</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">187</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">50-69</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">33</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">38</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">24</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">70+</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">3</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">3</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">0</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43acc"><p class="cl-05d41f56"><span class="cl-05cf5ca0">(Missing)</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">32</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">28</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">26</span></p></td><td class="cl-05d43acd"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-05d43ad6"><p class="cl-05d41f56"><span class="cl-05cf5ca0">Sum</span></p></td><td class="cl-05d43ad7"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">2,582</span></p></td><td class="cl-05d43ad7"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">1,983</span></p></td><td class="cl-05d43ad7"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">1,323</span></p></td><td class="cl-05d43ad7"><p class="cl-05d41f6a"><span class="cl-05cf5ca0">5,888</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-b4cd179a{}.cl-b4c2a058{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b4c681aa{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b4c681b4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b4c69974{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b4c6997e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b4c69988{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b4c69989{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b4c69992{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b4c6999c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b4cd179a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-b4c69974"><p class="cl-b4c681aa"><span class="cl-b4c2a058">Age Category</span></p></th><th class="cl-b4c6997e"><p class="cl-b4c681b4"><span class="cl-b4c2a058">Death</span></p></th><th class="cl-b4c6997e"><p class="cl-b4c681b4"><span class="cl-b4c2a058">Recover</span></p></th><th class="cl-b4c6997e"><p class="cl-b4c681b4"><span class="cl-b4c2a058">(Missing)</span></p></th><th class="cl-b4c6997e"><p class="cl-b4c681b4"><span class="cl-b4c2a058">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">0-4</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">471</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">364</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">260</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">5-9</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">476</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">391</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">228</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">10-14</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">438</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">303</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">200</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">15-19</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">323</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">251</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">169</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">20-29</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">477</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">367</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">229</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">30-49</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">329</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">238</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">187</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">50-69</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">33</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">38</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">24</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">70+</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">3</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">3</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">0</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69988"><p class="cl-b4c681aa"><span class="cl-b4c2a058">(Missing)</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">32</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">28</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">26</span></p></td><td class="cl-b4c69989"><p class="cl-b4c681b4"><span class="cl-b4c2a058">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b4c69992"><p class="cl-b4c681aa"><span class="cl-b4c2a058">Sum</span></p></td><td class="cl-b4c6999c"><p class="cl-b4c681b4"><span class="cl-b4c2a058">2,582</span></p></td><td class="cl-b4c6999c"><p class="cl-b4c681b4"><span class="cl-b4c2a058">1,983</span></p></td><td class="cl-b4c6999c"><p class="cl-b4c681b4"><span class="cl-b4c2a058">1,323</span></p></td><td class="cl-b4c6999c"><p class="cl-b4c681b4"><span class="cl-b4c2a058">5,888</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -5565,7 +5572,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

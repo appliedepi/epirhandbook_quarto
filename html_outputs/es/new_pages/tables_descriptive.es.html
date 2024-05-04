@@ -137,9 +137,16 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
 <script>
 
-  // Function to extract the last two characters from the URL path to determine the language
+  // Function to extract the last two characters from the URL path to determine the language, adjusting for .html extension
   function getLanguageFromURL() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+    
+    // Check if the URL ends with .html and remove it
+    if (path.endsWith('.html')) {
+      path = path.substring(0, path.length - 5);
+    }
+
+    // Extract the last two characters for the language code
     const lang = path.substr(-2);
     return lang;
   }
@@ -775,8 +782,8 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>A continuación se muestran las primeras 50 filas del listado.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-9aa25e5da3f482b5e547" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9aa25e5da3f482b5e547">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f4b41f4232a88804f421" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4b41f4232a88804f421">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -1481,7 +1488,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">%&gt;%</span>    <span class="co"># convertir a imagen bonita</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()          <span class="co"># formatear a una línea por fila  </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c325aad6{}.cl-c31aebf0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c31f1234{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c31f2e5e{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e68{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e72{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e73{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e7c{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e7d{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e86{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e87{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e88{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e90{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e91{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c31f2e9a{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c325aad6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c31f2e5e"><p class="cl-c31f1234"><span class="cl-c31aebf0">Age Category/Gender</span></p></th><th class="cl-c31f2e68"><p class="cl-c31f1234"><span class="cl-c31aebf0">f</span></p></th><th class="cl-c31f2e68"><p class="cl-c31f1234"><span class="cl-c31aebf0">m</span></p></th><th class="cl-c31f2e72"><p class="cl-c31f1234"><span class="cl-c31aebf0">NA_</span></p></th><th class="cl-c31f2e73"><p class="cl-c31f1234"><span class="cl-c31aebf0">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">0-4</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">640 (22.8%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">416 (14.8%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">39 (14.0%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">5-9</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">641 (22.8%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">412 (14.7%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">42 (15.1%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">10-14</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">518 (18.5%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">383 (13.7%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">40 (14.4%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">941 (16.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">15-19</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">359 (12.8%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">364 (13.0%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">20  (7.2%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">743 (12.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">20-29</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">468 (16.7%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">575 (20.5%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">30 (10.8%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">1,073 (18.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">30-49</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">179  (6.4%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">557 (19.9%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">18  (6.5%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">754 (12.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">50-69</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">2  (0.1%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">91  (3.2%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">2  (0.7%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">95  (1.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e7c"><p class="cl-c31f1234"><span class="cl-c31aebf0">70+</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">0  (0.0%)</span></p></td><td class="cl-c31f2e7d"><p class="cl-c31f1234"><span class="cl-c31aebf0">5  (0.2%)</span></p></td><td class="cl-c31f2e86"><p class="cl-c31f1234"><span class="cl-c31aebf0">1  (0.4%)</span></p></td><td class="cl-c31f2e87"><p class="cl-c31f1234"><span class="cl-c31aebf0">6  (0.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c31f2e88"><p class="cl-c31f1234"><span class="cl-c31aebf0"></span></p></td><td class="cl-c31f2e90"><p class="cl-c31f1234"><span class="cl-c31aebf0">0  (0.0%)</span></p></td><td class="cl-c31f2e90"><p class="cl-c31f1234"><span class="cl-c31aebf0">0  (0.0%)</span></p></td><td class="cl-c31f2e91"><p class="cl-c31f1234"><span class="cl-c31aebf0">86 (30.9%)</span></p></td><td class="cl-c31f2e9a"><p class="cl-c31f1234"><span class="cl-c31aebf0">86  (1.5%)</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-2f0807a6{}.cl-2efdcd5e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2f01ab9a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2f01c4cc{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4e0{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4e1{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4ea{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4f4{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4f5{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4f6{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4fe{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c4ff{width:1.771in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c508{width:1.117in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c509{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f01c512{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2f0807a6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-2f01c4cc"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">Age Category/Gender</span></p></th><th class="cl-2f01c4e0"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">f</span></p></th><th class="cl-2f01c4e0"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">m</span></p></th><th class="cl-2f01c4e1"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">NA_</span></p></th><th class="cl-2f01c4ea"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">0-4</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">640 (22.8%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">416 (14.8%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">39 (14.0%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">5-9</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">641 (22.8%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">412 (14.7%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">42 (15.1%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">1,095 (18.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">10-14</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">518 (18.5%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">383 (13.7%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">40 (14.4%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">941 (16.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">15-19</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">359 (12.8%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">364 (13.0%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">20  (7.2%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">743 (12.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">20-29</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">468 (16.7%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">575 (20.5%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">30 (10.8%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">1,073 (18.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">30-49</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">179  (6.4%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">557 (19.9%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">18  (6.5%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">754 (12.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">50-69</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">2  (0.1%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">91  (3.2%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">2  (0.7%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">95  (1.6%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4f4"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">70+</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">0  (0.0%)</span></p></td><td class="cl-2f01c4f5"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">5  (0.2%)</span></p></td><td class="cl-2f01c4f6"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">1  (0.4%)</span></p></td><td class="cl-2f01c4fe"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">6  (0.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f01c4ff"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e"></span></p></td><td class="cl-2f01c508"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">0  (0.0%)</span></p></td><td class="cl-2f01c508"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">0  (0.0%)</span></p></td><td class="cl-2f01c509"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">86 (30.9%)</span></p></td><td class="cl-2f01c512"><p class="cl-2f01ab9a"><span class="cl-2efdcd5e">86  (1.5%)</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -1695,8 +1702,8 @@ X-squared = 6.4931, df = 7, p-value = 0.4835</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-9d53bdd0d0172cede6c2" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9d53bdd0d0172cede6c2">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-107869f187a4b48b42c0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-107869f187a4b48b42c0">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -2063,8 +2070,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-44732717ee56fc4c2a54" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-44732717ee56fc4c2a54">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ca17e56bd334c301db1c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ca17e56bd334c301db1c">{"x":{"filter":"none","vertical":false,"data":[["Death","Death","Death","Death","Death","Death","Death","Death","Death","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover","Recover",null,null,null,null,null,null,null,null],["0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69","70+",null,"0-4","5-9","10-14","15-19","20-29","30-49","50-69",null],[471,476,438,323,477,329,33,3,32,364,391,303,251,367,238,38,3,28,260,228,200,169,229,187,24,26],["18.242%","18.435%","16.964%","12.510%","18.474%","12.742%","1.278%","0.116%","1.239%","18.36%","19.72%","15.28%","12.66%","18.51%","12.00%","1.92%","0.15%","1.41%","19.652%","17.234%","15.117%","12.774%","17.309%","14.135%","1.814%","1.965%"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>outcome<\/th>\n      <th>age_cat<\/th>\n      <th>n<\/th>\n      <th>percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"name":"outcome","targets":0},{"name":"age_cat","targets":1},{"name":"n","targets":2},{"name":"percent","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Para pivotar más ampliamente, creamos las nuevas columnas a partir de los <em>valores</em> de la columna existente <code>age_cat</code> (estableciendo <code>names_from = age_cat</code>). También especificamos que los nuevos valores de la tabla provendrán de la columna existente <code>n</code>, con <code>values_from = n</code>. Las columnas no mencionadas en nuestro comando de pivoteo (<code>outcome</code>) permanecerán sin cambios en el extremo izquierdo.</p>
@@ -2167,8 +2174,8 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Aquí está la nueva tabla con las filas “Total” en la parte inferior.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-bd8a0d716f08f1b208c8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-bd8a0d716f08f1b208c8">{"x":{"filter":"none","vertical":false,"data":[["Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[193,165,399,309,395,290,785,579,199,126,1971,1469],[22,22,21,22,22,21,22,21,22,22,22,22]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-a864cf11e44be97c82ac" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a864cf11e44be97c82ac">{"x":{"filter":"none","vertical":false,"data":[["Central Hospital","Central Hospital","Military Hospital","Military Hospital","Other","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Total","Total"],["Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover","Death","Recover"],[193,165,399,309,395,290,785,579,199,126,1971,1469],[22,22,21,22,22,21,22,21,22,22,22,22]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>hospital<\/th>\n      <th>outcome<\/th>\n      <th>N<\/th>\n      <th>ct_value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"name":"hospital","targets":0},{"name":"outcome","targets":1},{"name":"N","targets":2},{"name":"ct_value","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Esta tabla tiene un formato “largo”, que puede ser lo que quieres. <em>Opcionalmente</em>, puedes <em>pivotar</em> esta tabla <em>más ampliamente</em> para hacerla más legible. Mira la sección sobre pivoteo más amplio arriba, y la página <a href="pivoting.es.html">Pivotar datos</a>. También puedes añadir más columnas, y organizarla de forma agradable. Este código está abajo.</p>
@@ -2207,7 +2214,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <p>Y luego puedes imprimir esto muy bien como una imagen - abajo está la salida impresa con <strong>flextable</strong>. Puedes leer más en profundidad sobre este ejemplo y cómo lograr esta tabla “bonita” en la página <a href="tables_presentation.es.html">Tablas para presentaciones</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c57394f6{}.cl-c566a976{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c566a98a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c56af788{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c56af79c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c56b120e{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b120f{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1218{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1222{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1223{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b122c{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1236{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1237{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1240{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1241{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1242{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b124a{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b124b{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1254{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1255{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b125e{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b125f{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1260{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1268{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c56b1269{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c57394f6"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-c56b120e"><p class="cl-c56af788"><span class="cl-c566a976">Hospital</span></p></th><th rowspan="2" class="cl-c56b120f"><p class="cl-c56af79c"><span class="cl-c566a976">Total cases with known outcome</span></p></th><th colspan="3" class="cl-c56b1218"><p class="cl-c56af79c"><span class="cl-c566a976">Recovered</span></p></th><th colspan="3" class="cl-c56b1218"><p class="cl-c56af79c"><span class="cl-c566a976">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-c56b1237"><p class="cl-c56af79c"><span class="cl-c566a98a">Total</span></p></th><th class="cl-c56b1240"><p class="cl-c56af79c"><span class="cl-c566a98a">% of cases</span></p></th><th class="cl-c56b1241"><p class="cl-c56af79c"><span class="cl-c566a98a">Median CT values</span></p></th><th class="cl-c56b1237"><p class="cl-c56af79c"><span class="cl-c566a98a">Total</span></p></th><th class="cl-c56b1240"><p class="cl-c56af79c"><span class="cl-c566a98a">% of cases</span></p></th><th class="cl-c56b1240"><p class="cl-c56af79c"><span class="cl-c566a98a">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a98a">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a98a">325</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">126</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">38.8%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">199</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">61.2%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a98a">Central Hospital</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a98a">358</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">165</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">46.1%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">193</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">53.9%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a98a">Other</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a98a">685</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">290</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">42.3%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a98a">21</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">395</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">57.7%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a98a">Military Hospital</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a98a">708</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">309</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">43.6%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">399</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">56.4%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a98a">Missing</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a98a">1,125</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">514</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">45.7%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a98a">21</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a98a">611</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">54.3%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a98a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b1242"><p class="cl-c56af788"><span class="cl-c566a976">Port Hospital</span></p></td><td class="cl-c56b124a"><p class="cl-c56af79c"><span class="cl-c566a976">1,364</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a976">579</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a976">42.4%</span></p></td><td class="cl-c56b1255"><p class="cl-c56af79c"><span class="cl-c566a976">21</span></p></td><td class="cl-c56b124b"><p class="cl-c56af79c"><span class="cl-c566a976">785</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a976">57.6%</span></p></td><td class="cl-c56b1254"><p class="cl-c56af79c"><span class="cl-c566a976">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c56b125e"><p class="cl-c56af788"><span class="cl-c566a98a">Total</span></p></td><td class="cl-c56b125f"><p class="cl-c56af79c"><span class="cl-c566a98a">3,440</span></p></td><td class="cl-c56b1260"><p class="cl-c56af79c"><span class="cl-c566a98a">1,469</span></p></td><td class="cl-c56b1268"><p class="cl-c56af79c"><span class="cl-c566a98a">42.7%</span></p></td><td class="cl-c56b1269"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td><td class="cl-c56b1260"><p class="cl-c56af79c"><span class="cl-c566a98a">1,971</span></p></td><td class="cl-c56b1268"><p class="cl-c56af79c"><span class="cl-c566a98a">57.3%</span></p></td><td class="cl-c56b1268"><p class="cl-c56af79c"><span class="cl-c566a98a">22</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-310f2d4a{}.cl-31034d86{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-31034d9a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-31073856{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-31073860{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-31075318{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075322{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107532c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107532d{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075336{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075337{width:2.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075338{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075340{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075341{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107534a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107534b{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107534c{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075354{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075355{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107535e{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107535f{width:2.7in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075368{width:1.5in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075369{width:0.75in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3107536a{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-31075372{width:1in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-310f2d4a"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-31075318"><p class="cl-31073856"><span class="cl-31034d86">Hospital</span></p></th><th rowspan="2" class="cl-31075322"><p class="cl-31073860"><span class="cl-31034d86">Total cases with known outcome</span></p></th><th colspan="3" class="cl-3107532c"><p class="cl-31073860"><span class="cl-31034d86">Recovered</span></p></th><th colspan="3" class="cl-3107532c"><p class="cl-31073860"><span class="cl-31034d86">Died</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-31075340"><p class="cl-31073860"><span class="cl-31034d9a">Total</span></p></th><th class="cl-31075341"><p class="cl-31073860"><span class="cl-31034d9a">% of cases</span></p></th><th class="cl-3107534a"><p class="cl-31073860"><span class="cl-31034d9a">Median CT values</span></p></th><th class="cl-31075340"><p class="cl-31073860"><span class="cl-31034d9a">Total</span></p></th><th class="cl-31075341"><p class="cl-31073860"><span class="cl-31034d9a">% of cases</span></p></th><th class="cl-31075341"><p class="cl-31073860"><span class="cl-31034d9a">Median CT values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d9a">St. Mark's Maternity Hospital (SMMH)</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d9a">325</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">126</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">38.8%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">199</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">61.2%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d9a">Central Hospital</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d9a">358</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">165</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">46.1%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">193</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">53.9%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d9a">Other</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d9a">685</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">290</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">42.3%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d9a">21</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">395</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">57.7%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d9a">Military Hospital</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d9a">708</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">309</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">43.6%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">399</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">56.4%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d9a">Missing</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d9a">1,125</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">514</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">45.7%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d9a">21</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d9a">611</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">54.3%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d9a">21</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107534b"><p class="cl-31073856"><span class="cl-31034d86">Port Hospital</span></p></td><td class="cl-3107534c"><p class="cl-31073860"><span class="cl-31034d86">1,364</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d86">579</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d86">42.4%</span></p></td><td class="cl-3107535e"><p class="cl-31073860"><span class="cl-31034d86">21</span></p></td><td class="cl-31075354"><p class="cl-31073860"><span class="cl-31034d86">785</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d86">57.6%</span></p></td><td class="cl-31075355"><p class="cl-31073860"><span class="cl-31034d86">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3107535f"><p class="cl-31073856"><span class="cl-31034d9a">Total</span></p></td><td class="cl-31075368"><p class="cl-31073860"><span class="cl-31034d9a">3,440</span></p></td><td class="cl-31075369"><p class="cl-31073860"><span class="cl-31034d9a">1,469</span></p></td><td class="cl-3107536a"><p class="cl-31073860"><span class="cl-31034d9a">42.7%</span></p></td><td class="cl-31075372"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td><td class="cl-31075369"><p class="cl-31073860"><span class="cl-31034d9a">1,971</span></p></td><td class="cl-3107536a"><p class="cl-31073860"><span class="cl-31034d9a">57.3%</span></p></td><td class="cl-3107536a"><p class="cl-31073860"><span class="cl-31034d9a">22</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -2227,23 +2234,23 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()                                                  <span class="co"># por defecto</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="cducvfhtqq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cducvfhtqq table {
+<div id="uucsiieubq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uucsiieubq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cducvfhtqq thead, #cducvfhtqq tbody, #cducvfhtqq tfoot, #cducvfhtqq tr, #cducvfhtqq td, #cducvfhtqq th {
+#uucsiieubq thead, #uucsiieubq tbody, #uucsiieubq tfoot, #uucsiieubq tr, #uucsiieubq td, #uucsiieubq th {
   border-style: none;
 }
 
-#cducvfhtqq p {
+#uucsiieubq p {
   margin: 0;
   padding: 0;
 }
 
-#cducvfhtqq .gt_table {
+#uucsiieubq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2269,12 +2276,12 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-left-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_caption {
+#uucsiieubq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cducvfhtqq .gt_title {
+#uucsiieubq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2286,7 +2293,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-width: 0;
 }
 
-#cducvfhtqq .gt_subtitle {
+#uucsiieubq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2298,7 +2305,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-width: 0;
 }
 
-#cducvfhtqq .gt_heading {
+#uucsiieubq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2310,13 +2317,13 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_bottom_border {
+#uucsiieubq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_col_headings {
+#uucsiieubq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2331,7 +2338,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_col_heading {
+#uucsiieubq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2351,7 +2358,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#cducvfhtqq .gt_column_spanner_outer {
+#uucsiieubq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2363,15 +2370,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 4px;
 }
 
-#cducvfhtqq .gt_column_spanner_outer:first-child {
+#uucsiieubq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cducvfhtqq .gt_column_spanner_outer:last-child {
+#uucsiieubq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cducvfhtqq .gt_column_spanner {
+#uucsiieubq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2383,11 +2390,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   width: 100%;
 }
 
-#cducvfhtqq .gt_spanner_row {
+#uucsiieubq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cducvfhtqq .gt_group_heading {
+#uucsiieubq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2413,7 +2420,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   text-align: left;
 }
 
-#cducvfhtqq .gt_empty_group_heading {
+#uucsiieubq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2428,15 +2435,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: middle;
 }
 
-#cducvfhtqq .gt_from_md > :first-child {
+#uucsiieubq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cducvfhtqq .gt_from_md > :last-child {
+#uucsiieubq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cducvfhtqq .gt_row {
+#uucsiieubq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2455,7 +2462,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#cducvfhtqq .gt_stub {
+#uucsiieubq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2468,7 +2475,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#cducvfhtqq .gt_stub_row_group {
+#uucsiieubq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2482,15 +2489,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: top;
 }
 
-#cducvfhtqq .gt_row_group_first td {
+#uucsiieubq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cducvfhtqq .gt_row_group_first th {
+#uucsiieubq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cducvfhtqq .gt_summary_row {
+#uucsiieubq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2500,16 +2507,16 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#cducvfhtqq .gt_first_summary_row {
+#uucsiieubq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_first_summary_row.thick {
+#uucsiieubq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cducvfhtqq .gt_last_summary_row {
+#uucsiieubq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2519,7 +2526,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_grand_summary_row {
+#uucsiieubq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2529,7 +2536,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#cducvfhtqq .gt_first_grand_summary_row {
+#uucsiieubq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2539,7 +2546,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_last_grand_summary_row_top {
+#uucsiieubq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2549,11 +2556,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_striped {
+#uucsiieubq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cducvfhtqq .gt_table_body {
+#uucsiieubq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2562,7 +2569,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_footnotes {
+#uucsiieubq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2576,7 +2583,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_footnote {
+#uucsiieubq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2585,7 +2592,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#cducvfhtqq .gt_sourcenotes {
+#uucsiieubq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2599,7 +2606,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#cducvfhtqq .gt_sourcenote {
+#uucsiieubq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2607,63 +2614,63 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#cducvfhtqq .gt_left {
+#uucsiieubq .gt_left {
   text-align: left;
 }
 
-#cducvfhtqq .gt_center {
+#uucsiieubq .gt_center {
   text-align: center;
 }
 
-#cducvfhtqq .gt_right {
+#uucsiieubq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cducvfhtqq .gt_font_normal {
+#uucsiieubq .gt_font_normal {
   font-weight: normal;
 }
 
-#cducvfhtqq .gt_font_bold {
+#uucsiieubq .gt_font_bold {
   font-weight: bold;
 }
 
-#cducvfhtqq .gt_font_italic {
+#uucsiieubq .gt_font_italic {
   font-style: italic;
 }
 
-#cducvfhtqq .gt_super {
+#uucsiieubq .gt_super {
   font-size: 65%;
 }
 
-#cducvfhtqq .gt_footnote_marks {
+#uucsiieubq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cducvfhtqq .gt_asterisk {
+#uucsiieubq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cducvfhtqq .gt_indent_1 {
+#uucsiieubq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cducvfhtqq .gt_indent_2 {
+#uucsiieubq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cducvfhtqq .gt_indent_3 {
+#uucsiieubq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cducvfhtqq .gt_indent_4 {
+#uucsiieubq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cducvfhtqq .gt_indent_5 {
+#uucsiieubq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2797,23 +2804,23 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"{mean}"</span>) <span class="co"># imprime la media de edad</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="hhwmhlotdr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hhwmhlotdr table {
+<div id="mcklxdotes" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mcklxdotes table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hhwmhlotdr thead, #hhwmhlotdr tbody, #hhwmhlotdr tfoot, #hhwmhlotdr tr, #hhwmhlotdr td, #hhwmhlotdr th {
+#mcklxdotes thead, #mcklxdotes tbody, #mcklxdotes tfoot, #mcklxdotes tr, #mcklxdotes td, #mcklxdotes th {
   border-style: none;
 }
 
-#hhwmhlotdr p {
+#mcklxdotes p {
   margin: 0;
   padding: 0;
 }
 
-#hhwmhlotdr .gt_table {
+#mcklxdotes .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2839,12 +2846,12 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-left-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_caption {
+#mcklxdotes .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hhwmhlotdr .gt_title {
+#mcklxdotes .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2856,7 +2863,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-width: 0;
 }
 
-#hhwmhlotdr .gt_subtitle {
+#mcklxdotes .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2868,7 +2875,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-width: 0;
 }
 
-#hhwmhlotdr .gt_heading {
+#mcklxdotes .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2880,13 +2887,13 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_bottom_border {
+#mcklxdotes .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_col_headings {
+#mcklxdotes .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2901,7 +2908,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_col_heading {
+#mcklxdotes .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2921,7 +2928,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#hhwmhlotdr .gt_column_spanner_outer {
+#mcklxdotes .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2933,15 +2940,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 4px;
 }
 
-#hhwmhlotdr .gt_column_spanner_outer:first-child {
+#mcklxdotes .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hhwmhlotdr .gt_column_spanner_outer:last-child {
+#mcklxdotes .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hhwmhlotdr .gt_column_spanner {
+#mcklxdotes .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2953,11 +2960,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   width: 100%;
 }
 
-#hhwmhlotdr .gt_spanner_row {
+#mcklxdotes .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hhwmhlotdr .gt_group_heading {
+#mcklxdotes .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2983,7 +2990,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   text-align: left;
 }
 
-#hhwmhlotdr .gt_empty_group_heading {
+#mcklxdotes .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2998,15 +3005,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: middle;
 }
 
-#hhwmhlotdr .gt_from_md > :first-child {
+#mcklxdotes .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hhwmhlotdr .gt_from_md > :last-child {
+#mcklxdotes .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hhwmhlotdr .gt_row {
+#mcklxdotes .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3025,7 +3032,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#hhwmhlotdr .gt_stub {
+#mcklxdotes .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3038,7 +3045,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#hhwmhlotdr .gt_stub_row_group {
+#mcklxdotes .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3052,15 +3059,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: top;
 }
 
-#hhwmhlotdr .gt_row_group_first td {
+#mcklxdotes .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hhwmhlotdr .gt_row_group_first th {
+#mcklxdotes .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hhwmhlotdr .gt_summary_row {
+#mcklxdotes .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3070,16 +3077,16 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#hhwmhlotdr .gt_first_summary_row {
+#mcklxdotes .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_first_summary_row.thick {
+#mcklxdotes .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hhwmhlotdr .gt_last_summary_row {
+#mcklxdotes .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3089,7 +3096,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_grand_summary_row {
+#mcklxdotes .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3099,7 +3106,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#hhwmhlotdr .gt_first_grand_summary_row {
+#mcklxdotes .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3109,7 +3116,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_last_grand_summary_row_top {
+#mcklxdotes .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3119,11 +3126,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_striped {
+#mcklxdotes .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hhwmhlotdr .gt_table_body {
+#mcklxdotes .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3132,7 +3139,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_footnotes {
+#mcklxdotes .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3146,7 +3153,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_footnote {
+#mcklxdotes .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3155,7 +3162,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#hhwmhlotdr .gt_sourcenotes {
+#mcklxdotes .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3169,7 +3176,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#hhwmhlotdr .gt_sourcenote {
+#mcklxdotes .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3177,63 +3184,63 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#hhwmhlotdr .gt_left {
+#mcklxdotes .gt_left {
   text-align: left;
 }
 
-#hhwmhlotdr .gt_center {
+#mcklxdotes .gt_center {
   text-align: center;
 }
 
-#hhwmhlotdr .gt_right {
+#mcklxdotes .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hhwmhlotdr .gt_font_normal {
+#mcklxdotes .gt_font_normal {
   font-weight: normal;
 }
 
-#hhwmhlotdr .gt_font_bold {
+#mcklxdotes .gt_font_bold {
   font-weight: bold;
 }
 
-#hhwmhlotdr .gt_font_italic {
+#mcklxdotes .gt_font_italic {
   font-style: italic;
 }
 
-#hhwmhlotdr .gt_super {
+#mcklxdotes .gt_super {
   font-size: 65%;
 }
 
-#hhwmhlotdr .gt_footnote_marks {
+#mcklxdotes .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hhwmhlotdr .gt_asterisk {
+#mcklxdotes .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hhwmhlotdr .gt_indent_1 {
+#mcklxdotes .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hhwmhlotdr .gt_indent_2 {
+#mcklxdotes .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hhwmhlotdr .gt_indent_3 {
+#mcklxdotes .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hhwmhlotdr .gt_indent_4 {
+#mcklxdotes .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hhwmhlotdr .gt_indent_5 {
+#mcklxdotes .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3274,23 +3281,23 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> age_years <span class="sc">~</span> <span class="st">"({min}, {max})"</span>) <span class="co"># imprime min y max de edad</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="bxpzopvpuh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bxpzopvpuh table {
+<div id="xhxevaqsrh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xhxevaqsrh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bxpzopvpuh thead, #bxpzopvpuh tbody, #bxpzopvpuh tfoot, #bxpzopvpuh tr, #bxpzopvpuh td, #bxpzopvpuh th {
+#xhxevaqsrh thead, #xhxevaqsrh tbody, #xhxevaqsrh tfoot, #xhxevaqsrh tr, #xhxevaqsrh td, #xhxevaqsrh th {
   border-style: none;
 }
 
-#bxpzopvpuh p {
+#xhxevaqsrh p {
   margin: 0;
   padding: 0;
 }
 
-#bxpzopvpuh .gt_table {
+#xhxevaqsrh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3316,12 +3323,12 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-left-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_caption {
+#xhxevaqsrh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bxpzopvpuh .gt_title {
+#xhxevaqsrh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3333,7 +3340,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-width: 0;
 }
 
-#bxpzopvpuh .gt_subtitle {
+#xhxevaqsrh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3345,7 +3352,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-width: 0;
 }
 
-#bxpzopvpuh .gt_heading {
+#xhxevaqsrh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3357,13 +3364,13 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_bottom_border {
+#xhxevaqsrh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_col_headings {
+#xhxevaqsrh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3378,7 +3385,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_col_heading {
+#xhxevaqsrh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3398,7 +3405,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#bxpzopvpuh .gt_column_spanner_outer {
+#xhxevaqsrh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3410,15 +3417,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 4px;
 }
 
-#bxpzopvpuh .gt_column_spanner_outer:first-child {
+#xhxevaqsrh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bxpzopvpuh .gt_column_spanner_outer:last-child {
+#xhxevaqsrh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bxpzopvpuh .gt_column_spanner {
+#xhxevaqsrh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3430,11 +3437,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   width: 100%;
 }
 
-#bxpzopvpuh .gt_spanner_row {
+#xhxevaqsrh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bxpzopvpuh .gt_group_heading {
+#xhxevaqsrh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3460,7 +3467,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   text-align: left;
 }
 
-#bxpzopvpuh .gt_empty_group_heading {
+#xhxevaqsrh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3475,15 +3482,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: middle;
 }
 
-#bxpzopvpuh .gt_from_md > :first-child {
+#xhxevaqsrh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bxpzopvpuh .gt_from_md > :last-child {
+#xhxevaqsrh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bxpzopvpuh .gt_row {
+#xhxevaqsrh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3502,7 +3509,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   overflow-x: hidden;
 }
 
-#bxpzopvpuh .gt_stub {
+#xhxevaqsrh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3515,7 +3522,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#bxpzopvpuh .gt_stub_row_group {
+#xhxevaqsrh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3529,15 +3536,15 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   vertical-align: top;
 }
 
-#bxpzopvpuh .gt_row_group_first td {
+#xhxevaqsrh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bxpzopvpuh .gt_row_group_first th {
+#xhxevaqsrh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bxpzopvpuh .gt_summary_row {
+#xhxevaqsrh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3547,16 +3554,16 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#bxpzopvpuh .gt_first_summary_row {
+#xhxevaqsrh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_first_summary_row.thick {
+#xhxevaqsrh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bxpzopvpuh .gt_last_summary_row {
+#xhxevaqsrh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3566,7 +3573,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_grand_summary_row {
+#xhxevaqsrh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3576,7 +3583,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#bxpzopvpuh .gt_first_grand_summary_row {
+#xhxevaqsrh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3586,7 +3593,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-top-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_last_grand_summary_row_top {
+#xhxevaqsrh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3596,11 +3603,11 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_striped {
+#xhxevaqsrh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bxpzopvpuh .gt_table_body {
+#xhxevaqsrh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3609,7 +3616,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-bottom-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_footnotes {
+#xhxevaqsrh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3623,7 +3630,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_footnote {
+#xhxevaqsrh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3632,7 +3639,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#bxpzopvpuh .gt_sourcenotes {
+#xhxevaqsrh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3646,7 +3653,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   border-right-color: #D3D3D3;
 }
 
-#bxpzopvpuh .gt_sourcenote {
+#xhxevaqsrh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3654,63 +3661,63 @@ Supply arguments directly to `.fns` through an anonymous function instead.
   padding-right: 5px;
 }
 
-#bxpzopvpuh .gt_left {
+#xhxevaqsrh .gt_left {
   text-align: left;
 }
 
-#bxpzopvpuh .gt_center {
+#xhxevaqsrh .gt_center {
   text-align: center;
 }
 
-#bxpzopvpuh .gt_right {
+#xhxevaqsrh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bxpzopvpuh .gt_font_normal {
+#xhxevaqsrh .gt_font_normal {
   font-weight: normal;
 }
 
-#bxpzopvpuh .gt_font_bold {
+#xhxevaqsrh .gt_font_bold {
   font-weight: bold;
 }
 
-#bxpzopvpuh .gt_font_italic {
+#xhxevaqsrh .gt_font_italic {
   font-style: italic;
 }
 
-#bxpzopvpuh .gt_super {
+#xhxevaqsrh .gt_super {
   font-size: 65%;
 }
 
-#bxpzopvpuh .gt_footnote_marks {
+#xhxevaqsrh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bxpzopvpuh .gt_asterisk {
+#xhxevaqsrh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bxpzopvpuh .gt_indent_1 {
+#xhxevaqsrh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bxpzopvpuh .gt_indent_2 {
+#xhxevaqsrh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bxpzopvpuh .gt_indent_3 {
+#xhxevaqsrh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bxpzopvpuh .gt_indent_4 {
+#xhxevaqsrh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bxpzopvpuh .gt_indent_5 {
+#xhxevaqsrh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3778,23 +3785,23 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
 </div>
 <div class="cell-output-display">
 <div>
-<div id="rcvzuexsel" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rcvzuexsel table {
+<div id="lbxjzyikba" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lbxjzyikba table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rcvzuexsel thead, #rcvzuexsel tbody, #rcvzuexsel tfoot, #rcvzuexsel tr, #rcvzuexsel td, #rcvzuexsel th {
+#lbxjzyikba thead, #lbxjzyikba tbody, #lbxjzyikba tfoot, #lbxjzyikba tr, #lbxjzyikba td, #lbxjzyikba th {
   border-style: none;
 }
 
-#rcvzuexsel p {
+#lbxjzyikba p {
   margin: 0;
   padding: 0;
 }
 
-#rcvzuexsel .gt_table {
+#lbxjzyikba .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3820,12 +3827,12 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-left-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_caption {
+#lbxjzyikba .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rcvzuexsel .gt_title {
+#lbxjzyikba .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3837,7 +3844,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-width: 0;
 }
 
-#rcvzuexsel .gt_subtitle {
+#lbxjzyikba .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3849,7 +3856,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-top-width: 0;
 }
 
-#rcvzuexsel .gt_heading {
+#lbxjzyikba .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3861,13 +3868,13 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_bottom_border {
+#lbxjzyikba .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_col_headings {
+#lbxjzyikba .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3882,7 +3889,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_col_heading {
+#lbxjzyikba .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3902,7 +3909,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   overflow-x: hidden;
 }
 
-#rcvzuexsel .gt_column_spanner_outer {
+#lbxjzyikba .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3914,15 +3921,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 4px;
 }
 
-#rcvzuexsel .gt_column_spanner_outer:first-child {
+#lbxjzyikba .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rcvzuexsel .gt_column_spanner_outer:last-child {
+#lbxjzyikba .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rcvzuexsel .gt_column_spanner {
+#lbxjzyikba .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3934,11 +3941,11 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   width: 100%;
 }
 
-#rcvzuexsel .gt_spanner_row {
+#lbxjzyikba .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rcvzuexsel .gt_group_heading {
+#lbxjzyikba .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3964,7 +3971,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   text-align: left;
 }
 
-#rcvzuexsel .gt_empty_group_heading {
+#lbxjzyikba .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3979,15 +3986,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   vertical-align: middle;
 }
 
-#rcvzuexsel .gt_from_md > :first-child {
+#lbxjzyikba .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rcvzuexsel .gt_from_md > :last-child {
+#lbxjzyikba .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rcvzuexsel .gt_row {
+#lbxjzyikba .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4006,7 +4013,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   overflow-x: hidden;
 }
 
-#rcvzuexsel .gt_stub {
+#lbxjzyikba .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4019,7 +4026,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#rcvzuexsel .gt_stub_row_group {
+#lbxjzyikba .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4033,15 +4040,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   vertical-align: top;
 }
 
-#rcvzuexsel .gt_row_group_first td {
+#lbxjzyikba .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rcvzuexsel .gt_row_group_first th {
+#lbxjzyikba .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rcvzuexsel .gt_summary_row {
+#lbxjzyikba .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4051,16 +4058,16 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#rcvzuexsel .gt_first_summary_row {
+#lbxjzyikba .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_first_summary_row.thick {
+#lbxjzyikba .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rcvzuexsel .gt_last_summary_row {
+#lbxjzyikba .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4070,7 +4077,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_grand_summary_row {
+#lbxjzyikba .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4080,7 +4087,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#rcvzuexsel .gt_first_grand_summary_row {
+#lbxjzyikba .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4090,7 +4097,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-top-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_last_grand_summary_row_top {
+#lbxjzyikba .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4100,11 +4107,11 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_striped {
+#lbxjzyikba .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rcvzuexsel .gt_table_body {
+#lbxjzyikba .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4113,7 +4120,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_footnotes {
+#lbxjzyikba .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4127,7 +4134,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_footnote {
+#lbxjzyikba .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4136,7 +4143,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#rcvzuexsel .gt_sourcenotes {
+#lbxjzyikba .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4150,7 +4157,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#rcvzuexsel .gt_sourcenote {
+#lbxjzyikba .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4158,63 +4165,63 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#rcvzuexsel .gt_left {
+#lbxjzyikba .gt_left {
   text-align: left;
 }
 
-#rcvzuexsel .gt_center {
+#lbxjzyikba .gt_center {
   text-align: center;
 }
 
-#rcvzuexsel .gt_right {
+#lbxjzyikba .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rcvzuexsel .gt_font_normal {
+#lbxjzyikba .gt_font_normal {
   font-weight: normal;
 }
 
-#rcvzuexsel .gt_font_bold {
+#lbxjzyikba .gt_font_bold {
   font-weight: bold;
 }
 
-#rcvzuexsel .gt_font_italic {
+#lbxjzyikba .gt_font_italic {
   font-style: italic;
 }
 
-#rcvzuexsel .gt_super {
+#lbxjzyikba .gt_super {
   font-size: 65%;
 }
 
-#rcvzuexsel .gt_footnote_marks {
+#lbxjzyikba .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rcvzuexsel .gt_asterisk {
+#lbxjzyikba .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rcvzuexsel .gt_indent_1 {
+#lbxjzyikba .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rcvzuexsel .gt_indent_2 {
+#lbxjzyikba .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rcvzuexsel .gt_indent_3 {
+#lbxjzyikba .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rcvzuexsel .gt_indent_4 {
+#lbxjzyikba .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rcvzuexsel .gt_indent_5 {
+#lbxjzyikba .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4362,23 +4369,23 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
 <span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="cixsuprghe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cixsuprghe table {
+<div id="vnxwvjektk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vnxwvjektk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cixsuprghe thead, #cixsuprghe tbody, #cixsuprghe tfoot, #cixsuprghe tr, #cixsuprghe td, #cixsuprghe th {
+#vnxwvjektk thead, #vnxwvjektk tbody, #vnxwvjektk tfoot, #vnxwvjektk tr, #vnxwvjektk td, #vnxwvjektk th {
   border-style: none;
 }
 
-#cixsuprghe p {
+#vnxwvjektk p {
   margin: 0;
   padding: 0;
 }
 
-#cixsuprghe .gt_table {
+#vnxwvjektk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4404,12 +4411,12 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-left-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_caption {
+#vnxwvjektk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cixsuprghe .gt_title {
+#vnxwvjektk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4421,7 +4428,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-width: 0;
 }
 
-#cixsuprghe .gt_subtitle {
+#vnxwvjektk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4433,7 +4440,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-top-width: 0;
 }
 
-#cixsuprghe .gt_heading {
+#vnxwvjektk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4445,13 +4452,13 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_bottom_border {
+#vnxwvjektk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_col_headings {
+#vnxwvjektk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4466,7 +4473,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_col_heading {
+#vnxwvjektk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4486,7 +4493,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   overflow-x: hidden;
 }
 
-#cixsuprghe .gt_column_spanner_outer {
+#vnxwvjektk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4498,15 +4505,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 4px;
 }
 
-#cixsuprghe .gt_column_spanner_outer:first-child {
+#vnxwvjektk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cixsuprghe .gt_column_spanner_outer:last-child {
+#vnxwvjektk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cixsuprghe .gt_column_spanner {
+#vnxwvjektk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4518,11 +4525,11 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   width: 100%;
 }
 
-#cixsuprghe .gt_spanner_row {
+#vnxwvjektk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cixsuprghe .gt_group_heading {
+#vnxwvjektk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4548,7 +4555,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   text-align: left;
 }
 
-#cixsuprghe .gt_empty_group_heading {
+#vnxwvjektk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4563,15 +4570,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   vertical-align: middle;
 }
 
-#cixsuprghe .gt_from_md > :first-child {
+#vnxwvjektk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cixsuprghe .gt_from_md > :last-child {
+#vnxwvjektk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cixsuprghe .gt_row {
+#vnxwvjektk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4590,7 +4597,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   overflow-x: hidden;
 }
 
-#cixsuprghe .gt_stub {
+#vnxwvjektk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4603,7 +4610,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#cixsuprghe .gt_stub_row_group {
+#vnxwvjektk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4617,15 +4624,15 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   vertical-align: top;
 }
 
-#cixsuprghe .gt_row_group_first td {
+#vnxwvjektk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cixsuprghe .gt_row_group_first th {
+#vnxwvjektk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cixsuprghe .gt_summary_row {
+#vnxwvjektk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4635,16 +4642,16 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#cixsuprghe .gt_first_summary_row {
+#vnxwvjektk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_first_summary_row.thick {
+#vnxwvjektk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cixsuprghe .gt_last_summary_row {
+#vnxwvjektk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4654,7 +4661,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_grand_summary_row {
+#vnxwvjektk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4664,7 +4671,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#cixsuprghe .gt_first_grand_summary_row {
+#vnxwvjektk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4674,7 +4681,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-top-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_last_grand_summary_row_top {
+#vnxwvjektk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4684,11 +4691,11 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_striped {
+#vnxwvjektk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cixsuprghe .gt_table_body {
+#vnxwvjektk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4697,7 +4704,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-bottom-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_footnotes {
+#vnxwvjektk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4711,7 +4718,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_footnote {
+#vnxwvjektk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4720,7 +4727,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#cixsuprghe .gt_sourcenotes {
+#vnxwvjektk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4734,7 +4741,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   border-right-color: #D3D3D3;
 }
 
-#cixsuprghe .gt_sourcenote {
+#vnxwvjektk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4742,63 +4749,63 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
   padding-right: 5px;
 }
 
-#cixsuprghe .gt_left {
+#vnxwvjektk .gt_left {
   text-align: left;
 }
 
-#cixsuprghe .gt_center {
+#vnxwvjektk .gt_center {
   text-align: center;
 }
 
-#cixsuprghe .gt_right {
+#vnxwvjektk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cixsuprghe .gt_font_normal {
+#vnxwvjektk .gt_font_normal {
   font-weight: normal;
 }
 
-#cixsuprghe .gt_font_bold {
+#vnxwvjektk .gt_font_bold {
   font-weight: bold;
 }
 
-#cixsuprghe .gt_font_italic {
+#vnxwvjektk .gt_font_italic {
   font-style: italic;
 }
 
-#cixsuprghe .gt_super {
+#vnxwvjektk .gt_super {
   font-size: 65%;
 }
 
-#cixsuprghe .gt_footnote_marks {
+#vnxwvjektk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cixsuprghe .gt_asterisk {
+#vnxwvjektk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cixsuprghe .gt_indent_1 {
+#vnxwvjektk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cixsuprghe .gt_indent_2 {
+#vnxwvjektk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cixsuprghe .gt_indent_3 {
+#vnxwvjektk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cixsuprghe .gt_indent_4 {
+#vnxwvjektk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cixsuprghe .gt_indent_5 {
+#vnxwvjektk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4957,7 +4964,7 @@ Ajustar cómo se muestran los valores faltantes. El valor por defecto es “Unkn
 <span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Age Category"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c84df09a{}.cl-c842e948{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c846f43e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c846f448{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c8470eec{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c8470ef6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c8470f00{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c8470f0a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c8470f0b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c8470f14{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c84df09a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c8470eec"><p class="cl-c846f43e"><span class="cl-c842e948">Age Category</span></p></th><th class="cl-c8470ef6"><p class="cl-c846f448"><span class="cl-c842e948">Death</span></p></th><th class="cl-c8470ef6"><p class="cl-c846f448"><span class="cl-c842e948">Recover</span></p></th><th class="cl-c8470ef6"><p class="cl-c846f448"><span class="cl-c842e948">(Missing)</span></p></th><th class="cl-c8470ef6"><p class="cl-c846f448"><span class="cl-c842e948">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">0-4</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">471</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">364</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">260</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">5-9</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">476</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">391</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">228</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">10-14</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">438</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">303</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">200</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">15-19</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">323</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">251</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">169</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">20-29</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">477</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">367</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">229</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">30-49</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">329</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">238</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">187</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">50-69</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">33</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">38</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">24</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">70+</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">3</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">3</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">0</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f00"><p class="cl-c846f43e"><span class="cl-c842e948">(Missing)</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">32</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">28</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">26</span></p></td><td class="cl-c8470f0a"><p class="cl-c846f448"><span class="cl-c842e948">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c8470f0b"><p class="cl-c846f43e"><span class="cl-c842e948">Sum</span></p></td><td class="cl-c8470f14"><p class="cl-c846f448"><span class="cl-c842e948">2,582</span></p></td><td class="cl-c8470f14"><p class="cl-c846f448"><span class="cl-c842e948">1,983</span></p></td><td class="cl-c8470f14"><p class="cl-c846f448"><span class="cl-c842e948">1,323</span></p></td><td class="cl-c8470f14"><p class="cl-c846f448"><span class="cl-c842e948">5,888</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-33c5b5b8{}.cl-33ba6ef6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-33be4e5e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-33be4e72{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-33be9300{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-33be9328{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-33be933c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-33be933d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-33be9346{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-33be9347{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-33c5b5b8"><thead><tr style="overflow-wrap:break-word;"><th class="cl-33be9300"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">Age Category</span></p></th><th class="cl-33be9328"><p class="cl-33be4e72"><span class="cl-33ba6ef6">Death</span></p></th><th class="cl-33be9328"><p class="cl-33be4e72"><span class="cl-33ba6ef6">Recover</span></p></th><th class="cl-33be9328"><p class="cl-33be4e72"><span class="cl-33ba6ef6">(Missing)</span></p></th><th class="cl-33be9328"><p class="cl-33be4e72"><span class="cl-33ba6ef6">Sum</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">0-4</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">471</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">364</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">260</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">5-9</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">476</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">391</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">228</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">1,095</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">10-14</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">438</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">303</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">200</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">941</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">15-19</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">323</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">251</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">169</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">743</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">20-29</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">477</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">367</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">229</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">1,073</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">30-49</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">329</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">238</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">187</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">754</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">50-69</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">33</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">38</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">24</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">70+</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">3</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">3</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">0</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be933c"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">(Missing)</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">32</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">28</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">26</span></p></td><td class="cl-33be933d"><p class="cl-33be4e72"><span class="cl-33ba6ef6">86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-33be9346"><p class="cl-33be4e5e"><span class="cl-33ba6ef6">Sum</span></p></td><td class="cl-33be9347"><p class="cl-33be4e72"><span class="cl-33ba6ef6">2,582</span></p></td><td class="cl-33be9347"><p class="cl-33be4e72"><span class="cl-33ba6ef6">1,983</span></p></td><td class="cl-33be9347"><p class="cl-33be4e72"><span class="cl-33ba6ef6">1,323</span></p></td><td class="cl-33be9347"><p class="cl-33be4e72"><span class="cl-33ba6ef6">5,888</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -5517,7 +5524,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
