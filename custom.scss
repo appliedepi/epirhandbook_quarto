@@ -1,16 +1,16 @@
 /*-- scss:defaults --*/
-// Base document colors
-$body-bg: #181818;
-$body-color: white;
-$link-color: #940128;
 $h2-font-size:          1.6rem !default;
 $headings-font-weight:  500 !default;
+$link-color: #940128;
 $font-size-root: 1rem;
 
 /*-- scss:rules --*/
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     color: #940128;
 }
+
+
+
 
 .btn-primary {
     --bs-btn-color: #fff;
@@ -27,18 +27,6 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #940128;
     --bs-btn-disabled-border-color: #940128;
-}
-
-// Code blocks
-$code-block-bg-alpha: -.8;
-
-a {
-    color: #940128;
-    text-decoration: underline;
-    -webkit-text-decoration: underline;
-    -moz-text-decoration: underline;
-    -ms-text-decoration: underline;
-    -o-text-decoration: underline;
 }
 
 .alert-info {

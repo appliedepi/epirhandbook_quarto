@@ -28,7 +28,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Vietnamese 1
 
 <!-- ## About this handbook   -->
 
-## Phân tích dữ liệu dịch tễ học và y tế công cộng sử dụng ngôn ngữ R {.unnumbered}
+## Phân tích dữ liệu dịch tễ học và y tế công cộng với R {.unnumbered}
 
 **Sử dụng**: Sổ tay này đã được sử dụng trên **1 triệu lần bởi 450,000 người** trên toàn thế giới.
 

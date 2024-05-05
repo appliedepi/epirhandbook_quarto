@@ -2,6 +2,7 @@ project:
   type: book
   output-dir: html_outputs
   
+published-title: "Last updated"
   
 # profile:
 #   default: full
@@ -208,7 +209,7 @@ babelquarto:
     text: "English"
 
   mainlanguage: 'en'
-  languages: ['fr','es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'   
+  languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'  fr
 
 title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
@@ -227,5 +228,5 @@ format:
     include-in-header:
       - banner.html
     theme:
-      light: cosmo
-      dark: [cosmo, theme-dark.scss]
+      light: [sandstone, custom.scss]
+      dark: [sandstone, theme-dark.scss]
