@@ -32,6 +32,8 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 
 **Usage**: This handbook has been used over **1 million times by 450,000 people** around the world.
 
+This is intended for epidemiologists, public health professionals, and students who want to use R for applied epidemiology and public health. It is a community-driven project, written by epidemiologists for epidemiologists, and is not an official product of any organization.
+
 **Objective:** Serve as a quick R code reference manual (online and [**offline**](#data-used)**)**) with task-centered examples that address common epidemiological problems.
 
 **Are you just starting with R?** Try our [**free interactive tutorials**](https://www.appliedepi.org/tutorial/) or synchronous, virtual [**intro course**](https://www.appliedepi.org/live/) used by US CDC, WHO, and 75+ other health agencies and Field Epi Training Programs worldwide.
