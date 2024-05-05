@@ -228,5 +228,5 @@ format:
     include-in-header:
       - banner.html
     theme:
-      light: [sandstone, custom.scss]
+      light: cosmo
       dark: [sandstone, theme-dark.scss]
