@@ -19,6 +19,14 @@ Demographic pyramids are useful to show distributions of age and gender. Similar
 
 
 
+```{r}
+pacman::p_load(rio,       # to import data
+               here,      # to locate files
+               tidyverse, # to clean, handle, and plot the data (includes ggplot2 package)
+               apyramid,  # a package dedicated to creating age pyramids
+               janitor,   # tables and cleaning data
+               stringr)   # working with strings for titles, captions, etc.
+```
 
 
 <!-- ======================================================= -->
