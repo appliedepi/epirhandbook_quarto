@@ -74,6 +74,8 @@ a column separator -->
 
 [**Applied Epi**](http://www.appliedepi.org) is a nonprofit organisation and grassroots movement of frontline epis from around the world. We write in our spare time to offer this resource to the community. Your encouragement and feedback is most welcome:
 
+TEXT PARAGRAPH 3 FROM NEALE IS HERE.
+
 -   Visit our [**website**](http://www.appliedepi.org) and [**join our contact list**](https://forms.gle/9awNd8syypTSYUsn7)\
 -   **contact\@appliedepi.org**, tweet [**\@appliedepi**](https://twitter.com/appliedepi), or [**LinkedIn**](www.linkedin.com/company/appliedepi)\
 -   Submit issues to our [**Github repository**](https://github.com/appliedepi/epiRhandbook_eng)
