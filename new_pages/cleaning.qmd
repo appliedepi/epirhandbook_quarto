@@ -5,6 +5,7 @@
 knitr::include_graphics(here::here("images", "data_cleaning.png"))
 ```
 
+Cleaning is very important in data analysis. It involves removing or correcting errors, inconsistencies, and missing values in the data. This page demonstrates common steps used in the process of "cleaning" a dataset, and also explains the use of many essential R data management functions.
 
 This page demonstrates common steps used in the process of "cleaning" a dataset, and also explains the use of many essential R data management functions.  
 
