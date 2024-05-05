@@ -101,6 +101,8 @@ a column separator -->
 
 See instructions in the [Download handbook and data](#data-used) page.
 
+New paragraph is here. The handbook can help epidemiologists worldwide to learn R for applied epidemiology and public health. The handbook is a community-driven project, written by epidemiologists for epidemiologists, and is not an official product of any organization.
+
 <!-- ======================================================= -->
 
 ## Acknowledgements {.unnumbered}
