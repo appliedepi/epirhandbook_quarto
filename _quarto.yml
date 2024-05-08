@@ -229,4 +229,4 @@ format:
       - banner.html
     theme:
       light: cosmo
-      dark: [superhero, theme-dark.scss]
+      dark: [darkly] #, theme-dark.scsssuperhero
