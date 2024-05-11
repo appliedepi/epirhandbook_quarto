@@ -23,14 +23,6 @@ jobs:
           sudo apt update
           sudo apt install -y gh
 
-      - name: Authenticate GitHub CLI
-        run: |
-          echo "Authenticating with GitHub CLI using environment token..."
-          echo "${{ secrets.GITHUB_TOKEN }}"| gh auth login --with-token
-          gh auth status  
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Create language branches and PRs
         run: |
@@ -50,5 +42,7 @@ jobs:
             fi
             gh pr create --base $BASE_BRANCH --head $NEW_BRANCH --title "Update $lang handbook" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
           done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
