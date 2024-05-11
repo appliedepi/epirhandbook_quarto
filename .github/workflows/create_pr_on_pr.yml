@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
-      - main 
+      - 'handbook_v*_en' 
 
 jobs:
   create_translation_branches:
@@ -19,36 +19,33 @@ jobs:
           git config --global user.name 'ntluong95'
           git config --global user.email 'ph.ntluong95@gmail.com'
 
-      - name: Setup base branch
+      - name: Install GitHub CLI
         run: |
-          BASE_BRANCH="${{ github.base_ref }}"
-          echo "Base branch is $BASE_BRANCH"          
+          sudo apt update
+          sudo apt install gh
 
-      - name: Create and push branches
+      - name: Authenticate GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "${GITHUB_TOKEN}" | gh auth login --with-token
+
+      - name: Create language branches and PRs
         run: |
           LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
+          PR_BRANCH="${{ github.head_ref }}"  
+          VERSION_SUFFIX="${PR_BRANCH#handbook_}"
           PREFIX="${BASE_BRANCH%_en}"
           for lang in "${LANGS[@]}"; do
-            NEW_BRANCH="${PREFIX}_${lang}"
+            NEW_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the branch already exists
             if ! git rev-parse --verify --quiet "${NEW_BRANCH}"; then
               git checkout -b "${NEW_BRANCH}"
             else
               git checkout "${NEW_BRANCH}" 
-            fi
             git pull origin "${NEW_BRANCH}" 
             git push origin "${NEW_BRANCH}"
+            gh pr create --base $BASE_BRANCH --head $NEW_BRANCH --title "Update $lang handbook" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
           done
 
-      - name: Create pull requests
-        run: |
-            gh_pr_up() {
-                local lang=$1
-                local new_branch=$2
-                gh pr create --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$new_branch" || gh pr edit --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$new_branch"
-            }
-            for lang in "${LANGS[@]}"; do
-                NEW_BRANCH="${PREFIX}_${lang}"
-                gh_pr_up $lang $NEW_BRANCH
-            done
 
