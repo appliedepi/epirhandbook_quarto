@@ -29,6 +29,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 <!-- ## About this handbook   -->
 
 Add new sentence here
+Another sentence
 
 ## R for applied epidemiology and public health {.unnumbered}
 
