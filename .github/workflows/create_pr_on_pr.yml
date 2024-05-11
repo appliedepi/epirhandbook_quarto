@@ -1,0 +1,42 @@
+name: Create Translation Branches and PRs
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main 
+
+jobs:
+  create_translation_branches:
+    if: contains(github.head_ref, 'en') && contains(github.base_ref, 'main') 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'ntluong95'
+          git config --global user.email 'ph.ntluong95@gmail.com'
+
+      - name: Create and push branches
+        run: |
+          LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  # Add other language codes as needed
+          BASE_BRANCH="${{ github.head_ref }}"
+          PREFIX="${BASE_BRANCH%_en}"
+          for lang in "${LANGS[@]}"; do
+            NEW_BRANCH="${PREFIX}_${lang}"
+            # Check if the branch already exists
+            if ! git rev-parse --verify --quiet "${NEW_BRANCH}"; then
+              git checkout -b "${NEW_BRANCH}"
+              git push origin "${NEW_BRANCH}"
+            else
+              echo "Branch ${NEW_BRANCH} already exists."
+            fi
+          done
+
+      - name: Create pull requests
+        run: |
+            gh_pr_up() { gh pr create $* || gh pr edit $* }
+            gh_pr_up --title "Translation to [LANG] of handbook" --body "This is an automated PR to handle translation to [LANG] of the handbook."
+
