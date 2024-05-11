@@ -32,7 +32,7 @@ jobs:
             else
               git checkout "${NEW_BRANCH}" 
             fi
-            git pull origin "${NEW_BRANCH}" --rebase  # Ensures local branch is up-to-date with remote
+            git pull origin "${NEW_BRANCH}" 
             git push origin "${NEW_BRANCH}"
           done
 
