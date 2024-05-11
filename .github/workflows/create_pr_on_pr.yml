@@ -21,7 +21,7 @@ jobs:
 
       - name: Create and push branches
         run: |
-          LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  # Add other language codes as needed
+          LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
           BASE_BRANCH="${{ github.head_ref }}"
           PREFIX="${BASE_BRANCH%_en}"
           for lang in "${LANGS[@]}"; do
@@ -29,14 +29,20 @@ jobs:
             # Check if the branch already exists
             if ! git rev-parse --verify --quiet "${NEW_BRANCH}"; then
               git checkout -b "${NEW_BRANCH}"
-              git push origin "${NEW_BRANCH}"
-              gh_pr_up --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH"
             else
-              echo "Branch ${NEW_BRANCH} already exists."
+              git checkout "${NEW_BRANCH}" 
             fi
+            git pull origin "${NEW_BRANCH}" --rebase  # Ensures local branch is up-to-date with remote
+            git push origin "${NEW_BRANCH}"
           done
 
       - name: Create pull requests
         run: |
-            gh_pr_up() { gh pr create $* || gh pr edit $* }
+            gh_pr_up() {
+                gh pr create --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH" || gh pr edit --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH"
+            }
+            for lang in "${LANGS[@]}"; do
+                NEW_BRANCH="${PREFIX}_${lang}"
+                gh_pr_up
+            done
 
