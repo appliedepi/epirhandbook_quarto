@@ -30,6 +30,7 @@ jobs:
             if ! git rev-parse --verify --quiet "${NEW_BRANCH}"; then
               git checkout -b "${NEW_BRANCH}"
               git push origin "${NEW_BRANCH}"
+              gh_pr_up --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH"
             else
               echo "Branch ${NEW_BRANCH} already exists."
             fi
@@ -38,5 +39,4 @@ jobs:
       - name: Create pull requests
         run: |
             gh_pr_up() { gh pr create $* || gh pr edit $* }
-            gh_pr_up --title "Translation to [LANG] of handbook" --body "This is an automated PR to handle translation to [LANG] of the handbook."
 
