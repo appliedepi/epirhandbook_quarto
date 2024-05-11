@@ -3,12 +3,11 @@ name: Create Translation Branches and PRs
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-    branches:
-      - main 
+
 
 jobs:
   create_translation_branches:
-    if: contains(github.head_ref, 'en') && contains(github.base_ref, 'main') 
+    if: startsWith(github.head_ref, 'handbook_v') && endsWith(github.head_ref, '_en') 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,30 +18,32 @@ jobs:
           git config --global user.name 'ntluong95'
           git config --global user.email 'ph.ntluong95@gmail.com'
 
-      - name: Create and push branches
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install -y gh
+
+
+      - name: Create language branches and PRs
         run: |
           LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
-          BASE_BRANCH="${{ github.head_ref }}"
-          PREFIX="${BASE_BRANCH%_en}"
+          PR_BRANCH="${{ github.head_ref }}"  
+          VERSION_SUFFIX="${PR_BRANCH#handbook_}"
+          BASE_BRANCH="main"
+
           for lang in "${LANGS[@]}"; do
-            NEW_BRANCH="${PREFIX}_${lang}"
+            NEW_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the branch already exists
             if ! git rev-parse --verify --quiet "${NEW_BRANCH}"; then
               git checkout -b "${NEW_BRANCH}"
             else
               git checkout "${NEW_BRANCH}" 
+              git pull origin "${NEW_BRANCH}" --rebase
             fi
-            git pull origin "${NEW_BRANCH}" 
-            git push origin "${NEW_BRANCH}"
-          done
 
-      - name: Create pull requests
-        run: |
-            gh_pr_up() {
-                gh pr create --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH" || gh pr edit --title "Translation to $lang of handbook" --body "This is an automated PR to handle translation to $lang of the handbook." --base main --head "$NEW_BRANCH"
-            }
-            for lang in "${LANGS[@]}"; do
-                NEW_BRANCH="${PREFIX}_${lang}"
-                gh_pr_up
-            done
+            git push origin "${NEW_BRANCH}"
+            gh pr create --base $BASE_BRANCH --head $NEW_BRANCH --title "Update $lang handbook" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
