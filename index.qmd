@@ -27,6 +27,8 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 <!-- <span style="color: brown;">**The Epi R Handbook is an R reference manual for applied epidemiology and public health.**</span> -->
 
 <!-- ## About this handbook   -->
+New paragraph added here.
+Another paragraph here
 
 ## R for applied epidemiology and public health {.unnumbered}
 
