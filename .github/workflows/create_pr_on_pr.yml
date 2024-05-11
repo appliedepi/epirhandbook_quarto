@@ -19,10 +19,14 @@ jobs:
           git config --global user.name 'ntluong95'
           git config --global user.email 'ph.ntluong95@gmail.com'
 
+      - name: Setup base branch
+        run: |
+          BASE_BRANCH="${{ github.base_ref }}"
+          echo "Base branch is $BASE_BRANCH"          
+
       - name: Create and push branches
         run: |
           LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
-          BASE_BRANCH="${{ github.head_ref }}"
           PREFIX="${BASE_BRANCH%_en}"
           for lang in "${LANGS[@]}"; do
             NEW_BRANCH="${PREFIX}_${lang}"
