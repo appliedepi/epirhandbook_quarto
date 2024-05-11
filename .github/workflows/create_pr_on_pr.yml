@@ -3,12 +3,11 @@ name: Create Translation Branches and PRs
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-    branches:
-      - 'handbook_v*_en' 
+
 
 jobs:
   create_translation_branches:
-    if: contains(github.head_ref, 'en') && contains(github.base_ref, 'main') 
+    if: startsWith(github.head_ref, 'handbook_v') && endsWith(github.head_ref, '_en') 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,7 +21,7 @@ jobs:
       - name: Install GitHub CLI
         run: |
           sudo apt update
-          sudo apt install gh
+          sudo apt install -y gh
 
       - name: Authenticate GitHub CLI
         env:
@@ -35,7 +34,7 @@ jobs:
           LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
           PR_BRANCH="${{ github.head_ref }}"  
           VERSION_SUFFIX="${PR_BRANCH#handbook_}"
-          PREFIX="${BASE_BRANCH%_en}"
+          BASE_BRANCH="main"
           for lang in "${LANGS[@]}"; do
             NEW_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the branch already exists
