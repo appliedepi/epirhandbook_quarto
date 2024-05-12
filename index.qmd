@@ -28,6 +28,8 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 
 <!-- ## About this handbook   -->
 
+A new paragraph to test here
+
 ## R for applied epidemiology and public health {.unnumbered}
 
 **Usage**: This handbook has been used over **1 million times by 450,000 people** around the world.
@@ -126,6 +128,8 @@ This handbook is **not** an approved product of any specific organization. Altho
 <!-- **Reviewers**: Pat Keating, Mathilde Mousset, Annick Lenglet, Margot Charette, Isha Berry, Paula Blomquist, Natalie Fischer, Daniely Xavier, Esther Kukielka, Michelle Sloan, Aybüke Koyuncu, Rachel Burke, Daniel Molling, Kate Kelsey, Berhe Etsay, John Rossow, Mackenzie Zendt, James Wright, Wayne Enanoria, Laura Haskins, Flavio Finger, Tim Taylor, Jae Hyoung Tim Lee, Brianna Bradley, Manual Albela Miranda, Molly Mantus, Priscilla Spencer, Pattama Ulrich, Joseph Timothy, Adam Vaughan, Olivia Varsaneux, Lionel Monteiro, Joao Muianga   -->
 
 ### Funding and support {.unnumbered}
+
+Another paragraph to test here
 
 This book was primarily a volunteer effort that took thousands of hours to create.
 

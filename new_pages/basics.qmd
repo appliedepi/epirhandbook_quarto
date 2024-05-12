@@ -38,6 +38,13 @@ The R community of users is enormous and collaborative. New packages and tools t
 
 ## Key terms
 
+New code chunk here
+
+```{r}
+a <- 1+1
+a **2
+```
+
 **RStudio** - RStudio is a Graphical User Interface (GUI) for easier use of **R**. Read more [in the RStudio section](#rstudio).
 
 **Objects** - Everything you store in R - datasets, variables, a list of village names, a total population number, even outputs such as graphs - are *objects* which are *assigned a name* and *can be referenced* in later commands. Read more [in the Objects section](#objects).
