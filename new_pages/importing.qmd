@@ -22,6 +22,15 @@ In this page we describe ways to locate, import, and export files:
 * R-specific file types such as RDS and RData  
 * Exporting/saving files and plots  
 
+Add new sentences here.
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 
 ```{r, include=FALSE}
 pacman::p_load(
