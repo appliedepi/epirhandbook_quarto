@@ -369,9 +369,6 @@ knitr::include_graphics(here::here("images", "flexdashboard_chain.gif"))
 
 
 
-## Code organization
-
-You may elect to have all code within the R Markdown **flexdashboard** script. Alternatively, to have a more clean and concise dashboard script you may choose to call upon code/figures that are hosted or created in external R scripts. This is described in greater detail in the [Reports with R Markdown](rmarkdown.qmd) page. 
 
 
 ## Shiny  
