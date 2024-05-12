@@ -38,7 +38,7 @@ jobs:
               git checkout -b "${NEW_BRANCH}"
             else
               git checkout "${NEW_BRANCH}" 
-              git pull origin "${NEW_BRANCH}" --rebase
+              git pull --rebase
             fi
 
             git push origin "${NEW_BRANCH}"
