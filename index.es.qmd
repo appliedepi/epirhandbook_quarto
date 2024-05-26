@@ -112,6 +112,8 @@ Este manual ha sido elaborado mediante la colaboración de profesionales de la e
 
 Este manual **no** es un producto aprobado por ninguna organización específica. Aunque nos esforzamos por ser precisos, no ofrecemos ninguna garantía sobre el contenido de este libro.
 
+También agradecemos la contribución de los usuarios de R de todo el mundo que han ayudado a traducir el manual a varios idiomas.
+
 
 ### Colaboradores {-}  
 
