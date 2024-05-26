@@ -38,7 +38,7 @@ The R community of users is enormous and collaborative. New packages and tools t
 
 ## Key terms
 
-New code chunk here
+Add a new code chunk to demonstrate basic math operations in R. For example, `1+1` will return `2`.
 
 ```{r}
 a <- 1+1
