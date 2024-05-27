@@ -40,6 +40,7 @@ jobs:
               git checkout -b "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}"
             fi
+            git fetch origin "${TRANSLATION_BRANCH}"
             git push origin "${TRANSLATION_BRANCH}"
 
             # Check if a PR already exists for this branch
