@@ -44,7 +44,7 @@ jobs:
             # Check if a PR already exists for this branch
             PR_EXISTS=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq length)
             if [ "$PR_EXISTS" -eq 0 ]; then
-              gh pr create --base main --head "${TRANSLATION_BRANCH}" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
+              gh pr create --base main --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
             fi
 
             # Get the PR number for the translation branch
