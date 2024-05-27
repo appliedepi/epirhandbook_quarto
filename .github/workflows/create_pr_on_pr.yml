@@ -40,6 +40,9 @@ jobs:
               git checkout -b "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}"
             fi
+
+            git merge origin/"${TRANSLATION_BRANCH}"
+            git rebase origin/"${TRANSLATION_BRANCH}"
             git push origin "${TRANSLATION_BRANCH}"
 
             # Check if a PR already exists for this branch
@@ -54,7 +57,7 @@ jobs:
             fi
 
             echo "Pull Request Number: $PR_NUMBER"
-            
+
             # Get the date of the latest commit on the translation branch
             latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})
 
