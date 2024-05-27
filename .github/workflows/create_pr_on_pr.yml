@@ -33,7 +33,7 @@ jobs:
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the translation branch exists
-            if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
+            if git ls-remote --exit-code --heads origin "${TRANSLATION_BRANCH}"; then
               git checkout "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}" --rebase
             else
@@ -70,7 +70,7 @@ jobs:
               checkboxes="$checkboxes\n\n@robcrystalornelas, please review."
             fi
 
-            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
+            gh api "repos/${{ github.repository }}/issues/$PR_NUMBER" --method PATCH --field body="$checkboxes"
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
