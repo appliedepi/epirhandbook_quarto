@@ -32,14 +32,18 @@ jobs:
 
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
-            # Check if the translation branch exists
+
+            # Check if the translation branch exists 
             if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
+              echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}"
               git checkout "${TRANSLATION_BRANCH}"
-              git pull origin "${EN_BRANCH}" --rebase
+              git pull --rebase origin "${EN_BRANCH}"
             else
+              echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
               git checkout -b "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}"
             fi
+
             git push origin "${TRANSLATION_BRANCH}"
 
             # Check if a PR already exists for this branch
@@ -49,9 +53,11 @@ jobs:
               PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
             
             else
-            # Get the PR number for the translation branch
-              PR_NUMBER=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq '.[0].number')
+              # Get the PR number for the translation branch
+              PR_NUMBER=$(gh pr list --base main --json number --jq ".[] | select(.headRefName == \"$TRANSLATION_BRANCH\") | .number")
             fi
+
+            echo "Pull Request Number: $PR_NUMBER"
 
             # Get the date of the latest commit on the translation branch
             latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})

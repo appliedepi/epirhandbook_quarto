@@ -107,6 +107,8 @@ This handbook is produced by an independent collaboration of epidemiologists fro
 
 This handbook is **not** an approved product of any specific organization. Although we strive for accuracy, we provide no guarantee of the content in this book.
 
+New line added
+
 ### Contributors {.unnumbered}
 
 **Editor:** [Neale Batra](https://www.linkedin.com/in/neale-batra/)
