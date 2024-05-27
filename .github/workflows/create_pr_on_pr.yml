@@ -33,24 +33,16 @@ jobs:
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the translation branch exists locally
-            if git show-ref --verify --quiet refs/heads/"${TRANSLATION_BRANCH}"; then
-              echo "Local branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}."
+            if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
+              echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}."
               git checkout "${TRANSLATION_BRANCH}"
               git pull --rebase origin "${EN_BRANCH}" 
             else
-            # Check if the translation branch exists remotely
-              if git ls-remote --exit-code --heads origin "${TRANSLATION_BRANCH}"; then
-                echo "Remote branch ${TRANSLATION_BRANCH} does not exist. Checking out."
-                git checkout -t origin/"${TRANSLATION_BRANCH}"
-                git pull --rebase
-              else  
-                echo "Branch ${TRANSLATION_BRANCH} does not exist locally or remotely. Creating new branch from ${EN_BRANCH}."
-                git checkout -b "${TRANSLATION_BRANCH}"
-                git pull origin "${EN_BRANCH}"
-              fi
-            fi  
+              echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
+              git checkout -b "${TRANSLATION_BRANCH}"
+              git push -u origin "${EN_BRANCH}"
+            fi
 
-            echo "Pushing changes to origin/${TRANSLATION_BRANCH}."
             git push origin "${TRANSLATION_BRANCH}"
 
             # Check if a PR already exists for this branch
