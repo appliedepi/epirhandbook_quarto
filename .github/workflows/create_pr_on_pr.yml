@@ -41,6 +41,7 @@ jobs:
               git pull origin "${EN_BRANCH}"
             fi
             git push origin "${TRANSLATION_BRANCH}"
+            gh pr create --base $BASE_BRANCH --head $TRANSLATION_BRANCH --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
 
             # Get the PR number for the translation branch
             PR_NUMBER=$(gh pr list --base main --json number --jq ".[] | select(.headRefName == \"$TRANSLATION_BRANCH\") | .number")
