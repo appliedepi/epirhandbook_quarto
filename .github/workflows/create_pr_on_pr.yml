@@ -33,7 +33,7 @@ jobs:
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
             # Check if the translation branch exists
-            if git ls-remote --exit-code --heads origin "${TRANSLATION_BRANCH}"; then
+            if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
               git checkout "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}" --rebase
             else
@@ -50,14 +50,16 @@ jobs:
             
             else
             # Get the PR number for the translation branch
-              PR_NUMBER=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq '.[0].number')
+              PR_NUMBER=$(gh pr list --base main --json number --jq ".[] | select(.headRefName == \"$TRANSLATION_BRANCH\") | .number")
             fi
 
+            echo "Pull Request Number: $PR_NUMBER"
+            
             # Get the date of the latest commit on the translation branch
             latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})
 
             # Get the commits on the English branch that were made after the latest commit on the translation branch
-            commits=$(gh api repos/${{ github.repository }}/commits?sha=${EN_BRANCH}" --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
+            commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
 
             # Add new commits as checkboxes to the PR description
             checkboxes=""
@@ -70,7 +72,7 @@ jobs:
               checkboxes="$checkboxes\n\n@robcrystalornelas, please review."
             fi
 
-            gh api "repos/${{ github.repository }}/issues/$PR_NUMBER" --method PATCH --field body="$checkboxes"
+            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
