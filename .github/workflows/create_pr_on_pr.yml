@@ -42,7 +42,7 @@ jobs:
               # Check if the translation branch exists on the remote
               if git ls-remote --exit-code --heads origin "${TRANSLATION_BRANCH}"; then
                 echo "Branch ${TRANSLATION_BRANCH} exists on remote. Fetching and checking out."
-                git fetch origin "${TRANSLATION_BRANCH}:${TRANSLATION_BRANCH}"
+                git fetch origin "${EN_BRANCH}:${TRANSLATION_BRANCH}"
                 git checkout "${TRANSLATION_BRANCH}"
                 git pull --rebase origin "${EN_BRANCH}"
               else
