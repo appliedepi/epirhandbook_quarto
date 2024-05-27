@@ -30,17 +30,21 @@ jobs:
           EN_BRANCH="${{ github.ref }}"
           VERSION_SUFFIX="${EN_BRANCH#refs/heads/handbook_}"
 
+          # Fetch all branches from the remote
+          git fetch --all
+
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
-            # Check if the translation branch exists locally
-            if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
+
+            # Check if the translation branch exists
+            if git rev-parse --verify --quiet "refs/heads/${TRANSLATION_BRANCH}"; then
               echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}."
               git checkout "${TRANSLATION_BRANCH}"
               git pull --rebase origin "${EN_BRANCH}" 
             else
               echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
               git checkout -b "${TRANSLATION_BRANCH}"
-              git push -u origin "${EN_BRANCH}"
+              git pull origin "${EN_BRANCH}"
             fi
 
             git push origin "${TRANSLATION_BRANCH}"
@@ -52,7 +56,7 @@ jobs:
               PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
             
             else
-            # Get the PR number for the translation branch
+              # Get the PR number for the translation branch
               PR_NUMBER=$(gh pr list --base main --json number --jq ".[] | select(.headRefName == \"$TRANSLATION_BRANCH\") | .number")
             fi
 
