@@ -41,7 +41,7 @@ jobs:
               git pull origin "${EN_BRANCH}"
             fi
             git push origin "${TRANSLATION_BRANCH}"
-            # Check if a PR already exists for this branch
+            # Check if a PR already exists for this language branch
             PR_EXISTS=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq length)
             if [ "$PR_EXISTS" -eq 0 ]; then
               gh pr create --base main --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}"
