@@ -40,7 +40,6 @@ jobs:
               git checkout -b "${TRANSLATION_BRANCH}"
               git pull origin "${EN_BRANCH}"
             fi
-            git fetch origin "${TRANSLATION_BRANCH}"
             git push origin "${TRANSLATION_BRANCH}"
 
             # Check if a PR already exists for this branch
@@ -58,7 +57,7 @@ jobs:
             latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})
 
             # Get the commits on the English branch that were made after the latest commit on the translation branch
-            commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
+            commits=$(gh api repos/${{ github.repository }}/commits?sha=${EN_BRANCH}" --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
 
             # Add new commits as checkboxes to the PR description
             checkboxes=""
