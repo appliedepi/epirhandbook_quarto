@@ -109,6 +109,8 @@ Sổ tay này được tạo ra bởi sự hợp tác của các nhà dịch t�
 
 Sổ tay này **không phải** là sản phẩm đã được phê duyệt của bất kỳ tổ chức cụ thể nào. Mặc dù chúng tôi cố gắng đảm bảo tính chính xác, nhưng chúng tôi không chịu trách nhiệm về nội dung trong cuốn sách này.
 
+Chúng tôi xin cảm ơn các tác giả đã giúp chúng tôi dịch cuốn sổ tay này sang nhiều ngôn ngữ
+
 ### Những người đóng góp {.unnumbered}
 
 **Chủ biên:** [Neale Batra](https://www.linkedin.com/in/neale-batra/)

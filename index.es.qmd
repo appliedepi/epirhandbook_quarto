@@ -112,7 +112,7 @@ Este manual ha sido elaborado mediante la colaboración de profesionales de la e
 
 Este manual **no** es un producto aprobado por ninguna organización específica. Aunque nos esforzamos por ser precisos, no ofrecemos ninguna garantía sobre el contenido de este libro.
 
-
+Nos gustaría agradecer a los autores que nos ayudaron a traducir este manual a varios idiomas.
 ### Colaboradores {-}  
 
 **Redactor jefe:** [Neale Batra](https://www.linkedin.com/in/neale-batra/) 
