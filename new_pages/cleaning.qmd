@@ -10,6 +10,7 @@ This page demonstrates common steps used in the process of "cleaning" a dataset,
 
 To demonstrate data cleaning, this page begins by importing a raw case linelist dataset, and proceeds step-by-step through the cleaning process. In the R code, this manifests as a "pipe" chain, which references the "pipe" operator ` %>%` that passes a dataset from one operation to the next.  
 
+Cleaning is very important in epidemiological data analysis. It ensures that the data is accurate, complete, and in the correct format for analysis. The cleaning process can include:
 
 ### Core functions {.unnumbered}  
 

@@ -37,7 +37,8 @@ jobs:
             if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
               echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}"
               git checkout "${TRANSLATION_BRANCH}"
-              git pull --rebase origin "${EN_BRANCH}"
+              git pull origin "${TRANSLATION_BRANCH}"
+              git pull origin "${EN_BRANCH}" --rebase
             else
               echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
               git checkout -b "${TRANSLATION_BRANCH}"
