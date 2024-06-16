@@ -51,11 +51,13 @@ jobs:
             # Check if a PR already exists for this branch
             PR_EXISTS=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq length)
             if [ "$PR_EXISTS" -eq 0 ]; then
+              echo "Creating new PR for ${TRANSLATION_BRANCH}"
               PR_URL=$(gh pr create --base main --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}")
               PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
             
             else
               # Get the PR number for the translation branch
+              echo "PR already exists for ${TRANSLATION_BRANCH}"
               PR_NUMBER=$(gh pr list --base main --json number --jq ".[] | select(.headRefName == \"$TRANSLATION_BRANCH\") | .number")
             fi
 
@@ -63,9 +65,11 @@ jobs:
 
             # Get the date of the latest commit on the translation branch
             latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})
+            echo "Latest commit date: $latest_commit_date"
 
             # Get the commits on the English branch that were made after the latest commit on the translation branch
             commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
+            echo "Commits on the English branch that were made after the latest commit on the translation branch: $commits"
 
             # Add new commits as checkboxes to the PR description
             checkboxes=""
@@ -75,7 +79,7 @@ jobs:
 
             # Mention a user in the PR description
             if [ "$lang" == "es" ]; then
-              checkboxes="$checkboxes\n\n@robcrystalornelas, please review."
+              checkboxes="$checkboxes @robcrystalornelas, please review."
             fi
 
             gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
