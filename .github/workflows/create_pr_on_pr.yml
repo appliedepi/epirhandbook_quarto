@@ -45,7 +45,8 @@ jobs:
               git pull origin "${EN_BRANCH}"
             fi
 
-            git push origin "${TRANSLATION_BRANCH}"
+            # Force push the changes to the remote repository
+            git push origin "${TRANSLATION_BRANCH}" --force
 
             # Check if a PR already exists for this branch
             PR_EXISTS=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq length)
