@@ -41,9 +41,6 @@ jobs:
               echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}"
               git fetch --prune
               git checkout "${TRANSLATION_BRANCH}"
-
-              #git pull origin "${TRANSLATION_BRANCH}"
-              #git rebase "origin/${EN_BRANCH#refs/heads/}"
               
               echo "${EN_BRANCH#refs/heads/}"
               echo "${TRANSLATION_BRANCH}"
@@ -85,7 +82,6 @@ jobs:
             if [ "$PR_EXISTS" -eq 0 ]; then
               echo "Creating new PR for ${TRANSLATION_BRANCH}"
               PR_URL=$(gh pr create --base main --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}")
-              # PR_URL=$(gh pr create --base "${EN_BRANCH#refs/heads/}" --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}")
               PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
             else
               # Get the PR number for the translation branch
@@ -103,20 +99,27 @@ jobs:
 
             # Mention a user in the PR description
             if [ "$lang" = "vn" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "fr" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "es" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "jp" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "tr" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "pt" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             elif [ "$lang" = "ru" ]; then
-              checkboxes="$checkboxes @ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
             fi
+
+
+            # Retrieve the current PR description
+            current_pr_body=$(gh pr view $PR_NUMBER --json body --jq '.body')
+
+            # Append checkboxes to the current PR description
+            new_pr_body="$current_pr_body$checkboxes"
 
             gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
 
