@@ -68,6 +68,7 @@ jobs:
             echo "Commits on the English branch that were made after the latest commit on the translation branch: $commits at $latest_commit_date"
 
             latest_commit_en_branch=$(git show --format=%H -s ${EN_BRANCH})
+            latest_commit_info=$(git log ${EN_BRANCH} --since=$(git log -1 --format=%ci ${TRANSLATION_BRANCH}) --format="%H %s" --reverse)
             latest_commit_main=$(git show --format=%H -s origin/main)
             echo $latest_commit_en_branch
             echo $latest_commit_main
@@ -92,27 +93,32 @@ jobs:
 
             echo "Pull Request Number: $PR_NUMBER"
             
+
+
+            
             # Add new commits as checkboxes to the PR description
             checkboxes=""
-            for commit in $latest_commit_en_branch; do
-              checkboxes="$checkboxes- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
-            done
+            while read -r line; do
+              sha=$(echo $line | awk '{print $1}')
+              message=$(echo $line | cut -d' ' -f2-)
+              checkboxes="$checkboxes\ [ ] [$sha](https://github.com/${{ github.repository }}/commit/$sha) - $message"
+            done <<< "$latest_commit_info"
 
             # Mention a user in the PR description
             if [ "$lang" = "vn" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "fr" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "es" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "jp" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "tr" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "pt" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             elif [ "$lang" = "ru" ]; then
-              checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
+              checkboxes="$checkboxes @ntluong95, please review"
             fi
 
 
