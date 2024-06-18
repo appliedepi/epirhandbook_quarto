@@ -36,6 +36,9 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner French 1500 
 
 **Langues:** [Anglais (English)](https://epirhandbook.com/), [Espagnol (Español)](https://epirhandbook.com/es/), [Vietnamien (Tiếng Việt)](https://epirhandbook.com/vn/), [Japonais (日本)](https://epirhandbook.com/jp/), [Turc (Türkçe)](https://epirhandbook.com/tr/), [Francais](https://epirhandbook.com/fr/), [Portugais (Português)](https://epirhandbook.com/pt/), [Russe](https://epirhandbook.com/ru/)  
 
+**En quoi est-ce différent des autres livres R ?** 
+
+* Il est axé sur la communauté - *écrit pour les épidémiologistes par des épidémiologistes* pendant leur temps libre et en tirant parti de leur expérience dans des contextes locaux, nationaux, universitaires et d'urgence 
 
 <br>
 <span style="color: black;">**Rédigé par des épidémiologistes, pour des épidémiologistes**</span>

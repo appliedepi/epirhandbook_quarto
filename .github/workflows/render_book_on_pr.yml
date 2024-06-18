@@ -34,7 +34,7 @@ jobs:
 
       - name: Restore R packages with renv
         run: |
-          install.packages("renv")
+          Rscript -e 'install.packages("renv")'
           Rscript -e 'renv::restore()'
 
       - name: Render Book
