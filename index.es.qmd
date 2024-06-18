@@ -39,7 +39,9 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Spanish en e
 
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
 
+**¿En qué se diferencia esto de otros libros de R?** 
 
+* Está impulsado por la comunidad - *escrito para epidemiólogos por epidemiólogos* en su tiempo libre y aprovechando la experiencia en entornos locales, nacionales, académicos y de emergencia
 
 <!-- **How is this different than other R books?**   -->
 
