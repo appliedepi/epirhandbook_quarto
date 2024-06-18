@@ -42,7 +42,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook banner beige 1500x5
 
 **How is this different than other R books?**  
 
-<!-- * It is community-driven - *written for epidemiologists by epidemiologists* in their spare time and leveraging experience in local, national, academic, and emergency settings   -->
+* It is community-driven - *written for epidemiologists by epidemiologists* in their spare time and leveraging experience in local, national, academic, and emergency settings  
 
 <!-- Dual-column created based on the rmarkdown cookbook here: https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html -->
 
