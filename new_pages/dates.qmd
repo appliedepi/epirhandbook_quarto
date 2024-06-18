@@ -69,7 +69,12 @@ Sys.time()
 
 
 With the **lubridate** package these can also be returned with `today()` and `now()`, respectively. `date()` returns the current date and time with weekday and month names.  
-  
+Add new code chunk to show example of date type in R 
+
+```{r}
+date <- as.Date("2022-01-01")
+date
+```
   
 
 <!-- ======================================================= -->
