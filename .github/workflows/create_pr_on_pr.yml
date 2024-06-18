@@ -93,7 +93,7 @@ jobs:
             
             # Add new commits as checkboxes to the PR description
             checkboxes=""
-            for commit in $commits; do
+            for commit in $latest_commit_en_branch; do
               checkboxes="$checkboxes\n- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
             done
 
