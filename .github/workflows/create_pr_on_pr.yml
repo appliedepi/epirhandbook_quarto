@@ -59,9 +59,10 @@ jobs:
             git push origin "${TRANSLATION_BRANCH}" --force
             
             
-            # Get the date of the latest commit on the translation branch
+            # Get the date of the latest commit on the english branch
             latest_commit_date=$(git show -s --format=%ci ${EN_BRANCH})
-            commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
+            # commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
+            commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | {sha: .sha, message: .commit.message}")
             
             # commits=$(git log origin/"${EN_BRANCH#refs/heads/}" --since="$latest_commit_date" --pretty=format:"%H")
             echo "Commits on the English branch that were made after the latest commit on the translation branch: $commits at $latest_commit_date"
@@ -119,9 +120,10 @@ jobs:
             current_pr_body=$(gh pr view $PR_NUMBER --json body --jq '.body')
 
             # Append checkboxes to the current PR description
-            new_pr_body="$current_pr_body$checkboxes"
+            new_pr_body=$(printf "%s\n%s" "$current_pr_body" "$checkboxes")
 
-            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
+            # gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
+            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$new_pr_body"
 
           done
         env:
