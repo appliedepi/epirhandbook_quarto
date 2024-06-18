@@ -120,10 +120,6 @@ Below we import the raw Excel file and save it as the data frame `linelist_raw`.
 linelist_raw <- rio::import(here::here("data", "case_linelists", "linelist_raw.xlsx"))
 ```
 
-```{r, eval=F}
-linelist_raw <- import("linelist_raw.xlsx")
-```
-
 You can view the first 50 rows of the the data frame below. Note: the **base** R function `head(n)` allow you to view just the first `n` rows in the R console.  
 
 ```{r message=FALSE, echo=F}
