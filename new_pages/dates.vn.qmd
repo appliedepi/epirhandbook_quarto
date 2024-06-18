@@ -71,12 +71,7 @@ Sys.time()
 
 Với package **lubridate**, chúng cũng có thể trả về giá trị tương ứng với hàm `today()` và `now()`. Hàm `date()` sẽ trả về giá trị ngày và giờ hiện tại với ngày trong tuần và tháng.  
   
-Ví dụ về kiểu ngày tháng trong R 
-
-```{r}
-date <- as.Date("2022-01-01")
-date
-```  
+  
 
 <!-- ======================================================= -->
 ## Chuyển đổi sang Ngày  
