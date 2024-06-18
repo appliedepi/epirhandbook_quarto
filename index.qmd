@@ -137,6 +137,8 @@ Special thanks to Médecins Sans Frontières (MSF) Operational Centre Amsterdam 
 
 *This publication was supported by Cooperative Agreement number NU2GGH001873, funded by the Centers for Disease Control and Prevention through TEPHINET, a program of The Task Force for Global Health. Its contents are solely the responsibility of the authors and do not necessarily represent the official views of the Centers for Disease Control and Prevention, the Department of Health and Human Services, The Task Force for Global Health, Inc. or TEPHINET.*
 
+The work can also not be done without the support of the [R Epidemics Consortium (RECON)](https://www.repidemicsconsortium.org/), a group of researchers and public health professionals who use the R software to solve problems in infectious disease epidemiology.
+
 ### Inspiration {.unnumbered}
 
 The multitude of tutorials and vignettes that provided knowledge for development of handbook content are credited within their respective pages.
