@@ -73,7 +73,7 @@ jobs:
             latest_commit_main=$(git show --format=%H -s origin/main)
             echo $latest_commit_en_branch
             echo $latest_commit_main
-            echo$latest_commit_info
+            echo $latest_commit_info
 
             # Check if there are new commits
             if [ "$latest_commit_en_branch" == "$latest_commit_main" ]; then
