@@ -68,7 +68,8 @@ jobs:
             echo "Commits on the English branch that were made after the latest commit on the translation branch: $commits at $latest_commit_date"
 
             latest_commit_en_branch=$(git show --format=%H -s ${EN_BRANCH})
-            latest_commit_info=$(git log ${EN_BRANCH} --since=$(git log -1 --format=%ci ${TRANSLATION_BRANCH}) --format="%H %s" --reverse)
+            
+            latest_commit_info=$(git log ${EN_BRANCH} --since="$latest_commit_date" --format="%H %s" --reverse)
             latest_commit_main=$(git show --format=%H -s origin/main)
             echo $latest_commit_en_branch
             echo $latest_commit_main
