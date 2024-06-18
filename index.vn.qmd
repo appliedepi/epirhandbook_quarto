@@ -41,9 +41,9 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Vietnamese 1
 
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
 
-<!-- **How is this different than other R books?**   -->
+**Cuốn sách này khác các cuốn sách về R khác như thế nào?**   
 
-<!-- * It is community-driven - *written for epidemiologists by epidemiologists* in their spare time and leveraging experience in local, national, academic, and emergency settings   -->
+ * Nó hướng đến cộng đồng - *được các nhà dịch tễ học viết cho các nhà dịch tễ học* trong thời gian rảnh rỗi của họ và tận dụng kinh nghiệm ở các cơ sở địa phương, quốc gia, học thuật và trường hợp khẩn cấp 
 
 <!-- Dual-column created based on the rmarkdown cookbook here: https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html -->
 
