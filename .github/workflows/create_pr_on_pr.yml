@@ -95,17 +95,14 @@ jobs:
             
 
 
-            # Check if latest_commit_info is not empty
-            if [ -z "$latest_commit_info" ]; then
-              echo "No new commits found."
-            else
-              # Add new commits as checkboxes to the PR description
-              checkboxes=""
-              while read -r line; do
-                sha=$(echo $line | awk '{print $1}')
-                message=$(echo $line | cut -d' ' -f2-)
-                checkboxes="$checkboxes\ [ ] [$sha](https://github.com/${{ github.repository }}/commit/$sha) - $message"
-              done <<< "$latest_commit_info"
+            
+            # Add new commits as checkboxes to the PR description
+            checkboxes=""
+            while read -r line; do
+              sha=$(echo $line | awk '{print $1}')
+              message=$(echo $line | cut -d' ' -f2-)
+              checkboxes="$checkboxes\ [ ] [$sha](https://github.com/${{ github.repository }}/commit/$sha) - $message"
+            done <<< "$latest_commit_info"
 
             # Mention a user in the PR description
             if [ "$lang" = "vn" ]; then
