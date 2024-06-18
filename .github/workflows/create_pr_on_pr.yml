@@ -24,6 +24,9 @@ jobs:
           sudo apt update
           sudo apt install -y gh
 
+      - name: Fetch all branches
+        run: git fetch --all
+
       - name: Create and update language branches and PRs
         run: |
           LANGS=("fr" "es" "vn" "jp" "tr" "pt" "ru")  
@@ -32,45 +35,97 @@ jobs:
 
           for lang in "${LANGS[@]}"; do
             TRANSLATION_BRANCH="handbook_${VERSION_SUFFIX/_en/_$lang}"
+            
             # Check if the translation branch exists
-            if git rev-parse --verify --quiet "${TRANSLATION_BRANCH}"; then
+            if git ls-remote --exit-code --heads origin "${TRANSLATION_BRANCH}"; then
+              echo "Branch ${TRANSLATION_BRANCH} exists. Checking out and rebasing with ${EN_BRANCH}"
+              git fetch --prune
               git checkout "${TRANSLATION_BRANCH}"
-              git pull origin "${EN_BRANCH}" --rebase
-            else
-              git checkout -b "${TRANSLATION_BRANCH}"
-              git pull origin "${EN_BRANCH}"
-            fi
-            git push origin "${TRANSLATION_BRANCH}"
+              
+              echo "${EN_BRANCH#refs/heads/}"
+              echo "${TRANSLATION_BRANCH}"
 
+              git status
+              git pull -s recursive -X theirs --no-rebase --no-edit origin "${EN_BRANCH#refs/heads/}" --allow-unrelated-histories
+              git push origin "${TRANSLATION_BRANCH}"
+              
+            else
+              echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
+              git checkout -b "${TRANSLATION_BRANCH}"
+              git pull origin "${EN_BRANCH#refs/heads/}"
+            fi
+            
+            # Force push the changes to the remote repository
+            git push origin "${TRANSLATION_BRANCH}" --force
+            
+            
+            # Get the date of the latest commit on the english branch
+            latest_commit_date=$(git show -s --format=%ci ${EN_BRANCH})
+            
+            echo "Commits on the English branch that were made after the latest commit on the translation branch at $latest_commit_date"
+            latest_commit_en_branch=$(git show --format=%H -s ${EN_BRANCH})
+            latest_commit_info=$(git log ${EN_BRANCH} --since="$latest_commit_date" --format="%H %s" --reverse)
+            commit_messages=$(echo "$latest_commit_info" | cut -d' ' -f2-)
+            latest_commit_main=$(git show --format=%H -s origin/main)
+            
+            echo $latest_commit_en_branch
+            echo $latest_commit_main
+            echo $latest_commit_info
+
+            # Check if there are new commits
+            if [ "$latest_commit_en_branch" == "$latest_commit_main" ]; then
+              echo "No new commits to include in PR for ${TRANSLATION_BRANCH}"
+              continue
+            fi
+            
             # Check if a PR already exists for this branch
             PR_EXISTS=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq length)
             if [ "$PR_EXISTS" -eq 0 ]; then
+              echo "Creating new PR for ${TRANSLATION_BRANCH}"
               PR_URL=$(gh pr create --base main --head "$TRANSLATION_BRANCH" --title "Handbook ${VERSION_SUFFIX/_en/} $lang" --body "Automated pull request for $lang handbook version ${VERSION_SUFFIX/_en/}")
               PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
-            
             else
-            # Get the PR number for the translation branch
-              PR_NUMBER=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq '.[0].number')
+              # Get the PR number for the translation branch
+              echo "PR already exists for ${TRANSLATION_BRANCH}"
+              PR_NUMBER=$(gh pr list --head "${TRANSLATION_BRANCH}" --state open --json number --jq ".[0].number")
             fi
 
-            # Get the date of the latest commit on the translation branch
-            latest_commit_date=$(git show -s --format=%ci ${TRANSLATION_BRANCH})
-
-            # Get the commits on the English branch that were made after the latest commit on the translation branch
-            commits=$(gh api repos/${{ github.repository }}/commits --paginate --jq ".[] | select(.commit.author.date > \"$latest_commit_date\") | .sha")
-
+            echo "Pull Request Number: $PR_NUMBER"
+            
             # Add new commits as checkboxes to the PR description
             checkboxes=""
-            for commit in $commits; do
-              checkboxes="$checkboxes\n- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
+            for commit in $latest_commit_en_branch; do
+              checkboxes="$checkboxes- [ ] [$commit_messages](https://github.com/${{ github.repository }}/commit/$commit)"
             done
 
+
             # Mention a user in the PR description
-            if [ "$lang" == "es" ]; then
-              checkboxes="$checkboxes\n\n@robcrystalornelas, please review."
+            if [ "$lang" = "vn" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "fr" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "es" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "jp" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "tr" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "pt" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
+            elif [ "$lang" = "ru" ]; then
+              checkboxes="$checkboxes @ntluong95, please check the box when you finish"
             fi
 
-            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
+
+            # Retrieve the current PR description
+            current_pr_body=$(gh pr view $PR_NUMBER --json body --jq '.body')
+
+            # Append checkboxes to the current PR description
+            new_pr_body=$(printf "%s\n%s" "$current_pr_body" "$checkboxes")
+
+            # gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$checkboxes"
+            gh api repos/${{ github.repository }}/issues/$PR_NUMBER --method PATCH --field body="$new_pr_body"
+
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
