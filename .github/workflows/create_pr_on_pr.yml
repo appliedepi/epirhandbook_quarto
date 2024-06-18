@@ -96,10 +96,17 @@ jobs:
             echo "Pull Request Number: $PR_NUMBER"
             
             # Add new commits as checkboxes to the PR description
-            checkboxes=""
-            for commit in $latest_commit_en_branch; do
-              checkboxes="$checkboxes- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
-            done
+            # Check if latest_commit_info is not empty
+            if [ -z "$latest_commit_info" ]; then
+              echo "No new commits found."
+            else
+              # Add new commits as checkboxes to the PR description
+              checkboxes=""
+              while read -r line; do
+                sha=$(echo $line | awk '{print $1}')
+                message=$(echo $line | cut -d' ' -f2-)
+                checkboxes="$checkboxes\ [ ] [$sha](https://github.com/${{ github.repository }}/commit/$sha) - $message"
+              done <<< "$latest_commit_info"
 
 
 
