@@ -70,6 +70,7 @@ jobs:
             latest_commit_en_branch=$(git show --format=%H -s ${EN_BRANCH})
             
             latest_commit_info=$(git log ${EN_BRANCH} --since="$latest_commit_date" --format="%H %s" --reverse)
+            commit_messages=$(echo "$latest_commit_info" | cut -d' ' -f2-)
             latest_commit_main=$(git show --format=%H -s origin/main)
             echo $latest_commit_en_branch
             echo $latest_commit_main
@@ -98,7 +99,7 @@ jobs:
             # Add new commits as checkboxes to the PR description
             checkboxes=""
             for commit in $latest_commit_en_branch; do
-              checkboxes="$checkboxes- [ ] [$latest_commit_info](https://github.com/${{ github.repository }}/commit/$commit)"
+              checkboxes="$checkboxes- [ ] [$commit_messages](https://github.com/${{ github.repository }}/commit/$commit)"
             done
 
 
