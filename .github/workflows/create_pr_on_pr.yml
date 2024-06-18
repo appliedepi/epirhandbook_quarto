@@ -72,6 +72,7 @@ jobs:
             latest_commit_main=$(git show --format=%H -s origin/main)
             echo $latest_commit_en_branch
             echo $latest_commit_main
+            echo$latest_commit_info
 
             # Check if there are new commits
             if [ "$latest_commit_en_branch" == "$latest_commit_main" ]; then
@@ -93,16 +94,13 @@ jobs:
 
             echo "Pull Request Number: $PR_NUMBER"
             
-
-
-            
             # Add new commits as checkboxes to the PR description
             checkboxes=""
-            while read -r line; do
-              sha=$(echo $line | awk '{print $1}')
-              message=$(echo $line | cut -d' ' -f2-)
-              checkboxes="$checkboxes\ [ ] [$sha](https://github.com/${{ github.repository }}/commit/$sha) - $message"
-            done <<< "$latest_commit_info"
+            for commit in $latest_commit_en_branch; do
+              checkboxes="$checkboxes- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
+            done
+
+
 
             # Mention a user in the PR description
             if [ "$lang" = "vn" ]; then
