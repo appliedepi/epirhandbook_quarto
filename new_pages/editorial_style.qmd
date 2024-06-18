@@ -20,9 +20,7 @@ A few other points:
 
 **So many choices**  
 
-One of the most challenging aspects of learning R is knowing which R package to use for a given task. It is a common occurrence to struggle through a task only later to realize - hey, there's an R package that does all that in one command line!  
 
-In this handbook, we try to offer you at least two ways to complete each task: one tried-and-true method (probably in **base** R or **tidyverse**) and one special R package that is custom-built for that purpose. We want you to have a couple options in case you can't download a given package or it otherwise does not work for you.  
 
 In choosing which packages to use, we prioritized R packages and approaches that have been tested and vetted by the community, minimize the number of packages used in a typical work session, that are stable (not changing very often), and that accomplish the task simply and cleanly  
 
