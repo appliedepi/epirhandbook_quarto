@@ -110,11 +110,6 @@ jobs:
               done          
 
 
-            # checkboxes=""
-            # for commit in $latest_commit_en_branch; do
-            #  checkboxes="$checkboxes- [ ] [$commit](https://github.com/${{ github.repository }}/commit/$commit)"
-            # done
-
             # Mention a user in the PR description
             if [ "$lang" = "vn" ]; then
               checkboxes="$checkboxes\n\n@ntluong95, please review the most updated changes in this version of the epiRhandbook."
