@@ -54,7 +54,7 @@ jobs:
   render-and-publish:
     needs: setup-environment-packages
     runs-on: ubuntu-latest
-    if: success()  # This ensures the publishing job only runs if the build-and-render job was successful
+    if: success()  
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
