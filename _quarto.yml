@@ -211,6 +211,16 @@ babelquarto:
   mainlanguage: 'en'
   languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'  fr
 
+lang: en
+
+format:
+  html: 
+    include-in-header:
+      - banner.html
+    theme:
+      light: cosmo
+      dark: [darkly, theme-dark.scss]
+
 title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
 title-es: EpiRhandbook en español
@@ -220,14 +230,4 @@ title-pt: Manual de R para Epidemiologistas
 title-ru: Справочник эпидемиолога R
 title-de: EpiRhandbook auf Deutsch
 
-
-lang: en
-
-format:
-  html: 
-    include-in-header:
-      - banner.html
-    theme:
-      light: cosmo
-      dark: [darkly, theme-dark.scss] 
 
