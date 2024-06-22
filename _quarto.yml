@@ -33,8 +33,13 @@ book:
   date: today
   date-format: "MMM D, YYYY"
   favicon: "images/Applied_Epi_logo.png"
+  cookie-consent:
+    type: implied
+    style: simple
+    palette: dark
   google-analytics:
     tracking-id: "G-QXDW878QLX"
+    storage: cookies
     anonymize-ip: true
 
   chapters:
@@ -211,16 +216,6 @@ babelquarto:
   mainlanguage: 'en'
   languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'  fr
 
-lang: en
-
-format:
-  html: 
-    include-in-header:
-      - banner.html
-    theme:
-      light: cosmo
-      dark: [darkly, theme-dark.scss]
-
 title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
 title-es: EpiRhandbook en español
@@ -231,3 +226,12 @@ title-ru: Справочник эпидемиолога R
 title-de: EpiRhandbook auf Deutsch
 
 
+lang: en
+
+format:
+  html: 
+    include-in-header:
+      - banner.html
+    theme:
+      light: cosmo
+      dark: [darkly, theme-dark.scss]
