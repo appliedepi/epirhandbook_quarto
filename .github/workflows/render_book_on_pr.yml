@@ -45,8 +45,8 @@ jobs:
         with:
           version: 1.4.550
 
-      - name: Print packages
-        run: Rscript -e 'names(installed.packages()[,3])'
+      # - name: Print packages
+      #   run: Rscript -e 'names(installed.packages()[,3])'
       
       - name: Render the book
         run: Rscript -e 'babelquarto::render_book()'
