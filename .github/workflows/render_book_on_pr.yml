@@ -49,7 +49,7 @@ jobs:
       #   run: Rscript -e 'names(installed.packages()[,3])'
       
       - name: Render the book
-        run: Rscript -e 'babelquarto::render_book()'
+        run: Rscript -e 'source("quarto_runfile.R")'
 
   render-and-publish:
     needs: setup-environment-packages
