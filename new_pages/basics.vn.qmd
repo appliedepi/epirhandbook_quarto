@@ -309,7 +309,7 @@ sqrt(49)
 Thêm ví dụ về hàm log()
 
 ```{r basics_function_log}
-log(1000)
+log(10000)
 ```
 
 Đối tượng được dùng cho một hàm cũng có thể là một cột trong tập dữ liệu (xem phần [Đối tượng](#objects) để biết chi tiết về tất cả các loại đối tượng). Vì R có thể lưu trữ nhiều tập dữ liệu, bạn sẽ cần xác định cả tập dữ liệu và cột. Một cách để làm điều này là sử dụng ký hiệu `$` để liên kết tên của tập dữ liệu và tên của cột (`dataset$column`). Trong ví dụ dưới đây, hàm `summary()` được áp dụng cho cột `age` trong tập dữ liệu `linelist`, và kết quả đầu ra là bản tóm tắt các giá trị số và giá trị missing của cột.
