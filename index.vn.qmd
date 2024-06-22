@@ -30,7 +30,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Vietnamese 1
 
 ## Phân tích dữ liệu dịch tễ học và y tế công cộng với R {.unnumbered}
 
-**Sử dụng**: Sổ tay này đã được sử dụng trên **1 triệu lần bởi 450,000 người** trên toàn thế giới.
+**Sử dụng**: Sổ tay này đã được sử dụng trên **5 triệu lần bởi 450,000 người** trên toàn thế giới.
 
 **Mục tiêu:** Là một tài liệu tham khảo R một cách nhanh chóng (trực tuyến và **[ngoại tuyến](data_used.vn.qmd)**), cung cấp các ví dụ tập trung vào nhiệm vụ giải quyết các vấn đề dịch tễ học phổ biến.  
 
