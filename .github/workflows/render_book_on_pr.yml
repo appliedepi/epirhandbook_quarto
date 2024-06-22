@@ -49,7 +49,7 @@ jobs:
         run: Rscript -e 'names(installed.packages()[,3])'
 
   render-and-publish:
-    needs: etup-environment-packages
+    needs: setup-environment-packages
     runs-on: ubuntu-latest
     if: success()  # This ensures the publishing job only runs if the build-and-render job was successful
     steps:
