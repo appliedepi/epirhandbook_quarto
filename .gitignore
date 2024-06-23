@@ -13,3 +13,5 @@
 .quarto/idx/index.qmd.json
 .quarto/idx/new_pages/cleaning.qmd.json
 .vscode/settings.json
+run_file.R
+runfile.R

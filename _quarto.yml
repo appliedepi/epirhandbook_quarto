@@ -48,13 +48,13 @@ book:
 
   # ABOUT BOOK
   - part: "About this book"
-    part-vn: "For testing purpose"
+    part-vn: "Về cuốn sách này"
     part-fr: "À propos de ce livre"
     part-es: "Acerca de este libro"
-    part-jp: "For testing purpose"
+    part-jp: "本書について"
     part-tr: "Bu kitap hakkında"
     part-pt: "Sobre este livro"
-    part-ru: "For testing purpose"
+    part-ru: "Об этой книге"
     part-de: "Über dieses Buch"
     chapters:
     - new_pages/editorial_style.qmd          # editorial style
@@ -62,13 +62,13 @@ book:
 
   # BASICS
   - part: "Basics"
-    part-vn: "For testing purpose"
+    part-vn: "Nhập môn về R"
     part-fr: "Les bases de R"
     part-es: "Aspectos básicos"
-    part-jp: "For testing purpose"
+    part-jp: "基本編"
     part-tr: "Temel Bilgiler"
     part-pt: "Básico"
-    part-ru: "For testing purpose"
+    part-ru: "Основы"
     part-de: "Grundlagen"
     chapters:
     - new_pages/basics.qmd
@@ -79,13 +79,13 @@ book:
 
   # DATA MANGEMENT
   - part: "Data Management"
-    part-vn: "For testing purpose"
+    part-vn: "Quản lý dữ liệu"
     part-fr: "Gestion des données"
     part-es: "Gestión de datos"
-    part-jp: "For testing purpose"
+    part-jp: "データマネジメント"
     part-tr: "Veri Yönetimi"
     part-pt: "Gerenciamento de Dados"
-    part-ru: "For testing purpose"
+    part-ru: "Управление данными"
     part-de: "Datenmanagement"
     chapters:
     - new_pages/cleaning.qmd
@@ -101,13 +101,13 @@ book:
 
   # ANALYSIS
   - part: "Analysis"
-    part-vn: "For testing purpose"
+    part-vn: "Phân tích dữ liệu"
     part-fr: "Analyse"
     part-es: "Análisis"
-    part-jp: "For testing purpose"
+    part-jp: "データ分析"
     part-tr: "Analiz"
     part-pt: "Análise dos Dados"
-    part-ru: "For testing purpose"
+    part-ru: "Анализ"
     part-de: "Analyse"
     chapters:
     - new_pages/tables_descriptive.qmd
@@ -126,13 +126,13 @@ book:
 
   # DATA VIZ
   - part: "Data Visualization"
-    part-vn: "For testing purpose"
+    part-vn: "Trực quan hóa dữ liệu"
     part-fr: "Visualisation des données"
     part-es: "Visualización de datos"
-    part-jp: "For testing purpose"
+    part-jp: "データの可視化"
     part-tr: "Veri Görselleştirme"
     part-pt: "Visualização de Dados"
-    part-ru: "For testing purpose"
+    part-ru: "Визуализация данных"
     part-de: "Datenvisualisierung"
     chapters:
     - new_pages/tables_presentation.qmd  #done
@@ -151,13 +151,13 @@ book:
 
   # REPORTS AND DASHBOARDS
   - part: "Reports and dashboards"
-    part-vn: "For testing purpose"
+    part-vn: "Báo cáo và dashboards"
     part-fr: "Rapports et tableaux de bord"
     part-es: "Informes y Dashboards"
-    part-jp: "For testing purpose"
+    part-jp: "レポートとダッシュボード"
     part-tr: "Raporlar ve gösterge panoları"
     part-pt: "Relatórios e dashboards"
-    part-ru: "For testing purpose"
+    part-ru: "Отчеты и информационные панели"
     part-de: "Berichte und Dashboards"
     chapters:
     - new_pages/rmarkdown.qmd #done
@@ -168,13 +168,13 @@ book:
 
   # MISCELLANEOUS
   - part: "Miscellaneous"
-    part-vn: "For testing purpose"
+    part-vn: "Các chủ điểm khác"
     part-fr: "Autres sujets"
     part-es: "Miscelánea"
-    part-jp: "For testing purpose"
+    part-jp: "その他"
     part-tr: "Çeşitli"
     part-pt: "Miscelânea"
-    part-ru: "For testing purpose"
+    part-ru: "Разное"
     part-de: "Verschiedenes"
     chapters:
     - new_pages/writing_functions.qmd #done
@@ -195,19 +195,19 @@ lightbox: true # Lightbox images allow a reader to click to see a larger version
 babelquarto:
   languagecodes:
   - name: vn
-    text: "For testing purpose"
+    text: "Tiếng Việt"
   - name: fr
     text: "Français"
   - name: es
     text: "Español"
   - name: jp
-    text: "For testing purpose"
+    text: "日本"
   - name: tr
     text: "Türkçe"
   - name: pt
     text: "Português"
   - name: ru
-    text: "For testing purpose"
+    text: "Русский"
   - name: de
     text: "Deutsch"
   - name: en
@@ -216,13 +216,13 @@ babelquarto:
   mainlanguage: 'en'
   languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'  fr
 
-title-vn: For testing purpose
+title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
 title-es: EpiRhandbook en español
-title-jp: For testing purpose
+title-jp: 疫学のための R ハンドブック
 title-tr: Epidemiyologun R Rehberi
 title-pt: Manual de R para Epidemiologistas
-title-ru: For testing purpose
+title-ru: Справочник эпидемиолога R
 title-de: EpiRhandbook auf Deutsch
 
 format:
