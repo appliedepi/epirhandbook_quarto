@@ -40,6 +40,12 @@ jobs:
         with:
           cache-version: 2
 
+      - name: Install Bioconductor packages
+        run: |
+          Rscript -e 'install.packages("babelquarto", repos = c("https://ropensci.r-universe.dev", "https://cloud.r-project.org"))'   
+          Rscript -e 'install.packages("babeldown", repos = c("https://ropensci.r-universe.dev", "https://cloud.r-project.org"))'   
+          Rscript -e 'renv::snapshot()'                
+
       - name: Install quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
