@@ -58,10 +58,7 @@ jobs:
           export LC_ALL=en_US.UTF-8
       
       - name: Render the book
-        shell: Rscript {0}
-        run: |
-          library(babelquarto)
-          babelquarto::render_book()
+        run: Rscript -e 'library(babelquarto); babelquarto::render_book()'
         continue-on-error: true
 
   render-and-publish:
