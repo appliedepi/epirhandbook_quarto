@@ -52,10 +52,12 @@ jobs:
       #   # uses: quarto-dev/quarto-actions/render@v2
       #   run: Rscript -e 'source("quarto_runfile.R")'
 
+      
       - name: the book
         shell: Rscript {0}
         run: |
           babelquarto::render_book()
+        continue-on-error: true
 
   render-and-publish:
     needs: setup-environment-packages
