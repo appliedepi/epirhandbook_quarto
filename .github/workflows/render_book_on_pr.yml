@@ -48,8 +48,8 @@ jobs:
 
       - name: Install quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.4.550
+        # with:
+        #   version: 1.4.550
 
       # - name: Print packages
       #   run: Rscript -e 'names(installed.packages()[,3])'
