@@ -306,7 +306,7 @@ Phần khái niệm cơ bản của hàm giải thích:
 sqrt(49)
 ```
 
-Một ví dụ minh họa về hàm log()
+Thwm một ví dụ minh họa khác về hàm log()
 
 ```{r basics_function_log}
 log(1000)
