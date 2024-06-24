@@ -214,7 +214,7 @@ babelquarto:
     text: "English"
 
   mainlanguage: 'en'
-  languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr', 'ru']  #'de'  fr
+  languages: ['fr', 'es', 'vn', 'jp', 'pt', 'tr' , 'ru']  #'de'  fr 
 
 title-vn: Cẩm nang dịch tễ học với R
 title-fr: Le Epi R Handbook
@@ -234,4 +234,4 @@ format:
       - banner.html
     theme:
       light: cosmo
-      dark: [darkly, theme-dark.scss] #superhero
+      dark: [darkly, theme-dark.scss]
