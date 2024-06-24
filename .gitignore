@@ -15,3 +15,4 @@
 .vscode/settings.json
 run_file.R
 runfile.R
+.env
