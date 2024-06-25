@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  setup-environment-packages:
+  render-and-commit:
     if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'handbook_v')
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -67,13 +67,13 @@ jobs:
       # - name: Render the book
       #   run: Rscript -e 'library(babelquarto); babelquarto::render_book()'
         
-  render-and-publish:
-    needs: setup-environment-packages
-    runs-on: ubuntu-latest
-    if: success()  
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+  # render-and-publish:
+  #   needs: setup-environment-packages
+  #   runs-on: ubuntu-latest
+  #   if: success()  
+  #   steps:
+  #     - name: Check out repository
+  #       uses: actions/checkout@v4
         
       - name: Commit results to main branch
         run: |
@@ -81,13 +81,14 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "CI added changes `date +'%Y-%m-%d %H:%M:%S'`" || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          git push origin main || echo "No changes to commit"
+
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     branch: main
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
 
       # - name: Publish to Netlify
       #   uses: quarto-dev/quarto-actions/publish@v2
