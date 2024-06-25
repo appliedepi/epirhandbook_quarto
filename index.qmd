@@ -30,7 +30,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Beige 1500x5
 
 ## R for applied epidemiology and public health {.unnumbered}
 
-**Usage**: This handbook has been used over **8 million times by 850,000 people** around the world.
+**Usage**: This handbook has been used over **10 million times by 950,000 people** around the world.
 
 **Objective:** Serve as a quick R code reference manual (online and [**offline**](#data-used)**)**) with task-centered examples that address common epidemiological problems.
 
