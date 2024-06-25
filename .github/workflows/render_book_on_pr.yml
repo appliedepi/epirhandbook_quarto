@@ -5,11 +5,11 @@ on:
   pull_request_target:
     types: [closed]
     branches:
-      - main
+      - deploy-preview
 
 jobs:
   render-and-commit:
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'handbook_v')
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'deploy-preview' && startsWith(github.event.pull_request.head.ref, 'handbook_v')
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
@@ -81,7 +81,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "CI added changes `date +'%Y-%m-%d %H:%M:%S'`" || echo "No changes to commit"
-          git push origin main || echo "No changes to commit"
+          git push origin deploy-preview || echo "No changes to commit"
 
       # - name: Push changes
       #   uses: ad-m/github-push-action@master
