@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Epidemiyologun R Rehberi - 18&nbsp; Basit istatistiksel testler</title>
+<title>Epidemiyologun R Rehberi - 18  Basit istatistiksel testler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,31 +53,18 @@ div.sourceCode
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <link href="../new_pages/regression.tr.html" rel="next">
 <link href="../new_pages/tables_descriptive.tr.html" rel="prev">
 <link href="../images/Applied_Epi_logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script><link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script><link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -106,17 +91,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Göndermek",
     "search-label": "Aramak"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics 
+</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"tr"
+  });
+});
+</script><!-- Global site tag (gtag.js) - Google Analytics 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -125,8 +121,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 
   gtag('config', 'G-QXDW878QLX');
 </script> -->
-
-</head><body class="nav-sidebar floating"><div class="alert alert-info alert-dismissible">
+</head>
+<body class="nav-sidebar floating">
+<div class="alert alert-info alert-dismissible">
   <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Need help learning R?</strong> Enroll in Applied Epi's <a href="https://www.appliedepi.org/live/"
     class="alert-link">intro R course</a>, try our <a href="https://www.appliedepi.org/tutorial/"
@@ -179,84 +176,75 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
     alertElement.style.display = 'block'; // Make sure to display the element
   }
 
-</script>
-<link href="../site_libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
-<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="../site_libs/datatables-binding-0.31/datatables.js"></script>
-<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+</script><link href="../site_libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.31/datatables.js"></script><script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="../site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="../site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
-<link href="../site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="../site_libs/selectize-0.12.0/selectize.min.js"></script>
-<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-
-
-
-
-
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="../site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+<script src="../site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="../site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+<script src="../site_libs/selectize-0.12.0/selectize.min.js"></script><link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/tables_descriptive.tr.html">Analiz</a></li><li class="breadcrumb-item"><a href="../new_pages/stat_tests.tr.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basit istatistiksel testler</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../new_pages/tables_descriptive.tr.html">Analiz</a></li>
+<li class="breadcrumb-item"><a href="../new_pages/stat_tests.tr.html"><span class="chapter-number">18</span>  <span class="chapter-title">Basit istatistiksel testler</span></a></li>
+</ol></nav><a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/Applied_Epi_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Epidemiyologun R Rehberi</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-    <a href="https://github.com/appliedepi/epihandbook_quarto" title="Kaynak Kodu" class="quarto-navigation-tool px-1" aria-label="Kaynak Kodu"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/appliedepi/epihandbook_eng" title="Kaynak Kodu" class="quarto-navigation-tool px-1" aria-label="Kaynak Kodu"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-    </div>
+</div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Karanlık modu değiştir"><i class="bi"></i></a>
 </div>
     </div>
       </div>
+<div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i></button><ul class="dropdown-menu" id="languages-links">
+<a class="dropdown-item" href="/new_pages/stat_tests.html" id="language-link-en">English</a><a class="dropdown-item" href="/fr/new_pages/stat_tests.fr.html" id="language-link-fr">Français</a>
+<a class="dropdown-item" href="/es/new_pages/stat_tests.es.html" id="language-link-es">Español</a>
+<a class="dropdown-item" href="/vn/new_pages/stat_tests.vn.html" id="language-link-vn">Tiếng Việt</a>
+<a class="dropdown-item" href="/jp/new_pages/stat_tests.jp.html" id="language-link-jp">日本</a>
+<a class="dropdown-item" href="/pt/new_pages/stat_tests.pt.html" id="language-link-pt">Português</a>
+<a class="dropdown-item" href="/ru/new_pages/stat_tests.ru.html" id="language-link-ru">Русский</a>
+</ul>
+</div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Aramak"></div>
@@ -264,7 +252,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.tr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hoş geldin</span></a>
@@ -278,21 +266,21 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/editorial_style.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Önyazı ve teknik notlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Önyazı ve teknik notlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/data_used.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Kitabı ve verileri indirme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">El Kitabı ve verileri indirme</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -301,39 +289,39 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/basics.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R’ın Temelleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">R’ın Temelleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/transition_to_R.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R’a geçiş</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">R’a geçiş</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/packages_suggested.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Önerilen paketler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Önerilen paketler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/r_projects.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R projeleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">R projeleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/importing.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">İçe ve dışa aktar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">İçe ve dışa aktar</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -342,63 +330,63 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/cleaning.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Veri temizliği ve temel fonksiyonlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Veri temizliği ve temel fonksiyonlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/dates.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tarihlerle çalışma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Tarihlerle çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/characters_strings.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Karakterler ve dizeler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Karakterler ve dizeler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/factors.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Faktörler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Faktörler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/pivoting.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Verilerin pivotlanması</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Verilerin pivotlanması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/grouping.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Verileri Gruplama</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Verileri Gruplama</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/joining_matching.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Veri Birleştirme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Veri Birleştirme</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/deduplication.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tekilleştirme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Tekilleştirme</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/iteration.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Yineleme, döngüler ve listeler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Yineleme, döngüler ve listeler</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -407,81 +395,81 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/tables_descriptive.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tanımlayıcı tablolar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Tanımlayıcı tablolar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/stat_tests.tr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basit istatistiksel testler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Basit istatistiksel testler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/regression.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tek değişkenli ve çok değişkenli regresyon</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Tek değişkenli ve çok değişkenli regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/missing_data.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eksik Veri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Eksik Veri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/standardization.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardize edilmiş hızlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Standardize edilmiş hızlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/moving_average.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hareketli ortalamalar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Hareketli ortalamalar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/time_series.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Zaman serileri ve salgınların tespit edilmesi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>  <span class="chapter-title">Zaman serileri ve salgınların tespit edilmesi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/epidemic_models.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Salgın Modelleme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>  <span class="chapter-title">Salgın Modelleme</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/contact_tracing.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Temaslı izlemi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>  <span class="chapter-title">Temaslı izlemi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/survey_analysis.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Anket analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>  <span class="chapter-title">Anket analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/survival_analysis.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Sağkalım Analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>  <span class="chapter-title">Sağkalım Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/gis.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Coğrafi Bilgi Sistemleri (CBS) Temelleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>  <span class="chapter-title">Coğrafi Bilgi Sistemleri (CBS) Temelleri</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -490,75 +478,75 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/tables_presentation.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Sunum için tablolar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>  <span class="chapter-title">Sunum için tablolar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_basics.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ggplot temelleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>  <span class="chapter-title">ggplot temelleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/ggplot_tips.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ggplot ipuçları</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>  <span class="chapter-title">ggplot ipuçları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/epicurves.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Salgın eğrileri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>  <span class="chapter-title">Salgın eğrileri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/age_pyramid.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Demografik piramidler ve likert ölçekler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>  <span class="chapter-title">Demografik piramidler ve likert ölçekler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/heatmaps.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Isı grafikleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>  <span class="chapter-title">Isı grafikleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/diagrams.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Diyagramlar ve çizelgeler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>  <span class="chapter-title">Diyagramlar ve çizelgeler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/combination_analysis.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Kombinasyon analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>  <span class="chapter-title">Kombinasyon analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/transmission_chains.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">İletim Zincirleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>  <span class="chapter-title">İletim Zincirleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/phylogenetic_trees.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Filogenetik ağaçlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>  <span class="chapter-title">Filogenetik ağaçlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/interactive_plots.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">İnteraktif grafikler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>  <span class="chapter-title">İnteraktif grafikler</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
@@ -567,33 +555,33 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/rmarkdown.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">R Markdown ile Raporlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>  <span class="chapter-title">R Markdown ile Raporlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/reportfactory.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Rutin raporların düzenlenmesi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>  <span class="chapter-title">Rutin raporların düzenlenmesi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/flexdashboard.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">R Markdown ile gösterge panelleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>  <span class="chapter-title">R Markdown ile gösterge panelleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/shiny_basics.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Shiny ile Gösterge Panelleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>  <span class="chapter-title">Shiny ile Gösterge Panelleri</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
@@ -602,98 +590,103 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/writing_functions.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Yazma fonksiyonları</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>  <span class="chapter-title">Yazma fonksiyonları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/directories.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Dizin etkileşimleri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>  <span class="chapter-title">Dizin etkileşimleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/collaboration.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Git ve Github ile sürüm kontrolü ve işbirliği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>  <span class="chapter-title">Git ve Github ile sürüm kontrolü ve işbirliği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/errors.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Yaygın hatalar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>  <span class="chapter-title">Yaygın hatalar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/help.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Yardım alma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>  <span class="chapter-title">Yardım alma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/network_drives.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Ağ sürücülerinde R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>  <span class="chapter-title">Ağ sürücülerinde R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../new_pages/data_table.tr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Veri tablosu</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>  <span class="chapter-title">Veri tablosu</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Içindekiler</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#hazırlık" id="toc-hazırlık" class="nav-link active" data-scroll-target="#hazırlık"><span class="header-section-number">18.1</span> Hazırlık</a>
+<li>
+<a href="#haz%C4%B1rl%C4%B1k" id="toc-hazırlık" class="nav-link active" data-scroll-target="#hazırlık"><span class="header-section-number">18.1</span> Hazırlık</a>
   <ul class="collapse">
-  <li><a href="#paketleri-yükleyin" id="toc-paketleri-yükleyin" class="nav-link" data-scroll-target="#paketleri-yükleyin">Paketleri yükleyin</a></li>
-  <li><a href="#verileri-içe-aktar" id="toc-verileri-içe-aktar" class="nav-link" data-scroll-target="#verileri-içe-aktar">Verileri içe aktar</a></li>
+<li><a href="#paketleri-y%C3%BCkleyin" id="toc-paketleri-yükleyin" class="nav-link" data-scroll-target="#paketleri-yükleyin">Paketleri yükleyin</a></li>
+  <li><a href="#verileri-i%C3%A7e-aktar" id="toc-verileri-içe-aktar" class="nav-link" data-scroll-target="#verileri-içe-aktar">Verileri içe aktar</a></li>
   <li><a href="#t-testleri" id="toc-t-testleri" class="nav-link" data-scroll-target="#t-testleri">T testleri</a></li>
   <li><a href="#shapiro-wilk-testi" id="toc-shapiro-wilk-testi" class="nav-link" data-scroll-target="#shapiro-wilk-testi">Shapiro-Wilk testi</a></li>
-  <li><a href="#wilcoxon-sıralama-toplamı-testi" id="toc-wilcoxon-sıralama-toplamı-testi" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi">Wilcoxon sıralama toplamı testi</a></li>
+  <li><a href="#wilcoxon-s%C4%B1ralama-toplam%C4%B1-testi" id="toc-wilcoxon-sıralama-toplamı-testi" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi">Wilcoxon sıralama toplamı testi</a></li>
   <li><a href="#kruskal-wallis-testi" id="toc-kruskal-wallis-testi" class="nav-link" data-scroll-target="#kruskal-wallis-testi">Kruskal-Wallis testi</a></li>
   <li><a href="#ki-kare-testi" id="toc-ki-kare-testi" class="nav-link" data-scroll-target="#ki-kare-testi">Ki-kare testi</a></li>
-  </ul></li>
-  <li><a href="#rstatix-paketi" id="toc-rstatix-paketi" class="nav-link" data-scroll-target="#rstatix-paketi"><span class="header-section-number">18.2</span> <strong>rstatix</strong> paketi</a>
+  </ul>
+</li>
+  <li>
+<a href="#rstatix-paketi" id="toc-rstatix-paketi" class="nav-link" data-scroll-target="#rstatix-paketi"><span class="header-section-number">18.2</span> <strong>rstatix</strong> paketi</a>
   <ul class="collapse">
-  <li><a href="#özet-istatistikler" id="toc-özet-istatistikler" class="nav-link" data-scroll-target="#özet-istatistikler">Özet istatistikler</a></li>
+<li><a href="#%C3%B6zet-istatistikler" id="toc-özet-istatistikler" class="nav-link" data-scroll-target="#özet-istatistikler">Özet istatistikler</a></li>
   <li><a href="#t-testi" id="toc-t-testi" class="nav-link" data-scroll-target="#t-testi">T-testi</a></li>
   <li><a href="#shapiro-wilk-testi-1" id="toc-shapiro-wilk-testi-1" class="nav-link" data-scroll-target="#shapiro-wilk-testi-1">Shapiro-Wilk testi</a></li>
-  <li><a href="#wilcoxon-sıralama-toplamı-testi-1" id="toc-wilcoxon-sıralama-toplamı-testi-1" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi-1">Wilcoxon sıralama toplamı testi</a></li>
+  <li><a href="#wilcoxon-s%C4%B1ralama-toplam%C4%B1-testi-1" id="toc-wilcoxon-sıralama-toplamı-testi-1" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi-1">Wilcoxon sıralama toplamı testi</a></li>
   <li><a href="#kruskal-wallis-testi-1" id="toc-kruskal-wallis-testi-1" class="nav-link" data-scroll-target="#kruskal-wallis-testi-1">Kruskal-Wallis testi</a></li>
   <li><a href="#ki-kare-testi-1" id="toc-ki-kare-testi-1" class="nav-link" data-scroll-target="#ki-kare-testi-1">Ki-kare testi</a></li>
-  </ul></li>
-  <li><a href="#stats_gt" id="toc-stats_gt" class="nav-link" data-scroll-target="#stats_gt"><span class="header-section-number">18.3</span> <code>gtsummary</code> paketi</a>
+  </ul>
+</li>
+  <li>
+<a href="#stats_gt" id="toc-stats_gt" class="nav-link" data-scroll-target="#stats_gt"><span class="header-section-number">18.3</span> <code>gtsummary</code> paketi</a>
   <ul class="collapse">
-  <li><a href="#ki-kare-testi-2" id="toc-ki-kare-testi-2" class="nav-link" data-scroll-target="#ki-kare-testi-2">Ki-kare testi</a></li>
+<li><a href="#ki-kare-testi-2" id="toc-ki-kare-testi-2" class="nav-link" data-scroll-target="#ki-kare-testi-2">Ki-kare testi</a></li>
   <li><a href="#t-testleri-1" id="toc-t-testleri-1" class="nav-link" data-scroll-target="#t-testleri-1">T testleri</a></li>
-  <li><a href="#wilcoxon-sıralama-toplamı-testi-2" id="toc-wilcoxon-sıralama-toplamı-testi-2" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi-2">Wilcoxon sıralama toplamı testi</a></li>
+  <li><a href="#wilcoxon-s%C4%B1ralama-toplam%C4%B1-testi-2" id="toc-wilcoxon-sıralama-toplamı-testi-2" class="nav-link" data-scroll-target="#wilcoxon-sıralama-toplamı-testi-2">Wilcoxon sıralama toplamı testi</a></li>
   <li><a href="#kruskal-wallis-testi-2" id="toc-kruskal-wallis-testi-2" class="nav-link" data-scroll-target="#kruskal-wallis-testi-2"><span class="header-section-number">18.3.1</span> Kruskal-wallis testi</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#korelasyonlar" id="toc-korelasyonlar" class="nav-link" data-scroll-target="#korelasyonlar"><span class="header-section-number">18.4</span> Korelasyonlar</a></li>
   <li><a href="#kaynaklar" id="toc-kaynaklar" class="nav-link" data-scroll-target="#kaynaklar"><span class="header-section-number">18.5</span> Kaynaklar</a></li>
-  </ul>
-</nav>
-    </div>
+  </ul></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../new_pages/tables_descriptive.tr.html">Analiz</a></li><li class="breadcrumb-item"><a href="../new_pages/stat_tests.tr.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basit istatistiksel testler</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basit istatistiksel testler</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../new_pages/tables_descriptive.tr.html">Analiz</a></li>
+<li class="breadcrumb-item"><a href="../new_pages/stat_tests.tr.html"><span class="chapter-number">18</span>  <span class="chapter-title">Basit istatistiksel testler</span></a></li>
+</ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">18</span>  <span class="chapter-title">Basit istatistiksel testler</span>
+</h1>
 </div>
 
 
@@ -707,10 +700,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
   
 
 
-</header>
-
-
-<p>Bu sayfa, <strong>base</strong> R, <strong>rstatix</strong> ve <strong>gtsummary</strong> kullanılarak basit istatistiksel testlerin nasıl gerçekleştirileceğini gösterir.</p>
+</header><p>Bu sayfa, <strong>base</strong> R, <strong>rstatix</strong> ve <strong>gtsummary</strong> kullanılarak basit istatistiksel testlerin nasıl gerçekleştirileceğini gösterir.</p>
 <ul>
 <li>t testi</li>
 <li>Shapiro-Wilk testi</li>
@@ -726,11 +716,9 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <li>Sonuçları bir veri çerçevesinde döndürmek için veya testlerin gruplara göre yapılmasını istiyorsanız <strong>rstatix</strong> fonksiyonlarını kullanın</li>
 <li>Yayına hazır tabloları hızlı bir şekilde yazdırmak istiyorsanız <strong>gtsummary</strong> kullanın</li>
 </ul>
-<!-- ============================================= ========= -->
-<section id="hazırlık" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="hazırlık"><span class="header-section-number">18.1</span> Hazırlık</h2>
-<section id="paketleri-yükleyin" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="paketleri-yükleyin">Paketleri yükleyin</h3>
+<!-- ============================================= ========= --><section id="hazırlık" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="hazırlık">
+<span class="header-section-number">18.1</span> Hazırlık</h2>
+<section id="paketleri-yükleyin" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="paketleri-yükleyin">Paketleri yükleyin</h3>
 <p>Bu kod parçası, analizler için gerekli olan paketlerin yüklenmesini gösterir. Bu el kitabında, gerekirse paketi kuran <em>ve</em> kullanım için yükleyen <strong>pacman</strong>’dan <code>p_load()</code> vurgusunu yapıyoruz. <strong>base</strong> R’dan <code>library()</code> ile kurulu paketleri de yükleyebilirsiniz. R paketleri hakkında daha fazla bilgi için [R basics] sayfasına bakın.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
@@ -745,9 +733,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  flextable     <span class="co"># Tabloları HTML formatına dönüştürme</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="verileri-içe-aktar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="verileri-içe-aktar">Verileri içe aktar</h3>
+</section><section id="verileri-içe-aktar" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="verileri-içe-aktar">Verileri içe aktar</h3>
 <p>Simüle edilmiş bir Ebola salgınından vakaların veri setini içe aktarıyoruz. Takip etmek isterseniz, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">“temiz” vaka listesini indirmek için tıklayınız</a>(.rds dosyası olarak). Verilerinizi <strong>rio</strong> paketinden <code>import()</code> fonksiyonuyla içe aktarın (.xlsx, .rds, .csv gibi birçok dosya türünü kabul eder - ayrıntılar için [İçe aktarma ve dışa aktarma] sayfasına bakın).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vaka listesini içe aktarma</span></span>
@@ -756,15 +742,13 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <p>Vaka listesinin ilk 50 satırı aşağıda görüntülenmektedir.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-f37591e237cff9008f84" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f37591e237cff9008f84">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b930895700de0c31beab" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b930895700de0c31beab">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399075200000\" data-max=\"1406419200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1399939200000\" data-max=\"1.407024e+12\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400025600000\" data-max=\"1407110400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1400371200000\" data-max=\"1410566400000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\" disabled=\"\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"67\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-29&quot;,&quot;30-49&quot;,&quot;50-69&quot;,&quot;70+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0-4&quot;,&quot;5-9&quot;,&quot;10-14&quot;,&quot;15-19&quot;,&quot;20-24&quot;,&quot;25-29&quot;,&quot;30-34&quot;,&quot;35-39&quot;,&quot;40-44&quot;,&quot;45-49&quot;,&quot;50-54&quot;,&quot;55-59&quot;,&quot;60-64&quot;,&quot;65-69&quot;,&quot;70-74&quot;,&quot;75-79&quot;,&quot;80-84&quot;,&quot;85+&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-13.2697246824573\" data-max=\"-13.209391925612\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8.45171855856465\" data-max=\"8.48802917129884\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"100\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"11\" data-max=\"241\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"20\" data-max=\"24\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"35.9\" data-max=\"38\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"428.994082840237\" data-scale=\"14\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["5fe599","8689b7","11f8ea","b8812a","893f25","be99c8","07e3e8","369449","f393b4","1389ca","2978ac","57a565","fc15ef","2eaa9a","bbfa93","c97dd9","f50e8a","3a7673","7f5a01","ddddee","99e8fa","567136","9371a9","bc2adf","403057","8bd1e8","f327be","42e1a9","90e5fe","959170","8ebf6e","e56412","6d788e","a47529","67be4e","da8ecb","148f18","2cb9a5","f5c142","70a9fe","3ad520","062638","c76676","baacc1","497372","23e499","38cc4a","3789ee","c71dcd","6b70f0"],[4,4,2,3,3,3,4,4,4,4,4,4,6,5,6,9,10,8,7,6,7,6,8,6,10,8,6,12,5,8,7,9,11,5,8,5,6,11,7,9,7,8,9,12,13,9,8,10,8,7],["2014-05-08",null,null,"2014-05-04","2014-05-18","2014-05-03","2014-05-22","2014-05-28",null,null,"2014-05-30","2014-05-28","2014-06-14","2014-06-07","2014-06-09",null,null,null,"2014-06-23","2014-06-18","2014-06-24",null,null,"2014-07-03",null,"2014-07-10","2014-06-14",null,"2014-06-18","2014-06-29","2014-07-02","2014-07-12","2014-07-12","2014-06-13","2014-07-15","2014-06-20",null,null,"2014-07-20",null,"2014-07-12","2014-07-19","2014-07-18","2014-07-18","2014-07-27",null,"2014-07-19","2014-07-26","2014-07-24",null],["2014-05-13","2014-05-13","2014-05-16","2014-05-18","2014-05-21","2014-05-22","2014-05-27","2014-06-02","2014-06-05","2014-06-05","2014-06-06","2014-06-13","2014-06-16","2014-06-17","2014-06-18","2014-06-19","2014-06-22","2014-06-23","2014-06-25","2014-06-26","2014-06-28","2014-07-02","2014-07-08","2014-07-09","2014-07-09","2014-07-10","2014-07-12","2014-07-12","2014-07-13","2014-07-13","2014-07-14","2014-07-15","2014-07-16","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-22","2014-07-22","2014-07-24","2014-07-24","2014-07-25","2014-07-25","2014-07-27","2014-07-29","2014-07-30",null,"2014-08-01","2014-08-02","2014-08-03"],["2014-05-15","2014-05-14","2014-05-18","2014-05-20","2014-05-22","2014-05-23","2014-05-29","2014-06-03","2014-06-06","2014-06-07","2014-06-08","2014-06-15","2014-06-17","2014-06-17","2014-06-20","2014-06-19","2014-06-23","2014-06-24","2014-06-27","2014-06-28","2014-06-29","2014-07-03","2014-07-09","2014-07-09","2014-07-11","2014-07-11","2014-07-13","2014-07-14","2014-07-14","2014-07-13","2014-07-14","2014-07-17","2014-07-17","2014-07-18","2014-07-19","2014-07-20","2014-07-20","2014-07-22","2014-07-24","2014-07-26","2014-07-24","2014-07-27","2014-07-25","2014-07-27","2014-07-31","2014-08-01","2014-08-03","2014-08-02","2014-08-02","2014-08-04"],[null,"2014-05-18","2014-05-30",null,"2014-05-29","2014-05-24","2014-06-01","2014-06-07","2014-06-18","2014-06-09","2014-06-15",null,"2014-07-09",null,"2014-06-30","2014-07-11","2014-07-01","2014-06-25","2014-07-06","2014-07-02","2014-07-09","2014-07-07","2014-07-20",null,"2014-07-22","2014-07-16","2014-07-14","2014-07-20","2014-07-16","2014-07-19","2014-07-27","2014-07-19",null,"2014-07-26","2014-08-14","2014-08-01","2014-07-23","2014-08-28","2014-07-28","2014-07-19",null,"2014-08-03",null,null,null,"2014-08-06","2014-08-21","2014-09-13","2014-08-04",null],[null,"Recover","Recover",null,"Recover","Recover","Recover","Death","Recover","Death","Death","Death","Recover","Recover",null,"Recover",null,null,"Death","Death","Recover",null,null,null,"Death",null,"Death","Death",null,"Death","Recover","Death","Recover","Death","Recover",null,"Death","Recover","Recover","Death",null,null,"Death","Death","Death","Death","Recover",null,"Death","Death"],["m","f","m","f","m","f","f","f","m","f","m","m","m","f","f","m","f","f","f","f","m","m","f","m","f","m","m","f","m","f","f","f","m","m","f","m","f","f","f","m","f","m","f","m","m","f","m","f","m","m"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years","years"],[2,3,56,18,3,16,16,0,61,27,12,42,19,7,7,13,35,17,11,11,19,54,14,28,6,3,31,6,67,14,10,21,20,45,1,12,3,15,20,36,7,13,14,3,10,1,0,20,26,14],["0-4","0-4","50-69","15-19","0-4","15-19","15-19","0-4","50-69","20-29","10-14","30-49","15-19","5-9","5-9","10-14","30-49","15-19","10-14","10-14","15-19","50-69","10-14","20-29","5-9","0-4","30-49","5-9","50-69","10-14","10-14","20-29","20-29","30-49","0-4","10-14","0-4","15-19","20-29","30-49","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-29","20-29","10-14"],["0-4","0-4","55-59","15-19","0-4","15-19","15-19","0-4","60-64","25-29","10-14","40-44","15-19","5-9","5-9","10-14","35-39","15-19","10-14","10-14","15-19","50-54","10-14","25-29","5-9","0-4","30-34","5-9","65-69","10-14","10-14","20-24","20-24","45-49","0-4","10-14","0-4","15-19","20-24","35-39","5-9","10-14","10-14","0-4","10-14","0-4","0-4","20-24","25-29","10-14"],["Other","Missing","St. Mark's Maternity Hospital (SMMH)","Port Hospital","Military Hospital","Port Hospital","Missing","Missing","Missing","Missing","Port Hospital","Military Hospital","Missing","Missing","Other","Port Hospital","Port Hospital","Port Hospital","Missing","Other","Port Hospital","Port Hospital","St. Mark's Maternity Hospital (SMMH)","Missing","Other","Missing","St. Mark's Maternity Hospital (SMMH)","Military Hospital","Port Hospital","Central Hospital","Military Hospital","Central Hospital","Missing","Military Hospital","Other","Missing","Missing","Port Hospital","Port Hospital","Port Hospital","Missing","Central Hospital","Military Hospital","Other","Other","Other","Missing","St. Mark's Maternity Hospital (SMMH)","St. Mark's Maternity Hospital (SMMH)","Missing"],[-13.2157351064963,-13.2152339775486,-13.212910703914,-13.2363711169728,-13.2228638912441,-13.222625321098,-13.2331547837254,-13.2320975453153,-13.2225511595637,-13.2572163655863,-13.2206286746001,-13.253989309478,-13.2385127873491,-13.209391925612,-13.2157278814899,-13.2243437095992,-13.2336087079551,-13.21422143145,-13.2339681355349,-13.2535640411465,-13.2250089377786,-13.2160657166043,-13.2680671272333,-13.2266742923612,-13.2160179088168,-13.2482584611565,-13.2156319199566,-13.2142410663192,-13.2614879104088,-13.2452992638476,-13.2630592726116,-13.2343341712241,-13.2199077448676,-13.2227293309912,-13.2343062806506,-13.218781651651,-13.2483677722899,-13.2097478342339,-13.2680867723786,-13.2587535457526,-13.262635786914,-13.2697246824573,-13.2209026809759,-13.2330734719715,-13.2680923666905,-13.2547212675054,-13.2573683214693,-13.2137356012883,-13.2175973322257,-13.2486407324245],[8.46897295100924,8.45171855856465,8.46481700596819,8.4754761613651,8.46082377490923,8.461830626007281,8.462729314626459,8.461443675342711,8.46191259217774,8.472923276435059,8.48401630165138,8.458371253408441,8.477617055125091,8.47570184950483,8.477799468789719,8.47145134147474,8.478048406853629,8.48528034195779,8.469575303958671,8.45957352078114,8.474048895115439,8.488029171298839,8.473437335922,8.484082637344621,8.46242233645879,8.470268221265719,8.463984474805329,8.464134789434199,8.456230946296071,8.48334624336805,8.47493999153642,8.47832062438022,8.469393389176499,8.48480589906514,8.47121232619015,8.48438437371817,8.484661585743391,8.477141599844281,8.462381270106089,8.455685978131131,8.4632880274758,8.47940722413856,8.46353857052336,8.461789681588639,8.47508713872833,8.458258081280711,8.4532568143863,8.4732571907655,8.479115866419329,8.48480340615605],["f547d6",null,null,"f90f5f","11f8ea","aec8ec","893f25","133ee7",null,null,"996f3a","133ee7","37a6f6","9f6884","4802b1",null,null,null,"a75c7f","8e104d","ab634e",null,null,"b799eb",null,"5d9e4d","a15e13",null,"ea3740","beb26e","567136","894024","36e2e7","a2086d","7baf73","eb2277",null,null,"d6584f",null,"312ecf","52ea64","cfd79c","d145b7","174288",null,"53608c","3b096b","f5c142",null],["other",null,null,"other","other","other","other","other",null,null,"other","other","other","other","other",null,null,null,"other","other","other",null,null,"other",null,"other","other",null,"other","funeral","other","funeral","other","other","other","funeral",null,null,"other",null,"other","other","other","other","other",null,"funeral","other","other",null],[27,25,91,41,36,56,47,0,86,69,67,84,68,44,34,66,78,47,53,47,71,86,53,69,38,46,68,37,100,56,50,57,65,72,29,69,37,48,54,71,47,61,47,35,53,16,13,59,69,67],[48,59,238,135,71,116,87,11,226,174,112,186,174,90,91,152,214,137,117,131,150,241,131,161,80,69,188,66,233,142,110,182,164,214,26,157,39,154,133,168,100,125,123,67,134,31,36,125,183,169],[22,22,21,23,23,21,21,22,22,22,22,22,22,21,23,22,23,21,22,23,21,23,21,24,23,22,24,23,20,24,24,20,24,21,22,21,23,22,23,23,23,22,23,22,22,22,23,22,22,22],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","no","no","no","no","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","no","yes","no",null,"no","no","no","yes","no",null,"no","no","yes",null,null,"no","no",null,"no","no",null,null,"no","no",null,"no","no",null,"no","yes","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes",null,"yes","yes","yes","yes","yes",null,"yes","yes","yes",null,null,"yes","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","yes","yes","yes","no",null],["no",null,null,"no","no","no",null,"no","no","no","no","no","no","no","no","yes","no","no",null,"no","no","no","no","no",null,"no","no","no",null,null,"no","no",null,"no","no",null,null,"yes","yes",null,"no","no",null,"no","no","no","no","no","no",null],["yes",null,null,"no","yes","yes",null,"yes","yes","no","yes","no","no","no","yes","no","no","no",null,"no","yes","no","no","no",null,"no","no","no",null,null,"no","yes",null,"yes","yes",null,null,"yes","yes",null,"yes","yes",null,"yes","yes","no","yes","yes","yes",null],[36.8,36.9,36.9,36.8,36.9,37.6,37.3,37,36.4,35.9,36.5,36.9,36.5,37.1,36.5,37.3,37,38,38,36,37,36.7,36.9,36.5,37,36.5,37.6,36.6,36.6,36.2,36.4,37.1,37.5,37.5,37.4,36.9,36.4,37.3,37,37.8,36.5,37.5,36.7,37,37.3,36.6,36.5,36.6,37.6,36.8],[null,"09:36","16:48","11:22","12:60","14:13","14:33","09:25","11:16","10:55","16:03","11:14","12:42","11:06","09:10","08:45",null,"15:41","13:34","18:58","12:43","16:33","14:29","07:18","08:11","16:32","16:17","07:32","17:45",null,"13:24","14:43","02:33","11:36","17:28","16:27",null,"20:49",null,"11:38","14:25","13:42","21:22","13:33","19:06","17:14","20:09",null,"10:23","09:09"],[117.1875,71.81844297615629,16.06524962926347,22.49657064471879,71.41440190438405,41.61712247324614,62.09538908706566,0,16.83765369253662,22.79032897344431,53.41198979591836,24.28026361429067,22.46003435064077,54.32098765432099,41.05784325564545,28.56648199445983,17.03205520132763,25.04129149128882,38.7172182043977,27.3876813705495,31.55555555555556,14.80690759456621,30.88398111998135,26.61934338952972,59.37499999999999,96.61835748792272,19.23947487550928,84.94031221303948,18.41993774061044,27.77226740726046,41.32231404958677,17.20806665861611,24.16716240333135,15.72189710891781,428.9940828402366,27.99302202929125,243.2610124917817,20.23950075898128,30.52744643563797,25.15589569160998,47,39.04,31.06616432017979,77.96836711962574,29.51659612385831,166.4932362122789,100.3086419753086,37.76,20.60378034578518,23.45856237526698],[2,1,2,2,1,1,2,1,1,2,2,2,1,0,2,0,1,1,2,2,1,1,1,0,2,1,1,2,1,0,0,2,1,1,2,2,1,0,2,2,0,2,0,0,2,2,null,1,0,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>case_id<\/th>\n      <th>generation<\/th>\n      <th>date_infection<\/th>\n      <th>date_onset<\/th>\n      <th>date_hospitalisation<\/th>\n      <th>date_outcome<\/th>\n      <th>outcome<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>age_unit<\/th>\n      <th>age_years<\/th>\n      <th>age_cat<\/th>\n      <th>age_cat5<\/th>\n      <th>hospital<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n      <th>infector<\/th>\n      <th>source<\/th>\n      <th>wt_kg<\/th>\n      <th>ht_cm<\/th>\n      <th>ct_blood<\/th>\n      <th>fever<\/th>\n      <th>chills<\/th>\n      <th>cough<\/th>\n      <th>aches<\/th>\n      <th>vomit<\/th>\n      <th>temp<\/th>\n      <th>time_admission<\/th>\n      <th>bmi<\/th>\n      <th>days_onset_hosp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,8,10,14,15,18,19,20,26,28,29]},{"name":"case_id","targets":0},{"name":"generation","targets":1},{"name":"date_infection","targets":2},{"name":"date_onset","targets":3},{"name":"date_hospitalisation","targets":4},{"name":"date_outcome","targets":5},{"name":"outcome","targets":6},{"name":"gender","targets":7},{"name":"age","targets":8},{"name":"age_unit","targets":9},{"name":"age_years","targets":10},{"name":"age_cat","targets":11},{"name":"age_cat5","targets":12},{"name":"hospital","targets":13},{"name":"lon","targets":14},{"name":"lat","targets":15},{"name":"infector","targets":16},{"name":"source","targets":17},{"name":"wt_kg","targets":18},{"name":"ht_cm","targets":19},{"name":"ct_blood","targets":20},{"name":"fever","targets":21},{"name":"chills","targets":22},{"name":"cough","targets":23},{"name":"aches","targets":24},{"name":"vomit","targets":25},{"name":"temp","targets":26},{"name":"time_admission","targets":27},{"name":"bmi","targets":28},{"name":"days_onset_hosp","targets":29}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><strong>base (temel)</strong> R {}</p>
 <p>İstatistiksel testler yapmak için <strong>base</strong> R fonksiyonlarını kullanabilirsiniz. Komutlar nispeten basittir ve sonuçlar basit görüntüleme için R Konsoluna yazdırılacaktır. Bununla birlikte, çıktılar genellikle listelerdir ve bu nedenle sonuçları sonraki işlemlerde kullanmak istiyorsanız manipüle edilmesi daha zordur.</p>
-</section>
-<section id="t-testleri" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="t-testleri">T testleri</h3>
+</section><section id="t-testleri" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="t-testleri">T testleri</h3>
 <p>“Student’s t-Test” olarak da adlandırılan bir <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-testi</a>, genellikle iki grup arasındaki bazı sayısal değişkenlerin ortalamaları arasında önemli bir fark olup olmadığını belirlemek için kullanılır. Burada, sütunların aynı veri çerçevesinde olup olmadığına bağlı olarak bu testi yapmak için sözdizimini göstereceğiz.</p>
 <p><strong>Sözdizimi 1:</strong> Bu, sayısal ve kategorik sütunlarınız aynı veri çerçevesinde olduğundaki sözdizimidir. Denklemin sol tarafında sayısal sütunu ve sağ tarafında kategorik sütunu sağlayın. Veri kümesini <code>data =</code> olarak belirtin. İsteğe bağlı olarak, <code>paired = TRUE</code>, ve <code>conf.level =</code> (0.95 default), ve<code>alternative =</code>(“iki taraflı”, “daha az” veya “daha büyük”) olarak ayarlayın. Daha fazla ayrıntı için <code>?t.test</code> girin.</p>
 <div class="cell">
@@ -792,16 +776,12 @@ mean in group f mean in group m
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(linelist<span class="sc">$</span>age_years, <span class="at">mu =</span> <span class="dv">45</span>)</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="shapiro-wilk-testi" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="shapiro-wilk-testi">Shapiro-Wilk testi</h3>
+</section><section id="shapiro-wilk-testi" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="shapiro-wilk-testi">Shapiro-Wilk testi</h3>
 <p><a href="https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test">Shapiro-Wilk testi</a> bir örneğin normal dağılıma sahip bir popülasyondan gelip gelmediğini belirlemek için kullanılabilir (diğer birçok testin varsayımı ve analizinde olduğu gibi, örneğin t-testi). Ancak, bu yalnızca 3 ila 5000 gözlem arasındaki bir örnek üzerinde kullanılabilir. Daha büyük numuneler için bir <a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">quantile-quantile (Q-Q) grafiği</a> yardımcı olabilir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(linelist<span class="sc">$</span>age_years)</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="wilcoxon-sıralama-toplamı-testi" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi">Wilcoxon sıralama toplamı testi</h3>
+</section><section id="wilcoxon-sıralama-toplamı-testi" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi">Wilcoxon sıralama toplamı testi</h3>
 <p><a href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann–Whitney U testi</a> olarak da adlandırılan Wilcoxon sıralama toplamı testi, genellikle iki sayısal örneğin popülasyonları normal dağılmadığında veya eşit olmayan varyansa sahip olduğunda kullanılır.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Wilcox testi ile grupların yaş dağılımını karşılaştırma</span></span>
@@ -815,9 +795,7 @@ W = 2501868, p-value = 0.8308
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
-</section>
-<section id="kruskal-wallis-testi" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-testi">Kruskal-Wallis testi</h3>
+</section><section id="kruskal-wallis-testi" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-testi">Kruskal-Wallis testi</h3>
 <p><a href="https://en.wikipedia.org/wiki/Kruskal%E2%80%93Wallis_one-way_analysis_of_variance">Kruskal-Wallis testi</a>, ikiden fazla örneklemin dağılımdaki farklılıklarını test etmek için kullanılabilecek Wilcoxon testinin bir uzantısıdır. Yalnızca iki örnek kullanıldığında, Wilcoxon testiyle aynı sonuçları verir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Kruskal-Wallis testi ile grupların yaş dağılımını karşılaştırma</span></span>
@@ -830,9 +808,7 @@ data:  age_years by outcome
 Kruskal-Wallis chi-squared = 0.045675, df = 1, p-value = 0.8308</code></pre>
 </div>
 </div>
-</section>
-<section id="ki-kare-testi" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi">Ki-kare testi</h3>
+</section><section id="ki-kare-testi" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi">Ki-kare testi</h3>
 <p><a href="https://en.wikipedia.org/wiki/Chi-squared_test">Pearson Ki-kare testi</a> kategorik gruplar arasındaki önemli farklılıkları test etmek için kullanılır.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Ki-kare testi ile her grubun oranlarını karşılaşırma</span></span>
@@ -845,13 +821,10 @@ data:  linelist$gender and linelist$outcome
 X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="rstatix-paketi" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="rstatix-paketi"><span class="header-section-number">18.2</span> <strong>rstatix</strong> paketi</h2>
+</section></section><section id="rstatix-paketi" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="rstatix-paketi">
+<span class="header-section-number">18.2</span> <strong>rstatix</strong> paketi</h2>
 <p><strong>rstatix</strong> paketi, istatistiksel testlerin çalıştırılmasını ve sonuçlarını “tünel dostu” bir çerçevede alma olanağı sunar. Sonuçlar üzerinde işlemleri gerçekleştirebilmeniz için sonuçlar, otomatik olarak bir veri çerçevesindedir. İstatistiklerin her grup için çalıştırılması ve fonksiyonlara geçirilen verileri gruplamak kolaydır.</p>
-<section id="özet-istatistikler" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="özet-istatistikler">Özet istatistikler</h3>
+<section id="özet-istatistikler" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="özet-istatistikler">Özet istatistikler</h3>
 <p><code>get_summary_stats()</code> fonksiyonu, özet istatistikleri döndürmenin hızlı bir yoludur. Veri kümenizi bu fonksiyona aktarmanız ve analiz edilecek sütunları sağlamanız yeterlidir. Hiçbir sütun belirtilmemişse, istatistikler tüm sütunlar için hesaplanır.</p>
 <p>Varsayılan olarak, tam bir özet istatistik aralığı döndürülür: n, maks, min, medyan, %25 ile, %75 ile, IQR, medyan mutlak sapma (mad), ortalama, standart sapma, standart hata ve güven aralığı.</p>
 <div class="cell">
@@ -891,9 +864,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 </div>
 <p>İstatistiksel testler yapmak için <strong>rstatix</strong>’i de kullanabilirsiniz:</p>
-</section>
-<section id="t-testi" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="t-testi">T-testi</h3>
+</section><section id="t-testi" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="t-testi">T-testi</h3>
 <p>Sayısal ve kategorik sütunları belirtmek için bir formül sözdizimi kullanın:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -930,9 +901,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 3 &lt;NA&gt;   age_years 1      null model   192     -3.80   191 1.96e-  4</code></pre>
 </div>
 </div>
-</section>
-<section id="shapiro-wilk-testi-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="shapiro-wilk-testi-1">Shapiro-Wilk testi</h3>
+</section><section id="shapiro-wilk-testi-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="shapiro-wilk-testi-1">Shapiro-Wilk testi</h3>
 <p>Yukarıda belirtildiği gibi, örneklem büyüklüğü 3 ile 5000 arasında olmalıdır.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -945,9 +914,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 1 age_years     0.917 6.67e-16</code></pre>
 </div>
 </div>
-</section>
-<section id="wilcoxon-sıralama-toplamı-testi-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi-1">Wilcoxon sıralama toplamı testi</h3>
+</section><section id="wilcoxon-sıralama-toplamı-testi-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi-1">Wilcoxon sıralama toplamı testi</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(age_years <span class="sc">~</span> gender)</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -958,9 +925,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 1 age_years f      m       2807  2803   2829274 3.47e-74 3.47e-74 ****        </code></pre>
 </div>
 </div>
-</section>
-<section id="kruskal-wallis-testi-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-testi-1">Kruskal-Wallis testi</h3>
+</section><section id="kruskal-wallis-testi-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-testi-1">Kruskal-Wallis testi</h3>
 <p>Mann-Whitney U testi olarak da bilinir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -972,9 +937,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 1 age_years  5888    0.0457     1 0.831 Kruskal-Wallis</code></pre>
 </div>
 </div>
-</section>
-<section id="ki-kare-testi-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi-1">Ki-kare testi</h3>
+</section><section id="ki-kare-testi-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi-1">Ki-kare testi</h3>
 <p>Ki-kare test fonksiyonu bir tablo kabul eder, bu nedenle önce bir çapraz tablo oluştururuz. Çapraz tablo oluşturmanın birçok yolu vardır (bkz. [Tanımlayıcı tablolar]) ancak burada <strong>janitor</strong> ‘den ’tabyl()’ kullanıyoruz ve ’chisq_test()’e geçmeden önce en soldaki değer etiketleri sütununu kaldırıyoruz.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -989,14 +952,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 </div>
 <p><strong>rstatix</strong> fonksiyonları ile daha birçok fonksiyon ve istatistiksel test çalıştırılabilir. <strong>rstatix</strong> belgelerine <a href="https://github.com/kassambara/rstatix">buradan çevrimiçi</a> veya ?rstatix girerek inceleyebilirsiniz.</p>
-</section>
-</section>
-<section id="stats_gt" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="stats_gt"><span class="header-section-number">18.3</span> <code>gtsummary</code> paketi</h2>
+</section></section><section id="stats_gt" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="stats_gt">
+<span class="header-section-number">18.3</span> <code>gtsummary</code> paketi</h2>
 <p>Bu paketle oluşturulmuş güzel bir tabloya istatistiksel bir testin sonuçlarını eklemek istiyorsanız <strong>gtsummary</strong> kullanın (<a href="tables_descriptive.tr.html#tbl_gt">Açıklayıcı tablolar</a> sayfasının <strong>gtsummary</strong> bölümünde açıklandığı gibi) ).</p>
 <p>‘tbl_summary’ ile karşılaştırmanın istatistiksel testlerinin yapılması, Bir tabloya <code>add_p</code> fonskiyonu ve hangi testin kullanılacağını belirtir. kullanarak çoklu test için p değerlerinin düzeltilmesi mümkündür. ‘add_q’ işlevi. Ayrıntılar için <code>?tbl_summary</code> çalıştırın.</p>
-<section id="ki-kare-testi-2" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi-2">Ki-kare testi</h3>
+<section id="ki-kare-testi-2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="ki-kare-testi-2">Ki-kare testi</h3>
 <p>Kategorik bir değişkenin oranlarını iki grupta karşılaştırın. Kategorik bir değişkene uygulandığında ‘add_p()’ için varsayılan istatistiksel test, süreklilik düzeltmeli ki-kare bağımsızlık testi yapmaktır, ancak herhangi bir beklenen değer sayısı 5’in altındaysa, o zaman Fisher’ın kesin testi kullanılır.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -1008,23 +968,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="tvrcxpzape" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tvrcxpzape table {
+<div id="zqjxamrlff" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zqjxamrlff table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tvrcxpzape thead, #tvrcxpzape tbody, #tvrcxpzape tfoot, #tvrcxpzape tr, #tvrcxpzape td, #tvrcxpzape th {
+#zqjxamrlff thead, #zqjxamrlff tbody, #zqjxamrlff tfoot, #zqjxamrlff tr, #zqjxamrlff td, #zqjxamrlff th {
   border-style: none;
 }
 
-#tvrcxpzape p {
+#zqjxamrlff p {
   margin: 0;
   padding: 0;
 }
 
-#tvrcxpzape .gt_table {
+#zqjxamrlff .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1050,12 +1010,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_caption {
+#zqjxamrlff .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tvrcxpzape .gt_title {
+#zqjxamrlff .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1067,7 +1027,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#tvrcxpzape .gt_subtitle {
+#zqjxamrlff .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1079,7 +1039,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#tvrcxpzape .gt_heading {
+#zqjxamrlff .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1091,13 +1051,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_bottom_border {
+#zqjxamrlff .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_col_headings {
+#zqjxamrlff .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1112,7 +1072,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_col_heading {
+#zqjxamrlff .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1132,7 +1092,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#tvrcxpzape .gt_column_spanner_outer {
+#zqjxamrlff .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1144,15 +1104,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#tvrcxpzape .gt_column_spanner_outer:first-child {
+#zqjxamrlff .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tvrcxpzape .gt_column_spanner_outer:last-child {
+#zqjxamrlff .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tvrcxpzape .gt_column_spanner {
+#zqjxamrlff .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1164,11 +1124,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#tvrcxpzape .gt_spanner_row {
+#zqjxamrlff .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tvrcxpzape .gt_group_heading {
+#zqjxamrlff .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1194,7 +1154,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#tvrcxpzape .gt_empty_group_heading {
+#zqjxamrlff .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1209,15 +1169,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#tvrcxpzape .gt_from_md > :first-child {
+#zqjxamrlff .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tvrcxpzape .gt_from_md > :last-child {
+#zqjxamrlff .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tvrcxpzape .gt_row {
+#zqjxamrlff .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1236,7 +1196,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#tvrcxpzape .gt_stub {
+#zqjxamrlff .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1249,7 +1209,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#tvrcxpzape .gt_stub_row_group {
+#zqjxamrlff .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1263,15 +1223,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#tvrcxpzape .gt_row_group_first td {
+#zqjxamrlff .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tvrcxpzape .gt_row_group_first th {
+#zqjxamrlff .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tvrcxpzape .gt_summary_row {
+#zqjxamrlff .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1281,16 +1241,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#tvrcxpzape .gt_first_summary_row {
+#zqjxamrlff .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_first_summary_row.thick {
+#zqjxamrlff .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tvrcxpzape .gt_last_summary_row {
+#zqjxamrlff .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1300,7 +1260,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_grand_summary_row {
+#zqjxamrlff .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1310,7 +1270,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#tvrcxpzape .gt_first_grand_summary_row {
+#zqjxamrlff .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1320,7 +1280,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_last_grand_summary_row_top {
+#zqjxamrlff .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1330,11 +1290,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_striped {
+#zqjxamrlff .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tvrcxpzape .gt_table_body {
+#zqjxamrlff .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1343,7 +1303,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_footnotes {
+#zqjxamrlff .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1357,7 +1317,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_footnote {
+#zqjxamrlff .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1366,7 +1326,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#tvrcxpzape .gt_sourcenotes {
+#zqjxamrlff .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1380,7 +1340,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#tvrcxpzape .gt_sourcenote {
+#zqjxamrlff .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1388,67 +1348,66 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#tvrcxpzape .gt_left {
+#zqjxamrlff .gt_left {
   text-align: left;
 }
 
-#tvrcxpzape .gt_center {
+#zqjxamrlff .gt_center {
   text-align: center;
 }
 
-#tvrcxpzape .gt_right {
+#zqjxamrlff .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tvrcxpzape .gt_font_normal {
+#zqjxamrlff .gt_font_normal {
   font-weight: normal;
 }
 
-#tvrcxpzape .gt_font_bold {
+#zqjxamrlff .gt_font_bold {
   font-weight: bold;
 }
 
-#tvrcxpzape .gt_font_italic {
+#zqjxamrlff .gt_font_italic {
   font-style: italic;
 }
 
-#tvrcxpzape .gt_super {
+#zqjxamrlff .gt_super {
   font-size: 65%;
 }
 
-#tvrcxpzape .gt_footnote_marks {
+#zqjxamrlff .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tvrcxpzape .gt_asterisk {
+#zqjxamrlff .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tvrcxpzape .gt_indent_1 {
+#zqjxamrlff .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tvrcxpzape .gt_indent_2 {
+#zqjxamrlff .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tvrcxpzape .gt_indent_3 {
+#zqjxamrlff .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tvrcxpzape .gt_indent_4 {
+#zqjxamrlff .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tvrcxpzape .gt_indent_5 {
+#zqjxamrlff .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
@@ -1456,62 +1415,60 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header gt_col_headings">
-<th id="<strong>Characteristic</strong>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="<strong>Death</strong>, N = 2,582<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>Recover</strong>, N = 1,983<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-</tr>
-</thead>
+<thead><tr class="header gt_col_headings">
+<th id="&lt;strong&gt;Characteristic&lt;/strong&gt;" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id='&lt;strong&gt;Death&lt;/strong&gt;, N = 2,582&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;Recover&lt;/strong&gt;, N = 1,983&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span>
+</th>
+</tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">gender</td>
-<td class="gt_row gt_center" headers="stat_1"><br>
-</td>
-<td class="gt_row gt_center" headers="stat_2"><br>
-</td>
+<td class="gt_row gt_center" headers="stat_1"><br></td>
+<td class="gt_row gt_center" headers="stat_2"><br></td>
 <td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;f</td>
+<td class="gt_row gt_left" headers="label">    f</td>
 <td class="gt_row gt_center" headers="stat_1">1,227 (50%)</td>
 <td class="gt_row gt_center" headers="stat_2">953 (50%)</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;m</td>
+<td class="gt_row gt_left" headers="label">    m</td>
 <td class="gt_row gt_center" headers="stat_1">1,228 (50%)</td>
 <td class="gt_row gt_center" headers="stat_2">950 (50%)</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_left" headers="label">    Unknown</td>
 <td class="gt_row gt_center" headers="stat_1">127</td>
 <td class="gt_row gt_center" headers="stat_2">80</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
-</tbody><tfoot class="gt_footnotes">
+</tbody>
+<tfoot class="gt_footnotes">
 <tr class="odd">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
 </tr>
 <tr class="even">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
 </tr>
 </tfoot>
-
 </table>
-
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="t-testleri-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="t-testleri-1">T testleri</h3>
+</section><section id="t-testleri-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="t-testleri-1">T testleri</h3>
 <p>İki grupta sürekli bir değişken için ortalamalardaki farkı karşılaştırın. Örneğin, ortalama yaşı hasta sonucuna göre karşılaştırın.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -1525,23 +1482,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="lclzajoaou" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lclzajoaou table {
+<div id="aoxmmpqqlp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aoxmmpqqlp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lclzajoaou thead, #lclzajoaou tbody, #lclzajoaou tfoot, #lclzajoaou tr, #lclzajoaou td, #lclzajoaou th {
+#aoxmmpqqlp thead, #aoxmmpqqlp tbody, #aoxmmpqqlp tfoot, #aoxmmpqqlp tr, #aoxmmpqqlp td, #aoxmmpqqlp th {
   border-style: none;
 }
 
-#lclzajoaou p {
+#aoxmmpqqlp p {
   margin: 0;
   padding: 0;
 }
 
-#lclzajoaou .gt_table {
+#aoxmmpqqlp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1567,12 +1524,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_caption {
+#aoxmmpqqlp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lclzajoaou .gt_title {
+#aoxmmpqqlp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1584,7 +1541,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#lclzajoaou .gt_subtitle {
+#aoxmmpqqlp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1596,7 +1553,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#lclzajoaou .gt_heading {
+#aoxmmpqqlp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1608,13 +1565,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_bottom_border {
+#aoxmmpqqlp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_col_headings {
+#aoxmmpqqlp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1629,7 +1586,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_col_heading {
+#aoxmmpqqlp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1649,7 +1606,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lclzajoaou .gt_column_spanner_outer {
+#aoxmmpqqlp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1661,15 +1618,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#lclzajoaou .gt_column_spanner_outer:first-child {
+#aoxmmpqqlp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lclzajoaou .gt_column_spanner_outer:last-child {
+#aoxmmpqqlp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lclzajoaou .gt_column_spanner {
+#aoxmmpqqlp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1681,11 +1638,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#lclzajoaou .gt_spanner_row {
+#aoxmmpqqlp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lclzajoaou .gt_group_heading {
+#aoxmmpqqlp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1711,7 +1668,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#lclzajoaou .gt_empty_group_heading {
+#aoxmmpqqlp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1726,15 +1683,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#lclzajoaou .gt_from_md > :first-child {
+#aoxmmpqqlp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lclzajoaou .gt_from_md > :last-child {
+#aoxmmpqqlp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lclzajoaou .gt_row {
+#aoxmmpqqlp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1753,7 +1710,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lclzajoaou .gt_stub {
+#aoxmmpqqlp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1766,7 +1723,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lclzajoaou .gt_stub_row_group {
+#aoxmmpqqlp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1780,15 +1737,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#lclzajoaou .gt_row_group_first td {
+#aoxmmpqqlp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lclzajoaou .gt_row_group_first th {
+#aoxmmpqqlp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lclzajoaou .gt_summary_row {
+#aoxmmpqqlp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1798,16 +1755,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lclzajoaou .gt_first_summary_row {
+#aoxmmpqqlp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_first_summary_row.thick {
+#aoxmmpqqlp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lclzajoaou .gt_last_summary_row {
+#aoxmmpqqlp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1817,7 +1774,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_grand_summary_row {
+#aoxmmpqqlp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1827,7 +1784,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lclzajoaou .gt_first_grand_summary_row {
+#aoxmmpqqlp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1837,7 +1794,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_last_grand_summary_row_top {
+#aoxmmpqqlp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1847,11 +1804,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_striped {
+#aoxmmpqqlp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lclzajoaou .gt_table_body {
+#aoxmmpqqlp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1860,7 +1817,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_footnotes {
+#aoxmmpqqlp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1874,7 +1831,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_footnote {
+#aoxmmpqqlp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1883,7 +1840,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lclzajoaou .gt_sourcenotes {
+#aoxmmpqqlp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1897,7 +1854,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lclzajoaou .gt_sourcenote {
+#aoxmmpqqlp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1905,67 +1862,66 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lclzajoaou .gt_left {
+#aoxmmpqqlp .gt_left {
   text-align: left;
 }
 
-#lclzajoaou .gt_center {
+#aoxmmpqqlp .gt_center {
   text-align: center;
 }
 
-#lclzajoaou .gt_right {
+#aoxmmpqqlp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lclzajoaou .gt_font_normal {
+#aoxmmpqqlp .gt_font_normal {
   font-weight: normal;
 }
 
-#lclzajoaou .gt_font_bold {
+#aoxmmpqqlp .gt_font_bold {
   font-weight: bold;
 }
 
-#lclzajoaou .gt_font_italic {
+#aoxmmpqqlp .gt_font_italic {
   font-style: italic;
 }
 
-#lclzajoaou .gt_super {
+#aoxmmpqqlp .gt_super {
   font-size: 65%;
 }
 
-#lclzajoaou .gt_footnote_marks {
+#aoxmmpqqlp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lclzajoaou .gt_asterisk {
+#aoxmmpqqlp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lclzajoaou .gt_indent_1 {
+#aoxmmpqqlp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lclzajoaou .gt_indent_2 {
+#aoxmmpqqlp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lclzajoaou .gt_indent_3 {
+#aoxmmpqqlp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lclzajoaou .gt_indent_4 {
+#aoxmmpqqlp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lclzajoaou .gt_indent_5 {
+#aoxmmpqqlp .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
@@ -1973,14 +1929,18 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header gt_col_headings">
-<th id="<strong>Characteristic</strong>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="<strong>Death</strong>, N = 2,582<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>Recover</strong>, N = 1,983<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-</tr>
-</thead>
+<thead><tr class="header gt_col_headings">
+<th id="&lt;strong&gt;Characteristic&lt;/strong&gt;" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id='&lt;strong&gt;Death&lt;/strong&gt;, N = 2,582&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;Recover&lt;/strong&gt;, N = 1,983&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span>
+</th>
+</tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age_years</td>
@@ -1989,30 +1949,28 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <td class="gt_row gt_center" headers="p.value">0.6</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_left" headers="label">    Unknown</td>
 <td class="gt_row gt_center" headers="stat_1">32</td>
 <td class="gt_row gt_center" headers="stat_2">28</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
-</tbody><tfoot class="gt_footnotes">
+</tbody>
+<tfoot class="gt_footnotes">
 <tr class="odd">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Mean (SD)</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Mean (SD)</td>
 </tr>
 <tr class="even">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Welch Two Sample t-test</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Welch Two Sample t-test</td>
 </tr>
 </tfoot>
-
 </table>
-
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="wilcoxon-sıralama-toplamı-testi-2" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi-2">Wilcoxon sıralama toplamı testi</h3>
+</section><section id="wilcoxon-sıralama-toplamı-testi-2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="wilcoxon-sıralama-toplamı-testi-2">Wilcoxon sıralama toplamı testi</h3>
 <p>Sürekli bir değişkenin dağılımını iki grupta karşılaştırın. Varsayılan ayar, iki grubu karşılaştırırken Wilcoxon sıra toplamı testi ve medyanı (IQR) kullanmaktır. Ancak normal dağılmayan veriler veya çoklu grupların karşılaştırılması için Kruskal-wallis testi daha uygundur.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -2026,23 +1984,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="lnuzotaklh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lnuzotaklh table {
+<div id="iffxsqncbi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#iffxsqncbi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lnuzotaklh thead, #lnuzotaklh tbody, #lnuzotaklh tfoot, #lnuzotaklh tr, #lnuzotaklh td, #lnuzotaklh th {
+#iffxsqncbi thead, #iffxsqncbi tbody, #iffxsqncbi tfoot, #iffxsqncbi tr, #iffxsqncbi td, #iffxsqncbi th {
   border-style: none;
 }
 
-#lnuzotaklh p {
+#iffxsqncbi p {
   margin: 0;
   padding: 0;
 }
 
-#lnuzotaklh .gt_table {
+#iffxsqncbi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2068,12 +2026,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_caption {
+#iffxsqncbi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lnuzotaklh .gt_title {
+#iffxsqncbi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2085,7 +2043,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#lnuzotaklh .gt_subtitle {
+#iffxsqncbi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2097,7 +2055,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#lnuzotaklh .gt_heading {
+#iffxsqncbi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2109,13 +2067,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_bottom_border {
+#iffxsqncbi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_col_headings {
+#iffxsqncbi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2130,7 +2088,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_col_heading {
+#iffxsqncbi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2150,7 +2108,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lnuzotaklh .gt_column_spanner_outer {
+#iffxsqncbi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2162,15 +2120,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#lnuzotaklh .gt_column_spanner_outer:first-child {
+#iffxsqncbi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lnuzotaklh .gt_column_spanner_outer:last-child {
+#iffxsqncbi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lnuzotaklh .gt_column_spanner {
+#iffxsqncbi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2182,11 +2140,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#lnuzotaklh .gt_spanner_row {
+#iffxsqncbi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lnuzotaklh .gt_group_heading {
+#iffxsqncbi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2212,7 +2170,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#lnuzotaklh .gt_empty_group_heading {
+#iffxsqncbi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2227,15 +2185,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#lnuzotaklh .gt_from_md > :first-child {
+#iffxsqncbi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lnuzotaklh .gt_from_md > :last-child {
+#iffxsqncbi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lnuzotaklh .gt_row {
+#iffxsqncbi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2254,7 +2212,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lnuzotaklh .gt_stub {
+#iffxsqncbi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2267,7 +2225,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lnuzotaklh .gt_stub_row_group {
+#iffxsqncbi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2281,15 +2239,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#lnuzotaklh .gt_row_group_first td {
+#iffxsqncbi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lnuzotaklh .gt_row_group_first th {
+#iffxsqncbi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lnuzotaklh .gt_summary_row {
+#iffxsqncbi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2299,16 +2257,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lnuzotaklh .gt_first_summary_row {
+#iffxsqncbi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_first_summary_row.thick {
+#iffxsqncbi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lnuzotaklh .gt_last_summary_row {
+#iffxsqncbi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2318,7 +2276,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_grand_summary_row {
+#iffxsqncbi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2328,7 +2286,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lnuzotaklh .gt_first_grand_summary_row {
+#iffxsqncbi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2338,7 +2296,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_last_grand_summary_row_top {
+#iffxsqncbi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2348,11 +2306,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_striped {
+#iffxsqncbi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lnuzotaklh .gt_table_body {
+#iffxsqncbi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2361,7 +2319,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_footnotes {
+#iffxsqncbi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2375,7 +2333,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_footnote {
+#iffxsqncbi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2384,7 +2342,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lnuzotaklh .gt_sourcenotes {
+#iffxsqncbi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2398,7 +2356,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnuzotaklh .gt_sourcenote {
+#iffxsqncbi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2406,67 +2364,66 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lnuzotaklh .gt_left {
+#iffxsqncbi .gt_left {
   text-align: left;
 }
 
-#lnuzotaklh .gt_center {
+#iffxsqncbi .gt_center {
   text-align: center;
 }
 
-#lnuzotaklh .gt_right {
+#iffxsqncbi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lnuzotaklh .gt_font_normal {
+#iffxsqncbi .gt_font_normal {
   font-weight: normal;
 }
 
-#lnuzotaklh .gt_font_bold {
+#iffxsqncbi .gt_font_bold {
   font-weight: bold;
 }
 
-#lnuzotaklh .gt_font_italic {
+#iffxsqncbi .gt_font_italic {
   font-style: italic;
 }
 
-#lnuzotaklh .gt_super {
+#iffxsqncbi .gt_super {
   font-size: 65%;
 }
 
-#lnuzotaklh .gt_footnote_marks {
+#iffxsqncbi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lnuzotaklh .gt_asterisk {
+#iffxsqncbi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lnuzotaklh .gt_indent_1 {
+#iffxsqncbi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lnuzotaklh .gt_indent_2 {
+#iffxsqncbi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lnuzotaklh .gt_indent_3 {
+#iffxsqncbi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lnuzotaklh .gt_indent_4 {
+#iffxsqncbi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lnuzotaklh .gt_indent_5 {
+#iffxsqncbi .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
@@ -2474,14 +2431,18 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header gt_col_headings">
-<th id="<strong>Characteristic</strong>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="<strong>Death</strong>, N = 2,582<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>Recover</strong>, N = 1,983<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-</tr>
-</thead>
+<thead><tr class="header gt_col_headings">
+<th id="&lt;strong&gt;Characteristic&lt;/strong&gt;" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id='&lt;strong&gt;Death&lt;/strong&gt;, N = 2,582&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;Recover&lt;/strong&gt;, N = 1,983&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span>
+</th>
+</tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age_years</td>
@@ -2490,30 +2451,29 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <td class="gt_row gt_center" headers="p.value">0.8</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_left" headers="label">    Unknown</td>
 <td class="gt_row gt_center" headers="stat_1">32</td>
 <td class="gt_row gt_center" headers="stat_2">28</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
-</tbody><tfoot class="gt_footnotes">
+</tbody>
+<tfoot class="gt_footnotes">
 <tr class="odd">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR)</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR)</td>
 </tr>
 <tr class="even">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Wilcoxon rank sum test</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Wilcoxon rank sum test</td>
 </tr>
 </tfoot>
-
 </table>
-
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="kruskal-wallis-testi-2" class="level3 numbered" data-number="18.3.1">
-<h3 class="numbered anchored" data-number="18.3.1" data-anchor-id="kruskal-wallis-testi-2"><span class="header-section-number">18.3.1</span> Kruskal-wallis testi</h3>
+</section><section id="kruskal-wallis-testi-2" class="level3 numbered" data-number="18.3.1"><h3 class="numbered anchored" data-number="18.3.1" data-anchor-id="kruskal-wallis-testi-2">
+<span class="header-section-number">18.3.1</span> Kruskal-wallis testi</h3>
 <p>Verilerin normal dağılıp dağılmadığına bakılmaksızın, sürekli bir değişkenin iki veya daha fazla gruptaki dağılımını karşılaştırın.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
@@ -2527,23 +2487,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<div id="lgrpfdxxmp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lgrpfdxxmp table {
+<div id="bmpebkyzit" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bmpebkyzit table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lgrpfdxxmp thead, #lgrpfdxxmp tbody, #lgrpfdxxmp tfoot, #lgrpfdxxmp tr, #lgrpfdxxmp td, #lgrpfdxxmp th {
+#bmpebkyzit thead, #bmpebkyzit tbody, #bmpebkyzit tfoot, #bmpebkyzit tr, #bmpebkyzit td, #bmpebkyzit th {
   border-style: none;
 }
 
-#lgrpfdxxmp p {
+#bmpebkyzit p {
   margin: 0;
   padding: 0;
 }
 
-#lgrpfdxxmp .gt_table {
+#bmpebkyzit .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2569,12 +2529,12 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_caption {
+#bmpebkyzit .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lgrpfdxxmp .gt_title {
+#bmpebkyzit .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2586,7 +2546,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-width: 0;
 }
 
-#lgrpfdxxmp .gt_subtitle {
+#bmpebkyzit .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2598,7 +2558,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-width: 0;
 }
 
-#lgrpfdxxmp .gt_heading {
+#bmpebkyzit .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2610,13 +2570,13 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_bottom_border {
+#bmpebkyzit .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_col_headings {
+#bmpebkyzit .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2631,7 +2591,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_col_heading {
+#bmpebkyzit .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2651,7 +2611,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lgrpfdxxmp .gt_column_spanner_outer {
+#bmpebkyzit .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2663,15 +2623,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 4px;
 }
 
-#lgrpfdxxmp .gt_column_spanner_outer:first-child {
+#bmpebkyzit .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lgrpfdxxmp .gt_column_spanner_outer:last-child {
+#bmpebkyzit .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lgrpfdxxmp .gt_column_spanner {
+#bmpebkyzit .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2683,11 +2643,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   width: 100%;
 }
 
-#lgrpfdxxmp .gt_spanner_row {
+#bmpebkyzit .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lgrpfdxxmp .gt_group_heading {
+#bmpebkyzit .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2713,7 +2673,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   text-align: left;
 }
 
-#lgrpfdxxmp .gt_empty_group_heading {
+#bmpebkyzit .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2728,15 +2688,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: middle;
 }
 
-#lgrpfdxxmp .gt_from_md > :first-child {
+#bmpebkyzit .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lgrpfdxxmp .gt_from_md > :last-child {
+#bmpebkyzit .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lgrpfdxxmp .gt_row {
+#bmpebkyzit .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2755,7 +2715,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   overflow-x: hidden;
 }
 
-#lgrpfdxxmp .gt_stub {
+#bmpebkyzit .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2768,7 +2728,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lgrpfdxxmp .gt_stub_row_group {
+#bmpebkyzit .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2782,15 +2742,15 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   vertical-align: top;
 }
 
-#lgrpfdxxmp .gt_row_group_first td {
+#bmpebkyzit .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lgrpfdxxmp .gt_row_group_first th {
+#bmpebkyzit .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lgrpfdxxmp .gt_summary_row {
+#bmpebkyzit .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2800,16 +2760,16 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lgrpfdxxmp .gt_first_summary_row {
+#bmpebkyzit .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_first_summary_row.thick {
+#bmpebkyzit .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lgrpfdxxmp .gt_last_summary_row {
+#bmpebkyzit .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2819,7 +2779,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_grand_summary_row {
+#bmpebkyzit .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2829,7 +2789,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lgrpfdxxmp .gt_first_grand_summary_row {
+#bmpebkyzit .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2839,7 +2799,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_last_grand_summary_row_top {
+#bmpebkyzit .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2849,11 +2809,11 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_striped {
+#bmpebkyzit .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lgrpfdxxmp .gt_table_body {
+#bmpebkyzit .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2862,7 +2822,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_footnotes {
+#bmpebkyzit .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2876,7 +2836,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_footnote {
+#bmpebkyzit .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2885,7 +2845,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lgrpfdxxmp .gt_sourcenotes {
+#bmpebkyzit .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2899,7 +2859,7 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lgrpfdxxmp .gt_sourcenote {
+#bmpebkyzit .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2907,67 +2867,66 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
   padding-right: 5px;
 }
 
-#lgrpfdxxmp .gt_left {
+#bmpebkyzit .gt_left {
   text-align: left;
 }
 
-#lgrpfdxxmp .gt_center {
+#bmpebkyzit .gt_center {
   text-align: center;
 }
 
-#lgrpfdxxmp .gt_right {
+#bmpebkyzit .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lgrpfdxxmp .gt_font_normal {
+#bmpebkyzit .gt_font_normal {
   font-weight: normal;
 }
 
-#lgrpfdxxmp .gt_font_bold {
+#bmpebkyzit .gt_font_bold {
   font-weight: bold;
 }
 
-#lgrpfdxxmp .gt_font_italic {
+#bmpebkyzit .gt_font_italic {
   font-style: italic;
 }
 
-#lgrpfdxxmp .gt_super {
+#bmpebkyzit .gt_super {
   font-size: 65%;
 }
 
-#lgrpfdxxmp .gt_footnote_marks {
+#bmpebkyzit .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lgrpfdxxmp .gt_asterisk {
+#bmpebkyzit .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lgrpfdxxmp .gt_indent_1 {
+#bmpebkyzit .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lgrpfdxxmp .gt_indent_2 {
+#bmpebkyzit .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lgrpfdxxmp .gt_indent_3 {
+#bmpebkyzit .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lgrpfdxxmp .gt_indent_4 {
+#bmpebkyzit .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lgrpfdxxmp .gt_indent_5 {
+#bmpebkyzit .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
@@ -2975,14 +2934,18 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header gt_col_headings">
-<th id="<strong>Characteristic</strong>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="<strong>Death</strong>, N = 2,582<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>Recover</strong>, N = 1,983<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-<th id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-</tr>
-</thead>
+<thead><tr class="header gt_col_headings">
+<th id="&lt;strong&gt;Characteristic&lt;/strong&gt;" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id='&lt;strong&gt;Death&lt;/strong&gt;, N = 2,582&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Death</strong>, N = 2,582<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;Recover&lt;/strong&gt;, N = 1,983&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Recover</strong>, N = 1,983<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+<th id='&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;' class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span>
+</th>
+</tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age_years</td>
@@ -2991,23 +2954,23 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <td class="gt_row gt_center" headers="p.value">0.8</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_left" headers="label">    Unknown</td>
 <td class="gt_row gt_center" headers="stat_1">32</td>
 <td class="gt_row gt_center" headers="stat_2">28</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
 </tr>
-</tbody><tfoot class="gt_footnotes">
+</tbody>
+<tfoot class="gt_footnotes">
 <tr class="odd">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR)</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR)</td>
 </tr>
 <tr class="even">
-<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Kruskal-Wallis rank sum test</td>
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Kruskal-Wallis rank sum test</td>
 </tr>
 </tfoot>
-
 </table>
-
 </div>
 </div>
 </div>
@@ -3137,10 +3100,8 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <!--   mutate(pval = chisq.test(linelist$gender, linelist$outcome)$p.value) -->
 <!-- ``` -->
 <!-- ======================================================= -->
-</section>
-</section>
-<section id="korelasyonlar" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="korelasyonlar"><span class="header-section-number">18.4</span> Korelasyonlar</h2>
+</section></section><section id="korelasyonlar" class="level2" data-number="18.4"><h2 data-number="18.4" class="anchored" data-anchor-id="korelasyonlar">
+<span class="header-section-number">18.4</span> Korelasyonlar</h2>
 <p>Sayısal değişkenler arasındaki korelasyon <strong>tidyverse</strong> kullanılarak araştırılabilir. <strong>corrr</strong> paketi, Pearson Kendall kullanarak korelasyonları hesaplamanıza izin verir. tau veya Spearman rho, Paket bir tablo oluşturur ve ayrıca değerleri otomatik olarak çizer.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>correlation_tab <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
@@ -3180,24 +3141,19 @@ X-squared = 0.0011841, df = 1, p-value = 0.9725</code></pre>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rplot</span>(correlation_tab)</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="stat_tests.tr_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="stat_tests.tr_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="stat_tests.tr_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="stat_tests.tr_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <!-- ======================================================= -->
-</section>
-<section id="kaynaklar" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="kaynaklar"><span class="header-section-number">18.5</span> Kaynaklar</h2>
+</section><section id="kaynaklar" class="level2" data-number="18.5"><h2 data-number="18.5" class="anchored" data-anchor-id="kaynaklar">
+<span class="header-section-number">18.5</span> Kaynaklar</h2>
 <p>Bu sayfadaki bilgilerin çoğu şu kaynaklardan ve çevrimiçi gösterimlerden uyarlanmıştır:</p>
 <p><a href="http://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html">gtsummary</a> <a href="https://dplyr.tidyverse.org/articles/grouping.html">dplyr</a> <a href="https://corrr.tidymodels.org/articles/using-corrr.html">corrr</a> <a href="http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r">sthda correlation</a></p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -3727,21 +3683,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../new_pages/tables_descriptive.tr.html" class="pagination-link" aria-label="Tanımlayıcı tablolar">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tanımlayıcı tablolar</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>  <span class="chapter-title">Tanımlayıcı tablolar</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../new_pages/regression.tr.html" class="pagination-link" aria-label="Tek değişkenli ve çok değişkenli regresyon">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tek değişkenli ve çok değişkenli regresyon</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>  <span class="chapter-title">Tek değişkenli ve çok değişkenli regresyon</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+       
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div>
+</div>
+    <div class="nav-footer-right">
+       
+    </div>
+  </div>
+</footer><script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -3766,8 +3732,5 @@ window.onload = () => {
 
 };
           </script>
-
-
-
-
-</body></html>
+</body>
+</html>
