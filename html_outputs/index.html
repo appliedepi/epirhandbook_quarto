@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2024-05-10">
 <title>The Epidemiologist R Handbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -23,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./new_pages/editorial_style.html" rel="next">
 <link href="./images/Applied_Epi_logo.png" rel="icon" type="image/png">
+<script src="site_libs/cookie-consent/cookie-consent.js"></script><link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -56,12 +56,27 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
+</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
 </script><!-- Global site tag (gtag.js) - Google Analytics 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
 <script>
@@ -147,7 +162,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
         <div class="sidebar-tools-main tools-wide">
     <a href="https://twitter.com/appliedepi" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <a href="https://www.linkedin.com/company/appliedepi/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-    <a href="https://github.com/appliedepi/epihandbook_quarto" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/appliedepi/epihandbook_eng" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -621,7 +636,7 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2024</p>
+      <p class="date">Jun 25, 2024</p>
     </div>
   </div>
   
@@ -642,33 +657,35 @@ gtag('config', 'G-QXDW878QLX', { 'anonymize_ip': true});
 <meta name="description" content="The Epi R Handbook is an R reference manual for applied epidemiology and public health.">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- <span style="color: red;">**THIS IS A DRAFT.  REVIEWERS GIVE FEEDBACK AT THIS [LINK](https://forms.gle/4RNdRRLGx67xW9yq9)**.</span> --><!-- <span style="color: darkgreen;">**DO YOU LIKE THIS HANDBOOK? SHOULD SOMETHING BE CHANGED? PLEASE TELL US!**</span> --><!-- <form target="_blank" action="https://forms.gle/A5SnRVws7tPD15Js9"> --><!--     <input type="submit" value="FEEDBACK" /> --><!-- </form> --><!-- ======================================================= --><!-- ## An R reference manual for applied epidemiology and public health {.unnumbered} --><!-- <span style="color: brown;">**The Epi R Handbook is an R reference manual for applied epidemiology and public health.**</span> --><!-- ## About this handbook   --><section id="r-for-applied-epidemiology-and-public-health" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="r-for-applied-epidemiology-and-public-health">R for applied epidemiology and public health</h2>
-<p><strong>Usage</strong>: This handbook has been used over <strong>1 million times by 450,000 people</strong> around the world.</p>
+<p><strong>Usage</strong>: This handbook has been used over <strong>8 million times by 850,000 people</strong> around the world.</p>
 <p><strong>Objective:</strong> Serve as a quick R code reference manual (online and <a href="new_pages/data_used.html"><strong>offline</strong></a><strong>)</strong>) with task-centered examples that address common epidemiological problems.</p>
 <p><strong>Are you just starting with R?</strong> Try our <a href="https://www.appliedepi.org/tutorial/"><strong>free interactive tutorials</strong></a> or synchronous, virtual <a href="https://www.appliedepi.org/live/"><strong>intro course</strong></a> used by US CDC, WHO, and 75+ other health agencies and Field Epi Training Programs worldwide.</p>
 <p><strong>Languages:</strong> <a href="https://epirhandbook.com/fr">French (Français)</a>, <a href="https://epirhandbook.com/es/">Spanish (Español)</a>, <a href="https://epirhandbook.com/vn/">Vietnamese (Tiếng Việt)</a>, <a href="https://epirhandbook.com/jp/">Japanese (日本)</a>, <a href="https://epirhandbook.com/tr/">Turkish (Türkçe)</a>, <a href="https://epirhandbook.com/pt">Portuguese (Português)</a>, <a href="https://epirhandbook.com/ru">Russian (Русский)</a></p>
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
-<!-- **How is this different than other R books?**   -->
-<!-- * It is community-driven - *written for epidemiologists by epidemiologists* in their spare time and leveraging experience in local, national, academic, and emergency settings   -->
-<!-- Dual-column created based on the rmarkdown cookbook here: https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html -->
-<!-- <form target="_blank" action="https://www.paypal.com/donate?hosted_button_id=YTEZELC8VBXV6"> -->
-<!--     <input type="submit" value="Donate to maintain this resource" /> -->
-<!-- </form> -->
-<p><br><span style="color: black;"><strong>Written by epidemiologists, for epidemiologists</strong></span></p>
-<div style="display: flex;">
+<p><strong>How is this different than other R books?</strong></p>
+<ul>
+<li>It is community-driven - <em>written for epidemiologists by epidemiologists</em> in their spare time and leveraging experience in local, national, academic, and emergency settings</li>
+</ul>
+<!-- Dual-column created based on the rmarkdown cookbook here: https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html --><!-- <form target="_blank" action="https://www.paypal.com/donate?hosted_button_id=YTEZELC8VBXV6"> --><!--     <input type="submit" value="Donate to maintain this resource" /> --><!-- </form>
+
+<br> [**Written by epidemiologists, for epidemiologists**]{style="color: black;"}
+
+::: {style="display: flex;"}
 <div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="images/Applied_Epi_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/Applied_Epi_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
-</figure>
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](images/Applied_Epi_logo.png){fig-align='center' width=100%}
+:::
+:::
+
+
 </div>
-</div>
-</div>
-</div>
-<div class="col">
-<p>  <!-- an empty Div (with a white space), serving as
-a column separator --></p>
-</div>
+
+::: {.col data-latex="{0.05\\textwidth}"}
+  <!-- an empty Div (with a white space), serving as
+a column separator --><p>:::</p>
 <div>
 <p><a href="http://www.appliedepi.org"><strong>Applied Epi</strong></a> is a nonprofit organisation and grassroots movement of frontline epis from around the world. We write in our spare time to offer this resource to the community. Your encouragement and feedback is most welcome:</p>
 <ul>
@@ -682,7 +699,7 @@ a column separator --></p>
 </ul>
 <p><strong>We offer live R training</strong> from instructors with decades of applied epidemiology experience - email us to discuss.</p>
 </div>
-</div>
+<p>:::</p>
 <form target="_blank" action="https://www.paypal.com/donate" method="post">
 <p><input type="hidden" name="hosted_button_id" value="YTEZELC8VBXV6"><input type="image" src="https://github.com/appliedepi/epiRhandbook_eng/raw/master/images/donate_button_long.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"><img src="https://www.paypal.com/en_US/i/scr/pixel.gif" border="0"></p>
 </form>
@@ -1271,7 +1288,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+       
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div>
+</div>
+    <div class="nav-footer-right">
+       
+    </div>
+  </div>
+</footer><script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
