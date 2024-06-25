@@ -1084,11 +1084,11 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
-<p>Dưới đây là một ví dụ minh họa khác về hàm log()</p>
+<p>Dưới đây là một ví dụ minh họa khác về hàm log10()</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.907755</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>Đối tượng được dùng cho một hàm cũng có thể là một cột trong tập dữ liệu (xem phần <a href="#objects">Đối tượng</a> để biết chi tiết về tất cả các loại đối tượng). Vì R có thể lưu trữ nhiều tập dữ liệu, bạn sẽ cần xác định cả tập dữ liệu và cột. Một cách để làm điều này là sử dụng ký hiệu <code>$</code> để liên kết tên của tập dữ liệu và tên của cột (<code>dataset$column</code>). Trong ví dụ dưới đây, hàm <code>summary()</code> được áp dụng cho cột <code>age</code> trong tập dữ liệu <code>linelist</code>, và kết quả đầu ra là bản tóm tắt các giá trị số và giá trị missing của cột.</p>
@@ -3121,7 +3121,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
        
     </div>
   </div>
-</footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+</footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
