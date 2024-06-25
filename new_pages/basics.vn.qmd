@@ -306,7 +306,7 @@ Phần khái niệm cơ bản của hàm giải thích:
 sqrt(49)
 ```
 
-Dưới đây là một ví dụ minh họa khác về hàm log10()
+Dưới đây là một ví dụ minh họa khác về hàm log10(). Thêm một câu để tạo new commit
 
 ```{r basics_function_log10}
 log10(1000)
