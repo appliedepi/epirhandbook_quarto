@@ -46,8 +46,8 @@ jobs:
               echo "${TRANSLATION_BRANCH}"
 
               git status
-              git pull -s recursive -X theirs --no-rebase --no-edit origin "${EN_BRANCH#refs/heads/}" --allow-unrelated-histories
-              git push origin "${TRANSLATION_BRANCH}"
+              git rebase --strategy-option=ours "${EN_BRANCH#refs/heads/}"
+              git push origin "${TRANSLATION_BRANCH}" --force-with-lease
               
             else
               echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
