@@ -46,8 +46,13 @@ jobs:
               echo "${TRANSLATION_BRANCH}"
 
               git status
-              git rebase --strategy-option=ours "${EN_BRANCH#refs/heads/}"
-              git push origin "${TRANSLATION_BRANCH}" --force-with-lease
+              git merge -X theirs "${EN_BRANCH#refs/heads/}" || {
+                echo "Merge conflict occurred. Attempting to resolve automatically..."
+                git merge --abort
+                git reset --hard
+                git merge -X theirs "${EN_BRANCH#refs/heads/}"
+              }
+              git push origin "${TRANSLATION_BRANCH}"
               
             else
               echo "Branch ${TRANSLATION_BRANCH} does not exist. Creating new branch from ${EN_BRANCH}."
